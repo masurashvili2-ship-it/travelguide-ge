@@ -137,12 +137,31 @@ export async function userFromRequest(cookieHeader: string | null): Promise<User
 	return { id: full.id, email: full.email, role: full.role };
 }
 
-export function sessionCookieHeader(userId: string): string {
-	const exp = Date.now() + SESSION_MAX_AGE_MS;
-	const token = signSession(userId, exp);
-	return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${Math.floor(SESSION_MAX_AGE_MS / 1000)}`;
+/** True when the client used HTTPS (or a TLS-terminating proxy). */
+export function isRequestHttps(request: Request): boolean {
+	const url = new URL(request.url);
+	if (url.protocol === 'https:') return true;
+	const xf = request.headers.get('x-forwarded-proto')?.split(',')[0]?.trim().toLowerCase();
+	return xf === 'https';
 }
 
-export function clearSessionCookieHeader(): string {
-	return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`;
+/** Only allow same-site path redirects (login/register `next`). */
+export function sanitizeAuthNextPath(next: string, fallback: string): string {
+	const t = next.trim();
+	if (!t.startsWith('/') || t.startsWith('//')) return fallback;
+	if (/^https?:/i.test(t)) return fallback;
+	if (t.length > 2048) return fallback;
+	return t;
+}
+
+export function sessionCookieHeader(userId: string, request: Request): string {
+	const exp = Date.now() + SESSION_MAX_AGE_MS;
+	const token = signSession(userId, exp);
+	const secure = isRequestHttps(request) ? '; Secure' : '';
+	return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=${Math.floor(SESSION_MAX_AGE_MS / 1000)}`;
+}
+
+export function clearSessionCookieHeader(request: Request): string {
+	const secure = isRequestHttps(request) ? '; Secure' : '';
+	return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=0`;
 }

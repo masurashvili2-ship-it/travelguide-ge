@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
-import { clearSessionCookieHeader } from '../../../lib/auth';
+import { clearSessionCookieHeader, sanitizeAuthNextPath } from '../../../lib/auth';
 
 export const POST: APIRoute = async ({ request }) => {
 	const headers = new Headers();
-	headers.append('Set-Cookie', clearSessionCookieHeader());
+	headers.append('Set-Cookie', clearSessionCookieHeader(request));
 
 	const ref = request.headers.get('referer');
 	let next = '/en/';
@@ -15,6 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
 			/* keep default */
 		}
 	}
+	next = sanitizeAuthNextPath(next, '/en/');
 
 	const ct = request.headers.get('content-type') ?? '';
 	if (ct.includes('application/json')) {
@@ -22,5 +23,5 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 	const loc = new URL(next, request.url).toString();
 	headers.set('Location', loc);
-	return new Response(null, { status: 302, headers });
+	return new Response(null, { status: 303, headers });
 };
