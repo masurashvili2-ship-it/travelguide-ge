@@ -1,7 +1,7 @@
 # DigitalOcean App Platform — App Spec (Infrastructure as Code).
 # 1. Push this repo to GitHub.
 # 2. In DO: Apps → Create → GitHub → pick repo; or: doctl apps create --spec .do/app.yaml
-# 3. Replace YOUR_GITHUB_USER/travelguide-ge with your repo slug.
+# 3. Repo slug (update if you rename the GitHub repository).
 # 4. Add a SECRET env SESSION_SECRET (32+ random chars) in the dashboard (do not commit it).
 # 5. After deploy: App → Settings → Domains → add travelguide.ge and point DNS to App Platform.
 
@@ -21,7 +21,7 @@ services:
     github:
       branch: main
       deploy_on_push: true
-      repo: YOUR_GITHUB_USER/travelguide-ge
+      repo: masurashvili2-ship-it/travelguide-ge
     envs:
       - key: NODE_ENV
         value: production
