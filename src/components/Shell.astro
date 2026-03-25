@@ -58,6 +58,12 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+			rel="stylesheet"
+		/>
 		{robotsNoindex ? <meta name="robots" content="noindex, nofollow" /> : null}
 		<title>{pageTitle}</title>
 		{metaDesc ? <meta name="description" content={metaDesc} /> : null}
@@ -76,16 +82,25 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		{jsonLdStr ? <script type="application/ld+json" set:html={jsonLdStr} /> : null}
 		<style is:global>
 			:root {
-				--bg: #f4f1ea;
+				--font-sans: 'DM Sans', ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Noto Sans Georgian', sans-serif;
+				--bg: #f1f5f9;
 				--surface: #ffffff;
-				--text: #1a2332;
-				--muted: #5a6672;
-				--accent: #a67c00;
-				--accent-dim: #8a6600;
-				--btn-text: #1c1608;
-				--border: #d9d4ca;
-				--danger: #b83232;
-				font-family: system-ui, 'Segoe UI', Roboto, 'Noto Sans Georgian', sans-serif;
+				--text: #0f172a;
+				--muted: #64748b;
+				--accent: #0d9488;
+				--accent-dim: #0f766e;
+				--accent-glow: color-mix(in srgb, var(--accent) 22%, transparent);
+				--btn-text: #ffffff;
+				--border: #e2e8f0;
+				--danger: #dc2626;
+				--header-bg: color-mix(in srgb, var(--surface) 78%, transparent);
+				--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+				--shadow-md: 0 4px 20px rgba(15, 23, 42, 0.07);
+				--shadow-lg: 0 16px 48px rgba(15, 23, 42, 0.1);
+				--radius-sm: 10px;
+				--radius-md: 14px;
+				--radius-lg: 18px;
+				font-family: var(--font-sans);
 			}
 			* {
 				box-sizing: border-box;
@@ -93,27 +108,35 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			body {
 				margin: 0;
 				min-height: 100vh;
-				background:
-					radial-gradient(1400px 700px at 12% -8%, rgba(255, 248, 220, 0.85) 0%, transparent 55%),
-					radial-gradient(1000px 500px at 88% 0%, rgba(230, 240, 252, 0.5) 0%, transparent 45%),
-					linear-gradient(180deg, #faf8f4 0%, var(--bg) 38%, #ebe6dc 100%);
+				background-color: var(--bg);
+				background-image:
+					radial-gradient(ellipse 120% 90% at 0% -30%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 52%),
+					radial-gradient(ellipse 90% 70% at 100% -10%, rgba(99, 102, 241, 0.07), transparent 48%),
+					linear-gradient(180deg, #f8fafc 0%, var(--bg) 45%, #eef2f7 100%);
 				color: var(--text);
-				line-height: 1.6;
+				line-height: 1.65;
+				font-family: var(--font-sans);
+				font-size: 1.02rem;
+				-webkit-font-smoothing: antialiased;
 			}
 			a {
 				color: var(--accent);
 				text-decoration: none;
+				transition: color 0.15s ease, opacity 0.15s ease;
 			}
 			a:hover {
+				color: var(--accent-dim);
 				text-decoration: underline;
+				text-underline-offset: 3px;
 			}
 			.wrap {
-				max-width: min(1240px, calc(100vw - 2.5rem));
+				max-width: min(1200px, calc(100vw - 2rem));
 				margin: 0 auto;
-				padding: 0 1.5rem 3.5rem;
+				padding: 0 1.25rem 3.5rem;
 			}
 			header.site {
-				position: relative;
+				position: sticky;
+				top: 0;
 				z-index: 8000;
 				display: flex;
 				flex-wrap: wrap;
@@ -121,18 +144,25 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				justify-content: space-between;
 				gap: 1rem 1.25rem;
 				padding: 1rem 0;
-				border-bottom: 1px solid var(--border);
 				margin-bottom: 2rem;
-				box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+				border-bottom: 1px solid var(--border);
+				background: var(--header-bg);
+				backdrop-filter: blur(14px);
+				-webkit-backdrop-filter: blur(14px);
+				box-shadow: var(--shadow-sm);
 			}
 			.brand {
 				font-weight: 700;
-				font-size: 1.1rem;
-				letter-spacing: 0.02em;
+				font-size: 1.125rem;
+				letter-spacing: -0.02em;
 				flex: 0 0 auto;
 			}
 			.brand a {
 				color: var(--text);
+				text-decoration: none;
+			}
+			.brand a:hover {
+				color: var(--accent);
 			}
 			.site-header__main {
 				display: flex;
@@ -147,16 +177,27 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
-				gap: 0.5rem 1.1rem;
+				gap: 0.35rem 0.5rem;
 			}
 			.site-nav a {
 				color: var(--muted);
-				font-size: 0.95rem;
+				font-size: 0.94rem;
+				font-weight: 500;
 				white-space: nowrap;
+				padding: 0.45rem 0.85rem;
+				border-radius: 999px;
+				text-decoration: none;
+			}
+			.site-nav a:hover {
+				color: var(--text);
+				background: color-mix(in srgb, var(--accent) 8%, transparent);
+				text-decoration: none;
 			}
 			.site-nav a[aria-current='page'] {
-				color: var(--accent);
+				color: var(--accent-dim);
 				font-weight: 600;
+				background: var(--accent-glow);
+				text-decoration: none;
 			}
 			.site-header__tools {
 				display: flex;
@@ -174,7 +215,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				justify-content: space-between;
 				gap: 0.4rem;
 				min-height: 2.5rem;
-				padding: 0.35rem 0.65rem;
+				padding: 0.35rem 0.75rem;
 				margin: 0;
 				list-style: none;
 				cursor: pointer;
@@ -184,12 +225,13 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				color: var(--text);
 				background: var(--surface);
 				border: 1px solid var(--border);
-				border-radius: 8px;
-				box-shadow: 0 1px 2px rgba(26, 35, 50, 0.06);
+				border-radius: 999px;
+				box-shadow: var(--shadow-sm);
 				transition:
 					border-color 0.15s ease,
 					background 0.15s ease,
-					color 0.15s ease;
+					color 0.15s ease,
+					box-shadow 0.15s ease;
 			}
 			.site-dd__trigger::-webkit-details-marker {
 				display: none;
@@ -198,12 +240,12 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				content: '';
 			}
 			.site-dd__trigger:hover {
-				border-color: rgba(166, 124, 0, 0.4);
-				background: rgba(166, 124, 0, 0.06);
+				border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+				background: color-mix(in srgb, var(--accent) 6%, var(--surface));
 			}
 			.site-dd[open] > .site-dd__trigger {
-				border-color: rgba(166, 124, 0, 0.45);
-				box-shadow: 0 0 0 1px rgba(166, 124, 0, 0.12);
+				border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+				box-shadow: 0 0 0 3px var(--accent-glow);
 			}
 			.site-dd__trigger:focus-visible {
 				outline: 2px solid var(--accent);
@@ -248,15 +290,15 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			.site-dd__panel {
 				position: absolute;
-				top: calc(100% + 0.35rem);
+				top: calc(100% + 0.45rem);
 				right: 0;
 				min-width: min(16rem, calc(100vw - 2.5rem));
-				padding: 0.35rem 0;
+				padding: 0.4rem;
 				margin: 0;
 				background: var(--surface);
 				border: 1px solid var(--border);
-				border-radius: 10px;
-				box-shadow: 0 10px 36px rgba(26, 35, 50, 0.14);
+				border-radius: var(--radius-md);
+				box-shadow: var(--shadow-lg);
 				z-index: 8100;
 			}
 			.site-dd--lang .site-dd__panel {
@@ -266,17 +308,18 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				display: flex;
 				align-items: center;
 				gap: 0.55rem;
-				padding: 0.6rem 0.95rem;
+				padding: 0.55rem 0.85rem;
+				border-radius: var(--radius-sm);
 				color: var(--text) !important;
 				font-size: 0.92rem;
 				font-weight: 500;
 				text-decoration: none !important;
 			}
 			.site-dd__link:hover {
-				background: rgba(166, 124, 0, 0.08);
+				background: color-mix(in srgb, var(--accent) 10%, transparent);
 			}
 			.site-dd__link.is-current {
-				background: rgba(166, 124, 0, 0.12);
+				background: var(--accent-glow);
 				font-weight: 600;
 				color: var(--accent-dim) !important;
 			}
@@ -306,17 +349,17 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				font-weight: 600;
 				text-align: center;
 				color: var(--danger);
-				background: rgba(184, 50, 50, 0.06);
-				border: 1px solid rgba(184, 50, 50, 0.2);
-				border-radius: 8px;
+				background: color-mix(in srgb, var(--danger) 8%, transparent);
+				border: 1px solid color-mix(in srgb, var(--danger) 22%, transparent);
+				border-radius: var(--radius-sm);
 				cursor: pointer;
 				transition:
 					background 0.15s ease,
 					border-color 0.15s ease;
 			}
 			.site-dd__btn-logout:hover {
-				background: rgba(184, 50, 50, 0.1);
-				border-color: rgba(184, 50, 50, 0.35);
+				background: color-mix(in srgb, var(--danger) 14%, transparent);
+				border-color: color-mix(in srgb, var(--danger) 38%, transparent);
 			}
 			@media (max-width: 768px) {
 				header.site {
@@ -346,52 +389,70 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			.card-grid {
 				display: grid;
-				gap: 1.25rem;
+				gap: 1.35rem;
 				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 			}
 			.card {
 				background: var(--surface);
 				border: 1px solid var(--border);
-				border-radius: 12px;
-				padding: 1.25rem;
+				border-radius: var(--radius-lg);
+				padding: 1.35rem;
 				display: flex;
 				flex-direction: column;
-				gap: 0.75rem;
-				box-shadow: 0 2px 12px rgba(26, 35, 50, 0.06);
+				gap: 0.85rem;
+				box-shadow: var(--shadow-md);
+				transition:
+					box-shadow 0.2s ease,
+					border-color 0.2s ease,
+					transform 0.2s ease;
+			}
+			.card:hover {
+				box-shadow: var(--shadow-lg);
+				border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
 			}
 			.card h2 {
 				margin: 0;
-				font-size: 1.15rem;
+				font-size: 1.12rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
 			}
 			.muted {
 				color: var(--muted);
-				font-size: 0.9rem;
+				font-size: 0.92rem;
 			}
 			.btn {
-				display: inline-block;
-				padding: 0.55rem 1rem;
-				background: var(--accent);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.62rem 1.2rem;
+				background: linear-gradient(165deg, var(--accent) 0%, var(--accent-dim) 100%);
 				color: var(--btn-text) !important;
-				border-radius: 6px;
+				border-radius: 999px;
 				font-weight: 600;
 				font-size: 0.9rem;
 				border: none;
 				cursor: pointer;
 				text-decoration: none !important;
-				box-shadow: 0 1px 2px rgba(26, 35, 50, 0.12);
+				box-shadow: 0 2px 12px color-mix(in srgb, var(--accent) 35%, transparent);
+				transition:
+					transform 0.15s ease,
+					box-shadow 0.15s ease,
+					filter 0.15s ease;
 			}
 			.btn:hover {
-				filter: brightness(1.06);
+				filter: brightness(1.05);
+				transform: translateY(-1px);
+				box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 42%, transparent);
 			}
 			.btn-ghost {
-				background: rgba(255, 255, 255, 0.6);
+				background: var(--surface);
 				color: var(--accent-dim) !important;
 				border: 1px solid var(--border);
-				box-shadow: none;
+				box-shadow: var(--shadow-sm);
 			}
 			.btn-ghost:hover {
-				background: var(--surface);
-				border-color: var(--accent-dim);
+				background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+				border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 			}
 			form.auth {
 				max-width: 360px;
@@ -407,27 +468,39 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			input {
 				width: 100%;
-				padding: 0.55rem 0.65rem;
-				border-radius: 6px;
+				padding: 0.62rem 0.85rem;
+				border-radius: var(--radius-sm);
 				border: 1px solid var(--border);
 				background: var(--surface);
 				color: var(--text);
+				font: inherit;
+				transition:
+					border-color 0.15s ease,
+					box-shadow 0.15s ease;
+			}
+			input:focus {
+				outline: none;
+				border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+				box-shadow: 0 0 0 3px var(--accent-glow);
 			}
 			.alert {
-				padding: 0.65rem 0.85rem;
-				border-radius: 6px;
-				background: rgba(184, 50, 50, 0.1);
+				padding: 0.75rem 1rem;
+				border-radius: var(--radius-sm);
+				background: color-mix(in srgb, var(--danger) 10%, var(--surface));
 				color: var(--danger);
 				font-size: 0.9rem;
-				border: 1px solid rgba(184, 50, 50, 0.2);
+				font-weight: 500;
+				border: 1px solid color-mix(in srgb, var(--danger) 22%, transparent);
 			}
 			.hero {
-				margin-bottom: 2.5rem;
+				margin-bottom: 2.75rem;
 			}
 			.hero h1 {
-				font-size: clamp(1.75rem, 4vw, 2.35rem);
-				margin: 0 0 0.75rem;
-				line-height: 1.2;
+				font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+				margin: 0 0 0.85rem;
+				line-height: 1.18;
+				letter-spacing: -0.03em;
+				font-weight: 700;
 			}
 			.prose {
 				max-width: min(72ch, 100%);
@@ -452,8 +525,8 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				color: var(--text);
 			}
 			.site-footer {
-				margin-top: 3rem;
-				padding-top: 1.5rem;
+				margin-top: 3.5rem;
+				padding-top: 2rem;
 				border-top: 1px solid var(--border);
 				display: flex;
 				flex-wrap: wrap;

@@ -25,12 +25,12 @@ function gradientForSlug(slug: string): string {
 	let h = 0;
 	for (let i = 0; i < slug.length; i++) h = slug.charCodeAt(i) + ((h << 5) - h);
 	const palettes = [
-		'linear-gradient(145deg, #0c1222 0%, #2a1810 42%, #c9a227 100%)',
-		'linear-gradient(155deg, #071018 0%, #143d52 48%, #7cb4c8 100%)',
-		'linear-gradient(140deg, #120a14 0%, #3d1f35 50%, #e8b84a 100%)',
-		'linear-gradient(160deg, #0a1628 0%, #1e4a6e 45%, #a8d4f0 100%)',
-		'linear-gradient(145deg, #0e160c 0%, #2d4a22 50%, #c4d4a0 100%)',
-		'linear-gradient(150deg, #18120e 0%, #5c3d2e 50%, #f0d4a8 100%)',
+		'linear-gradient(145deg, #0c1222 0%, #134e4a 42%, #2dd4bf 100%)',
+		'linear-gradient(155deg, #071018 0%, #164e63 48%, #67e8f9 100%)',
+		'linear-gradient(140deg, #120a14 0%, #1e3a5f 50%, #38bdf8 100%)',
+		'linear-gradient(160deg, #0a1628 0%, #155e75 45%, #5eead4 100%)',
+		'linear-gradient(145deg, #0e160c 0%, #14532d 50%, #4ade80 100%)',
+		'linear-gradient(150deg, #18120e 0%, #422006 50%, #fb923c 100%)',
 	];
 	return palettes[Math.abs(h) % palettes.length];
 }
@@ -228,9 +228,13 @@ function coverAlt(d: TourListItem['data']): string {
 		margin: 0;
 		font-size: clamp(1.75rem, 4.5vw, 2.75rem);
 		font-weight: 700;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.03em;
 		line-height: 1.15;
-		background: linear-gradient(120deg, var(--text, #e8eef4) 0%, var(--accent, #c9a227) 160%);
+		background: linear-gradient(
+			120deg,
+			var(--text, #0f172a) 0%,
+			color-mix(in srgb, var(--accent, #0d9488) 85%, #0f172a) 100%
+		);
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
@@ -239,7 +243,7 @@ function coverAlt(d: TourListItem['data']): string {
 	.thg__sub {
 		margin: 0.65rem 0 0;
 		max-width: 42rem;
-		color: var(--muted, #8b9aab);
+		color: var(--muted, #64748b);
 		font-size: 1.05rem;
 		line-height: 1.55;
 	}
@@ -275,13 +279,13 @@ function coverAlt(d: TourListItem['data']): string {
 	.thg__cell {
 		position: relative;
 		display: block;
-		border-radius: 16px;
+		border-radius: 20px;
 		overflow: hidden;
 		text-decoration: none;
 		color: inherit;
 		min-height: 220px;
-		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-		border: 1px solid rgba(201, 162, 39, 0.12);
+		box-shadow: 0 8px 32px rgba(15, 23, 42, 0.28);
+		border: 1px solid color-mix(in srgb, var(--accent, #0d9488) 18%, transparent);
 		transition:
 			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
 			box-shadow 0.35s ease,
@@ -290,14 +294,17 @@ function coverAlt(d: TourListItem['data']): string {
 
 	.thg__cell:hover,
 	.thg__cell:focus-visible {
-		transform: translateY(-3px) scale(1.01);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-		border-color: rgba(201, 162, 39, 0.35);
+		transform: translateY(-4px) scale(1.008);
+		box-shadow: 0 20px 50px rgba(15, 23, 42, 0.38);
+		border-color: color-mix(in srgb, var(--accent, #0d9488) 45%, transparent);
 		outline: none;
 	}
 
 	.thg__cell:focus-visible {
-		box-shadow: 0 0 0 2px var(--bg, #f4f1ea), 0 0 0 4px var(--accent, #a67c00);
+		box-shadow:
+			0 0 0 2px var(--bg, #f1f5f9),
+			0 0 0 4px color-mix(in srgb, var(--accent, #0d9488) 55%, transparent),
+			0 20px 50px rgba(15, 23, 42, 0.35);
 	}
 
 	.thg__img {
@@ -352,7 +359,7 @@ function coverAlt(d: TourListItem['data']): string {
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.12em;
-		color: var(--accent, #c9a227);
+		color: var(--accent, #5eead4);
 		margin-bottom: 0.35rem;
 	}
 
@@ -386,7 +393,7 @@ function coverAlt(d: TourListItem['data']): string {
 		align-items: center;
 		font-size: 0.88rem;
 		font-weight: 600;
-		color: var(--accent, #c9a227);
+		color: var(--accent, #5eead4);
 	}
 
 	.thg__cta--ghost {
@@ -430,7 +437,7 @@ function coverAlt(d: TourListItem['data']): string {
 	.thg__thumb:hover,
 	.thg__thumb:focus-visible {
 		transform: translateY(-2px);
-		border-color: rgba(201, 162, 39, 0.3);
+		border-color: color-mix(in srgb, var(--accent, #0d9488) 40%, transparent);
 		outline: none;
 	}
 
@@ -466,7 +473,7 @@ function coverAlt(d: TourListItem['data']): string {
 
 	.thg__strip-sub {
 		margin: 0 0 1rem;
-		color: var(--muted, #8b9aab);
+		color: var(--muted, #64748b);
 		font-size: 0.95rem;
 		max-width: 40rem;
 		line-height: 1.5;
@@ -479,7 +486,7 @@ function coverAlt(d: TourListItem['data']): string {
 		padding: 0.35rem 0.15rem 0.85rem;
 		scroll-snap-type: x mandatory;
 		scrollbar-width: thin;
-		scrollbar-color: rgba(201, 162, 39, 0.4) transparent;
+		scrollbar-color: color-mix(in srgb, var(--accent, #0d9488) 45%, transparent) transparent;
 		-webkit-overflow-scrolling: touch;
 		mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
 	}
@@ -488,7 +495,7 @@ function coverAlt(d: TourListItem['data']): string {
 		height: 6px;
 	}
 	.thg__track::-webkit-scrollbar-thumb {
-		background: rgba(201, 162, 39, 0.35);
+		background: color-mix(in srgb, var(--accent, #0d9488) 40%, transparent);
 		border-radius: 3px;
 	}
 
@@ -518,7 +525,7 @@ function coverAlt(d: TourListItem['data']): string {
 	.thg__slide:hover,
 	.thg__slide:focus-visible {
 		transform: translateY(-4px);
-		border-color: rgba(201, 162, 39, 0.35);
+		border-color: color-mix(in srgb, var(--accent, #0d9488) 42%, transparent);
 		outline: none;
 	}
 

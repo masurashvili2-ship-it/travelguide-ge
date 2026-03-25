@@ -472,8 +472,8 @@ const shareText = excerpt.trim().slice(0, 280);
 	}
 	.tdh__share:hover {
 		color: var(--accent);
-		border-color: rgba(166, 124, 0, 0.45);
-		background: rgba(166, 124, 0, 0.08);
+		border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+		background: color-mix(in srgb, var(--accent) 10%, var(--surface));
 	}
 	.tdh__share:focus-visible {
 		outline: 2px solid var(--accent);
@@ -508,11 +508,11 @@ const shareText = excerpt.trim().slice(0, 280);
 		display: block;
 		padding: 0;
 		border: none;
-		border-radius: 12px;
+		border-radius: var(--radius-md, 14px);
 		overflow: hidden;
 		cursor: pointer;
-		background: #1a2332;
-		box-shadow: 0 4px 20px rgba(26, 35, 50, 0.12);
+		background: var(--text, #0f172a);
+		box-shadow: var(--shadow-md, 0 4px 20px rgba(15, 23, 42, 0.1));
 		min-height: 0;
 	}
 
@@ -726,7 +726,7 @@ const shareText = excerpt.trim().slice(0, 280);
 	}
 
 	.tdh-lb__chev:hover:not(:disabled) {
-		background: rgba(166, 124, 0, 0.45);
+		background: color-mix(in srgb, var(--accent) 50%, rgba(0, 0, 0, 0.5));
 	}
 
 	.tdh-lb__chev:disabled {

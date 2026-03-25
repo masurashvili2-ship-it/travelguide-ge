@@ -27,7 +27,7 @@ export function initTourMap(markerList: TourMapMarker[]) {
 		const cm = L.circleMarker([m.lat, m.lng], {
 			radius: 10,
 			color: '#6b4f1e',
-			fillColor: '#c9a227',
+			fillColor: '#0d9488',
 			fillOpacity: 0.88,
 			weight: 2,
 		}).addTo(map);

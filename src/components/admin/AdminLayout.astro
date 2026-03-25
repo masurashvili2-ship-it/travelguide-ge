@@ -57,26 +57,31 @@ const pagesNewActive = activeNav === 'pages-new';
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, nofollow" />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+			rel="stylesheet"
+		/>
 		<style is:global>
-			/* WordPress-inspired admin (colors/layout only; not affiliated with WordPress) */
+			/* Admin shell: modern slate sidebar + teal accent (layout unchanged) */
 			.admin-app {
-				--wp-sidebar: #1d2327;
-				--wp-sidebar-hover: #2c3338;
-				--wp-sidebar-text: #f0f0f1;
-				--wp-sidebar-muted: #a7aaad;
-				--wp-blue: #2271b1;
-				--wp-blue-hover: #135e96;
-				--wp-body: #f0f0f1;
-				--wp-card: #fff;
-				--wp-border: #c3c4c7;
-				--wp-text: #1d2327;
-				--wp-muted: #646970;
-				--wp-red: #b32d2e;
-				--wp-red-bg: #fcf0f1;
-				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-					'Helvetica Neue', sans-serif;
+				--wp-sidebar: #0f172a;
+				--wp-sidebar-hover: #1e293b;
+				--wp-sidebar-text: #f8fafc;
+				--wp-sidebar-muted: #94a3b8;
+				--wp-blue: #0d9488;
+				--wp-blue-hover: #0f766e;
+				--wp-body: #f1f5f9;
+				--wp-card: #ffffff;
+				--wp-border: #e2e8f0;
+				--wp-text: #0f172a;
+				--wp-muted: #64748b;
+				--wp-red: #dc2626;
+				--wp-red-bg: #fef2f2;
+				font-family: 'DM Sans', ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Noto Sans Georgian', sans-serif;
 				font-size: 14px;
-				line-height: 1.5;
+				line-height: 1.55;
 				color: var(--wp-text);
 			}
 
@@ -168,10 +173,10 @@ const pagesNewActive = activeNav === 'pages-new';
 
 			/* Sidebar */
 			.admin-menu {
-				width: 160px;
+				width: 200px;
 				flex-shrink: 0;
 				background: var(--wp-sidebar);
-				padding: 0.75rem 0 2rem;
+				padding: 1rem 0 2rem;
 			}
 			.admin-menu__item {
 				display: block;
@@ -190,8 +195,8 @@ const pagesNewActive = activeNav === 'pages-new';
 			.admin-menu__item.is-active {
 				color: #fff;
 				font-weight: 600;
-				background: var(--wp-blue);
-				border-left-color: #72aee6;
+				background: color-mix(in srgb, var(--wp-blue) 88%, #0f172a);
+				border-left-color: #5eead4;
 			}
 
 			.admin-menu__submenu {
@@ -267,15 +272,18 @@ const pagesNewActive = activeNav === 'pages-new';
 			.postbox {
 				background: var(--wp-card);
 				border: 1px solid var(--wp-border);
-				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+				border-radius: 12px;
+				box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
 				margin-bottom: 1.25rem;
+				overflow: hidden;
 			}
 			.postbox__header {
 				border-bottom: 1px solid var(--wp-border);
-				padding: 0.65rem 0.85rem;
+				padding: 0.75rem 1rem;
 				font-size: 14px;
 				font-weight: 600;
 				line-height: 1.4;
+				background: color-mix(in srgb, var(--wp-body) 65%, var(--wp-card));
 			}
 			.postbox__inside {
 				padding: 0.85rem 1rem 1rem;
@@ -314,9 +322,9 @@ const pagesNewActive = activeNav === 'pages-new';
 			.admin-app select {
 				width: 100%;
 				max-width: 100%;
-				padding: 0.45rem 0.6rem;
-				border: 1px solid #8c8f94;
-				border-radius: 3px;
+				padding: 0.5rem 0.7rem;
+				border: 1px solid var(--wp-border);
+				border-radius: 8px;
 				background: #fff;
 				color: var(--wp-text);
 				font: inherit;
@@ -372,34 +380,34 @@ const pagesNewActive = activeNav === 'pages-new';
 				text-decoration: none;
 				font-size: 13px;
 				line-height: 2.15;
-				min-height: 32px;
-				padding: 0 12px;
+				min-height: 36px;
+				padding: 0 14px;
 				margin: 0 0.35rem 0 0;
 				cursor: pointer;
 				border-width: 1px;
 				border-style: solid;
-				border-radius: 3px;
+				border-radius: 8px;
 				white-space: nowrap;
 				box-sizing: border-box;
 				vertical-align: middle;
-				background: #f6f7f7;
-				border-color: #0a4b78;
+				background: #fff;
+				border-color: var(--wp-border);
 				color: var(--wp-blue);
-				font-weight: 400;
+				font-weight: 500;
 			}
 			.admin-app .button:hover,
 			.admin-app .btn:hover {
-				background: #f0f0f1;
-				border-color: #0a4b78;
+				background: var(--wp-body);
+				border-color: color-mix(in srgb, var(--wp-blue) 35%, var(--wp-border));
 				color: var(--wp-blue-hover);
 			}
 			.admin-app .button.button-primary,
 			.admin-app .btn.button-primary,
 			.admin-app button.btn[type='submit'] {
-				background: var(--wp-blue);
+				background: linear-gradient(165deg, var(--wp-blue) 0%, var(--wp-blue-hover) 100%);
 				border-color: var(--wp-blue);
 				color: #fff;
-				font-weight: 400;
+				font-weight: 600;
 			}
 			.admin-app .button.button-primary:hover,
 			.admin-app .btn.button-primary:hover,
@@ -419,8 +427,8 @@ const pagesNewActive = activeNav === 'pages-new';
 				margin: 0 0 1.25rem;
 				padding: 1rem;
 				border: 1px solid var(--wp-border);
-				border-radius: 2px;
-				background: #fafafa;
+				border-radius: 10px;
+				background: color-mix(in srgb, var(--wp-body) 55%, #fff);
 			}
 			.admin-app .locale-block legend {
 				padding: 0 0.35rem;
@@ -435,6 +443,8 @@ const pagesNewActive = activeNav === 'pages-new';
 				font-size: 14px;
 				background: #fff;
 				border: 1px solid var(--wp-border);
+				border-radius: 10px;
+				overflow: hidden;
 			}
 			.admin-app .wp-list-table th,
 			.admin-app .wp-list-table td {
