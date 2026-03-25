@@ -160,6 +160,160 @@
         "history-culture",
         "landmark"
       ]
+    },
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a04",
+      "slug": "mtatsminda-park-and-funicular",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.7238,
+        "lng": 44.7925,
+        "label": "Mtatsminda"
+      },
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "physical_rating": "easy",
+      "driving_distance": "Funicular or taxi to upper station · walking inside the park",
+      "i18n": {
+        "en": {
+          "title": "Mtatsminda Park & funicular",
+          "duration": "Half day",
+          "price": "Funicular ~5–10 GEL each way; rides extra",
+          "excerpt": "Views over Tbilisi, retro rides, and pine air above the city.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Ride the **funicular** from Chonkadze Street up to **Mtatsminda** for wide views over **Tbilisi**. The amusement area suits families; you can also just walk the paths and sit in the shade.\r\n\r\nDress for wind on breezy days. Evenings are lively in summer—check closing times in winter."
+        },
+        "ka": {
+          "title": "მთაწმინდის პარკი და ფუნიკულიორი",
+          "duration": "ნახევარი დღე",
+          "price": "ფუნიკულიორი ~5–10 ლარი ერთი მიმართულებით; ატრაქციონები ცალკე",
+          "excerpt": "ხედები თბილისზე, ვინტაჟური ატრაქციონები და ქვიშუხის ჰაერი ქალაქის თავზე.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**ფუნიკულიორით** (ჩონკაძის ქუჩიდან) ადით **მთაწმინდაზე** და დაეთვალეთ **თბილისს**. ატრაქციონები ოჯახებისთვისაა; შეგიძლიათ მხოლოდ სეირნობა და დასვენება ჩრდილში.\r\n\r\nქარისთვის მოიმარაგეთ ტანსაცმელი. ზაფხულში საღამოს უფრო ხალხია — ზამთარში სამუშაო საათები შეამოწმეთ."
+        },
+        "ru": {
+          "title": "Парк Мтацминда и фуникулёр",
+          "duration": "Полдня",
+          "price": "Фуникулёр ~5–10 лари в одну сторону; аттракционы отдельно",
+          "excerpt": "Виды на Тбилиси, аттракционы и сосновый воздух над городом.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Поднимитесь на **фуникулёре** с улицы Чонкадзе на **Мтацминду** — открывается панорама **Тбилиси**. Зона аттракционов удобна с детьми; можно просто гулять по дорожкам.\r\n\r\nНа ветру прохладнее, возьмите куртку. Летом вечером оживлённо; зимой уточняйте время работы."
+        }
+      },
+      "updated_at": 1775000002000,
+      "categories": [
+        "park",
+        "landmark"
+      ]
+    },
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a05",
+      "slug": "turtle-lake-kus-tba",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.7012,
+        "lng": 44.7458,
+        "label": "Turtle Lake"
+      },
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "physical_rating": "moderate",
+      "driving_distance": "Bus/taxi to Vake, then ~15–20 min walk uphill; or drive to car parks near the lake",
+      "i18n": {
+        "en": {
+          "title": "Turtle Lake (Kus Tba)",
+          "duration": "2–4 hours",
+          "price": "Free lakeside walk; cafés and boats optional",
+          "excerpt": "A small forested lake above Vake — walking paths, cafés, and a quieter city escape.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Kus Tba** sits above the **Vake** district. Locals jog and walk dogs here; summer brings open-air cafés and pedal boats.\r\n\r\nThe climb from the lower road is steady—comfortable shoes help. Combine with **Ethnographic Museum** nearby if you want a fuller day."
+        },
+        "ka": {
+          "title": "კუს ტბა",
+          "duration": "2–4 საათი",
+          "price": "უფასო სეირნობა; კაფეები და ნავები სურვილისამებრ",
+          "excerpt": "პატარა ტბა ვაკის ზემოთ — სასეირნო ბილიკები, კაფეები და ქალაქისგან მშვიდი გასაქცევი.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**კუს ტბა** **ვაკის** ზემოთაა. აქ სეირნობენ და სპორტს მისდევენ; ზაფხულში კაფეები და ნავები მუშაობს.\r\n\r\nქვემოდან აღმართი საშუალოა — მოსიარულე ფეხსაცმელი საჭიროა. სურვილისამებრ შეგიძლიათ **ეთნოგრაფიული მუზეუმიც** მიუერთოთ."
+        },
+        "ru": {
+          "title": "Черепашье озеро (Кус-Тба)",
+          "duration": "2–4 часа",
+          "price": "Прогулка бесплатно; кафе и лодки по желанию",
+          "excerpt": "Небольшое озеро над Ваке — тропы, кафе и спокойный отдых от города.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Кус-Тба** расположено выше района **Ваке**. Здесь гуляют и бегают; летом работают кафе и прокат лодочек.\r\n\r\nПодъём от дороги умеренный, нужна удобная обувь. Рядом **этнографический музей** — можно совместить."
+        }
+      },
+      "updated_at": 1775000003000,
+      "categories": [
+        "lake",
+        "park",
+        "hiking"
+      ]
+    },
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a06",
+      "slug": "georgian-national-museum-rustaveli",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.6965,
+        "lng": 44.7993,
+        "label": "Rustaveli Avenue"
+      },
+      "seasons": [],
+      "physical_rating": "easy",
+      "driving_distance": null,
+      "i18n": {
+        "en": {
+          "title": "Georgian National Museum (Rustaveli)",
+          "duration": "2–3 hours",
+          "price": "Paid entry (check current ticket prices online)",
+          "excerpt": "Gold treasure from Colchis, archaeology, and Soviet-era history under one roof on Rustaveli.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The main building on **Rustaveli Avenue** holds highlights including **Colchian gold** and rich archaeological collections. Exhibits on modern history help contextualize **Georgia** today.\r\n\r\nClosed some public holidays—verify hours before you go. Photography rules vary by hall; ask at the desk."
+        },
+        "ka": {
+          "title": "საქართველოს ეროვნული მუზეუმი (რუსთაველის გამზირი)",
+          "duration": "2–3 საათი",
+          "price": "შესვლა ფასიანი (აქტუალური ფასები ინტერნეტში შეამოწმეთ)",
+          "excerpt": "კოლხეთის ოქრო, არქეოლოგია და თანამედროვე ისტორია რუსთაველის გამზირზე.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ძირითადი შენობა **რუსთაველის გამზირზე** — **კოლხეთის ოქროს** ექსპონატები და არქეოლოგიური კოლექციები. თანამედროვე ისტორიის დარბაზები **საქართველოს** კონტექსტს ხსნის.\r\n\r\nსადღესასწაულო დღეებში შეიძლება იყოს დახურული — საათები წინასწარ გადაამოწმეთ. ფოტოგრაფიის წესები დარბაზების მიხედვით განსხვავდება."
+        },
+        "ru": {
+          "title": "Национальный музей Грузии (проспект Руставели)",
+          "duration": "2–3 часа",
+          "price": "Вход платный (актуальные цены — на сайте)",
+          "excerpt": "Золото Колхиды, археология и новейшая история на проспекте Руставели.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Главное здание на **проспекте Руставели** — **колхидское золото** и археология, залы по новой истории помогают понять сегодняшнюю **Грузию**.\r\n\r\nВ праздники может быть закрыто — часы уточняйте заранее. Правила фото различаются по залам, спросите на кассе."
+        }
+      },
+      "updated_at": 1775000004000,
+      "categories": [
+        "museum",
+        "history-culture",
+        "landmark"
+      ]
     }
   ]
 }
