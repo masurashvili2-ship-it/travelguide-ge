@@ -1,0 +1,83 @@
+---
+import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminPageLocalesFields from '../../../../../components/admin/AdminPageLocalesFields.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { getPagePostById, isValidPageId } from '../../../../../lib/pages-db';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `admin/pages/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+if (!isValidPageId(idParam)) {
+	return new Response(null, { status: 404 });
+}
+
+const post = getPagePostById(idParam);
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const pagesList = getRelativeLocaleUrl(locale, 'admin/pages');
+const userEmail = Astro.locals.user.email;
+
+const displayTitle =
+	post.i18n.en?.title?.trim() ||
+	post.i18n.ka?.title?.trim() ||
+	post.i18n.ru?.title?.trim() ||
+	post.slug;
+---
+
+<AdminLayout
+	locale={locale}
+	title={`Edit “${displayTitle}” ‹ Pages`}
+	headline="Edit page"
+	subtitle={`ID ${post.id} · slug: ${post.slug}`}
+	activeNav="pages-edit"
+	userEmail={userEmail}
+>
+	<form method="post" action="/api/admin/pages">
+		<input type="hidden" name="intent" value="update" />
+		<input type="hidden" name="id" value={post.id} />
+		<input type="hidden" name="redirect" value={pagesList} />
+
+		<div class="postbox">
+			<div class="postbox__header">Page settings</div>
+			<div class="postbox__inside">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input type="text" name="slug" required value={post.slug} pattern="[a-z0-9]+(-[a-z0-9]+)*" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>List order (admin)</span>
+						<input type="number" name="sort_order" value={post.sort_order} step="1" />
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Content</div>
+			<div class="postbox__inside">
+				<AdminPageLocalesFields post={post} />
+			</div>
+		</div>
+
+		<p class="submit">
+			<button class="btn button-primary" type="submit">Update</button>
+			<a class="button" href={pagesList}>Cancel</a>
+		</p>
+	</form>
+</AdminLayout>

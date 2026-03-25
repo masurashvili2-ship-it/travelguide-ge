@@ -1,0 +1,54 @@
+---
+import Shell from '../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { marked } from 'marked';
+import { RESERVED_PAGE_SLUGS, getPagePostBySlug } from '../../lib/pages-db';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+const pageSlug = Astro.params.pageSlug;
+
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !pageSlug) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+const slugLower = pageSlug.trim().toLowerCase();
+if (RESERVED_PAGE_SLUGS.has(slugLower)) {
+	return new Response(null, { status: 404 });
+}
+
+const post = getPagePostBySlug(slugLower);
+const block = post?.i18n[locale];
+if (!post || !block) {
+	return new Response(null, { status: 404 });
+}
+
+const t = ui[locale];
+const htmlRaw = marked.parse(block.body, { async: false });
+const html = typeof htmlRaw === 'string' ? htmlRaw : '';
+
+const seoTitle = block.seo_title?.trim() || block.title;
+const seoDescription = block.seo_description?.trim() || undefined;
+const canonicalPath = `/${locale}/${post.slug}`;
+---
+
+<Shell
+	locale={locale}
+	subpath={post.slug}
+	title={block.title}
+	seoTitle={seoTitle}
+	seoDescription={seoDescription}
+	canonicalPath={canonicalPath}
+>
+	<article class="prose">
+		<p class="muted" style="margin:0 0 1rem">
+			<a href={getRelativeLocaleUrl(locale, '/')}>{t.home}</a>
+			{' / '}
+			<span>{block.title}</span>
+		</p>
+		<h1>{block.title}</h1>
+		<div set:html={html} />
+	</article>
+</Shell>

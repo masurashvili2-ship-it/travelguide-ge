@@ -1,0 +1,49 @@
+---
+import Shell from '../../../components/Shell.astro';
+import TourHeroGallery from '../../../components/TourHeroGallery.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listToursForLocale } from '../../../lib/tours-db';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const sorted = listToursForLocale(locale);
+---
+
+<Shell
+	locale={locale}
+	subpath="tours"
+	title={t.tours}
+	seoDescription={t.toursMetaDescription}
+	canonicalPath={`/${locale}/tours`}
+>
+	<TourHeroGallery
+		tours={sorted}
+		locale={locale}
+		viewLabel={t.viewTour}
+		durationLabel={t.duration}
+		title={t.tours}
+		subtitle={t.toursMetaDescription}
+		layout="bento"
+	/>
+	<div class="card-grid" style="margin-top:0.5rem">
+		{
+			sorted.map((entry) => (
+				<article class="card">
+					<h2>{entry.data.title}</h2>
+					<p class="muted">{entry.data.excerpt}</p>
+					<p class="muted">
+						{t.duration}: {entry.data.duration}
+						{entry.data.price ? ` · ${entry.data.price}` : ''}
+					</p>
+					<a class="btn" href={getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`)}>{t.viewTour}</a>
+				</article>
+			))
+		}
+	</div>
+</Shell>

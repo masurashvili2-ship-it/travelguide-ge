@@ -1,0 +1,211 @@
+---
+import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { TOUR_CATEGORY_IDS, TOUR_CATEGORY_LABELS_EN } from '../../../../../lib/tour-categories';
+import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../../lib/tour-physical-rating';
+import { getTourPostById, isValidTourId } from '../../../../../lib/tours-db';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `admin/tours/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+if (!isValidTourId(idParam)) {
+	return new Response(null, { status: 404 });
+}
+
+const post = getTourPostById(idParam);
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const displayTitle =
+	post.i18n.en?.title?.trim() ||
+	post.i18n.ka?.title?.trim() ||
+	post.i18n.ru?.title?.trim() ||
+	post.slug;
+
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const userEmail = Astro.locals.user.email;
+---
+
+<AdminLayout
+	locale={locale}
+	title={`Edit “${displayTitle}” ‹ Travel Guide Georgia`}
+	headline="Edit tour"
+	subtitle={`Post ID ${post.id} · slug: ${post.slug}`}
+	activeNav="tours-edit"
+	userEmail={userEmail}
+>
+	<form id="tour-admin-form" method="post" action="/api/admin/tours">
+		<input type="hidden" name="intent" value="update" />
+		<input type="hidden" name="id" value={post.id} />
+		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" id="tour-admin-title" value={post.i18n.en?.title ?? ''} />
+
+		<div class="postbox">
+			<div class="postbox__header">Slug</div>
+			<div class="postbox__inside">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input
+							type="text"
+							id="tour-admin-slug"
+							name="slug"
+							required
+							value={post.slug}
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Public tour sidebar</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">
+					The live tour page shows an <strong>At a glance</strong> column with <strong>category</strong>, <strong>physical rating</strong>, <strong>driving distance</strong>, <strong>duration</strong> and <strong>price</strong> from the active language under Translations, and <strong>location</strong> plus a map link when latitude/longitude are set in Map location.
+				</p>
+				<div class="row">
+					<label>
+						<span>Category</span>
+						<select name="category">
+							<option value="" selected={!post.category}>— None —</option>
+							{
+								TOUR_CATEGORY_IDS.map((id) => (
+									<option value={id} selected={post.category === id}>
+										{TOUR_CATEGORY_LABELS_EN[id]}
+									</option>
+								))
+							}
+						</select>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Physical rating</span>
+						<select name="physical_rating">
+							<option value="" selected={!post.physical_rating}>— None —</option>
+							{
+								PHYSICAL_RATING_IDS.map((id) => (
+									<option value={id} selected={post.physical_rating === id}>
+										{PHYSICAL_RATING_LABELS_EN[id]}
+									</option>
+								))
+							}
+						</select>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Driving distance</span>
+						<input
+							type="text"
+							name="driving_distance"
+							autocomplete="off"
+							placeholder="e.g. 120 km round trip, 95 km one way"
+							value={post.driving_distance ?? ''}
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">Free text; shown in the public sidebar.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Featured image &amp; gallery</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">Shared across all translations.</p>
+				<fieldset class="photos" style="background:transparent;border-style:dashed">
+					<AdminTourPhotoUpload />
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input type="text" name="image" id="tour-cover-url" value={post.image ?? ''} />
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Upload or paste a URL.</p>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea class="gallery-urls" name="gallery_urls" id="tour-gallery-urls">
+								{post.gallery.join('\n')}
+							</textarea>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Map location</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">
+					One pin per tour (WGS84, decimal degrees). Shown on the public map. Leave latitude and longitude empty to hide
+					this tour from the map.
+				</p>
+				<div class="row">
+					<label>
+						<span>Latitude</span>
+						<input
+							type="text"
+							name="location_lat"
+							inputmode="decimal"
+							autocomplete="off"
+							placeholder="e.g. 41.7151"
+							value={post.location?.lat ?? ''}
+						/>
+					</label>
+					<label>
+						<span>Longitude</span>
+						<input
+							type="text"
+							name="location_lng"
+							inputmode="decimal"
+							autocomplete="off"
+							placeholder="e.g. 44.8271"
+							value={post.location?.lng ?? ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Map label (optional)</span>
+						<input
+							type="text"
+							name="location_label"
+							autocomplete="off"
+							placeholder="e.g. Tbilisi · Old Town"
+							value={post.location?.label ?? ''}
+						/>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Translations</div>
+			<div class="postbox__inside">
+				<AdminTourLocalesFields post={post} />
+			</div>
+		</div>
+
+		<p class="submit">
+			<button class="btn button-primary" type="submit">Update</button>
+			<a class="button" href={adminHome}>Cancel</a>
+		</p>
+	</form>
+</AdminLayout>

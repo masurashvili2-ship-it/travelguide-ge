@@ -1,0 +1,594 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../lib/strings';
+
+export type AdminNavId =
+	'dashboard' | 'tours-all' | 'tours-new' | 'tours-edit' | 'wtd-all' | 'wtd-new' | 'wtd-edit' | 'pages-all' | 'pages-new' | 'pages-edit' | 'footer';
+
+interface Props {
+	locale: Locale;
+	/** &lt;title&gt; */
+	title: string;
+	headline: string;
+	subtitle?: string;
+	activeNav: AdminNavId;
+	userEmail: string;
+}
+
+const { locale, title, headline, subtitle, activeNav, userEmail } = Astro.props;
+
+const urlAdmin = getRelativeLocaleUrl(locale, 'admin');
+const urlNewTour = getRelativeLocaleUrl(locale, 'admin/tours/new');
+const urlNewWtd = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
+const urlPages = getRelativeLocaleUrl(locale, 'admin/pages');
+const urlNewPage = getRelativeLocaleUrl(locale, 'admin/pages/new');
+const urlFooter = getRelativeLocaleUrl(locale, 'admin/footer');
+const urlSiteHome = getRelativeLocaleUrl(locale, '/');
+
+const toursOpen =
+	activeNav === 'dashboard' ||
+	activeNav === 'tours-all' ||
+	activeNav === 'tours-new' ||
+	activeNav === 'tours-edit';
+const toursAllActive = activeNav === 'tours-all';
+const toursNewActive = activeNav === 'tours-new';
+
+const wtdOpen =
+	activeNav === 'dashboard' ||
+	activeNav === 'wtd-all' ||
+	activeNav === 'wtd-new' ||
+	activeNav === 'wtd-edit';
+const wtdAllActive = activeNav === 'wtd-all';
+const wtdNewActive = activeNav === 'wtd-new';
+
+const pagesOpen =
+	activeNav === 'dashboard' ||
+	activeNav === 'pages-all' ||
+	activeNav === 'pages-new' ||
+	activeNav === 'pages-edit';
+const pagesAllActive = activeNav === 'pages-all';
+const pagesNewActive = activeNav === 'pages-new';
+---
+
+<!doctype html>
+<html lang={locale} class="admin-app">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>{title}</title>
+		<style is:global>
+			/* WordPress-inspired admin (colors/layout only; not affiliated with WordPress) */
+			.admin-app {
+				--wp-sidebar: #1d2327;
+				--wp-sidebar-hover: #2c3338;
+				--wp-sidebar-text: #f0f0f1;
+				--wp-sidebar-muted: #a7aaad;
+				--wp-blue: #2271b1;
+				--wp-blue-hover: #135e96;
+				--wp-body: #f0f0f1;
+				--wp-card: #fff;
+				--wp-border: #c3c4c7;
+				--wp-text: #1d2327;
+				--wp-muted: #646970;
+				--wp-red: #b32d2e;
+				--wp-red-bg: #fcf0f1;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+					'Helvetica Neue', sans-serif;
+				font-size: 14px;
+				line-height: 1.5;
+				color: var(--wp-text);
+			}
+
+			.admin-app body {
+				margin: 0;
+				min-height: 100vh;
+				background: var(--wp-body);
+				color: var(--wp-text);
+			}
+
+			.admin-root {
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.admin-footer {
+				flex-shrink: 0;
+				padding: 0.65rem 1.25rem 0.85rem;
+				border-top: 1px solid var(--wp-border);
+				background: #fff;
+				font-size: 12px;
+				color: var(--wp-muted);
+				line-height: 1.5;
+			}
+			.admin-footer a {
+				color: var(--wp-muted);
+				text-decoration: none;
+			}
+			.admin-footer a:hover,
+			.admin-footer a:focus {
+				color: var(--wp-blue);
+				text-decoration: underline;
+			}
+			.admin-footer__sep {
+				margin: 0 0.35rem;
+				color: #c3c4c7;
+			}
+
+			/* Top bar (like wp-admin-bar) */
+			.admin-bar {
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 0.5rem 1rem;
+				min-height: 32px;
+				padding: 0 0.75rem;
+				background: var(--wp-sidebar);
+				color: var(--wp-sidebar-text);
+				font-size: 13px;
+				box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+			}
+			.admin-bar a {
+				color: var(--wp-sidebar-muted);
+				text-decoration: none;
+				padding: 0.35rem 0.5rem;
+				border-radius: 2px;
+			}
+			.admin-bar a:hover,
+			.admin-bar a:focus {
+				color: #fff;
+				background: rgba(255, 255, 255, 0.08);
+			}
+			.admin-bar__brand {
+				font-weight: 600;
+				color: #fff;
+				margin-right: 0.5rem;
+			}
+			.admin-bar__spacer {
+				flex: 1;
+			}
+			.admin-bar__howdy {
+				color: var(--wp-sidebar-muted);
+			}
+			.admin-bar__howdy strong {
+				color: #fff;
+				font-weight: 400;
+			}
+
+			.admin-frame {
+				display: flex;
+				flex: 1;
+				min-height: 0;
+				align-items: stretch;
+			}
+
+			/* Sidebar */
+			.admin-menu {
+				width: 160px;
+				flex-shrink: 0;
+				background: var(--wp-sidebar);
+				padding: 0.75rem 0 2rem;
+			}
+			.admin-menu__item {
+				display: block;
+				padding: 0.55rem 0.85rem;
+				color: var(--wp-sidebar-text);
+				text-decoration: none;
+				font-size: 14px;
+				border-left: 4px solid transparent;
+			}
+			.admin-menu__item:hover,
+			.admin-menu__item:focus {
+				color: #fff;
+				background: var(--wp-sidebar-hover);
+				box-shadow: inset 4px 0 0 0 transparent;
+			}
+			.admin-menu__item.is-active {
+				color: #fff;
+				font-weight: 600;
+				background: var(--wp-blue);
+				border-left-color: #72aee6;
+			}
+
+			.admin-menu__submenu {
+				border: 0;
+				margin: 0;
+				padding: 0;
+			}
+			.admin-menu__submenu summary {
+				list-style: none;
+				cursor: pointer;
+				padding: 0.55rem 0.85rem;
+				color: var(--wp-sidebar-muted);
+				font-size: 12px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.admin-menu__submenu summary::-webkit-details-marker {
+				display: none;
+			}
+			.admin-menu__submenu summary::before {
+				content: '▸ ';
+				display: inline-block;
+				transition: transform 0.15s;
+			}
+			.admin-menu__submenu[open] summary::before {
+				transform: rotate(90deg);
+			}
+			.admin-menu__sub {
+				display: block;
+				padding: 0.45rem 0.85rem 0.45rem 1.35rem;
+				color: var(--wp-sidebar-muted);
+				text-decoration: none;
+				font-size: 14px;
+				border-left: 4px solid transparent;
+			}
+			.admin-menu__sub:hover,
+			.admin-menu__sub:focus {
+				color: #fff;
+				background: var(--wp-sidebar-hover);
+			}
+			.admin-menu__sub.is-active {
+				color: #fff;
+				background: var(--wp-sidebar-hover);
+				border-left-color: var(--wp-blue);
+				font-weight: 600;
+			}
+
+			/* Main column */
+			.admin-content {
+				flex: 1;
+				min-width: 0;
+				padding: 1.25rem 1.5rem 2.5rem;
+			}
+			.admin-content__header {
+				margin: 0 0 1.25rem;
+			}
+			.admin-content__header h1 {
+				margin: 0;
+				font-size: 23px;
+				font-weight: 400;
+				line-height: 1.3;
+				color: var(--wp-text);
+				padding: 0.35rem 0 0;
+			}
+			.admin-content__subtitle {
+				margin: 0.35rem 0 0;
+				color: var(--wp-muted);
+				font-size: 14px;
+			}
+
+			/* Cards / postboxes */
+			.postbox {
+				background: var(--wp-card);
+				border: 1px solid var(--wp-border);
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+				margin-bottom: 1.25rem;
+			}
+			.postbox__header {
+				border-bottom: 1px solid var(--wp-border);
+				padding: 0.65rem 0.85rem;
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 1.4;
+			}
+			.postbox__inside {
+				padding: 0.85rem 1rem 1rem;
+			}
+
+			/* Notices */
+			.notice {
+				border-left: 4px solid var(--wp-border);
+				background: #fff;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+				padding: 0.65rem 0.85rem;
+				margin: 0 0 1rem;
+			}
+			.notice.notice-error {
+				border-left-color: var(--wp-red);
+				background: var(--wp-red-bg);
+			}
+
+			/* Forms inside admin */
+			.admin-app .row {
+				margin-bottom: 1rem;
+			}
+			.admin-app label span,
+			.admin-app .field-label {
+				display: block;
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--wp-text);
+				margin: 0 0 0.25rem;
+			}
+			.admin-app input[type='text'],
+			.admin-app input[type='email'],
+			.admin-app input[type='password'],
+			.admin-app input[type='url'],
+			.admin-app textarea,
+			.admin-app select {
+				width: 100%;
+				max-width: 100%;
+				padding: 0.45rem 0.6rem;
+				border: 1px solid #8c8f94;
+				border-radius: 3px;
+				background: #fff;
+				color: var(--wp-text);
+				font: inherit;
+				box-sizing: border-box;
+			}
+			.admin-app input:focus,
+			.admin-app textarea:focus,
+			.admin-app select:focus {
+				border-color: var(--wp-blue);
+				box-shadow: 0 0 0 1px var(--wp-blue);
+				outline: 2px solid transparent;
+			}
+			.admin-app textarea.gallery-urls {
+				min-height: 120px;
+				font-family: ui-monospace, Consolas, monospace;
+				font-size: 13px;
+			}
+			.admin-app fieldset.photos {
+				border: 1px solid var(--wp-border);
+				border-radius: 2px;
+				padding: 1rem;
+				margin: 0 0 1rem;
+				background: #fafafa;
+			}
+			.admin-app fieldset.photos legend {
+				padding: 0 0.35rem;
+				font-weight: 600;
+				font-size: 14px;
+			}
+			.admin-app .muted,
+			.admin-app p.muted {
+				color: var(--wp-muted);
+				font-size: 13px;
+			}
+			.admin-app a {
+				color: var(--wp-blue);
+			}
+			.admin-app a:hover,
+			.admin-app a:focus {
+				color: var(--wp-blue-hover);
+			}
+			.admin-app code {
+				font-size: 12px;
+				background: #f6f7f7;
+				padding: 0.1rem 0.35rem;
+				border-radius: 2px;
+				border: 1px solid var(--wp-border);
+			}
+
+			.admin-app .button,
+			.admin-app .btn {
+				display: inline-block;
+				text-decoration: none;
+				font-size: 13px;
+				line-height: 2.15;
+				min-height: 32px;
+				padding: 0 12px;
+				margin: 0 0.35rem 0 0;
+				cursor: pointer;
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 3px;
+				white-space: nowrap;
+				box-sizing: border-box;
+				vertical-align: middle;
+				background: #f6f7f7;
+				border-color: #0a4b78;
+				color: var(--wp-blue);
+				font-weight: 400;
+			}
+			.admin-app .button:hover,
+			.admin-app .btn:hover {
+				background: #f0f0f1;
+				border-color: #0a4b78;
+				color: var(--wp-blue-hover);
+			}
+			.admin-app .button.button-primary,
+			.admin-app .btn.button-primary,
+			.admin-app button.btn[type='submit'] {
+				background: var(--wp-blue);
+				border-color: var(--wp-blue);
+				color: #fff;
+				font-weight: 400;
+			}
+			.admin-app .button.button-primary:hover,
+			.admin-app .btn.button-primary:hover,
+			.admin-app button.btn[type='submit']:hover {
+				background: var(--wp-blue-hover);
+				border-color: var(--wp-blue-hover);
+				color: #fff;
+			}
+
+			.admin-app .submit {
+				margin-top: 1.25rem;
+				padding-top: 1rem;
+				border-top: 1px solid var(--wp-border);
+			}
+
+			.admin-app .locale-block {
+				margin: 0 0 1.25rem;
+				padding: 1rem;
+				border: 1px solid var(--wp-border);
+				border-radius: 2px;
+				background: #fafafa;
+			}
+			.admin-app .locale-block legend {
+				padding: 0 0.35rem;
+				font-weight: 600;
+				font-size: 14px;
+			}
+
+			/* Tables (WP list tables) */
+			.admin-app .wp-list-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 14px;
+				background: #fff;
+				border: 1px solid var(--wp-border);
+			}
+			.admin-app .wp-list-table th,
+			.admin-app .wp-list-table td {
+				text-align: left;
+				padding: 0.65rem 0.5rem;
+				border-bottom: 1px solid var(--wp-border);
+				vertical-align: top;
+			}
+			.admin-app .wp-list-table thead th {
+				font-weight: 600;
+				background: #f6f7f7;
+				border-bottom: 1px solid var(--wp-border);
+			}
+			.admin-app .wp-list-table tbody tr:hover {
+				background: #f6f7f7;
+			}
+			.admin-app .view-links {
+				font-size: 12px;
+				line-height: 1.5;
+			}
+			.admin-app .view-links a {
+				margin-right: 0.35rem;
+			}
+
+			/* Upload widget on light background */
+			.admin-app .upload-widget {
+				background: #fff;
+				border: 1px solid var(--wp-border);
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+			}
+			.admin-app .upload-widget__title {
+				color: var(--wp-blue);
+			}
+			.admin-app .upload-widget__hint {
+				color: var(--wp-muted);
+			}
+			.admin-app .btn--ghost {
+				color: var(--wp-blue);
+				border-color: #c3c4c7;
+			}
+			.admin-app .btn--ghost:hover {
+				background: #f0f6fc;
+				border-color: var(--wp-blue);
+			}
+
+			@media (max-width: 782px) {
+				.admin-frame {
+					flex-direction: column;
+				}
+				.admin-menu {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.25rem;
+					padding: 0.5rem;
+				}
+				.admin-menu__item {
+					border-left: 0;
+					border-radius: 3px;
+				}
+				.admin-menu__submenu {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="admin-root">
+		<div class="admin-bar" role="navigation" aria-label="Admin toolbar">
+			<span class="admin-bar__brand">Travel Guide Georgia</span>
+			<a href={urlSiteHome}>Visit site</a>
+			<a href={urlAdmin}>Dashboard</a>
+			<a href={urlPages}>Pages</a>
+			<a href={urlFooter}>Footer</a>
+			<span class="admin-bar__spacer"></span>
+			<span class="admin-bar__howdy">
+				Howdy, <strong>{userEmail}</strong>
+			</span>
+			<form method="post" action="/api/auth/logout" style="display:inline;margin:0">
+				<button
+					type="submit"
+					class="button"
+					style="background:transparent;border:none;color:#a7aaad;padding:0.35rem 0.5rem;cursor:pointer;font:inherit"
+				>
+					Log out
+				</button>
+			</form>
+		</div>
+
+		<div class="admin-frame">
+			<aside class="admin-menu" aria-label="Main menu">
+				<a
+					class:list={['admin-menu__item', { 'is-active': activeNav === 'dashboard' }]}
+					href={urlAdmin}
+				>
+					Dashboard
+				</a>
+
+				<details class="admin-menu__submenu" open={toursOpen}>
+					<summary>Tours</summary>
+					<a class:list={['admin-menu__sub', { 'is-active': toursAllActive }]} href={`${urlAdmin}#wp-tours`}>
+						All tours
+					</a>
+					<a class:list={['admin-menu__sub', { 'is-active': toursNewActive }]} href={urlNewTour}>
+						Add new tour
+					</a>
+				</details>
+
+				<details class="admin-menu__submenu" open={wtdOpen}>
+					<summary>What to do</summary>
+					<a class:list={['admin-menu__sub', { 'is-active': wtdAllActive }]} href={`${urlAdmin}#wp-what-to-do`}>
+						All entries
+					</a>
+					<a class:list={['admin-menu__sub', { 'is-active': wtdNewActive }]} href={urlNewWtd}>
+						Add new
+					</a>
+				</details>
+
+				<details class="admin-menu__submenu" open={pagesOpen}>
+					<summary>Pages</summary>
+					<a class:list={['admin-menu__sub', { 'is-active': pagesAllActive }]} href={urlPages}>
+						All pages
+					</a>
+					<a class:list={['admin-menu__sub', { 'is-active': pagesNewActive }]} href={urlNewPage}>
+						Add new
+					</a>
+				</details>
+
+				<a class="admin-menu__item" href={`${urlAdmin}#wp-users`}>Users</a>
+
+				<a class:list={['admin-menu__item', { 'is-active': activeNav === 'footer' }]} href={urlFooter}>
+					Footer
+				</a>
+			</aside>
+
+			<main class="admin-content">
+				<header class="admin-content__header">
+					<h1>{headline}</h1>
+					{subtitle ? <p class="admin-content__subtitle">{subtitle}</p> : null}
+				</header>
+				<slot />
+			</main>
+		</div>
+
+		<footer class="admin-footer">
+			Thank you for creating with <strong>Travel Guide Georgia</strong>.
+			<span class="admin-footer__sep">|</span>
+			<a href={urlSiteHome}>View site</a>
+			<span class="admin-footer__sep">|</span>
+			<span>
+				Data: <code>tours.json</code>, <code>what-to-do.json</code>, <code>pages.json</code>,{' '}
+				<code>footer.json</code>, <code>users.json</code>
+			</span>
+		</footer>
+		</div>
+	</body>
+</html>

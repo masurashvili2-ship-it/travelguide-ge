@@ -1,0 +1,159 @@
+[
+  {
+    "id": "06f30e07-da7a-4996-9806-5e5006483db8",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "Zaan seriozuli ramea",
+    "parentId": null,
+    "createdAt": 1774382791562
+  },
+  {
+    "id": "2a452c7e-217e-47dc-926f-5949ae1ee32b",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 4,
+    "body": "არ მომეწონა",
+    "parentId": null,
+    "createdAt": 1774382806723
+  },
+  {
+    "id": "a1dc6317-e533-4823-aae2-77c26b316b45",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "გაასწორა",
+    "parentId": null,
+    "createdAt": 1774382816250
+  },
+  {
+    "id": "ab7f13b6-0da1-48c8-a8a3-d56fe072b889",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 2,
+    "body": "fefe",
+    "parentId": null,
+    "createdAt": 1774382889314
+  },
+  {
+    "id": "8d476a3c-669a-4be6-bfd3-73f897c2368d",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 1,
+    "body": "hrth",
+    "parentId": null,
+    "createdAt": 1774382897730
+  },
+  {
+    "id": "37a3e4b9-b09d-4fb0-8776-ef0edb868ece",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 1,
+    "body": "rg",
+    "parentId": null,
+    "createdAt": 1774382901130
+  },
+  {
+    "id": "5e8d71b5-8497-4da4-b37b-4585919f6cf1",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "2222",
+    "parentId": null,
+    "createdAt": 1774383181273
+  },
+  {
+    "id": "f0b26c39-3b9a-43ee-ab88-f1117960466e",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "mmk",
+    "parentId": null,
+    "createdAt": 1774383197963,
+    "updatedAt": 1774383480451
+  },
+  {
+    "id": "581c9592-7ca9-4005-b31d-3bb9cc148721",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": null,
+    "body": "ll';',",
+    "parentId": "f0b26c39-3b9a-43ee-ab88-f1117960466e",
+    "createdAt": 1774383430990
+  },
+  {
+    "id": "55fb1945-a660-4b8f-923a-6de9b6cdd9e0",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": null,
+    "body": "ijjm,lml",
+    "parentId": "581c9592-7ca9-4005-b31d-3bb9cc148721",
+    "createdAt": 1774383451253,
+    "updatedAt": 1774383475762
+  },
+  {
+    "id": "b1d1d509-94d7-4410-87a4-a6ae46fca958",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": null,
+    "body": "bjb,m",
+    "parentId": "f0b26c39-3b9a-43ee-ab88-f1117960466e",
+    "createdAt": 1774383460651
+  },
+  {
+    "id": "42aebe61-a3dc-4bef-ad2c-56a7508b5828",
+    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": null,
+    "body": "3232",
+    "parentId": "55fb1945-a660-4b8f-923a-6de9b6cdd9e0",
+    "createdAt": 1774383468651
+  },
+  {
+    "id": "434f5e03-ec85-4adc-bf23-55a3cefa7aaa",
+    "tourId": "c0624c4f-d96a-445a-8bb2-d187a8de2d7f",
+    "postKind": "tours",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 2,
+    "body": "33\n\t\t\t\t\t\t\ttyjuy",
+    "parentId": null,
+    "createdAt": 1774383504867,
+    "updatedAt": 1774383617675
+  },
+  {
+    "id": "3b81bfd5-1b41-43a9-a3e0-e3c6a7633e66",
+    "tourId": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a03",
+    "postKind": "what-to-do",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "ferferfe",
+    "parentId": null,
+    "createdAt": 1774391026962
+  }
+]

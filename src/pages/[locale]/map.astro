@@ -1,0 +1,31 @@
+---
+import Shell from '../../components/Shell.astro';
+import ToursMap from '../../components/ToursMap.astro';
+import { listTourMapMarkers, listWhatToDoMapMarkers } from '../../lib/tours-db';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const markers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
+---
+
+<Shell
+	locale={locale}
+	subpath="map"
+	title={t.map}
+	seoDescription={t.mapMetaDescription}
+	canonicalPath={`/${locale}/map`}
+>
+	<section class="hero">
+		<h1>{t.map}</h1>
+		<p class="muted">{t.mapIntro}</p>
+	</section>
+
+	{markers.length === 0 ? <p class="muted">{t.mapEmpty}</p> : null}
+	<ToursMap markers={markers} />
+</Shell>

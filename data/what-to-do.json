@@ -1,0 +1,165 @@
+{
+  "posts": [
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a01",
+      "slug": "old-tbilisi-evening-walk",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.6941,
+        "lng": 44.8025,
+        "label": "Old Tbilisi"
+      },
+      "seasons": [
+        "summer"
+      ],
+      "physical_rating": "easy",
+      "driving_distance": "Walking only · ~3 km loop",
+      "i18n": {
+        "en": {
+          "title": "Old Tbilisi evening walk",
+          "duration": "2–3 hours",
+          "price": "Free (self-guided)",
+          "excerpt": "Narikala views, balconied streets, and hidden courtyards after sunset.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Start near **Metekhi** or **Mother Georgia**, then wind through **Abanotubani** and the balconied streets toward **Narikala** (you can skip the cable car and walk up if you prefer).\r\n\r\nEvenings are quieter and the city lights over the **Mtkvari** are worth the climb. Wear comfortable shoes—cobblestones are slippery when wet."
+        },
+        "ka": {
+          "title": "ძველი თბილისის საღამოს სასიარულო",
+          "duration": "2–3 საათი",
+          "price": "უფასო (დამოუკიდებლად)",
+          "excerpt": "ნარიყალას ხედები, აივნებიანი ქუჩები და ეზოები მზის ჩასვლის შემდეგ.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "დაიწყეთ **მეტეხის** ან **დედაქალაქის** სიახლოვეს, შემდეგ გაიარეთ **აბანოთუბანი** და **ნარიყალას** მიმართულებით (სურვილისამებრ ფეხით ან საბაგირო გზით).\r\n\r\nსაღამოს ნაკლები ხალხია და **მტკვრის** ხედი ღირსება. ჩაიცვით მოსიარულე ფეხსაცმელი — ქვა ტენიან ამინდში სრიალებს."
+        },
+        "ru": {
+          "title": "Вечерняя прогулка по Старому Тбилиси",
+          "duration": "2–3 часа",
+          "price": "Бесплатно (самостоятельно)",
+          "excerpt": "Виды на Нарикала, балконные улицы и дворики после заката.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Начните у **Метехи** или **Матери Грузии**, затем пройдите через **Абанотубани** к **Нарикале** (можно пешком или на канатной дороге).\r\n\r\nВечером меньше людей, а подсветка над **Курой** того стоит. Удобная обувь обязательна — мокрый булыжник скользкий."
+        }
+      },
+      "updated_at": 1775000000000,
+      "categories": [
+        "street"
+      ]
+    },
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a02",
+      "slug": "sulphur-baths-chreli-abano",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.692,
+        "lng": 44.808,
+        "label": "Abanotubani"
+      },
+      "seasons": [],
+      "physical_rating": "moderate",
+      "driving_distance": null,
+      "i18n": {
+        "en": {
+          "title": "Sulphur baths (Abanotubani)",
+          "duration": "1–2 hours",
+          "price": "From ~50–150 GEL depending on bathhouse",
+          "excerpt": "Natural hot sulphur water in the heart of Old Tbilisi — book ahead on weekends.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Tbilisi means “warm place” because of these **sulphur springs**. Several historic and modern bathhouses sit in **Abanotubani**.\r\n\r\nBring your own towel unless included, drink water, and avoid if you have certain heart conditions—ask staff if unsure. **Chreli Abano** and **Orbeliani** are popular; reservations help on Friday evenings."
+        },
+        "ka": {
+          "title": "გოგირდის აბანოები (აბანოთუბანი)",
+          "duration": "1–2 საათი",
+          "price": "~50–150 ლარიდან (დამოკიდებულია აბანოზე)",
+          "excerpt": "ცხელი გოგირდიანი წყალი ძველ თბილისში — შაბათ-კვირას წინასწარ დაჯავშნა გამოგადგებათ.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "თბილისი სახელითაც **თბილი ადგილია** — **აბანოთუბანში** რამდენიმე ისტორიული და თანამედროვე აბანოა.\r\n\r\nწაიღეთ პირსახოცი, თუ არ არის ჩართული, სვით წყალი და ჯანმრთელობის პრობლემებისას მიმართეთ პერსონალს. **ჩრელი აბანო** და **ორბელიანი** პოპულარულია; პარასკევს წინასწარ დაჯავშნა გამოსადეგია."
+        },
+        "ru": {
+          "title": "Серные бани (Абанотубани)",
+          "duration": "1–2 часа",
+          "price": "От ~50–150 лари в зависимости от бани",
+          "excerpt": "Горячая серная вода в центре Старого Тбилиси — в выходные лучше бронировать.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Название **Тбилиси** связано с этими **источниками**. В **Абанотубани** несколько исторических и современных бань.\r\n\r\nВозьмите полотенце, если не входит в цену, пейте воду. **Чрели-Абано** и **Орбелиани** популярны; в пятницу вечером лучше записаться заранее."
+        }
+      },
+      "updated_at": 1775000001000,
+      "categories": [
+        "hot-spring"
+      ]
+    },
+    {
+      "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a03",
+      "slug": "dry-bridge-flea-market",
+      "image": "/uploads/what-to-do/dry-bridge-flea-market-10.webp",
+      "gallery": [
+        "/uploads/what-to-do/dry-bridge-flea-market.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-1.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-2.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-3.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-4.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-5.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-6.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-7.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-8.webp",
+        "/uploads/what-to-do/dry-bridge-flea-market-9.webp"
+      ],
+      "location": {
+        "lat": 41.699,
+        "lng": 44.7995,
+        "label": "Dry Bridge"
+      },
+      "seasons": [],
+      "physical_rating": "easy",
+      "driving_distance": null,
+      "i18n": {
+        "en": {
+          "title": "Dry Bridge flea market",
+          "duration": "1–2 hours",
+          "price": "Free to browse",
+          "excerpt": "Soviet memorabilia, paintings, books, and curios near Dedaena Park.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Dry Bridge** area hosts Tbilisi’s best-known **open-air market** for antiques, art, and bric-a-brac. Mornings are calmer; weekends are busiest.\r\n\r\nCash helps for small purchases. Inspect items if buying electronics or watches—**bargaining** is normal but stay friendly."
+        },
+        "ka": {
+          "title": "ზვიგენის ხიდის ბაზრობა",
+          "duration": "1–2 საათი",
+          "price": "უფასო სიარული",
+          "excerpt": "საბჭოთა სუვენირები, ნახატები, წიგნები და საინტერესო ნივთები დედაენის პარკთან ახლოს.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**ზვიგენის ხიდის** ტერიტორიაზე თბილისის ცნობილი **ღია ბაზრობაა** ანტიკვარიატისა და საინტერესო ნივთებისთვის. დილები უფრო მშვიდია; შაბათ-კვირას ხალხი მეტია.\r\n\r\nპატარა ყიდვებზე **ნაღდი ფული** გამოსადეგია. ტექნიკის ყიდვისას შეამოწმეთ; **ვაჭრობა** ნორმალურია, მაგრამ თავაზიანად."
+        },
+        "ru": {
+          "title": "Блошиный рынок у Сухого моста",
+          "duration": "1–2 часа",
+          "price": "Вход бесплатный",
+          "excerpt": "Советские сувениры, картины, книжки и мелочи у парка Дедаэна.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "У **Сухого моста** — известный **открытый рынок** с антиквариатом и всякой всячиной. Утром спокойнее, в выходные многолюдно.\r\n\r\nДля мелких покупок удобны **наличные**. При покупке техники смотрите состояние; **торг** уместен, но вежливо."
+        }
+      },
+      "updated_at": 1774389608613,
+      "categories": [
+        "hot-spring",
+        "lake",
+        "river",
+        "state-nature-reserve",
+        "park",
+        "mountain-peaks",
+        "history-culture",
+        "landmark"
+      ]
+    }
+  ]
+}

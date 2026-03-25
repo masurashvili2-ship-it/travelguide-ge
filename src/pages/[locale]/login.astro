@@ -1,0 +1,42 @@
+---
+import Shell from '../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const err = Astro.url.searchParams.get('error');
+const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, '/');
+---
+
+<Shell
+	locale={locale}
+	subpath="login"
+	title={t.login}
+	canonicalPath={`/${locale}/login`}
+	robotsNoindex
+>
+	<h1 style="margin:0 0 1rem">{t.login}</h1>
+	{err ? <div class="alert" role="alert">{err}</div> : null}
+	<form class="auth" method="post" action="/api/auth/login">
+		<input type="hidden" name="next" value={next} />
+		<label>
+			<span>{t.email}</span>
+			<input type="email" name="email" required autocomplete="email" />
+		</label>
+		<label>
+			<span>{t.password}</span>
+			<input type="password" name="password" required autocomplete="current-password" minlength="8" />
+		</label>
+		<button class="btn" type="submit">{t.submitLogin}</button>
+	</form>
+	<p class="muted" style="margin-top:1.5rem">
+		{t.noAccount}
+		<a href={getRelativeLocaleUrl(locale, 'register')}>{t.register}</a>
+	</p>
+</Shell>

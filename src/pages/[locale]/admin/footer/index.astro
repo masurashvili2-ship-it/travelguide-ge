@@ -1,0 +1,344 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { marked } from 'marked';
+import type { Locale } from '../../../../lib/strings';
+import { localeNames } from '../../../../lib/strings';
+import { getFooterConfig, getFooterNavForLocale, getFooterBlurbMarkdown } from '../../../../lib/footer-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/footer');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const cfg = getFooterConfig();
+const userEmail = Astro.locals.user.email;
+const saved = Astro.url.searchParams.has('saved');
+
+const previewLocales = ['en', 'ka', 'ru'] as const;
+const previews = previewLocales.map((ploc) => {
+	const nav = getFooterNavForLocale(ploc);
+	const md = getFooterBlurbMarkdown(ploc);
+	const h = md ? marked.parse(md, { async: false }) : '';
+	return {
+		loc: ploc,
+		name: localeNames[ploc],
+		nav,
+		blurbHtml: typeof h === 'string' ? h : '',
+	};
+});
+---
+
+<AdminLayout
+	locale={locale}
+	title="Footer ‹ Travel Guide Georgia"
+	headline="Site footer"
+	subtitle="Applies to every public page. Links and text are stored in data/footer.json."
+	activeNav="footer"
+	userEmail={userEmail}
+>
+	{
+		saved ? (
+			<div class="notice" style="border-left-color:#00a32a;background:#edfaef" role="status">
+				Footer saved. Refresh the public site to see changes.
+			</div>
+		) : null
+	}
+
+	<div class="postbox">
+		<div class="postbox__header">Live preview (by language)</div>
+		<div class="postbox__inside">
+			<p class="muted" style="margin:0 0 1rem">
+				How the footer looks for visitors. Titles fall back to another language if a translation is empty.
+			</p>
+			<div
+				style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;align-items:start"
+			>
+				{
+					previews.map((p) => (
+						<div
+							style="border:1px solid var(--wp-border);border-radius:4px;padding:0.75rem;background:#fafafa;font-size:12px"
+						>
+							<p style="margin:0 0 0.5rem;font-weight:700">{p.name} ({p.loc})</p>
+							{p.nav.length === 0 ? (
+								<p class="muted" style="margin:0">
+									No links
+								</p>
+							) : (
+								<ul style="margin:0;padding-left:1.1rem">
+									{p.nav.map((e) => {
+										const href =
+											e.kind === 'internal' ? getRelativeLocaleUrl(p.loc, e.path) : e.url;
+										return (
+											<li style="margin:0.2rem 0">
+												<a href={href}>{e.title}</a>
+												<span class="muted" style="font-size:11px">
+													{' '}
+													({e.kind === 'internal' ? e.path : 'external'})
+												</span>
+											</li>
+										);
+									})}
+								</ul>
+							)}
+							{p.blurbHtml.trim() ? (
+								<div
+									class="footer-preview-blurb"
+									style="margin-top:0.65rem;padding-top:0.5rem;border-top:1px dashed var(--wp-border)"
+									set:html={p.blurbHtml}
+								/>
+							) : null}
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+
+	<div class="postbox">
+		<div class="postbox__header">Footer links</div>
+		<div class="postbox__inside">
+			<p class="muted" style="margin:0 0 1rem">
+				<strong>Internal</strong> paths are relative to the language prefix (e.g. <code>about</code> →{' '}
+				<code>/en/about</code>, <code>tours/slug-name</code> for a tour). <strong>External</strong> uses a full URL
+				(<code>https://…</code>) or <code>mailto:…</code>. Each row needs one target and at least one title.
+			</p>
+			<div style="overflow-x:auto">
+				<table class="wp-list-table" style="min-width:720px">
+					<thead>
+						<tr>
+							<th style="width:4rem">Order</th>
+							<th style="width:7rem">Type</th>
+							<th>Internal path</th>
+							<th>External URL</th>
+							<th>Title EN</th>
+							<th>Title KA</th>
+							<th>Title RU</th>
+							<th style="width:4rem"></th>
+						</tr>
+					</thead>
+					<tbody id="footer-rows">
+						{
+							cfg.links
+								.sort((a, b) => (a.order !== b.order ? a.order - b.order : a.id.localeCompare(b.id)))
+								.map((link) => {
+									const internal = link.internal_path ?? '';
+									const external = link.external_url ?? '';
+									const kind = internal ? 'internal' : 'external';
+									return (
+										<tr data-footer-row="1" data-id={link.id}>
+											<td>
+												<input
+													class="f-order"
+													type="number"
+													step="1"
+													value={link.order}
+													style="width:100%;max-width:4rem"
+												/>
+											</td>
+											<td>
+												<select class="f-kind" value={kind}>
+													<option value="internal">Internal</option>
+													<option value="external">External</option>
+												</select>
+											</td>
+											<td>
+												<input
+													class="f-internal"
+													type="text"
+													value={internal}
+													placeholder="about or tours/slug"
+													autocomplete="off"
+												/>
+											</td>
+											<td>
+												<input
+													class="f-external"
+													type="url"
+													value={external}
+													placeholder="https://…"
+													autocomplete="off"
+												/>
+											</td>
+											<td>
+												<input class="f-te" type="text" value={link.title_en} />
+											</td>
+											<td>
+												<input class="f-tk" type="text" value={link.title_ka} />
+											</td>
+											<td>
+												<input class="f-tr" type="text" value={link.title_ru} />
+											</td>
+											<td>
+												<button type="button" class="button js-remove-footer-row">
+													Remove
+												</button>
+											</td>
+										</tr>
+									);
+								})
+						}
+					</tbody>
+				</table>
+			</div>
+			<p style="margin:1rem 0 0">
+				<button type="button" class="button" id="footer-add-row">Add link</button>
+				<button type="button" class="button button-primary" id="footer-save" style="margin-left:0.35rem">
+					Save footer
+				</button>
+			</p>
+		</div>
+	</div>
+
+	<template id="footer-row-tpl">
+		<tr data-footer-row="1" data-id="">
+			<td>
+				<input class="f-order" type="number" step="1" value="0" style="width:100%;max-width:4rem" />
+			</td>
+			<td>
+				<select class="f-kind">
+					<option value="internal">Internal</option>
+					<option value="external">External</option>
+				</select>
+			</td>
+			<td>
+				<input class="f-internal" type="text" value="" placeholder="about or tours/slug" autocomplete="off" />
+			</td>
+			<td>
+				<input class="f-external" type="url" value="" placeholder="https://…" autocomplete="off" />
+			</td>
+			<td>
+				<input class="f-te" type="text" value="" />
+			</td>
+			<td>
+				<input class="f-tk" type="text" value="" />
+			</td>
+			<td>
+				<input class="f-tr" type="text" value="" />
+			</td>
+			<td>
+				<button type="button" class="button js-remove-footer-row">Remove</button>
+			</td>
+		</tr>
+	</template>
+
+	<div class="postbox">
+		<div class="postbox__header">Footer text (Markdown, optional)</div>
+		<div class="postbox__inside">
+			<p class="muted" style="margin:0 0 1rem">
+				Shown under the link row and above the copyright on all public pages. Safe HTML is generated from Markdown.
+			</p>
+			<div class="row">
+				<label>
+					<span>English</span>
+					<textarea id="blurb-en" rows="4" style="font-family:ui-monospace,monospace;font-size:13px">
+						{cfg.blurb.en}
+					</textarea>
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Georgian</span>
+					<textarea id="blurb-ka" rows="4" style="font-family:ui-monospace,monospace;font-size:13px">
+						{cfg.blurb.ka}
+					</textarea>
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Russian</span>
+					<textarea id="blurb-ru" rows="4" style="font-family:ui-monospace,monospace;font-size:13px">
+						{cfg.blurb.ru}
+					</textarea>
+				</label>
+			</div>
+		</div>
+	</div>
+</AdminLayout>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', function () {
+		var tbody = document.getElementById('footer-rows');
+		var tpl = document.getElementById('footer-row-tpl');
+		var addBtn = document.getElementById('footer-add-row');
+		var saveBtn = document.getElementById('footer-save');
+		if (!tbody || !tpl || !addBtn || !saveBtn) return;
+
+		function bindRemove(btn) {
+			btn.addEventListener('click', function () {
+				var tr = btn.closest('tr');
+				if (!tr || !tbody.contains(tr)) return;
+				tr.remove();
+			});
+		}
+
+		document.querySelectorAll('.js-remove-footer-row').forEach(bindRemove);
+
+		addBtn.addEventListener('click', function () {
+			var node = tpl.content.cloneNode(true);
+			var rows = tbody.querySelectorAll('tr[data-footer-row]');
+			var nextOrder = rows.length;
+			var orderInput = node.querySelector('.f-order');
+			if (orderInput) orderInput.value = String(nextOrder);
+			tbody.appendChild(node);
+			var last = tbody.querySelector('tr[data-footer-row]:last-child .js-remove-footer-row');
+			if (last) bindRemove(last);
+		});
+
+		saveBtn.addEventListener('click', async function () {
+			var rows = tbody.querySelectorAll('tr[data-footer-row]');
+			var links = [];
+			for (var i = 0; i < rows.length; i++) {
+				var tr = rows[i];
+				var id = tr.getAttribute('data-id') || '';
+				var orderRaw = tr.querySelector('.f-order');
+				var order = parseInt(orderRaw && orderRaw.value, 10);
+				if (!Number.isFinite(order)) order = i;
+				var kindEl = tr.querySelector('.f-kind');
+				var kind = kindEl && kindEl.value === 'external' ? 'external' : 'internal';
+				var internal = (tr.querySelector('.f-internal') && tr.querySelector('.f-internal').value.trim()) || '';
+				var external = (tr.querySelector('.f-external') && tr.querySelector('.f-external').value.trim()) || '';
+				links.push({
+					id: id || undefined,
+					order: order,
+					internal_path: kind === 'internal' ? internal || null : null,
+					external_url: kind === 'external' ? external || null : null,
+					title_en: (tr.querySelector('.f-te') && tr.querySelector('.f-te').value.trim()) || '',
+					title_ka: (tr.querySelector('.f-tk') && tr.querySelector('.f-tk').value.trim()) || '',
+					title_ru: (tr.querySelector('.f-tr') && tr.querySelector('.f-tr').value.trim()) || '',
+				});
+			}
+			var blurb = {
+				en: (document.getElementById('blurb-en') && document.getElementById('blurb-en').value) || '',
+				ka: (document.getElementById('blurb-ka') && document.getElementById('blurb-ka').value) || '',
+				ru: (document.getElementById('blurb-ru') && document.getElementById('blurb-ru').value) || '',
+			};
+			try {
+				var res = await fetch('/api/admin/footer', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'same-origin',
+					body: JSON.stringify({ links: links, blurb: blurb }),
+				});
+				var data = {};
+				try {
+					data = await res.json();
+				} catch (e) {}
+				if (!res.ok) {
+					alert(data.error || 'Save failed');
+					return;
+				}
+				window.location.href = window.location.pathname + '?saved=1';
+			} catch (err) {
+				alert(err.message || 'Save failed');
+			}
+		});
+	});
+</script>

@@ -1,0 +1,627 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import SiteFooter from './SiteFooter.astro';
+import { absoluteSeoUrl } from '../lib/seo';
+import type { Locale } from '../lib/strings';
+import LocaleFlag from './LocaleFlag.astro';
+import { localeNames, ui } from '../lib/strings';
+
+interface Props {
+	locale: Locale;
+	/** Path after locale, e.g. "" | "tours" | "tours/slug" */
+	subpath?: string;
+	title?: string;
+	/** Overrides `title` for &lt;title&gt;, og:title, twitter:title when set */
+	seoTitle?: string;
+	seoDescription?: string;
+	/** Path starting with / (e.g. /en/tours/slug); defaults to current URL path */
+	canonicalPath?: string;
+	seoImage?: string | null;
+	ogType?: 'website' | 'article';
+	jsonLd?: Record<string, unknown> | null;
+	robotsNoindex?: boolean;
+}
+
+const {
+	locale,
+	subpath = '',
+	title,
+	seoTitle,
+	seoDescription,
+	canonicalPath,
+	seoImage,
+	ogType = 'website',
+	jsonLd,
+	robotsNoindex,
+} = Astro.props;
+const t = ui[locale];
+const user = Astro.locals.user;
+
+const site = Astro.site;
+const pathForCanonical = canonicalPath ?? Astro.url.pathname;
+const canonicalHref = site ? new URL(pathForCanonical, site).href : Astro.url.href;
+const titleSegment = seoTitle?.trim() || title?.trim();
+const pageTitle = titleSegment ? `${titleSegment} · ${t.siteTitle}` : t.siteTitle;
+const ogTitleText = titleSegment || t.siteTitle;
+const metaDesc = seoDescription?.trim();
+const ogImageAbs = absoluteSeoUrl(seoImage ?? undefined, site);
+const twitterCard = ogImageAbs ? 'summary_large_image' : 'summary';
+const jsonLdStr = jsonLd ? JSON.stringify(jsonLd) : '';
+
+const locales: Locale[] = ['en', 'ka', 'ru'];
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		{robotsNoindex ? <meta name="robots" content="noindex, nofollow" /> : null}
+		<title>{pageTitle}</title>
+		{metaDesc ? <meta name="description" content={metaDesc} /> : null}
+		<link rel="canonical" href={canonicalHref} />
+		<meta property="og:title" content={ogTitleText} />
+		{metaDesc ? <meta property="og:description" content={metaDesc} /> : null}
+		<meta property="og:url" content={canonicalHref} />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:locale" content={locale === 'en' ? 'en_US' : locale === 'ka' ? 'ka_GE' : 'ru_RU'} />
+		<meta property="og:site_name" content={t.siteTitle} />
+		{ogImageAbs ? <meta property="og:image" content={ogImageAbs} /> : null}
+		<meta name="twitter:card" content={twitterCard} />
+		<meta name="twitter:title" content={ogTitleText} />
+		{metaDesc ? <meta name="twitter:description" content={metaDesc} /> : null}
+		{ogImageAbs ? <meta name="twitter:image" content={ogImageAbs} /> : null}
+		{jsonLdStr ? <script type="application/ld+json" set:html={jsonLdStr} /> : null}
+		<style is:global>
+			:root {
+				--bg: #f4f1ea;
+				--surface: #ffffff;
+				--text: #1a2332;
+				--muted: #5a6672;
+				--accent: #a67c00;
+				--accent-dim: #8a6600;
+				--btn-text: #1c1608;
+				--border: #d9d4ca;
+				--danger: #b83232;
+				font-family: system-ui, 'Segoe UI', Roboto, 'Noto Sans Georgian', sans-serif;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				background:
+					radial-gradient(1400px 700px at 12% -8%, rgba(255, 248, 220, 0.85) 0%, transparent 55%),
+					radial-gradient(1000px 500px at 88% 0%, rgba(230, 240, 252, 0.5) 0%, transparent 45%),
+					linear-gradient(180deg, #faf8f4 0%, var(--bg) 38%, #ebe6dc 100%);
+				color: var(--text);
+				line-height: 1.6;
+			}
+			a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.wrap {
+				max-width: min(1240px, calc(100vw - 2.5rem));
+				margin: 0 auto;
+				padding: 0 1.5rem 3.5rem;
+			}
+			header.site {
+				position: relative;
+				z-index: 8000;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem 1.25rem;
+				padding: 1rem 0;
+				border-bottom: 1px solid var(--border);
+				margin-bottom: 2rem;
+				box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+			}
+			.brand {
+				font-weight: 700;
+				font-size: 1.1rem;
+				letter-spacing: 0.02em;
+				flex: 0 0 auto;
+			}
+			.brand a {
+				color: var(--text);
+			}
+			.site-header__main {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 0.85rem 1.25rem;
+				flex: 1 1 auto;
+				min-width: 0;
+			}
+			.site-nav {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.5rem 1.1rem;
+			}
+			.site-nav a {
+				color: var(--muted);
+				font-size: 0.95rem;
+				white-space: nowrap;
+			}
+			.site-nav a[aria-current='page'] {
+				color: var(--accent);
+				font-weight: 600;
+			}
+			.site-header__tools {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 0.45rem;
+				flex: 0 0 auto;
+			}
+			.site-dd {
+				position: relative;
+			}
+			.site-dd__trigger {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 0.4rem;
+				min-height: 2.5rem;
+				padding: 0.35rem 0.65rem;
+				margin: 0;
+				list-style: none;
+				cursor: pointer;
+				font: inherit;
+				font-size: 0.9rem;
+				font-weight: 600;
+				color: var(--text);
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				box-shadow: 0 1px 2px rgba(26, 35, 50, 0.06);
+				transition:
+					border-color 0.15s ease,
+					background 0.15s ease,
+					color 0.15s ease;
+			}
+			.site-dd__trigger::-webkit-details-marker {
+				display: none;
+			}
+			.site-dd__trigger::marker {
+				content: '';
+			}
+			.site-dd__trigger:hover {
+				border-color: rgba(166, 124, 0, 0.4);
+				background: rgba(166, 124, 0, 0.06);
+			}
+			.site-dd[open] > .site-dd__trigger {
+				border-color: rgba(166, 124, 0, 0.45);
+				box-shadow: 0 0 0 1px rgba(166, 124, 0, 0.12);
+			}
+			.site-dd__trigger:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 2px;
+			}
+			.site-dd__trigger-inner {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+			.site-dd__trigger--lang {
+				padding-inline: 0.55rem 0.5rem;
+			}
+			.site-dd__lang-chip {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+			}
+			.site-dd__link .locale-flag {
+				flex-shrink: 0;
+			}
+			.site-dd__lang-code {
+				font-size: 0.78rem;
+				font-weight: 700;
+				letter-spacing: 0.06em;
+				color: var(--muted);
+			}
+			.site-dd__trigger-text {
+				max-width: 7rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.site-dd__chev-svg {
+				display: block;
+				flex-shrink: 0;
+				color: var(--muted);
+				transition: transform 0.2s ease;
+			}
+			.site-dd[open] .site-dd__chev-svg {
+				transform: rotate(180deg);
+			}
+			.site-dd__panel {
+				position: absolute;
+				top: calc(100% + 0.35rem);
+				right: 0;
+				min-width: min(16rem, calc(100vw - 2.5rem));
+				padding: 0.35rem 0;
+				margin: 0;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				box-shadow: 0 10px 36px rgba(26, 35, 50, 0.14);
+				z-index: 8100;
+			}
+			.site-dd--lang .site-dd__panel {
+				min-width: 12.5rem;
+			}
+			.site-dd__link {
+				display: flex;
+				align-items: center;
+				gap: 0.55rem;
+				padding: 0.6rem 0.95rem;
+				color: var(--text) !important;
+				font-size: 0.92rem;
+				font-weight: 500;
+				text-decoration: none !important;
+			}
+			.site-dd__link:hover {
+				background: rgba(166, 124, 0, 0.08);
+			}
+			.site-dd__link.is-current {
+				background: rgba(166, 124, 0, 0.12);
+				font-weight: 600;
+				color: var(--accent-dim) !important;
+			}
+			.site-dd__user-icon {
+				flex-shrink: 0;
+				opacity: 0.85;
+			}
+			.site-dd__email {
+				margin: 0;
+				padding: 0.45rem 0.95rem 0.5rem;
+				font-size: 0.8rem;
+				line-height: 1.35;
+				word-break: break-all;
+				border-bottom: 1px solid var(--border);
+			}
+			.site-dd__form {
+				margin: 0;
+				padding: 0.35rem 0.5rem 0.45rem;
+			}
+			.site-dd__btn-logout {
+				display: block;
+				width: 100%;
+				margin: 0;
+				padding: 0.55rem 0.75rem;
+				font: inherit;
+				font-size: 0.9rem;
+				font-weight: 600;
+				text-align: center;
+				color: var(--danger);
+				background: rgba(184, 50, 50, 0.06);
+				border: 1px solid rgba(184, 50, 50, 0.2);
+				border-radius: 8px;
+				cursor: pointer;
+				transition:
+					background 0.15s ease,
+					border-color 0.15s ease;
+			}
+			.site-dd__btn-logout:hover {
+				background: rgba(184, 50, 50, 0.1);
+				border-color: rgba(184, 50, 50, 0.35);
+			}
+			@media (max-width: 768px) {
+				header.site {
+					flex-direction: column;
+					align-items: stretch;
+				}
+				.brand {
+					text-align: center;
+				}
+				.site-header__main {
+					flex-direction: column;
+					align-items: stretch;
+				}
+				.site-nav {
+					justify-content: center;
+				}
+				.site-header__tools {
+					justify-content: center;
+					padding-top: 0.35rem;
+					border-top: 1px solid var(--border);
+				}
+				.site-dd__panel {
+					left: 50%;
+					right: auto;
+					transform: translateX(-50%);
+				}
+			}
+			.card-grid {
+				display: grid;
+				gap: 1.25rem;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			}
+			.card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 1.25rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				box-shadow: 0 2px 12px rgba(26, 35, 50, 0.06);
+			}
+			.card h2 {
+				margin: 0;
+				font-size: 1.15rem;
+			}
+			.muted {
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+			.btn {
+				display: inline-block;
+				padding: 0.55rem 1rem;
+				background: var(--accent);
+				color: var(--btn-text) !important;
+				border-radius: 6px;
+				font-weight: 600;
+				font-size: 0.9rem;
+				border: none;
+				cursor: pointer;
+				text-decoration: none !important;
+				box-shadow: 0 1px 2px rgba(26, 35, 50, 0.12);
+			}
+			.btn:hover {
+				filter: brightness(1.06);
+			}
+			.btn-ghost {
+				background: rgba(255, 255, 255, 0.6);
+				color: var(--accent-dim) !important;
+				border: 1px solid var(--border);
+				box-shadow: none;
+			}
+			.btn-ghost:hover {
+				background: var(--surface);
+				border-color: var(--accent-dim);
+			}
+			form.auth {
+				max-width: 360px;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+			label span {
+				display: block;
+				font-size: 0.85rem;
+				color: var(--muted);
+				margin-bottom: 0.25rem;
+			}
+			input {
+				width: 100%;
+				padding: 0.55rem 0.65rem;
+				border-radius: 6px;
+				border: 1px solid var(--border);
+				background: var(--surface);
+				color: var(--text);
+			}
+			.alert {
+				padding: 0.65rem 0.85rem;
+				border-radius: 6px;
+				background: rgba(184, 50, 50, 0.1);
+				color: var(--danger);
+				font-size: 0.9rem;
+				border: 1px solid rgba(184, 50, 50, 0.2);
+			}
+			.hero {
+				margin-bottom: 2.5rem;
+			}
+			.hero h1 {
+				font-size: clamp(1.75rem, 4vw, 2.35rem);
+				margin: 0 0 0.75rem;
+				line-height: 1.2;
+			}
+			.prose {
+				max-width: min(72ch, 100%);
+			}
+			.prose :where(h2, h3) {
+				margin-top: 1.5rem;
+			}
+			.prose :where(p) {
+				margin: 0.75rem 0;
+			}
+			.prose :where(ul, ol) {
+				margin: 0.75rem 0;
+				padding-left: 1.35rem;
+			}
+			.prose :where(li) {
+				margin: 0.25rem 0;
+			}
+			.prose :where(a) {
+				color: var(--accent);
+			}
+			.prose :where(strong) {
+				color: var(--text);
+			}
+			.site-footer {
+				margin-top: 3rem;
+				padding-top: 1.5rem;
+				border-top: 1px solid var(--border);
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 1rem 1.5rem;
+			}
+			.site-footer--links {
+				justify-content: space-between;
+			}
+			.site-footer:not(.site-footer--links) {
+				justify-content: flex-end;
+			}
+			.site-footer nav {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem 1.25rem;
+			}
+			.site-footer nav a {
+				font-size: 0.9rem;
+				color: var(--muted);
+			}
+			.site-footer nav a:hover {
+				color: var(--accent);
+			}
+			.site-footer__blurb {
+				width: 100%;
+				font-size: 0.9rem;
+				color: var(--muted);
+				line-height: 1.55;
+			}
+			.site-footer__blurb :where(p) {
+				margin: 0.35rem 0;
+			}
+			.site-footer__blurb :where(a) {
+				color: var(--accent);
+			}
+			.site-footer--links .site-footer__blurb {
+				margin-bottom: 0.25rem;
+			}
+			.site-footer__meta {
+				margin: 0;
+				font-size: 0.85rem;
+				color: var(--muted);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="site">
+				<div class="brand">
+					<a href={getRelativeLocaleUrl(locale, '/')}>{t.siteTitle}</a>
+				</div>
+				<div class="site-header__main">
+					<nav class="site-nav" aria-label="Main">
+						<a href={getRelativeLocaleUrl(locale, '/')} aria-current={subpath === '' ? 'page' : undefined}>{t.home}</a>
+						<a
+							href={getRelativeLocaleUrl(locale, 'tours')}
+							aria-current={subpath.startsWith('tours') ? 'page' : undefined}>{t.tours}</a>
+						<a
+							href={getRelativeLocaleUrl(locale, 'what-to-do')}
+							aria-current={subpath.startsWith('what-to-do') ? 'page' : undefined}>{t.whatToDo}</a>
+						<a
+							href={getRelativeLocaleUrl(locale, 'map')}
+							aria-current={subpath === 'map' ? 'page' : undefined}>{t.map}</a>
+					</nav>
+					<div class="site-header__tools">
+						<details class="site-dd site-dd--lang">
+							<summary class="site-dd__trigger site-dd__trigger--lang" aria-label={t.navLanguage}>
+								<span class="site-dd__lang-chip">
+									<LocaleFlag locale={locale} />
+									<span class="site-dd__lang-code">{locale.toUpperCase()}</span>
+								</span>
+								<svg
+									class="site-dd__chev-svg"
+									width="12"
+									height="12"
+									viewBox="0 0 12 12"
+									aria-hidden="true"
+								>
+									<path
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.75"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M2.5 4.25 6 7.75 9.5 4.25"
+									/>
+								</svg>
+							</summary>
+							<div class="site-dd__panel" role="group" aria-label={t.navLanguage}>
+								{
+									locales.map((loc) => (
+										<a
+											class:list={['site-dd__link', { 'is-current': loc === locale }]}
+											href={getRelativeLocaleUrl(loc, subpath || '/')}
+											aria-current={loc === locale ? 'page' : undefined}
+										>
+											<LocaleFlag locale={loc} />
+											<span>{localeNames[loc]}</span>
+										</a>
+									))
+								}
+							</div>
+						</details>
+						<details class="site-dd site-dd--account">
+							<summary class="site-dd__trigger" aria-label={t.navAccount}>
+								<span class="site-dd__trigger-inner">
+									<svg
+										class="site-dd__user-icon"
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										aria-hidden="true"
+									>
+										<path
+											fill="currentColor"
+											d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+										/>
+									</svg>
+									<span class="site-dd__trigger-text">{t.navAccount}</span>
+									<svg
+										class="site-dd__chev-svg"
+										width="12"
+										height="12"
+										viewBox="0 0 12 12"
+										aria-hidden="true"
+									>
+										<path
+											fill="none"
+											stroke="currentColor"
+											stroke-width="1.75"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M2.5 4.25 6 7.75 9.5 4.25"
+										/>
+									</svg>
+								</span>
+							</summary>
+							<div class="site-dd__panel" role="group" aria-label={t.navAccount}>
+								{
+									user ? (
+										<>
+											<p class="site-dd__email muted">{user.email}</p>
+											{
+												user.role === 'admin' ? (
+													<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'admin')}>
+														{t.admin}
+													</a>
+												) : null
+											}
+											<form class="site-dd__form" method="post" action="/api/auth/logout">
+												<button class="site-dd__btn-logout" type="submit">{t.logout}</button>
+											</form>
+										</>
+									) : (
+										<>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'login')}>{t.login}</a>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'register')}>{t.register}</a>
+										</>
+									)
+								}
+							</div>
+						</details>
+					</div>
+				</div>
+			</header>
+			<slot />
+			<SiteFooter locale={locale} />
+		</div>
+	</body>
+</html>

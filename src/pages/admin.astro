@@ -1,0 +1,7 @@
+---
+/**
+ * Without this route, `/admin` is handled as `/[locale]` with locale "admin", which is not a
+ * configured locale and can surface MissingLocaleError from astro:i18n.
+ */
+return Astro.redirect(`/en/admin${Astro.url.search}`, 302);
+---

@@ -1,0 +1,653 @@
+---
+import { type TourComment, flattenThreaded, topLevelReviews } from '../lib/tour-comments';
+import type { Locale } from '../lib/strings';
+import type { UserPublic } from '../lib/auth';
+
+type Props = {
+	locale: Locale;
+	/** API path segment: `tours` or `what-to-do` */
+	apiSegment?: 'tours' | 'what-to-do';
+	tourId: string;
+	comments: TourComment[];
+	averageRating: number | null;
+	user: UserPublic | undefined;
+	labels: {
+		title: string;
+		outOf: string;
+		count: string;
+		loginPrompt: string;
+		ratingLabel: string;
+		commentLabel: string;
+		submit: string;
+		empty: string;
+		signedInAs: string;
+		errorGeneric: string;
+		posting: string;
+		login: string;
+		edit: string;
+		reply: string;
+		save: string;
+		edited: string;
+		replySubmit: string;
+	};
+	loginHref: string;
+};
+
+const { locale, apiSegment = 'tours', tourId, comments, averageRating, user, labels, loginHref } =
+	Astro.props;
+
+const reviewCount = topLevelReviews(comments).length;
+const threaded = flattenThreaded(comments);
+
+function displayEmail(email: string): string {
+	const at = email.indexOf('@');
+	if (at <= 0) return email;
+	const local = email.slice(0, at);
+	const domain = email.slice(at + 1);
+	const masked = local.length <= 2 ? `${local[0] ?? ''}*` : `${local.slice(0, 2)}***`;
+	return `${masked}@${domain}`;
+}
+
+function formatCount(n: number): string {
+	return labels.count.replace('{n}', String(n));
+}
+
+function canEdit(c: TourComment, u: UserPublic | undefined): boolean {
+	if (!u) return false;
+	return u.id === c.userId || u.role === 'admin';
+}
+
+const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
+---
+
+<section class="tour-comments" aria-labelledby={headingId} data-api-segment={apiSegment}>
+	<h2 id={headingId} class="tour-comments__heading">{labels.title}</h2>
+
+	{
+		averageRating != null && reviewCount > 0 ? (
+			<p class="tour-comments__summary">
+				<span class="tour-comments__avg" aria-hidden="true">
+					{Array.from({ length: 5 }, (_, i) => (
+						<span class={i < Math.round(averageRating) ? 'tour-comments__star is-on' : 'tour-comments__star'}>
+							★
+						</span>
+					))}
+				</span>
+				<span class="tour-comments__avg-num">
+					<strong>{averageRating}</strong> {labels.outOf}
+				</span>
+				<span class="muted"> · {formatCount(reviewCount)}</span>
+			</p>
+		) : null
+	}
+
+	{
+		user ? (
+			<div class="tour-comments__form-wrap">
+				<p class="muted tour-comments__signed-in">
+					{labels.signedInAs} <span class="tour-comments__email">{displayEmail(user.email)}</span>
+				</p>
+				<form
+					class="tour-comments__form"
+					data-kind="review"
+					data-tour-id={tourId}
+					data-posting={labels.posting}
+					data-error-fallback={labels.errorGeneric}
+				>
+					<div class="tour-comments__field">
+						<span class="tour-comments__label">{labels.ratingLabel}</span>
+						<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
+							{[1, 2, 3, 4, 5].map((n) => (
+								<label class="tour-comments__rating-option">
+									<input type="radio" name="rating" value={n} required checked={n === 5} />
+									<span class="tour-comments__rating-face" aria-hidden="true">
+										{Array.from({ length: n }, () => '★').join('')}
+									</span>
+									<span class="visually-hidden">{n}</span>
+								</label>
+							))}
+						</div>
+					</div>
+					<label class="tour-comments__field">
+						<span class="tour-comments__label">{labels.commentLabel}</span>
+						<textarea
+							name="body"
+							class="tour-comments__textarea"
+							rows={4}
+							required
+							minlength={1}
+							maxlength={4000}
+						/>
+					</label>
+					<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
+					<button type="submit" class="btn tour-comments__submit">
+						{labels.submit}
+					</button>
+				</form>
+			</div>
+		) : (
+			<p class="tour-comments__guest muted">
+				{labels.loginPrompt}{' '}
+				<a href={loginHref}>{labels.login}</a>
+			</p>
+		)
+	}
+
+	<ul class="tour-comments__list">
+		{
+			threaded.length === 0 ? (
+				<li class="tour-comments__empty muted">{labels.empty}</li>
+			) : (
+				threaded.map(({ c, depth }) => {
+					const isReview = c.rating != null;
+					const showEdit = canEdit(c, user);
+					const showReply = !!user;
+					const indent = depth > 0 ? Math.min(depth, 8) * 0.75 : 0;
+					const itemStyle =
+						indent > 0
+							? `margin-left:${indent}rem;border-left:3px solid rgba(201,162,39,0.35)`
+							: undefined;
+					return (
+						<li class="tour-comments__item" style={itemStyle}>
+							<div class="tour-comments__item-head">
+								{isReview ? (
+									<span class="tour-comments__item-stars" aria-hidden="true">
+										{Array.from({ length: 5 }, (_, i) => (
+											<span class={i < (c.rating ?? 0) ? 'tour-comments__star is-on' : 'tour-comments__star'}>
+												★
+											</span>
+										))}
+									</span>
+								) : (
+									<span class="tour-comments__reply-badge muted">{labels.reply}</span>
+								)}
+								<span class="tour-comments__item-meta">
+									<span class="tour-comments__item-author">{displayEmail(c.userEmail)}</span>
+									<time class="tour-comments__item-date" datetime={new Date(c.createdAt).toISOString()}>
+										{new Date(c.createdAt).toLocaleDateString(locale, {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										})}
+									</time>
+									{c.updatedAt ? (
+										<span class="tour-comments__edited muted">({labels.edited})</span>
+									) : null}
+								</span>
+							</div>
+							<p class="tour-comments__item-body">{c.body}</p>
+
+							<div class="tour-comments__actions">
+								{showReply ? (
+									<details class="tour-comments__details">
+										<summary class="tour-comments__summary-link">{labels.reply}</summary>
+										<form
+											class="tour-comments__inline-form"
+											data-kind="reply"
+											data-tour-id={tourId}
+											data-parent-id={c.id}
+											data-posting={labels.posting}
+											data-error-fallback={labels.errorGeneric}
+										>
+											<label class="tour-comments__field">
+												<span class="tour-comments__label">{labels.commentLabel}</span>
+												<textarea
+													name="body"
+													class="tour-comments__textarea"
+													rows={3}
+													required
+													minlength={1}
+													maxlength={4000}
+												/>
+											</label>
+											<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
+											<button type="submit" class="btn tour-comments__submit btn--small">
+												{labels.replySubmit}
+											</button>
+										</form>
+									</details>
+								) : null}
+								{showEdit ? (
+									<details class="tour-comments__details">
+										<summary class="tour-comments__summary-link">{labels.edit}</summary>
+										<form
+											class="tour-comments__inline-form"
+											data-kind="edit"
+											data-tour-id={tourId}
+											data-comment-id={c.id}
+											data-is-review={isReview ? 'true' : 'false'}
+											data-posting={labels.posting}
+											data-error-fallback={labels.errorGeneric}
+										>
+											{isReview ? (
+												<div class="tour-comments__field">
+													<span class="tour-comments__label">{labels.ratingLabel}</span>
+													<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
+														{[1, 2, 3, 4, 5].map((n) => (
+															<label class="tour-comments__rating-option">
+																<input
+																	type="radio"
+																	name="rating"
+																	value={n}
+																	required
+																	checked={n === c.rating}
+																/>
+																<span class="tour-comments__rating-face" aria-hidden="true">
+																	{Array.from({ length: n }, () => '★').join('')}
+																</span>
+																<span class="visually-hidden">{n}</span>
+															</label>
+														))}
+													</div>
+												</div>
+											) : null}
+											<label class="tour-comments__field">
+												<span class="tour-comments__label">{labels.commentLabel}</span>
+												<textarea
+													name="body"
+													class="tour-comments__textarea"
+													rows={4}
+													required
+													minlength={1}
+													maxlength={4000}
+												>
+													{c.body}
+												</textarea>
+											</label>
+											<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
+											<button type="submit" class="btn tour-comments__submit btn--small">
+												{labels.save}
+											</button>
+										</form>
+									</details>
+								) : null}
+							</div>
+						</li>
+					);
+				})
+			)
+		}
+	</ul>
+</section>
+
+<script>
+	function init() {
+		const root = document.querySelector('.tour-comments');
+		if (!root) return;
+		const apiSeg = root.dataset.apiSegment || 'tours';
+
+		root.addEventListener('submit', async (e) => {
+			const form = e.target;
+			if (!(form instanceof HTMLFormElement)) return;
+			const kind = form.dataset.kind;
+			if (!kind) return;
+			e.preventDefault();
+
+			const tourId = form.dataset.tourId;
+			if (!tourId) return;
+
+			const errEl = form.querySelector<HTMLElement>('.tour-comments__error');
+			const btn = form.querySelector<HTMLButtonElement>('.tour-comments__submit');
+			const postingLabel = form.dataset.posting?.trim();
+			const fallback = form.dataset.errorFallback ?? errEl?.dataset.fallback ?? '';
+			const defaultBtn = btn?.textContent;
+
+			if (errEl) {
+				errEl.setAttribute('hidden', '');
+				errEl.textContent = '';
+			}
+
+			const fd = new FormData(form);
+			const body = String(fd.get('body') ?? '').trim();
+
+			if (kind === 'review') {
+				const rating = Number(fd.get('rating'));
+				if (!Number.isFinite(rating) || rating < 1 || rating > 5) return;
+				if (!body) return;
+				if (btn) {
+					btn.disabled = true;
+					if (postingLabel) btn.textContent = postingLabel;
+				}
+				try {
+					const res = await fetch(`/api/${apiSeg}/${encodeURIComponent(tourId)}/comments`, {
+						method: 'POST',
+						credentials: 'include',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ rating, body }),
+					});
+					const data = (await res.json().catch(() => ({}))) as { error?: string };
+					if (!res.ok) {
+						if (errEl) {
+							errEl.textContent = data.error || fallback;
+							errEl.removeAttribute('hidden');
+						}
+						return;
+					}
+					window.location.reload();
+				} catch {
+					if (errEl) {
+						errEl.textContent = fallback;
+						errEl.removeAttribute('hidden');
+					}
+				} finally {
+					if (btn) {
+						btn.disabled = false;
+						if (defaultBtn) btn.textContent = defaultBtn;
+					}
+				}
+				return;
+			}
+
+			if (kind === 'reply') {
+				const parentId = form.dataset.parentId;
+				if (!parentId || !body) return;
+				if (btn) {
+					btn.disabled = true;
+					if (postingLabel) btn.textContent = postingLabel;
+				}
+				try {
+					const res = await fetch(`/api/${apiSeg}/${encodeURIComponent(tourId)}/comments`, {
+						method: 'POST',
+						credentials: 'include',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ parentId, body }),
+					});
+					const data = (await res.json().catch(() => ({}))) as { error?: string };
+					if (!res.ok) {
+						if (errEl) {
+							errEl.textContent = data.error || fallback;
+							errEl.removeAttribute('hidden');
+						}
+						return;
+					}
+					window.location.reload();
+				} catch {
+					if (errEl) {
+						errEl.textContent = fallback;
+						errEl.removeAttribute('hidden');
+					}
+				} finally {
+					if (btn) {
+						btn.disabled = false;
+						if (defaultBtn) btn.textContent = defaultBtn;
+					}
+				}
+				return;
+			}
+
+			if (kind === 'edit') {
+				const commentId = form.dataset.commentId;
+				if (!commentId || !body) return;
+				const isReview = form.dataset.isReview === 'true';
+				const payload: { body: string; rating?: number } = { body };
+				if (isReview) {
+					const rating = Number(fd.get('rating'));
+					if (!Number.isFinite(rating) || rating < 1 || rating > 5) return;
+					payload.rating = rating;
+				}
+				if (btn) {
+					btn.disabled = true;
+					if (postingLabel) btn.textContent = postingLabel;
+				}
+				try {
+					const res = await fetch(
+						`/api/${apiSeg}/${encodeURIComponent(tourId)}/comments/${encodeURIComponent(commentId)}`,
+						{
+							method: 'PATCH',
+							credentials: 'include',
+							headers: { 'Content-Type': 'application/json' },
+							body: JSON.stringify(payload),
+						},
+					);
+					const data = (await res.json().catch(() => ({}))) as { error?: string };
+					if (!res.ok) {
+						if (errEl) {
+							errEl.textContent = data.error || fallback;
+							errEl.removeAttribute('hidden');
+						}
+						return;
+					}
+					window.location.reload();
+				} catch {
+					if (errEl) {
+						errEl.textContent = fallback;
+						errEl.removeAttribute('hidden');
+					}
+				} finally {
+					if (btn) {
+						btn.disabled = false;
+						if (defaultBtn) btn.textContent = defaultBtn;
+					}
+				}
+			}
+		});
+	}
+	init();
+	document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+	.tour-comments {
+		margin-top: 2.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+		width: 100%;
+	}
+	.tour-comments__heading {
+		margin: 0 0 1rem;
+		font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+		font-weight: 700;
+		color: var(--text);
+		line-height: 1.25;
+	}
+	.tour-comments__summary {
+		margin: 0 0 1.25rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35rem 0.5rem;
+	}
+	.tour-comments__avg {
+		letter-spacing: 0.05em;
+		font-size: 1.1rem;
+		line-height: 1;
+	}
+	.tour-comments__star {
+		color: var(--border);
+	}
+	.tour-comments__star.is-on {
+		color: #c9a227;
+	}
+	.tour-comments__avg-num {
+		font-size: 1rem;
+	}
+	.tour-comments__form-wrap {
+		margin-bottom: 1.75rem;
+		padding: 1.1rem 1.2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		box-shadow: 0 2px 10px rgba(26, 35, 50, 0.06);
+	}
+	.tour-comments__signed-in {
+		margin: 0 0 1rem;
+		font-size: 0.92rem;
+	}
+	.tour-comments__email {
+		font-weight: 600;
+		color: var(--text);
+	}
+	.tour-comments__field {
+		display: block;
+		margin-bottom: 1rem;
+	}
+	.tour-comments__label {
+		display: block;
+		margin-bottom: 0.35rem;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--muted);
+	}
+	.tour-comments__rating-input {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+	.tour-comments__rating-option {
+		position: relative;
+		cursor: pointer;
+	}
+	.tour-comments__rating-option input {
+		position: absolute;
+		opacity: 0;
+		width: 1px;
+		height: 1px;
+	}
+	.tour-comments__rating-face {
+		display: inline-block;
+		padding: 0.25rem 0.45rem;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		font-size: 0.75rem;
+		line-height: 1;
+		color: var(--border);
+		transition:
+			color 0.15s,
+			border-color 0.15s,
+			background 0.15s;
+	}
+	.tour-comments__rating-option input:checked + .tour-comments__rating-face {
+		color: #c9a227;
+		border-color: #c9a227;
+		background: rgba(201, 162, 39, 0.12);
+	}
+	.tour-comments__rating-option input:focus-visible + .tour-comments__rating-face {
+		outline: 2px solid var(--accent, #2563eb);
+		outline-offset: 2px;
+	}
+	.tour-comments__textarea {
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		padding: 0.65rem 0.75rem;
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		font: inherit;
+		background: var(--bg, #fff);
+		color: var(--text);
+		resize: vertical;
+		min-height: 6rem;
+	}
+	.tour-comments__error {
+		margin: 0 0 0.75rem;
+	}
+	.tour-comments__guest {
+		margin: 0 0 1.25rem;
+	}
+	.tour-comments__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	.tour-comments__empty {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.tour-comments__item {
+		margin: 0;
+		padding: 1rem 1.1rem;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--surface);
+	}
+	.tour-comments__reply-badge {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.tour-comments__item-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5rem 1rem;
+		margin-bottom: 0.5rem;
+	}
+	.tour-comments__item-stars {
+		font-size: 0.95rem;
+		letter-spacing: 0.03em;
+	}
+	.tour-comments__item-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem 0.75rem;
+		font-size: 0.88rem;
+		color: var(--muted);
+		align-items: baseline;
+	}
+	.tour-comments__item-author {
+		font-weight: 600;
+		color: var(--text);
+	}
+	.tour-comments__item-date {
+		font-variant-numeric: tabular-nums;
+	}
+	.tour-comments__edited {
+		font-size: 0.8rem;
+		font-style: italic;
+	}
+	.tour-comments__item-body {
+		margin: 0;
+		white-space: pre-wrap;
+		word-break: break-word;
+		line-height: 1.5;
+	}
+	.tour-comments__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		margin-top: 0.75rem;
+		align-items: flex-start;
+	}
+	.tour-comments__details {
+		flex: 1 1 auto;
+		min-width: min(100%, 220px);
+	}
+	.tour-comments__summary-link {
+		cursor: pointer;
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--text);
+		list-style: none;
+	}
+	.tour-comments__details .tour-comments__summary-link::-webkit-details-marker {
+		display: none;
+	}
+	.tour-comments__inline-form {
+		margin-top: 0.65rem;
+		padding-top: 0.65rem;
+		border-top: 1px dashed var(--border);
+	}
+	.tour-comments__inline-form .tour-comments__textarea {
+		min-height: 4.5rem;
+	}
+	.btn--small {
+		font-size: 0.9rem;
+		padding: 0.45rem 0.85rem;
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>

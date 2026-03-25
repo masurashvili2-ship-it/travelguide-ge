@@ -1,0 +1,207 @@
+{
+  "posts": [
+    {
+      "id": "c0624c4f-d96a-445a-8bb2-d187a8de2d7f",
+      "slug": "kakheti-wine-route",
+      "image": "/uploads/tours/1774368680511-254eeb8a9a3b.webp",
+      "gallery": [
+        "/uploads/tours/1774368676345-11675c2d4764.webp",
+        "/uploads/tours/1774368676747-a27edf81fee9.webp",
+        "/uploads/tours/1774368676895-bac79acc1e1c.webp",
+        "/uploads/tours/1774368677260-b9cb4ebedca1.webp",
+        "/uploads/tours/1774368677643-0be371427be6.webp",
+        "/uploads/tours/1774368678007-a097a0cc85a3.webp"
+      ],
+      "location": {
+        "lat": 41.9197,
+        "lng": 45.4714,
+        "label": "Telavi · Kakheti"
+      },
+      "category": "wine-food",
+      "physical_rating": "moderate",
+      "driving_distance": "~180 km round trip from Tbilisi",
+      "i18n": {
+        "en": {
+          "title": "Kakheti wine & village route",
+          "duration": "Full day",
+          "price": "From 160 GEL / person",
+          "excerpt": "Vineyards, qvevri cellars, and Kakhetian hospitality east of Tbilisi.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Kakheti is Georgia’s eastern wine region. This route balances **small family wineries** with a historic monastery stop and a relaxed **supra-style** lunch (vegetarian options available on request).\r\n\r\nYou will learn the basics of **qvevri** fermentation and taste both amber and red styles typical of the area."
+        },
+        "ka": {
+          "title": "კახეთის ღვინისა და სოფლების მარშრუტი",
+          "duration": "მთელი დღე",
+          "price": "160 ლარიდან / ადამიანზე",
+          "excerpt": "ვენახები, ქვევრის მარანები და კახური სტუმართმოყვარეობა თბილისის აღმოსავლეთით.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "კახეთი საქართველოს ღვინის რეგიონია. მარშრუტი აერთიებს **ოჯახურ მარანებს**, მონასტრის გაჩერებას და **სუფრის** სტილის ლანჩს (სურვილისამებრ ვეგეტარიანული ვარიანტებით).\r\n\r\nგაეცნობით **ქვევრით** დაყენების საფუძვლებს და დააგემოვნებთ როგორც ქვევრის, ისე ტრადიციულ წითელ ღვინოებს."
+        },
+        "ru": {
+          "title": "Винный маршрут по Кахетии",
+          "duration": "Целый день",
+          "price": "От 160 лари / человек",
+          "excerpt": "Виноградники, мараны с квеври и кахетинское гостеприимство к востоку от Тбилиси.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Кахетия — главный винный регион на востоке. Маршрут сочетает **семейные винодельни**, остановку у монастыря и неспешный обед в духе **традиционной грузинской трапезы** (по запросу — вегетарианские варианты).\r\n\r\nКратко о брожении в **квеври** и дегустация янтарных и красных стилей региона."
+        }
+      },
+      "updated_at": 1774368685728
+    },
+    {
+      "id": "c82d2773-148b-4274-b8be-4123824b147e",
+      "slug": "kazbegi-day-trip",
+      "image": "/uploads/tours/kazbegi-day-trip-from-tbilisi-5.webp",
+      "gallery": [
+        "/uploads/tours/kazbegi-day-trip-from-tbilisi.webp",
+        "/uploads/tours/kazbegi-day-trip-from-tbilisi-1.webp",
+        "/uploads/tours/kazbegi-day-trip-from-tbilisi-2.webp",
+        "/uploads/tours/kazbegi-day-trip-from-tbilisi-3.webp",
+        "/uploads/tours/kazbegi-day-trip-from-tbilisi-4.webp"
+      ],
+      "location": {
+        "lat": 42.6564,
+        "lng": 44.6414,
+        "label": "Stepantsminda"
+      },
+      "category": "adventure-nature",
+      "physical_rating": "hard",
+      "driving_distance": "~300 km round trip from Tbilisi",
+      "i18n": {
+        "en": {
+          "title": "Kazbegi day trip from Tbilisi",
+          "duration": "12–14 hours",
+          "price": "From 180 GEL / person (group)",
+          "excerpt": "Georgian Military Highway, Ananuri fortress, Gergeti Trinity Church, and Caucasus peaks.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "A full-day route along the **Georgian Military Highway** with stops at **Zhinvali Reservoir**, **Ananuri** complex, and the **Jvari Pass** viewpoint before reaching **Stepantsminda**.\r\n\r\nThe final climb to **Gergeti Trinity Church** (4WD or hike) offers iconic views of **Mount Kazbek** when skies are clear.\r\n\r\n**Note:** Mountain weather changes quickly—bring layers and check road conditions in winter."
+        },
+        "ka": {
+          "title": "ყაზბეგის ერთდღიანი ტური თბილისიდან",
+          "duration": "12–14 საათი",
+          "price": "180 ლარიდან / ჯგუფურად",
+          "excerpt": "სამხედრო გზა, ანანურის ციხე, წმინდა სამება და კავკასიონის მწვერვალები.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "გზა მიდის **საქართველოს სამხედრო გზით** გაჩერებებით **ჟინვალის წყალსაცავზე**, **ანანურში** და **ჯვრის უღელზე** სანახაობამდე, სანამ **სტეფანწმინდას** მივაღწევთ.\r\n\r\n**წმინდა სამების ტაძარი** (ჯიპით ან ფეხით) ცნობილია **ყაზბეგის** ხედით გაწმენდილ ცაზე.\r\n\r\n**შენიშვნა:** მთაში ამინდი იცვლება — წაიღეთ ტანისამოსის ფენები."
+        },
+        "ru": {
+          "title": "Однодневная поездка в Казбеги из Тбилиси",
+          "duration": "12–14 часов",
+          "price": "От 180 лари / человек (группа)",
+          "excerpt": "Военно-Грузинская дорога, крепость Ананури, Гергетская Троица и вершины Кавказа.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "День по **Военно-Грузинской дороге** с остановками у **Жинвальского водохранилища**, комплекса **Ананури** и перевала **Джвари** перед приездом в **Степанцминду**.\r\n\r\nПодъём к **церкви Святой Троицы в Гергети** (джип или пешком) — классический вид на **Казбек** в ясную погоду.\r\n\r\n**Важно:** в горах погода меняется быстро; зимой уточняйте состояние дорог."
+        }
+      },
+      "updated_at": 1774369876278
+    },
+    {
+      "id": "8d6a9d06-1bf2-4548-80a2-0ac6882854ea",
+      "slug": "tbilisi-old-town",
+      "image": "https://visitgeorgia.ge/wp-content/uploads/Sighnagi-Kakheti-1.jpg",
+      "gallery": [
+        "https://cdn.getyourguide.com/img/tour/64afbe001ae25.jpeg/68.jpg",
+        "https://www.advantour.com/img/georgia/images/kakheti.jpg",
+        "/uploads/tours/tbilisi-old-town-walking-tour-8.webp",
+        "/uploads/tours/tbilisi-old-town-walking-tour-9.webp",
+        "/uploads/tours/tbilisi-old-town-walking-tour-10.webp",
+        "/uploads/tours/tbilisi-old-town-walking-tour-11.webp",
+        "/uploads/tours/tbilisi-old-town-walking-tour-12.webp",
+        "/uploads/tours/tbilisi-old-town-walking-tour-13.webp"
+      ],
+      "location": {
+        "lat": 41.6938,
+        "lng": 44.8015,
+        "label": "Tbilisi · Old Town"
+      },
+      "category": "cultural-historical",
+      "physical_rating": "easy",
+      "driving_distance": "Walking tour (approx. 5–8 km)",
+      "i18n": {
+        "en": {
+          "title": "Tbilisi Old Town walking tour",
+          "duration": "Half day",
+          "price": "From 45 GEL / person",
+          "excerpt": "Narrow lanes, balconied houses, sulfur baths, and hidden courtyards in the capital’s historic core.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "We start at **Liberty Square** and wind through the **Old Town** toward the **Abanotubani** sulfur bath district. You will see a mix of Persian, European, and local architecture, street art, and viewpoints over the Mtkvari.\r\n\r\n**Highlights**\r\n\r\n- Narikala cable car viewpoint (optional add-on)\r\n- Legvtakhevi canyon and waterfall\r\n- Tips for supper spots and natural wine bars\r\n\r\nWear comfortable shoes; cobblestones can be slippery when wet."
+        },
+        "ka": {
+          "title": "თბილისის ძველი",
+          "duration": "ნახევარი დღე",
+          "price": "45 ლარიდან / ადამიანზე",
+          "excerpt": "ვიწრო ქუჩები, აივნებიანი სახლები, გოგირდის აბანოები და ფარული ეზოები ქალაქის ისტორიულ ცენტრში.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ვიწყებთ **თავისუფლების მოედნიდან** და ვმოძრაობთ **ძველი ქალაქის** გავლით **აბანოთუბნის** მიმართულებით. ნახავთ სპარსული, ევროპული და ადგილობრივი არქიტექტურის ნაზავს.\r\n\r\n**რას ნახავთ**\r\n\r\n- ხედი ნარიყალიდან (საბაგირო — სურვილისამებრ)\r\n- ლეღვთახევის ჩანჩქერი\r\n- რეკომენდაციები საჭმელად და ღვინის ბარებისთვის\r\n\r\nმოიმარაგეთ სასიარულო ფეხსაცმელი — ქვიშაქვა სველი ამინდისას სრიალებს."
+        },
+        "ru": {
+          "title": "Пешеходная экскурсия по старому Тбилиси",
+          "duration": "Полдня",
+          "price": "От 45 лари / человек",
+          "excerpt": "Улочки, дома с балконами, серные бани и дворики исторического центра столицы.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Маршрут от **площади Свободы** через **Старый город** к району **Абанотубани**. Вы увидите смесь персидской, европейской и местной архитектуры, стрит-арт и виды на Мтквари.\r\n\r\n**Основные точки**\r\n\r\n- Смотровая у Нарикала (канатная дорога — по желанию)\r\n- Водопад в Легвтахеви\r\n- Советы по кафе и винным барам\r\n\r\nУдобная обувь обязательна: брусчатка скользкая после дождя."
+        }
+      },
+      "updated_at": 1774391982059
+    },
+    {
+      "id": "f8233441-4859-4ad7-9536-867434e3244d",
+      "slug": "trip-to-gori",
+      "image": "/uploads/tours/day-trip-to-gori-22.webp",
+      "gallery": [
+        "/uploads/tours/day-trip-to-gori.webp",
+        "/uploads/tours/day-trip-to-gori-1.webp",
+        "/uploads/tours/day-trip-to-gori-2.webp",
+        "/uploads/tours/day-trip-to-gori-3.webp",
+        "/uploads/tours/day-trip-to-gori-4.webp",
+        "/uploads/tours/day-trip-to-gori-5.webp",
+        "/uploads/tours/day-trip-to-gori-6.webp",
+        "/uploads/tours/day-trip-to-gori-7.webp",
+        "/uploads/tours/day-trip-to-gori-8.webp",
+        "/uploads/tours/day-trip-to-gori-9.webp",
+        "/uploads/tours/day-trip-to-gori-10.webp",
+        "/uploads/tours/day-trip-to-gori-11.webp",
+        "/uploads/tours/day-trip-to-gori-12.webp",
+        "/uploads/tours/day-trip-to-gori-13.webp",
+        "/uploads/tours/day-trip-to-gori-14.webp",
+        "/uploads/tours/day-trip-to-gori-15.webp",
+        "/uploads/tours/day-trip-to-gori-16.webp",
+        "/uploads/tours/day-trip-to-gori-17.webp",
+        "/uploads/tours/day-trip-to-gori-18.webp",
+        "/uploads/tours/day-trip-to-gori-19.webp",
+        "/uploads/tours/day-trip-to-gori-20.webp",
+        "/uploads/tours/day-trip-to-gori-21.webp"
+      ],
+      "location": {
+        "lat": 41.9842,
+        "lng": 44.1158,
+        "label": "Gori"
+      },
+      "category": "cultural-historical",
+      "physical_rating": "moderate",
+      "driving_distance": "~140 km round trip from Tbilisi",
+      "i18n": {
+        "en": {
+          "title": "Day trip to Gori",
+          "duration": "1 day",
+          "price": "12",
+          "excerpt": "wedwed",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "wedwed"
+        }
+      },
+      "updated_at": 1774374456899
+    }
+  ]
+}

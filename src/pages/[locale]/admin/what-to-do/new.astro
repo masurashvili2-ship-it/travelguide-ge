@@ -1,0 +1,230 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import AdminTourLocalesFields from '../../../../components/admin/AdminTourLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import {
+	WHAT_TO_DO_CATEGORY_IDS,
+	WHAT_TO_DO_CATEGORY_LABELS_EN,
+} from '../../../../lib/what-to-do-categories';
+import {
+	WHAT_TO_DO_SEASON_IDS,
+	WHAT_TO_DO_SEASON_LABELS_EN,
+} from '../../../../lib/what-to-do-seasons';
+import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../lib/tour-physical-rating';
+import type { Locale } from '../../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const userEmail = Astro.locals.user.email;
+---
+
+<AdminLayout
+	locale={locale}
+	title="Add What to do ‹ Travel Guide Georgia"
+	headline="Add new — What to do"
+	subtitle="Same structure as tours: one slug, shared cover and gallery, per-language text. Stored in data/what-to-do.json."
+	activeNav="wtd-new"
+	userEmail={userEmail}
+>
+	<form id="tour-admin-form" method="post" action="/api/admin/what-to-do">
+		<input type="hidden" name="intent" value="create" />
+		<input type="hidden" name="redirect" value={adminHome} />
+		<div class="postbox">
+			<div class="postbox__header">Slug</div>
+			<div class="postbox__inside">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input
+							type="text"
+							id="tour-admin-slug"
+							name="slug"
+							required
+							placeholder="e.g. tbilisi-night-walk"
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">Lowercase Latin letters, numbers, and hyphens only.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Public sidebar</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">
+					The live page shows an <strong>At a glance</strong> column with <strong>categories</strong> and <strong>seasons</strong> (you can pick several of each), <strong>physical rating</strong>, <strong>driving distance</strong>, <strong>duration</strong> and <strong>price</strong> from each language, and <strong>location</strong> plus a map link when coordinates are set.
+				</p>
+				<div class="row">
+					<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">
+						Categories
+					</span>
+					<p class="muted" style="margin:0 0 0.5rem;font-size:0.9rem">
+						Check all that apply (optional).
+					</p>
+					<div class="admin-wtd-cat-grid">
+						{
+							WHAT_TO_DO_CATEGORY_IDS.map((id) => (
+								<label class="admin-wtd-cat-item">
+									<input type="checkbox" name="categories" value={id} />
+									<span>{WHAT_TO_DO_CATEGORY_LABELS_EN[id]}</span>
+								</label>
+							))
+						}
+					</div>
+				</div>
+				<div class="row">
+					<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">
+						Seasons
+					</span>
+					<p class="muted" style="margin:0 0 0.5rem;font-size:0.9rem">
+						Check all that apply (optional).
+					</p>
+					<div class="admin-wtd-cat-grid">
+						{
+							WHAT_TO_DO_SEASON_IDS.map((id) => (
+								<label class="admin-wtd-cat-item">
+									<input type="checkbox" name="seasons" value={id} />
+									<span>{WHAT_TO_DO_SEASON_LABELS_EN[id]}</span>
+								</label>
+							))
+						}
+					</div>
+					<p class="muted" style="margin:0.35rem 0 0">Best time of year for this activity (optional).</p>
+				</div>
+				<div class="row">
+					<label>
+						<span>Physical rating</span>
+						<select name="physical_rating">
+							<option value="" selected>— None —</option>
+							{
+								PHYSICAL_RATING_IDS.map((id) => (
+									<option value={id}>{PHYSICAL_RATING_LABELS_EN[id]}</option>
+								))
+							}
+						</select>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Driving distance</span>
+						<input
+							type="text"
+							name="driving_distance"
+							autocomplete="off"
+							placeholder="e.g. 120 km round trip"
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">Free text; shown in the public sidebar.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Featured image &amp; gallery</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">Shared across all translations.</p>
+				<fieldset class="photos" style="background:transparent;border-style:dashed">
+					<AdminTourPhotoUpload uploadApiPath="/api/admin/upload-what-to-do-image" />
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input type="text" name="image" id="tour-cover-url" placeholder="/uploads/what-to-do/… or https://…" />
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">
+							Set automatically when you upload, or paste a URL. If empty, the first gallery URL is used.
+						</p>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea
+								class="gallery-urls"
+								name="gallery_urls"
+								id="tour-gallery-urls"
+								placeholder="One URL per line. Upload can fill this for you."
+							></textarea>
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Up to 30 images on the public page.</p>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Map location</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">
+					One pin per entry (WGS84). Optional — leave empty if it should not appear on the map.
+				</p>
+				<div class="row">
+					<label>
+						<span>Latitude</span>
+						<input type="text" name="location_lat" inputmode="decimal" autocomplete="off" placeholder="e.g. 41.7151" />
+					</label>
+					<label>
+						<span>Longitude</span>
+						<input type="text" name="location_lng" inputmode="decimal" autocomplete="off" placeholder="e.g. 44.8271" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Map label (optional)</span>
+						<input type="text" name="location_label" autocomplete="off" placeholder="e.g. Kazbegi" />
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="postbox">
+			<div class="postbox__header">Translations</div>
+			<div class="postbox__inside">
+				<p class="muted" style="margin:0 0 1rem">
+					At least one language needs title, duration, and excerpt. Leave a language empty to hide it on the site.
+				</p>
+				<AdminTourLocalesFields />
+			</div>
+		</div>
+
+		<p class="submit">
+			<button class="btn button-primary" type="submit">Publish</button>
+			<a class="button" href={adminHome}>Cancel</a>
+		</p>
+	</form>
+</AdminLayout>
+
+<style>
+	.admin-wtd-cat-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.admin-wtd-cat-item {
+		display: flex;
+		gap: 0.45rem;
+		align-items: flex-start;
+		font-size: 0.9rem;
+		cursor: pointer;
+	}
+	.admin-wtd-cat-item input[type='checkbox'] {
+		width: auto;
+		margin-top: 0.2em;
+		flex-shrink: 0;
+	}
+	.admin-wtd-cat-item span {
+		display: inline;
+		margin: 0;
+	}
+</style>

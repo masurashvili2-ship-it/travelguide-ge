@@ -1,0 +1,57 @@
+---
+import type { TourMapMarker } from '../lib/tours-db';
+
+interface Props {
+	markers: TourMapMarker[];
+}
+const { markers } = Astro.props;
+/** Embed JSON safely in HTML: avoid `</script>` breaking out of following script tags */
+const markersJson = JSON.stringify(markers).replace(/</g, '\\u003c');
+---
+
+<div class="tours-map-wrap">
+	<div id="tours-leaflet-map" class="tours-map-el"></div>
+</div>
+
+<script type="application/json" id="tours-map-data" set:html={markersJson}></script>
+<script>
+	import { initTourMap } from '../lib/tours-map-client.ts';
+
+	function boot() {
+		const dataEl = document.getElementById('tours-map-data');
+		const raw = dataEl?.textContent?.trim() || '[]';
+		let markerList;
+		try {
+			markerList = JSON.parse(raw);
+		} catch {
+			return;
+		}
+		initTourMap(markerList);
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', boot, { once: true });
+	} else {
+		boot();
+	}
+</script>
+
+<style>
+	.tours-map-wrap {
+		margin-top: 0.5rem;
+	}
+</style>
+
+<style is:global>
+	.tours-map-wrap .tours-map-el {
+		height: 420px;
+		width: 100%;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid var(--border);
+		font-family: inherit;
+	}
+	.tours-map-wrap .tours-map-el.leaflet-container {
+		font-family: inherit;
+	}
+</style>

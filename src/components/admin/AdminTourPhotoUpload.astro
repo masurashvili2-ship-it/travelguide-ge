@@ -1,0 +1,207 @@
+---
+interface Props {
+	/** Defaults to tour image API; use `/api/admin/upload-what-to-do-image` for “What to do”. */
+	uploadApiPath?: string;
+	/** Form `id` the file input is associated with */
+	formId?: string;
+}
+
+const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-form' } = Astro.props;
+---
+
+<div class="upload-widget">
+	<h3 class="upload-widget__title">Upload images</h3>
+	<p class="upload-widget__hint">
+		Fill in <strong>Slug</strong> and at least one language <strong>title</strong> first (English title is checked
+		first). Files are named from that text: <code>my-tour.webp</code>, then <code>my-tour-1.webp</code>,
+		<code>my-tour-2.webp</code>, …
+		<code>&amp;</code> in the title becomes <code>and</code> in the file name (safe for URLs). Each file is saved as
+		<strong>WebP</strong> with a <strong>TRAVELGUIDE.GE</strong> watermark. Larger than 1920×1080 is scaled down.
+	</p>
+	<input
+		class="upload-widget__file"
+		type="file"
+		id="tour-upload-files"
+		form={formId}
+		accept="image/jpeg,image/png,image/webp,image/gif,image/tiff,image/avif,.jpg,.jpeg,.png,.webp,.gif,.tiff,.tif,.avif"
+		multiple
+	/>
+	<div class="upload-widget__actions">
+		<button type="button" class="btn btn--ghost" id="tour-upload-cover-btn">Set first file as cover</button>
+		<button type="button" class="btn btn--ghost" id="tour-upload-gallery-btn">Add all files to gallery</button>
+	</div>
+	<p class="muted upload-widget__status" id="tour-upload-status" aria-live="polite"></p>
+</div>
+
+<style>
+	.upload-widget {
+		margin: 0 0 1.15rem;
+		padding: 1rem 1.1rem 1.1rem;
+		border-radius: 10px;
+		border: 1px solid rgba(201, 162, 39, 0.45);
+		background: var(--surface, #1a222d);
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+	}
+	.upload-widget__title {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--accent, #c9a227);
+		letter-spacing: -0.02em;
+	}
+	.upload-widget__hint {
+		margin: 0 0 0.85rem;
+		font-size: 0.84rem;
+		line-height: 1.5;
+		color: var(--muted, #8b9aab);
+	}
+	.upload-widget__file {
+		margin-bottom: 0.65rem;
+		padding: 0.35rem 0;
+		font-size: 0.88rem;
+	}
+	.upload-widget__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 0.35rem;
+	}
+	.btn--ghost {
+		background: transparent;
+		color: var(--accent);
+		border: 1px solid rgba(201, 162, 39, 0.45);
+	}
+	.btn--ghost:hover {
+		background: rgba(201, 162, 39, 0.12);
+	}
+	.btn--ghost:disabled {
+		opacity: 0.45;
+		cursor: not-allowed;
+	}
+	.upload-widget__status {
+		margin: 0;
+		min-height: 1.25em;
+		font-size: 0.82rem;
+	}
+</style>
+
+<script is:inline define:vars={{ uploadApiPath, formId }}>
+	document.addEventListener('DOMContentLoaded', function () {
+		var NL = String.fromCharCode(10);
+		var fileInput = document.getElementById('tour-upload-files');
+		var coverBtn = document.getElementById('tour-upload-cover-btn');
+		var galleryBtn = document.getElementById('tour-upload-gallery-btn');
+		var statusEl = document.getElementById('tour-upload-status');
+		var coverField = document.getElementById('tour-cover-url');
+		var galleryField = document.getElementById('tour-gallery-urls');
+
+		if (!fileInput || !coverBtn || !galleryBtn || !statusEl || !coverField || !galleryField) return;
+
+		function trimVal(el) {
+			if (!el || !('value' in el)) return '';
+			var v = el.value;
+			return typeof v === 'string' ? v.trim() : '';
+		}
+
+		function firstLocaleTitle() {
+			var codes = ['en', 'ka', 'ru'];
+			for (var i = 0; i < codes.length; i++) {
+				var el = document.querySelector('input[name="' + codes[i] + '_title"]');
+				var t = trimVal(el);
+				if (t) return t;
+			}
+			return '';
+		}
+
+		function readTitleSlug() {
+			var titleVal = trimVal(document.getElementById('tour-admin-title')) || firstLocaleTitle();
+			var slugVal = trimVal(document.getElementById('tour-admin-slug'));
+			if (titleVal || slugVal) return { titleVal: titleVal, slugVal: slugVal };
+			var adminForm = document.getElementById(formId) || fileInput.form;
+			if (adminForm && adminForm.elements) {
+				var te = adminForm.elements.namedItem('title');
+				var se = adminForm.elements.namedItem('slug');
+				titleVal = trimVal(te) || firstLocaleTitle();
+				slugVal = trimVal(se);
+			}
+			return { titleVal: titleVal, slugVal: slugVal };
+		}
+
+		function setStatus(msg, isError) {
+			statusEl.textContent = msg || '';
+			statusEl.style.color = isError ? '#e8a0a0' : '';
+		}
+
+		async function uploadOne(file) {
+			var pair = readTitleSlug();
+			var titleVal = pair.titleVal;
+			var slugVal = pair.slugVal;
+			if (!titleVal && !slugVal) {
+				throw new Error('Enter the URL slug or at least one language title first (used for file names).');
+			}
+			var fd = new FormData();
+			fd.append('tour_title', titleVal);
+			fd.append('tour_slug', slugVal);
+			fd.append('file', file);
+			var res = await fetch(uploadApiPath, {
+				method: 'POST',
+				body: fd,
+				credentials: 'same-origin',
+			});
+			var data = {};
+			try {
+				data = await res.json();
+			} catch (e) {
+				throw new Error('Invalid server response');
+			}
+			if (!res.ok) throw new Error(data.error || 'Upload failed');
+			if (!data.url) throw new Error('No URL returned');
+			return { url: data.url, alt: data.alt || '' };
+		}
+
+		coverBtn.addEventListener('click', async function () {
+			var files = fileInput.files;
+			if (!files || !files.length) {
+				setStatus('Choose at least one image first.', true);
+				return;
+			}
+			coverBtn.disabled = true;
+			galleryBtn.disabled = true;
+			setStatus('Uploading…');
+			try {
+				var out = await uploadOne(files[0]);
+				coverField.value = out.url;
+				setStatus('Cover set: ' + out.url + (out.alt ? ' · alt: ' + out.alt : ''));
+			} catch (err) {
+				setStatus(err.message || 'Upload failed', true);
+			}
+			coverBtn.disabled = false;
+			galleryBtn.disabled = false;
+		});
+
+		galleryBtn.addEventListener('click', async function () {
+			var files = fileInput.files;
+			if (!files || !files.length) {
+				setStatus('Choose at least one image first.', true);
+				return;
+			}
+			coverBtn.disabled = true;
+			galleryBtn.disabled = true;
+			var urls = [];
+			try {
+				for (var i = 0; i < files.length; i++) {
+					setStatus('Uploading ' + (i + 1) + ' / ' + files.length + '…');
+					urls.push((await uploadOne(files[i])).url);
+				}
+				var existing = galleryField.value.trim();
+				var block = urls.join(NL);
+				galleryField.value = existing ? existing + NL + block : block;
+				setStatus('Added ' + urls.length + ' image(s) to gallery.');
+			} catch (err) {
+				setStatus(err.message || 'Upload failed', true);
+			}
+			coverBtn.disabled = false;
+			galleryBtn.disabled = false;
+		});
+	});
+</script>

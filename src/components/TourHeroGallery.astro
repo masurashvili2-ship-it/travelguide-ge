@@ -1,0 +1,561 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { tourCoverImageUrl, type TourListItem } from '../lib/tours-db';
+import { tourImageAltFromUrl } from '../lib/tour-upload-name';
+import type { Locale } from '../lib/strings';
+
+interface Props {
+	tours: TourListItem[];
+	locale: Locale;
+	viewLabel: string;
+	durationLabel: string;
+	/** Page heading (use one <h1> per page) */
+	title: string;
+	subtitle?: string;
+	/** `bento` = tours listing hero; `strip` = home page carousel */
+	layout?: 'bento' | 'strip';
+	/** Detail URL segment: tours (default) or what-to-do */
+	detailSegment?: 'tours' | 'what-to-do';
+}
+
+const { tours, locale, viewLabel, durationLabel, title, subtitle, layout = 'bento', detailSegment = 'tours' } =
+	Astro.props;
+
+function gradientForSlug(slug: string): string {
+	let h = 0;
+	for (let i = 0; i < slug.length; i++) h = slug.charCodeAt(i) + ((h << 5) - h);
+	const palettes = [
+		'linear-gradient(145deg, #0c1222 0%, #2a1810 42%, #c9a227 100%)',
+		'linear-gradient(155deg, #071018 0%, #143d52 48%, #7cb4c8 100%)',
+		'linear-gradient(140deg, #120a14 0%, #3d1f35 50%, #e8b84a 100%)',
+		'linear-gradient(160deg, #0a1628 0%, #1e4a6e 45%, #a8d4f0 100%)',
+		'linear-gradient(145deg, #0e160c 0%, #2d4a22 50%, #c4d4a0 100%)',
+		'linear-gradient(150deg, #18120e 0%, #5c3d2e 50%, #f0d4a8 100%)',
+	];
+	return palettes[Math.abs(h) % palettes.length];
+}
+
+const [first, second, third, ...rest] = tours;
+
+function cover(d: TourListItem['data']): string | undefined {
+	return tourCoverImageUrl({ image: d.image, gallery: d.gallery });
+}
+
+function coverAlt(d: TourListItem['data']): string {
+	const u = cover(d);
+	return u ? tourImageAltFromUrl(d.title, u) : '';
+}
+---
+
+{
+	tours.length === 0 ? null : layout === 'bento' ? (
+		<section class="thg thg--bento" aria-labelledby="thg-heading">
+			<div class="thg__bleed">
+				<header class="thg__head">
+					<h1 id="thg-heading" class="thg__title">
+						{title}
+					</h1>
+					{subtitle ? <p class="thg__sub">{subtitle}</p> : null}
+				</header>
+
+				<div class="thg__grid">
+					<a
+						href={getRelativeLocaleUrl(locale, `${detailSegment}/${first.data.slug}`)}
+						class="thg__cell thg__cell--hero"
+						style={cover(first.data) ? undefined : { background: gradientForSlug(first.data.slug) }}
+					>
+						{cover(first.data) ? (
+							<img
+								class="thg__img"
+								src={cover(first.data)}
+								alt={coverAlt(first.data)}
+								width="960"
+								height="640"
+								loading="eager"
+								decoding="async"
+							/>
+						) : null}
+						<div class="thg__scrim thg__scrim--deep" />
+						<div class="thg__meta">
+							<span class="thg__kicker">{durationLabel}</span>
+							<h2 class="thg__card-title">{first.data.title}</h2>
+							<p class="thg__excerpt">{first.data.excerpt}</p>
+							<span class="thg__cta">{viewLabel}</span>
+						</div>
+					</a>
+
+					{second ? (
+						<a
+							href={getRelativeLocaleUrl(locale, `${detailSegment}/${second.data.slug}`)}
+							class:list={['thg__cell', 'thg__cell--tall', { 'thg__cell--fill-col': !third }]}
+							style={cover(second.data) ? undefined : { background: gradientForSlug(second.data.slug) }}
+						>
+							{cover(second.data) ? (
+								<img
+									class="thg__img"
+									src={cover(second.data)}
+									alt={coverAlt(second.data)}
+									width="480"
+									height="640"
+									loading="lazy"
+								/>
+							) : null}
+							<div class="thg__scrim" />
+							<div class="thg__meta thg__meta--sm">
+								<span class="thg__kicker">{second.data.duration}</span>
+								<h2 class="thg__card-title">{second.data.title}</h2>
+								<span class="thg__cta thg__cta--ghost">{viewLabel}</span>
+							</div>
+						</a>
+					) : null}
+
+					{third ? (
+						<a
+							href={getRelativeLocaleUrl(locale, `${detailSegment}/${third.data.slug}`)}
+							class="thg__cell thg__cell--tall"
+							style={cover(third.data) ? undefined : { background: gradientForSlug(third.data.slug) }}
+						>
+							{cover(third.data) ? (
+								<img
+									class="thg__img"
+									src={cover(third.data)}
+									alt={coverAlt(third.data)}
+									width="480"
+									height="640"
+									loading="lazy"
+								/>
+							) : null}
+							<div class="thg__scrim" />
+							<div class="thg__meta thg__meta--sm">
+								<span class="thg__kicker">{third.data.duration}</span>
+								<h2 class="thg__card-title">{third.data.title}</h2>
+								<span class="thg__cta thg__cta--ghost">{viewLabel}</span>
+							</div>
+						</a>
+					) : null}
+				</div>
+
+				{
+					rest.length > 0 ? (
+						<div class="thg__row" role="list">
+							{rest.map((entry, i) => (
+								<a
+									role="listitem"
+									href={getRelativeLocaleUrl(locale, `${detailSegment}/${entry.data.slug}`)}
+									class="thg__thumb"
+									style={cover(entry.data) ? undefined : { background: gradientForSlug(entry.data.slug) }}
+								>
+									{cover(entry.data) ? (
+										<img
+											class="thg__img"
+											src={cover(entry.data)}
+											alt={coverAlt(entry.data)}
+											width="320"
+											height="200"
+											loading="lazy"
+										/>
+									) : null}
+									<div class="thg__scrim thg__scrim--light" />
+									<span class="thg__thumb-title">{entry.data.title}</span>
+								</a>
+							))}
+						</div>
+					) : null
+				}
+			</div>
+		</section>
+	) : (
+		<section class="thg thg--strip" aria-labelledby="thg-strip-heading">
+			<h2 id="thg-strip-heading" class="thg__strip-heading">
+				{title}
+			</h2>
+			{subtitle ? <p class="thg__strip-sub">{subtitle}</p> : null}
+			<div class="thg__track" role="list">
+				{tours.map((entry) => (
+					<a
+						role="listitem"
+						href={getRelativeLocaleUrl(locale, `${detailSegment}/${entry.data.slug}`)}
+						class="thg__slide"
+						style={cover(entry.data) ? undefined : { background: gradientForSlug(entry.data.slug) }}
+					>
+						{cover(entry.data) ? (
+							<img
+								class="thg__img"
+								src={cover(entry.data)}
+								alt={coverAlt(entry.data)}
+								width="400"
+								height="260"
+								loading="lazy"
+							/>
+						) : null}
+						<div class="thg__scrim" />
+						<div class="thg__slide-meta">
+							<span class="thg__kicker">{entry.data.duration}</span>
+							<h3 class="thg__slide-title">{entry.data.title}</h3>
+						</div>
+					</a>
+				))}
+			</div>
+		</section>
+	)
+}
+
+<style>
+	.thg {
+		margin-bottom: 2.5rem;
+	}
+
+	.thg__bleed {
+		width: min(100vw - 2rem, calc(100% + 2.5rem));
+		margin-left: max(-1.25rem, calc(50% - 50vw + 1rem));
+		margin-right: max(-1.25rem, calc(50% - 50vw + 1rem));
+	}
+
+	@media (min-width: 960px) {
+		.thg__bleed {
+			width: calc(100% + 2.5rem);
+			margin-left: -1.25rem;
+			margin-right: -1.25rem;
+		}
+	}
+
+	.thg__head {
+		margin-bottom: 1.25rem;
+		padding: 0 0.25rem;
+	}
+
+	.thg__title {
+		margin: 0;
+		font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+		background: linear-gradient(120deg, var(--text, #e8eef4) 0%, var(--accent, #c9a227) 160%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.thg__sub {
+		margin: 0.65rem 0 0;
+		max-width: 42rem;
+		color: var(--muted, #8b9aab);
+		font-size: 1.05rem;
+		line-height: 1.55;
+	}
+
+	.thg__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+		min-height: 280px;
+	}
+
+	@media (min-width: 768px) {
+		.thg__grid {
+			grid-template-columns: 1.4fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			gap: 0.85rem;
+			min-height: 420px;
+		}
+
+		.thg__cell--hero {
+			grid-row: 1 / -1;
+		}
+
+		.thg__cell--tall {
+			min-height: 0;
+		}
+
+		.thg__cell--fill-col {
+			grid-row: 1 / -1;
+		}
+	}
+
+	.thg__cell {
+		position: relative;
+		display: block;
+		border-radius: 16px;
+		overflow: hidden;
+		text-decoration: none;
+		color: inherit;
+		min-height: 220px;
+		box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+		border: 1px solid rgba(201, 162, 39, 0.12);
+		transition:
+			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+			box-shadow 0.35s ease,
+			border-color 0.25s ease;
+	}
+
+	.thg__cell:hover,
+	.thg__cell:focus-visible {
+		transform: translateY(-3px) scale(1.01);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+		border-color: rgba(201, 162, 39, 0.35);
+		outline: none;
+	}
+
+	.thg__cell:focus-visible {
+		box-shadow: 0 0 0 2px var(--bg, #f4f1ea), 0 0 0 4px var(--accent, #a67c00);
+	}
+
+	.thg__img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.thg__cell:hover .thg__img {
+		transform: scale(1.06);
+	}
+
+	.thg__scrim {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(8, 10, 14, 0.92) 0%, rgba(8, 10, 14, 0.35) 45%, transparent 100%);
+		pointer-events: none;
+	}
+
+	.thg__scrim--deep {
+		background: linear-gradient(
+			125deg,
+			rgba(8, 10, 14, 0.55) 0%,
+			rgba(8, 10, 14, 0.25) 40%,
+			rgba(8, 10, 14, 0.85) 100%
+		);
+	}
+
+	.thg__scrim--light {
+		background: linear-gradient(to top, rgba(8, 10, 14, 0.88) 0%, transparent 70%);
+	}
+
+	.thg__meta {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 1.35rem 1.25rem 1.25rem;
+		pointer-events: none;
+	}
+
+	.thg__meta--sm {
+		padding: 1rem 1rem 0.95rem;
+	}
+
+	.thg__kicker {
+		display: inline-block;
+		font-size: 0.72rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--accent, #c9a227);
+		margin-bottom: 0.35rem;
+	}
+
+	.thg__card-title {
+		margin: 0 0 0.4rem;
+		font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+		font-weight: 700;
+		line-height: 1.2;
+		color: #f4f6f9;
+		text-shadow: 0 1px 18px rgba(0, 0, 0, 0.5);
+	}
+
+	.thg__cell--hero .thg__card-title {
+		font-size: clamp(1.45rem, 3.5vw, 2rem);
+	}
+
+	.thg__excerpt {
+		margin: 0 0 0.75rem;
+		font-size: 0.92rem;
+		line-height: 1.45;
+		color: rgba(232, 238, 244, 0.88);
+		max-width: 36ch;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.thg__cta {
+		display: inline-flex;
+		align-items: center;
+		font-size: 0.88rem;
+		font-weight: 600;
+		color: var(--accent, #c9a227);
+	}
+
+	.thg__cta--ghost {
+		font-size: 0.82rem;
+		margin-top: 0.25rem;
+	}
+
+	.thg__cell:hover .thg__cta,
+	.thg__cell:focus-visible .thg__cta {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.thg__row {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: 0.65rem;
+		margin-top: 0.85rem;
+		padding: 0 0.15rem;
+	}
+
+	@media (min-width: 640px) {
+		.thg__row {
+			grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+		}
+	}
+
+	.thg__thumb {
+		position: relative;
+		display: block;
+		aspect-ratio: 16 / 10;
+		border-radius: 12px;
+		overflow: hidden;
+		text-decoration: none;
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		transition:
+			transform 0.3s ease,
+			border-color 0.25s ease;
+	}
+
+	.thg__thumb:hover,
+	.thg__thumb:focus-visible {
+		transform: translateY(-2px);
+		border-color: rgba(201, 162, 39, 0.3);
+		outline: none;
+	}
+
+	.thg__thumb-title {
+		position: absolute;
+		left: 0.55rem;
+		right: 0.55rem;
+		bottom: 0.5rem;
+		font-size: 0.78rem;
+		font-weight: 600;
+		line-height: 1.25;
+		color: #fff;
+		text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		z-index: 1;
+	}
+
+	/* ——— Strip / carousel (home) ——— */
+	.thg--strip {
+		margin-top: 0.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.thg__strip-heading {
+		margin: 0 0 0.35rem;
+		font-size: 1.2rem;
+		font-weight: 650;
+		letter-spacing: -0.02em;
+	}
+
+	.thg__strip-sub {
+		margin: 0 0 1rem;
+		color: var(--muted, #8b9aab);
+		font-size: 0.95rem;
+		max-width: 40rem;
+		line-height: 1.5;
+	}
+
+	.thg__track {
+		display: flex;
+		gap: 0.85rem;
+		overflow-x: auto;
+		padding: 0.35rem 0.15rem 0.85rem;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(201, 162, 39, 0.4) transparent;
+		-webkit-overflow-scrolling: touch;
+		mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
+	}
+
+	.thg__track::-webkit-scrollbar {
+		height: 6px;
+	}
+	.thg__track::-webkit-scrollbar-thumb {
+		background: rgba(201, 162, 39, 0.35);
+		border-radius: 3px;
+	}
+
+	.thg__slide {
+		position: relative;
+		flex: 0 0 min(78vw, 280px);
+		height: 200px;
+		border-radius: 14px;
+		overflow: hidden;
+		scroll-snap-align: start;
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+		transition:
+			transform 0.3s ease,
+			border-color 0.25s ease;
+	}
+
+	@media (min-width: 640px) {
+		.thg__slide {
+			flex-basis: 300px;
+			height: 220px;
+		}
+	}
+
+	.thg__slide:hover,
+	.thg__slide:focus-visible {
+		transform: translateY(-4px);
+		border-color: rgba(201, 162, 39, 0.35);
+		outline: none;
+	}
+
+	.thg__slide-meta {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 0.85rem 1rem;
+		pointer-events: none;
+	}
+
+	.thg__slide-title {
+		margin: 0.2rem 0 0;
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.25;
+		color: #fff;
+		text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.thg__cell,
+		.thg__thumb,
+		.thg__slide,
+		.thg__img {
+			transition: none;
+		}
+		.thg__cell:hover,
+		.thg__cell:focus-visible,
+		.thg__thumb:hover,
+		.thg__slide:hover {
+			transform: none;
+		}
+	}
+</style>

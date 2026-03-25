@@ -1,0 +1,70 @@
+---
+import type { PagePost } from '../../lib/pages-db';
+import type { Locale } from '../../lib/strings';
+import { localeNames } from '../../lib/strings';
+
+interface Props {
+	post?: PagePost | null;
+}
+
+const { post } = Astro.props;
+const locales: Locale[] = ['en', 'ka', 'ru'];
+
+function field(loc: Locale, key: 'title' | 'body'): string {
+	const b = post?.i18n[loc];
+	if (!b) return '';
+	return String(b[key] ?? '');
+}
+
+function seo(loc: Locale, key: 'seo_title' | 'seo_description'): string {
+	const b = post?.i18n[loc];
+	if (!b) return '';
+	const v = b[key];
+	return v == null ? '' : String(v);
+}
+---
+
+{
+	locales.map((loc) => (
+		<fieldset class="locale-block">
+			<legend>{localeNames[loc]} ({loc})</legend>
+			<p class="muted" style="margin:0 0 0.75rem">
+				Leave title empty to omit this language. Body supports Markdown.
+			</p>
+			<div class="row">
+				<label>
+					<span>Title</span>
+					<input type="text" name={`${loc}_title`} value={field(loc, 'title')} />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>SEO title (optional)</span>
+					<input type="text" name={`${loc}_seo_title`} value={seo(loc, 'seo_title')} />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>SEO description (optional)</span>
+					<input type="text" name={`${loc}_seo_description`} value={seo(loc, 'seo_description')} />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Content (Markdown)</span>
+					<textarea name={`${loc}_body`} class="body-md">
+						{field(loc, 'body')}
+					</textarea>
+				</label>
+			</div>
+		</fieldset>
+	))
+}
+
+<style>
+	.body-md {
+		min-height: 200px;
+		font-family: ui-monospace, Consolas, monospace;
+		font-size: 0.88rem;
+	}
+</style>

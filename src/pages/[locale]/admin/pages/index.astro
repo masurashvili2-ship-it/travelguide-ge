@@ -1,0 +1,93 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { listAllPagesAdmin } from '../../../../lib/pages-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/pages');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const rows = listAllPagesAdmin();
+const formError = Astro.url.searchParams.get('error');
+const userEmail = Astro.locals.user.email;
+const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
+---
+
+<AdminLayout
+	locale={locale}
+	title="Pages ‹ Travel Guide Georgia"
+	headline="Pages"
+	subtitle="Static content at /{locale}/slug. Footer links are managed under Admin → Footer."
+	activeNav="pages-all"
+	userEmail={userEmail}
+>
+	{
+		formError ? (
+			<div class="notice notice-error" role="alert">
+				{formError}
+			</div>
+		) : null
+	}
+
+	<div class="postbox">
+		<div class="postbox__header">All pages</div>
+		<div class="postbox__inside">
+			<p style="margin:0 0 1rem">
+				<a class="button button-primary" href={newPageUrl}>Add new</a>
+			</p>
+			{
+				rows.length === 0 ? (
+					<p class="muted" style="margin:0">
+						No pages yet. Add one to show content at <code>/{locale}/your-slug</code> and optional links in the site
+						footer.
+					</p>
+				) : (
+					<table class="wp-list-table">
+						<thead>
+							<tr>
+								<th>Slug</th>
+								<th>Order</th>
+								<th>EN</th>
+								<th>KA</th>
+								<th>RU</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{
+								rows.map((row) => (
+									<tr>
+										<td>
+											<code>{row.slug}</code>
+										</td>
+										<td>{row.sort_order}</td>
+										<td>{row.titles.en || '—'}</td>
+										<td>{row.titles.ka || '—'}</td>
+										<td>{row.titles.ru || '—'}</td>
+										<td>
+											<a href={getRelativeLocaleUrl(locale, `admin/pages/edit/${row.id}`)}>Edit</a>
+											<div class="view-links muted" style="margin-top:0.35rem">
+												{row.locales.map((code) => (
+													<a href={getRelativeLocaleUrl(code, row.slug)}>View ({code})</a>
+												))}
+											</div>
+										</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				)
+			}
+		</div>
+	</div>
+</AdminLayout>

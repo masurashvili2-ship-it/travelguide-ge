@@ -1,0 +1,383 @@
+---
+import Shell from '../../../components/Shell.astro';
+import TourComments from '../../../components/TourComments.astro';
+import TourDetailHeroGallery from '../../../components/TourDetailHeroGallery.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { marked } from 'marked';
+import { buildTourJsonLd, resolveTourMetaDescription, absoluteSeoUrl } from '../../../lib/seo';
+import { averageRatingFor, listCommentsForPost } from '../../../lib/tour-comments';
+import {
+	getSimilarTours,
+	getTourRowBySlug,
+	getWhatToDoRowBySlug,
+	tourCoverImageUrl,
+} from '../../../lib/tours-db';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+
+const loc = Astro.params.locale;
+const slug = Astro.params.slug;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !slug) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const row = getTourRowBySlug(locale, slug);
+if (!row) {
+	if (getWhatToDoRowBySlug(locale, slug)) {
+		return Astro.redirect(getRelativeLocaleUrl(locale, `what-to-do/${slug}`), 308);
+	}
+	return new Response(null, { status: 404 });
+}
+
+const htmlRaw = marked.parse(row.body, { async: false });
+const html = typeof htmlRaw === 'string' ? htmlRaw : await htmlRaw;
+
+const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
+const canonicalPath = `/${locale}/tours/${slug}`;
+const site = Astro.site;
+const pageUrl = site ? new URL(canonicalPath, site).href : Astro.url.href;
+const siteOrigin = site?.origin ?? Astro.url.origin;
+const coverUrl = tourCoverImageUrl({ image: row.image, gallery: row.gallery });
+const imageAbs = absoluteSeoUrl(coverUrl, site);
+/** Tour detail hero uses gallery uploads only (cover `image` is for cards/SEO, not shown here) */
+const heroGalleryImages: string[] = [];
+const seenUrls = new Set<string>();
+for (const g of row.gallery) {
+	const s = typeof g === 'string' ? g.trim() : '';
+	if (!s || seenUrls.has(s)) continue;
+	seenUrls.add(s);
+	heroGalleryImages.push(s);
+}
+const jsonLd = buildTourJsonLd({
+	title: row.title,
+	description: metaDescription,
+	pageUrl,
+	siteOrigin,
+	imageUrl: imageAbs ?? undefined,
+	locale: row.locale,
+	priceText: row.price,
+	updatedAt: row.updated_at,
+});
+
+const mapPageHref = getRelativeLocaleUrl(locale, 'map');
+const locationLine =
+	row.location == null
+		? null
+		: row.location.label?.trim()
+			? row.location.label.trim()
+			: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
+
+const similarTours = getSimilarTours(locale, slug, row.category, 4);
+
+const tourComments = await listCommentsForPost('tours', row.id);
+const tourAverageRating = averageRatingFor(tourComments);
+const loginNextPath = `/${locale}/tours/${slug}`;
+const tourReviewsLoginHref = `${getRelativeLocaleUrl(locale, 'login')}?${new URLSearchParams({ next: loginNextPath }).toString()}`;
+const adminEditHref =
+	Astro.locals.user?.role === 'admin'
+		? getRelativeLocaleUrl(locale, `admin/tours/edit/${row.id}`)
+		: null;
+---
+
+<Shell
+	locale={locale}
+	subpath={`tours/${slug}`}
+	title={row.title}
+	seoTitle={row.seo_title ?? undefined}
+	seoDescription={metaDescription}
+	canonicalPath={canonicalPath}
+	seoImage={coverUrl ?? null}
+	ogType="article"
+	jsonLd={jsonLd}
+>
+	<p class="muted" style="margin:0 0 1rem">
+		<a href={getRelativeLocaleUrl(locale, 'tours')}>{t.tours}</a>
+		<span aria-hidden="true"> / </span>
+		<span>{row.title}</span>
+	</p>
+	<TourDetailHeroGallery
+		slug={slug}
+		locale={locale}
+		title={row.title}
+		duration={row.duration}
+		price={row.price}
+		excerpt={row.excerpt}
+		images={heroGalleryImages}
+		adminEditHref={adminEditHref}
+		shareUrl={pageUrl}
+	/>
+	<div class="tour-detail-layout" data-tour-detail>
+		<div class="tour-detail-main">
+			<div class="prose" set:html={html} />
+		</div>
+		<aside class="tour-detail-aside" aria-label={t.tourSidebarSectionTitle}>
+			<div class="tour-detail-aside__card">
+				<h2 class="tour-detail-aside__title">{t.tourSidebarSectionTitle}</h2>
+				<dl class="tour-detail-aside__dl">
+					{
+						row.category ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarCategory}</dt>
+								<dd class="tour-detail-aside__dd">{t.tourCategories[row.category]}</dd>
+							</div>
+						) : null
+					}
+					{
+						row.physical_rating ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarPhysicalRating}</dt>
+								<dd class="tour-detail-aside__dd">{t.tourPhysicalRatings[row.physical_rating]}</dd>
+							</div>
+						) : null
+					}
+					<div class="tour-detail-aside__row">
+						<dt class="tour-detail-aside__dt">{t.duration}</dt>
+						<dd class="tour-detail-aside__dd">{row.duration}</dd>
+					</div>
+					{
+						row.price ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarPriceLabel}</dt>
+								<dd class="tour-detail-aside__dd">{row.price}</dd>
+							</div>
+						) : null
+					}
+					{
+						row.driving_distance ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarDrivingDistance}</dt>
+								<dd class="tour-detail-aside__dd">{row.driving_distance}</dd>
+							</div>
+						) : null
+					}
+					{
+						locationLine ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarLocationLabel}</dt>
+								<dd class="tour-detail-aside__dd">
+									{locationLine}
+									<br />
+									<a class="tour-detail-aside__map-link" href={mapPageHref}>{t.tourSidebarViewOnMap}</a>
+								</dd>
+							</div>
+						) : null
+					}
+				</dl>
+			</div>
+		</aside>
+	</div>
+
+	<TourComments
+		locale={locale}
+		tourId={row.id}
+		comments={tourComments}
+		averageRating={tourAverageRating}
+		user={Astro.locals.user}
+		loginHref={tourReviewsLoginHref}
+		labels={{
+			title: t.tourReviewsTitle,
+			outOf: t.tourReviewsOutOf,
+			count: t.tourReviewsCount,
+			loginPrompt: t.tourReviewsLoginPrompt,
+			ratingLabel: t.tourReviewsRatingLabel,
+			commentLabel: t.tourReviewsCommentLabel,
+			submit: t.tourReviewsSubmit,
+			empty: t.tourReviewsEmpty,
+			signedInAs: t.tourReviewsSignedInAs,
+			errorGeneric: t.tourReviewsErrorGeneric,
+			posting: t.tourReviewsPosting,
+			login: t.login,
+			edit: t.tourReviewsEdit,
+			reply: t.tourReviewsReply,
+			save: t.tourReviewsSave,
+			edited: t.tourReviewsEdited,
+			replySubmit: t.tourReviewsReplySubmit,
+		}}
+	/>
+
+	{
+		similarTours.length > 0 ? (
+			<section class="similar-tours" data-similar-tours aria-labelledby="similar-tours-heading">
+				<h2 id="similar-tours-heading" class="similar-tours__heading">
+					{t.similarTours}
+				</h2>
+				<div class="similar-tours__grid">
+					{similarTours.map((entry) => {
+						const thumb = tourCoverImageUrl({
+							image: entry.data.image ?? null,
+							gallery: entry.data.gallery ?? [],
+						});
+						const href = getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`);
+						return (
+							<article class="card similar-tours__card">
+								{thumb ? (
+									<a href={href} class="similar-tours__thumb-link" tabindex="-1" aria-hidden="true">
+										<img
+											class="similar-tours__thumb"
+											src={thumb}
+											alt=""
+											loading="lazy"
+											decoding="async"
+											width="400"
+											height="225"
+										/>
+									</a>
+								) : null}
+								<h3 class="similar-tours__card-title">{entry.data.title}</h3>
+								<p class="muted" style="margin:0">
+									{entry.data.excerpt}
+								</p>
+								<p class="muted" style="margin:0">
+									{t.duration}: {entry.data.duration}
+									{entry.data.price ? ` · ${entry.data.price}` : ''}
+								</p>
+								<a class="btn" href={href}>
+									{t.viewTour}
+								</a>
+							</article>
+						);
+					})}
+				</div>
+			</section>
+		) : null
+	}
+</Shell>
+
+<style is:global>
+	/* Global: slot content inside Shell must not rely on scoped attrs; narrow viewports stack aside below a long article — reorder so “At a glance” stays visible without scrolling. */
+	[data-tour-detail].tour-detail-layout {
+		display: grid;
+		gap: 1.75rem;
+		align-items: start;
+		margin-top: 0.5rem;
+		width: 100%;
+	}
+	@media (max-width: 899px) {
+		[data-tour-detail] .tour-detail-aside {
+			order: 1;
+		}
+		[data-tour-detail] .tour-detail-main {
+			order: 2;
+		}
+	}
+	@media (min-width: 900px) {
+		[data-tour-detail].tour-detail-layout {
+			grid-template-columns: minmax(0, 1fr) min(280px, 34%);
+			gap: 2rem;
+		}
+		[data-tour-detail] .tour-detail-main {
+			order: 1;
+		}
+		[data-tour-detail] .tour-detail-aside {
+			order: 2;
+			position: sticky;
+			top: 1rem;
+			align-self: start;
+		}
+	}
+	[data-tour-detail] .tour-detail-main {
+		min-width: 0;
+	}
+	[data-tour-detail] .tour-detail-aside {
+		min-width: 0;
+		width: 100%;
+	}
+	[data-tour-detail] .tour-detail-aside__card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		padding: 1.1rem 1.2rem;
+		box-shadow: 0 2px 10px rgba(26, 35, 50, 0.08);
+	}
+	[data-tour-detail] .tour-detail-aside__title {
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--text);
+		line-height: 1.25;
+	}
+	[data-tour-detail] .tour-detail-aside__dl {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	[data-tour-detail] .tour-detail-aside__row {
+		display: grid;
+		gap: 0.25rem;
+	}
+	[data-tour-detail] .tour-detail-aside__dt {
+		margin: 0;
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+	[data-tour-detail] .tour-detail-aside__dd {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--text);
+		line-height: 1.45;
+	}
+	[data-tour-detail] .tour-detail-aside__map-link {
+		display: inline-block;
+		margin-top: 0.35rem;
+		font-size: 0.92rem;
+		font-weight: 600;
+	}
+
+	[data-similar-tours].similar-tours {
+		margin-top: 2.5rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+		width: 100%;
+	}
+	[data-similar-tours] .similar-tours__heading {
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+		font-weight: 700;
+		color: var(--text);
+		line-height: 1.25;
+	}
+	[data-similar-tours] .similar-tours__grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: 1fr;
+	}
+	@media (min-width: 640px) {
+		[data-similar-tours] .similar-tours__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (min-width: 1000px) {
+		[data-similar-tours] .similar-tours__grid {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+	[data-similar-tours] .similar-tours__card {
+		margin: 0;
+	}
+	[data-similar-tours] .similar-tours__thumb-link {
+		display: block;
+		margin: -0.25rem -0.25rem 0.65rem;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid var(--border);
+		line-height: 0;
+	}
+	[data-similar-tours] .similar-tours__thumb {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+		display: block;
+	}
+	[data-similar-tours] .similar-tours__card-title {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+</style>

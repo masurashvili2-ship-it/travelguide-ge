@@ -1,0 +1,69 @@
+---
+import Shell from '../../components/Shell.astro';
+import TourHeroGallery from '../../components/TourHeroGallery.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listToursForLocale } from '../../lib/tours-db';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const tours = listToursForLocale(locale);
+const featured = tours.slice(0, 6);
+---
+
+<Shell
+	locale={locale}
+	subpath=""
+	title={t.home}
+	seoDescription={t.heroSubtitle}
+	canonicalPath={`/${locale}/`}
+>
+	<section class="hero">
+		<h1>{t.heroTitle}</h1>
+		<p class="muted" style="font-size:1.1rem;max-width:52ch">{t.heroSubtitle}</p>
+		<p style="margin-top:1.25rem">
+			<a class="btn" href={getRelativeLocaleUrl(locale, 'tours')}>{t.tours}</a>{' '}
+			<a class="btn btn-ghost" href={getRelativeLocaleUrl(locale, 'what-to-do')}>{t.whatToDo}</a>
+		</p>
+	</section>
+	<section aria-label={t.featuredTours}>
+		{
+			featured.length === 0 ? (
+				<p class="muted">
+					No tours in this language yet. Admins can add them from{' '}
+					<a href={getRelativeLocaleUrl(locale, 'admin')}>Admin</a> → Add tour.
+				</p>
+			) : (
+				<>
+					<TourHeroGallery
+						tours={featured}
+						locale={locale}
+						viewLabel={t.viewTour}
+						durationLabel={t.duration}
+						title={t.featuredTours}
+						subtitle={t.heroSubtitle}
+						layout="strip"
+					/>
+					<div class="card-grid">
+						{featured.map((entry) => (
+							<article class="card">
+								<h2>{entry.data.title}</h2>
+								<p class="muted">{entry.data.excerpt}</p>
+								<p class="muted">
+									{t.duration}: {entry.data.duration}
+									{entry.data.price ? ` · ${entry.data.price}` : ''}
+								</p>
+								<a class="btn" href={getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`)}>{t.viewTour}</a>
+							</article>
+						))}
+					</div>
+				</>
+			)
+		}
+	</section>
+</Shell>
