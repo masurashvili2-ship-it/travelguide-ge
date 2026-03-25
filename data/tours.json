@@ -202,6 +202,138 @@
         }
       },
       "updated_at": 1774374456899
+    },
+    {
+      "id": "ac1e8400-e29b-41d4-a716-446655440001",
+      "slug": "mtskheta-unesco-heritage",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.545,
+        "lng": 44.718,
+        "label": "Mtskheta"
+      },
+      "category": "cultural-historical",
+      "physical_rating": "easy",
+      "driving_distance": "~40 km round trip from Tbilisi",
+      "i18n": {
+        "en": {
+          "title": "Mtskheta UNESCO heritage (half day)",
+          "duration": "Half day",
+          "price": "From 35 GEL / person (group)",
+          "excerpt": "Jvari viewpoint, Svetitskhoveli Cathedral, and the old capital where Georgia became Christian.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Just outside Tbilisi, **Mtskheta** was Georgia’s early capital and remains its spiritual heart. Visit **Jvari Monastery** on the hill for a classic view over the **Aragvi** and **Mtkvari** rivers, then explore **Svetitskhoveli Cathedral**, a UNESCO-listed masterpiece of medieval architecture.\r\n\r\nDress modestly inside churches (shoulders/knees covered). Weekends and feast days can be crowded—go earlier in the day if you prefer quieter aisles."
+        },
+        "ka": {
+          "title": "მცხეთის იუნესკოს მემკვიდრეობა (ნახევარი დღე)",
+          "duration": "ნახევარი დღე",
+          "price": "35 ლარიდან / ადამიანზე (ჯგუფურად)",
+          "excerpt": "ჯვრის მონასტერი, სვეტიცხოველი და ძველი დედაქალაქი, სადაც საქართველო ქრისტიანულად მოინათლა.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**მცხეთა** თბილისის სიახლოვესაა — საქართველოს ადრეული დედაქალაქი და სულიერი ცენტრი. **ჯვრის მონასტერში** იდგება **არაგვისა** და **მტკვრის** შესართავის ხედი; **სვეტიცხოველში** — საუკუნეების ქვის ხურობა და უნესკოს სია.\r\n\r\nტაძრებში შესვლისას მორგებული ტანსაცმელი (მხრეები/მუხლები დაფარული). დღესასწაულებზე ხალხი მეტია — სურვილისამებრ იყავით დილით."
+        },
+        "ru": {
+          "title": "Мцхета — объект ЮНЕСКО (полдня)",
+          "duration": "Полдня",
+          "price": "От 35 лари / человек (группа)",
+          "excerpt": "Джвари, Светицховели и старая столица, где Грузия приняла христианство.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Рядом с Тбилиси лежит **Мцхета** — древняя столица и духовный центр. В **монастыре Джвари** на холме открывается вид на слияние **Арагви** и **Мтквари**; **Светицховели** — шедевр средневековья в списке ЮНЕСКО.\r\n\r\nВ храмах скромная одежда (плечи и колени прикрыты). В праздники бывает многолюдно — утром спокойнее."
+        }
+      },
+      "updated_at": 1776000001000
+    },
+    {
+      "id": "ac1e8400-e29b-41d4-a716-446655440002",
+      "slug": "david-gareji-cave-monasteries",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.447,
+        "lng": 45.375,
+        "label": "David Gareji"
+      },
+      "category": "religious-pilgrimage",
+      "physical_rating": "moderate",
+      "driving_distance": "~180 km round trip from Tbilisi · short hike on the ridge",
+      "i18n": {
+        "en": {
+          "title": "David Gareji cave monasteries",
+          "duration": "Full day",
+          "price": "From 95 GEL / person (group van)",
+          "excerpt": "Semi-desert cliffs, frescoed cave chapels, and a borderlands landscape southeast of Tbilisi.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **David Gareji** complex stretches along a striking ridge on the **Azerbaijan** border. Lavra and **Udabno** hermitages hide rock-cut churches with medieval **frescoes**.\r\n\r\nWear a hat and carry water—there is little shade. Border-area rules can change; follow your guide’s instructions and carry ID. Not ideal for those with severe mobility limits because of uneven paths and steps."
+        },
+        "ka": {
+          "title": "დავითგარეჯის მღვიმე მონასტრები",
+          "duration": "მთელი დღე",
+          "price": "95 ლარიდან / ადამიანზე (მიკროავტობუსით)",
+          "excerpt": "ნახევრად უდაბნოს ქედი, მღვიმის ეკლესიები ფრესკებით და საზღვრისპირა პეიზაჟი თბილისის სამხრეთ-აღმოსავლეთით.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**დავითგარეჯის** კომპლექსი **აზერბაიჯანის** საზღვართან გასდევს ქედს. **ლავრა** და **უდაბნო** უჯრეკებელია ქვაში გამოკვეთილი ეკლესიებითა და შუასაუკუნეების **ფრესკებით**.\r\n\r\nქუდი და წყალი აუცილებელია — ჩრდილი ცოტაა. საზღვრის ზონაში წესები იცვლება — მიჰყევით გიდის მითითებებს და პირადობა თან გქონდეთ. ბილიკი უსწოროა — მძიმე მობილობის პრობლემისას გაითვალისწინეთ."
+        },
+        "ru": {
+          "title": "Пещерные монастыри Давид-Гареджи",
+          "duration": "Целый день",
+          "price": "От 95 лари / человек (групповой микроавтобус)",
+          "excerpt": "Полупустынный хребет, скальные храмы с фресками и пограничный пейзаж к юго-востоку от Тбилиси.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Комплекс **Давид-Гареджи** тянется вдоль хребта у границы с **Азербайджаном**. В **Лавре** и отшельнице **Удабно** — высеченные в скале церкви со средневековыми **фресками**.\r\n\r\nГоловной убор и вода обязательны — мало тени. В пограничье правила меняются — слушайте гида, имейте документ. Тропы неровные; при серьёзных проблемах с подвижностью маршрут может не подойти."
+        }
+      },
+      "updated_at": 1776000002000
+    },
+    {
+      "id": "ac1e8400-e29b-41d4-a716-446655440003",
+      "slug": "borjomi-bakuriani-day-escape",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.84,
+        "lng": 43.39,
+        "label": "Borjomi"
+      },
+      "category": "adventure-nature",
+      "physical_rating": "easy",
+      "driving_distance": "~320 km round trip from Tbilisi (long day) or overnight recommended",
+      "i18n": {
+        "en": {
+          "title": "Borjomi & Bakuriani day escape",
+          "duration": "12–14 hours (or 2 days)",
+          "price": "From 140 GEL / person (group)",
+          "excerpt": "Famous mineral water, Borjomi National Park trails, and optional cool mountain air toward Bakuriani.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Head west into the **Lesser Caucasus**. In **Borjomi**, stroll the central park, taste the salty-sweet **mineral water** from the spring, and—time permitting—take a short forest walk in **Borjomi National Park**.\r\n\r\nA side loop toward **Bakuriani** adds elevation and ski-town views (best as a summer refresh or winter sports add-on). This is a **long drive** from Tbilisi; an overnight in Borjomi makes the pace far more relaxed."
+        },
+        "ka": {
+          "title": "ბორჯომი და ბაკურიანი — ერთდღიანი გაქცევა",
+          "duration": "12–14 საათი (ან 2 დღე)",
+          "price": "140 ლარიდან / ადამიანზე (ჯგუფურად)",
+          "excerpt": "ცნობილი მინერალური წყალი, ბორჯომის ეროვნული პარკის ბილიკები და სურვილისამებრ ბაკურიანის მთიანი ჰაერი.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "გაემგზავრეთ დასავლეთით **წინაკავკასიონში**. **ბორჯომში** გაისეირნეთ პარკში, დააგემოვნეთ **მინერალური წყალი** წყაროდან და დროის შემთხვევაში — მოკლე ტყის სეირნი **ბორჯომ-ხარაგაულის ეროვნულ პარკში**.\r\n\r\n**ბაკურიანის** მიმართულებით სიმაღლე და მთის ქალაქის ხედი ემატება (ზაფხულში გაგრილება, ზამთარში — სპორტი). **თბილისიდან გზა გრძელია**; ღამის გათევა ბორჯომში მარშრუტს ბევრად მშვიდს ხდის."
+        },
+        "ru": {
+          "title": "Боржоми и Бакуриани — однодневный выезд",
+          "duration": "12–14 часов (или 2 дня)",
+          "price": "От 140 лари / человек (группа)",
+          "excerpt": "Знаменитая минеральная вода, тропы нацпарка Боржоми и по желанию горный воздух в сторону Бакуриани.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "Западнее Тбилиси — **Малый Кавказ**. В **Боржоми** прогуляйтесь по парку, попробуйте **минеральную воду** из источника и при возможности — короткую прогулку в **национальном парке Боржоми**.\r\n\r\nПетля к **Бакуриани** добавляет высоту и виды горнолыжного городка (летом прохлада, зимой активный отдых). Из Тбилиси **дорога долгая**; ночёвка в Боржоми сильно смягчает ритм."
+        }
+      },
+      "updated_at": 1776000003000
     }
   ]
 }
