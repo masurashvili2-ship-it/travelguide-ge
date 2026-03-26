@@ -116,6 +116,11 @@ export const ui: Record<
 		backHome: string;
 		/** Accessible name for footer links to CMS pages */
 		footerSitePages: string;
+		/** Footer column headings */
+		footerColExplore: string;
+		footerColCompany: string;
+		/** Short “about” blurb next to the logo */
+		footerAboutText: string;
 		/** Small label on tour detail hero (like a category chip) */
 		tourBadge: string;
 		/** Section label for the photo gallery */
@@ -327,6 +332,10 @@ export const ui: Record<
 		role: 'Role',
 		backHome: 'Back to home',
 		footerSitePages: 'Site pages',
+		footerColExplore: 'Explore',
+		footerColCompany: 'Company',
+		footerAboutText:
+			'Independent guide to Georgia — tours, regions, activities, and maps. Made for travelers exploring the Caucasus.',
 		tourBadge: 'Tour',
 		gallerySection: 'Photo gallery',
 		adminEditPostAria: 'Edit in admin panel',
@@ -549,6 +558,10 @@ export const ui: Record<
 		role: 'როლი',
 		backHome: 'მთავარზე დაბრუნება',
 		footerSitePages: 'გვერდები',
+		footerColExplore: 'ნავიგაცია',
+		footerColCompany: 'ჩვენ შესახებ',
+		footerAboutText:
+			'დამოუკიდებელი გიდი საქართველოში — ტურები, რეგიონები, აქტივობები და რუკა. კავკასიის მოგზაურებისთვის.',
 		tourBadge: 'ტური',
 		gallerySection: 'ფოტო გალერეა',
 		adminEditPostAria: 'რედაქტირება ადმინ პანელში',
@@ -773,6 +786,10 @@ export const ui: Record<
 		role: 'Роль',
 		backHome: 'На главную',
 		footerSitePages: 'Страницы',
+		footerColExplore: 'Разделы',
+		footerColCompany: 'О проекте',
+		footerAboutText:
+			'Независимый путеводитель по Грузии — туры, регионы, активности и карты. Для путешественников по Кавказу.',
 		tourBadge: 'Тур',
 		gallerySection: 'Фотогалерея',
 		adminEditPostAria: 'Редактировать в админ-панели',

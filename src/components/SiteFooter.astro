@@ -17,37 +17,83 @@ const blurbParsed = blurbMd ? marked.parse(blurbMd, { async: false }) : '';
 const footerBlurbHtml = typeof blurbParsed === 'string' ? blurbParsed : '';
 const footerHasExtras = footerNav.length > 0 || footerBlurbHtml.trim().length > 0;
 const year = new Date().getFullYear();
+const home = getRelativeLocaleUrl(locale, '/');
+const policyHref = getRelativeLocaleUrl(locale, 'policy');
+const searchHref = getRelativeLocaleUrl(locale, 'search');
 ---
 
-<footer class:list={['site-footer', { 'site-footer--links': footerHasExtras }]}>
+<footer class="site-footer">
+	<div class="site-footer__grid">
+		<div class="site-footer__brand">
+			<a class="site-footer__brand-link" href={home}>
+				<img
+					class="site-footer__logo"
+					src="/logo.svg"
+					width="40"
+					height="40"
+					alt=""
+					decoding="async"
+					loading="lazy"
+				/>
+				<span class="site-footer__brand-text" lang="en" translate="no">TRAVELGEORGIA.GE</span>
+			</a>
+			<p class="site-footer__about">{t.footerAboutText}</p>
+		</div>
+
+		<nav class="site-footer__col" aria-labelledby="footer-explore-h">
+			<h2 id="footer-explore-h" class="site-footer__h">{t.footerColExplore}</h2>
+			<ul class="site-footer__list">
+				<li><a href={home}>{t.home}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'tours')}>{t.tours}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'what-to-do')}>{t.whatToDo}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'regions')}>{t.regions}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'map')}>{t.map}</a></li>
+				<li><a href={searchHref}>{t.searchButton}</a></li>
+			</ul>
+		</nav>
+
+		<nav class="site-footer__col" aria-labelledby="footer-company-h">
+			<h2 id="footer-company-h" class="site-footer__h">{t.footerColCompany}</h2>
+			<ul class="site-footer__list">
+				<li><a href={policyHref}>{t.footerPolicy}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'contribute')}>{t.contribute}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'login')}>{t.login}</a></li>
+				<li><a href={getRelativeLocaleUrl(locale, 'register')}>{t.register}</a></li>
+			</ul>
+		</nav>
+	</div>
+
 	{
-		footerNav.length > 0 ? (
-			<nav aria-label={t.footerSitePages}>
-				{footerNav.map((e) => {
-					const href = e.kind === 'internal' ? getRelativeLocaleUrl(locale, e.path) : e.url;
-					const external = e.kind === 'external';
-					return (
-						<a
-							href={href}
-							target={external ? '_blank' : undefined}
-							rel={external ? 'noopener noreferrer' : undefined}
-						>
-							{e.title}
-						</a>
-					);
-				})}
-			</nav>
+		footerHasExtras ? (
+			<div class="site-footer__cms">
+				{footerNav.length > 0 ? (
+					<nav class="site-footer__cms-nav" aria-label={t.footerSitePages}>
+						{footerNav.map((e) => {
+							const href = e.kind === 'internal' ? getRelativeLocaleUrl(locale, e.path) : e.url;
+							const external = e.kind === 'external';
+							return (
+								<a
+									href={href}
+									target={external ? '_blank' : undefined}
+									rel={external ? 'noopener noreferrer' : undefined}
+								>
+									{e.title}
+								</a>
+							);
+						})}
+					</nav>
+				) : null}
+				{footerBlurbHtml.trim() ? (
+					<div class="site-footer__blurb prose" set:html={footerBlurbHtml} />
+				) : null}
+			</div>
 		) : null
 	}
-	{
-		footerBlurbHtml.trim() ? (
-			<div class="site-footer__blurb prose" set:html={footerBlurbHtml} />
-		) : null
-	}
-	<p class="site-footer__legal">
-		<a href={getRelativeLocaleUrl(locale, 'policy')}>{t.footerPolicy}</a>
-	</p>
-	<p class="site-footer__meta">
-		© {year} {t.siteTitle}
-	</p>
+
+	<div class="site-footer__bottom">
+		<p class="site-footer__meta">© {year} {t.siteTitle}</p>
+		<p class="site-footer__legal">
+			<a href={policyHref}>{t.footerPolicy}</a>
+		</p>
+	</div>
 </footer>
