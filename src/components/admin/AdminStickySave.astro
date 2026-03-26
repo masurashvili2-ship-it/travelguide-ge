@@ -6,7 +6,7 @@ interface Props {
 	formId: string;
 	submitLabel: string;
 	cancelHref: string;
-	viewMode: 'tours' | 'what-to-do' | 'page';
+	viewMode: 'tours' | 'what-to-do' | 'regions' | 'page';
 }
 
 const { locale, formId, submitLabel, cancelHref, viewMode } = Astro.props;
@@ -45,6 +45,7 @@ const { locale, formId, submitLabel, cancelHref, viewMode } = Astro.props;
 			var s = (slug || '').trim();
 			if (!s) return '';
 			if (mode === 'page') return '/' + locale + '/' + s;
+			if (mode === 'regions') return '/' + locale + '/regions/' + s;
 			return '/' + locale + '/' + mode + '/' + s;
 		}
 

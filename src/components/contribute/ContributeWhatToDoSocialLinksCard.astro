@@ -1,0 +1,60 @@
+---
+import type { ContactSocialLinks } from '../../lib/contact-social-links';
+import {
+	CONTACT_SOCIAL_LABELS,
+	CONTACT_SOCIAL_LINK_KEYS,
+	type ContactSocialLinkKey,
+} from '../../lib/contact-social-links';
+
+interface Props {
+	socialLinks?: ContactSocialLinks | null;
+}
+
+const { socialLinks } = Astro.props;
+
+function value(key: ContactSocialLinkKey): string {
+	const v = socialLinks?.[key];
+	return v == null ? '' : String(v);
+}
+---
+
+<section class="contribute-card" translate="no" lang="en">
+	<h2 class="contribute-card__h">Social &amp; contact links (shared — not per language)</h2>
+	<div class="contribute-card__bd">
+		<p class="muted" style="margin:0 0 1rem">
+			Shared for every translation. Use each language’s <strong>Contact sidebar</strong> under Translations above
+			for localized text.
+		</p>
+		<p class="muted" style="margin:0 0 0.5rem">
+			Full URLs are best. WhatsApp: digits or <code>wa.me</code>; Telegram: <code>@user</code> or <code>t.me</code>{' '}
+			link.
+		</p>
+		<div class="contact-social-grid">
+			{
+				CONTACT_SOCIAL_LINK_KEYS.map((key) => (
+					<label class="contact-social-grid__item">
+						<span>{CONTACT_SOCIAL_LABELS[key]}</span>
+						<input type="text" name={`social_${key}`} value={value(key)} autocomplete="off" />
+					</label>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.contact-social-grid {
+		display: grid;
+		gap: 0.65rem 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+	.contact-social-grid__item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		font-size: 0.88rem;
+	}
+	.contact-social-grid__item input {
+		width: 100%;
+	}
+</style>

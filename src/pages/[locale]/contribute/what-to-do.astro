@@ -1,5 +1,6 @@
 ---
 import Shell from '../../../components/Shell.astro';
+import ContributeWhatToDoSocialLinksCard from '../../../components/contribute/ContributeWhatToDoSocialLinksCard.astro';
 import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
 import AdminTourLocalesFields from '../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../components/admin/AdminSlugAutoFromEnTitle.astro';
@@ -41,7 +42,10 @@ const back = getRelativeLocaleUrl(locale, 'contribute');
 			<a href={back}>← Back to Contribute</a>
 		</p>
 		<h1>Propose a “What to do” entry</h1>
-		<p class="muted">Activities and ideas. Upload images or paste URLs. Optional contact sidebar per language below.</p>
+		<p class="muted">
+			Activities and ideas. Upload images or paste URLs. Translations (including per-language contact sidebar) come
+			first; social URLs are one shared block at the end of the form.
+		</p>
 
 		<form id="contribute-wtd-form" method="post" action="/api/contribute/what-to-do">
 			<section class="contribute-card">
@@ -157,6 +161,15 @@ const back = getRelativeLocaleUrl(locale, 'contribute');
 							<input type="text" name="location_label" autocomplete="off" />
 						</label>
 					</div>
+					<div class="row">
+						<label>
+							<span>Google Maps directions link (optional)</span>
+							<input type="url" name="google_directions_url" inputmode="url" autocomplete="off" />
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">
+							Must be a Google Maps URL (maps.google.com, google.com/maps, or goo.gl).
+						</p>
+					</div>
 				</div>
 			</section>
 
@@ -166,6 +179,8 @@ const back = getRelativeLocaleUrl(locale, 'contribute');
 					<AdminTourLocalesFields showContactSidebar />
 				</div>
 			</section>
+
+			<ContributeWhatToDoSocialLinksCard />
 		</form>
 
 		<ContributeSubmitBar formId="contribute-wtd-form" cancelHref={back} />

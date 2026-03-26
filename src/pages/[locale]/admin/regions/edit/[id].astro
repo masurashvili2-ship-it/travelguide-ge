@@ -1,0 +1,329 @@
+---
+import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminRegionLocalesFields from '../../../../../components/admin/AdminRegionLocalesFields.astro';
+import AdminStickySave from '../../../../../components/admin/AdminStickySave.astro';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import {
+	getRegionPostById,
+	listRegionsForParentSelect,
+} from '../../../../../lib/regions-db';
+import type { Locale } from '../../../../../lib/strings';
+import { isValidTourId } from '../../../../../lib/tours-db';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `admin/regions/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+if (!isValidTourId(idParam)) {
+	return new Response(null, { status: 404 });
+}
+
+const post = getRegionPostById(idParam);
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const displayTitle =
+	post.i18n.en?.title?.trim() ||
+	post.i18n.ka?.title?.trim() ||
+	post.i18n.ru?.title?.trim() ||
+	post.slug;
+
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const userEmail = Astro.locals.user.email;
+
+const parentRegions = listRegionsForParentSelect('region');
+const parentMunicipalities = listRegionsForParentSelect('municipality');
+
+const levelLabel =
+	post.level === 'region' ? 'Region' : post.level === 'municipality' ? 'Municipality' : 'Village';
+
+let parentOptions =
+	post.level === 'municipality' ? parentRegions : post.level === 'village' ? parentMunicipalities : [];
+const pid = post.parent_id;
+if (pid && !parentOptions.some((p) => p.id === pid)) {
+	const par = getRegionPostById(pid);
+	if (par) {
+		parentOptions = [
+			...parentOptions,
+			{ id: par.id, slug: par.slug, label: par.i18n.en?.title?.trim() || par.slug },
+		];
+	}
+}
+
+const locPin = post.location;
+---
+
+<AdminLayout
+	locale={locale}
+	title={`Edit “${displayTitle}” · Travel Guide Georgia`}
+	headline="Edit place"
+	subtitle={`Post ID ${post.id} · slug: ${post.slug} · type: ${levelLabel}`}
+	activeNav="regions-edit"
+	userEmail={userEmail}
+>
+	<form id="region-admin-form" method="post" action="/api/admin/regions">
+		<input type="hidden" name="intent" value="update" />
+		<input type="hidden" name="id" value={post.id} />
+		<input type="hidden" name="level" value={post.level} />
+		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="admin_locale" value={locale} />
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Type</h2>
+			<div class="admin-card__bd">
+				<p class="muted" style="margin:0">
+					<strong>{levelLabel}</strong> — level cannot be changed after creation.
+				</p>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Parent</h2>
+			<div class="admin-card__bd">
+				{
+					post.level === 'region' ? (
+						<p class="muted" style="margin:0">Top-level region (no parent).</p>
+					) : (
+						<div class="row">
+							<label>
+								<span>{post.level === 'municipality' ? 'Region' : 'Municipality'}</span>
+								<select name="parent_id" required>
+									{
+										parentOptions.map((p) => (
+											<option value={p.id} selected={p.id === post.parent_id}>
+												{p.label} ({p.slug})
+											</option>
+										))
+									}
+								</select>
+							</label>
+						</div>
+					)
+				}
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Slug</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input
+							type="text"
+							id="region-admin-slug"
+							name="slug"
+							required
+							value={post.slug}
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Facts &amp; identifiers</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Population (optional)</span>
+						<input
+							type="text"
+							name="population"
+							inputmode="numeric"
+							autocomplete="off"
+							value={post.population != null ? String(post.population) : ''}
+						/>
+					</label>
+					<label>
+						<span>Area km² (optional)</span>
+						<input
+							type="text"
+							name="area_km2"
+							inputmode="decimal"
+							autocomplete="off"
+							value={post.area_km2 != null ? String(post.area_km2) : ''}
+						/>
+					</label>
+					<label>
+						<span>Elevation m (optional)</span>
+						<input
+							type="text"
+							name="elevation_m"
+							inputmode="decimal"
+							autocomplete="off"
+							value={post.elevation_m != null ? String(post.elevation_m) : ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Administrative center (optional)</span>
+						<input
+							type="text"
+							name="admin_center_name"
+							autocomplete="off"
+							value={post.admin_center_name ?? ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>ISO 3166-2 (optional)</span>
+						<input type="text" name="iso_3166_2" autocomplete="off" value={post.iso_3166_2 ?? ''} />
+					</label>
+					<label>
+						<span>Official code (optional)</span>
+						<input type="text" name="official_code" autocomplete="off" value={post.official_code ?? ''} />
+					</label>
+					<label>
+						<span>Settlement type (optional)</span>
+						<input
+							type="text"
+							name="settlement_type"
+							autocomplete="off"
+							value={post.settlement_type ?? ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Official website (optional)</span>
+						<input
+							type="url"
+							name="official_website"
+							autocomplete="off"
+							value={post.official_website ?? ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Wikipedia URL (optional)</span>
+						<input type="url" name="wikipedia_url" autocomplete="off" value={post.wikipedia_url ?? ''} />
+					</label>
+					<label>
+						<span>Wikidata id (optional)</span>
+						<input type="text" name="wikidata_id" autocomplete="off" value={post.wikidata_id ?? ''} />
+					</label>
+					<label>
+						<span>GeoNames id (optional)</span>
+						<input type="text" name="geonames_id" autocomplete="off" value={post.geonames_id ?? ''} />
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Featured image &amp; gallery</h2>
+			<div class="admin-card__bd">
+				<fieldset class="photos" style="background:transparent;border-style:dashed">
+					<AdminTourPhotoUpload
+						uploadApiPath="/api/admin/upload-region-image"
+						formId="region-admin-form"
+						slugInputId="region-admin-slug"
+						widgetPrefix="region"
+					/>
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input
+								type="text"
+								name="image"
+								id="region-cover-url"
+								placeholder="/uploads/regions/… or https://…"
+								value={post.image ?? ''}
+							/>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea class="gallery-urls" name="gallery_urls" id="region-gallery-urls">
+								{post.gallery.join('\n')}
+							</textarea>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Map location</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Latitude</span>
+						<input
+							type="text"
+							name="location_lat"
+							inputmode="decimal"
+							autocomplete="off"
+							value={locPin ? String(locPin.lat) : ''}
+						/>
+					</label>
+					<label>
+						<span>Longitude</span>
+						<input
+							type="text"
+							name="location_lng"
+							inputmode="decimal"
+							autocomplete="off"
+							value={locPin ? String(locPin.lng) : ''}
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Map label (optional)</span>
+						<input type="text" name="location_label" autocomplete="off" value={locPin?.label ?? ''} />
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Translations</h2>
+			<div class="admin-card__bd">
+				<AdminRegionLocalesFields post={post} />
+			</div>
+		</section>
+	</form>
+
+	<AdminStickySave
+		locale={locale}
+		formId="region-admin-form"
+		submitLabel="Save changes"
+		cancelHref={adminHome}
+		viewMode="regions"
+	/>
+
+	<section class="admin-card" style="margin-top:1.5rem">
+		<h2 class="admin-card__h">Delete</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 0.75rem">
+				You can delete only if there are no child municipalities or villages under this place.
+			</p>
+			<form method="post" action="/api/admin/regions">
+				<input type="hidden" name="intent" value="delete" />
+				<input type="hidden" name="id" value={post.id} />
+				<input type="hidden" name="redirect" value={adminHome} />
+				<button type="submit" class="button" style="border-color:#b91c1c;color:#b91c1c">
+					Delete this place
+				</button>
+			</form>
+		</div>
+	</section>
+</AdminLayout>

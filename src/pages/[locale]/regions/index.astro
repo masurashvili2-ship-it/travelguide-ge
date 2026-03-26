@@ -1,0 +1,145 @@
+---
+import Shell from '../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listRegionIndexCards, REGION_LEVEL_IDS, type RegionLevel } from '../../../lib/regions-db';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+import { tourCoverImageUrl } from '../../../lib/tours-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+const levelParam = Astro.url.searchParams.get('level')?.trim().toLowerCase() ?? '';
+const levelFilter: RegionLevel | undefined =
+	levelParam && (REGION_LEVEL_IDS as readonly string[]).includes(levelParam)
+		? (levelParam as RegionLevel)
+		: undefined;
+
+const allCards = listRegionIndexCards(locale);
+const cards = levelFilter ? allCards.filter((c) => c.level === levelFilter) : allCards;
+
+const regionsPath = getRelativeLocaleUrl(locale, 'regions');
+
+function levelLabel(level: RegionLevel): string {
+	if (level === 'region') return t.regionsLevelRegion;
+	if (level === 'municipality') return t.regionsLevelMunicipality;
+	return t.regionsLevelVillage;
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="regions"
+	title={t.regions}
+	seoDescription={t.regionsMetaDescription}
+	canonicalPath={levelFilter ? `/${locale}/regions?level=${levelFilter}` : `/${locale}/regions`}
+>
+	<section class="hero">
+		<h1>{t.regions}</h1>
+		<p class="muted">{t.regionsIntro}</p>
+	</section>
+
+	<nav class="regions-filter" aria-label="Place type">
+		<a
+			class:list={['regions-filter__a', !levelFilter && 'is-active']}
+			href={regionsPath}
+			aria-current={!levelFilter ? 'page' : undefined}>{t.regionsFilterAllTypes}</a>
+		{
+			REGION_LEVEL_IDS.map((id) => (
+				<a
+					class:list={['regions-filter__a', levelFilter === id && 'is-active']}
+					href={`${regionsPath}?level=${id}`}
+					aria-current={levelFilter === id ? 'page' : undefined}
+				>
+					{levelLabel(id)}
+				</a>
+			))
+		}
+	</nav>
+
+	{
+		cards.length === 0 ? (
+			<p class="muted">No places in this list yet.</p>
+		) : (
+			<div class="card-grid" style="margin-top:0.75rem">
+				{cards.map((c) => {
+					const cover = tourCoverImageUrl({ image: c.image, gallery: c.gallery });
+					return (
+						<article class="card">
+							{cover ? (
+								<a class="regions-card__media" href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>
+									<img src={cover} alt="" width="640" height="360" loading="lazy" decoding="async" />
+								</a>
+							) : null}
+							<p class="regions-card__badge muted">{levelLabel(c.level)}</p>
+							<h2>
+								<a href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>{c.title}</a>
+							</h2>
+							{c.subtitle ? <p class="muted regions-card__sub">{c.subtitle}</p> : null}
+							<p class="muted">{c.excerpt}</p>
+							<a class="btn" href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>
+								{t.viewRegion}
+							</a>
+						</article>
+					);
+				})}
+			</div>
+		)
+	}
+</Shell>
+
+<style>
+	.regions-filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.75rem;
+		margin: 1rem 0 0;
+	}
+	.regions-filter__a {
+		font-size: 0.88rem;
+		font-weight: 600;
+		text-decoration: none;
+		padding: 0.35rem 0.75rem;
+		border-radius: 999px;
+		border: 1px solid var(--border, #e2e8f0);
+		color: var(--text, #1e293b);
+	}
+	.regions-filter__a:hover {
+		border-color: color-mix(in srgb, var(--text) 28%, var(--border));
+	}
+	.regions-filter__a.is-active {
+		background: var(--text, #1e293b);
+		color: var(--bg, #fff);
+		border-color: var(--text, #1e293b);
+	}
+	.regions-card__media {
+		display: block;
+		margin: -0.5rem -0.5rem 0.65rem;
+		border-radius: 8px 8px 0 0;
+		overflow: hidden;
+		line-height: 0;
+		background: var(--surface, #f1f5f9);
+	}
+	.regions-card__media img {
+		width: 100%;
+		height: auto;
+		max-height: 200px;
+		object-fit: cover;
+		display: block;
+	}
+	.regions-card__badge {
+		margin: 0 0 0.35rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.regions-card__sub {
+		margin: -0.25rem 0 0.5rem;
+		font-size: 0.92rem;
+	}
+</style>

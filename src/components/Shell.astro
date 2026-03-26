@@ -816,6 +816,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 							href={getRelativeLocaleUrl(locale, 'what-to-do')}
 							aria-current={subpath.startsWith('what-to-do') ? 'page' : undefined}>{t.whatToDo}</a>
 						<a
+							href={getRelativeLocaleUrl(locale, 'regions')}
+							aria-current={subpath.startsWith('regions') ? 'page' : undefined}>{t.regions}</a>
+						<a
 							href={getRelativeLocaleUrl(locale, 'map')}
 							aria-current={subpath === 'map' ? 'page' : undefined}>{t.map}</a>
 					</nav>
@@ -899,6 +902,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 											<p class="site-dd__email muted">{user.email}</p>
 											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'contribute')}>
 												{t.contribute}
+											</a>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'activity')}>
+												{t.navActivityLog}
 											</a>
 											{
 												user.role === 'admin' ? (

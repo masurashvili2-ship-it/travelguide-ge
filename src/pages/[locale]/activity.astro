@@ -1,0 +1,316 @@
+---
+import Shell from '../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+import { listActivityForUser, type UserActivityEntry } from '../../lib/user-activity';
+import {
+	getContentPostById,
+	urlSegmentForContentKind,
+	type ContentPostKind,
+} from '../../lib/tours-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'activity');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const user = Astro.locals.user;
+const entries = await listActivityForUser(user.id);
+
+function postHref(e: UserActivityEntry): string | null {
+	if (!e.tourId || !e.postKind) return null;
+	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	if (!post) return null;
+	const seg = urlSegmentForContentKind(e.postKind as ContentPostKind);
+	return getRelativeLocaleUrl(locale, `${seg}/${post.slug}`);
+}
+
+function resolvedTitle(e: UserActivityEntry): string {
+	if (e.postTitle?.trim()) return e.postTitle.trim();
+	if (!e.tourId || !e.postKind) return '';
+	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	const block = post?.i18n[locale] ?? post?.i18n.en ?? post?.i18n.ka ?? post?.i18n.ru;
+	return block?.title?.trim() || e.postSlug?.trim() || post?.slug || e.tourId;
+}
+
+function resolvedSlug(e: UserActivityEntry): string {
+	if (e.postSlug?.trim()) return e.postSlug.trim();
+	if (!e.tourId || !e.postKind) return '';
+	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	return post?.slug ?? '';
+}
+
+function postStillExists(e: UserActivityEntry): boolean {
+	if (!e.tourId || !e.postKind) return false;
+	return getContentPostById(e.postKind as ContentPostKind, e.tourId) != null;
+}
+
+function typeLabel(e: UserActivityEntry): string {
+	if (e.postKind === 'what-to-do') return t.activityLogTypeWhatToDo;
+	if (e.postKind === 'tours') return t.activityLogTypeTour;
+	return '—';
+}
+
+function kindLabel(e: UserActivityEntry): string {
+	switch (e.kind) {
+		case 'login':
+			return t.activityKindLogin;
+		case 'review_posted':
+			return t.activityKindReviewPosted;
+		case 'reply_posted':
+			return t.activityKindReplyPosted;
+		default:
+			return e.kind;
+	}
+}
+
+function hasPostContext(e: UserActivityEntry): boolean {
+	return Boolean(e.tourId && e.postKind);
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="activity"
+	title={`${t.activityLogTitle} · ${t.siteTitle}`}
+	seoTitle={t.activityLogTitle}
+	seoDescription={t.activityLogIntro}
+>
+	<div class="contribute-page">
+		<h1 style="margin-top:0">{t.activityLogTitle}</h1>
+		<p class="muted" style="margin:0 0 1.5rem">{t.activityLogIntro}</p>
+		{
+			entries.length === 0 ? (
+				<p class="muted">{t.activityLogEmpty}</p>
+			) : (
+				<ul class="activity-log-list">
+					{entries.map((e) => {
+						const href = postHref(e);
+						const title = resolvedTitle(e);
+						const slug = resolvedSlug(e);
+						const showPost = hasPostContext(e);
+						const exists = postStillExists(e);
+						return (
+							<li class="activity-log-list__item">
+								<div class="activity-log-list__head">
+									<span class="activity-log-list__kind">{kindLabel(e)}</span>
+									<time class="activity-log-list__time muted" datetime={new Date(e.at).toISOString()}>
+										{new Date(e.at).toLocaleString(locale, {
+											dateStyle: 'medium',
+											timeStyle: 'short',
+										})}
+									</time>
+								</div>
+								{e.kind === 'login' ? (
+									<p class="activity-log-list__detail muted">{t.activityLogLoginDetail}</p>
+								) : null}
+								{showPost && e.kind !== 'login' ? (
+									<dl class="activity-log-list__dl">
+										{title ? (
+											<div class="activity-log-list__drow">
+												<dt>{t.activityLogPostLabel}</dt>
+												<dd>{title}</dd>
+											</div>
+										) : null}
+										<div class="activity-log-list__drow">
+											<dt>{t.activityLogTypeLabel}</dt>
+											<dd>{typeLabel(e)}</dd>
+										</div>
+										{slug ? (
+											<div class="activity-log-list__drow">
+												<dt>{t.activityLogSlugLabel}</dt>
+												<dd>
+													<code class="activity-log-list__code">{slug}</code>
+												</dd>
+											</div>
+										) : null}
+										{e.kind === 'review_posted' && e.rating != null && e.rating >= 1 && 5 >= e.rating ? (
+											<div class="activity-log-list__drow">
+												<dt>{t.activityLogRatingLabel}</dt>
+												<dd>
+													<span class="activity-log-list__stars" aria-hidden="true">
+														{Array.from({ length: 5 }, (_, i) => (
+															<span
+																class={
+																	e.rating != null && e.rating > i
+																		? 'activity-log-list__star is-on'
+																		: 'activity-log-list__star'
+																}
+															>
+																★
+															</span>
+														))}
+													</span>
+													<span class="visually-hidden">
+														{e.rating} / 5
+													</span>
+													<span class="muted" style="margin-left:0.35rem;font-size:0.9rem">
+														{e.rating} / 5
+													</span>
+												</dd>
+											</div>
+										) : null}
+										{e.bodyPreview ? (
+											<div class="activity-log-list__drow activity-log-list__drow--block">
+												<dt>{t.activityLogPreviewLabel}</dt>
+												<dd>
+													<blockquote class="activity-log-list__preview">{e.bodyPreview}</blockquote>
+												</dd>
+											</div>
+										) : null}
+									</dl>
+								) : null}
+								{showPost && !exists && e.kind !== 'login' ? (
+									<p class="activity-log-list__warn muted" role="note">
+										{t.activityLogPostRemoved}
+									</p>
+								) : null}
+								{href ? (
+									<p class="activity-log-list__linkwrap">
+										<a href={href}>{t.activityViewPost}</a>
+									</p>
+								) : null}
+							</li>
+						);
+					})}
+				</ul>
+			)
+		}
+	</div>
+</Shell>
+
+<style>
+	.activity-log-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.15rem;
+	}
+	.activity-log-list__item {
+		margin: 0;
+		padding: 1rem 1.15rem;
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		background: var(--surface);
+	}
+	.activity-log-list__head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem 1rem;
+		margin-bottom: 0.65rem;
+	}
+	.activity-log-list__kind {
+		font-weight: 700;
+		font-size: 1.02rem;
+		color: var(--text);
+	}
+	.activity-log-list__time {
+		font-size: 0.88rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.activity-log-list__detail {
+		margin: 0;
+		font-size: 0.94rem;
+		line-height: 1.45;
+	}
+	.activity-log-list__dl {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.activity-log-list__drow {
+		display: grid;
+		grid-template-columns: minmax(6rem, 8.5rem) 1fr;
+		gap: 0.35rem 1rem;
+		align-items: baseline;
+		font-size: 0.92rem;
+	}
+	.activity-log-list__drow--block {
+		align-items: start;
+	}
+	.activity-log-list__drow dt {
+		margin: 0;
+		font-weight: 600;
+		color: var(--muted);
+		font-size: 0.82rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+	.activity-log-list__drow dd {
+		margin: 0;
+		color: var(--text);
+		line-height: 1.45;
+		word-break: break-word;
+	}
+	.activity-log-list__code {
+		font-size: 0.86rem;
+		padding: 0.12rem 0.35rem;
+		border-radius: 4px;
+		background: color-mix(in srgb, var(--border) 35%, transparent);
+	}
+	.activity-log-list__stars {
+		letter-spacing: 0.06em;
+		font-size: 1rem;
+	}
+	.activity-log-list__star {
+		color: var(--border);
+	}
+	.activity-log-list__star.is-on {
+		color: var(--accent);
+	}
+	.activity-log-list__preview {
+		margin: 0;
+		padding: 0.55rem 0.75rem;
+		border-left: 3px solid var(--accent);
+		background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+		font-size: 0.9rem;
+		line-height: 1.5;
+		white-space: pre-wrap;
+		color: var(--text);
+	}
+	.activity-log-list__warn {
+		margin: 0.65rem 0 0;
+		font-size: 0.88rem;
+		line-height: 1.45;
+	}
+	.activity-log-list__linkwrap {
+		margin: 0.75rem 0 0;
+	}
+	@media (max-width: 520px) {
+		.activity-log-list__drow {
+			grid-template-columns: 1fr;
+			gap: 0.15rem 0;
+		}
+		.activity-log-list__drow dt {
+			margin-top: 0.35rem;
+		}
+		.activity-log-list__drow dt:first-child {
+			margin-top: 0;
+		}
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>

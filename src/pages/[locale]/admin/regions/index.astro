@@ -1,0 +1,103 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listAllRegionsAdmin } from '../../../../lib/regions-db';
+import type { Locale } from '../../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/regions');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const regionRows = listAllRegionsAdmin();
+const formError = Astro.url.searchParams.get('error');
+const userEmail = Astro.locals.user.email;
+const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
+---
+
+<AdminLayout
+	locale={locale}
+	title="Regions · Travel Guide Georgia"
+	headline="Regions, municipalities & villages"
+	subtitle="Public URLs: /{locale}/regions/… · Data: data/regions.json"
+	activeNav="regions-all"
+	userEmail={userEmail}
+>
+	{
+		formError ? (
+			<div class="notice notice-error" role="alert">
+				{formError}
+			</div>
+		) : null
+	}
+
+	<section class="admin-card">
+		<h2 class="admin-card__h">All places</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 1rem">
+				<a class="button button-primary" href={newRegionUrl}>
+					Add new place
+				</a>
+				<a class="button" href={getRelativeLocaleUrl(locale, 'admin')} style="margin-left:0.35rem">
+					Back to dashboard
+				</a>
+			</p>
+			{
+				regionRows.length === 0 ? (
+					<p class="muted" style="margin:0">
+						No places yet. Add a <strong>region</strong> first (no parent), then municipalities under it, then
+						villages.
+					</p>
+				) : (
+					<div class="admin-table-wrap">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>Slug</th>
+									<th>Type</th>
+									<th>English</th>
+									<th>Georgian</th>
+									<th>Russian</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									regionRows.map((row) => (
+										<tr>
+											<td>
+												<code>{row.slug}</code>
+											</td>
+											<td>{row.level}</td>
+											<td>{row.titles.en || '—'}</td>
+											<td>{row.titles.ka || '—'}</td>
+											<td>{row.titles.ru || '—'}</td>
+											<td>
+												<a href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
+												<div class="view-links muted" style="margin-top:0.35rem">
+													{row.locales.map((code) => (
+														<a href={getRelativeLocaleUrl(code, `regions/${row.slug}`)}>
+															View ({code})
+														</a>
+													))}
+													{row.locales.length === 0 ? <span>No locales</span> : null}
+												</div>
+											</td>
+										</tr>
+									))
+								}
+							</tbody>
+						</table>
+					</div>
+				)
+			}
+		</div>
+	</section>
+</AdminLayout>

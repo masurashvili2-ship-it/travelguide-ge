@@ -1,5 +1,6 @@
 ---
 import Shell from '../../../../../components/Shell.astro';
+import ContributeWhatToDoSocialLinksCard from '../../../../../components/contribute/ContributeWhatToDoSocialLinksCard.astro';
 import ContributeSubmitBar from '../../../../../components/ContributeSubmitBar.astro';
 import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
@@ -200,6 +201,21 @@ const enTitle = p.i18n.en?.title ?? '';
 							<input type="text" name="location_label" autocomplete="off" value={p.location?.label ?? ''} />
 						</label>
 					</div>
+					<div class="row">
+						<label>
+							<span>Google Maps directions link (optional)</span>
+							<input
+								type="url"
+								name="google_directions_url"
+								inputmode="url"
+								autocomplete="off"
+								value={p.google_directions_url ?? ''}
+							/>
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">
+							Must be a Google Maps URL (maps.google.com, google.com/maps, or goo.gl).
+						</p>
+					</div>
 				</div>
 			</section>
 
@@ -209,6 +225,8 @@ const enTitle = p.i18n.en?.title ?? '';
 					<AdminTourLocalesFields post={synthetic} showContactSidebar />
 				</div>
 			</section>
+
+			<ContributeWhatToDoSocialLinksCard socialLinks={p.social_links} />
 		</form>
 
 		<ContributeSubmitBar formId="contribute-wtd-form" cancelHref={back} submitLabel="Save changes" />

@@ -6,13 +6,23 @@ interface Props {
 	formId?: string;
 	/** Slug field `id` for upload naming (default matches admin tour form) */
 	slugInputId?: string;
+	/** Prefix for element ids (`tour-*` vs `region-*`, etc.) */
+	widgetPrefix?: string;
 }
 
 const {
 	uploadApiPath = '/api/admin/upload-tour-image',
 	formId = 'tour-admin-form',
 	slugInputId = 'tour-admin-slug',
+	widgetPrefix = 'tour',
 } = Astro.props;
+
+const widFile = `${widgetPrefix}-upload-files`;
+const widCoverBtn = `${widgetPrefix}-upload-cover-btn`;
+const widGalleryBtn = `${widgetPrefix}-upload-gallery-btn`;
+const widStatus = `${widgetPrefix}-upload-status`;
+const widCoverField = `${widgetPrefix}-cover-url`;
+const widGalleryField = `${widgetPrefix}-gallery-urls`;
 ---
 
 <div class="upload-widget">
@@ -27,16 +37,16 @@ const {
 	<input
 		class="upload-widget__file"
 		type="file"
-		id="tour-upload-files"
+		id={widFile}
 		form={formId}
 		accept="image/jpeg,image/png,image/webp,image/gif,image/tiff,image/avif,.jpg,.jpeg,.png,.webp,.gif,.tiff,.tif,.avif"
 		multiple
 	/>
 	<div class="upload-widget__actions">
-		<button type="button" class="btn btn--ghost" id="tour-upload-cover-btn">Set first file as cover</button>
-		<button type="button" class="btn btn--ghost" id="tour-upload-gallery-btn">Add all files to gallery</button>
+		<button type="button" class="btn btn--ghost" id={widCoverBtn}>Set first file as cover</button>
+		<button type="button" class="btn btn--ghost" id={widGalleryBtn}>Add all files to gallery</button>
 	</div>
-	<p class="muted upload-widget__status" id="tour-upload-status" aria-live="polite"></p>
+	<p class="muted upload-widget__status" id={widStatus} aria-live="polite"></p>
 </div>
 
 <style>
@@ -92,15 +102,15 @@ const {
 	}
 </style>
 
-<script is:inline define:vars={{ uploadApiPath, formId, slugInputId }}>
+<script is:inline define:vars={{ uploadApiPath, formId, slugInputId, widFile, widCoverBtn, widGalleryBtn, widStatus, widCoverField, widGalleryField }}>
 	document.addEventListener('DOMContentLoaded', function () {
 		var NL = String.fromCharCode(10);
-		var fileInput = document.getElementById('tour-upload-files');
-		var coverBtn = document.getElementById('tour-upload-cover-btn');
-		var galleryBtn = document.getElementById('tour-upload-gallery-btn');
-		var statusEl = document.getElementById('tour-upload-status');
-		var coverField = document.getElementById('tour-cover-url');
-		var galleryField = document.getElementById('tour-gallery-urls');
+		var fileInput = document.getElementById(widFile);
+		var coverBtn = document.getElementById(widCoverBtn);
+		var galleryBtn = document.getElementById(widGalleryBtn);
+		var statusEl = document.getElementById(widStatus);
+		var coverField = document.getElementById(widCoverField);
+		var galleryField = document.getElementById(widGalleryField);
 
 		if (!fileInput || !coverBtn || !galleryBtn || !statusEl || !coverField || !galleryField) return;
 

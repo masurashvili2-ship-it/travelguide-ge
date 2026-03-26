@@ -1,0 +1,118 @@
+---
+import AdminLayout from '../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../lib/strings';
+import { listRecentCommentsForAdmin } from '../../../lib/tour-comments';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/reviews');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const userEmail = Astro.locals.user.email;
+const rows = await listRecentCommentsForAdmin(120);
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+
+function publicPostHref(row: (typeof rows)[number]): string {
+	return getRelativeLocaleUrl(locale, `${row.urlSegment}/${row.postSlug}`);
+}
+
+function postTypeLabel(row: (typeof rows)[number]): string {
+	return row.postKind === 'what-to-do' ? 'What to do' : 'Tour';
+}
+
+function commentKindLabel(row: (typeof rows)[number]): string {
+	return row.parentId == null && row.rating != null ? 'Review' : 'Reply';
+}
+
+function bodyPreview(body: string): string {
+	const t = body.trim().replace(/\s+/g, ' ');
+	return t.length > 160 ? `${t.slice(0, 157)}…` : t;
+}
+---
+
+<AdminLayout
+	locale={locale}
+	title="Reviews · Travel Guide Georgia"
+	headline="Reviews & comments"
+	subtitle="Newest entries from data/tour-comments.json (all locales share the same thread per post)."
+	activeNav="reviews"
+	userEmail={userEmail}
+>
+	<section class="admin-card">
+		<h2 class="admin-card__h">Recent activity ({rows.length} shown)</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 1rem">
+				Open the public page to edit or delete a comment using the controls on the live site (admins see Edit / Delete
+				like the author).{' '}
+				<a href={adminHome}>Dashboard</a>
+			</p>
+			{
+				rows.length === 0 ? (
+					<p class="muted" style="margin:0">
+						No comments yet.
+					</p>
+				) : (
+					<div class="admin-table-wrap">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>When</th>
+									<th>Post</th>
+									<th>Type</th>
+									<th>Author</th>
+									<th>Rating</th>
+									<th>Preview</th>
+									<th>Public</th>
+								</tr>
+							</thead>
+							<tbody>
+								{rows.map((row) => (
+									<tr>
+										<td style="font-variant-numeric:tabular-nums;font-size:0.9rem">
+											{new Date(row.createdAt).toLocaleString()}
+										</td>
+										<td>
+											<div style="font-weight:600">{row.postTitle}</div>
+											<div class="muted" style="font-size:0.85rem;margin-top:0.2rem">
+												{postTypeLabel(row)} · <code>{row.postSlug}</code>
+											</div>
+										</td>
+										<td>{commentKindLabel(row)}</td>
+										<td>
+											{row.userEmail}
+											<div class="muted" style="margin-top:0.25rem;font-size:0.85rem">
+												<code>{row.userId}</code>
+											</div>
+										</td>
+										<td>{row.rating != null ? `${row.rating}★` : '—'}</td>
+										<td class="muted" style="max-width:18rem;font-size:0.9rem">
+											{bodyPreview(row.body)}
+										</td>
+										<td>
+											<a
+												class="button"
+												href={publicPostHref(row)}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												View
+											</a>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)
+			}
+		</div>
+	</section>
+</AdminLayout>

@@ -20,12 +20,18 @@ export function parseAdminLocale(fields: Record<string, string>): Locale {
 export function publicContentUrl(
 	request: Request,
 	locale: Locale,
-	kind: 'tours' | 'what-to-do' | 'page',
+	kind: 'tours' | 'what-to-do' | 'regions' | 'page',
 	slug: string,
 ): string {
-	const path =
-		kind === 'page'
-			? `/${locale}/${slug}`
-			: `/${locale}/${kind === 'tours' ? 'tours' : 'what-to-do'}/${slug}`;
+	let path: string;
+	if (kind === 'page') {
+		path = `/${locale}/${slug}`;
+	} else if (kind === 'tours') {
+		path = `/${locale}/tours/${slug}`;
+	} else if (kind === 'what-to-do') {
+		path = `/${locale}/what-to-do/${slug}`;
+	} else {
+		path = `/${locale}/regions/${slug}`;
+	}
 	return new URL(path, request.url).href;
 }

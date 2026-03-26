@@ -1,0 +1,278 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import AdminRegionLocalesFields from '../../../../components/admin/AdminRegionLocalesFields.astro';
+import AdminSlugAutoFromEnTitle from '../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
+import AdminStickySave from '../../../../components/admin/AdminStickySave.astro';
+import AdminTourPhotoUpload from '../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listRegionsForParentSelect, REGION_LEVEL_IDS } from '../../../../lib/regions-db';
+import type { Locale } from '../../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/regions/new');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const userEmail = Astro.locals.user.email;
+
+const parentRegions = listRegionsForParentSelect('region');
+const parentMunicipalities = listRegionsForParentSelect('municipality');
+const parentsJson = JSON.stringify({
+	regions: parentRegions,
+	municipalities: parentMunicipalities,
+});
+---
+
+<AdminLayout
+	locale={locale}
+	title="Add region · Travel Guide Georgia"
+	headline="Add region, municipality, or village"
+	subtitle="Hierarchy: region (no parent) → municipality (under a region) → village (under a municipality). One slug and shared photos; text per language."
+	activeNav="regions-new"
+	userEmail={userEmail}
+>
+	<form id="region-admin-form" method="post" action="/api/admin/regions">
+		<input type="hidden" name="intent" value="create" />
+		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="admin_locale" value={locale} />
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Type &amp; parent</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Level</span>
+						<select name="level" id="region-level" required>
+							{
+								REGION_LEVEL_IDS.map((id) => (
+									<option value={id}>
+										{id === 'region' ? 'Region' : id === 'municipality' ? 'Municipality' : 'Village'}
+									</option>
+								))
+							}
+						</select>
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span id="region-parent-label">Parent</span>
+						<select name="parent_id" id="region-parent">
+							<option value="">— Select parent —</option>
+						</select>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0" id="region-parent-hint">
+						Not used for top-level regions.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Slug</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input
+							type="text"
+							id="region-admin-slug"
+							name="slug"
+							required
+							placeholder="e.g. adjara"
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">Lowercase Latin letters, numbers, and hyphens only.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Facts &amp; identifiers</h2>
+			<div class="admin-card__bd">
+				<p class="muted" style="margin:0 0 1rem">
+					Optional structured data for the public sidebar (population, area, external links).
+				</p>
+				<div class="row">
+					<label>
+						<span>Population (optional)</span>
+						<input type="text" name="population" inputmode="numeric" autocomplete="off" placeholder="e.g. 125000" />
+					</label>
+					<label>
+						<span>Area km² (optional)</span>
+						<input type="text" name="area_km2" inputmode="decimal" autocomplete="off" />
+					</label>
+					<label>
+						<span>Elevation m (optional)</span>
+						<input type="text" name="elevation_m" inputmode="decimal" autocomplete="off" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Administrative center (optional)</span>
+						<input type="text" name="admin_center_name" autocomplete="off" placeholder="Seat / main town name" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>ISO 3166-2 (optional)</span>
+						<input type="text" name="iso_3166_2" autocomplete="off" placeholder="e.g. GE-AJ" />
+					</label>
+					<label>
+						<span>Official code (optional)</span>
+						<input type="text" name="official_code" autocomplete="off" />
+					</label>
+					<label>
+						<span>Settlement type (optional)</span>
+						<input type="text" name="settlement_type" autocomplete="off" placeholder="e.g. city, daba, village" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Official website (optional)</span>
+						<input type="url" name="official_website" autocomplete="off" placeholder="https://…" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Wikipedia URL (optional)</span>
+						<input type="url" name="wikipedia_url" autocomplete="off" />
+					</label>
+					<label>
+						<span>Wikidata id (optional)</span>
+						<input type="text" name="wikidata_id" autocomplete="off" placeholder="Q…" />
+					</label>
+					<label>
+						<span>GeoNames id (optional)</span>
+						<input type="text" name="geonames_id" inputmode="numeric" autocomplete="off" />
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Featured image &amp; gallery</h2>
+			<div class="admin-card__bd">
+				<fieldset class="photos" style="background:transparent;border-style:dashed">
+					<AdminTourPhotoUpload
+						uploadApiPath="/api/admin/upload-region-image"
+						formId="region-admin-form"
+						slugInputId="region-admin-slug"
+						widgetPrefix="region"
+					/>
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input type="text" name="image" id="region-cover-url" placeholder="/uploads/regions/… or https://…" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea
+								class="gallery-urls"
+								name="gallery_urls"
+								id="region-gallery-urls"
+								placeholder="One URL per line"
+							/>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Map location</h2>
+			<div class="admin-card__bd">
+				<p class="muted" style="margin:0 0 1rem">Optional pin on the site map (WGS84).</p>
+				<div class="row">
+					<label>
+						<span>Latitude</span>
+						<input type="text" name="location_lat" inputmode="decimal" autocomplete="off" />
+					</label>
+					<label>
+						<span>Longitude</span>
+						<input type="text" name="location_lng" inputmode="decimal" autocomplete="off" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Map label (optional)</span>
+						<input type="text" name="location_label" autocomplete="off" />
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Translations</h2>
+			<div class="admin-card__bd">
+				<p class="muted" style="margin:0 0 1rem">At least one language needs title and excerpt.</p>
+				<AdminRegionLocalesFields />
+			</div>
+		</section>
+	</form>
+
+	<AdminStickySave
+		locale={locale}
+		formId="region-admin-form"
+		submitLabel="Publish"
+		cancelHref={adminHome}
+		viewMode="regions"
+	/>
+	<AdminSlugAutoFromEnTitle slugInputId="region-admin-slug" />
+	<script is:inline set:html={`window.__REGION_PARENT_OPTS__=${parentsJson};`} />
+	<script is:inline>
+		(function () {
+			var data = window.__REGION_PARENT_OPTS__ || { regions: [], municipalities: [] };
+			var levelEl = document.getElementById('region-level');
+			var parentEl = document.getElementById('region-parent');
+			var hintEl = document.getElementById('region-parent-hint');
+			var labelEl = document.getElementById('region-parent-label');
+			if (!levelEl || !parentEl) return;
+			function fill() {
+				var level = levelEl.value;
+				parentEl.innerHTML = '';
+				var opt0 = document.createElement('option');
+				opt0.value = '';
+				opt0.textContent = '— Select parent —';
+				parentEl.appendChild(opt0);
+				if (level === 'region') {
+					parentEl.disabled = true;
+					parentEl.removeAttribute('required');
+					if (hintEl) hintEl.textContent = 'Not used for top-level regions.';
+					if (labelEl) labelEl.textContent = 'Parent';
+					return;
+				}
+				parentEl.disabled = false;
+				parentEl.setAttribute('required', 'required');
+				var list = level === 'municipality' ? data.regions : data.municipalities;
+				for (var i = 0; i < list.length; i++) {
+					var o = document.createElement('option');
+					o.value = list[i].id;
+					o.textContent = list[i].label + ' (' + list[i].slug + ')';
+					parentEl.appendChild(o);
+				}
+				if (hintEl) {
+					hintEl.textContent =
+						level === 'municipality'
+							? 'Choose the region this municipality belongs to.'
+							: 'Choose the municipality this village belongs to.';
+				}
+				if (labelEl) {
+					labelEl.textContent = level === 'municipality' ? 'Parent region' : 'Parent municipality';
+				}
+			}
+			levelEl.addEventListener('change', fill);
+			fill();
+		})();
+	</script>
+</AdminLayout>

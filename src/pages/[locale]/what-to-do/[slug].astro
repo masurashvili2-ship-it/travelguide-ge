@@ -8,6 +8,7 @@ import { buildTourJsonLd, resolveTourMetaDescription, absoluteSeoUrl } from '../
 import { averageRatingFor, listCommentsForPost } from '../../../lib/tour-comments';
 import DetailLocationMapSection from '../../../components/DetailLocationMapSection.astro';
 import WhatToDoContactAsideCard from '../../../components/WhatToDoContactAsideCard.astro';
+import { googleDirectionsUrlFromCoords } from '../../../lib/google-maps-urls';
 import { hasRenderableContactSocialLinks } from '../../../lib/contact-social-links';
 import {
 	getSimilarWhatToDo,
@@ -77,6 +78,12 @@ const locationLine =
 		: row.location.label?.trim()
 			? row.location.label.trim()
 			: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
+
+const directionsHref =
+	row.google_directions_url?.trim() ||
+	(row.location
+		? googleDirectionsUrlFromCoords(row.location.lat, row.location.lng)
+		: null);
 
 const similarItems = getSimilarWhatToDo(
 	locale,
@@ -205,6 +212,23 @@ const adminEditHref =
 							</div>
 						) : null
 					}
+					{
+						directionsHref ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarDirections}</dt>
+								<dd class="tour-detail-aside__dd">
+									<a
+										class="tour-detail-aside__map-link"
+										href={directionsHref}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{t.tourSidebarGetDirections}
+									</a>
+								</dd>
+							</div>
+						) : null
+					}
 				</dl>
 			</div>
 			<WhatToDoContactAsideCard
@@ -253,6 +277,11 @@ const adminEditHref =
 			save: t.tourReviewsSave,
 			edited: t.tourReviewsEdited,
 			replySubmit: t.tourReviewsReplySubmit,
+			delete: t.tourReviewsDelete,
+			deleting: t.tourReviewsDeleting,
+			deleteConfirm: t.tourReviewsDeleteConfirm,
+			alreadyReviewedTitle: t.tourReviewsAlreadyReviewedTitle,
+			alreadyReviewedHint: t.tourReviewsAlreadyReviewedHint,
 		}}
 	/>
 

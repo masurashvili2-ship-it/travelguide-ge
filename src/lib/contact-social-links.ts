@@ -1,4 +1,4 @@
-/** Optional structured links shown under “Contact & hours” on what-to-do pages (per locale). */
+/** Optional structured links shown under “Contact & hours” on what-to-do pages (shared for all locales). */
 
 export const CONTACT_SOCIAL_LINK_KEYS = [
 	'website',
@@ -126,6 +126,16 @@ export function parseContactSocialLinksFromForm(
 		if (v) (out as Record<string, string>)[key] = v;
 	}
 	return Object.keys(out).length ? out : undefined;
+}
+
+/** Shared fields `social_website`, `social_facebook`, … (no locale prefix). */
+export function parseContactSocialLinksFromFormGlobal(fields: Record<string, string>): ContactSocialLinks {
+	const out: ContactSocialLinks = {};
+	for (const key of CONTACT_SOCIAL_LINK_KEYS) {
+		const v = (fields[`social_${key}`] ?? '').trim();
+		if (v) (out as Record<string, string>)[key] = v;
+	}
+	return trimSocialLinks(out);
 }
 
 /** Drop empty strings; used when persisting from API blocks. */

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "4fbeb5c0-b698-40c6-a6df-1e2357f329c3",
+    "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
+    "at": 1774547929596,
+    "kind": "login"
+  },
+  {
+    "id": "8c3cd5df-0dba-49be-bc69-5a729215fb2b",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545680896,
+    "kind": "review_posted",
+    "tourId": "ac1e8400-e29b-41d4-a716-446655440002",
+    "postKind": "tours"
+  },
+  {
+    "id": "71682f35-cef1-4f67-a1cf-b36d619a454c",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545649717,
+    "kind": "review_posted",
+    "tourId": "06a2dd34-c6cd-465b-b19a-0fe657f44c6b",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "a0c34728-dd3e-498d-8105-1a3c0436e2dd",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545576409,
+    "kind": "review_posted",
+    "tourId": "06a2dd34-c6cd-465b-b19a-0fe657f44c6b",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "17e1356f-b305-4f41-939a-98e0696c1f19",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545401214,
+    "kind": "review_posted",
+    "tourId": "392535a6-35fe-4ad4-9bca-c7a5ae728d98",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "c86b2993-e7b5-469e-bba9-94632cafd0ba",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545396245,
+    "kind": "review_posted",
+    "tourId": "8659b3a4-e48a-4924-b968-ae54fe6cd0a6",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "b592cdde-3f76-46dc-bc29-f4aabacf0e34",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774545392011,
+    "kind": "review_posted",
+    "tourId": "96ddf591-be3f-44bb-b0c3-40810d7d744e",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "999dff22-13c4-4493-99f3-0aa1eef3eed8",
+    "userId": "08e20c0a3e125bb879eefe87d82088c5",
+    "at": 1774544843151,
+    "kind": "review_posted",
+    "tourId": "ab3639c1-8a99-459f-9bc5-d4b8e8fd220d",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "75f50d35-9192-4cd5-ba2f-0b5b821eec7d",
+    "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
+    "at": 1774544764504,
+    "kind": "review_posted",
+    "tourId": "8659b3a4-e48a-4924-b968-ae54fe6cd0a6",
+    "postKind": "what-to-do"
+  },
+  {
+    "id": "451a41a5-56ad-421b-a6b0-3a2ec105f375",
+    "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
+    "at": 1774544671681,
+    "kind": "review_posted",
+    "tourId": "3d2b3d9d-b24b-4ab0-8ad3-26f6d5c43dc8",
+    "postKind": "what-to-do"
+  }
+]

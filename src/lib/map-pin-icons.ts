@@ -99,3 +99,22 @@ export function whatToDoMapPinDataUrl(categoryId: string): string {
 	const inner = WTD_INNER_PATH[id].replace(/currentColor/g, fill);
 	return svgPinDataUrl(fill, inner);
 }
+
+/** Administrative geography: region, municipality, or village (distinct pin colors). */
+const GEO_REGION = '#7c3aed';
+const GEO_MUNICIPALITY = '#2563eb';
+const GEO_VILLAGE = '#059669';
+const GEO_INNER: Record<'region' | 'municipality' | 'village', string> = {
+	region:
+		'<rect x="3" y="4" width="12" height="10" rx="1.5" fill="none" stroke-width="1.5"/><path d="M3 8h12M8 4v10" fill="none" stroke-width="1.2"/>',
+	municipality:
+		'<path d="M4 14V7l5-3 5 3v7 M7 10h4v4H7z" fill="none" stroke-width="1.4" stroke-linejoin="round"/>',
+	village:
+		'<path d="M5 14V8l4-3 4 3v6 M8 10h2v4H8z" fill="none" stroke-width="1.4" stroke-linejoin="round"/><circle cx="13" cy="6" r="1.3" fill="currentColor"/>',
+};
+
+export function regionMapPinDataUrl(level: 'region' | 'municipality' | 'village'): string {
+	const fill = level === 'region' ? GEO_REGION : level === 'municipality' ? GEO_MUNICIPALITY : GEO_VILLAGE;
+	const inner = GEO_INNER[level].replace(/currentColor/g, fill);
+	return svgPinDataUrl(fill, inner);
+}

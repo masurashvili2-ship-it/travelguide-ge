@@ -1,14 +1,11 @@
 ---
-import type { TourCategoryId } from '../lib/tour-categories';
-import { TOUR_CATEGORY_IDS } from '../lib/tour-categories';
 import type { WhatToDoCategoryId } from '../lib/what-to-do-categories';
 import { WHAT_TO_DO_CATEGORY_IDS } from '../lib/what-to-do-categories';
 
 export interface MapFilterLabels {
 	all: string;
-	tours: string;
 	whatToDo: string;
-	tourTypes: string;
+	regions: string;
 	activityTypes: string;
 	clear: string;
 	showing: string;
@@ -17,11 +14,10 @@ export interface MapFilterLabels {
 
 interface Props {
 	filterLabels: MapFilterLabels;
-	tourCategoryLabels: Record<TourCategoryId, string>;
 	whatToDoCategoryLabels: Record<WhatToDoCategoryId, string>;
 }
 
-const { filterLabels, tourCategoryLabels, whatToDoCategoryLabels } = Astro.props;
+const { filterLabels, whatToDoCategoryLabels } = Astro.props;
 ---
 
 <div
@@ -40,9 +36,6 @@ const { filterLabels, tourCategoryLabels, whatToDoCategoryLabels } = Astro.props
 		>
 			{filterLabels.all}
 		</button>
-		<button type="button" class="map-filters__pill" data-map-kind="tours" role="tab" aria-selected="false">
-			{filterLabels.tours}
-		</button>
 		<button
 			type="button"
 			class="map-filters__pill"
@@ -52,21 +45,17 @@ const { filterLabels, tourCategoryLabels, whatToDoCategoryLabels } = Astro.props
 		>
 			{filterLabels.whatToDo}
 		</button>
+		<button
+			type="button"
+			class="map-filters__pill"
+			data-map-kind="regions"
+			role="tab"
+			aria-selected="false"
+		>
+			{filterLabels.regions}
+		</button>
 	</div>
 	<div class="map-filters__panels">
-		<details class="map-filters__details" open>
-			<summary>{filterLabels.tourTypes}</summary>
-			<div class="map-filters__chips">
-				{
-					TOUR_CATEGORY_IDS.map((id) => (
-						<label class="map-filters__chip">
-							<input type="checkbox" name="map-tour-cat" value={id} />
-							<span>{tourCategoryLabels[id]}</span>
-						</label>
-					))
-				}
-			</div>
-		</details>
 		<details class="map-filters__details" open>
 			<summary>{filterLabels.activityTypes}</summary>
 			<div class="map-filters__chips">
@@ -142,12 +131,6 @@ const { filterLabels, tourCategoryLabels, whatToDoCategoryLabels } = Astro.props
 	.map-filters__panels {
 		display: grid;
 		gap: 0.65rem;
-	}
-	@media (min-width: 760px) {
-		.map-filters__panels {
-			grid-template-columns: 1fr 1fr;
-			gap: 1rem;
-		}
 	}
 	.map-filters__details {
 		border: 1px solid var(--border);

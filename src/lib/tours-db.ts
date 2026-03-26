@@ -16,6 +16,7 @@ import { parseDrivingDistance, parseTourPhysicalRating } from './tour-physical-r
 import type { Locale } from './strings';
 import type { ContactSocialLinks } from './contact-social-links';
 import { normalizeSocialLinksFromJson, trimSocialLinks } from './contact-social-links';
+import { parseGoogleMapsDirectionsUrl } from './google-maps-urls';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
@@ -60,8 +61,6 @@ export type TourLocaleBlock = {
 	body: string;
 	/** Markdown; “What to do” detail right column contact box only (optional). */
 	contact_sidebar: string;
-	/** Optional structured links in the same contact aside (what-to-do). */
-	social_links?: ContactSocialLinks;
 };
 
 /** One logical tour: shared slug, cover, gallery; copy varies by language in `i18n`. */
@@ -82,6 +81,10 @@ export type TourPost = {
 	physical_rating: TourPhysicalRatingId | null;
 	/** Free-text route distance (e.g. driving) */
 	driving_distance: string | null;
+	/** Google Maps directions URL (what-to-do; optional). */
+	google_directions_url: string | null;
+	/** Shared social / contact URLs for what-to-do (all locales). */
+	social_links: ContactSocialLinks;
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 	updated_at: number;
 	/** Submitter (contributor); visible to admins only on live site. */
@@ -105,6 +108,7 @@ export type TourFrontmatter = {
 	whatDoSeasons?: WhatToDoSeasonId[];
 	physical_rating?: TourPhysicalRatingId | null;
 	driving_distance?: string | null;
+	google_directions_url?: string | null;
 	seoTitle?: string;
 	seoDescription?: string;
 };
@@ -132,6 +136,7 @@ export type TourRow = {
 	whatDoSeasons: WhatToDoSeasonId[];
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
+	google_directions_url: string | null;
 	seo_title: string | null;
 	seo_description: string | null;
 	body: string;
@@ -226,6 +231,9 @@ export function parseTourLocation(raw: unknown): TourLocation | null {
 	return { lat: latN, lng: lngN, label };
 }
 
+/** Map layer: tours, what-to-do, or administrative geography posts */
+export type MapMarkerPostKind = ContentPostKind | 'regions';
+
 export type TourMapMarker = {
 	slug: string;
 	title: string;
@@ -233,7 +241,7 @@ export type TourMapMarker = {
 	lng: number;
 	label: string | null;
 	href: string;
-	kind: ContentPostKind;
+	kind: MapMarkerPostKind;
 	/** `tour` for tours; what-to-do category id for activities (drives map pin icon). */
 	mapIconKey: string;
 	coverUrl: string | null;
@@ -323,7 +331,6 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 	const st = o.seo_title;
 	const sd = o.seo_description;
 	const contact_sidebar = String(o.contact_sidebar ?? '').trim();
-	const social = normalizeSocialLinksFromJson(o.social_links);
 	const block: TourLocaleBlock = {
 		title,
 		duration,
@@ -334,7 +341,6 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 		body: String(o.body ?? '').trim(),
 		contact_sidebar,
 	};
-	if (social) block.social_links = social;
 	return block;
 }
 
@@ -345,6 +351,24 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 	const slug = typeof o.slug === 'string' ? o.slug : '';
 	if (!isValidTourId(id) || !slug) return null;
 	const i18nRaw = o.i18n;
+	let postSocial = trimSocialLinks(normalizeSocialLinksFromJson(o.social_links) ?? {});
+	if (
+		Object.keys(postSocial).length === 0 &&
+		i18nRaw &&
+		typeof i18nRaw === 'object' &&
+		!Array.isArray(i18nRaw)
+	) {
+		for (const loc of LOCALES) {
+			const rawB = (i18nRaw as Record<string, unknown>)[loc];
+			if (!rawB || typeof rawB !== 'object') continue;
+			const leg = normalizeSocialLinksFromJson((rawB as Record<string, unknown>).social_links);
+			const t = trimSocialLinks(leg ?? {});
+			if (Object.keys(t).length) {
+				postSocial = t;
+				break;
+			}
+		}
+	}
 	const i18n: Partial<Record<Locale, TourLocaleBlock>> = {};
 	if (i18nRaw && typeof i18nRaw === 'object') {
 		for (const loc of LOCALES) {
@@ -371,6 +395,8 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 		whatDoSeasons,
 		physical_rating: parseTourPhysicalRating(o.physical_rating),
 		driving_distance: parseDrivingDistance(o.driving_distance),
+		google_directions_url: parseGoogleMapsDirectionsUrl(o.google_directions_url),
+		social_links: postSocial,
 		i18n,
 		updated_at: typeof o.updated_at === 'number' ? o.updated_at : Date.now(),
 		author_user_id:
@@ -475,6 +501,8 @@ function migrateLegacyToPosts(rows: LegacyTourRow[]): TourPost[] {
 			whatDoSeasons: [],
 			physical_rating: null,
 			driving_distance: null,
+			google_directions_url: null,
+			social_links: {},
 			i18n,
 			updated_at,
 			author_user_id: null,
@@ -643,11 +671,12 @@ function flattenPost(post: TourPost, locale: Locale): TourRow | null {
 		whatDoSeasons: post.whatDoSeasons,
 		physical_rating: post.physical_rating,
 		driving_distance: post.driving_distance,
+		google_directions_url: post.google_directions_url ?? null,
 		seo_title: block.seo_title,
 		seo_description: block.seo_description,
 		body: block.body,
 		contact_sidebar: block.contact_sidebar ?? '',
-		social_links: trimSocialLinks(block.social_links),
+		social_links: trimSocialLinks(post.social_links),
 		updated_at: post.updated_at,
 		author_user_id: post.author_user_id ?? null,
 		author_email: post.author_email ?? null,
@@ -672,6 +701,7 @@ function rowToListItem(row: TourRow): TourListItem {
 			whatDoSeasons: row.whatDoSeasons.length ? row.whatDoSeasons : undefined,
 			physical_rating: row.physical_rating ?? undefined,
 			driving_distance: row.driving_distance ?? undefined,
+			google_directions_url: row.google_directions_url ?? undefined,
 			seoTitle: row.seo_title ?? undefined,
 			seoDescription: row.seo_description ?? undefined,
 		},
@@ -793,6 +823,13 @@ export function getContentPostById(kind: ContentPostKind, id: string): TourPost 
 	return getPosts(kind).find((p) => p.id === id) ?? null;
 }
 
+/** Title + slug saved on activity-log rows (English-first title fallback). */
+export function postSnapshotForActivity(post: TourPost): { postTitle: string; postSlug: string } {
+	const block = post.i18n.en ?? post.i18n.ka ?? post.i18n.ru;
+	const postTitle = block?.title?.trim() || post.slug;
+	return { postTitle, postSlug: post.slug };
+}
+
 export function findContentPostBySlug(kind: ContentPostKind, slug: string): TourPost | null {
 	return getPosts(kind).find((p) => p.slug === slug) ?? null;
 }
@@ -890,6 +927,10 @@ export type SaveTourPostInput = {
 	whatDoSeasons?: WhatToDoSeasonId[] | null;
 	physical_rating?: TourPhysicalRatingId | null;
 	driving_distance?: string | null;
+	/** What-to-do only; ignored for tours */
+	google_directions_url?: string | null;
+	/** Shared for the whole post; omit on update to keep previous */
+	social_links?: ContactSocialLinks;
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 	mode: 'create' | 'update';
 	author_user_id?: string | null;
@@ -953,6 +994,8 @@ function savePostForKind(
 		whatDoSeasons: whatDoSeasonsInput,
 		physical_rating: physicalRatingInput,
 		driving_distance: drivingDistanceInput,
+		google_directions_url: googleDirectionsInput,
+		social_links: socialLinksInput,
 		i18n,
 		mode,
 		author_user_id: authorUserIn,
@@ -981,7 +1024,6 @@ function savePostForKind(
 		const p = b.price?.trim();
 		const st = b.seo_title?.trim();
 		const sd = b.seo_description?.trim();
-		const socialTrim = trimSocialLinks(b.social_links);
 		const locBlock: TourLocaleBlock = {
 			title: t,
 			duration: d,
@@ -992,7 +1034,6 @@ function savePostForKind(
 			body: (b.body ?? '').trim(),
 			contact_sidebar: (b.contact_sidebar ?? '').trim(),
 		};
-		if (Object.keys(socialTrim).length) locBlock.social_links = socialTrim;
 		cleanI18n[loc] = locBlock;
 	}
 
@@ -1018,6 +1059,9 @@ function savePostForKind(
 				: [];
 		const createPhysicalRating = physicalRatingInput === undefined ? null : physicalRatingInput;
 		const createDrivingDistance = drivingDistanceInput === undefined ? null : drivingDistanceInput;
+		const createGoogleDirections =
+			kind === 'what-to-do' ? (googleDirectionsInput ?? null) : null;
+		const createSocial = trimSocialLinks(socialLinksInput ?? {});
 		const au =
 			authorUserIn !== undefined && authorUserIn !== null && String(authorUserIn).trim()
 				? String(authorUserIn).trim()
@@ -1037,6 +1081,8 @@ function savePostForKind(
 			whatDoSeasons: createWhatDoSeasons,
 			physical_rating: createPhysicalRating,
 			driving_distance: createDrivingDistance,
+			google_directions_url: createGoogleDirections,
+			social_links: createSocial,
 			i18n: cleanI18n,
 			updated_at: now,
 			author_user_id: au,
@@ -1088,6 +1134,16 @@ function savePostForKind(
 		physicalRatingInput === undefined ? prev.physical_rating : physicalRatingInput;
 	const nextDrivingDistance =
 		drivingDistanceInput === undefined ? prev.driving_distance : drivingDistanceInput;
+	const nextGoogleDirections =
+		kind === 'what-to-do'
+			? googleDirectionsInput === undefined
+				? (prev.google_directions_url ?? null)
+				: googleDirectionsInput
+			: null;
+	const nextSocial =
+		socialLinksInput === undefined
+			? trimSocialLinks(prev.social_links ?? {})
+			: trimSocialLinks(socialLinksInput);
 
 	const nextAuthorUserId =
 		authorUserIn !== undefined
@@ -1113,6 +1169,8 @@ function savePostForKind(
 		whatDoSeasons: nextWhatDoSeasons,
 		physical_rating: nextPhysicalRating,
 		driving_distance: nextDrivingDistance,
+		google_directions_url: nextGoogleDirections,
+		social_links: nextSocial,
 		i18n: cleanI18n,
 		updated_at: now,
 		author_user_id: nextAuthorUserId,
@@ -1182,7 +1240,6 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 		if (!post) return { ok: false, error: 'Tour not found' };
 		const i18n: Partial<Record<Locale, TourLocaleBlock>> = { ...post.i18n };
 		const prevBlock = post.i18n[locale];
-		const prevSoc = trimSocialLinks(prevBlock?.social_links);
 		const nextLocale: TourLocaleBlock = {
 			title,
 			duration,
@@ -1193,7 +1250,6 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 			body: body.trim() || '',
 			contact_sidebar: prevBlock?.contact_sidebar ?? '',
 		};
-		if (Object.keys(prevSoc).length) nextLocale.social_links = prevSoc;
 		i18n[locale] = nextLocale;
 		return saveTourPost({
 			id,
@@ -1204,6 +1260,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 			category: category !== undefined ? category : post.category,
 			physical_rating: physical_rating !== undefined ? physical_rating : post.physical_rating,
 			driving_distance: driving_distance !== undefined ? driving_distance : post.driving_distance,
+			social_links: trimSocialLinks(post.social_links ?? {}),
 			i18n,
 			mode: 'update',
 		});
@@ -1217,6 +1274,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 		category: category ?? null,
 		physical_rating: physical_rating ?? null,
 		driving_distance: driving_distance ?? null,
+		social_links: {},
 		i18n: {
 			[locale]: {
 				title,

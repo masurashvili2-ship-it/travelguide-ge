@@ -1,6 +1,7 @@
 ---
 import AdminLayout from '../../../../components/admin/AdminLayout.astro';
 import AdminStickySave from '../../../../components/admin/AdminStickySave.astro';
+import AdminWhatToDoSocialLinksCard from '../../../../components/admin/AdminWhatToDoSocialLinksCard.astro';
 import AdminTourLocalesFields from '../../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../components/admin/AdminTourPhotoUpload.astro';
@@ -68,7 +69,7 @@ const userEmail = Astro.locals.user.email;
 			<h2 class="admin-card__h">Public sidebar</h2>
 			<div class="admin-card__bd">
 				<p class="muted" style="margin:0 0 1rem">
-					The live page shows an <strong>At a glance</strong> column with <strong>categories</strong> and <strong>seasons</strong> (you can pick several of each), <strong>physical rating</strong>, <strong>driving distance</strong>, <strong>duration</strong> and <strong>price</strong> from each language, and <strong>location</strong> plus a map link when coordinates are set.
+					The live page shows an <strong>At a glance</strong> column with <strong>categories</strong> and <strong>seasons</strong> (you can pick several of each), <strong>physical rating</strong>, <strong>driving distance</strong>, <strong>duration</strong> and <strong>price</strong> from each language, and <strong>location</strong> plus a map link when coordinates are set. Social URLs are edited once below Translations for all languages.
 				</p>
 				<div class="row">
 					<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">
@@ -188,6 +189,21 @@ const userEmail = Astro.locals.user.email;
 						<input type="text" name="location_label" autocomplete="off" placeholder="e.g. Kazbegi" />
 					</label>
 				</div>
+				<div class="row">
+					<label>
+						<span>Google Maps directions link (optional)</span>
+						<input
+							type="url"
+							name="google_directions_url"
+							inputmode="url"
+							autocomplete="off"
+							placeholder="https://www.google.com/maps/dir/?api=1&destination=…"
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">
+						Optional. If empty but coordinates are set, the site still links to Google directions from the pin.
+					</p>
+				</div>
 			</div>
 		</section>
 
@@ -200,6 +216,8 @@ const userEmail = Astro.locals.user.email;
 				<AdminTourLocalesFields showContactSidebar />
 			</div>
 		</section>
+
+		<AdminWhatToDoSocialLinksCard />
 
 	</form>
 	<AdminStickySave

@@ -13,6 +13,10 @@ export function resolveUploadDir(subdir) {
 		const o = process.env.WTD_UPLOAD_DIR?.trim();
 		if (o) return path.resolve(o);
 	}
+	if (subdir === 'regions') {
+		const o = process.env.REGION_UPLOAD_DIR?.trim();
+		if (o) return path.resolve(o);
+	}
 	const root = process.env.UPLOAD_ROOT?.trim();
 	if (root) return path.resolve(path.join(root, subdir));
 

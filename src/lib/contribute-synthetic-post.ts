@@ -1,3 +1,4 @@
+import { trimSocialLinks } from './contact-social-links';
 import type { PagePost } from './pages-db';
 import type { PageSubmissionPayload, TourLikeSubmissionPayload } from './submissions-db';
 import type { TourPost } from './tours-db';
@@ -19,6 +20,8 @@ export function tourLikePayloadToSyntheticTourPost(
 		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
+		google_directions_url: p.google_directions_url ?? null,
+		social_links: trimSocialLinks(p.social_links ?? {}),
 		i18n: p.i18n,
 		updated_at: Date.now(),
 		author_user_id: null,

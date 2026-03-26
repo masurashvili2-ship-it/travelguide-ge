@@ -248,19 +248,25 @@ const shareText = excerpt.trim().slice(0, 280);
 						{adminEditHref ? <AdminPostEditMark href={adminEditHref} label={t.adminEditPostAria} /> : null}
 					</div>
 				</div>
-				<p class="tdh__meta-line tdh__meta-line--plain">
-					<span>
-						{t.duration}: {duration}
-					</span>
-					{price ? (
-						<>
-							<span class="tdh__dot" aria-hidden="true">
-								·
+				{duration.trim() || price ? (
+					<p class="tdh__meta-line tdh__meta-line--plain">
+						{duration.trim() ? (
+							<span>
+								{t.duration}: {duration}
 							</span>
-							<span>{price}</span>
-						</>
-					) : null}
-				</p>
+						) : null}
+						{price ? (
+							<>
+								{duration.trim() ? (
+									<span class="tdh__dot" aria-hidden="true">
+										·
+									</span>
+								) : null}
+								<span>{price}</span>
+							</>
+						) : null}
+					</p>
+				) : null}
 				{excerpt.trim() ? <p class="tdh__excerpt tdh__excerpt--plain">{excerpt}</p> : null}
 			</header>
 		)

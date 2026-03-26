@@ -1,6 +1,5 @@
 import type { Locale } from './strings';
 import type { PageLocaleBlock } from './pages-db';
-import { parseContactSocialLinksFromForm } from './contact-social-links';
 import type { TourLocaleBlock } from './tours-db';
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];
@@ -25,10 +24,6 @@ export function buildTourI18nFromContributeForm(
 			body: fields[`${loc}_body`] ?? '',
 			contact_sidebar: options.contactSidebar ? (fields[`${loc}_contact_sidebar`] ?? '') : '',
 		};
-		if (options.contactSidebar) {
-			const social = parseContactSocialLinksFromForm(fields, loc);
-			if (social) block.social_links = social;
-		}
 		i18n[loc] = block;
 	}
 	return i18n;

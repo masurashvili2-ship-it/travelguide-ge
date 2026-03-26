@@ -1,6 +1,5 @@
 ---
 import Shell from '../../../components/Shell.astro';
-import DetailLocationMapSection from '../../../components/DetailLocationMapSection.astro';
 import TourComments from '../../../components/TourComments.astro';
 import TourDetailHeroGallery from '../../../components/TourDetailHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -11,8 +10,6 @@ import {
 	getSimilarTours,
 	getTourRowBySlug,
 	getWhatToDoRowBySlug,
-	listTourMapMarkers,
-	listWhatToDoMapMarkers,
 	tourCoverImageUrl,
 } from '../../../lib/tours-db';
 import type { Locale } from '../../../lib/strings';
@@ -63,26 +60,7 @@ const jsonLd = buildTourJsonLd({
 	updatedAt: row.updated_at,
 });
 
-const mapPageHref = getRelativeLocaleUrl(locale, 'map');
-const locationLine =
-	row.location == null
-		? null
-		: row.location.label?.trim()
-			? row.location.label.trim()
-			: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
-
 const similarTours = getSimilarTours(locale, slug, row.category, 4);
-
-const allMapMarkers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
-const detailMapFocus = row.location
-	? {
-			lat: row.location.lat,
-			lng: row.location.lng,
-			zoom: 14,
-			slug: row.slug,
-			kind: 'tours' as const,
-		}
-	: null;
 
 const tourComments = await listCommentsForPost('tours', row.id);
 const tourAverageRating = averageRatingFor(tourComments);
@@ -165,33 +143,10 @@ const adminEditHref =
 							</div>
 						) : null
 					}
-					{
-						locationLine ? (
-							<div class="tour-detail-aside__row">
-								<dt class="tour-detail-aside__dt">{t.tourSidebarLocationLabel}</dt>
-								<dd class="tour-detail-aside__dd">
-									{locationLine}
-									<br />
-									<a class="tour-detail-aside__map-link" href={mapPageHref}>{t.tourSidebarViewOnMap}</a>
-								</dd>
-							</div>
-						) : null
-					}
 				</dl>
 			</div>
 		</aside>
 	</div>
-
-	{
-		detailMapFocus && allMapMarkers.length > 0 ? (
-			<DetailLocationMapSection
-				heading={t.detailOnMapHeading}
-				markers={allMapMarkers}
-				focus={detailMapFocus}
-				popupViewDetailsLabel={t.mapPopupViewDetails}
-			/>
-		) : null
-	}
 
 	<TourComments
 		locale={locale}
@@ -218,6 +173,11 @@ const adminEditHref =
 			save: t.tourReviewsSave,
 			edited: t.tourReviewsEdited,
 			replySubmit: t.tourReviewsReplySubmit,
+			delete: t.tourReviewsDelete,
+			deleting: t.tourReviewsDeleting,
+			deleteConfirm: t.tourReviewsDeleteConfirm,
+			alreadyReviewedTitle: t.tourReviewsAlreadyReviewedTitle,
+			alreadyReviewedHint: t.tourReviewsAlreadyReviewedHint,
 		}}
 	/>
 
@@ -347,13 +307,6 @@ const adminEditHref =
 		color: var(--text);
 		line-height: 1.45;
 	}
-	[data-tour-detail] .tour-detail-aside__map-link {
-		display: inline-block;
-		margin-top: 0.35rem;
-		font-size: 0.92rem;
-		font-weight: 600;
-	}
-
 	[data-similar-tours].similar-tours {
 		margin-top: 2.5rem;
 		padding-top: 2rem;

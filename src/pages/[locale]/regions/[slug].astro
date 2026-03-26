@@ -1,0 +1,253 @@
+---
+import Shell from '../../../components/Shell.astro';
+import TourDetailHeroGallery from '../../../components/TourDetailHeroGallery.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { marked } from 'marked';
+import { resolveTourMetaDescription } from '../../../lib/seo';
+import { getRegionPublicRow, type RegionLevel } from '../../../lib/regions-db';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+import { tourCoverImageUrl } from '../../../lib/tours-db';
+
+const loc = Astro.params.locale;
+const slug = Astro.params.slug;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !slug) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+const row = getRegionPublicRow(locale, slug);
+if (!row) {
+	return new Response(null, { status: 404 });
+}
+
+const htmlRaw = marked.parse(row.body || '', { async: false });
+const html = typeof htmlRaw === 'string' ? htmlRaw : await htmlRaw;
+
+const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
+const canonicalPath = `/${locale}/regions/${slug}`;
+const site = Astro.site;
+const pageUrl = site ? new URL(canonicalPath, site).href : Astro.url.href;
+const coverUrl = tourCoverImageUrl({ image: row.image, gallery: row.gallery });
+
+const heroGalleryImages: string[] = [];
+const seenUrls = new Set<string>();
+for (const g of row.gallery) {
+	const s = typeof g === 'string' ? g.trim() : '';
+	if (!s || seenUrls.has(s)) continue;
+	seenUrls.add(s);
+	heroGalleryImages.push(s);
+}
+
+function levelLabel(level: RegionLevel): string {
+	if (level === 'region') return t.regionsLevelRegion;
+	if (level === 'municipality') return t.regionsLevelMunicipality;
+	return t.regionsLevelVillage;
+}
+
+const adminEditHref =
+	Astro.locals.user?.role === 'admin'
+		? getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)
+		: null;
+
+const facts: { label: string; value: string }[] = [];
+if (row.population != null) facts.push({ label: 'Population', value: String(row.population) });
+if (row.area_km2 != null) facts.push({ label: 'Area (km²)', value: String(row.area_km2) });
+if (row.elevation_m != null) facts.push({ label: 'Elevation (m)', value: String(row.elevation_m) });
+if (row.admin_center_name?.trim()) facts.push({ label: 'Administrative center', value: row.admin_center_name.trim() });
+if (row.iso_3166_2?.trim()) facts.push({ label: 'ISO 3166-2', value: row.iso_3166_2.trim() });
+if (row.official_code?.trim()) facts.push({ label: 'Official code', value: row.official_code.trim() });
+if (row.settlement_type?.trim()) facts.push({ label: 'Settlement type', value: row.settlement_type.trim() });
+if (row.official_website?.trim()) facts.push({ label: 'Website', value: row.official_website.trim() });
+if (row.wikipedia_url?.trim()) facts.push({ label: 'Wikipedia', value: row.wikipedia_url.trim() });
+if (row.wikidata_id?.trim()) facts.push({ label: 'Wikidata', value: row.wikidata_id.trim() });
+if (row.geonames_id?.trim()) facts.push({ label: 'GeoNames', value: row.geonames_id.trim() });
+---
+
+<Shell
+	locale={locale}
+	subpath={`regions/${slug}`}
+	title={row.title}
+	seoTitle={row.seo_title ?? undefined}
+	seoDescription={metaDescription}
+	canonicalPath={canonicalPath}
+>
+	<article class="region-detail">
+		<nav class="breadcrumb muted" aria-label="Breadcrumb">
+			<a href={getRelativeLocaleUrl(locale, 'regions')}>{t.regions}</a>
+			{
+				row.breadcrumbs.map((b) => (
+					<>
+						<span aria-hidden="true"> / </span>
+						<a href={getRelativeLocaleUrl(locale, `regions/${b.slug}`)}>{b.title}</a>
+					</>
+				))
+			}
+			<span aria-hidden="true"> / </span>
+			<span>{row.title}</span>
+		</nav>
+
+		<p class="region-detail__kind muted">{levelLabel(row.level)}</p>
+
+		<TourDetailHeroGallery
+			slug={slug}
+			locale={locale}
+			title={row.title}
+			duration=""
+			price={null}
+			excerpt={row.excerpt}
+			images={heroGalleryImages}
+			adminEditHref={adminEditHref}
+			shareUrl={pageUrl}
+		/>
+
+		{
+			heroGalleryImages.length === 0 && coverUrl ? (
+				<p class="region-detail__solo-wrap">
+					<img
+						src={coverUrl}
+						alt=""
+						width="960"
+						height="540"
+						loading="eager"
+						decoding="async"
+						class="region-detail__solo-cover"
+					/>
+				</p>
+			) : null
+		}
+
+		<div class="region-detail__grid">
+			<div class="region-detail__main prose">
+				{row.subtitle ? <p class="region-detail__subtitle muted">{row.subtitle}</p> : null}
+				{row.body?.trim() ? <div class="region-body" set:html={html} /> : null}
+			</div>
+			<aside class="region-detail__aside">
+				{
+					facts.length > 0 ? (
+						<section class="region-facts">
+							<h2 class="region-facts__h">{t.tourSidebarSectionTitle}</h2>
+							<dl class="region-facts__dl">
+								{facts.map((f) => (
+									<>
+										<dt>{f.label}</dt>
+										<dd>
+											{f.label === 'Website' || f.label === 'Wikipedia' ? (
+												<a href={f.value} rel="noopener noreferrer">
+													{f.value}
+												</a>
+											) : (
+												f.value
+											)}
+										</dd>
+									</>
+								))}
+							</dl>
+						</section>
+					) : null
+				}
+			</aside>
+		</div>
+
+		{
+			row.children.length > 0 ? (
+				<section class="region-children">
+					<h2>
+						{row.level === 'region'
+							? t.regionsChildrenMunicipalities
+							: row.level === 'municipality'
+								? t.regionsChildrenVillages
+								: ''}
+					</h2>
+					<ul class="region-children__list">
+						{row.children.map((c) => (
+							<li>
+								<a href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>{c.title}</a>
+								<span class="muted"> · {levelLabel(c.level)}</span>
+							</li>
+						))}
+					</ul>
+				</section>
+			) : null
+		}
+	</article>
+</Shell>
+
+<style>
+	.region-detail__kind {
+		margin: 0 0 0.5rem;
+		font-size: 0.78rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.region-detail__grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-top: 1.25rem;
+	}
+	@media (min-width: 900px) {
+		.region-detail__grid {
+			grid-template-columns: 1fr minmax(220px, 300px);
+			align-items: start;
+		}
+	}
+	.region-detail__subtitle {
+		margin: 0 0 1rem;
+		font-size: 1.08rem;
+	}
+	.region-facts {
+		padding: 1rem 1.1rem;
+		background: var(--surface, #f8fafc);
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: 10px;
+	}
+	.region-facts__h {
+		margin: 0 0 0.65rem;
+		font-size: 1rem;
+	}
+	.region-facts__dl {
+		margin: 0;
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.35rem 0.75rem;
+		font-size: 0.9rem;
+	}
+	.region-facts__dl dt {
+		margin: 0;
+		font-weight: 600;
+		color: var(--muted, #64748b);
+	}
+	.region-facts__dl dd {
+		margin: 0;
+		word-break: break-word;
+	}
+	.breadcrumb {
+		font-size: 0.88rem;
+		margin-bottom: 0.35rem;
+	}
+	.breadcrumb a {
+		color: inherit;
+	}
+	.region-children {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border, #e2e8f0);
+	}
+	.region-children__list {
+		margin: 0.5rem 0 0;
+		padding-left: 1.2rem;
+		line-height: 1.6;
+	}
+	.region-detail__solo-wrap {
+		margin: 0.75rem 0 0;
+		line-height: 0;
+	}
+	.region-detail__solo-cover {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+		border: 1px solid var(--border, #e2e8f0);
+	}
+</style>

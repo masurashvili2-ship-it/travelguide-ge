@@ -6,6 +6,7 @@ import {
 	sessionCookieHeader,
 	verifyLogin,
 } from '../../../lib/auth';
+import { appendUserActivity } from '../../../lib/user-activity';
 
 export const POST: APIRoute = async ({ request }) => {
 	const ct = request.headers.get('content-type') ?? '';
@@ -48,6 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
 	const headers = new Headers();
 	headers.set('Cache-Control', 'no-store');
 	headers.append('Set-Cookie', sessionCookieHeader(user, request));
+	void appendUserActivity(user.id, 'login');
 	if (ct.includes('application/json')) {
 		return new Response(JSON.stringify({ ok: true, user }), { status: 200, headers });
 	}

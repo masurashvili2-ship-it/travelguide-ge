@@ -6,7 +6,9 @@ import {
 	parseTourPhysicalRating,
 	type TourPhysicalRatingId,
 } from './tour-physical-rating';
+import { parseContactSocialLinksFromFormGlobal, trimSocialLinks } from './contact-social-links';
 import { parseTourCategory, type TourCategoryId } from './tour-categories';
+import { parseGoogleMapsDirectionsUrl } from './google-maps-urls';
 import {
 	isValidSlug,
 	normalizeTourGalleryInput,
@@ -36,6 +38,8 @@ export function parseTourLikeContributionPayload(
 	const i18n = buildTourI18nFromContributeForm(fields, {
 		contactSidebar: kind === 'what-to-do',
 	});
+	const social_links =
+		kind === 'what-to-do' ? parseContactSocialLinksFromFormGlobal(fields) : trimSocialLinks({});
 
 	const locParsed = parseTourLocationFromForm(fields);
 	if (locParsed.kind === 'error') {
@@ -91,6 +95,22 @@ export function parseTourLikeContributionPayload(
 
 	const drivingFromForm = parseDrivingDistance(fields.driving_distance ?? '');
 
+	let googleDirections: string | null = null;
+	if (kind === 'what-to-do') {
+		const dTrim = (fields.google_directions_url ?? '').trim();
+		if (dTrim) {
+			const parsed = parseGoogleMapsDirectionsUrl(dTrim);
+			if (!parsed) {
+				return {
+					ok: false,
+					error:
+						'Invalid Google Maps URL — use maps.google.com, google.com/maps, or a goo.gl link',
+				};
+			}
+			googleDirections = parsed;
+		}
+	}
+
 	return {
 		ok: true,
 		payload: {
@@ -103,6 +123,8 @@ export function parseTourLikeContributionPayload(
 			whatDoSeasons,
 			physical_rating: physicalRatingFromForm,
 			driving_distance: drivingFromForm,
+			google_directions_url: googleDirections,
+			social_links,
 			i18n,
 		},
 	};

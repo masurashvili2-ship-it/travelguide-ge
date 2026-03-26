@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { userFromRequest } from '../../../../../lib/auth';
 import {
 	averageRatingFor,
+	deleteTourComment,
 	listCommentsForPost,
 	topLevelReviews,
 	updateTourComment,
@@ -61,6 +62,44 @@ export const PATCH: APIRoute = async ({ request, params, locals }) => {
 		JSON.stringify({
 			ok: true,
 			comment: result.comment,
+			averageRating: averageRatingFor(comments),
+			reviewCount: topLevelReviews(comments).length,
+		}),
+		{ status: 200, headers: { 'Content-Type': 'application/json' } },
+	);
+};
+
+export const DELETE: APIRoute = async ({ params, locals, request }) => {
+	const tourId = params.tourId ?? '';
+	const commentId = params.commentId ?? '';
+	if (!isValidTourId(tourId) || !isValidTourId(commentId) || !getTourPostById(tourId)) {
+		return new Response(JSON.stringify({ error: 'Not found' }), {
+			status: 404,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	const user = locals.user ?? (await userFromRequest(request.headers.get('cookie')));
+	if (!user) {
+		return new Response(JSON.stringify({ error: 'You must be logged in' }), {
+			status: 401,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	const result = await deleteTourComment('tours', tourId, commentId, user);
+	if (!result.ok) {
+		const status = result.error === 'Forbidden' ? 403 : result.error === 'Comment not found' ? 404 : 400;
+		return new Response(JSON.stringify({ error: result.error }), {
+			status,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	const comments = await listCommentsForPost('tours', tourId);
+	return new Response(
+		JSON.stringify({
+			ok: true,
 			averageRating: averageRatingFor(comments),
 			reviewCount: topLevelReviews(comments).length,
 		}),

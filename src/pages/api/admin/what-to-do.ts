@@ -15,8 +15,11 @@ import {
 } from '../../../lib/admin-save-response';
 import {
 	normalizeSocialLinksFromJson,
-	parseContactSocialLinksFromForm,
+	parseContactSocialLinksFromFormGlobal,
+	trimSocialLinks,
+	type ContactSocialLinks,
 } from '../../../lib/contact-social-links';
+import { parseGoogleMapsDirectionsUrl } from '../../../lib/google-maps-urls';
 import {
 	isValidSlug,
 	normalizeTourGalleryInput,
@@ -56,8 +59,6 @@ function buildI18nFromFields(fields: Record<string, string>): Partial<Record<Loc
 			body: fields[`${loc}_body`] ?? '',
 			contact_sidebar: fields[`${loc}_contact_sidebar`] ?? '',
 		};
-		const social = parseContactSocialLinksFromForm(fields, loc);
-		if (social) block.social_links = social;
 		i18n[loc] = block;
 	}
 	return i18n;
@@ -87,6 +88,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 			season: legacySeasonRaw,
 			physical_rating: physicalRatingRaw,
 			driving_distance: drivingDistanceRaw,
+			google_directions_url: googleDirectionsRaw,
+			social_links: socialLinksJsonRaw,
 			...rest
 		} = j;
 		fields = Object.fromEntries(Object.entries(rest).map(([k, v]) => [k, v == null ? '' : String(v)]));
@@ -112,8 +115,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					body: String(o.body ?? ''),
 					contact_sidebar: String(o.contact_sidebar ?? ''),
 				};
-				const social = normalizeSocialLinksFromJson(o.social_links);
-				if (social) localeBlock.social_links = social;
 				i18n[loc] = localeBlock;
 			}
 			const intent = fields.intent === 'update' ? 'update' : 'create';
@@ -242,6 +243,30 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					typeof drivingDistanceRaw === 'string' ? drivingDistanceRaw : String(drivingDistanceRaw),
 				);
 			}
+			let googleDirectionsField: string | null | undefined;
+			if (googleDirectionsRaw === undefined) {
+				googleDirectionsField = undefined;
+			} else if (googleDirectionsRaw === null || googleDirectionsRaw === '') {
+				googleDirectionsField = null;
+			} else {
+				const s =
+					typeof googleDirectionsRaw === 'string' ? googleDirectionsRaw.trim() : String(googleDirectionsRaw).trim();
+				const parsed = parseGoogleMapsDirectionsUrl(s);
+				if (!parsed) {
+					return new Response(
+						JSON.stringify({
+							error:
+								'Invalid Google Maps directions URL — use a link from maps.google.com, google.com/maps, or goo.gl',
+						}),
+						{ status: 400, headers: { 'Content-Type': 'application/json' } },
+					);
+				}
+				googleDirectionsField = parsed;
+			}
+			let socialLinksField: ContactSocialLinks | undefined;
+			if (socialLinksJsonRaw !== undefined) {
+				socialLinksField = trimSocialLinks(normalizeSocialLinksFromJson(socialLinksJsonRaw) ?? {});
+			}
 			const result = saveWhatToDoPost({
 				id: intent === 'update' ? id : undefined,
 				slug,
@@ -252,6 +277,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 				whatDoSeasons: whatDoSeasonsField,
 				physical_rating: physicalRatingField,
 				driving_distance: drivingDistanceField,
+				google_directions_url: googleDirectionsField,
+				social_links: socialLinksField,
 				i18n,
 				mode: intent === 'update' ? 'update' : 'create',
 			});
@@ -398,6 +425,35 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
 	const drivingFromForm = parseDrivingDistance(fields.driving_distance ?? '');
 
+	const directionsTrim = (fields.google_directions_url ?? '').trim();
+	let directionsParsed: string | null;
+	if (!directionsTrim) {
+		directionsParsed = null;
+	} else {
+		const parsed = parseGoogleMapsDirectionsUrl(directionsTrim);
+		if (!parsed) {
+			if (!respondJson) {
+				const back = fields.redirect?.trim() || `/en/admin`;
+				const u = new URL(back, request.url);
+				u.searchParams.set(
+					'error',
+					'Invalid Google Maps URL — use maps.google.com, google.com/maps, or a goo.gl link',
+				);
+				return Response.redirect(u.toString(), 303);
+			}
+			return new Response(
+				JSON.stringify({
+					error:
+						'Invalid Google Maps URL — use maps.google.com, google.com/maps, or a goo.gl link',
+				}),
+				{ status: 400, headers: { 'Content-Type': 'application/json' } },
+			);
+		}
+		directionsParsed = parsed;
+	}
+
+	const socialFromForm = parseContactSocialLinksFromFormGlobal(fields);
+
 	const result = saveWhatToDoPost({
 		id: intent === 'update' ? id : undefined,
 		slug,
@@ -408,6 +464,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		whatDoSeasons: whatDoSeasonsFromMultipart,
 		physical_rating: physicalRatingFromForm,
 		driving_distance: drivingFromForm,
+		google_directions_url: directionsParsed,
+		social_links: socialFromForm,
 		i18n,
 		mode: intent === 'update' ? 'update' : 'create',
 	});

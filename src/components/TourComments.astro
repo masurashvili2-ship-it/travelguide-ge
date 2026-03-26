@@ -1,5 +1,10 @@
 ---
-import { type TourComment, flattenThreaded, topLevelReviews } from '../lib/tour-comments';
+import {
+	type TourComment,
+	flattenThreaded,
+	topLevelReviews,
+	userHasRootReviewForAccount,
+} from '../lib/tour-comments';
 import type { Locale } from '../lib/strings';
 import type { UserPublic } from '../lib/auth';
 
@@ -29,6 +34,11 @@ type Props = {
 		save: string;
 		edited: string;
 		replySubmit: string;
+		delete: string;
+		deleting: string;
+		deleteConfirm: string;
+		alreadyReviewedTitle: string;
+		alreadyReviewedHint: string;
 	};
 	loginHref: string;
 };
@@ -36,8 +46,10 @@ type Props = {
 const { locale, apiSegment = 'tours', tourId, comments, averageRating, user, labels, loginHref } =
 	Astro.props;
 
-const reviewCount = topLevelReviews(comments).length;
+const roots = topLevelReviews(comments);
+const reviewCount = roots.length;
 const threaded = flattenThreaded(comments);
+const userHasAlreadyReviewed = user != null && userHasRootReviewForAccount(comments, user);
 
 function displayEmail(email: string): string {
 	const at = email.indexOf('@');
@@ -60,7 +72,12 @@ function canEdit(c: TourComment, u: UserPublic | undefined): boolean {
 const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 ---
 
-<section class="tour-comments" aria-labelledby={headingId} data-api-segment={apiSegment}>
+<section
+	class="tour-comments"
+	aria-labelledby={headingId}
+	data-api-segment={apiSegment}
+	data-delete-confirm={labels.deleteConfirm}
+>
 	<h2 id={headingId} class="tour-comments__heading">{labels.title}</h2>
 
 	{
@@ -87,43 +104,50 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 				<p class="muted tour-comments__signed-in">
 					{labels.signedInAs} <span class="tour-comments__email">{displayEmail(user.email)}</span>
 				</p>
-				<form
-					class="tour-comments__form"
-					data-kind="review"
-					data-tour-id={tourId}
-					data-posting={labels.posting}
-					data-error-fallback={labels.errorGeneric}
-				>
-					<div class="tour-comments__field">
-						<span class="tour-comments__label">{labels.ratingLabel}</span>
-						<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
-							{[1, 2, 3, 4, 5].map((n) => (
-								<label class="tour-comments__rating-option">
-									<input type="radio" name="rating" value={n} required checked={n === 5} />
-									<span class="tour-comments__rating-face" aria-hidden="true">
-										{Array.from({ length: n }, () => '★').join('')}
-									</span>
-									<span class="visually-hidden">{n}</span>
-								</label>
-							))}
-						</div>
+				{userHasAlreadyReviewed ? (
+					<div class="tour-comments__already-reviewed" role="status">
+						<p class="tour-comments__already-reviewed-title">{labels.alreadyReviewedTitle}</p>
+						<p class="tour-comments__already-reviewed-hint">{labels.alreadyReviewedHint}</p>
 					</div>
-					<label class="tour-comments__field">
-						<span class="tour-comments__label">{labels.commentLabel}</span>
-						<textarea
-							name="body"
-							class="tour-comments__textarea"
-							rows={4}
-							required
-							minlength={1}
-							maxlength={4000}
-						/>
-					</label>
-					<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
-					<button type="submit" class="btn tour-comments__submit">
-						{labels.submit}
-					</button>
-				</form>
+				) : (
+					<form
+						class="tour-comments__form"
+						data-kind="review"
+						data-tour-id={tourId}
+						data-posting={labels.posting}
+						data-error-fallback={labels.errorGeneric}
+					>
+						<div class="tour-comments__field">
+							<span class="tour-comments__label">{labels.ratingLabel}</span>
+							<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
+								{[1, 2, 3, 4, 5].map((n) => (
+									<label class="tour-comments__rating-option">
+										<input type="radio" name="rating" value={n} required checked={n === 5} />
+										<span class="tour-comments__rating-face" aria-hidden="true">
+											{Array.from({ length: n }, () => '★').join('')}
+										</span>
+										<span class="visually-hidden">{n}</span>
+									</label>
+								))}
+							</div>
+						</div>
+						<label class="tour-comments__field">
+							<span class="tour-comments__label">{labels.commentLabel}</span>
+							<textarea
+								name="body"
+								class="tour-comments__textarea"
+								rows={4}
+								required
+								minlength={1}
+								maxlength={4000}
+							/>
+						</label>
+						<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
+						<button type="submit" class="btn tour-comments__submit">
+							{labels.submit}
+						</button>
+					</form>
+				)}
 			</div>
 		) : (
 			<p class="tour-comments__guest muted">
@@ -179,7 +203,7 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 
 							<div class="tour-comments__actions">
 								{showReply ? (
-									<details class="tour-comments__details">
+									<details class="tour-comments__details tour-comments__details--reply">
 										<summary class="tour-comments__summary-link">{labels.reply}</summary>
 										<form
 											class="tour-comments__inline-form"
@@ -208,58 +232,70 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 									</details>
 								) : null}
 								{showEdit ? (
-									<details class="tour-comments__details">
-										<summary class="tour-comments__summary-link">{labels.edit}</summary>
-										<form
-											class="tour-comments__inline-form"
-											data-kind="edit"
+									<div class="tour-comments__edit-row">
+										<details class="tour-comments__details tour-comments__details--edit">
+											<summary class="tour-comments__summary-link">{labels.edit}</summary>
+											<form
+												class="tour-comments__inline-form"
+												data-kind="edit"
+												data-tour-id={tourId}
+												data-comment-id={c.id}
+												data-is-review={isReview ? 'true' : 'false'}
+												data-posting={labels.posting}
+												data-error-fallback={labels.errorGeneric}
+											>
+												{isReview ? (
+													<div class="tour-comments__field">
+														<span class="tour-comments__label">{labels.ratingLabel}</span>
+														<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
+															{[1, 2, 3, 4, 5].map((n) => (
+																<label class="tour-comments__rating-option">
+																	<input
+																		type="radio"
+																		name="rating"
+																		value={n}
+																		required
+																		checked={n === c.rating}
+																	/>
+																	<span class="tour-comments__rating-face" aria-hidden="true">
+																		{Array.from({ length: n }, () => '★').join('')}
+																	</span>
+																	<span class="visually-hidden">{n}</span>
+																</label>
+															))}
+														</div>
+													</div>
+												) : null}
+												<label class="tour-comments__field">
+													<span class="tour-comments__label">{labels.commentLabel}</span>
+													<textarea
+														name="body"
+														class="tour-comments__textarea"
+														rows={4}
+														required
+														minlength={1}
+														maxlength={4000}
+													>
+														{c.body}
+													</textarea>
+												</label>
+												<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
+												<button type="submit" class="btn tour-comments__submit btn--small">
+													{labels.save}
+												</button>
+											</form>
+										</details>
+										<button
+											type="button"
+											class="tour-comments__summary-link tour-comments__delete-link"
+											data-kind="delete"
 											data-tour-id={tourId}
 											data-comment-id={c.id}
-											data-is-review={isReview ? 'true' : 'false'}
-											data-posting={labels.posting}
-											data-error-fallback={labels.errorGeneric}
+											data-deleting={labels.deleting}
 										>
-											{isReview ? (
-												<div class="tour-comments__field">
-													<span class="tour-comments__label">{labels.ratingLabel}</span>
-													<div class="tour-comments__rating-input" role="group" aria-label={labels.ratingLabel}>
-														{[1, 2, 3, 4, 5].map((n) => (
-															<label class="tour-comments__rating-option">
-																<input
-																	type="radio"
-																	name="rating"
-																	value={n}
-																	required
-																	checked={n === c.rating}
-																/>
-																<span class="tour-comments__rating-face" aria-hidden="true">
-																	{Array.from({ length: n }, () => '★').join('')}
-																</span>
-																<span class="visually-hidden">{n}</span>
-															</label>
-														))}
-													</div>
-												</div>
-											) : null}
-											<label class="tour-comments__field">
-												<span class="tour-comments__label">{labels.commentLabel}</span>
-												<textarea
-													name="body"
-													class="tour-comments__textarea"
-													rows={4}
-													required
-													minlength={1}
-													maxlength={4000}
-												>
-													{c.body}
-												</textarea>
-											</label>
-											<p class="tour-comments__error alert" hidden role="alert" data-fallback={labels.errorGeneric} />
-											<button type="submit" class="btn tour-comments__submit btn--small">
-												{labels.save}
-											</button>
-										</form>
-									</details>
+											{labels.delete}
+										</button>
+									</div>
 								) : null}
 							</div>
 						</li>
@@ -275,6 +311,38 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 		const root = document.querySelector('.tour-comments');
 		if (!root) return;
 		const apiSeg = root.dataset.apiSegment || 'tours';
+
+		const deleteConfirm = root.dataset.deleteConfirm?.trim() || 'Delete this comment?';
+
+		root.addEventListener('click', async (e) => {
+			const delBtn = (e.target as HTMLElement).closest('button[data-kind="delete"]');
+			if (!delBtn || !root.contains(delBtn)) return;
+			const tourIdDel = delBtn.dataset.tourId;
+			const commentId = delBtn.dataset.commentId;
+			if (!tourIdDel || !commentId) return;
+			if (!window.confirm(deleteConfirm)) return;
+			const postingLabel = delBtn.dataset.deleting?.trim();
+			const defaultDel = delBtn.textContent;
+			delBtn.disabled = true;
+			if (postingLabel) delBtn.textContent = postingLabel;
+			try {
+				const res = await fetch(
+					`/api/${apiSeg}/${encodeURIComponent(tourIdDel)}/comments/${encodeURIComponent(commentId)}`,
+					{ method: 'DELETE', credentials: 'include' },
+				);
+				const data = (await res.json().catch(() => ({}))) as { error?: string };
+				if (!res.ok) {
+					window.alert(data.error || 'Could not delete.');
+					return;
+				}
+				window.location.reload();
+			} catch {
+				window.alert('Could not delete.');
+			} finally {
+				delBtn.disabled = false;
+				if (defaultDel) delBtn.textContent = defaultDel;
+			}
+		});
 
 		root.addEventListener('submit', async (e) => {
 			const form = e.target;
@@ -473,6 +541,29 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 		margin: 0 0 1rem;
 		font-size: 0.92rem;
 	}
+	.tour-comments__already-reviewed {
+		margin: 0;
+		padding: 0.85rem 1rem;
+		border-radius: var(--radius-sm, 10px);
+		border: 1px solid var(--border);
+		border-left: 4px solid var(--accent);
+		background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+	}
+	.tour-comments__already-reviewed-title {
+		margin: 0 0 0.4rem;
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--text);
+		line-height: 1.35;
+	}
+	.tour-comments__already-reviewed-hint {
+		margin: 0;
+		font-size: 0.92rem;
+		font-weight: 500;
+		color: var(--text);
+		line-height: 1.45;
+		opacity: 0.92;
+	}
 	.tour-comments__email {
 		font-weight: 600;
 		color: var(--text);
@@ -621,9 +712,38 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 		margin-top: 0.75rem;
 		align-items: flex-start;
 	}
-	.tour-comments__details {
+	.tour-comments__details--reply {
 		flex: 1 1 auto;
 		min-width: min(100%, 220px);
+	}
+	.tour-comments__edit-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 1rem;
+		flex: 0 0 auto;
+		min-width: 0;
+		align-self: flex-start;
+	}
+	.tour-comments__details--edit {
+		flex: 0 0 auto;
+		min-width: 0;
+	}
+	.tour-comments__delete-link {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		background: none;
+		font: inherit;
+		line-height: inherit;
+	}
+	.tour-comments__delete-link:hover {
+		color: var(--accent);
+		text-decoration: underline;
+	}
+	.tour-comments__delete-link:disabled {
+		opacity: 0.55;
+		cursor: not-allowed;
 	}
 	.tour-comments__summary-link {
 		cursor: pointer;

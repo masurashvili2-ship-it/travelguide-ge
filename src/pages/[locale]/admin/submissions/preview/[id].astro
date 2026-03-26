@@ -10,6 +10,7 @@ import {
 } from '../../../../../lib/contribute-synthetic-post';
 import WhatToDoContactAsideCard from '../../../../../components/WhatToDoContactAsideCard.astro';
 import { hasRenderableContactSocialLinks } from '../../../../../lib/contact-social-links';
+import { googleDirectionsUrlFromCoords } from '../../../../../lib/google-maps-urls';
 import {
 	flattenTourPostToRow,
 	tourCoverImageUrl,
@@ -79,6 +80,7 @@ type PreviewTour = {
 	heroGalleryImages: string[];
 	jsonLd: Record<string, unknown>;
 	locationLine: string | null;
+	directionsHref: string | null;
 	mapPageHref: string;
 	listHref: string;
 	listLabel: string;
@@ -203,6 +205,14 @@ if (sub.kind === 'page') {
 				? row.location.label.trim()
 				: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
 
+	const directionsHref =
+		tourKind === 'what-to-do'
+			? row.google_directions_url?.trim() ||
+				(row.location
+					? googleDirectionsUrlFromCoords(row.location.lat, row.location.lng)
+					: null)
+			: null;
+
 	const listHref =
 		tourKind === 'tours'
 			? getRelativeLocaleUrl(previewLocale, 'tours')
@@ -223,6 +233,7 @@ if (sub.kind === 'page') {
 		heroGalleryImages,
 		jsonLd,
 		locationLine,
+		directionsHref,
 		mapPageHref,
 		listHref,
 		listLabel,
@@ -401,6 +412,21 @@ if (sub.kind === 'page') {
 											<br />
 											<a class="tour-detail-aside__map-link" href={preview.mapPageHref}>
 												{tp.tourSidebarViewOnMap}
+											</a>
+										</dd>
+									</div>
+								) : null}
+								{preview.tourKind === 'what-to-do' && preview.directionsHref ? (
+									<div class="tour-detail-aside__row">
+										<dt class="tour-detail-aside__dt">{tp.tourSidebarDirections}</dt>
+										<dd class="tour-detail-aside__dd">
+											<a
+												class="tour-detail-aside__map-link"
+												href={preview.directionsHref}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{tp.tourSidebarGetDirections}
 											</a>
 										</dd>
 									</div>

@@ -1,3 +1,4 @@
+import { trimSocialLinks } from './contact-social-links';
 import type { PageLocaleBlock, PagePost } from './pages-db';
 import type { Locale } from './strings';
 import type { TourLocaleBlock, TourPost } from './tours-db';
@@ -18,6 +19,8 @@ export function tourPostToContributionPayload(
 		whatDoSeasons: kind === 'what-to-do' ? [...post.whatDoSeasons] : [],
 		physical_rating: post.physical_rating,
 		driving_distance: post.driving_distance,
+		google_directions_url: post.google_directions_url ?? null,
+		social_links: trimSocialLinks(post.social_links ?? {}),
 		i18n: JSON.parse(JSON.stringify(post.i18n)) as Partial<Record<Locale, TourLocaleBlock>>,
 	};
 }

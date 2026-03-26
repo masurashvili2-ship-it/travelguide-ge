@@ -19,6 +19,8 @@ export const ui: Record<
 		tours: string;
 		/** Activities / ideas (parallel post type to tours) */
 		whatToDo: string;
+		/** Regions, municipalities, and villages (administrative geography) */
+		regions: string;
 		map: string;
 		login: string;
 		register: string;
@@ -37,6 +39,14 @@ export const ui: Record<
 		/** Meta description for /tours listing */
 		toursMetaDescription: string;
 		whatToDoMetaDescription: string;
+		regionsMetaDescription: string;
+		regionsIntro: string;
+		regionsLevelRegion: string;
+		regionsLevelMunicipality: string;
+		regionsLevelVillage: string;
+		regionsFilterAllTypes: string;
+		regionsChildrenMunicipalities: string;
+		regionsChildrenVillages: string;
 		/** What-to-do listing: filter sidebar */
 		whatToDoFiltersTitle: string;
 		whatToDoFiltersApply: string;
@@ -53,9 +63,8 @@ export const ui: Record<
 		mapEmpty: string;
 		/** Interactive map: kind tabs */
 		mapFilterAll: string;
-		mapFilterTours: string;
 		mapFilterWhatToDo: string;
-		mapFilterTourTypes: string;
+		mapFilterRegions: string;
 		mapFilterActivityTypes: string;
 		mapFilterClear: string;
 		/** Map filter count: use {visible} and {total} */
@@ -64,6 +73,7 @@ export const ui: Record<
 		featuredTours: string;
 		viewTour: string;
 		viewWhatToDo: string;
+		viewRegion: string;
 		duration: string;
 		email: string;
 		password: string;
@@ -127,6 +137,9 @@ export const ui: Record<
 		tourSidebarPriceLabel: string;
 		tourSidebarLocationLabel: string;
 		tourSidebarViewOnMap: string;
+		/** What-to-do (and previews): sidebar row label for Google directions */
+		tourSidebarDirections: string;
+		tourSidebarGetDirections: string;
 		/** Tour / what-to-do detail: embedded map above reviews */
 		detailOnMapHeading: string;
 		/** Map marker popup link text */
@@ -161,6 +174,30 @@ export const ui: Record<
 		tourReviewsSave: string;
 		tourReviewsEdited: string;
 		tourReviewsReplySubmit: string;
+		/** Shown instead of the review form when the user already has a top-level review */
+		tourReviewsAlreadyReviewedTitle: string;
+		tourReviewsAlreadyReviewedHint: string;
+		tourReviewsDelete: string;
+		tourReviewsDeleting: string;
+		tourReviewsDeleteConfirm: string;
+		/** Account menu: recent sign-ins and reviews */
+		navActivityLog: string;
+		activityLogTitle: string;
+		activityLogIntro: string;
+		activityLogEmpty: string;
+		activityKindLogin: string;
+		activityKindReviewPosted: string;
+		activityKindReplyPosted: string;
+		activityViewPost: string;
+		activityLogLoginDetail: string;
+		activityLogPostLabel: string;
+		activityLogTypeLabel: string;
+		activityLogTypeTour: string;
+		activityLogTypeWhatToDo: string;
+		activityLogSlugLabel: string;
+		activityLogRatingLabel: string;
+		activityLogPreviewLabel: string;
+		activityLogPostRemoved: string;
 	}
 > = {
 	en: {
@@ -168,6 +205,7 @@ export const ui: Record<
 		home: 'Home',
 		tours: 'Tours',
 		whatToDo: 'What to do',
+		regions: 'Regions',
 		map: 'Map',
 		login: 'Log in',
 		register: 'Register',
@@ -183,6 +221,15 @@ export const ui: Record<
 			'Browse guided tours across Georgia — Tbilisi, mountains, wine routes, and day trips. Book your next experience.',
 		whatToDoMetaDescription:
 			'Things to do in Georgia — activities, sights, and local experiences beyond classic tours.',
+		regionsMetaDescription:
+			'Explore Georgia by region — autonomous republics, municipalities, and villages with maps and local context.',
+		regionsIntro: 'Browse regions, municipalities, and villages. Each place can include facts, photos, and a detailed description.',
+		regionsLevelRegion: 'Region',
+		regionsLevelMunicipality: 'Municipality',
+		regionsLevelVillage: 'Village',
+		regionsFilterAllTypes: 'All types',
+		regionsChildrenMunicipalities: 'Municipalities',
+		regionsChildrenVillages: 'Villages & settlements',
 		whatToDoFiltersTitle: 'Filter',
 		whatToDoFiltersApply: 'Apply filters',
 		whatToDoFiltersClear: 'Clear all',
@@ -191,22 +238,23 @@ export const ui: Record<
 		whatToDoFiltersAny: 'Any',
 		whatToDoFiltersNSelected: '{n} selected',
 		mapMetaDescription:
-			'Interactive map of tours and things to do in Georgia — click a marker for details, photo, and link.',
+			'Interactive map of tours, things to do, and places in Georgia — click a marker for details, photo, and link.',
 		mapIntro:
-			'Pins link to tours and “What to do” entries in your current language (only items with coordinates and a translation appear).',
+			'Pins link to tours, “What to do” entries, and region pages in your current language (only items with coordinates and a translation appear).',
 		mapEmpty:
-			'Nothing on the map yet. Add latitude and longitude in the admin editor for a tour or activity.',
+			'Nothing on the map yet. Add latitude and longitude in the admin editor for a tour, activity, or place.',
 		mapFilterAll: 'All',
-		mapFilterTours: 'Tours',
 		mapFilterWhatToDo: 'What to do',
-		mapFilterTourTypes: 'Tour types',
+		mapFilterRegions: 'Regions',
 		mapFilterActivityTypes: 'Activity categories',
 		mapFilterClear: 'Clear filters',
 		mapFilterShowing: 'Showing {visible} of {total} on the map',
-		mapFilterHint: 'Combine tabs with categories. Empty category lists mean “any”.',
+		mapFilterHint:
+			'Use “What to do” to show only activities, or “Regions” for administrative places. Activity checkboxes filter only activity pins; tours and regions stay visible when none are selected.',
 		featuredTours: 'Featured tours',
 		viewTour: 'View tour',
 		viewWhatToDo: 'View',
+		viewRegion: 'View place',
 		duration: 'Duration',
 		email: 'Email',
 		password: 'Password',
@@ -254,6 +302,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'Price',
 		tourSidebarLocationLabel: 'Location',
 		tourSidebarViewOnMap: 'View on map',
+		tourSidebarDirections: 'Directions',
+		tourSidebarGetDirections: 'Get directions',
 		detailOnMapHeading: 'On the map',
 		mapPopupViewDetails: 'View details',
 		tourSidebarPhysicalRating: 'Physical rating',
@@ -321,12 +371,36 @@ export const ui: Record<
 		tourReviewsSave: 'Save',
 		tourReviewsEdited: 'edited',
 		tourReviewsReplySubmit: 'Post reply',
+		tourReviewsAlreadyReviewedTitle: "You've already left feedback here.",
+		tourReviewsAlreadyReviewedHint:
+			'To change it, use Edit or Delete on your review in the list below.',
+		tourReviewsDelete: 'Delete',
+		tourReviewsDeleting: 'Deleting…',
+		tourReviewsDeleteConfirm: 'Delete this comment and all replies under it?',
+		navActivityLog: 'Activity',
+		activityLogTitle: 'Your activity',
+		activityLogIntro: 'Recent sign-ins and reviews you posted on the site.',
+		activityLogEmpty: 'No activity recorded yet. Sign in and post a review to see entries here.',
+		activityKindLogin: 'Signed in',
+		activityKindReviewPosted: 'Posted a review',
+		activityKindReplyPosted: 'Posted a reply',
+		activityViewPost: 'View post',
+		activityLogLoginDetail: 'You signed in to your account.',
+		activityLogPostLabel: 'Post',
+		activityLogTypeLabel: 'Type',
+		activityLogTypeTour: 'Tour',
+		activityLogTypeWhatToDo: 'What to do',
+		activityLogSlugLabel: 'Page slug',
+		activityLogRatingLabel: 'Your rating',
+		activityLogPreviewLabel: 'What you wrote',
+		activityLogPostRemoved: 'This page is no longer on the site; details are from when the activity was saved.',
 	},
 	ka: {
 		siteTitle: 'საქართველოს სამოგზაურო გიდი',
 		home: 'მთავარი',
 		tours: 'ტურები',
 		whatToDo: 'რა გავაკეთოთ',
+		regions: 'რეგიონები',
 		map: 'რუკა',
 		login: 'შესვლა',
 		register: 'რეგისტრაცია',
@@ -340,6 +414,15 @@ export const ui: Record<
 		heroSubtitle: 'შერჩეული ტურები და მარშრუტები — თბილისიდან მთებამდე.',
 		toursMetaDescription: 'საქართველოს სამოგზაურო ტურები — თბილისი, მთები, ღვინის მარშრუტები და ერთდღიანი ტურები.',
 		whatToDoMetaDescription: 'საქართველოში საქმიანობები, ადგილები და გამოცდილებები — ტურების გარდა.',
+		regionsMetaDescription:
+			'საქართველოს რეგიონები, მუნიციპალიტეტები და სოფლები — რუკები და ადგილობრივი კონტექსტი.',
+		regionsIntro: 'დაათვალიერეთ რეგიონები, მუნიციპალიტეტები და სოფლები — ფაქტები, ფოტოები და აღწერა.',
+		regionsLevelRegion: 'რეგიონი',
+		regionsLevelMunicipality: 'მუნიციპალიტეტი',
+		regionsLevelVillage: 'სოფელი',
+		regionsFilterAllTypes: 'ყველა ტიპი',
+		regionsChildrenMunicipalities: 'მუნიციპალიტეტები',
+		regionsChildrenVillages: 'სოფლები და დასახლებები',
 		whatToDoFiltersTitle: 'ფილტრი',
 		whatToDoFiltersApply: 'გამოყენება',
 		whatToDoFiltersClear: 'გასუფთავება',
@@ -348,21 +431,23 @@ export const ui: Record<
 		whatToDoFiltersAny: 'ნებისმიერი',
 		whatToDoFiltersNSelected: 'არჩეულია {n}',
 		mapMetaDescription:
-			'ინტერაქტიული რუკა — მარკერზე დაწკაპუნებით ნახავთ ფოტოს, აღწერილობას და ბმულს.',
+			'ინტერაქტიული რუკა — ტურები, აქტივობები და ადმინისტრაციული ადგილები საქართველოში.',
 		mapIntro:
-			'ბმულები გახსნის ტურს ან „რა გავაკეთოთ“ ჩანაწერს არჩეულ ენაზე (ჩანს მხოლოდ კოორდინატებითა და თარგმანით).',
-		mapEmpty: 'რუკაზე ჯერ არაფერია. დაამატეთ კოორდინატები ადმინის რედაქტორში ტურზე ან აქტივობაზე.',
+			'ბმულები გახსნის ტურს, „რა გავაკეთოთ“ ჩანაწერს ან რეგიონის გვერდს არჩეულ ენაზე (კოორდინატები და თარგმანი საჭიროა).',
+		mapEmpty:
+			'რუკაზე ჯერ არაფერია. დაამატეთ კოორდინატები ადმინის რედაქტორში ტურზე, აქტივობაზე ან ადგილზე.',
 		mapFilterAll: 'ყველა',
-		mapFilterTours: 'ტურები',
 		mapFilterWhatToDo: 'რა გავაკეთოთ',
-		mapFilterTourTypes: 'ტურის ტიპები',
+		mapFilterRegions: 'რეგიონები',
 		mapFilterActivityTypes: 'აქტივობის კატეგორიები',
 		mapFilterClear: 'ფილტრის გასუფთავება',
 		mapFilterShowing: 'რუკაზე ნაჩვენებია {visible} / {total}',
-		mapFilterHint: 'შეგიძლიათ გააერთოთ ჩანართები და კატეგორიები. ცარიელი სია ნიშნავს „ნებისმიერი“.',
+		mapFilterHint:
+			'„რა გავაკეთოთ“ — მხოლოდ აქტივობები; „რეგიონები“ — ადმინისტრაციული ადგილები. აქტივობის კატეგორიები მხოლოდ ამ ნიშნებს ფილტრავს; ტურები და რეგიონები რჩება ხილული, თუ არაფერია არჩეული.',
 		featuredTours: 'რჩეული ტურები',
 		viewTour: 'ტურის ნახვა',
 		viewWhatToDo: 'ნახვა',
+		viewRegion: 'ადგილის ნახვა',
 		duration: 'ხანგრძლივობა',
 		email: 'ელფოსტა',
 		password: 'პაროლი',
@@ -410,6 +495,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'ფასი',
 		tourSidebarLocationLabel: 'ლოკაცია',
 		tourSidebarViewOnMap: 'რუკაზე ნახვა',
+		tourSidebarDirections: 'მიმართულებები',
+		tourSidebarGetDirections: 'მიმართულების მიღება',
 		detailOnMapHeading: 'რუკაზე',
 		mapPopupViewDetails: 'დეტალები',
 		tourSidebarPhysicalRating: 'ფიზიკური სირთულე',
@@ -477,12 +564,36 @@ export const ui: Record<
 		tourReviewsSave: 'შენახვა',
 		tourReviewsEdited: 'რედაქტირებული',
 		tourReviewsReplySubmit: 'პასუხის გაგზავნა',
+		tourReviewsAlreadyReviewedTitle: 'თქვენ უკვე დატოვეთ გამოხმაურება ამ გვერდზე.',
+		tourReviewsAlreadyReviewedHint:
+			'შესაცვლელად გამოიყენეთ რედაქტირება ან წაშლა თქვენს შეფასებაზე ქვემოთ სიაში.',
+		tourReviewsDelete: 'წაშლა',
+		tourReviewsDeleting: 'იშლება…',
+		tourReviewsDeleteConfirm: 'წავშალოთ ეს კომენტარი და ყველა ქვედა პასუხი?',
+		navActivityLog: 'აქტივობა',
+		activityLogTitle: 'თქვენი აქტივობა',
+		activityLogIntro: 'ბოლო შესვლები და გამოქვეყნებული შეფასებები.',
+		activityLogEmpty: 'ჩანაწერები ჯერ არ არის. შედით და დატოვეთ შეფასება.',
+		activityKindLogin: 'შესვლა',
+		activityKindReviewPosted: 'შეფასების გამოქვეყნება',
+		activityKindReplyPosted: 'პასუხის გამოქვეყნება',
+		activityViewPost: 'პოსტის ნახვა',
+		activityLogLoginDetail: 'წარმატებით შეხვედით ანგარიშში.',
+		activityLogPostLabel: 'პოსტი',
+		activityLogTypeLabel: 'ტიპი',
+		activityLogTypeTour: 'ტური',
+		activityLogTypeWhatToDo: 'რა გავაკეთოთ',
+		activityLogSlugLabel: 'URL slug',
+		activityLogRatingLabel: 'თქვენი ქულა',
+		activityLogPreviewLabel: 'თქვენი ტექსტი',
+		activityLogPostRemoved: 'გვერდი აღარ არის საიტზე; დეტალები შენახულია აქტივობის მომენტის მიხედვით.',
 	},
 	ru: {
 		siteTitle: 'Путеводитель по Грузии',
 		home: 'Главная',
 		tours: 'Туры',
 		whatToDo: 'Чем заняться',
+		regions: 'Регионы',
 		map: 'Карта',
 		login: 'Вход',
 		register: 'Регистрация',
@@ -498,6 +609,15 @@ export const ui: Record<
 			'Экскурсии и туры по Грузии — Тбилиси, Кавказ, винные маршруты и однодневные поездки.',
 		whatToDoMetaDescription:
 			'Чем заняться в Грузии — активности, места и впечатления помимо классических туров.',
+		regionsMetaDescription:
+			'Регионы, муниципалитеты и сёла Грузии — карты и справочная информация.',
+		regionsIntro: 'Регионы, муниципалитеты и сёла: факты, фотографии и подробное описание.',
+		regionsLevelRegion: 'Регион',
+		regionsLevelMunicipality: 'Муниципалитет',
+		regionsLevelVillage: 'Село / населённый пункт',
+		regionsFilterAllTypes: 'Все типы',
+		regionsChildrenMunicipalities: 'Муниципалитеты',
+		regionsChildrenVillages: 'Сёла и населённые пункты',
 		whatToDoFiltersTitle: 'Фильтр',
 		whatToDoFiltersApply: 'Применить',
 		whatToDoFiltersClear: 'Сбросить всё',
@@ -506,22 +626,23 @@ export const ui: Record<
 		whatToDoFiltersAny: 'Любой',
 		whatToDoFiltersNSelected: 'Выбрано: {n}',
 		mapMetaDescription:
-			'Интерактивная карта туров и идей «Чем заняться» в Грузии — маркер с фото, описанием и ссылкой.',
+			'Интерактивная карта туров, идей «Чем заняться» и населённых пунктов Грузии.',
 		mapIntro:
-			'Ссылки ведут на тур или материал «Чем заняться» на текущем языке (нужны координаты и перевод).',
+			'Ссылки ведут на тур, материал «Чем заняться» или страницу региона на текущем языке (нужны координаты и перевод).',
 		mapEmpty:
-			'На карте пока ничего нет. Укажите широту и долготу в админке для тура или активности.',
+			'На карте пока ничего нет. Укажите широту и долготу в админке для тура, активности или места.',
 		mapFilterAll: 'Все',
-		mapFilterTours: 'Туры',
 		mapFilterWhatToDo: 'Чем заняться',
-		mapFilterTourTypes: 'Типы туров',
+		mapFilterRegions: 'Регионы',
 		mapFilterActivityTypes: 'Категории активностей',
 		mapFilterClear: 'Сбросить фильтры',
 		mapFilterShowing: 'На карте: {visible} из {total}',
-		mapFilterHint: 'Сочетайте вкладки и категории. Пустой список категорий значит «любые».',
+		mapFilterHint:
+			'«Чем заняться» — только активности; «Регионы» — административные места. Категории фильтруют только активности; туры и регионы остаются, если ничего не отмечено.',
 		featuredTours: 'Избранные туры',
 		viewTour: 'Подробнее',
 		viewWhatToDo: 'Смотреть',
+		viewRegion: 'Открыть место',
 		duration: 'Длительность',
 		email: 'Эл. почта',
 		password: 'Пароль',
@@ -569,6 +690,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'Цена',
 		tourSidebarLocationLabel: 'Локация',
 		tourSidebarViewOnMap: 'На карте',
+		tourSidebarDirections: 'Маршрут',
+		tourSidebarGetDirections: 'Построить маршрут',
 		detailOnMapHeading: 'На карте',
 		mapPopupViewDetails: 'Подробнее',
 		tourSidebarPhysicalRating: 'Физическая нагрузка',
@@ -636,5 +759,28 @@ export const ui: Record<
 		tourReviewsSave: 'Сохранить',
 		tourReviewsEdited: 'изменено',
 		tourReviewsReplySubmit: 'Отправить ответ',
+		tourReviewsAlreadyReviewedTitle: 'Вы уже оставили отзыв на этой странице.',
+		tourReviewsAlreadyReviewedHint:
+			'Чтобы изменить его, воспользуйтесь «Правка» или «Удалить» у вашего отзыва в списке ниже.',
+		tourReviewsDelete: 'Удалить',
+		tourReviewsDeleting: 'Удаление…',
+		tourReviewsDeleteConfirm: 'Удалить этот комментарий и все ответы под ним?',
+		navActivityLog: 'Активность',
+		activityLogTitle: 'Ваша активность',
+		activityLogIntro: 'Недавние входы и опубликованные отзывы.',
+		activityLogEmpty: 'Пока нет записей. Войдите и оставьте отзыв.',
+		activityKindLogin: 'Вход',
+		activityKindReviewPosted: 'Опубликован отзыв',
+		activityKindReplyPosted: 'Опубликован ответ',
+		activityViewPost: 'К записи',
+		activityLogLoginDetail: 'Вы вошли в аккаунт.',
+		activityLogPostLabel: 'Запись',
+		activityLogTypeLabel: 'Тип',
+		activityLogTypeTour: 'Тур',
+		activityLogTypeWhatToDo: 'Что делать',
+		activityLogSlugLabel: 'Адрес страницы (slug)',
+		activityLogRatingLabel: 'Ваша оценка',
+		activityLogPreviewLabel: 'Ваш текст',
+		activityLogPostRemoved: 'Страница больше не на сайте; данные — на момент сохранения активности.',
 	},
 };

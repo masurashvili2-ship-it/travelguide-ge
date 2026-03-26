@@ -1,9 +1,9 @@
 ---
-import type { ContentPostKind, TourMapMarker } from '../lib/tours-db';
+import type { MapMarkerPostKind, TourMapMarker } from '../lib/tours-db';
 
 interface Props {
 	markers: TourMapMarker[];
-	focus?: { lat: number; lng: number; zoom?: number; slug: string; kind: ContentPostKind };
+	focus?: { lat: number; lng: number; zoom?: number; slug: string; kind: MapMarkerPostKind };
 	popupViewDetailsLabel: string;
 	variant?: 'page' | 'embed';
 }

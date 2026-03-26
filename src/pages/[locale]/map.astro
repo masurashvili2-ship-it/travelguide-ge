@@ -2,6 +2,7 @@
 import MapFiltersPanel from '../../components/MapFiltersPanel.astro';
 import Shell from '../../components/Shell.astro';
 import ToursMap from '../../components/ToursMap.astro';
+import { listRegionMapMarkers } from '../../lib/regions-db';
 import { listTourMapMarkers, listWhatToDoMapMarkers } from '../../lib/tours-db';
 import type { Locale } from '../../lib/strings';
 import { ui } from '../../lib/strings';
@@ -12,7 +13,11 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const markers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
+const markers = [
+	...listTourMapMarkers(locale),
+	...listWhatToDoMapMarkers(locale),
+	...listRegionMapMarkers(locale),
+];
 ---
 
 <Shell
@@ -34,15 +39,13 @@ const markers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale
 				<MapFiltersPanel
 					filterLabels={{
 						all: t.mapFilterAll,
-						tours: t.mapFilterTours,
 						whatToDo: t.mapFilterWhatToDo,
-						tourTypes: t.mapFilterTourTypes,
+						regions: t.mapFilterRegions,
 						activityTypes: t.mapFilterActivityTypes,
 						clear: t.mapFilterClear,
 						showing: t.mapFilterShowing,
 						hint: t.mapFilterHint,
 					}}
-					tourCategoryLabels={t.tourCategories}
 					whatToDoCategoryLabels={t.whatToDoCategories}
 				/>
 				<ToursMap markers={markers} popupViewDetailsLabel={t.mapPopupViewDetails} />

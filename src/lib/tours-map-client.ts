@@ -1,6 +1,6 @@
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { tourMapPinDataUrl, whatToDoMapPinDataUrl } from './map-pin-icons';
+import { regionMapPinDataUrl, tourMapPinDataUrl, whatToDoMapPinDataUrl } from './map-pin-icons';
 import type { TourMapMarker } from './tours-db';
 
 function escapeHtml(s: string) {
@@ -22,7 +22,18 @@ const iconCache = new Map<string, L.Icon>();
 function markerIconForKey(mapIconKey: string): L.Icon {
 	let icon = iconCache.get(mapIconKey);
 	if (icon) return icon;
-	const url = mapIconKey === 'tour' ? tourMapPinDataUrl() : whatToDoMapPinDataUrl(mapIconKey);
+	let url: string;
+	if (mapIconKey === 'tour') {
+		url = tourMapPinDataUrl();
+	} else if (mapIconKey === 'geo-region') {
+		url = regionMapPinDataUrl('region');
+	} else if (mapIconKey === 'geo-municipality') {
+		url = regionMapPinDataUrl('municipality');
+	} else if (mapIconKey === 'geo-village') {
+		url = regionMapPinDataUrl('village');
+	} else {
+		url = whatToDoMapPinDataUrl(mapIconKey);
+	}
 	icon = L.icon({
 		iconUrl: url,
 		iconSize: [36, 46],
@@ -59,7 +70,7 @@ export type TourMapFocusOptions = {
 	lng: number;
 	zoom?: number;
 	slug?: string;
-	kind?: 'tours' | 'what-to-do';
+	kind?: 'tours' | 'what-to-do' | 'regions';
 };
 
 export type TourMapInitOptions = {
@@ -76,23 +87,18 @@ function filterMarkers(all: TourMapMarker[], root: HTMLElement): TourMapMarker[]
 	const activeKind = root.querySelector<HTMLButtonElement>('[data-map-kind].is-active');
 	const kindMode = activeKind?.dataset.mapKind ?? 'all';
 
-	const tourChecked = [
-		...root.querySelectorAll<HTMLInputElement>('input[name="map-tour-cat"]:checked'),
-	].map((i) => i.value);
 	const wtdChecked = [
 		...root.querySelectorAll<HTMLInputElement>('input[name="map-wtd-cat"]:checked'),
 	].map((i) => i.value);
-	const tourSet = new Set(tourChecked);
 	const wtdSet = new Set(wtdChecked);
 
 	return all.filter((m) => {
-		if (kindMode === 'tours' && m.kind !== 'tours') return false;
 		if (kindMode === 'what-to-do' && m.kind !== 'what-to-do') return false;
+		if (kindMode === 'regions' && m.kind !== 'regions') return false;
 
-		if (m.kind === 'tours') {
-			if (tourSet.size === 0) return true;
-			return m.tourCategory != null && tourSet.has(m.tourCategory);
-		}
+		if (m.kind === 'tours') return true;
+		if (m.kind === 'regions') return true;
+
 		if (m.kind === 'what-to-do') {
 			if (wtdSet.size === 0) return true;
 			const ids = m.whatDoCategoryIds ?? [];
@@ -159,7 +165,9 @@ export function initTourMap(markerList: TourMapMarker[], options?: TourMapInitOp
 	) {
 		const focus = options?.focus;
 		const featuredKey =
-			focus?.slug && focus?.kind && (focus.kind === 'tours' || focus.kind === 'what-to-do')
+			focus?.slug &&
+			focus?.kind &&
+			(focus.kind === 'tours' || focus.kind === 'what-to-do' || focus.kind === 'regions')
 				? `${focus.kind}:${focus.slug}`
 				: null;
 		const featuredMarker = featuredKey ? markerByKey.get(featuredKey) : undefined;

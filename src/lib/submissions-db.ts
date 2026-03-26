@@ -1,6 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import type { ContactSocialLinks } from './contact-social-links';
+import { trimSocialLinks } from './contact-social-links';
 import type { Locale } from './strings';
 import type { PageLocaleBlock } from './pages-db';
 import { pagePostToContributionPayload, tourPostToContributionPayload } from './contribute-live-payload';
@@ -48,6 +50,10 @@ export type TourLikeSubmissionPayload = {
 	whatDoSeasons: WhatToDoSeasonId[];
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
+	/** What-to-do only; tours use null */
+	google_directions_url: string | null;
+	/** Shared social/contact URLs (what-to-do); tours use {} */
+	social_links: ContactSocialLinks;
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 };
 
@@ -217,6 +223,9 @@ function validateTourLikePayload(
 		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
+		google_directions_url:
+			kind === 'what-to-do' ? (p.google_directions_url ?? null) : undefined,
+		social_links: trimSocialLinks(p.social_links ?? {}),
 		i18n: p.i18n,
 		mode: 'create',
 	};
@@ -468,6 +477,7 @@ export function approveSubmission(
 				category: p.category,
 				physical_rating: p.physical_rating,
 				driving_distance: p.driving_distance,
+				social_links: trimSocialLinks(p.social_links ?? {}),
 				i18n: p.i18n,
 				author_user_id: author.author_user_id,
 				author_email: author.author_email,
@@ -497,6 +507,7 @@ export function approveSubmission(
 			category: p.category,
 			physical_rating: p.physical_rating,
 			driving_distance: p.driving_distance,
+			social_links: trimSocialLinks(p.social_links ?? {}),
 			i18n: p.i18n,
 			mode: 'create',
 			author_user_id: author.author_user_id,
@@ -541,6 +552,8 @@ export function approveSubmission(
 				whatDoSeasons: p.whatDoSeasons,
 				physical_rating: p.physical_rating,
 				driving_distance: p.driving_distance,
+				google_directions_url: p.google_directions_url ?? null,
+				social_links: trimSocialLinks(p.social_links ?? {}),
 				i18n: p.i18n,
 				author_user_id: author.author_user_id,
 				author_email: author.author_email,
@@ -574,6 +587,8 @@ export function approveSubmission(
 			whatDoSeasons: p.whatDoSeasons,
 			physical_rating: p.physical_rating,
 			driving_distance: p.driving_distance,
+			google_directions_url: p.google_directions_url ?? null,
+			social_links: trimSocialLinks(p.social_links ?? {}),
 			i18n: p.i18n,
 			mode: 'create',
 			author_user_id: author.author_user_id,

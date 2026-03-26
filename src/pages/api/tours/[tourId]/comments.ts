@@ -7,7 +7,8 @@ import {
 	listCommentsForPost,
 	topLevelReviews,
 } from '../../../../lib/tour-comments';
-import { getTourPostById, isValidTourId } from '../../../../lib/tours-db';
+import { getTourPostById, isValidTourId, postSnapshotForActivity } from '../../../../lib/tours-db';
+import { appendUserActivity } from '../../../../lib/user-activity';
 
 function isUuid(s: string): boolean {
 	return isValidTourId(s);
@@ -36,12 +37,20 @@ export const GET: APIRoute = async ({ params }) => {
 
 export const POST: APIRoute = async ({ request, params, locals }) => {
 	const tourId = params.tourId ?? '';
-	if (!isValidTourId(tourId) || !getTourPostById(tourId)) {
+	if (!isValidTourId(tourId)) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
+	const post = getTourPostById(tourId);
+	if (!post) {
+		return new Response(JSON.stringify({ error: 'Not found' }), {
+			status: 404,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+	const postSnap = postSnapshotForActivity(post);
 
 	const user = locals.user ?? (await userFromRequest(request.headers.get('cookie')));
 	if (!user) {
@@ -75,6 +84,14 @@ export const POST: APIRoute = async ({ request, params, locals }) => {
 				});
 			}
 			const comments = await listCommentsForPost('tours', tourId);
+			void appendUserActivity(user.id, 'reply_posted', {
+				tourId,
+				postKind: 'tours',
+				postTitle: postSnap.postTitle,
+				postSlug: postSnap.postSlug,
+				commentId: result.comment.id,
+				bodyText: result.comment.body,
+			});
 			return new Response(
 				JSON.stringify({
 					ok: true,
@@ -102,6 +119,15 @@ export const POST: APIRoute = async ({ request, params, locals }) => {
 	}
 
 	const comments = await listCommentsForPost('tours', tourId);
+	void appendUserActivity(user.id, 'review_posted', {
+		tourId,
+		postKind: 'tours',
+		postTitle: postSnap.postTitle,
+		postSlug: postSnap.postSlug,
+		commentId: result.comment.id,
+		bodyText: result.comment.body,
+		rating: result.comment.rating,
+	});
 	return new Response(
 		JSON.stringify({
 			ok: true,

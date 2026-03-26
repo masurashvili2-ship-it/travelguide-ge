@@ -1,11 +1,12 @@
 import { randomUUID } from 'node:crypto';
 import type { UserPublic } from './auth';
-import { type ContentPostKind, getContentPostById } from './tours-db';
+import { type ContentPostKind, getContentPostById, urlSegmentForContentKind } from './tours-db';
 import {
 	type CommentPostKind,
 	type TourComment,
 	commentPostKind,
 	readAllTourComments,
+	topLevelReviews,
 	writeAllTourComments,
 } from './tour-comments-data';
 
@@ -41,6 +42,18 @@ export async function addTourComment(
 		return { ok: false, error: 'Comment is too long' };
 	}
 
+	const allBefore = await readAllTourComments();
+	const alreadyReviewed = allBefore.some(
+		(c) =>
+			c.tourId === tourId &&
+			commentPostKind(c) === postKind &&
+			c.parentId == null &&
+			c.userId === user.id,
+	);
+	if (alreadyReviewed) {
+		return { ok: false, error: 'You already posted a review for this page.' };
+	}
+
 	const comment: TourComment = {
 		id: randomUUID(),
 		tourId,
@@ -53,8 +66,7 @@ export async function addTourComment(
 		createdAt: Date.now(),
 	};
 
-	const all = await readAllTourComments();
-	all.push(comment);
+	const all = [...allBefore, comment];
 	await writeAllTourComments(all);
 	return { ok: true, comment };
 }
@@ -84,6 +96,21 @@ export async function addTourReply(
 	);
 	if (!parent) {
 		return { ok: false, error: 'Parent comment not found' };
+	}
+
+	const myReplies = all.filter(
+		(c) =>
+			c.tourId === tourId &&
+			commentPostKind(c) === postKind &&
+			c.parentId != null &&
+			c.userId === user.id,
+	);
+	const lastReplyAt = myReplies.reduce<number | null>(
+		(best, c) => (best == null || c.createdAt > best ? c.createdAt : best),
+		null,
+	);
+	if (lastReplyAt != null && Date.now() - lastReplyAt < 60_000) {
+		return { ok: false, error: 'Please wait a minute before posting another reply.' };
 	}
 
 	const comment: TourComment = {
@@ -151,4 +178,89 @@ export async function updateTourComment(
 	};
 	await writeAllTourComments(all);
 	return { ok: true, comment: all[idx] };
+}
+
+function descendantIdsForRemoval(
+	all: TourComment[],
+	postKind: ContentPostKind,
+	tourId: string,
+	rootId: string,
+): Set<string> {
+	const ids = new Set<string>([rootId]);
+	const queue = [rootId];
+	while (queue.length > 0) {
+		const pid = queue.shift()!;
+		for (const c of all) {
+			if (c.tourId !== tourId || commentPostKind(c) !== postKind) continue;
+			if (c.parentId === pid && !ids.has(c.id)) {
+				ids.add(c.id);
+				queue.push(c.id);
+			}
+		}
+	}
+	return ids;
+}
+
+export async function deleteTourComment(
+	postKind: ContentPostKind,
+	tourId: string,
+	commentId: string,
+	actor: UserPublic,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+	const all = await readAllTourComments();
+	const idx = all.findIndex(
+		(c) => c.id === commentId && c.tourId === tourId && commentPostKind(c) === postKind,
+	);
+	if (idx === -1) {
+		return { ok: false, error: 'Comment not found' };
+	}
+	const c = all[idx];
+	const isAuthor = c.userId === actor.id;
+	const isAdmin = actor.role === 'admin';
+	if (!isAuthor && !isAdmin) {
+		return { ok: false, error: 'Forbidden' };
+	}
+	const remove = descendantIdsForRemoval(all, postKind, tourId, commentId);
+	const next = all.filter((row) => !remove.has(row.id));
+	await writeAllTourComments(next);
+	return { ok: true };
+}
+
+export type RecentCommentForAdmin = TourComment & {
+	postTitle: string;
+	postSlug: string;
+	urlSegment: string;
+};
+
+export async function listRecentCommentsForAdmin(limit = 100): Promise<RecentCommentForAdmin[]> {
+	const all = await readAllTourComments();
+	const sorted = [...all].sort((a, b) => b.createdAt - a.createdAt).slice(0, limit);
+	return sorted.map((c) => {
+		const kind = commentPostKind(c);
+		const post = getContentPostById(kind, c.tourId);
+		const block = post?.i18n.en ?? post?.i18n.ka ?? post?.i18n.ru;
+		const title = block?.title?.trim() || '(untitled)';
+		const slug = post?.slug ?? c.tourId;
+		return {
+			...c,
+			postTitle: title,
+			postSlug: slug,
+			urlSegment: urlSegmentForContentKind(kind),
+		};
+	});
+}
+
+/** Same notion of “already reviewed” as the API: a root-level comment by this account. */
+export function userHasRootReviewForAccount(
+	comments: TourComment[],
+	user: { id: string; email: string },
+): boolean {
+	const roots = topLevelReviews(comments);
+	const id = user.id.trim();
+	const emailNorm = user.email.trim().toLowerCase();
+	return roots.some(
+		(c) =>
+			String(c.userId).trim() === id ||
+			c.userEmail.trim().toLowerCase() === emailNorm,
+	);
 }
