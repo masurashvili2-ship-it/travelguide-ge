@@ -134,6 +134,11 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				margin: 0 auto;
 				padding: 0 1.25rem 3.5rem;
 			}
+			/**
+			 * Blur lives on .site__glass-bg, not on header itself — otherwise `backdrop-filter` on the
+			 * header creates a containing block and `position: fixed` on the mobile drawer is clipped
+			 * to the short header bar.
+			 */
 			header.site {
 				position: sticky;
 				top: 0;
@@ -142,12 +147,21 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				margin-bottom: 2rem;
 				padding: 1rem 0;
 				border-bottom: 1px solid var(--border);
+				background: transparent;
+				box-shadow: var(--shadow-sm);
+			}
+			.site__glass-bg {
+				position: absolute;
+				inset: 0;
+				z-index: 0;
 				background: var(--header-bg);
 				backdrop-filter: blur(14px);
 				-webkit-backdrop-filter: blur(14px);
-				box-shadow: var(--shadow-sm);
+				pointer-events: none;
 			}
 			.site__inner {
+				position: relative;
+				z-index: 1;
 				max-width: min(1200px, calc(100vw - 2rem));
 				margin: 0 auto;
 				padding: 0 1.25rem;
@@ -457,10 +471,16 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					position: fixed;
 					top: 0;
 					left: 0;
-					bottom: 0;
+					right: auto;
 					width: min(300px, 86vw);
+					min-height: 100vh;
+					min-height: 100dvh;
+					height: 100vh;
+					height: 100dvh;
+					max-height: none;
 					margin: 0;
 					padding: 5.25rem 1rem 1.5rem;
+					box-sizing: border-box;
 					flex-direction: column;
 					flex-wrap: nowrap;
 					align-items: stretch;
@@ -683,6 +703,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 	</head>
 	<body>
 		<header class="site">
+			<div class="site__glass-bg" aria-hidden="true"></div>
 			<div class="site__inner">
 				<div class="brand">
 					<a href={getRelativeLocaleUrl(locale, '/')}>
