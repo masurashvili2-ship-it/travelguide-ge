@@ -3,6 +3,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { tourCoverImageUrl, type TourListItem } from '../lib/tours-db';
 import { tourImageAltFromUrl } from '../lib/tour-upload-name';
 import type { Locale } from '../lib/strings';
+import { ui } from '../lib/strings';
 
 interface Props {
 	tours: TourListItem[];
@@ -45,6 +46,30 @@ function coverAlt(d: TourListItem['data']): string {
 	const u = cover(d);
 	return u ? tourImageAltFromUrl(d.title, u) : '';
 }
+
+const t = ui[locale];
+
+type ListingLbItem = { href: string; src: string; alt: string; title: string };
+const listingGalleryItems: ListingLbItem[] = tours
+	.map((entry) => {
+		const src = cover(entry.data);
+		if (!src) return null;
+		return {
+			href: getRelativeLocaleUrl(locale, `${detailSegment}/${entry.data.slug}`),
+			src,
+			alt: coverAlt(entry.data),
+			title: entry.data.title,
+		};
+	})
+	.filter((x): x is ListingLbItem => x !== null);
+
+const listingGalleryJson = JSON.stringify(listingGalleryItems).replace(/</g, '\\u003c');
+const listingGalleryCountLabel =
+	listingGalleryItems.length === 1
+		? t.galleryPhotoCountOne
+		: t.galleryPhotoCountMany.replace('{n}', String(listingGalleryItems.length));
+
+const firstDetailHref = getRelativeLocaleUrl(locale, `${detailSegment}/${first.data.slug}`);
 ---
 
 {
@@ -58,6 +83,81 @@ function coverAlt(d: TourListItem['data']): string {
 					{subtitle ? <p class="thg__sub">{subtitle}</p> : null}
 				</header>
 
+				<div class="thg__m-peek thg__mobile-only">
+					{listingGalleryItems.length > 0 ? (
+						<div class="thg__m-stack">
+							<div
+								class="thg__m-visual"
+								style={cover(first.data) ? undefined : { background: gradientForSlug(first.data.slug) }}
+							>
+								<button
+									type="button"
+									class="thg__m-hit"
+									data-thg-lb-open
+									aria-label={t.listingHeroOpenGalleryAria}
+									aria-haspopup="dialog"
+								>
+									{cover(first.data) ? (
+										<img
+											class="thg__m-img"
+											src={cover(first.data)}
+											alt={coverAlt(first.data)}
+											width="960"
+											height="640"
+											loading="eager"
+											decoding="async"
+											draggable="false"
+										/>
+									) : null}
+									<div class="thg__m-hit-shade" aria-hidden="true" />
+									<span class="thg__m-open-pill">{t.listingHeroOpenGallery}</span>
+									{listingGalleryItems.length > 1 ? (
+										<span class="thg__m-count" aria-hidden="true">
+											{listingGalleryCountLabel}
+										</span>
+									) : null}
+								</button>
+							</div>
+							<div class="thg__m-copy">
+								<span class="thg__kicker">{durationLabel}</span>
+								<h2 class="thg__m-title">{first.data.title}</h2>
+								<p class="thg__excerpt thg__m-excerpt">{first.data.excerpt}</p>
+								<a class="btn thg__m-detail" href={firstDetailHref}>
+									{viewLabel}
+								</a>
+							</div>
+						</div>
+					) : (
+						<a
+							class="thg__m-stack thg__m-stack--link"
+							href={firstDetailHref}
+							style={cover(first.data) ? undefined : { background: gradientForSlug(first.data.slug) }}
+						>
+							<div class="thg__m-visual thg__m-visual--solo">
+								{cover(first.data) ? (
+									<img
+										class="thg__m-img"
+										src={cover(first.data)}
+										alt={coverAlt(first.data)}
+										width="960"
+										height="640"
+										loading="eager"
+										decoding="async"
+									/>
+								) : null}
+								<div class="thg__scrim thg__scrim--deep" />
+								<div class="thg__meta thg__m-meta-over">
+									<span class="thg__kicker">{durationLabel}</span>
+									<span class="thg__card-title">{first.data.title}</span>
+									<p class="thg__excerpt">{first.data.excerpt}</p>
+									<span class="thg__cta">{viewLabel}</span>
+								</div>
+							</div>
+						</a>
+					)}
+				</div>
+
+				<div class="thg__desktop-only">
 				<div class="thg__grid">
 					<a
 						href={getRelativeLocaleUrl(locale, `${detailSegment}/${first.data.slug}`)}
@@ -162,6 +262,156 @@ function coverAlt(d: TourListItem['data']): string {
 						</div>
 					) : null
 				}
+				</div>
+
+				{listingGalleryItems.length > 0 ? (
+					<>
+						<div id="thg-hero-lb-root" class="thg__lb" data-thg-lb hidden>
+							<button type="button" class="thg__lb-backdrop" data-thg-lb-close aria-label={t.galleryClose} />
+							<div
+								class="thg__lb-dialog"
+								role="dialog"
+								aria-modal="true"
+								aria-label={t.galleryLightboxLabel}
+							>
+								<div class="thg__lb-head">
+									<span class="thg__lb-counter" aria-live="polite">
+										<span data-thg-lb-i>1</span>
+										<span class="thg__lb-sep" aria-hidden="true">
+											/
+										</span>
+										<span data-thg-lb-n>{listingGalleryItems.length}</span>
+									</span>
+									<button type="button" class="thg__lb-x" data-thg-lb-close aria-label={t.galleryClose}>
+										×
+									</button>
+								</div>
+								<button type="button" class="thg__lb-chev thg__lb-chev--prev" data-thg-lb-prev aria-label={t.galleryPrev}>
+									‹
+								</button>
+								<button type="button" class="thg__lb-chev thg__lb-chev--next" data-thg-lb-next aria-label={t.galleryNext}>
+									›
+								</button>
+								<div class="thg__lb-stage">
+									<img class="thg__lb-img" data-thg-lb-img alt="" src="" draggable="false" />
+								</div>
+								<div class="thg__lb-foot">
+									<p class="thg__lb-cap" data-thg-lb-title />
+									<a class="thg__lb-link btn btn--ghost" data-thg-lb-link href="#">
+										{viewLabel}
+									</a>
+								</div>
+							</div>
+						</div>
+						<script type="application/json" id="thg-hero-lb-json" set:html={listingGalleryJson} />
+						<script is:inline>
+							(function () {
+								function boot() {
+									var root = document.getElementById('thg-hero-lb-root');
+									var jsonEl = document.getElementById('thg-hero-lb-json');
+									if (!root || !jsonEl) return;
+									var raw = jsonEl.textContent ? jsonEl.textContent.trim() : '[]';
+									var items;
+									try {
+										items = JSON.parse(raw);
+									} catch (e) {
+										return;
+									}
+									if (!items || !items.length) return;
+
+									var openBtns = document.querySelectorAll('[data-thg-lb-open]');
+									if (!openBtns.length) return;
+
+									var img = root.querySelector('[data-thg-lb-img]');
+									var titleEl = root.querySelector('[data-thg-lb-title]');
+									var linkEl = root.querySelector('[data-thg-lb-link]');
+									var idxEl = root.querySelector('[data-thg-lb-i]');
+									var btnPrev = root.querySelector('[data-thg-lb-prev]');
+									var btnNext = root.querySelector('[data-thg-lb-next]');
+									var closes = root.querySelectorAll('[data-thg-lb-close]');
+
+									var total = items.length;
+									var index = 0;
+									var lastOverflow = '';
+
+									function show(i) {
+										if (i < 0 || i >= total) return;
+										index = i;
+										var it = items[i];
+										if (img) {
+											img.src = it.src;
+											img.alt = it.alt || it.title || '';
+										}
+										if (titleEl) titleEl.textContent = it.title || '';
+										if (linkEl) {
+											linkEl.setAttribute('href', it.href);
+										}
+										if (idxEl) idxEl.textContent = String(i + 1);
+										if (btnPrev) btnPrev.toggleAttribute('disabled', i <= 0);
+										if (btnNext) btnNext.toggleAttribute('disabled', i >= total - 1);
+									}
+
+									function openLb() {
+										show(0);
+										if (document.body && root.parentElement !== document.body) {
+											document.body.appendChild(root);
+										}
+										root.removeAttribute('hidden');
+										lastOverflow = document.body.style.overflow;
+										document.body.style.overflow = 'hidden';
+									}
+
+									function closeLb() {
+										root.setAttribute('hidden', '');
+										document.body.style.overflow = lastOverflow;
+									}
+
+									openBtns.forEach(function (b) {
+										b.addEventListener('click', function (ev) {
+											ev.preventDefault();
+											openLb();
+										});
+									});
+
+									closes.forEach(function (b) {
+										b.addEventListener('click', function () {
+											closeLb();
+										});
+									});
+
+									if (btnPrev)
+										btnPrev.addEventListener('click', function () {
+											show(index - 1);
+										});
+									if (btnNext)
+										btnNext.addEventListener('click', function () {
+											show(index + 1);
+										});
+
+									document.addEventListener('keydown', function (e) {
+										if (root.hasAttribute('hidden')) return;
+										if (e.key === 'Escape') {
+											e.preventDefault();
+											closeLb();
+										} else if (e.key === 'ArrowLeft') {
+											e.preventDefault();
+											show(index - 1);
+										} else if (e.key === 'ArrowRight') {
+											e.preventDefault();
+											show(index + 1);
+										}
+									});
+								}
+
+								if (document.readyState === 'loading') {
+									document.addEventListener('DOMContentLoaded', boot, { once: true });
+								} else {
+									boot();
+								}
+							})();
+						</script>
+					</>
+				) : null}
 			</div>
 		</section>
 	) : (
@@ -217,6 +467,289 @@ function coverAlt(d: TourListItem['data']): string {
 			margin-left: -1.25rem;
 			margin-right: -1.25rem;
 		}
+	}
+
+	.thg__desktop-only {
+		display: block;
+	}
+
+	.thg__mobile-only {
+		display: none;
+	}
+
+	@media (max-width: 767px) {
+		.thg__mobile-only {
+			display: block;
+		}
+
+		.thg__desktop-only {
+			display: none !important;
+		}
+	}
+
+	/* ——— Mobile bento: single capped preview + lightbox ——— */
+	.thg__m-peek {
+		margin-bottom: 0.5rem;
+	}
+
+	.thg__m-stack {
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 8px 32px rgba(15, 23, 42, 0.28);
+		border: 1px solid color-mix(in srgb, var(--accent, #0d9488) 18%, transparent);
+		background: var(--surface, #fff);
+	}
+
+	.thg__m-stack--link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.thg__m-visual {
+		position: relative;
+		height: min(40vh, 280px);
+		max-height: 280px;
+		min-height: 200px;
+		overflow: hidden;
+		background: #0f172a;
+	}
+
+	.thg__m-visual--solo {
+		height: min(40vh, 280px);
+		max-height: 280px;
+		min-height: 220px;
+	}
+
+	.thg__m-hit {
+		position: absolute;
+		inset: 0;
+		margin: 0;
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		text-align: left;
+	}
+
+	.thg__m-img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.thg__m-hit-shade {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(8, 10, 14, 0.75) 0%, transparent 55%);
+		pointer-events: none;
+	}
+
+	.thg__m-open-pill {
+		position: absolute;
+		right: 0.75rem;
+		bottom: 0.75rem;
+		z-index: 2;
+		padding: 0.4rem 0.75rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: #0f172a;
+		background: rgba(255, 255, 255, 0.92);
+		border-radius: 999px;
+		pointer-events: none;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+	}
+
+	.thg__m-count {
+		position: absolute;
+		left: 0.75rem;
+		top: 0.75rem;
+		z-index: 2;
+		padding: 0.25rem 0.55rem;
+		font-size: 0.72rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #f4f6f9;
+		background: rgba(8, 10, 14, 0.65);
+		border-radius: 8px;
+		pointer-events: none;
+	}
+
+	.thg__m-copy {
+		padding: 1rem 1.1rem 1.15rem;
+	}
+
+	.thg__m-title {
+		margin: 0.25rem 0 0.5rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+		color: var(--text, #0f172a);
+	}
+
+	.thg__m-excerpt {
+		color: var(--muted, #64748b);
+		margin-bottom: 0.85rem;
+	}
+
+	.thg__m-detail {
+		display: inline-flex;
+		width: fit-content;
+	}
+
+	.thg__m-meta-over {
+		pointer-events: none;
+	}
+
+	.thg__m-meta-over .thg__card-title {
+		display: block;
+		margin: 0.35rem 0 0.4rem;
+	}
+
+	/* Listing hero lightbox */
+	.thg__lb {
+		position: fixed;
+		inset: 0;
+		/* Above Shell mobile overlay (~95k) */
+		z-index: 96000;
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0)
+			env(safe-area-inset-left, 0);
+	}
+
+	.thg__lb[hidden] {
+		display: none !important;
+	}
+
+	.thg__lb-backdrop {
+		position: absolute;
+		inset: 0;
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: rgba(8, 10, 14, 0.88);
+		cursor: pointer;
+	}
+
+	.thg__lb-dialog {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		padding: 0.5rem;
+		box-sizing: border-box;
+	}
+
+	.thg__lb-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		padding: 0.25rem 0.35rem 0.5rem;
+		color: #e8eef4;
+	}
+
+	.thg__lb-counter {
+		font-size: 0.85rem;
+		font-weight: 600;
+		opacity: 0.9;
+	}
+
+	.thg__lb-sep {
+		margin: 0 0.2rem;
+		opacity: 0.6;
+	}
+
+	.thg__lb-x {
+		width: 2.5rem;
+		height: 2.5rem;
+		border: none;
+		border-radius: 10px;
+		background: rgba(255, 255, 255, 0.12);
+		color: #fff;
+		font-size: 1.5rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+
+	.thg__lb-stage {
+		flex: 1;
+		min-height: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.25rem;
+	}
+
+	.thg__lb-img {
+		max-width: 100%;
+		max-height: min(62vh, 520px);
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		border-radius: 8px;
+	}
+
+	.thg__lb-chev {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+		width: 2.75rem;
+		height: 2.75rem;
+		border: none;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.14);
+		color: #fff;
+		font-size: 1.75rem;
+		line-height: 1;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 0.15rem;
+	}
+
+	.thg__lb-chev:disabled {
+		opacity: 0.25;
+		cursor: default;
+	}
+
+	.thg__lb-chev--prev {
+		left: 0.35rem;
+	}
+
+	.thg__lb-chev--next {
+		right: 0.35rem;
+	}
+
+	.thg__lb-foot {
+		padding: 0.65rem 0.5rem 0.85rem;
+		text-align: center;
+		color: #e8eef4;
+	}
+
+	.thg__lb-cap {
+		margin: 0 0 0.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.thg__lb-link {
+		color: var(--accent, #5eead4) !important;
 	}
 
 	.thg__head {
@@ -502,7 +1035,7 @@ function coverAlt(d: TourListItem['data']): string {
 	.thg__slide {
 		position: relative;
 		flex: 0 0 min(78vw, 280px);
-		height: 200px;
+		height: min(200px, 38vh);
 		border-radius: 14px;
 		overflow: hidden;
 		scroll-snap-align: start;
