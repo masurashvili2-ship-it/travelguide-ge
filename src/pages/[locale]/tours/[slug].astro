@@ -1,5 +1,6 @@
 ---
 import Shell from '../../../components/Shell.astro';
+import DetailLocationMapSection from '../../../components/DetailLocationMapSection.astro';
 import TourComments from '../../../components/TourComments.astro';
 import TourDetailHeroGallery from '../../../components/TourDetailHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -10,6 +11,8 @@ import {
 	getSimilarTours,
 	getTourRowBySlug,
 	getWhatToDoRowBySlug,
+	listTourMapMarkers,
+	listWhatToDoMapMarkers,
 	tourCoverImageUrl,
 } from '../../../lib/tours-db';
 import type { Locale } from '../../../lib/strings';
@@ -69,6 +72,17 @@ const locationLine =
 			: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
 
 const similarTours = getSimilarTours(locale, slug, row.category, 4);
+
+const allMapMarkers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
+const detailMapFocus = row.location
+	? {
+			lat: row.location.lat,
+			lng: row.location.lng,
+			zoom: 14,
+			slug: row.slug,
+			kind: 'tours' as const,
+		}
+	: null;
 
 const tourComments = await listCommentsForPost('tours', row.id);
 const tourAverageRating = averageRatingFor(tourComments);
@@ -167,6 +181,17 @@ const adminEditHref =
 			</div>
 		</aside>
 	</div>
+
+	{
+		detailMapFocus && allMapMarkers.length > 0 ? (
+			<DetailLocationMapSection
+				heading={t.detailOnMapHeading}
+				markers={allMapMarkers}
+				focus={detailMapFocus}
+				popupViewDetailsLabel={t.mapPopupViewDetails}
+			/>
+		) : null
+	}
 
 	<TourComments
 		locale={locale}

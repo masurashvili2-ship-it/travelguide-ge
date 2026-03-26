@@ -1,4 +1,5 @@
 ---
+import MapFiltersPanel from '../../components/MapFiltersPanel.astro';
 import Shell from '../../components/Shell.astro';
 import ToursMap from '../../components/ToursMap.astro';
 import { listTourMapMarkers, listWhatToDoMapMarkers } from '../../lib/tours-db';
@@ -27,5 +28,31 @@ const markers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale
 	</section>
 
 	{markers.length === 0 ? <p class="muted">{t.mapEmpty}</p> : null}
-	<ToursMap markers={markers} />
+	{
+		markers.length > 0 ? (
+			<div class="map-page-stack">
+				<MapFiltersPanel
+					filterLabels={{
+						all: t.mapFilterAll,
+						tours: t.mapFilterTours,
+						whatToDo: t.mapFilterWhatToDo,
+						tourTypes: t.mapFilterTourTypes,
+						activityTypes: t.mapFilterActivityTypes,
+						clear: t.mapFilterClear,
+						showing: t.mapFilterShowing,
+						hint: t.mapFilterHint,
+					}}
+					tourCategoryLabels={t.tourCategories}
+					whatToDoCategoryLabels={t.whatToDoCategories}
+				/>
+				<ToursMap markers={markers} popupViewDetailsLabel={t.mapPopupViewDetails} />
+			</div>
+		) : null
+	}
 </Shell>
+
+<style>
+	.map-page-stack {
+		margin-top: 0.5rem;
+	}
+</style>

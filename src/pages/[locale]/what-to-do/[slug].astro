@@ -6,9 +6,16 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { marked } from 'marked';
 import { buildTourJsonLd, resolveTourMetaDescription, absoluteSeoUrl } from '../../../lib/seo';
 import { averageRatingFor, listCommentsForPost } from '../../../lib/tour-comments';
+import DetailLocationMapSection from '../../../components/DetailLocationMapSection.astro';
 import WhatToDoContactAsideCard from '../../../components/WhatToDoContactAsideCard.astro';
 import { hasRenderableContactSocialLinks } from '../../../lib/contact-social-links';
-import { getSimilarWhatToDo, getWhatToDoRowBySlug, tourCoverImageUrl } from '../../../lib/tours-db';
+import {
+	getSimilarWhatToDo,
+	getWhatToDoRowBySlug,
+	listTourMapMarkers,
+	listWhatToDoMapMarkers,
+	tourCoverImageUrl,
+} from '../../../lib/tours-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
 
@@ -77,6 +84,17 @@ const similarItems = getSimilarWhatToDo(
 	row.whatDoCategories.length ? row.whatDoCategories : null,
 	4,
 );
+
+const allMapMarkers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
+const detailMapFocus = row.location
+	? {
+			lat: row.location.lat,
+			lng: row.location.lng,
+			zoom: 14,
+			slug: row.slug,
+			kind: 'what-to-do' as const,
+		}
+	: null;
 
 const postComments = await listCommentsForPost('what-to-do', row.id);
 const postAverageRating = averageRatingFor(postComments);
@@ -197,6 +215,17 @@ const adminEditHref =
 			</div>
 		</aside>
 	</div>
+
+	{
+		detailMapFocus && allMapMarkers.length > 0 ? (
+			<DetailLocationMapSection
+				heading={t.detailOnMapHeading}
+				markers={allMapMarkers}
+				focus={detailMapFocus}
+				popupViewDetailsLabel={t.mapPopupViewDetails}
+			/>
+		) : null
+	}
 
 	<TourComments
 		locale={locale}

@@ -426,6 +426,2856 @@
         "hot-spring"
       ],
       "seasons": []
+    },
+    {
+      "id": "8f8000a7-1739-438d-8037-0249c2995a94",
+      "slug": "mtkvari-river-valley",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.8414,
+        "lng": 44.7134,
+        "label": "Mtkvari near Mtskheta"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Mtkvari (Kura) River valley: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Mtkvari near Mtskheta — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Mtkvari (Kura) River valley** is one of **Georgia’s** significant waterways. The stretch near **Mtkvari near Mtskheta** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "მტკვარი (მდინარე და ხეობა) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Mtkvari near Mtskhetaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**მტკვარი (მდინარე და ხეობა)**) — ორიენტირი: **Mtkvari near Mtskheta**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Кура (Мтквари) и долина: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Mtkvari near Mtskheta** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Кура (Мтквари) и долина** — важная водная артерия **Грузии**. Участок у **Mtkvari near Mtskheta** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "3d2b3d9d-b24b-4ab0-8ad3-26f6d5c43dc8",
+      "slug": "aragvi-river-mtskheta",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.8422,
+        "lng": 44.7126,
+        "label": "Mtskheta"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Aragvi River (Mtskheta): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Mtskheta — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Aragvi River (Mtskheta)** is one of **Georgia’s** significant waterways. The stretch near **Mtskheta** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "არაგვი (მცხეთა) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Mtskhetaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**არაგვი (მცხეთა)**) — ორიენტირი: **Mtskheta**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Арагви (Мцхета): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Mtskheta** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Арагви (Мцхета)** — важная водная артерия **Грузии**. Участок у **Mtskheta** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "02813597-f88a-4dc6-bfb3-d5119b9485f8",
+      "slug": "tetri-aragvi-gudauri",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.478,
+        "lng": 44.478,
+        "label": "Gudauri area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Tetri Aragvi (White Aragvi): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Gudauri area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Tetri Aragvi (White Aragvi)** is one of **Georgia’s** significant waterways. The stretch near **Gudauri area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "თეთრი არაგვი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Gudauri areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**თეთრი არაგვი**) — ორიენტირი: **Gudauri area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Тетри-Арагви (Белый Арагви): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Gudauri area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Тетри-Арагви (Белый Арагви)** — важная водная артерия **Грузии**. Участок у **Gudauri area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "6ad2a429-788a-4ef4-a908-5d6081f44e9f",
+      "slug": "shavi-aragvi",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.349,
+        "lng": 44.688,
+        "label": "Pasanauri area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Shavi Aragvi (Black Aragvi): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Pasanauri area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Shavi Aragvi (Black Aragvi)** is one of **Georgia’s** significant waterways. The stretch near **Pasanauri area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "შავი არაგვი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Pasanauri areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**შავი არაგვი**) — ორიენტირი: **Pasanauri area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Шави-Арагви (Чёрный Арагви): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Pasanauri area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Шави-Арагви (Чёрный Арагви)** — важная водная артерия **Грузии**. Участок у **Pasanauri area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "2e6f5621-c0cd-4651-bd6d-17b581a11faa",
+      "slug": "rioni-river-kutaisi",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.2719,
+        "lng": 42.694,
+        "label": "Kutaisi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Rioni River (Kutaisi): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Kutaisi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Rioni River (Kutaisi)** is one of **Georgia’s** significant waterways. The stretch near **Kutaisi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "რიონი (ქუთაისი) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kutaisiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**რიონი (ქუთაისი)**) — ორიენტირი: **Kutaisi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Риони (Кутаиси): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Kutaisi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Риони (Кутаиси)** — важная водная артерия **Грузии**. Участок у **Kutaisi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "f9c414cb-5ff0-4bda-b9a4-88a190d98805",
+      "slug": "enguri-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.716,
+        "lng": 42.384,
+        "label": "Jvari (Enguri)"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Enguri River & valley: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Jvari (Enguri) — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Enguri River & valley** is one of **Georgia’s** significant waterways. The stretch near **Jvari (Enguri)** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ენგური — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Jvari (Enguri)სთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ენგური**) — ორიენტირი: **Jvari (Enguri)**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Ингури: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Jvari (Enguri)** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Ингури** — важная водная артерия **Грузии**. Участок у **Jvari (Enguri)** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "10d82164-3258-47c8-b499-966a7eaa5256",
+      "slug": "tergi-river-stepantsminda",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.656,
+        "lng": 44.643,
+        "label": "Stepantsminda"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Tergi (Terek) River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Stepantsminda — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Tergi (Terek) River** is one of **Georgia’s** significant waterways. The stretch near **Stepantsminda** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "თერგი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Stepantsmindaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**თერგი**) — ორიენტირი: **Stepantsminda**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Терек (Терги): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Stepantsminda** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Терек (Терги)** — важная водная артерия **Грузии**. Участок у **Stepantsminda** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "f02fdf2d-7e46-43e1-82e1-eae8419d1330",
+      "slug": "chorokhi-river-adjara",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.821,
+        "lng": 41.775,
+        "label": "Kobuleti coast"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Chorokhi River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Kobuleti coast — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Chorokhi River** is one of **Georgia’s** significant waterways. The stretch near **Kobuleti coast** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ჭოროხი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kobuleti coastსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ჭოროხი**) — ორიენტირი: **Kobuleti coast**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Чорохи: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Kobuleti coast** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Чорохи** — важная водная артерия **Грузии**. Участок у **Kobuleti coast** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "96ddf591-be3f-44bb-b0c3-40810d7d744e",
+      "slug": "alazani-valley-kakheti",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.919,
+        "lng": 45.471,
+        "label": "Telavi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Alazani River valley: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Telavi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Alazani River valley** is one of **Georgia’s** significant waterways. The stretch near **Telavi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ალაზნის ხეობა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Telaviსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ალაზნის ხეობა**) — ორიენტირი: **Telavi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Долина реки Алазани: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Telavi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Долина реки Алазани** — важная водная артерия **Грузии**. Участок у **Telavi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "7821ea05-73af-4ad6-a3a9-3b39a62e804c",
+      "slug": "iori-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.737,
+        "lng": 45.331,
+        "label": "Sagarejo area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Iori River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Sagarejo area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Iori River** is one of **Georgia’s** significant waterways. The stretch near **Sagarejo area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "იორი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Sagarejo areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**იორი**) — ორიენტირი: **Sagarejo area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Иори: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Sagarejo area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Иори** — важная водная артерия **Грузии**. Участок у **Sagarejo area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "ec3bb9ce-e527-45d6-9b06-49e16b0717fd",
+      "slug": "khrami-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.447,
+        "lng": 44.538,
+        "label": "Bolnisi area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Khrami River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Bolnisi area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Khrami River** is one of **Georgia’s** significant waterways. The stretch near **Bolnisi area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ხრამი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Bolnisi areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ხრამი**) — ორიენტირი: **Bolnisi area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Храми: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Bolnisi area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Храми** — важная водная артерия **Грузии**. Участок у **Bolnisi area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "e37c0572-9582-4dd9-bdf2-f93038746409",
+      "slug": "ksani-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.903,
+        "lng": 44.612,
+        "label": "Mtskheta municipality"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Ksani River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Mtskheta municipality — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Ksani River** is one of **Georgia’s** significant waterways. The stretch near **Mtskheta municipality** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ქსანი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Mtskheta municipalityსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ქსანი**) — ორიენტირი: **Mtskheta municipality**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Ксани: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Mtskheta municipality** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Ксани** — важная водная артерия **Грузии**. Участок у **Mtskheta municipality** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "b76abd63-1294-458e-aa9f-d68d458bc846",
+      "slug": "liakhvi-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.035,
+        "lng": 44.302,
+        "label": "Gori area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Liakhvi River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Gori area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Liakhvi River** is one of **Georgia’s** significant waterways. The stretch near **Gori area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ლიახვი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Gori areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ლიახვი**) — ორიენტირი: **Gori area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Лиахви: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Gori area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Лиахви** — важная водная артерия **Грузии**. Участок у **Gori area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "54a7938b-dc5b-42ea-91a7-84fb69b63a45",
+      "slug": "duruji-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.951,
+        "lng": 45.812,
+        "label": "Kvareli"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Duruji River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Kvareli — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Duruji River** is one of **Georgia’s** significant waterways. The stretch near **Kvareli** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "დურუჯი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kvareliსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**დურუჯი**) — ორიენტირი: **Kvareli**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Дуруджи: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Kvareli** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Дуруджи** — важная водная артерия **Грузии**. Участок у **Kvareli** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "f10e214d-cb79-4d3b-a26d-799871f6368b",
+      "slug": "supsa-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.088,
+        "lng": 42.032,
+        "label": "Lanchkhuti"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Supsa River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Lanchkhuti — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Supsa River** is one of **Georgia’s** significant waterways. The stretch near **Lanchkhuti** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "სუფსა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Lanchkhutiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**სუფსა**) — ორიენტირი: **Lanchkhuti**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Супса: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Lanchkhuti** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Супса** — важная водная артерия **Грузии**. Участок у **Lanchkhuti** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "056c0684-0152-4c84-a9c1-b6843f027e4c",
+      "slug": "natanebi-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.924,
+        "lng": 41.994,
+        "label": "Ozurgeti"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Natanebi River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Ozurgeti — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Natanebi River** is one of **Georgia’s** significant waterways. The stretch near **Ozurgeti** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ნატანები — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Ozurgetiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ნატანები**) — ორიენტირი: **Ozurgeti**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Натанеби: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Ozurgeti** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Натанеби** — важная водная артерия **Грузии**. Участок у **Ozurgeti** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "3bf14ccd-e81f-4887-b789-1c5edcf01b90",
+      "slug": "tekhura-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.351,
+        "lng": 42.998,
+        "label": "Tkibuli"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Tekhura River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Tkibuli — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Tekhura River** is one of **Georgia’s** significant waterways. The stretch near **Tkibuli** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ტეხურა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Tkibuliსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ტეხურა**) — ორიენტირი: **Tkibuli**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Техура: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Tkibuli** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Техура** — важная водная артерия **Грузии**. Участок у **Tkibuli** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "4ac6b247-485d-415b-ac51-1490d3d2a706",
+      "slug": "kvirila-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.29,
+        "lng": 43.288,
+        "label": "Chiatura"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Kvirila River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Chiatura — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Kvirila River** is one of **Georgia’s** significant waterways. The stretch near **Chiatura** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ყვირილა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Chiaturaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ყვირილა**) — ორიენტირი: **Chiatura**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Квирила: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Chiatura** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Квирила** — важная водная артерия **Грузии**. Участок у **Chiatura** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "435a721d-f42c-4cd7-83ca-71b56a4df75b",
+      "slug": "dzirula-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.108,
+        "lng": 43.052,
+        "label": "Zestaponi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Dzirula River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Zestaponi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Dzirula River** is one of **Georgia’s** significant waterways. The stretch near **Zestaponi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ძირულა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Zestaponiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ძირულა**) — ორიენტირი: **Zestaponi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Дзирула: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Zestaponi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Дзирула** — важная водная артерия **Грузии**. Участок у **Zestaponi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "3e4fb616-384f-4c5b-bfc2-568b7810f119",
+      "slug": "vere-river-tbilisi",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.709,
+        "lng": 44.745,
+        "label": "Vake, Tbilisi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Vere River (Tbilisi): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Vake, Tbilisi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Vere River (Tbilisi)** is one of **Georgia’s** significant waterways. The stretch near **Vake, Tbilisi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ვერე — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Vake, Tbilisiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ვერე**) — ორიენტირი: **Vake, Tbilisi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Вере: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Vake, Tbilisi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Вере** — важная водная артерия **Грузии**. Участок у **Vake, Tbilisi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "8659b3a4-e48a-4924-b968-ae54fe6cd0a6",
+      "slug": "adjaristsqali-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.643,
+        "lng": 42.315,
+        "label": "Khulo area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Adjaristsqali River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Khulo area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Adjaristsqali River** is one of **Georgia’s** significant waterways. The stretch near **Khulo area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "აჭარისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Khulo areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**აჭარისწყალი**) — ორიენტირი: **Khulo area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Аджарисцкали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Khulo area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Аджарисцкали** — важная водная артерия **Грузии**. Участок у **Khulo area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "1a571ad3-ac52-4ae7-a6f3-af9749ad4d4a",
+      "slug": "machakhela-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.52,
+        "lng": 41.65,
+        "label": "Machakhela gorge"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Machakhela River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Machakhela gorge — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Machakhela River** is one of **Georgia’s** significant waterways. The stretch near **Machakhela gorge** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "მაჩახელა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Machakhela gorgeსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**მაჩახელა**) — ორიენტირი: **Machakhela gorge**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Мачахела: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Machakhela gorge** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Мачахела** — важная водная артерия **Грузии**. Участок у **Machakhela gorge** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "dfece01f-d64c-41c8-a874-71a7591125f6",
+      "slug": "kintrishi-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.72,
+        "lng": 41.88,
+        "label": "Kobuleti mountains"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Kintrishi River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Kobuleti mountains — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Kintrishi River** is one of **Georgia’s** significant waterways. The stretch near **Kobuleti mountains** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "კინტრიში — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kobuleti mountainsსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**კინტრიში**) — ორიენტირი: **Kobuleti mountains**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Кинтриши: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Kobuleti mountains** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Кинтриши** — важная водная артерия **Грузии**. Участок у **Kobuleti mountains** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "9506f8fb-1200-4cb7-a37b-17e1c48e72fa",
+      "slug": "choloki-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.719,
+        "lng": 41.732,
+        "label": "Chakvi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Choloki River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Chakvi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Choloki River** is one of **Georgia’s** significant waterways. The stretch near **Chakvi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ჩოლოკი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Chakviსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ჩოლოკი**) — ორიენტირი: **Chakvi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Чолоки: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Chakvi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Чолоки** — важная водная артерия **Грузии**. Участок у **Chakvi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "720f26bd-708d-4719-9749-4d826829ebfd",
+      "slug": "khanistskali-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.067,
+        "lng": 42.816,
+        "label": "Baghdati area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Khanistskali (Rioni tributary): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Baghdati area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Khanistskali (Rioni tributary)** is one of **Georgia’s** significant waterways. The stretch near **Baghdati area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ხანისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Baghdati areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ხანისწყალი**) — ორიენტირი: **Baghdati area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Ханистскали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Baghdati area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Ханистскали** — важная водная артерия **Грузии**. Участок у **Baghdati area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "efd39235-2be1-46d2-9cc8-53b2c99d7286",
+      "slug": "tskhenistskali-racha",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.579,
+        "lng": 43.442,
+        "label": "Oni, Racha"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Tskhenistskali River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Oni, Racha — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Tskhenistskali River** is one of **Georgia’s** significant waterways. The stretch near **Oni, Racha** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ცხენისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Oni, Rachaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ცხენისწყალი**) — ორიენტირი: **Oni, Racha**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Цхенистскали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Oni, Racha** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Цхенистскали** — важная водная артерия **Грузии**. Участок у **Oni, Racha** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "039cb86a-268f-462e-9731-cd227a747d3d",
+      "slug": "khevistskali-racha",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.521,
+        "lng": 43.145,
+        "label": "Ambrolauri area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Khevistskali River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Ambrolauri area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Khevistskali River** is one of **Georgia’s** significant waterways. The stretch near **Ambrolauri area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ხევისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Ambrolauri areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ხევისწყალი**) — ორიენტირი: **Ambrolauri area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Хевистскали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Ambrolauri area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Хевистскали** — важная водная артерия **Грузии**. Участок у **Ambrolauri area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "57b909a6-b96d-4fbf-9dea-cc5bf7cbb348",
+      "slug": "jejora-svaneti",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.048,
+        "lng": 42.728,
+        "label": "Mestia area"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Jejora River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Mestia area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Jejora River** is one of **Georgia’s** significant waterways. The stretch near **Mestia area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ჯეჯორა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Mestia areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ჯეჯორა**) — ორიენტირი: **Mestia area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Джеджора: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Mestia area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Джеджора** — важная водная артерия **Грузии**. Участок у **Mestia area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "57eaf6c7-81c8-43c6-9366-c2fd7e861dca",
+      "slug": "nenskra-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.145,
+        "lng": 42.005,
+        "label": "Nakra"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Nenskra River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Nakra — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Nenskra River** is one of **Georgia’s** significant waterways. The stretch near **Nakra** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ნენსკრა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Nakraსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ნენსკრა**) — ორიენტირი: **Nakra**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Ненскра: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Nakra** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Ненскра** — важная водная артерия **Грузии**. Участок у **Nakra** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "c76f6513-cf12-4850-8492-5ad0fd379f35",
+      "slug": "mulkhura-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.042,
+        "lng": 42.735,
+        "label": "Mestia"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Mulkhura River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Mestia — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Mulkhura River** is one of **Georgia’s** significant waterways. The stretch near **Mestia** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "მულხურა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Mestiaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**მულხურა**) — ორიენტირი: **Mestia**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Мулхура: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Mestia** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Мулхура** — важная водная артерия **Грузии**. Участок у **Mestia** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "ab3639c1-8a99-459f-9bc5-d4b8e8fd220d",
+      "slug": "chkheristskali-svaneti",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.008,
+        "lng": 42.651,
+        "label": "Latali"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Chkheristskali River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Latali — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Chkheristskali River** is one of **Georgia’s** significant waterways. The stretch near **Latali** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ჩხერისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Lataliსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ჩხერისწყალი**) — ორიენტირი: **Latali**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Чхеристскали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Latali** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Чхеристскали** — важная водная артерия **Грузии**. Участок у **Latali** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "8a832264-c613-4333-8433-21da61100ca4",
+      "slug": "kodori-river-valley",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.12,
+        "lng": 41.25,
+        "label": "Upper Kodori access"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Kodori River valley: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Upper Kodori access — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Kodori River valley** is one of **Georgia’s** significant waterways. The stretch near **Upper Kodori access** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "კოდორი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Upper Kodori accessსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**კოდორი**) — ორიენტირი: **Upper Kodori access**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Кодори: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Upper Kodori access** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Кодори** — важная водная артерия **Грузии**. Участок у **Upper Kodori access** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "a6ee0c4e-ac10-4e80-b713-52c3b9f9181a",
+      "slug": "bzyb-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.28,
+        "lng": 40.27,
+        "label": "Gagra area (border region)"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Bzyb River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Gagra area (border region) — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Bzyb River** is one of **Georgia’s** significant waterways. The stretch near **Gagra area (border region)** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ბზიფი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Gagra area (border region)სთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ბზიფი**) — ორიენტირი: **Gagra area (border region)**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Бзыбь: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Gagra area (border region)** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Бзыбь** — важная водная артерия **Грузии**. Участок у **Gagra area (border region)** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "830b87d6-a63e-4d43-9fe5-1ae4a3a0d3a2",
+      "slug": "gumista-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 43.001,
+        "lng": 41.015,
+        "label": "Sukhumi area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Gumista River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Sukhumi area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Gumista River** is one of **Georgia’s** significant waterways. The stretch near **Sukhumi area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "გუმისთა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Sukhumi areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**გუმისთა**) — ორიენტირი: **Sukhumi area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Гумиста: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Sukhumi area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Гумиста** — важная водная артерия **Грузии**. Участок у **Sukhumi area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "a4b706c0-d9ad-4468-9b68-e061c6b23756",
+      "slug": "prone-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.345,
+        "lng": 43.419,
+        "label": "Sachkhere"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Proni River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Sachkhere — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Proni River** is one of **Georgia’s** significant waterways. The stretch near **Sachkhere** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "პრონე — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Sachkhereსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**პრონე**) — ორიენტირი: **Sachkhere**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Прони: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Sachkhere** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Прони** — важная водная артерия **Грузии**. Участок у **Sachkhere** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "5f35dfc7-a46d-4a24-80a8-17aab3f82b7a",
+      "slug": "dzirula-kharagauli",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.021,
+        "lng": 43.211,
+        "label": "Kharagauli"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Dzirula near Kharagauli: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Kharagauli — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Dzirula near Kharagauli** is one of **Georgia’s** significant waterways. The stretch near **Kharagauli** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ძირულა (ხარაგაული) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kharagauliსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ძირულა (ხარაგაული)**) — ორიენტირი: **Kharagauli**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Дзирула у Харагаули: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Kharagauli** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Дзирула у Харагаули** — важная водная артерия **Грузии**. Участок у **Kharagauli** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "5e900035-64ed-4e72-a75b-9906a4940ce5",
+      "slug": "rioni-delta-poti",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.139,
+        "lng": 41.674,
+        "label": "Poti"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Rioni delta & wetlands: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Poti — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Rioni delta & wetlands** is one of **Georgia’s** significant waterways. The stretch near **Poti** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "რიონის დელტა (ფოთი) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Potiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**რიონის დელტა (ფოთი)**) — ორიენტირი: **Poti**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Дельта Риони (Поти): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Poti** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Дельта Риони (Поти)** — важная водная артерия **Грузии**. Участок у **Poti** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "ab72c9cc-4c6f-4391-b93c-507edcc244b5",
+      "slug": "mtkvari-confluence-borjomi",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.84,
+        "lng": 43.379,
+        "label": "Borjomi"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Mtkvari in Borjomi gorge: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Borjomi — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Mtkvari in Borjomi gorge** is one of **Georgia’s** significant waterways. The stretch near **Borjomi** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "მტკვარი (ბორჯომის ხეობა) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Borjomiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**მტკვარი (ბორჯომის ხეობა)**) — ორიენტირი: **Borjomi**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Кура в Боржомском ущелье: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Borjomi** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Кура в Боржомском ущелье** — важная водная артерия **Грузии**. Участок у **Borjomi** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "ec21c1bf-e01b-409a-a1a2-58623e486e32",
+      "slug": "khrami-tsalka-headwaters",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.595,
+        "lng": 44.088,
+        "label": "Tsalka"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Khrami headwaters (Tsalka area): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Tsalka — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Khrami headwaters (Tsalka area)** is one of **Georgia’s** significant waterways. The stretch near **Tsalka** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ხრამი (წალკის ტბისპირა) — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Tsalkaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ხრამი (წალკის ტბისპირა)**) — ორიენტირი: **Tsalka**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Верховья Храми (Цалка): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Tsalka** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Верховья Храми (Цалка)** — важная водная артерия **Грузии**. Участок у **Tsalka** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "392535a6-35fe-4ad4-9bca-c7a5ae728d98",
+      "slug": "algeti-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.62,
+        "lng": 44.78,
+        "label": "Tbilisi outskirts"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Algeti River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Tbilisi outskirts — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Algeti River** is one of **Georgia’s** significant waterways. The stretch near **Tbilisi outskirts** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ალგეთი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Tbilisi outskirtsსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ალგეთი**) — ორიენტირი: **Tbilisi outskirts**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Алгети: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Tbilisi outskirts** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Алгети** — важная водная артерия **Грузии**. Участок у **Tbilisi outskirts** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "3866cc33-42e7-4bdb-a16a-661e6602a0de",
+      "slug": "lashistskali-adjara",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.583,
+        "lng": 41.91,
+        "label": "Keda"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Lashistskali River (Adjara): visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Keda — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Lashistskali River (Adjara)** is one of **Georgia’s** significant waterways. The stretch near **Keda** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ლაშისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Kedaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ლაშისწყალი**) — ორიენტირი: **Keda**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Лашисцкали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Keda** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Лашисцкали** — важная водная артерия **Грузии**. Участок у **Keda** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "dd20a9e7-387e-4863-99a1-d4267f67ecb8",
+      "slug": "sharapkhana-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.45,
+        "lng": 43.55,
+        "label": "Racha foothills"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Shareula / small Sharapkhana streams: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Racha foothills — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Shareula / small Sharapkhana streams** is one of **Georgia’s** significant waterways. The stretch near **Racha foothills** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "შარაფხანას ნაკადები — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Racha foothillsსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**შარაფხანას ნაკადები**) — ორიენტირი: **Racha foothills**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Горные ручьи (Рача): прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Racha foothills** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Горные ручьи (Рача)** — важная водная артерия **Грузии**. Участок у **Racha foothills** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "108f63ce-2ec9-4b86-8a8e-530ea4271a58",
+      "slug": "stori-river-kakheti",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.829,
+        "lng": 46.276,
+        "label": "Lagodekhi area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Stori River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Lagodekhi area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Stori River** is one of **Georgia’s** significant waterways. The stretch near **Lagodekhi area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "სტორი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Lagodekhi areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**სტორი**) — ორიენტირი: **Lagodekhi area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Стори: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Lagodekhi area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Стори** — важная водная артерия **Грузии**. Участок у **Lagodekhi area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "d15518cd-193c-49ed-9981-999cf2e9d184",
+      "slug": "laliskhevi-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.38,
+        "lng": 45.62,
+        "label": "Tusheti approach"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Lalisghele stream network: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Tusheti approach — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Lalisghele stream network** is one of **Georgia’s** significant waterways. The stretch near **Tusheti approach** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ლალისხევი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Tusheti approachსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ლალისხევი**) — ორიენტირი: **Tusheti approach**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Лалискхеви: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Tusheti approach** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Лалискхеви** — важная водная артерия **Грузии**. Участок у **Tusheti approach** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "7893d409-43ce-4191-84cd-da975cd4ce95",
+      "slug": "andaki-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.032,
+        "lng": 45.208,
+        "label": "Akhmeta"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Andaki River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Akhmeta — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Andaki River** is one of **Georgia’s** significant waterways. The stretch near **Akhmeta** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ანდაკი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Akhmetaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ანდაკი**) — ორიენტირი: **Akhmeta**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Андзаки: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Akhmeta** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Андзаки** — важная водная артерия **Грузии**. Участок у **Akhmeta** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "b827634a-35b8-45da-bc82-0d784dae283b",
+      "slug": "arghuni-river-pankisi",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.065,
+        "lng": 45.008,
+        "label": "Pankisi Gorge"
+      },
+      "physical_rating": "moderate",
+      "driving_distance": "Varies; check local road conditions to the river access",
+      "i18n": {
+        "en": {
+          "title": "Arghuni River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Pankisi Gorge — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Arghuni River** is one of **Georgia’s** significant waterways. The stretch near **Pankisi Gorge** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "არღუნი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Pankisi Gorgeსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**არღუნი**) — ორიენტირი: **Pankisi Gorge**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Аргуни: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Pankisi Gorge** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Аргуни** — важная водная артерия **Грузии**. Участок у **Pankisi Gorge** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "7981ea71-f087-4467-95b5-5d6851e6cc28",
+      "slug": "asani-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.398,
+        "lng": 42.381,
+        "label": "Martvili"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Asani River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Martvili — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Asani River** is one of **Georgia’s** significant waterways. The stretch near **Martvili** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ასანი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Martviliსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ასანი**) — ორიენტირი: **Martvili**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Асани: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Martvili** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Асани** — важная водная артерия **Грузии**. Участок у **Martvili** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "06a2dd34-c6cd-465b-b19a-0fe657f44c6b",
+      "slug": "abashistskali-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 42.084,
+        "lng": 42.067,
+        "label": "Senaki"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Abashistskali River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Senaki — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Abashistskali River** is one of **Georgia’s** significant waterways. The stretch near **Senaki** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "აბაშისწყალი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Senakiსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**აბაშისწყალი**) — ორიენტირი: **Senaki**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Абашисцкали: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Senaki** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Абашисцкали** — важная водная артерия **Грузии**. Участок у **Senaki** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "d59f96ae-2eb8-447c-bd5d-4d14c2a3b0e1",
+      "slug": "chechla-river",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.573,
+        "lng": 43.243,
+        "label": "Aspindza approach"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Chechla (Chanchakhi) River: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Aspindza approach — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Chechla (Chanchakhi) River** is one of **Georgia’s** significant waterways. The stretch near **Aspindza approach** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ჭეჭლა — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Aspindza approachსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ჭეჭლა**) — ორიენტირი: **Aspindza approach**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Река Чечла: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Aspindza approach** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Река Чечла** — важная водная артерия **Грузии**. Участок у **Aspindza approach** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    {
+      "id": "2a223d34-8aae-430d-b399-4b4726c1774a",
+      "slug": "paravani-river-outflow",
+      "image": null,
+      "gallery": [],
+      "location": {
+        "lat": 41.265,
+        "lng": 43.591,
+        "label": "Ninotsminda area"
+      },
+      "physical_rating": "easy",
+      "driving_distance": "Often reachable by car to nearby towns; short walks to viewpoints",
+      "i18n": {
+        "en": {
+          "title": "Paravani outflow / Kura link: visit & riverside walks",
+          "duration": "1–3 hours (flexible)",
+          "price": "Free outdoors; guided tours optional",
+          "excerpt": "Scenic Georgian river corridor near Ninotsminda area — walks, photos, and nature.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The **Paravani outflow / Kura link** is one of **Georgia’s** significant waterways. The stretch near **Ninotsminda area** is a practical base for short walks along the bank, photography, and understanding how river corridors shape local life.\r\n\r\n**Safety:** currents can rise quickly after rain; keep children and pets away from steep banks. **Fishing and boating** may need local permits—ask in town. Leave no trace on gravel bars and picnic spots.",
+          "contact_sidebar": ""
+        },
+        "ka": {
+          "title": "ფარავნის ტბიდან გამომავალი ნაკადი — სეირნობა და ხედები",
+          "duration": "1–3 საათი (მოქნილი)",
+          "price": "უფასო ღია სივრცეში; ექსკურსია სურვილისამებრ",
+          "excerpt": "მდინარისპირა ხედები Ninotsminda areaსთან ახლოს — სეირნობა და ფოტო.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "ეს გვერდი **საქართველოს** მდინარისპირა ზონას აღწერს (**ფარავნის ტბიდან გამომავალი ნაკადი**) — ორიენტირი: **Ninotsminda area**. შეგიძლიათ მოკლე სეირნობა ნაპირზე, ფოტო და ადგილობრივი ხედვის გაგება.\r\n\r\n**უსაფრთხოება:** წვიმის შემდეგ დონე იცვლება; ბავშვები და ცხოველები დაცული იყოს სწორებთან. **თევზაობა/გემი** შეიძლება საჭიროებდეს ნებართვას — მიმართეთ ადგილობრივებს. ნაგავი ნუ დატოვოთ.",
+          "contact_sidebar": ""
+        },
+        "ru": {
+          "title": "Сток из озера Паравани: прогулки у воды",
+          "duration": "1–3 часа (гибко)",
+          "price": "Бесплатно на открытом воздухе; экскурсии по желанию",
+          "excerpt": "Живописная река у **Ninotsminda area** — прогулки и фото.",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "**Сток из озера Паравани** — важная водная артерия **Грузии**. Участок у **Ninotsminda area** удобен для коротких прогулок вдоль берега, фотографий и понимания того, как река влияет на жизнь региона.\r\n\r\n**Безопасность:** после дождя уровень воды растёт; держитесь подальше от крутых обрывов. **Рыбалка и лодки** могут требовать разрешений — уточняйте на месте. Не оставляйте мусор на пляжах и косах.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774540588826,
+      "author_user_id": null,
+      "author_email": null,
+      "categories": [
+        "river",
+        "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
+      ]
     }
   ]
 }

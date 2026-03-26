@@ -1,0 +1,38 @@
+---
+import ToursMap from './ToursMap.astro';
+import type { ContentPostKind, TourMapMarker } from '../lib/tours-db';
+
+interface Props {
+	heading: string;
+	markers: TourMapMarker[];
+	focus: { lat: number; lng: number; zoom?: number; slug: string; kind: ContentPostKind };
+	popupViewDetailsLabel: string;
+}
+
+const { heading, markers, focus, popupViewDetailsLabel } = Astro.props;
+---
+
+<section class="detail-location-map" aria-labelledby="detail-on-map-heading">
+	<h2 id="detail-on-map-heading" class="detail-location-map__h">{heading}</h2>
+	<ToursMap
+		markers={markers}
+		focus={focus}
+		popupViewDetailsLabel={popupViewDetailsLabel}
+		variant="embed"
+	/>
+</section>
+
+<style>
+	.detail-location-map {
+		margin-top: 2.25rem;
+		padding-top: 1.75rem;
+		border-top: 1px solid var(--border);
+	}
+	.detail-location-map__h {
+		margin: 0 0 0.65rem;
+		font-size: clamp(1.12rem, 2.2vw, 1.32rem);
+		font-weight: 700;
+		line-height: 1.25;
+		color: var(--text);
+	}
+</style>

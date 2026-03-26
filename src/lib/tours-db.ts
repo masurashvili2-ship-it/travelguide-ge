@@ -233,6 +233,15 @@ export type TourMapMarker = {
 	lng: number;
 	label: string | null;
 	href: string;
+	kind: ContentPostKind;
+	/** `tour` for tours; what-to-do category id for activities (drives map pin icon). */
+	mapIconKey: string;
+	coverUrl: string | null;
+	excerpt: string;
+	/** Tour category id when `kind === 'tours'`; otherwise null. */
+	tourCategory: string | null;
+	/** All what-to-do category ids when `kind === 'what-to-do'`; otherwise []. */
+	whatDoCategoryIds: string[];
 };
 
 export function listMapMarkersForKind(kind: ContentPostKind, locale: string): TourMapMarker[] {
@@ -246,6 +255,17 @@ export function listMapMarkersForKind(kind: ContentPostKind, locale: string): To
 		const block = p.i18n[locale];
 		const title = block?.title?.trim();
 		if (!title) continue;
+		const excerpt = block.excerpt?.trim() ?? '';
+		const cover = tourCoverImageUrl({ image: p.image, gallery: p.gallery });
+		const mapIconKey =
+			kind === 'tours'
+				? 'tour'
+				: p.whatDoCategories?.length
+					? p.whatDoCategories[0]
+					: 'landmark';
+		const tourCategory = kind === 'tours' ? (p.category ?? null) : null;
+		const whatDoCategoryIds =
+			kind === 'what-to-do' ? [...(p.whatDoCategories ?? [])] : [];
 		out.push({
 			slug: p.slug,
 			title,
@@ -253,6 +273,12 @@ export function listMapMarkersForKind(kind: ContentPostKind, locale: string): To
 			lng: loc.lng,
 			label: loc.label,
 			href: `/${locale}/${seg}/${p.slug}`,
+			kind,
+			mapIconKey,
+			coverUrl: cover ?? null,
+			excerpt,
+			tourCategory,
+			whatDoCategoryIds,
 		});
 	}
 	return out;

@@ -51,6 +51,16 @@ export const ui: Record<
 		mapIntro: string;
 		/** Shown when no tour has coordinates for the current language */
 		mapEmpty: string;
+		/** Interactive map: kind tabs */
+		mapFilterAll: string;
+		mapFilterTours: string;
+		mapFilterWhatToDo: string;
+		mapFilterTourTypes: string;
+		mapFilterActivityTypes: string;
+		mapFilterClear: string;
+		/** Map filter count: use {visible} and {total} */
+		mapFilterShowing: string;
+		mapFilterHint: string;
 		featuredTours: string;
 		viewTour: string;
 		viewWhatToDo: string;
@@ -117,6 +127,10 @@ export const ui: Record<
 		tourSidebarPriceLabel: string;
 		tourSidebarLocationLabel: string;
 		tourSidebarViewOnMap: string;
+		/** Tour / what-to-do detail: embedded map above reviews */
+		detailOnMapHeading: string;
+		/** Map marker popup link text */
+		mapPopupViewDetails: string;
 		tourSidebarPhysicalRating: string;
 		tourSidebarDrivingDistance: string;
 		/** Localized display names for each tour category id */
@@ -177,9 +191,19 @@ export const ui: Record<
 		whatToDoFiltersAny: 'Any',
 		whatToDoFiltersNSelected: '{n} selected',
 		mapMetaDescription:
-			'Interactive map of our tours across Georgia — click a marker to open the tour page.',
-		mapIntro: 'Pins link to each tour in your current language (only tours with coordinates and a translation appear).',
-		mapEmpty: 'No tours on the map yet. Add latitude and longitude in the admin tour editor.',
+			'Interactive map of tours and things to do in Georgia — click a marker for details, photo, and link.',
+		mapIntro:
+			'Pins link to tours and “What to do” entries in your current language (only items with coordinates and a translation appear).',
+		mapEmpty:
+			'Nothing on the map yet. Add latitude and longitude in the admin editor for a tour or activity.',
+		mapFilterAll: 'All',
+		mapFilterTours: 'Tours',
+		mapFilterWhatToDo: 'What to do',
+		mapFilterTourTypes: 'Tour types',
+		mapFilterActivityTypes: 'Activity categories',
+		mapFilterClear: 'Clear filters',
+		mapFilterShowing: 'Showing {visible} of {total} on the map',
+		mapFilterHint: 'Combine tabs with categories. Empty category lists mean “any”.',
 		featuredTours: 'Featured tours',
 		viewTour: 'View tour',
 		viewWhatToDo: 'View',
@@ -230,6 +254,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'Price',
 		tourSidebarLocationLabel: 'Location',
 		tourSidebarViewOnMap: 'View on map',
+		detailOnMapHeading: 'On the map',
+		mapPopupViewDetails: 'View details',
 		tourSidebarPhysicalRating: 'Physical rating',
 		tourSidebarDrivingDistance: 'Driving distance',
 		tourCategories: {
@@ -321,9 +347,19 @@ export const ui: Record<
 		whatToDoFiltersShowing: 'ნაჩვენებია {n} / {total}',
 		whatToDoFiltersAny: 'ნებისმიერი',
 		whatToDoFiltersNSelected: 'არჩეულია {n}',
-		mapMetaDescription: 'ინტერაქტიული რუკა — დააწკაპუნეთ მარკერზე ტურის გვერდის სანახავად.',
-		mapIntro: 'ბმულები გახსნის ტურს არჩეულ ენაზე (ჩანს მხოლოდ კოორდინატებითა და თარგმანით).',
-		mapEmpty: 'რუკაზე ჯერ არაფერია. დაამატეთ გრძედი და განედი ადმინის ტურის რედაქტორში.',
+		mapMetaDescription:
+			'ინტერაქტიული რუკა — მარკერზე დაწკაპუნებით ნახავთ ფოტოს, აღწერილობას და ბმულს.',
+		mapIntro:
+			'ბმულები გახსნის ტურს ან „რა გავაკეთოთ“ ჩანაწერს არჩეულ ენაზე (ჩანს მხოლოდ კოორდინატებითა და თარგმანით).',
+		mapEmpty: 'რუკაზე ჯერ არაფერია. დაამატეთ კოორდინატები ადმინის რედაქტორში ტურზე ან აქტივობაზე.',
+		mapFilterAll: 'ყველა',
+		mapFilterTours: 'ტურები',
+		mapFilterWhatToDo: 'რა გავაკეთოთ',
+		mapFilterTourTypes: 'ტურის ტიპები',
+		mapFilterActivityTypes: 'აქტივობის კატეგორიები',
+		mapFilterClear: 'ფილტრის გასუფთავება',
+		mapFilterShowing: 'რუკაზე ნაჩვენებია {visible} / {total}',
+		mapFilterHint: 'შეგიძლიათ გააერთოთ ჩანართები და კატეგორიები. ცარიელი სია ნიშნავს „ნებისმიერი“.',
 		featuredTours: 'რჩეული ტურები',
 		viewTour: 'ტურის ნახვა',
 		viewWhatToDo: 'ნახვა',
@@ -374,6 +410,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'ფასი',
 		tourSidebarLocationLabel: 'ლოკაცია',
 		tourSidebarViewOnMap: 'რუკაზე ნახვა',
+		detailOnMapHeading: 'რუკაზე',
+		mapPopupViewDetails: 'დეტალები',
 		tourSidebarPhysicalRating: 'ფიზიკური სირთულე',
 		tourSidebarDrivingDistance: 'სავალის სიგრძე',
 		tourCategories: {
@@ -468,9 +506,19 @@ export const ui: Record<
 		whatToDoFiltersAny: 'Любой',
 		whatToDoFiltersNSelected: 'Выбрано: {n}',
 		mapMetaDescription:
-			'Интерактивная карта туров по Грузии — нажмите на маркер, чтобы открыть страницу тура.',
-		mapIntro: 'Ссылки ведут на тур на текущем языке (показываются туры с координатами и переводом).',
-		mapEmpty: 'На карте пока нет туров. Укажите широту и долготу в админке при редактировании тура.',
+			'Интерактивная карта туров и идей «Чем заняться» в Грузии — маркер с фото, описанием и ссылкой.',
+		mapIntro:
+			'Ссылки ведут на тур или материал «Чем заняться» на текущем языке (нужны координаты и перевод).',
+		mapEmpty:
+			'На карте пока ничего нет. Укажите широту и долготу в админке для тура или активности.',
+		mapFilterAll: 'Все',
+		mapFilterTours: 'Туры',
+		mapFilterWhatToDo: 'Чем заняться',
+		mapFilterTourTypes: 'Типы туров',
+		mapFilterActivityTypes: 'Категории активностей',
+		mapFilterClear: 'Сбросить фильтры',
+		mapFilterShowing: 'На карте: {visible} из {total}',
+		mapFilterHint: 'Сочетайте вкладки и категории. Пустой список категорий значит «любые».',
 		featuredTours: 'Избранные туры',
 		viewTour: 'Подробнее',
 		viewWhatToDo: 'Смотреть',
@@ -521,6 +569,8 @@ export const ui: Record<
 		tourSidebarPriceLabel: 'Цена',
 		tourSidebarLocationLabel: 'Локация',
 		tourSidebarViewOnMap: 'На карте',
+		detailOnMapHeading: 'На карте',
+		mapPopupViewDetails: 'Подробнее',
 		tourSidebarPhysicalRating: 'Физическая нагрузка',
 		tourSidebarDrivingDistance: 'Пробег',
 		tourCategories: {

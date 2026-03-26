@@ -1,0 +1,211 @@
+---
+import type { TourCategoryId } from '../lib/tour-categories';
+import { TOUR_CATEGORY_IDS } from '../lib/tour-categories';
+import type { WhatToDoCategoryId } from '../lib/what-to-do-categories';
+import { WHAT_TO_DO_CATEGORY_IDS } from '../lib/what-to-do-categories';
+
+export interface MapFilterLabels {
+	all: string;
+	tours: string;
+	whatToDo: string;
+	tourTypes: string;
+	activityTypes: string;
+	clear: string;
+	showing: string;
+	hint: string;
+}
+
+interface Props {
+	filterLabels: MapFilterLabels;
+	tourCategoryLabels: Record<TourCategoryId, string>;
+	whatToDoCategoryLabels: Record<WhatToDoCategoryId, string>;
+}
+
+const { filterLabels, tourCategoryLabels, whatToDoCategoryLabels } = Astro.props;
+---
+
+<div
+	class="map-filters"
+	id="tours-map-filters"
+	data-map-filter-showing-tpl={filterLabels.showing}
+>
+	<p class="map-filters__count" data-map-filter-count></p>
+	<div class="map-filters__kind" role="tablist" aria-label="Map content type">
+		<button
+			type="button"
+			class="map-filters__pill is-active"
+			data-map-kind="all"
+			role="tab"
+			aria-selected="true"
+		>
+			{filterLabels.all}
+		</button>
+		<button type="button" class="map-filters__pill" data-map-kind="tours" role="tab" aria-selected="false">
+			{filterLabels.tours}
+		</button>
+		<button
+			type="button"
+			class="map-filters__pill"
+			data-map-kind="what-to-do"
+			role="tab"
+			aria-selected="false"
+		>
+			{filterLabels.whatToDo}
+		</button>
+	</div>
+	<div class="map-filters__panels">
+		<details class="map-filters__details" open>
+			<summary>{filterLabels.tourTypes}</summary>
+			<div class="map-filters__chips">
+				{
+					TOUR_CATEGORY_IDS.map((id) => (
+						<label class="map-filters__chip">
+							<input type="checkbox" name="map-tour-cat" value={id} />
+							<span>{tourCategoryLabels[id]}</span>
+						</label>
+					))
+				}
+			</div>
+		</details>
+		<details class="map-filters__details" open>
+			<summary>{filterLabels.activityTypes}</summary>
+			<div class="map-filters__chips">
+				{
+					WHAT_TO_DO_CATEGORY_IDS.map((id) => (
+						<label class="map-filters__chip">
+							<input type="checkbox" name="map-wtd-cat" value={id} />
+							<span>{whatToDoCategoryLabels[id]}</span>
+						</label>
+					))
+				}
+			</div>
+		</details>
+	</div>
+	<div class="map-filters__actions">
+		<button type="button" class="map-filters__clear" data-map-filter-clear>
+			{filterLabels.clear}
+		</button>
+	</div>
+	<p class="map-filters__hint">{filterLabels.hint}</p>
+</div>
+
+<style is:global>
+	.map-filters {
+		margin: 0 0 1rem;
+		padding: 1rem 1.1rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		box-shadow: 0 2px 12px rgba(26, 35, 50, 0.07);
+	}
+	.map-filters__count {
+		margin: 0 0 0.65rem;
+		font-size: 0.92rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.map-filters__hint {
+		margin: 0.65rem 0 0;
+		font-size: 0.8rem;
+		line-height: 1.45;
+		color: var(--muted);
+	}
+	.map-filters__kind {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin-bottom: 0.9rem;
+	}
+	.map-filters__pill {
+		appearance: none;
+		border: 1px solid var(--border);
+		background: var(--bg, #fff);
+		color: var(--text);
+		padding: 0.48rem 1rem;
+		border-radius: 999px;
+		font-size: 0.87rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+	.map-filters__pill:hover {
+		border-color: color-mix(in srgb, var(--text) 35%, var(--border));
+	}
+	.map-filters__pill.is-active {
+		background: var(--text);
+		color: var(--bg, #fff);
+		border-color: var(--text);
+	}
+	.map-filters__panels {
+		display: grid;
+		gap: 0.65rem;
+	}
+	@media (min-width: 760px) {
+		.map-filters__panels {
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+	}
+	.map-filters__details {
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		padding: 0.55rem 0.7rem 0.65rem;
+		background: color-mix(in srgb, var(--bg, #fff) 92%, var(--surface));
+	}
+	.map-filters__details summary {
+		font-weight: 700;
+		font-size: 0.85rem;
+		cursor: pointer;
+		list-style: none;
+		color: var(--text);
+	}
+	.map-filters__details summary::-webkit-details-marker {
+		display: none;
+	}
+	.map-filters__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.85rem;
+		margin-top: 0.55rem;
+		padding-top: 0.55rem;
+		border-top: 1px solid var(--border);
+		max-height: 9.5rem;
+		overflow-y: auto;
+	}
+	.map-filters__chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		font-size: 0.8rem;
+		cursor: pointer;
+		color: var(--text);
+		line-height: 1.25;
+	}
+	.map-filters__chip input {
+		width: auto;
+		margin: 0;
+		flex-shrink: 0;
+		accent-color: var(--text);
+	}
+	.map-filters__actions {
+		margin-top: 0.8rem;
+	}
+	.map-filters__clear {
+		appearance: none;
+		border: none;
+		background: transparent;
+		color: var(--text);
+		font-size: 0.86rem;
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+		cursor: pointer;
+		padding: 0.2rem 0;
+	}
+	.map-filters__clear:hover {
+		opacity: 0.85;
+	}
+</style>
