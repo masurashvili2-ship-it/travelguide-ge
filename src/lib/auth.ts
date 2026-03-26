@@ -205,6 +205,13 @@ export function publicOriginFromRequest(request: Request): string {
 	return `${proto}://${host}`;
 }
 
+/** `/en/login` or `/ka/register` derived from `next` path for auth error redirects. */
+export function localeAuthPagePath(nextSanitizedPath: string, page: 'login' | 'register'): string {
+	const m = nextSanitizedPath.trim().match(/^\/(en|ka|ru)(\/|$)/);
+	const loc = m ? m[1] : 'en';
+	return `/${loc}/${page}`;
+}
+
 /** Only allow same-site path redirects (login/register `next`). */
 export function sanitizeAuthNextPath(next: string, fallback: string): string {
 	const t = next.trim();

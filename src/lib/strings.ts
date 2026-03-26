@@ -59,6 +59,16 @@ export const ui: Record<
 		password: string;
 		submitLogin: string;
 		submitRegister: string;
+		/** Login form: wrong email/password */
+		loginErrorInvalidCredentials: string;
+		/** Toast after successful sign-in */
+		authSignedInToast: string;
+		/** Toast after successful registration */
+		authRegisteredToast: string;
+		registerErrorInvalidEmail: string;
+		registerErrorEmailTaken: string;
+		registerErrorPasswordShort: string;
+		registerErrorGeneric: string;
 		haveAccount: string;
 		noAccount: string;
 		adminDashboard: string;
@@ -176,6 +186,13 @@ export const ui: Record<
 		password: 'Password',
 		submitLogin: 'Sign in',
 		submitRegister: 'Create account',
+		loginErrorInvalidCredentials: 'That email or password is not correct. Try again.',
+		authSignedInToast: 'You’re signed in.',
+		authRegisteredToast: 'Account created — you’re signed in.',
+		registerErrorInvalidEmail: 'Enter a valid email address.',
+		registerErrorEmailTaken: 'That email is already registered. Log in instead.',
+		registerErrorPasswordShort: 'Password must be at least 8 characters.',
+		registerErrorGeneric: 'Could not create the account. Please try again.',
 		haveAccount: 'Already have an account?',
 		noAccount: 'New here?',
 		adminDashboard: 'Admin dashboard',
@@ -312,6 +329,13 @@ export const ui: Record<
 		password: 'პაროლი',
 		submitLogin: 'შესვლა',
 		submitRegister: 'ანგარიშის შექმნა',
+		loginErrorInvalidCredentials: 'ელფოსტა ან პაროლი არასწორია. სცადეთ ხელახლა.',
+		authSignedInToast: 'წარმატებით შეხვედით.',
+		authRegisteredToast: 'ანგარიში შეიქმნა — ხართ შესული.',
+		registerErrorInvalidEmail: 'მიუთითეთ სწორი ელფოსტა.',
+		registerErrorEmailTaken: 'ეს ელფოსტა უკვე რეგისტრირებულია. შედით სისტემაში.',
+		registerErrorPasswordShort: 'პაროლი მინიმუმ 8 სიმბოლო უნდა იყოს.',
+		registerErrorGeneric: 'ანგარიშის შექმნა ვერ მოხერხდა. სცადეთ ხელახლა.',
 		haveAccount: 'უკვე გაქვთ ანგარიში?',
 		noAccount: 'ახალი ხართ?',
 		adminDashboard: 'ადმინ პანელი',
@@ -451,6 +475,13 @@ export const ui: Record<
 		password: 'Пароль',
 		submitLogin: 'Войти',
 		submitRegister: 'Создать аккаунт',
+		loginErrorInvalidCredentials: 'Неверная почта или пароль. Попробуйте снова.',
+		authSignedInToast: 'Вы вошли в аккаунт.',
+		authRegisteredToast: 'Аккаунт создан — вы вошли.',
+		registerErrorInvalidEmail: 'Укажите корректный email.',
+		registerErrorEmailTaken: 'Этот email уже зарегистрирован. Войдите.',
+		registerErrorPasswordShort: 'Пароль должен быть не короче 8 символов.',
+		registerErrorGeneric: 'Не удалось создать аккаунт. Попробуйте снова.',
 		haveAccount: 'Уже есть аккаунт?',
 		noAccount: 'Впервые здесь?',
 		adminDashboard: 'Панель администратора',

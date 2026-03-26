@@ -10,7 +10,14 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const err = Astro.url.searchParams.get('error');
+const errParam = Astro.url.searchParams.get('error');
+const registerErrors: Record<string, string> = {
+	invalid_email: t.registerErrorInvalidEmail,
+	email_taken: t.registerErrorEmailTaken,
+	password_short: t.registerErrorPasswordShort,
+	generic: t.registerErrorGeneric,
+};
+const errMessage = errParam ? registerErrors[errParam] ?? t.registerErrorGeneric : null;
 const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, '/');
 ---
 
@@ -25,8 +32,8 @@ const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, 
 	<p class="muted" style="margin:0 0 1rem">
 		First account becomes <strong>admin</strong> (demo). Use a strong password; set <code>SESSION_SECRET</code> in production.
 	</p>
-	{err ? <div class="alert" role="alert">{err}</div> : null}
-	<form class="auth" method="post" action="/api/auth/register">
+	{errMessage ? <div class="alert" role="alert">{errMessage}</div> : null}
+	<form class="auth" method="post" action="/api/auth/register" data-auth-form>
 		<input type="hidden" name="next" value={next} />
 		<label>
 			<span>{t.email}</span>
@@ -42,4 +49,16 @@ const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, 
 		{t.haveAccount}
 		<a href={getRelativeLocaleUrl(locale, 'login')}>{t.login}</a>
 	</p>
+	<script is:inline>
+		(function () {
+			var f = document.querySelector('form[data-auth-form]');
+			if (!f) return;
+			f.addEventListener('submit', function () {
+				var btn = f.querySelector('button[type="submit"]');
+				if (!btn || btn.disabled) return;
+				btn.disabled = true;
+				btn.setAttribute('aria-busy', 'true');
+			});
+		})();
+	</script>
 </Shell>

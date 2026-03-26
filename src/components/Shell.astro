@@ -661,6 +661,37 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				font-weight: 500;
 				border: 1px solid color-mix(in srgb, var(--danger) 22%, transparent);
 			}
+			.tg-auth-toast-host {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 95000;
+				display: flex;
+				justify-content: center;
+				pointer-events: none;
+				padding: 0 1rem max(1rem, env(safe-area-inset-bottom, 0px));
+			}
+			.tg-auth-toast {
+				max-width: min(92vw, 22rem);
+				padding: 0.8rem 1.15rem;
+				border-radius: var(--radius-md);
+				font-size: 0.92rem;
+				font-weight: 600;
+				color: var(--text);
+				background: var(--surface);
+				border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+				box-shadow: var(--shadow-lg);
+				transform: translateY(120%);
+				opacity: 0;
+				transition:
+					transform 0.28s ease,
+					opacity 0.28s ease;
+			}
+			.tg-auth-toast.tg-auth-toast--show {
+				transform: translateY(0);
+				opacity: 1;
+			}
 			.hero {
 				margin-bottom: 2.75rem;
 			}
@@ -897,6 +928,51 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			<slot />
 			<SiteFooter locale={locale} />
 		</div>
+		<script
+			type="application/json"
+			id="tg-auth-toast-strings"
+			set:html={JSON.stringify({ signedIn: t.authSignedInToast, registered: t.authRegisteredToast }).replace(/</g, '\\u003c')}
+		/>
+		<script is:inline>
+			(function () {
+				try {
+					var el = document.getElementById('tg-auth-toast-strings');
+					if (!el || !el.textContent) return;
+					var strings = JSON.parse(el.textContent);
+					var u = new URL(window.location.href);
+					var msg = null;
+					if (u.searchParams.get('signed_in') === '1') {
+						msg = strings.signedIn;
+						u.searchParams.delete('signed_in');
+					} else if (u.searchParams.get('signed_up') === '1') {
+						msg = strings.registered;
+						u.searchParams.delete('signed_up');
+					}
+					if (!msg) return;
+					var qs = u.searchParams.toString();
+					var clean = u.pathname + (qs ? '?' + qs : '') + u.hash;
+					window.history.replaceState({}, '', clean);
+					var host = document.createElement('div');
+					host.className = 'tg-auth-toast-host';
+					host.setAttribute('aria-live', 'polite');
+					var toast = document.createElement('div');
+					toast.className = 'tg-auth-toast';
+					toast.setAttribute('role', 'status');
+					toast.textContent = msg;
+					host.appendChild(toast);
+					document.body.appendChild(host);
+					requestAnimationFrame(function () {
+						toast.classList.add('tg-auth-toast--show');
+					});
+					setTimeout(function () {
+						toast.classList.remove('tg-auth-toast--show');
+						setTimeout(function () {
+							host.remove();
+						}, 320);
+					}, 4200);
+				} catch (e) {}
+			})();
+		</script>
 		<script is:inline>
 			(function () {
 				function qs(id) {

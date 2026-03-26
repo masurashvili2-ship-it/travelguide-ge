@@ -10,7 +10,13 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const err = Astro.url.searchParams.get('error');
+const errParam = Astro.url.searchParams.get('error');
+const errMessage =
+	errParam === 'invalid_credentials'
+		? t.loginErrorInvalidCredentials
+		: errParam
+			? errParam
+			: null;
 const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, '/');
 ---
 
@@ -22,8 +28,8 @@ const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, 
 	robotsNoindex
 >
 	<h1 style="margin:0 0 1rem">{t.login}</h1>
-	{err ? <div class="alert" role="alert">{err}</div> : null}
-	<form class="auth" method="post" action="/api/auth/login">
+	{errMessage ? <div class="alert" role="alert">{errMessage}</div> : null}
+	<form class="auth" method="post" action="/api/auth/login" data-auth-form>
 		<input type="hidden" name="next" value={next} />
 		<label>
 			<span>{t.email}</span>
@@ -39,4 +45,16 @@ const next = Astro.url.searchParams.get('next') ?? getRelativeLocaleUrl(locale, 
 		{t.noAccount}
 		<a href={getRelativeLocaleUrl(locale, 'register')}>{t.register}</a>
 	</p>
+	<script is:inline>
+		(function () {
+			var f = document.querySelector('form[data-auth-form]');
+			if (!f) return;
+			f.addEventListener('submit', function () {
+				var btn = f.querySelector('button[type="submit"]');
+				if (!btn || btn.disabled) return;
+				btn.disabled = true;
+				btn.setAttribute('aria-busy', 'true');
+			});
+		})();
+	</script>
 </Shell>

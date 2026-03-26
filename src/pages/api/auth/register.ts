@@ -1,5 +1,24 @@
 import type { APIRoute } from 'astro';
-import { publicOriginFromRequest, registerUser, sanitizeAuthNextPath, sessionCookieHeader } from '../../../lib/auth';
+import {
+	localeAuthPagePath,
+	publicOriginFromRequest,
+	registerUser,
+	sanitizeAuthNextPath,
+	sessionCookieHeader,
+} from '../../../lib/auth';
+
+function registerErrorCode(message: string): string {
+	switch (message) {
+		case 'Invalid email':
+			return 'invalid_email';
+		case 'Email already registered':
+			return 'email_taken';
+		case 'Password must be at least 8 characters':
+			return 'password_short';
+		default:
+			return 'generic';
+	}
+}
 
 export const POST: APIRoute = async ({ request }) => {
 	const ct = request.headers.get('content-type') ?? '';
@@ -29,9 +48,11 @@ export const POST: APIRoute = async ({ request }) => {
 				headers: { 'Content-Type': 'application/json' },
 			});
 		}
-		const err = new URL(next, `${publicOriginFromRequest(request)}/`);
-		err.searchParams.set('error', result.error);
-		return Response.redirect(err, 302);
+		const origin = `${publicOriginFromRequest(request)}/`;
+		const registerPage = new URL(localeAuthPagePath(next, 'register'), origin);
+		registerPage.searchParams.set('next', next);
+		registerPage.searchParams.set('error', registerErrorCode(result.error));
+		return Response.redirect(registerPage.toString(), 302);
 	}
 
 	const headers = new Headers();
@@ -42,7 +63,8 @@ export const POST: APIRoute = async ({ request }) => {
 			headers,
 		});
 	}
-	const loc = new URL(next, `${publicOriginFromRequest(request)}/`).toString();
-	headers.set('Location', loc);
+	const target = new URL(next, `${publicOriginFromRequest(request)}/`);
+	target.searchParams.set('signed_up', '1');
+	headers.set('Location', target.toString());
 	return new Response(null, { status: 303, headers });
 };
