@@ -72,8 +72,42 @@ const shareText = excerpt.trim().slice(0, 280);
 					</div>
 				</header>
 
+				{previewImages.length > 0 ? (
+					<div class="tdh__mosaic tdh__mosaic--mobile">
+						<button
+							type="button"
+							class="tdh__tile tdh__tile--mobile-peek"
+							data-tdh-open
+							data-tdh-start="0"
+							aria-label={`${t.galleryLightboxLabel} — ${photoCountLabel}`}
+							aria-haspopup="dialog"
+						>
+							<img
+								src={previewImages[0]}
+								alt={tourImageAltFromUrl(title, previewImages[0])}
+								width="800"
+								height="520"
+								loading="eager"
+								decoding="async"
+								draggable="false"
+							/>
+							<div class="tdh__m-peek-shade" aria-hidden="true" />
+							<span class="tdh__m-peek-pill">{t.postHeroOpenGallery}</span>
+							{n > 1 ? (
+								<span class="tdh__m-peek-count" aria-hidden="true">
+									{photoCountLabel}
+								</span>
+							) : null}
+						</button>
+					</div>
+				) : null}
+
 				<div
-					class:list={['tdh__mosaic', { 'tdh__mosaic--solo': previewImages.length === 1 }]}
+					class:list={[
+						'tdh__mosaic',
+						'tdh__mosaic--desktop',
+						{ 'tdh__mosaic--solo': previewImages.length === 1 },
+					]}
 					data-tdh-mosaic
 				>
 					{previewImages.length > 0 ? (
@@ -492,6 +526,75 @@ const shareText = excerpt.trim().slice(0, 280);
 		display: grid;
 		gap: 0.55rem;
 		grid-template-columns: 1fr;
+	}
+
+	.tdh__mosaic--mobile {
+		display: none;
+	}
+
+	.tdh__tile--mobile-peek {
+		position: relative;
+		height: min(40vh, 280px);
+		max-height: 280px;
+		min-height: 200px;
+		width: 100%;
+	}
+
+	.tdh__tile--mobile-peek img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.tdh__m-peek-shade {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 50%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.tdh__m-peek-pill {
+		position: absolute;
+		right: 0.65rem;
+		bottom: 0.65rem;
+		z-index: 2;
+		padding: 0.4rem 0.75rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: #0f172a;
+		background: rgba(255, 255, 255, 0.92);
+		border-radius: 999px;
+		pointer-events: none;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+	}
+
+	.tdh__m-peek-count {
+		position: absolute;
+		left: 0.65rem;
+		top: 0.65rem;
+		z-index: 2;
+		padding: 0.25rem 0.5rem;
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: #f4f6f9;
+		background: rgba(0, 0, 0, 0.55);
+		border-radius: 8px;
+		pointer-events: none;
+	}
+
+	@media (max-width: 719px) {
+		.tdh__mosaic--mobile {
+			display: grid;
+		}
+
+		.tdh__mosaic--desktop {
+			display: none !important;
+		}
 	}
 
 	.tdh__side-grid {

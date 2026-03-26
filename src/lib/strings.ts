@@ -106,10 +106,8 @@ export const ui: Record<
 		galleryPhotoCountMany: string;
 		/** Shown on the 5th preview tile when more images exist only in the lightbox; {n} = extra count */
 		galleryMorePhotos: string;
-		/** Listing hero (bento): visible hint on mobile to open the photo lightbox */
-		listingHeroOpenGallery: string;
-		/** Listing hero: aria-label for the mobile “open gallery” control */
-		listingHeroOpenGalleryAria: string;
+		/** Tour / what-to-do detail hero: mobile pill to open the photo lightbox */
+		postHeroOpenGallery: string;
 		/** Tour detail page: sidebar card heading */
 		tourSidebarCategory: string;
 		/** What-to-do detail: best season row */
@@ -225,8 +223,7 @@ export const ui: Record<
 		galleryPhotoCountOne: '1 photo',
 		galleryPhotoCountMany: '{n} photos',
 		galleryMorePhotos: '+{n} more',
-		listingHeroOpenGallery: 'All photos',
-		listingHeroOpenGalleryAria: 'Open gallery of featured cover photos',
+		postHeroOpenGallery: 'Open gallery',
 		tourSidebarCategory: 'Category',
 		tourSidebarSeason: 'Season',
 		tourSidebarSectionTitle: 'At a glance',
@@ -370,8 +367,7 @@ export const ui: Record<
 		galleryPhotoCountOne: '1 ფოტო',
 		galleryPhotoCountMany: '{n} ფოტო',
 		galleryMorePhotos: '+{n} სურათი',
-		listingHeroOpenGallery: 'ყველა ფოტო',
-		listingHeroOpenGalleryAria: 'რჩეული ფოტოების გალერეის გახსნა',
+		postHeroOpenGallery: 'გალერეის გახსნა',
 		tourSidebarCategory: 'კატეგორია',
 		tourSidebarSeason: 'სეზონი',
 		tourSidebarSectionTitle: 'მოკლედ',
@@ -518,8 +514,7 @@ export const ui: Record<
 		galleryPhotoCountOne: '1 фото',
 		galleryPhotoCountMany: '{n} фото',
 		galleryMorePhotos: 'ещё {n}',
-		listingHeroOpenGallery: 'Все фото',
-		listingHeroOpenGalleryAria: 'Открыть галерею обложек',
+		postHeroOpenGallery: 'Открыть галерею',
 		tourSidebarCategory: 'Категория',
 		tourSidebarSeason: 'Сезон',
 		tourSidebarSectionTitle: 'Кратко',
