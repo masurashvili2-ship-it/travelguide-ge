@@ -141,14 +141,24 @@ type JsonFile = Record<string, unknown>;
 
 const MAX_GALLERY_IMAGES = 30;
 
+function scrubGalleryToken(s: string): string {
+	return s.replace(/\uFEFF/g, '').trim();
+}
+
 export function normalizeTourGalleryInput(input: unknown): string[] {
 	if (input == null) return [];
 	if (typeof input === 'string') {
-		const parts = input.split(/[\r\n,]+/).map((s) => s.trim()).filter(Boolean);
+		const parts = input
+			.split(/[\r\n,]+/)
+			.map((s) => scrubGalleryToken(s))
+			.filter(Boolean);
 		return dedupeGalleryUrls(parts);
 	}
 	if (!Array.isArray(input)) return [];
-	const parts = input.filter((x): x is string => typeof x === 'string').map((s) => s.trim()).filter(Boolean);
+	const parts = input
+		.filter((x): x is string => typeof x === 'string')
+		.map((s) => scrubGalleryToken(s))
+		.filter(Boolean);
 	return dedupeGalleryUrls(parts);
 }
 
@@ -168,10 +178,10 @@ export function tourCoverImageUrl(d: {
 	image?: string | null;
 	gallery?: string[] | null;
 }): string | undefined {
-	const i = d.image?.trim();
+	const i = d.image ? scrubGalleryToken(d.image) : '';
 	if (i) return i;
 	for (const g of d.gallery ?? []) {
-		const t = typeof g === 'string' ? g.trim() : '';
+		const t = typeof g === 'string' ? scrubGalleryToken(g) : '';
 		if (t) return t;
 	}
 	return undefined;
@@ -1147,7 +1157,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 			id,
 			slug,
 			image: image !== undefined ? (image?.trim() ? image.trim() : null) : post.image,
-			gallery: gallery !== undefined ? gallery : post.gallery,
+			gallery: gallery !== undefined ? normalizeTourGalleryInput(gallery) : post.gallery,
 			location: location !== undefined ? location : post.location,
 			category: category !== undefined ? category : post.category,
 			physical_rating: physical_rating !== undefined ? physical_rating : post.physical_rating,
@@ -1160,7 +1170,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 	return saveTourPost({
 		slug,
 		image: image !== undefined ? (image?.trim() ? image.trim() : null) : null,
-		gallery: gallery ?? [],
+		gallery: normalizeTourGalleryInput(gallery ?? []),
 		location: location ?? null,
 		category: category ?? null,
 		physical_rating: physical_rating ?? null,

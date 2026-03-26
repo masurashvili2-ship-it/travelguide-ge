@@ -1,22 +1,13 @@
 import type { APIRoute } from 'astro';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { processTourImageToWebp } from '../../../lib/tour-image-process';
+import { resolveUploadDir } from '../../../lib/resolve-upload-dir';
 import {
 	nextSequentialWebpFilename,
 	slugifyTitleForUploadFilename,
 	tourImageAltFromUrl,
 } from '../../../lib/tour-upload-name';
-
-function uploadDir(): string {
-	const override = process.env.TOUR_UPLOAD_DIR?.trim();
-	if (override) return path.resolve(override);
-	const prodClient = path.join(process.cwd(), 'dist', 'client', 'uploads', 'tours');
-	if (process.env.NODE_ENV === 'production' && existsSync(path.join(process.cwd(), 'dist', 'client'))) {
-		return prodClient;
-	}
-	return path.join(process.cwd(), 'public', 'uploads', 'tours');
-}
 
 const MAX_BYTES = 25 * 1024 * 1024;
 
@@ -97,7 +88,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		});
 	}
 
-	const dir = uploadDir();
+	const dir = resolveUploadDir('tours');
 	mkdirSync(dir, { recursive: true });
 	let base = slugifyTitleForUploadFilename(titleField);
 	if (!base) base = slugifyTitleForUploadFilename(slugField);

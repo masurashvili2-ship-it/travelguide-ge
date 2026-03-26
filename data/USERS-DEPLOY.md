@@ -8,13 +8,12 @@ See: [How to Use Environment Variables in App Platform](https://docs.digitalocea
 
 If the secret is missing or too short at runtime, logs show `[auth] SESSION_SECRET missing…` and the app falls back to an insecure default.
 
-## Why login failed on travelguide.ge (historical)
+## `users.json` is not in git
 
-`data/users.json` was gitignored, so it was **never deployed**. The server had **no accounts**, so every login failed and you were redirected with `?error=Invalid%20email%20or%20password` (often unnoticed on the home URL).
+`data/users.json` is **gitignored** so a push to GitHub **never overwrites** production accounts with an empty file.
 
-## After this fix
-
-- An empty `[]` file ships with the app. **Register again** on production (the **first** user becomes **admin**), **or** replace `users.json` on the server with your local file (hashed passwords only—keep the repo private if you commit real users).
+- **Local:** copy `data/users.json.example` to `data/users.json` (starts as `[]`), then register, or paste a backup.
+- **Production:** mount a **persistent volume** on `data/` (see below). On first boot, if the file is missing, the app treats it as no users until someone registers (first user becomes **admin**).
 
 ## www vs non-www (`travelguide.ge`)
 
@@ -28,18 +27,26 @@ If a CDN or browser caches HTML without respecting cookies, pages can show the w
 
 ## Multiple instances
 
-New session cookies embed **user id, email, and role** in a signed token, so **staying logged in no longer depends on each instance having the same `users.json`**.
+Session cookies embed **user id, email, and role** in a signed token, so staying logged in does **not** require each instance to share `users.json` reads on every request.
 
-You still need **`users.json` consistent** (or shared storage) for **login, register, and password checks**. Use a **persistent disk** on `data/` if those writes must survive redeploys.
+You still need **`users.json` on shared storage** (or a single instance) so **login, register, and password checks** see the same data.
 
-## DigitalOcean App Platform — persist across redeploys
+## DigitalOcean App Platform — persist `data/` and uploads
 
-Without extra setup, a **new deploy can reset** `users.json` to whatever is in git.
+Without extra setup, redeploys use an **ephemeral** filesystem.
 
-1. App → your component → **Edit** → **Storage** (or **Resources** → persistent storage).
-2. Add a **persistent volume** mounted at the directory that holds `data/` (often `/workspace/data` for Node builds—confirm `process.cwd()` in logs if unsure).
-3. After the first deploy with the volume, upload or recreate `users.json` on that volume, or register once and let the file live on the volume.
+1. **Users (and optional JSON content)** — add a **persistent volume** mounted at the app’s **`data/`** directory (confirm `process.cwd()` in your build; often `/workspace/data` or similar).
+2. **Uploaded tour / what-to-do images** — either:
+   - mount the **same** volume so it also covers **`dist/client/uploads`** (recommended if you do not set `UPLOAD_ROOT`), **or**
+   - set **`UPLOAD_ROOT`** to a path on the volume that contains subfolders `tours` and `what-to-do`. Middleware serves `/uploads/tours/…` and `/uploads/what-to-do/…` from those directories.
+
+Set in App → Environment (runtime):
+
+- `UPLOAD_ROOT` — optional; shared base dir for `tours/` and `what-to-do/`
+- `TOUR_UPLOAD_DIR` / `WTD_UPLOAD_DIR` — optional full paths overriding each kind
+
+See `.env.example`.
 
 ## Local development
 
-Copy `users.json` from backup or use **Register** on localhost as usual.
+Copy `users.json` from backup or use **Register** on localhost as usual. If the file is missing, start from `data/users.json.example`.

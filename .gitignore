@@ -17,8 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
-# Keep data/users.json in git so production has the store (see data/USERS-DEPLOY.md).
-# Use a persistent disk on App Platform so new registrations survive redeploys.
+# Real accounts — do not commit (copy data/users.json.example → data/users.json locally).
+# On App Platform use a persistent volume on `data/` so registrations survive redeploys.
+data/users.json
 # local sqlite (if used)
 *.db
 # optional: ignore tour data (remove line to commit content)

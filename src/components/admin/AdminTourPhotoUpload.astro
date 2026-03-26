@@ -162,8 +162,9 @@ const {
 				throw new Error('Invalid server response');
 			}
 			if (!res.ok) throw new Error(data.error || 'Upload failed');
-			if (!data.url) throw new Error('No URL returned');
-			return { url: data.url, alt: data.alt || '' };
+			var url = typeof data.url === 'string' ? data.url.replace(/\uFEFF/g, '').trim() : '';
+			if (!url) throw new Error('No URL returned');
+			return { url: url, alt: (data.alt && String(data.alt).trim()) || '' };
 		}
 
 		coverBtn.addEventListener('click', async function () {

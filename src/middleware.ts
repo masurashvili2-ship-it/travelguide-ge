@@ -1,5 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { userFromRequest } from './lib/auth';
+import { serveUserUploadIfPresent } from './lib/serve-user-upload';
 
 const CANONICAL_SITE_HOST = 'travelguide.ge';
 
@@ -23,6 +24,9 @@ function redirectToCanonicalSiteHost(request: Request): Response | null {
 export const onRequest = defineMiddleware(async (context, next) => {
 	const canon = redirectToCanonicalSiteHost(context.request);
 	if (canon) return canon;
+
+	const upload = await serveUserUploadIfPresent(context.request);
+	if (upload) return upload;
 
 	context.locals.user = (await userFromRequest(context.request.headers.get('cookie'))) ?? undefined;
 
