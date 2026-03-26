@@ -1,53 +1,75 @@
----
-import type { Locale } from '../lib/strings';
-
-interface Props {
-	locale: Locale;
-	class?: string;
-}
-
-const { locale, class: className } = Astro.props;
----
-
-<span class:list={['locale-flag', className]} aria-hidden="true">
-	{
-		locale === 'en' ? (
-			<svg class="locale-flag__svg" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
-				<path fill="#012169" d="M0 0h60v30H0z" />
-				<path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
-				<path stroke="#C8102E" stroke-width="4" d="M0 0l60 30M60 0L0 30" />
-				<path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
-				<path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60" />
-			</svg>
-		) : locale === 'ka' ? (
-			<svg class="locale-flag__svg" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
-				<rect width="30" height="20" fill="#fff" />
-				<path fill="#e4002b" d="M13 0h4v20h-4zM0 8h30v4H0z" />
-			</svg>
-		) : (
-			<svg class="locale-flag__svg" viewBox="0 0 9 6" xmlns="http://www.w3.org/2000/svg">
-				<rect width="9" height="2" fill="#fff" />
-				<rect width="9" height="2" y="2" fill="#0039a6" />
-				<rect width="9" height="2" y="4" fill="#d52b1e" />
-			</svg>
-		)
-	}
-</span>
-
-<style>
-	.locale-flag {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		line-height: 0;
-	}
-	.locale-flag__svg {
-		display: block;
-		width: 1.4rem;
-		height: 0.93rem;
-		border-radius: 2px;
-		box-shadow: 0 0 0 1px rgba(26, 35, 50, 0.15);
-		object-fit: cover;
-	}
-</style>
+---
+import type { Locale } from '../lib/strings';
+
+interface Props {
+	locale: Locale;
+	class?: string;
+}
+
+const { locale, class: className } = Astro.props;
+---
+
+<span class:list={['locale-flag', className]} aria-hidden="true">
+	{
+		locale === 'en' ? (
+			<svg
+				class="locale-flag__svg"
+				viewBox="0 0 60 30"
+				preserveAspectRatio="xMidYMid meet"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path fill="#012169" d="M0 0h60v30H0z" />
+				<path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
+				<path stroke="#C8102E" stroke-width="4" d="M0 0l60 30M60 0L0 30" />
+				<path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
+				<path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60" />
+			</svg>
+		) : locale === 'ka' ? (
+			<svg
+				class="locale-flag__svg"
+				viewBox="0 0 30 20"
+				preserveAspectRatio="xMidYMid meet"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<rect width="30" height="20" fill="#fff" />
+				<g fill="#e4002b">
+					<rect x="13" y="0" width="4" height="20" />
+					<rect x="0" y="8" width="30" height="4" />
+					<path d="M6.5 1.25h2.2v5.5h-2.2zM3.75 3.75h8v2.5h-8z" />
+					<path d="M23.5 1.25h2.2v5.5h-2.2zM20.75 3.75h8v2.5h-8z" />
+					<path d="M6.5 13.25h2.2v5.5h-2.2zM3.75 15.75h8v2.5h-8z" />
+					<path d="M23.5 13.25h2.2v5.5h-2.2zM20.75 15.75h8v2.5h-8z" />
+				</g>
+			</svg>
+		) : (
+			<svg
+				class="locale-flag__svg"
+				viewBox="0 0 9 6"
+				preserveAspectRatio="xMidYMid meet"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<rect width="9" height="2" fill="#fff" />
+				<rect width="9" height="2" y="2" fill="#0039a6" />
+				<rect width="9" height="2" y="4" fill="#d52b1e" />
+			</svg>
+		)
+	}
+</span>
+
+<style>
+	.locale-flag {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		line-height: 0;
+	}
+	.locale-flag__svg {
+		display: block;
+		width: 1.4rem;
+		height: 0.93rem;
+		border-radius: 2px;
+		box-shadow: 0 0 0 1px rgba(26, 35, 50, 0.12);
+	}
+</style>
+

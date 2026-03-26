@@ -1,5 +1,11 @@
 import type { APIRoute } from 'astro';
-import { applyImportBundle, parseBackupBundle } from '../../../lib/admin-data-backup';
+import {
+	applyImportBundle,
+	type BackupKind,
+	type ImportMode,
+	parseBackupBundle,
+	parseBackupKindsFromParams,
+} from '../../../lib/admin-data-backup';
 
 function requireAdmin(locals: App.Locals): Response | null {
 	if (!locals.user || locals.user.role !== 'admin') {
@@ -45,6 +51,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	const redirectTo = typeof redirectRaw === 'string' ? redirectRaw : '/en/admin/backup';
 	const importUsers = fd.get('import_users') === 'on' || fd.get('import_users') === 'true';
 
+	const importModeRaw = String(fd.get('import_mode') ?? 'replace').toLowerCase();
+	const importMode: ImportMode = importModeRaw === 'merge' ? 'merge' : 'replace';
+
+	const importScope = String(fd.get('import_scope') ?? 'all').toLowerCase();
+	let kindsFilter: BackupKind[] | null = null;
+	if (importScope === 'pick') {
+		const picked = fd.getAll('import_kind').map((v) => String(v));
+		const parsed = parseBackupKindsFromParams(picked);
+		if ('error' in parsed) {
+			return redirectWithMessage(request, redirectTo, { error: parsed.error });
+		}
+		kindsFilter = parsed;
+	}
+
 	const file = fd.get('file');
 	if (!file || typeof file === 'string') {
 		return redirectWithMessage(request, redirectTo, { error: 'Choose a backup JSON file.' });
@@ -69,7 +89,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		return redirectWithMessage(request, redirectTo, { error: bundle.error });
 	}
 
-	const result = applyImportBundle(bundle, { importUsers });
+	const result = applyImportBundle(bundle, { importUsers, kindsFilter, importMode });
 	if (!result.ok) {
 		return redirectWithMessage(request, redirectTo, { error: result.error });
 	}
@@ -77,5 +97,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	const u = new URL(redirectTo.trim() || '/en/admin/backup', request.url);
 	u.searchParams.set('import', 'ok');
 	u.searchParams.set('n', String(result.written.length));
+	if (result.importMode === 'merge') {
+		u.searchParams.set('merge', '1');
+		u.searchParams.set('ma', String(result.mergeAdded));
+	}
 	return Response.redirect(u.toString(), 303);
 };

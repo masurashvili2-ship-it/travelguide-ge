@@ -49,16 +49,31 @@ function formatCount(n: number): string {
 		<p class="muted">{t.searchIntro}</p>
 		<form class="site-search-page-form" method="get" action={getRelativeLocaleUrl(locale, 'search')}>
 			<label class="visually-hidden" for="site-search-page-q">{t.searchPlaceholder}</label>
-			<input
-				id="site-search-page-q"
-				type="search"
-				name="q"
-				value={q}
-				placeholder={t.searchPlaceholder}
-				autocomplete="off"
-				class="site-search-page-input"
-			/>
-			<button type="submit" class="btn">{t.searchButton}</button>
+			<div class="site-search-page-field">
+				<input
+					id="site-search-page-q"
+					type="search"
+					name="q"
+					value={q}
+					placeholder={t.searchPlaceholder}
+					autocomplete="off"
+					class="site-search-page-input"
+				/>
+				<button type="submit" class="site-search-page-submit" aria-label={t.searchButton}>
+					<svg
+						class="site-search-page-submit-icon"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						aria-hidden="true"
+					>
+						<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+						<path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+					</svg>
+				</button>
+			</div>
 		</form>
 	</section>
 
@@ -95,18 +110,22 @@ function formatCount(n: number): string {
 
 	<style>
 		.site-search-page-form {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.5rem;
-			align-items: center;
+			display: block;
 			margin-top: 1rem;
 			max-width: 36rem;
 		}
+		.site-search-page-field {
+			position: relative;
+			display: block;
+			width: 100%;
+		}
 		.site-search-page-input {
-			flex: 1 1 12rem;
+			display: block;
+			width: 100%;
 			min-width: 0;
 			padding: 0.62rem 0.85rem;
-			border-radius: var(--radius-sm);
+			padding-right: 2.65rem;
+			border-radius: 999px;
 			border: 1px solid var(--border);
 			background: var(--surface);
 			color: var(--text);
@@ -116,6 +135,35 @@ function formatCount(n: number): string {
 			outline: none;
 			border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
 			box-shadow: 0 0 0 3px var(--accent-glow);
+		}
+		.site-search-page-submit {
+			position: absolute;
+			right: 0.25rem;
+			top: 50%;
+			transform: translateY(-50%);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.15rem;
+			height: 2.15rem;
+			margin: 0;
+			padding: 0;
+			border: none;
+			border-radius: 999px;
+			background: transparent;
+			color: var(--muted);
+			cursor: pointer;
+			transition:
+				color 0.15s ease,
+				background 0.15s ease;
+		}
+		.site-search-page-submit:hover {
+			color: var(--accent-dim);
+			background: color-mix(in srgb, var(--accent) 10%, transparent);
+		}
+		.site-search-page-submit:focus-visible {
+			outline: 2px solid var(--accent);
+			outline-offset: 2px;
 		}
 		.search-results {
 			list-style: none;

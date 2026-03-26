@@ -323,15 +323,21 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border: 0;
 			}
 			.site-search__form {
-				display: flex;
-				gap: 0.35rem;
-				align-items: center;
+				display: block;
+				width: 100%;
+				margin: 0;
+			}
+			.site-search__field {
+				position: relative;
+				display: block;
 				width: 100%;
 			}
 			.site-search__input {
-				flex: 1;
+				display: block;
+				width: 100%;
 				min-width: 0;
 				padding: 0.45rem 0.8rem;
+				padding-right: 2.5rem;
 				font: inherit;
 				font-size: 0.88rem;
 				border: 1px solid var(--border);
@@ -347,24 +353,38 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
 				box-shadow: 0 0 0 3px var(--accent-glow);
 			}
-			.site-search__btn {
-				flex-shrink: 0;
-				padding: 0.45rem 0.85rem;
-				font: inherit;
-				font-size: 0.8rem;
-				font-weight: 600;
-				color: var(--accent-dim);
-				background: color-mix(in srgb, var(--accent) 8%, var(--surface));
-				border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+			.site-search__submit {
+				position: absolute;
+				right: 0.2rem;
+				top: 50%;
+				transform: translateY(-50%);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.05rem;
+				height: 2.05rem;
+				margin: 0;
+				padding: 0;
+				border: none;
 				border-radius: 999px;
+				background: transparent;
+				color: var(--muted);
 				cursor: pointer;
 				transition:
-					background 0.15s ease,
-					border-color 0.15s ease;
+					color 0.15s ease,
+					background 0.15s ease;
 			}
-			.site-search__btn:hover {
-				background: color-mix(in srgb, var(--accent) 14%, var(--surface));
-				border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+			.site-search__submit:hover {
+				color: var(--accent-dim);
+				background: color-mix(in srgb, var(--accent) 10%, transparent);
+			}
+			.site-search__submit:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 2px;
+			}
+			.site-search__submit-icon {
+				display: block;
+				flex-shrink: 0;
 			}
 			.site-search--header {
 				flex: 1 1 10rem;
@@ -496,6 +516,12 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			.site-dd__user-icon {
 				flex-shrink: 0;
 				opacity: 0.85;
+			}
+			.site-dd--account > .site-dd__trigger {
+				justify-content: center;
+				gap: 0.15rem;
+				padding-inline: 0.45rem 0.5rem;
+				min-width: 2.5rem;
 			}
 			.site-dd__email {
 				margin: 0;
@@ -887,16 +913,36 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 						<div class="site-search site-search--drawer">
 							<form method="get" action={searchUrl} class="site-search__form" role="search">
 								<label class="visually-hidden" for="site-search-drawer-q">{t.searchPlaceholder}</label>
-								<input
-									id="site-search-drawer-q"
-									type="search"
-									name="q"
-									value={searchQ}
-									placeholder={t.searchPlaceholder}
-									autocomplete="off"
-									class="site-search__input"
-								/>
-								<button type="submit" class="site-search__btn">{t.searchButton}</button>
+								<div class="site-search__field">
+									<input
+										id="site-search-drawer-q"
+										type="search"
+										name="q"
+										value={searchQ}
+										placeholder={t.searchPlaceholder}
+										autocomplete="off"
+										class="site-search__input"
+									/>
+									<button type="submit" class="site-search__submit" aria-label={t.searchButton}>
+										<svg
+											class="site-search__submit-icon"
+											width="20"
+											height="20"
+											viewBox="0 0 24 24"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+											aria-hidden="true"
+										>
+											<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+											<path
+												d="M16 16l4.5 4.5"
+												stroke="currentColor"
+												stroke-width="2"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</div>
 							</form>
 						</div>
 						<a href={getRelativeLocaleUrl(locale, '/')} aria-current={subpath === '' ? 'page' : undefined}>{t.home}</a>
@@ -917,17 +963,37 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 						<div class="site-search site-search--header">
 							<form method="get" action={searchUrl} class="site-search__form" role="search">
 								<label class="visually-hidden" for="site-search-header-q">{t.searchPlaceholder}</label>
-								<input
-									id="site-search-header-q"
-									type="search"
-									name="q"
-									value={searchQ}
-									placeholder={t.searchPlaceholder}
-									autocomplete="off"
-									class="site-search__input"
-									aria-label={t.searchAriaLabel}
-								/>
-								<button type="submit" class="site-search__btn">{t.searchButton}</button>
+								<div class="site-search__field">
+									<input
+										id="site-search-header-q"
+										type="search"
+										name="q"
+										value={searchQ}
+										placeholder={t.searchPlaceholder}
+										autocomplete="off"
+										class="site-search__input"
+										aria-label={t.searchAriaLabel}
+									/>
+									<button type="submit" class="site-search__submit" aria-label={t.searchButton}>
+										<svg
+											class="site-search__submit-icon"
+											width="20"
+											height="20"
+											viewBox="0 0 24 24"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+											aria-hidden="true"
+										>
+											<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+											<path
+												d="M16 16l4.5 4.5"
+												stroke="currentColor"
+												stroke-width="2"
+												stroke-linecap="round"
+											/>
+										</svg>
+									</button>
+								</div>
 							</form>
 						</div>
 						<details class="site-dd site-dd--lang">
@@ -969,38 +1035,35 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 							</div>
 						</details>
 						<details class="site-dd site-dd--account">
-							<summary class="site-dd__trigger" aria-label={t.navAccount}>
-								<span class="site-dd__trigger-inner">
-									<svg
-										class="site-dd__user-icon"
-										width="18"
-										height="18"
-										viewBox="0 0 24 24"
-										aria-hidden="true"
-									>
-										<path
-											fill="currentColor"
-											d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-										/>
-									</svg>
-									<span class="site-dd__trigger-text">{t.navAccount}</span>
-									<svg
-										class="site-dd__chev-svg"
-										width="12"
-										height="12"
-										viewBox="0 0 12 12"
-										aria-hidden="true"
-									>
-										<path
-											fill="none"
-											stroke="currentColor"
-											stroke-width="1.75"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											d="M2.5 4.25 6 7.75 9.5 4.25"
-										/>
-									</svg>
-								</span>
+							<summary class="site-dd__trigger site-dd__trigger--account" aria-label={t.navAccount}>
+								<svg
+									class="site-dd__user-icon"
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<path
+										fill="currentColor"
+										d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+									/>
+								</svg>
+								<svg
+									class="site-dd__chev-svg"
+									width="12"
+									height="12"
+									viewBox="0 0 12 12"
+									aria-hidden="true"
+								>
+									<path
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.75"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M2.5 4.25 6 7.75 9.5 4.25"
+									/>
+								</svg>
 							</summary>
 							<div class="site-dd__panel" role="group" aria-label={t.navAccount}>
 								{

@@ -1,8 +1,20 @@
 ---
 import AdminLayout from '../../../../components/admin/AdminLayout.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { DATA_BACKUP_FILENAMES } from '../../../../lib/admin-data-backup';
+import { BACKUP_KIND_IDS, DATA_BACKUP_FILENAMES } from '../../../../lib/admin-data-backup';
 import type { Locale } from '../../../../lib/strings';
+
+const kindLabels: Record<(typeof BACKUP_KIND_IDS)[number], string> = {
+	tours: 'Tours',
+	'what-to-do': 'What to do',
+	regions: 'Regions',
+	pages: 'Pages',
+	footer: 'Footer',
+	submissions: 'Content submissions',
+	comments: 'Tour comments',
+	users: 'Users',
+	activity: 'User activity',
+};
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -21,6 +33,8 @@ const sp = Astro.url.searchParams;
 const err = sp.get('error');
 const importOk = sp.get('import') === 'ok';
 const importN = sp.get('n');
+const importMerge = sp.get('merge') === '1';
+const importMergeAdded = sp.get('ma');
 
 const dashboardUrl = getRelativeLocaleUrl(locale, 'admin');
 const backupPath = getRelativeLocaleUrl(locale, 'admin/backup');
@@ -48,6 +62,14 @@ const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
 		importOk ? (
 			<div class="notice notice-success" role="status">
 				Import finished. {importN ? `${importN} file(s) updated.` : 'Files were written from the backup.'}
+				{importMerge ? (
+					<>
+						{' '}
+						{importMergeAdded !== null && importMergeAdded !== ''
+							? `Merge: ${importMergeAdded} new row(s) appended (existing rows kept).`
+							: 'Merge mode: existing rows were kept.'}
+					</>
+				) : null}
 			</div>
 		) : null
 	}
@@ -56,8 +78,8 @@ const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
 		<h2 class="admin-card__h">Export</h2>
 		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
-				Downloads a single JSON bundle (<code>version</code>, <code>app</code>, <code>files</code>) with these stores when
-				present:
+				Downloads a single JSON bundle (<code>version</code>, <code>app</code>, <code>files</code>). Each type maps to one
+				file under <code>data/</code> when present:
 			</p>
 			<ul class="muted" style="margin:0 0 1rem;padding-left:1.25rem">
 				{DATA_BACKUP_FILENAMES.map((name) => (
@@ -77,10 +99,67 @@ const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
 					Dashboard
 				</a>
 			</p>
-			<p class="muted" style="margin:0;font-size:0.9rem">
+			<p class="muted" style="margin:0 0 1rem;font-size:0.9rem">
 				Use “without users” when sharing a backup without password hashes. Existing sessions may still be valid until they
 				expire.
 			</p>
+
+			<form method="get" action={exportUrlAll} class="backup-export-form">
+				<div class="backup-fieldset">
+					<p class="backup-fieldset__legend">Export selected types only</p>
+					<div class="backup-toolbar">
+						<button type="button" class="button button-sm" data-backup-select-all>
+							Select all
+						</button>
+						<button type="button" class="button button-sm" data-backup-clear-all>
+							Clear all
+						</button>
+					</div>
+					<ul class="backup-kind-grid" role="group" aria-label="Data types to include in export">
+						{BACKUP_KIND_IDS.map((id) => (
+							<li>
+								<label class="backup-check">
+									<input type="checkbox" name="types" value={id} checked data-backup-kind />
+									<span class="backup-check__text">{kindLabels[id]}</span>
+								</label>
+							</li>
+						))}
+					</ul>
+					<div class="backup-users-note">
+						<label class="backup-check">
+							<input type="checkbox" name="include_users" value="1" checked />
+							<input type="hidden" name="include_users" value="0" />
+							<span class="backup-check__text">
+								Include <code>users.json</code> when “Users” is selected (uncheck to omit users even if that type is checked)
+							</span>
+						</label>
+					</div>
+				</div>
+				<p style="margin:0">
+					<button type="submit" class="button button-primary">Download selected</button>
+				</p>
+			</form>
+			<script is:inline>
+				(function () {
+					var form = document.querySelector('.backup-export-form');
+					if (!form) return;
+					var boxes = form.querySelectorAll('[data-backup-kind]');
+					var selAll = form.querySelector('[data-backup-select-all]');
+					var clr = form.querySelector('[data-backup-clear-all]');
+					if (selAll)
+						selAll.addEventListener('click', function () {
+							boxes.forEach(function (c) {
+								c.checked = true;
+							});
+						});
+					if (clr)
+						clr.addEventListener('click', function () {
+							boxes.forEach(function (c) {
+								c.checked = false;
+							});
+						});
+				})();
+			</script>
 		</div>
 	</section>
 
@@ -88,8 +167,10 @@ const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
 		<h2 class="admin-card__h">Import</h2>
 		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
-				Upload a bundle produced by this site (same JSON format as export). Only files listed in the bundle are
-				overwritten; others are left unchanged. Validate backups on a copy of the site first.
+				Upload a bundle produced by this site (same JSON format as export). Choose <strong>replace</strong> to overwrite
+				each included file, or <strong>merge</strong> to keep current data and append new posts / rows (matched by{' '}
+				<code>id</code>; duplicate slugs get a numeric suffix). Files not in the bundle stay unchanged. Test on a copy
+				first.
 			</p>
 			<form method="post" action={importAction} enctype="multipart/form-data">
 				<input type="hidden" name="redirect" value={backupPath} />
@@ -101,10 +182,58 @@ const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
 						<input type="file" name="file" accept="application/json,.json" required />
 					</label>
 				</p>
+				<div class="backup-fieldset" style="margin-bottom:0.75rem">
+					<p class="backup-fieldset__legend">Import scope</p>
+					<p style="margin:0 0 0.5rem">
+						<label class="backup-check">
+							<input type="radio" name="import_scope" value="all" checked />
+							<span class="backup-check__text">Import every data type present in the file (same as before)</span>
+						</label>
+					</p>
+					<p style="margin:0 0 0.65rem">
+						<label class="backup-check">
+							<input type="radio" name="import_scope" value="pick" />
+							<span class="backup-check__text">Import only selected types (other keys in the file are ignored)</span>
+						</label>
+					</p>
+					<ul class="backup-kind-grid" role="group" aria-label="Types to import when scope is limited">
+						{BACKUP_KIND_IDS.map((id) => (
+							<li>
+								<label class="backup-check">
+									<input type="checkbox" name="import_kind" value={id} />
+									<span class="backup-check__text">{kindLabels[id]}</span>
+								</label>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div class="backup-fieldset" style="margin-bottom:0.75rem">
+					<p class="backup-fieldset__legend">Import behavior</p>
+					<p style="margin:0 0 0.5rem">
+						<label class="backup-check">
+							<input type="radio" name="import_mode" value="replace" checked />
+							<span class="backup-check__text">
+								Replace: overwrite each included file with the backup (previous behavior)
+							</span>
+						</label>
+					</p>
+					<p style="margin:0">
+						<label class="backup-check">
+							<input type="radio" name="import_mode" value="merge" />
+							<span class="backup-check__text">
+								Merge: keep existing rows and append only new ones (same <code>id</code> is skipped; users also skip
+								duplicate email). Footer: new links are appended; existing blurb text is kept.
+							</span>
+						</label>
+					</p>
+				</div>
 				<p style="margin:0 0 0.75rem">
-					<label>
+					<label class="backup-check">
 						<input type="checkbox" name="import_users" />
-						<span class="muted">Also import <code>users.json</code> (replaces passwords and roles)</span>
+						<span class="backup-check__text">
+							Also import <code>users.json</code> when it is in scope (replace mode overwrites; merge appends new ids /
+							skips existing emails)
+						</span>
 					</label>
 				</p>
 				<p style="margin:0">
