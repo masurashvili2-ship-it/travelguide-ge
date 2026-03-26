@@ -6,6 +6,10 @@ import { readUsers } from '../../../lib/auth';
 import { getFooterConfig } from '../../../lib/footer-db';
 import { listAllPagesAdmin } from '../../../lib/pages-db';
 import { listAllToursAdmin, listAllWhatToDoAdmin } from '../../../lib/tours-db';
+import {
+	contributorAuthorEmailForPublishedPost,
+	countPendingSubmissions,
+} from '../../../lib/submissions-db';
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -31,11 +35,25 @@ const pagesAdminUrl = getRelativeLocaleUrl(locale, 'admin/pages');
 const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
 const footerAdminUrl = getRelativeLocaleUrl(locale, 'admin/footer');
 const footerLinkCount = getFooterConfig().links.length;
+const submissionsUrl = getRelativeLocaleUrl(locale, 'admin/submissions');
+const pendingSubmissions = countPendingSubmissions();
+
+function displayTourAuthor(row: (typeof tourRows)[number]): string {
+	return (
+		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('tours', row.id) || ''
+	);
+}
+
+function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
+	return (
+		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('what-to-do', row.id) || ''
+	);
+}
 ---
 
 <AdminLayout
 	locale={locale}
-	title="Dashboard ‹ Travel Guide Georgia"
+	title="Dashboard · Travel Guide Georgia"
 	headline="Dashboard"
 	subtitle={`Welcome to your site administration. You are using the ${locale.toUpperCase()} admin URL.`}
 	activeNav="dashboard"
@@ -49,9 +67,14 @@ const footerLinkCount = getFooterConfig().links.length;
 		) : null
 	}
 
-	<div class="postbox">
-		<div class="postbox__header">At a glance</div>
-		<div class="postbox__inside">
+	<section class="admin-card">
+		<h2 class="admin-card__h">At a glance</h2>
+		<div class="admin-card__bd">
+			<p style="margin:0 0 0.75rem">
+				<a class="button button-primary" href={submissionsUrl}>
+					Contributor approvals{pendingSubmissions > 0 ? ` (${pendingSubmissions} pending)` : ''}
+				</a>
+			</p>
 			<p class="muted" style="margin:0 0 0.5rem">
 				<strong>{tourRows.length}</strong> tour post{tourRows.length === 1 ? '' : 's'} ·{' '}
 				<strong>{pageRows.length}</strong> page{pageRows.length === 1 ? '' : 's'} ·{' '}
@@ -60,17 +83,17 @@ const footerLinkCount = getFooterConfig().links.length;
 			</p>
 			<p class="muted" style="margin:0">
 				Data files: <code>tours.json</code>, <code>what-to-do.json</code>, <code>pages.json</code>,{' '}
-				<code>footer.json</code>, <code>users.json</code>.
+				<code>content-submissions.json</code>, <code>footer.json</code>, <code>users.json</code>.
 				Tours use one slug and shared photos with per-language text. Pages are Markdown at <code>/{locale}/slug</code>.
 				The <strong>site footer</strong> (all public pages) is edited only under{' '}
 				<a href={footerAdminUrl}>Footer</a>.
 			</p>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox" id="wp-pages">
-		<div class="postbox__header">Pages</div>
-		<div class="postbox__inside">
+	<section class="admin-card" id="section-pages">
+		<h2 class="admin-card__h">Pages</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				Static pages (About, Privacy, etc.) at <code>/{locale}/slug</code>. Footer navigation is configured in{' '}
 				<a href={footerAdminUrl}>Footer</a>, not here.
@@ -82,11 +105,11 @@ const footerLinkCount = getFooterConfig().links.length;
 				</a>
 			</p>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox" id="wp-footer">
-		<div class="postbox__header">Site footer</div>
-		<div class="postbox__inside">
+	<section class="admin-card" id="section-footer">
+		<h2 class="admin-card__h">Site footer</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				One place to manage footer links and optional Markdown text for <strong>every</strong> public page. Stored in{' '}
 				<code>data/footer.json</code>.
@@ -95,30 +118,35 @@ const footerLinkCount = getFooterConfig().links.length;
 				<a class="button button-primary" href={footerAdminUrl}>Edit footer</a>
 			</p>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox" id="wp-tours">
-		<div class="postbox__header">Tours</div>
-		<div class="postbox__inside">
+	<section class="admin-card" id="section-tours">
+		<h2 class="admin-card__h">Tours</h2>
+		<div class="admin-card__bd">
 			<p style="margin:0 0 1rem">
 				<a class="button button-primary" href={newTourUrl}>Add new tour</a>
 			</p>
-			<table class="wp-list-table">
-				<thead>
-					<tr>
-						<th>Slug</th>
-						<th>English</th>
-						<th>Georgian</th>
-						<th>Russian</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						tourRows.map((row) => (
+			<div class="admin-table-wrap">
+				<table class="admin-table">
+					<thead>
+						<tr>
+							<th>Slug</th>
+							<th>Author</th>
+							<th>English</th>
+							<th>Georgian</th>
+							<th>Russian</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							tourRows.map((row) => (
 							<tr>
 								<td>
 									<code>{row.slug}</code>
+								</td>
+								<td class="muted" style="font-size:0.88rem;max-width:12rem">
+									{displayTourAuthor(row) || '—'}
 								</td>
 								<td>{row.titles.en || '—'}</td>
 								<td>{row.titles.ka || '—'}</td>
@@ -133,38 +161,44 @@ const footerLinkCount = getFooterConfig().links.length;
 									</div>
 								</td>
 							</tr>
-						))
-					}
-				</tbody>
-			</table>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox" id="wp-what-to-do">
-		<div class="postbox__header">What to do</div>
-		<div class="postbox__inside">
+	<section class="admin-card" id="section-what-to-do">
+		<h2 class="admin-card__h">What to do</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				Activities and ideas — same fields as tours, separate list at <code>/{locale}/what-to-do/</code>.
 			</p>
 			<p style="margin:0 0 1rem">
 				<a class="button button-primary" href={newWtdUrl}>Add new</a>
 			</p>
-			<table class="wp-list-table">
-				<thead>
-					<tr>
-						<th>Slug</th>
-						<th>English</th>
-						<th>Georgian</th>
-						<th>Russian</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						wtdRows.map((row) => (
+			<div class="admin-table-wrap">
+				<table class="admin-table">
+					<thead>
+						<tr>
+							<th>Slug</th>
+							<th>Author</th>
+							<th>English</th>
+							<th>Georgian</th>
+							<th>Russian</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							wtdRows.map((row) => (
 							<tr>
 								<td>
 									<code>{row.slug}</code>
+								</td>
+								<td class="muted" style="font-size:0.88rem;max-width:12rem">
+									{displayWtdAuthor(row) || '—'}
 								</td>
 								<td>{row.titles.en || '—'}</td>
 								<td>{row.titles.ka || '—'}</td>
@@ -179,37 +213,40 @@ const footerLinkCount = getFooterConfig().links.length;
 									</div>
 								</td>
 							</tr>
-						))
-					}
-				</tbody>
-			</table>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox" id="wp-users">
-		<div class="postbox__header">Users</div>
-		<div class="postbox__inside">
+	<section class="admin-card" id="section-users">
+		<h2 class="admin-card__h">Users</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">Demo accounts only — not for production.</p>
-			<table class="wp-list-table">
-				<thead>
-					<tr>
-						<th>Email</th>
-						<th>Role</th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						users.map((u) => (
+			<div class="admin-table-wrap">
+				<table class="admin-table admin-table--narrow">
+					<thead>
+						<tr>
+							<th>Email</th>
+							<th>Role</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							users.map((u) => (
 							<tr>
 								<td>{u.email}</td>
 								<td>{u.role}</td>
 							</tr>
-						))
-					}
-				</tbody>
-			</table>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
 		</div>
-	</div>
+	</section>
 
 	<p class="muted" style="margin-top:1.5rem">
 		<a href={getRelativeLocaleUrl('en', '/')}>English site</a>

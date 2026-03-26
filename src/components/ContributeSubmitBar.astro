@@ -1,0 +1,102 @@
+---
+interface Props {
+	formId: string;
+	cancelHref: string;
+	submitLabel?: string;
+	/** Shown after successful create submit */
+	successNewMessage?: string;
+	/** Shown after successful edit save */
+	successUpdatedMessage?: string;
+}
+
+const {
+	formId,
+	cancelHref,
+	submitLabel = 'Submit for review',
+	successNewMessage = 'Submitted for review. An admin will publish it or contact you if changes are needed.',
+	successUpdatedMessage = 'Changes saved. Your submission is pending review again.',
+} = Astro.props;
+---
+
+<div class="admin-save-bar-root contribute-submit-root" data-contribute-sticky data-form-id={formId}>
+	<div class="admin-save-bar" role="region" aria-label="Submit actions">
+		<div id={`contribute-save-status-${formId}`} class="admin-save-status" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+		<div class="admin-save-bar__inner">
+			<button class="btn button-primary admin-save-bar__submit" type="submit" form={formId}>
+				{submitLabel}
+			</button>
+			<a class="button" href={cancelHref}>Back</a>
+		</div>
+	</div>
+</div>
+
+<script is:inline define:vars={{ successNewMessage, successUpdatedMessage }}>
+	(function () {
+		function bind(root) {
+			if (!root || root.getAttribute('data-contribute-bound')) return;
+			root.setAttribute('data-contribute-bound', '1');
+			var formId = root.getAttribute('data-form-id');
+			var form = formId ? document.getElementById(formId) : null;
+			var statusEl = root.querySelector('[id^="contribute-save-status-"]');
+			if (!form || !statusEl) return;
+
+			form.addEventListener('submit', function (e) {
+				if (!form.checkValidity()) {
+					return;
+				}
+				e.preventDefault();
+				statusEl.hidden = false;
+				statusEl.textContent = 'Submitting…';
+				statusEl.className = 'admin-save-status admin-save-status--busy';
+
+				var fd = new FormData(form);
+				fetch(form.action, {
+					method: 'POST',
+					body: fd,
+					headers: { Accept: 'application/json' },
+					credentials: 'same-origin',
+				})
+					.then(function (res) {
+						var ct = res.headers.get('content-type') || '';
+						if (!ct.includes('application/json')) {
+							return res.text().then(function () {
+								return {
+									ok: false,
+									status: res.status,
+									data: { error: 'Unexpected response. Try signing in again.' },
+								};
+							});
+						}
+						return res.json().then(function (data) {
+							return { ok: res.ok, status: res.status, data: data || {} };
+						});
+					})
+					.then(function (r) {
+						if (r.ok && r.data && r.data.ok) {
+							statusEl.textContent = r.data.updated ? successUpdatedMessage : successNewMessage;
+							statusEl.className = 'admin-save-status admin-save-status--ok';
+							return;
+						}
+						var msg =
+							r.data && r.data.error
+								? r.data.error
+								: r.status === 401
+									? 'Please sign in and try again.'
+									: 'Could not submit (HTTP ' + r.status + ').';
+						statusEl.textContent = 'Not submitted: ' + msg;
+						statusEl.className = 'admin-save-status admin-save-status--err';
+					})
+					.catch(function () {
+						statusEl.textContent = 'Not submitted: network error.';
+						statusEl.className = 'admin-save-status admin-save-status--err';
+					});
+			});
+		}
+
+		function run() {
+			document.querySelectorAll('[data-contribute-sticky]').forEach(bind);
+		}
+		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+		else run();
+	})();
+</script>

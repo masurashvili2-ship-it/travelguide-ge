@@ -1,0 +1,164 @@
+---
+import Shell from '../../../components/Shell.astro';
+import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
+import AdminTourLocalesFields from '../../../components/admin/AdminTourLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { TOUR_CATEGORY_IDS, TOUR_CATEGORY_LABELS_EN } from '../../../lib/tour-categories';
+import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../lib/tour-physical-rating';
+import type { Locale } from '../../../lib/strings';
+import '../../../styles/contribute.css';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'contribute/tour');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const back = getRelativeLocaleUrl(locale, 'contribute');
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute/tour"
+	title="Propose a tour"
+	seoTitle="Propose a tour"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={back}>← Back to Contribute</a>
+		</p>
+		<h1>Propose a tour</h1>
+		<p class="muted">
+			Same fields as the admin tour editor. You can upload images (WebP, watermarked) like admins, or paste URLs. An
+			admin will publish or reject your proposal.
+		</p>
+
+		<form id="contribute-tour-form" method="post" action="/api/contribute/tours">
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Slug</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug (URL)</span>
+							<input
+							type="text"
+							id="tour-admin-slug"
+							name="slug"
+							required
+							placeholder="e.g. batumi-food-walk"
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Lowercase Latin letters, numbers, hyphens. Must be unique on the site.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Sidebar (shared)</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Category</span>
+							<select name="category">
+								<option value="" selected>— None —</option>
+								{TOUR_CATEGORY_IDS.map((id) => (
+									<option value={id}>{TOUR_CATEGORY_LABELS_EN[id]}</option>
+								))}
+							</select>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Physical rating</span>
+							<select name="physical_rating">
+								<option value="" selected>— None —</option>
+								{PHYSICAL_RATING_IDS.map((id) => (
+									<option value={id}>{PHYSICAL_RATING_LABELS_EN[id]}</option>
+								))}
+							</select>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Driving distance</span>
+							<input type="text" name="driving_distance" autocomplete="off" placeholder="e.g. 120 km round trip" />
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Featured image &amp; gallery</h2>
+				<div class="contribute-card__bd">
+					<fieldset style="border:none;padding:0;margin:0">
+						<AdminTourPhotoUpload
+							formId="contribute-tour-form"
+							uploadApiPath="/api/contribute/upload-tour-image"
+							slugInputId="tour-admin-slug"
+						/>
+					</fieldset>
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input type="text" name="image" id="tour-cover-url" placeholder="/uploads/tours/… or https://…" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea
+								name="gallery_urls"
+								id="tour-gallery-urls"
+								rows={4}
+								placeholder="One URL per line. Upload can append here."
+							></textarea>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Map (optional)</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Latitude</span>
+							<input type="text" name="location_lat" inputmode="decimal" autocomplete="off" placeholder="e.g. 41.7151" />
+						</label>
+						<label>
+							<span>Longitude</span>
+							<input type="text" name="location_lng" inputmode="decimal" autocomplete="off" placeholder="e.g. 44.8271" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Map label (optional)</span>
+							<input type="text" name="location_label" autocomplete="off" />
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Translations</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 1rem">
+						At least one language needs title, duration, and excerpt.
+					</p>
+					<AdminTourLocalesFields />
+				</div>
+			</section>
+		</form>
+
+		<ContributeSubmitBar formId="contribute-tour-form" cancelHref={back} />
+	</div>
+</Shell>

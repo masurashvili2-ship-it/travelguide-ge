@@ -5,9 +5,11 @@ import { localeNames } from '../../lib/strings';
 
 interface Props {
 	post?: TourPost | null;
+	/** “What to do” only: Markdown for the public page right-hand contact box */
+	showContactSidebar?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, showContactSidebar = false } = Astro.props;
 const locales: Locale[] = ['en', 'ka', 'ru'];
 
 function field(loc: Locale, key: 'title' | 'duration' | 'excerpt' | 'price' | 'body'): string {
@@ -22,6 +24,12 @@ function seo(loc: Locale, key: 'seo_title' | 'seo_description'): string {
 	if (!b) return '';
 	const v = b[key];
 	return v == null ? '' : String(v);
+}
+
+function contactSidebar(loc: Locale): string {
+	const b = post?.i18n[loc];
+	if (!b) return '';
+	return b.contact_sidebar ?? '';
 }
 ---
 
@@ -76,6 +84,20 @@ function seo(loc: Locale, key: 'seo_title' | 'seo_description'): string {
 					</textarea>
 				</label>
 			</div>
+			{showContactSidebar ? (
+				<div class="row">
+					<label>
+						<span>Contact sidebar (Markdown)</span>
+						<p class="muted" style="margin:0 0 0.35rem">
+							Shown in the right column on the public “What to do” page for this language. Use for phone,
+							email, hours, booking links, etc. Leave empty to hide the box.
+						</p>
+						<textarea name={`${loc}_contact_sidebar`} class="body-md contact-sidebar-md">
+							{contactSidebar(loc)}
+						</textarea>
+					</label>
+				</div>
+			) : null}
 		</fieldset>
 	))
 }
@@ -85,5 +107,8 @@ function seo(loc: Locale, key: 'seo_title' | 'seo_description'): string {
 		min-height: 160px;
 		font-family: ui-monospace, monospace;
 		font-size: 0.88rem;
+	}
+	.contact-sidebar-md {
+		min-height: 120px;
 	}
 </style>

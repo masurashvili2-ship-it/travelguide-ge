@@ -1,0 +1,659 @@
+/* Admin UI — scoped to html.admin-app; imported from AdminLayout.astro */
+
+html.admin-app {
+	--font-sans: 'DM Sans', ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Noto Sans Georgian', sans-serif;
+	--bg: #f1f5f9;
+	--surface: #ffffff;
+	--text: #0f172a;
+	--muted: #64748b;
+	--accent: #0d9488;
+	--accent-dim: #0f766e;
+	--accent-glow: color-mix(in srgb, var(--accent) 22%, transparent);
+	--btn-text: #ffffff;
+	--border: #e2e8f0;
+	--danger: #dc2626;
+	--header-bg: color-mix(in srgb, var(--surface) 78%, transparent);
+	--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+	--shadow-md: 0 4px 20px rgba(15, 23, 42, 0.07);
+	--radius-sm: 10px;
+	--radius-md: 14px;
+	--radius-lg: 18px;
+	font-family: var(--font-sans);
+}
+
+html.admin-app * {
+	box-sizing: border-box;
+}
+
+html.admin-app body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--bg);
+	background-image:
+		radial-gradient(ellipse 120% 90% at 0% -30%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 52%),
+		radial-gradient(ellipse 90% 70% at 100% -10%, rgba(99, 102, 241, 0.07), transparent 48%),
+		linear-gradient(180deg, #f8fafc 0%, var(--bg) 45%, #eef2f7 100%);
+	color: var(--text);
+	line-height: 1.65;
+	font-size: 1.02rem;
+	-webkit-font-smoothing: antialiased;
+}
+
+html.admin-app a {
+	color: var(--accent);
+	text-decoration: none;
+	transition:
+		color 0.15s ease,
+		background 0.15s ease;
+}
+
+html.admin-app a:hover {
+	color: var(--accent-dim);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+html.admin-app .admin-top {
+	position: sticky;
+	top: 0;
+	z-index: 8000;
+	width: 100%;
+	flex-shrink: 0;
+	margin-bottom: 0;
+	padding: 0.85rem 0;
+	border-bottom: 1px solid var(--border);
+	background: var(--header-bg);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	box-shadow: var(--shadow-sm);
+}
+
+html.admin-app .admin-top__inner {
+	max-width: none;
+	width: 100%;
+	margin: 0;
+	padding: 0 1.25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+}
+
+html.admin-app .admin-top__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+}
+
+html.admin-app .admin-top__brand {
+	font-weight: 700;
+	font-size: 1.125rem;
+	letter-spacing: -0.02em;
+	color: var(--text) !important;
+	text-decoration: none !important;
+}
+
+html.admin-app .admin-top__brand:hover {
+	color: var(--accent) !important;
+	text-decoration: none !important;
+}
+
+html.admin-app .admin-frame {
+	display: flex;
+	flex: 1;
+	min-height: 0;
+	width: 100%;
+	align-items: stretch;
+}
+
+html.admin-app .admin-side {
+	width: 15.75rem;
+	flex-shrink: 0;
+	background: var(--surface);
+	border-right: 1px solid var(--border);
+	padding: 1rem 0 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	align-self: stretch;
+	box-shadow: var(--shadow-sm);
+}
+
+html.admin-app .admin-side__nav {
+	flex: 1;
+	overflow-y: auto;
+	padding: 0 0.65rem;
+	min-height: 0;
+}
+
+html.admin-app .admin-side__label {
+	margin: 1rem 0 0.4rem;
+	padding: 0 0.65rem;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--muted);
+	line-height: 1.3;
+}
+
+html.admin-app .admin-side__nav > .admin-side__list:first-child + .admin-side__label {
+	margin-top: 0.85rem;
+}
+
+html.admin-app .admin-side__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html.admin-app .admin-side__list > li {
+	margin: 0;
+	padding: 0;
+}
+
+html.admin-app .admin-side__a {
+	display: block;
+	color: var(--text);
+	font-size: 0.92rem;
+	font-weight: 500;
+	padding: 0.5rem 0.65rem;
+	border-radius: var(--radius-sm);
+	text-decoration: none !important;
+	border: 1px solid transparent;
+	line-height: 1.35;
+}
+
+html.admin-app .admin-side__a:hover {
+	color: var(--accent-dim);
+	background: color-mix(in srgb, var(--accent) 7%, transparent);
+	text-decoration: none !important;
+}
+
+html.admin-app .admin-side__a.is-active {
+	color: var(--accent-dim);
+	font-weight: 600;
+	background: var(--accent-glow);
+	border-color: color-mix(in srgb, var(--accent) 22%, transparent);
+	text-decoration: none !important;
+}
+
+html.admin-app .admin-side__foot {
+	flex-shrink: 0;
+	padding: 0.85rem 1rem 1rem;
+	margin-top: 0.5rem;
+	border-top: 1px solid var(--border);
+}
+
+html.admin-app .admin-side__site {
+	display: block;
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: var(--accent) !important;
+	text-decoration: none !important;
+	padding: 0.45rem 0.35rem;
+	border-radius: var(--radius-sm);
+}
+
+html.admin-app .admin-side__site:hover {
+	color: var(--accent-dim) !important;
+	background: color-mix(in srgb, var(--accent) 8%, transparent);
+	text-decoration: none !important;
+}
+
+html.admin-app .admin-main {
+	flex: 1;
+	min-width: 0;
+	min-height: 0;
+	overflow-y: auto;
+	padding: 1.35rem 0 3rem;
+}
+
+html.admin-app .admin-main__inner {
+	max-width: min(1200px, 100%);
+	margin: 0 auto;
+	padding: 0 1.25rem;
+	width: 100%;
+}
+
+html.admin-app .admin-top__tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.65rem 1rem;
+	flex-shrink: 0;
+}
+
+html.admin-app .admin-top__logout-form {
+	display: inline-flex;
+	margin: 0;
+	padding: 0;
+}
+
+html.admin-app .admin-top__email {
+	font-size: 0.88rem;
+	max-width: min(14rem, 100%);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+html.admin-app .admin-top__logout {
+	margin: 0;
+	padding: 0.5rem 0.95rem;
+	font: inherit;
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: var(--danger);
+	background: color-mix(in srgb, var(--danger) 8%, transparent);
+	border: 1px solid color-mix(in srgb, var(--danger) 22%, transparent);
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	-webkit-appearance: none;
+	appearance: none;
+	transition:
+		background 0.15s ease,
+		border-color 0.15s ease;
+}
+
+html.admin-app .admin-top__logout:hover {
+	background: color-mix(in srgb, var(--danger) 14%, transparent);
+	border-color: color-mix(in srgb, var(--danger) 38%, transparent);
+}
+
+html.admin-app .wrap {
+	max-width: min(1200px, calc(100vw - 2rem));
+	margin: 0 auto;
+	padding: 0 1.25rem 3.5rem;
+}
+
+html.admin-app .admin-page-head {
+	margin: 0 0 1.5rem;
+}
+
+html.admin-app .admin-page-head h1 {
+	margin: 0;
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+	color: var(--text);
+}
+
+html.admin-app .admin-page-head .muted {
+	margin: 0.5rem 0 0;
+	font-size: 0.95rem;
+	color: var(--muted);
+}
+
+html.admin-app .admin-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-md);
+	margin-bottom: 1.35rem;
+	overflow: hidden;
+}
+
+html.admin-app .admin-card__h {
+	margin: 0;
+	padding: 0.85rem 1.15rem;
+	font-size: 1.02rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	border-bottom: 1px solid var(--border);
+	background: color-mix(in srgb, var(--bg) 55%, var(--surface));
+}
+
+html.admin-app .admin-card__bd {
+	padding: 1rem 1.15rem 1.15rem;
+}
+
+html.admin-app .notice {
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--border);
+	border-left-width: 4px;
+	background: var(--surface);
+	box-shadow: var(--shadow-sm);
+	padding: 0.75rem 1rem;
+	margin: 0 0 1rem;
+}
+
+html.admin-app .notice.notice-error {
+	border-left-color: var(--danger);
+	background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+	color: var(--danger);
+	font-weight: 500;
+}
+
+html.admin-app .row {
+	margin-bottom: 1rem;
+}
+
+html.admin-app label span,
+html.admin-app .field-label {
+	display: block;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: var(--text);
+	margin: 0 0 0.35rem;
+}
+
+html.admin-app input[type='text'],
+html.admin-app input[type='email'],
+html.admin-app input[type='password'],
+html.admin-app input[type='url'],
+html.admin-app textarea,
+html.admin-app select {
+	width: 100%;
+	max-width: 100%;
+	padding: 0.62rem 0.85rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	background: var(--surface);
+	color: var(--text);
+	font: inherit;
+	transition:
+		border-color 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+html.admin-app input:focus,
+html.admin-app textarea:focus,
+html.admin-app select:focus {
+	outline: none;
+	border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+	box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+html.admin-app textarea.gallery-urls {
+	min-height: 120px;
+	font-family: ui-monospace, Consolas, monospace;
+	font-size: 0.88rem;
+}
+
+html.admin-app fieldset.photos {
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	padding: 1rem;
+	margin: 0 0 1rem;
+	background: color-mix(in srgb, var(--bg) 40%, var(--surface));
+}
+
+html.admin-app fieldset.photos legend {
+	padding: 0 0.35rem;
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+html.admin-app .muted,
+html.admin-app p.muted {
+	color: var(--muted);
+	font-size: 0.92rem;
+}
+
+html.admin-app code {
+	font-size: 0.85em;
+	background: color-mix(in srgb, var(--bg) 70%, var(--surface));
+	padding: 0.12rem 0.4rem;
+	border-radius: 6px;
+	border: 1px solid var(--border);
+}
+
+html.admin-app .button,
+html.admin-app .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none !important;
+	font-size: 0.9rem;
+	font-weight: 600;
+	line-height: 1.25;
+	min-height: 2.65rem;
+	padding: 0.62rem 1.2rem;
+	margin: 0 0.5rem 0.5rem 0;
+	cursor: pointer;
+	border-radius: 999px;
+	border: 1px solid var(--border);
+	background: var(--surface);
+	color: var(--accent-dim) !important;
+	box-shadow: var(--shadow-sm);
+	transition:
+		background 0.15s ease,
+		border-color 0.15s ease,
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+html.admin-app .button:hover,
+html.admin-app .btn:hover {
+	background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+	border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+	transform: translateY(-1px);
+}
+
+html.admin-app .button.button-primary,
+html.admin-app .btn.button-primary,
+html.admin-app button.btn[type='submit'] {
+	background: linear-gradient(165deg, var(--accent) 0%, var(--accent-dim) 100%);
+	border: none;
+	color: var(--btn-text) !important;
+	box-shadow: 0 2px 12px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+html.admin-app .button.button-primary:hover,
+html.admin-app .btn.button-primary:hover,
+html.admin-app button.btn[type='submit']:hover {
+	filter: brightness(1.05);
+	transform: translateY(-1px);
+}
+
+html.admin-app .submit {
+	margin-top: 1.25rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--border);
+}
+
+html.admin-app .locale-block {
+	margin: 0 0 1.25rem;
+	padding: 1rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	background: color-mix(in srgb, var(--bg) 45%, #fff);
+}
+
+html.admin-app .locale-block legend {
+	padding: 0 0.35rem;
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+html.admin-app .admin-table-wrap {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	margin: 0;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	background: var(--surface);
+}
+
+html.admin-app .admin-table {
+	display: table;
+	width: 100%;
+	min-width: 44rem;
+	border-collapse: collapse;
+	table-layout: auto;
+	font-size: 0.94rem;
+	background: var(--surface);
+	border: none;
+	border-radius: 0;
+}
+
+html.admin-app .admin-table--narrow {
+	min-width: 0;
+}
+
+html.admin-app .admin-table th,
+html.admin-app .admin-table td {
+	text-align: left;
+	padding: 0.65rem 0.75rem;
+	border-bottom: 1px solid var(--border);
+	vertical-align: top;
+}
+
+html.admin-app .admin-table thead th {
+	font-weight: 600;
+	background: color-mix(in srgb, var(--bg) 65%, var(--surface));
+}
+
+html.admin-app .admin-table tbody tr:hover {
+	background: color-mix(in srgb, var(--bg) 35%, var(--surface));
+}
+
+html.admin-app .admin-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+html.admin-app .view-links {
+	font-size: 0.82rem;
+	line-height: 1.5;
+}
+
+html.admin-app .view-links a {
+	margin-right: 0.4rem;
+}
+
+html.admin-app .upload-widget {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-sm);
+}
+
+html.admin-app .upload-widget__title {
+	color: var(--accent-dim);
+}
+
+html.admin-app .upload-widget__hint {
+	color: var(--muted);
+}
+
+html.admin-app .btn--ghost {
+	color: var(--accent-dim) !important;
+	border-color: var(--border);
+	background: transparent;
+}
+
+html.admin-app .btn--ghost:hover {
+	background: color-mix(in srgb, var(--accent) 8%, transparent);
+	border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+html.admin-app .admin-main:has(.admin-save-bar-root) {
+	padding-bottom: 6.25rem;
+}
+
+html.admin-app .admin-save-bar-root {
+	position: fixed;
+	bottom: 0;
+	left: 15.75rem;
+	right: 0;
+	z-index: 7500;
+	pointer-events: none;
+}
+
+html.admin-app .admin-save-bar {
+	pointer-events: auto;
+	margin: 0;
+	padding: 0.85rem 1.25rem;
+	border-top: 1px solid var(--border);
+	background: color-mix(in srgb, var(--surface) 92%, transparent);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	box-shadow: 0 -4px 24px rgba(15, 23, 42, 0.08);
+}
+
+html.admin-app .admin-save-bar__inner {
+	max-width: min(1200px, 100%);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.65rem 1rem;
+}
+
+html.admin-app .admin-save-status {
+	font-size: 0.92rem;
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+	width: 100%;
+}
+
+html.admin-app .admin-save-status[hidden] {
+	display: none !important;
+}
+
+html.admin-app .admin-save-status--ok {
+	color: var(--accent-dim);
+}
+
+html.admin-app .admin-save-status--err {
+	color: var(--danger);
+}
+
+html.admin-app .admin-save-status--busy {
+	color: var(--muted);
+}
+
+html.admin-app a.admin-save-bar__view.is-disabled {
+	pointer-events: none;
+	opacity: 0.45;
+	cursor: not-allowed;
+	text-decoration: none;
+}
+
+@media (max-width: 900px) {
+	html.admin-app .admin-frame {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	html.admin-app .admin-save-bar-root {
+		left: 0;
+	}
+
+	html.admin-app .admin-side {
+		width: 100%;
+		border-right: none;
+		border-bottom: 1px solid var(--border);
+		padding-bottom: 0;
+		max-height: min(50vh, 22rem);
+	}
+
+	html.admin-app .admin-side__nav {
+		padding: 0 0.85rem 0.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	html.admin-app .admin-top__row {
+		flex-direction: column;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	html.admin-app .admin-top__tools {
+		justify-content: center;
+		padding-top: 0.35rem;
+		border-top: 1px solid var(--border);
+	}
+
+	html.admin-app .admin-top__email {
+		max-width: none;
+		text-align: center;
+	}
+}

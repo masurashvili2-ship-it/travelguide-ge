@@ -1,0 +1,160 @@
+---
+import type { Locale } from '../../lib/strings';
+
+interface Props {
+	locale: Locale;
+	formId: string;
+	submitLabel: string;
+	cancelHref: string;
+	viewMode: 'tours' | 'what-to-do' | 'page';
+}
+
+const { locale, formId, submitLabel, cancelHref, viewMode } = Astro.props;
+---
+
+<div
+	class="admin-save-bar-root"
+	data-admin-sticky-save
+	data-form-id={formId}
+	data-admin-locale={locale}
+	data-view-mode={viewMode}
+>
+	<div class="admin-save-bar" role="region" aria-label="Save actions">
+		<div id={`admin-save-status-${formId}`} class="admin-save-status" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+		<div class="admin-save-bar__inner">
+			<button class="btn button-primary admin-save-bar__submit" type="submit" form={formId}>
+				{submitLabel}
+			</button>
+			<a
+				class="button admin-save-bar__view"
+				href="#"
+				target="_blank"
+				rel="noopener noreferrer"
+				data-admin-view-link
+			>
+				View post (new tab)
+			</a>
+			<a class="button" href={cancelHref}>Cancel</a>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	(function () {
+		function buildPublicPath(locale, mode, slug) {
+			var s = (slug || '').trim();
+			if (!s) return '';
+			if (mode === 'page') return '/' + locale + '/' + s;
+			return '/' + locale + '/' + mode + '/' + s;
+		}
+
+		function bind(root) {
+			if (!root || root.getAttribute('data-admin-sticky-bound')) return;
+			root.setAttribute('data-admin-sticky-bound', '1');
+			var formId = root.getAttribute('data-form-id');
+			var loc = root.getAttribute('data-admin-locale') || 'en';
+			var mode = root.getAttribute('data-view-mode') || 'tours';
+			var form = formId ? document.getElementById(formId) : null;
+			var statusEl = root.querySelector('[id^="admin-save-status-"]');
+			var viewLink = root.querySelector('[data-admin-view-link]');
+			if (!form || !statusEl || !viewLink) return;
+
+			function slugValue() {
+				var el = form.querySelector('[name="slug"]');
+				return el && 'value' in el ? String(el.value || '') : '';
+			}
+
+			function syncViewHref() {
+				var path = buildPublicPath(loc, mode, slugValue());
+				if (path) {
+					viewLink.setAttribute('href', path);
+					viewLink.removeAttribute('aria-disabled');
+					viewLink.classList.remove('is-disabled');
+				} else {
+					viewLink.setAttribute('href', '#');
+					viewLink.setAttribute('aria-disabled', 'true');
+					viewLink.classList.add('is-disabled');
+				}
+			}
+
+			syncViewHref();
+			form.addEventListener('input', function (e) {
+				if (e.target && e.target.name === 'slug') syncViewHref();
+			});
+			form.addEventListener('change', function (e) {
+				if (e.target && e.target.name === 'slug') syncViewHref();
+			});
+
+			viewLink.addEventListener('click', function (e) {
+				if (!slugValue().trim() || viewLink.classList.contains('is-disabled')) {
+					e.preventDefault();
+				}
+			});
+
+			form.addEventListener('submit', function (e) {
+				if (!form.checkValidity()) {
+					return;
+				}
+				e.preventDefault();
+				statusEl.hidden = false;
+				statusEl.textContent = 'Saving…';
+				statusEl.className = 'admin-save-status admin-save-status--busy';
+
+				var fd = new FormData(form);
+				fetch(form.action, {
+					method: 'POST',
+					body: fd,
+					headers: { Accept: 'application/json' },
+					credentials: 'same-origin',
+				})
+					.then(function (res) {
+						var ct = res.headers.get('content-type') || '';
+						if (!ct.includes('application/json')) {
+							return res.text().then(function () {
+								return {
+									ok: false,
+									status: res.status,
+									data: { error: 'Unexpected response (not JSON). Your session may have expired.' },
+								};
+							});
+						}
+						return res.json().then(function (data) {
+							return { ok: res.ok, status: res.status, data: data || {} };
+						});
+					})
+					.then(function (r) {
+						if (r.ok && r.data && r.data.ok) {
+							statusEl.textContent = 'Saved successfully.';
+							statusEl.className = 'admin-save-status admin-save-status--ok';
+							if (r.data.publicUrl) {
+								viewLink.setAttribute('href', r.data.publicUrl);
+								viewLink.classList.remove('is-disabled');
+								viewLink.removeAttribute('aria-disabled');
+							} else {
+								syncViewHref();
+							}
+							return;
+						}
+						var msg =
+							r.data && r.data.error
+								? r.data.error
+								: r.status === 401
+									? 'Not authorized. Sign in again and retry.'
+									: 'Could not save (HTTP ' + r.status + ').';
+						statusEl.textContent = 'Not saved: ' + msg;
+						statusEl.className = 'admin-save-status admin-save-status--err';
+					})
+					.catch(function () {
+						statusEl.textContent = 'Not saved: network error.';
+						statusEl.className = 'admin-save-status admin-save-status--err';
+					});
+			});
+		}
+
+		function run() {
+			document.querySelectorAll('[data-admin-sticky-save]').forEach(bind);
+		}
+		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+		else run();
+	})();
+</script>

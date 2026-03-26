@@ -1,0 +1,293 @@
+---
+import Shell from '../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+import '../../../styles/contribute.css';
+import {
+	listSubmissionsForUser,
+	type ContentSubmission,
+	type SubmissionStatus,
+} from '../../../lib/submissions-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'contribute');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const user = Astro.locals.user;
+const mine = listSubmissionsForUser(user.id);
+const contributeHome = getRelativeLocaleUrl(locale, 'contribute');
+
+function statusLabel(s: SubmissionStatus): string {
+	switch (s) {
+		case 'pending':
+			return 'Pending review';
+		case 'approved':
+			return 'Approved';
+		case 'rejected':
+			return 'Rejected';
+		case 'withdrawn':
+			return 'Withdrawn';
+		default:
+			return s;
+	}
+}
+
+function kindLabel(s: ContentSubmission): string {
+	switch (s.kind) {
+		case 'tours':
+			return 'Tour';
+		case 'what-to-do':
+			return 'What to do';
+		case 'page':
+			return 'Page';
+		default:
+			return s.kind;
+	}
+}
+
+function editUrlForSubmission(s: ContentSubmission): string | null {
+	switch (s.kind) {
+		case 'tours':
+			return getRelativeLocaleUrl(locale, `contribute/tour/edit/${s.id}`);
+		case 'what-to-do':
+			return getRelativeLocaleUrl(locale, `contribute/what-to-do/edit/${s.id}`);
+		case 'page':
+			return getRelativeLocaleUrl(locale, `contribute/page/edit/${s.id}`);
+		default:
+			return null;
+	}
+}
+
+function payloadSlug(s: ContentSubmission): string {
+	return (s.payload as { slug: string }).slug;
+}
+
+/** Public page when a submission was approved and published */
+function viewLiveHref(s: ContentSubmission): string | null {
+	if (s.status !== 'approved') return null;
+	const slug = payloadSlug(s);
+	switch (s.kind) {
+		case 'tours':
+			return getRelativeLocaleUrl(locale, `tours/${slug}`);
+		case 'what-to-do':
+			return getRelativeLocaleUrl(locale, `what-to-do/${slug}`);
+		case 'page':
+			return getRelativeLocaleUrl(locale, slug);
+		default:
+			return null;
+	}
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title={t.contribute}
+	seoTitle={t.contribute}
+	seoDescription="Submit tours, activities, or pages for admin review before publication."
+>
+	<div class="contribute-page">
+		<h1 style="margin-top:0">{t.contribute}</h1>
+		<p class="muted">
+			Logged in as <strong>{user.email}</strong>. Submissions are reviewed by an administrator before they appear on
+			the site. You can upload tour/activity images from the proposal forms (same processing as for admins) or paste
+			URLs. You can edit any of your rows; after something is live, edits go back to <strong>pending review</strong> until
+			approved again. <strong>Withdraw</strong> on a live item removes it from the site; while you have a pending revision,
+			withdraw discards that revision and restores the last approved version. <strong>Delete</strong> removes your proposal
+			and, if the page is live, unpublishes it.
+		</p>
+
+		<div class="notice notice-info">
+			<strong>New submission</strong> — choose a type. You need at least one full language block (for tours/activities:
+			title, duration, and excerpt in the same language).
+		</div>
+
+		<p style="margin:0 0 1.25rem">
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/tour')} style="margin-right:0.5rem">Propose a tour</a>
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/what-to-do')} style="margin-right:0.5rem">
+				Propose “What to do”
+			</a>
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/page')}>Propose a page</a>
+		</p>
+
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Your submissions</h2>
+			<div class="contribute-card__bd">
+				{
+					mine.length === 0 ? (
+						<p class="muted" style="margin:0">
+							You have not submitted anything yet.
+						</p>
+					) : (
+						<div class="contribute-table-scroll admin-table-wrap">
+							<table class="admin-table" style="min-width:100%;font-size:0.92rem">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Slug</th>
+										<th>Status</th>
+										<th>Updated</th>
+										<th class="contribute-actions-col">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{mine.map((s) => {
+										const slug = payloadSlug(s);
+										const editU = editUrlForSubmission(s);
+										const viewU = viewLiveHref(s);
+										const showWithdraw = s.status === 'pending' || s.status === 'approved';
+										const showDelete = true;
+										const hasRowActions = !!(editU || showWithdraw || showDelete || viewU);
+										return (
+											<tr>
+												<td>{kindLabel(s)}</td>
+												<td>
+													<code>{slug}</code>
+												</td>
+												<td>
+													{statusLabel(s.status)}
+													{s.status === 'rejected' && s.reject_reason ? (
+														<div class="muted" style="margin-top:0.25rem;font-size:0.85rem">
+															{s.reject_reason}
+														</div>
+													) : null}
+												</td>
+												<td>{new Date(s.updated_at).toLocaleString()}</td>
+												<td class="contribute-actions-col">
+													<div class="contribute-actions-inner">
+														{editU ? (
+															<a class="button" href={editU} style="font-size:0.88rem;padding:0.35rem 0.65rem">
+																Edit
+															</a>
+														) : null}
+														{showWithdraw ? (
+															<button
+																type="button"
+																class="btn-withdraw"
+																data-withdraw-id={s.id}
+																data-withdraw-mode={
+																	s.status === 'approved'
+																		? 'unpublish'
+																		: s.published_id
+																			? 'discard-draft'
+																			: 'queue'
+																}
+																style="font:inherit;font-size:0.88rem;color:#64748b;background:transparent;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.5rem;cursor:pointer"
+															>
+																Withdraw
+															</button>
+														) : null}
+														{showDelete ? (
+															<button
+																type="button"
+																class="btn-delete-submission"
+																data-delete-id={s.id}
+																data-delete-live={s.published_id ? '1' : ''}
+																style="font:inherit;font-size:0.88rem;color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.35rem 0.5rem;cursor:pointer"
+															>
+																Delete
+															</button>
+														) : null}
+														{viewU ? (
+															<a
+																class="button"
+																href={viewU}
+																target="_blank"
+																rel="noopener noreferrer"
+																style="font-size:0.88rem;padding:0.35rem 0.65rem"
+															>
+																View live
+															</a>
+														) : null}
+														{!hasRowActions ? <span class="muted">—</span> : null}
+													</div>
+												</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</div>
+					)
+				}
+			</div>
+		</section>
+	</div>
+
+	<script is:inline define:vars={{ contributeHome }}>
+		document.querySelectorAll('.btn-withdraw').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var id = btn.getAttribute('data-withdraw-id');
+				var mode = btn.getAttribute('data-withdraw-mode') || 'queue';
+				var msg =
+					mode === 'unpublish'
+						? 'Withdraw and remove the live page from the site? The row will stay as withdrawn until you delete it.'
+						: mode === 'discard-draft'
+							? 'Discard your pending changes and restore the last approved version on the site?'
+							: 'Withdraw this submission? It will stay in your list as withdrawn until you delete it.';
+				if (!id || !confirm(msg)) return;
+				fetch('/api/contribute/withdraw', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'same-origin',
+					body: JSON.stringify({ submissionId: id }),
+				})
+					.then(function (r) {
+						return r.json().then(function (d) {
+							return { ok: r.ok, data: d };
+						});
+					})
+					.then(function (x) {
+						if (x.ok && x.data && x.data.ok) {
+							window.location.href = contributeHome;
+							return;
+						}
+						alert((x.data && x.data.error) || 'Could not withdraw');
+					})
+					.catch(function () {
+						alert('Network error');
+					});
+			});
+		});
+
+		document.querySelectorAll('.btn-delete-submission').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var id = btn.getAttribute('data-delete-id');
+				var live = btn.getAttribute('data-delete-live') === '1';
+				var msg = live
+					? 'Permanently delete this row and remove the live page from the site? This cannot be undone.'
+					: 'Permanently delete this submission? This cannot be undone.';
+				if (!id || !confirm(msg)) return;
+				fetch('/api/contribute/submissions/' + encodeURIComponent(id), {
+					method: 'DELETE',
+					credentials: 'same-origin',
+				})
+					.then(function (r) {
+						return r.json().then(function (d) {
+							return { ok: r.ok, data: d };
+						});
+					})
+					.then(function (x) {
+						if (x.ok && x.data && x.data.ok) {
+							window.location.href = contributeHome;
+							return;
+						}
+						alert((x.data && x.data.error) || 'Could not delete');
+					})
+					.catch(function () {
+						alert('Network error');
+					});
+			});
+		});
+	</script>
+</Shell>

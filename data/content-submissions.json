@@ -1,0 +1,99 @@
+{
+  "submissions": [
+    {
+      "id": "4a98ee8a-24e4-4a7e-bb25-29a00b26a031",
+      "kind": "what-to-do",
+      "status": "approved",
+      "author_user_id": "f804da20f0b62532c68254d247620b2e",
+      "author_email": "masurashvili2@gmail.com",
+      "created_at": 1774517013315,
+      "updated_at": 1774519013364,
+      "reject_reason": null,
+      "reviewed_at": 1774519013364,
+      "reviewed_by_email": "masurashvili@ymail.com",
+      "published_id": "6898ffa0-9f6e-4b4e-86dd-3bc50b2e960b",
+      "payload": {
+        "slug": "bridge-of-peace",
+        "image": "https://visitgeorgia.ge/wp-content/uploads/Sighnagi-Kakheti-1.jpg",
+        "gallery": [
+          "/uploads/what-to-do/bridge-of-peace.webp",
+          "/uploads/what-to-do/bridge-of-peace-1.webp",
+          "/uploads/what-to-do/bridge-of-peace-2.webp",
+          "/uploads/what-to-do/bridge-of-peace-3.webp",
+          "/uploads/what-to-do/bridge-of-peace-4.webp",
+          "/uploads/what-to-do/bridge-of-peace-5.webp",
+          "/uploads/what-to-do/bridge-of-peace-6.webp",
+          "/uploads/what-to-do/bridge-of-peace-7.webp",
+          "/uploads/what-to-do/bridge-of-peace-8.webp"
+        ],
+        "location": null,
+        "category": null,
+        "whatDoCategories": [
+          "landmark"
+        ],
+        "whatDoSeasons": [
+          "winter",
+          "spring"
+        ],
+        "physical_rating": "easy",
+        "driving_distance": "555",
+        "i18n": {
+          "en": {
+            "title": "Bridge of peace",
+            "duration": "2",
+            "excerpt": "5",
+            "price": null,
+            "seo_title": null,
+            "seo_description": null,
+            "body": "\t\t\t\t\t\tThe Bridge of Peace, known locally as Mshvidobis Khidi, is the shimmering crown jewel of modern Tbilisi. Stretching 150 meters across the Mtkvari River, this pedestrian-only bridge serves as a literal and symbolic link between the city’s winding, ancient past and its glass-and-steel future. Designed by Italian architect Michele De Lucchi and French lighting designer Philippe Martinaud, it was unveiled in 2010 to represent Georgia's journey from a difficult history toward a transparent, modern era.\r\n\r\nThe most striking feature of the bridge is its undulating glass canopy, which glows with thousands of white LEDs. If you watch closely, you will see the lights flickering in a specific pattern. This is actually a message in Morse code that lists the chemical elements of the human body found in the periodic table. The artistic intent is to remind every visitor that regardless of nationality or background, we are all made of the same fundamental building blocks.\r\n\r\nFor the best experience, I recommend visiting during the \"Blue Hour\"—roughly 30 minutes after sunset. This is when the sky turns a deep indigo, the bridge lights pulse against the water, and the Narikala Fortress is illuminated on the hill behind it. It is arguably the most photographed spot in the entire country, so be prepared for a bit of a crowd, especially on warm weekend evenings.\r\n\r\nThe bridge connects the charming, cafe-lined streets of Old Tbilisi near Erekle II Street with the wide-open spaces of Rike Park. Once you cross into Rike Park, you are just steps away from the aerial tramway that whisk you up to the Mother of Georgia statue for a panoramic view of the entire valley.\r\n\r\nA few practical tips for your 2026 visit: the bridge is completely free and open 24/7, making it a great spot for a late-night stroll. However, keep in mind that the glass panels can become quite slippery during the rain or winter frosts, so watch your footing. You will also likely encounter many street performers and boat tour promoters near the entrances; a polite but firm \"No, thank you\" is usually enough if you prefer to just enjoy the view in peace.\r\n\t\t\t\t\t",
+            "contact_sidebar": "\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t"
+          }
+        }
+      }
+    },
+    {
+      "id": "61c7a3bd-14ca-405a-ad88-d8d52cfbb2da",
+      "kind": "what-to-do",
+      "status": "approved",
+      "author_user_id": "f804da20f0b62532c68254d247620b2e",
+      "author_email": "masurashvili2@gmail.com",
+      "created_at": 1774517655845,
+      "updated_at": 1774518370605,
+      "reject_reason": null,
+      "reviewed_at": 1774518370605,
+      "reviewed_by_email": "masurashvili@ymail.com",
+      "published_id": "c306fc38-6d5c-409c-8f25-374772727bf4",
+      "payload": {
+        "slug": "jyujuy",
+        "image": "/uploads/what-to-do/jyujuy.webp",
+        "gallery": [
+          "/uploads/what-to-do/jyujuy-1.webp",
+          "/uploads/what-to-do/jyujuy-2.webp",
+          "/uploads/what-to-do/jyujuy-3.webp",
+          "/uploads/what-to-do/jyujuy-4.webp",
+          "/uploads/what-to-do/jyujuy-5.webp"
+        ],
+        "location": null,
+        "category": null,
+        "whatDoCategories": [
+          "hot-spring"
+        ],
+        "whatDoSeasons": [],
+        "physical_rating": null,
+        "driving_distance": null,
+        "i18n": {
+          "en": {
+            "title": "hjmhjmh",
+            "duration": "hjm",
+            "excerpt": "hjm",
+            "price": "hjm",
+            "seo_title": null,
+            "seo_description": null,
+            "body": "\t\t\t\t\t\t\t\t\t\t\t\t\r\n\tgfgfgbfgb\t\t\t\t\r\n\t\t\t\t\t",
+            "contact_sidebar": "\t\t\t\t\t\t\t\t\tbfgbfgfgb\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t"
+          }
+        }
+      }
+    }
+  ]
+}

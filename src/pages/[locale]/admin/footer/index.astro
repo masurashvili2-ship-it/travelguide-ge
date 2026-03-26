@@ -38,7 +38,7 @@ const previews = previewLocales.map((ploc) => {
 
 <AdminLayout
 	locale={locale}
-	title="Footer ‹ Travel Guide Georgia"
+	title="Footer · Travel Guide Georgia"
 	headline="Site footer"
 	subtitle="Applies to every public page. Links and text are stored in data/footer.json."
 	activeNav="footer"
@@ -52,9 +52,9 @@ const previews = previewLocales.map((ploc) => {
 		) : null
 	}
 
-	<div class="postbox">
-		<div class="postbox__header">Live preview (by language)</div>
-		<div class="postbox__inside">
+	<section class="admin-card">
+		<h2 class="admin-card__h">Live preview (by language)</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				How the footer looks for visitors. Titles fall back to another language if a translation is empty.
 			</p>
@@ -64,7 +64,7 @@ const previews = previewLocales.map((ploc) => {
 				{
 					previews.map((p) => (
 						<div
-							style="border:1px solid var(--wp-border);border-radius:4px;padding:0.75rem;background:#fafafa;font-size:12px"
+							style="border:1px solid var(--border);border-radius:4px;padding:0.75rem;background:#fafafa;font-size:12px"
 						>
 							<p style="margin:0 0 0.5rem;font-weight:700">{p.name} ({p.loc})</p>
 							{p.nav.length === 0 ? (
@@ -91,7 +91,7 @@ const previews = previewLocales.map((ploc) => {
 							{p.blurbHtml.trim() ? (
 								<div
 									class="footer-preview-blurb"
-									style="margin-top:0.65rem;padding-top:0.5rem;border-top:1px dashed var(--wp-border)"
+									style="margin-top:0.65rem;padding-top:0.5rem;border-top:1px dashed var(--border)"
 									set:html={p.blurbHtml}
 								/>
 							) : null}
@@ -100,18 +100,18 @@ const previews = previewLocales.map((ploc) => {
 				}
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div class="postbox">
-		<div class="postbox__header">Footer links</div>
-		<div class="postbox__inside">
+	<section class="admin-card">
+		<h2 class="admin-card__h">Footer links</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				<strong>Internal</strong> paths are relative to the language prefix (e.g. <code>about</code> →{' '}
 				<code>/en/about</code>, <code>tours/slug-name</code> for a tour). <strong>External</strong> uses a full URL
 				(<code>https://…</code>) or <code>mailto:…</code>. Each row needs one target and at least one title.
 			</p>
-			<div style="overflow-x:auto">
-				<table class="wp-list-table" style="min-width:720px">
+			<div class="admin-table-wrap">
+				<table class="admin-table">
 					<thead>
 						<tr>
 							<th style="width:4rem">Order</th>
@@ -195,7 +195,7 @@ const previews = previewLocales.map((ploc) => {
 				</button>
 			</p>
 		</div>
-	</div>
+	</section>
 
 	<template id="footer-row-tpl">
 		<tr data-footer-row="1" data-id="">
@@ -229,9 +229,9 @@ const previews = previewLocales.map((ploc) => {
 		</tr>
 	</template>
 
-	<div class="postbox">
-		<div class="postbox__header">Footer text (Markdown, optional)</div>
-		<div class="postbox__inside">
+	<section class="admin-card">
+		<h2 class="admin-card__h">Footer text (Markdown, optional)</h2>
+		<div class="admin-card__bd">
 			<p class="muted" style="margin:0 0 1rem">
 				Shown under the link row and above the copyright on all public pages. Safe HTML is generated from Markdown.
 			</p>
@@ -260,7 +260,7 @@ const previews = previewLocales.map((ploc) => {
 				</label>
 			</div>
 		</div>
-	</div>
+	</section>
 </AdminLayout>
 
 <script is:inline>

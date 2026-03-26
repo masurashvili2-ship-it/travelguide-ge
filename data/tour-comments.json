@@ -155,5 +155,17 @@
     "body": "ferferfe",
     "parentId": null,
     "createdAt": 1774391026962
+  },
+  {
+    "id": "aace1dda-d08a-4624-a6ff-729517979a64",
+    "tourId": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a02",
+    "postKind": "what-to-do",
+    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": ";ipo",
+    "parentId": null,
+    "createdAt": 1774515436618,
+    "updatedAt": 1774515449715
   }
 ]

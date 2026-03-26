@@ -1,0 +1,215 @@
+---
+import Shell from '../../../../../components/Shell.astro';
+import ContributeSubmitBar from '../../../../../components/ContributeSubmitBar.astro';
+import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import {
+	WHAT_TO_DO_CATEGORY_IDS,
+	WHAT_TO_DO_CATEGORY_LABELS_EN,
+} from '../../../../../lib/what-to-do-categories';
+import { WHAT_TO_DO_SEASON_IDS, WHAT_TO_DO_SEASON_LABELS_EN } from '../../../../../lib/what-to-do-seasons';
+import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../../lib/tour-physical-rating';
+import { tourPostToContributionPayload } from '../../../../../lib/contribute-live-payload';
+import { tourLikePayloadToSyntheticTourPost } from '../../../../../lib/contribute-synthetic-post';
+import type { Locale } from '../../../../../lib/strings';
+import { getSubmissionById, type TourLikeSubmissionPayload } from '../../../../../lib/submissions-db';
+import { getWhatToDoPostById } from '../../../../../lib/tours-db';
+import '../../../../../styles/contribute.css';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `contribute/what-to-do/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const back = getRelativeLocaleUrl(locale, 'contribute');
+const sub = getSubmissionById(idParam);
+if (!sub || sub.kind !== 'what-to-do' || sub.author_user_id !== Astro.locals.user.id) {
+	return Astro.redirect(back);
+}
+let p: TourLikeSubmissionPayload;
+if (sub.status === 'approved' && sub.published_id) {
+	const live = getWhatToDoPostById(sub.published_id);
+	p = live ? tourPostToContributionPayload(live, 'what-to-do') : (sub.payload as TourLikeSubmissionPayload);
+} else {
+	p = sub.payload as TourLikeSubmissionPayload;
+}
+const synthetic = tourLikePayloadToSyntheticTourPost(sub.id, 'what-to-do', p);
+const enTitle = p.i18n.en?.title ?? '';
+---
+
+<Shell
+	locale={locale}
+	subpath={`contribute/what-to-do/edit/${idParam}`}
+	title='Edit “What to do” proposal'
+	seoTitle='Edit “What to do” proposal'
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={back}>← Back to Contribute</a>
+		</p>
+		<h1>Edit “What to do” proposal</h1>
+		<p class="muted">
+			Status: <strong>{sub.status}</strong>.
+			{sub.status === 'approved' ? (
+				<>
+					{' '}
+					The live page stays as-is until an admin approves your changes. Saving sends a new version for review.
+				</>
+			) : (
+				<>
+					{' '}
+					Saving returns the entry to <strong>pending review</strong>.
+				</>
+			)}
+		</p>
+
+		<form id="contribute-wtd-form" method="post" action={`/api/contribute/submissions/${sub.id}`}>
+			<input type="hidden" id="tour-admin-title" value={enTitle} />
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Slug</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug (URL)</span>
+							<input
+								type="text"
+								id="tour-admin-slug"
+								name="slug"
+								required
+								value={p.slug}
+								pattern="[a-z0-9]+(-[a-z0-9]+)*"
+							/>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Sidebar</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">Categories</span>
+						<div class="admin-wtd-cat-grid">
+							{WHAT_TO_DO_CATEGORY_IDS.map((cid) => (
+								<label class="admin-wtd-cat-item">
+									<input type="checkbox" name="categories" value={cid} checked={p.whatDoCategories.includes(cid)} />
+									<span>{WHAT_TO_DO_CATEGORY_LABELS_EN[cid]}</span>
+								</label>
+							))}
+						</div>
+					</div>
+					<div class="row">
+						<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">Seasons</span>
+						<div class="admin-wtd-cat-grid">
+							{WHAT_TO_DO_SEASON_IDS.map((sid) => (
+								<label class="admin-wtd-cat-item">
+									<input type="checkbox" name="seasons" value={sid} checked={p.whatDoSeasons.includes(sid)} />
+									<span>{WHAT_TO_DO_SEASON_LABELS_EN[sid]}</span>
+								</label>
+							))}
+						</div>
+					</div>
+					<div class="row">
+						<label>
+							<span>Physical rating</span>
+							<select name="physical_rating">
+								<option value="" selected={p.physical_rating == null}>— None —</option>
+								{PHYSICAL_RATING_IDS.map((pid) => (
+									<option value={pid} selected={p.physical_rating === pid}>
+										{PHYSICAL_RATING_LABELS_EN[pid]}
+									</option>
+								))}
+							</select>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Driving distance</span>
+							<input type="text" name="driving_distance" autocomplete="off" value={p.driving_distance ?? ''} />
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Featured image &amp; gallery</h2>
+				<div class="contribute-card__bd">
+					<fieldset style="border:none;padding:0;margin:0">
+						<AdminTourPhotoUpload
+							formId="contribute-wtd-form"
+							uploadApiPath="/api/contribute/upload-what-to-do-image"
+							slugInputId="tour-admin-slug"
+						/>
+					</fieldset>
+					<div class="row">
+						<label>
+							<span>Cover image URL (optional)</span>
+							<input type="text" name="image" id="tour-cover-url" value={p.image ?? ''} />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea name="gallery_urls" id="tour-gallery-urls" rows={4}>
+								{p.gallery.join('\n')}
+							</textarea>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Map (optional)</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Latitude</span>
+							<input
+								type="text"
+								name="location_lat"
+								inputmode="decimal"
+								autocomplete="off"
+								value={p.location?.lat ?? ''}
+							/>
+						</label>
+						<label>
+							<span>Longitude</span>
+							<input
+								type="text"
+								name="location_lng"
+								inputmode="decimal"
+								autocomplete="off"
+								value={p.location?.lng ?? ''}
+							/>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Map label (optional)</span>
+							<input type="text" name="location_label" autocomplete="off" value={p.location?.label ?? ''} />
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Translations</h2>
+				<div class="contribute-card__bd">
+					<AdminTourLocalesFields post={synthetic} showContactSidebar />
+				</div>
+			</section>
+		</form>
+
+		<ContributeSubmitBar formId="contribute-wtd-form" cancelHref={back} submitLabel="Save changes" />
+	</div>
+</Shell>

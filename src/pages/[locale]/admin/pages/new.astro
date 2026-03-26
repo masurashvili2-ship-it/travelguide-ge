@@ -1,5 +1,6 @@
 ---
 import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import AdminStickySave from '../../../../components/admin/AdminStickySave.astro';
 import AdminPageLocalesFields from '../../../../components/admin/AdminPageLocalesFields.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../lib/strings';
@@ -22,19 +23,20 @@ const userEmail = Astro.locals.user.email;
 
 <AdminLayout
 	locale={locale}
-	title="Add page ‹ Travel Guide Georgia"
+	title="Add page · Travel Guide Georgia"
 	headline="Add new page"
 	subtitle="Published at /{locale}/your-slug when at least one language has a title."
 	activeNav="pages-new"
 	userEmail={userEmail}
 >
-	<form method="post" action="/api/admin/pages">
+	<form id="page-admin-form" method="post" action="/api/admin/pages">
 		<input type="hidden" name="intent" value="create" />
 		<input type="hidden" name="redirect" value={pagesList} />
+		<input type="hidden" name="admin_locale" value={locale} />
 
-		<div class="postbox">
-			<div class="postbox__header">Page settings</div>
-			<div class="postbox__inside">
+		<section class="admin-card">
+			<h2 class="admin-card__h">Page settings</h2>
+			<div class="admin-card__bd">
 				<div class="row">
 					<label>
 						<span>Slug (URL)</span>
@@ -56,18 +58,21 @@ const userEmail = Astro.locals.user.email;
 					<p class="muted" style="margin:0.35rem 0 0">Lower numbers appear first in the Pages list in this admin.</p>
 				</div>
 			</div>
-		</div>
+		</section>
 
-		<div class="postbox">
-			<div class="postbox__header">Content</div>
-			<div class="postbox__inside">
+		<section class="admin-card">
+			<h2 class="admin-card__h">Content</h2>
+			<div class="admin-card__bd">
 				<AdminPageLocalesFields />
 			</div>
-		</div>
+		</section>
 
-		<p class="submit">
-			<button class="btn button-primary" type="submit">Publish</button>
-			<a class="button" href={pagesList}>Cancel</a>
-		</p>
 	</form>
+	<AdminStickySave
+		locale={locale}
+		formId="page-admin-form"
+		submitLabel="Publish"
+		cancelHref={pagesList}
+		viewMode="page"
+	/>
 </AdminLayout>

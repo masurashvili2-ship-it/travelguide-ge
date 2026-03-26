@@ -1,5 +1,10 @@
 import type { APIRoute } from 'astro';
 import type { Locale } from '../../../lib/strings';
+import {
+	parseAdminLocale,
+	publicContentUrl,
+	wantsJsonApiResponse,
+} from '../../../lib/admin-save-response';
 import { savePagePost, type PageLocaleBlock } from '../../../lib/pages-db';
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];
@@ -36,6 +41,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	const denied = requireAdmin(locals);
 	if (denied) return denied;
 
+	const respondJson = wantsJsonApiResponse(request, false);
+
 	const fd = await request.formData();
 	const fields = Object.fromEntries(
 		[...fd.entries()].map(([k, v]) => [k, typeof v === 'string' ? v : '']),
@@ -60,9 +67,29 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	});
 
 	if (!result.ok) {
-		const u = new URL(redirect, request.url);
-		u.searchParams.set('error', result.error);
-		return Response.redirect(u.toString(), 303);
+		if (!respondJson) {
+			const u = new URL(redirect, request.url);
+			u.searchParams.set('error', result.error);
+			return Response.redirect(u.toString(), 303);
+		}
+		return new Response(JSON.stringify({ error: result.error }), {
+			status: intent === 'create' ? 409 : 400,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	if (respondJson) {
+		const loc = parseAdminLocale(fields);
+		return new Response(
+			JSON.stringify({
+				ok: true,
+				publicUrl: publicContentUrl(request, loc, 'page', slug.trim().toLowerCase()),
+			}),
+			{
+				status: 200,
+				headers: { 'Content-Type': 'application/json' },
+			},
+		);
 	}
 
 	return Response.redirect(new URL(redirect, request.url).toString(), 303);

@@ -11,7 +11,7 @@ const LOCALES: Locale[] = ['en', 'ka', 'ru'];
 
 /** URL segments reserved by the app (cannot be used as page slugs). */
 export const RESERVED_PAGE_SLUGS = new Set(
-	['admin', 'tours', 'login', 'register', 'api', 'p', 'pages'].map((s) => s.toLowerCase()),
+	['admin', 'tours', 'login', 'register', 'api', 'p', 'pages', 'contribute'].map((s) => s.toLowerCase()),
 );
 
 const UUID_RE =
@@ -35,6 +35,8 @@ export type PagePost = {
 	sort_order: number;
 	updated_at: number;
 	i18n: Partial<Record<Locale, PageLocaleBlock>>;
+	author_user_id: string | null;
+	author_email: string | null;
 };
 
 export type PageRow = PagePost & {
@@ -93,6 +95,10 @@ function normalizePost(raw: unknown): PagePost | null {
 		sort_order: typeof so === 'number' && Number.isFinite(so) ? so : 0,
 		updated_at: typeof o.updated_at === 'number' ? o.updated_at : Date.now(),
 		i18n,
+		author_user_id:
+			typeof o.author_user_id === 'string' && o.author_user_id.trim() ? o.author_user_id.trim() : null,
+		author_email:
+			typeof o.author_email === 'string' && o.author_email.trim() ? o.author_email.trim() : null,
 	};
 }
 
@@ -122,6 +128,8 @@ function toCleanPost(p: PagePost): PagePost {
 		sort_order: p.sort_order,
 		updated_at: p.updated_at,
 		i18n: p.i18n,
+		author_user_id: p.author_user_id ?? null,
+		author_email: p.author_email ?? null,
 	};
 }
 
@@ -160,6 +168,22 @@ export function getPagePostById(id: string): PagePost | null {
 	return getPagePosts().find((p) => p.id === id) ?? null;
 }
 
+/** True if another page (not `exceptPageId`) already uses this slug. */
+export function isPageSlugUsedByAnotherPage(normalizedSlug: string, exceptPageId?: string | null): boolean {
+	const s = normalizedSlug.trim().toLowerCase();
+	return getPagePosts().some((p) => p.slug === s && (!exceptPageId || p.id !== exceptPageId));
+}
+
+export function deletePagePostById(id: string): { ok: true } | { ok: false; error: string } {
+	if (!isValidPageId(id)) return { ok: false, error: 'Invalid id' };
+	const posts = [...getPagePosts()];
+	const i = posts.findIndex((p) => p.id === id);
+	if (i === -1) return { ok: false, error: 'Page not found' };
+	posts.splice(i, 1);
+	writeStore(posts);
+	return { ok: true };
+}
+
 /** Row for one locale, or null if that language is not filled in. */
 export function getPageRowForLocale(slug: string, locale: Locale): PageRow | null {
 	const post = getPagePostBySlug(slug);
@@ -175,6 +199,7 @@ export type AdminPageListItem = {
 	sort_order: number;
 	titles: Record<Locale, string>;
 	locales: Locale[];
+	author_email: string | null;
 };
 
 export function listAllPagesAdmin(): AdminPageListItem[] {
@@ -196,6 +221,7 @@ export function listAllPagesAdmin(): AdminPageListItem[] {
 				sort_order: p.sort_order,
 				titles,
 				locales,
+				author_email: p.author_email ?? null,
 			};
 		});
 }
@@ -206,14 +232,15 @@ export type SavePagePostInput = {
 	sort_order: number;
 	i18n: Partial<Record<Locale, PageLocaleBlock>>;
 	mode: 'create' | 'update';
+	author_user_id?: string | null;
+	author_email?: string | null;
 };
 
-export function savePagePost(
-	input: SavePagePostInput,
-): { ok: true } | { ok: false; error: string } {
-	const { id, slug: rawSlug, sort_order, i18n, mode } = input;
+export function validatePagePostI18nAndSlug(
+	rawSlug: string,
+	i18n: Partial<Record<Locale, PageLocaleBlock>>,
+): { ok: true; slug: string } | { ok: false; error: string } {
 	const slug = rawSlug.trim().toLowerCase();
-
 	if (!isValidSlug(slug)) {
 		return { ok: false, error: 'Invalid slug (use lowercase letters, numbers, hyphens)' };
 	}
@@ -243,6 +270,30 @@ export function savePagePost(
 		}
 	}
 
+	return { ok: true, slug };
+}
+
+export function isPageSlugTaken(slug: string): boolean {
+	const s = slug.trim().toLowerCase();
+	return getPagePosts().some((p) => p.slug === s);
+}
+
+export function savePagePost(
+	input: SavePagePostInput,
+): { ok: true } | { ok: false; error: string } {
+	const {
+		id,
+		slug: rawSlug,
+		sort_order,
+		i18n,
+		mode,
+		author_user_id: authorUserIn,
+		author_email: authorEmailIn,
+	} = input;
+	const slugCheck = validatePagePostI18nAndSlug(rawSlug, i18n);
+	if (!slugCheck.ok) return slugCheck;
+	const slug = slugCheck.slug;
+
 	const cleanI18n: Partial<Record<Locale, PageLocaleBlock>> = {};
 	for (const loc of LOCALES) {
 		const b = i18n[loc];
@@ -266,12 +317,22 @@ export function savePagePost(
 		if (posts.some((p) => p.slug === slug)) {
 			return { ok: false, error: 'A page with this slug already exists' };
 		}
+		const au =
+			authorUserIn !== undefined && authorUserIn !== null && String(authorUserIn).trim()
+				? String(authorUserIn).trim()
+				: null;
+		const ae =
+			authorEmailIn !== undefined && authorEmailIn !== null && String(authorEmailIn).trim()
+				? String(authorEmailIn).trim()
+				: null;
 		posts.push({
 			id: randomUUID(),
 			slug,
 			sort_order,
 			i18n: cleanI18n,
 			updated_at: now,
+			author_user_id: au,
+			author_email: ae,
 		});
 		writeStore(posts);
 		return { ok: true };
@@ -292,12 +353,27 @@ export function savePagePost(
 	}
 
 	const prev = posts[idx];
+	const nextAuthorUserId =
+		authorUserIn !== undefined
+			? authorUserIn !== null && String(authorUserIn).trim()
+				? String(authorUserIn).trim()
+				: null
+			: (prev.author_user_id ?? null);
+	const nextAuthorEmail =
+		authorEmailIn !== undefined
+			? authorEmailIn !== null && String(authorEmailIn).trim()
+				? String(authorEmailIn).trim()
+				: null
+			: (prev.author_email ?? null);
+
 	posts[idx] = {
 		...prev,
 		slug,
 		sort_order,
 		i18n: cleanI18n,
 		updated_at: now,
+		author_user_id: nextAuthorUserId,
+		author_email: nextAuthorEmail,
 	};
 	writeStore(posts);
 	return { ok: true };

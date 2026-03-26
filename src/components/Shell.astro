@@ -138,18 +138,24 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				position: sticky;
 				top: 0;
 				z-index: 8000;
-				display: flex;
-				flex-wrap: wrap;
-				align-items: center;
-				justify-content: space-between;
-				gap: 1rem 1.25rem;
-				padding: 1rem 0;
+				width: 100%;
 				margin-bottom: 2rem;
+				padding: 1rem 0;
 				border-bottom: 1px solid var(--border);
 				background: var(--header-bg);
 				backdrop-filter: blur(14px);
 				-webkit-backdrop-filter: blur(14px);
 				box-shadow: var(--shadow-sm);
+			}
+			.site__inner {
+				max-width: min(1200px, calc(100vw - 2rem));
+				margin: 0 auto;
+				padding: 0 1.25rem;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem 1.25rem;
 			}
 			.brand {
 				font-weight: 700;
@@ -362,7 +368,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border-color: color-mix(in srgb, var(--danger) 38%, transparent);
 			}
 			@media (max-width: 768px) {
-				header.site {
+				.site__inner {
 					flex-direction: column;
 					align-items: stretch;
 				}
@@ -574,8 +580,8 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		</style>
 	</head>
 	<body>
-		<div class="wrap">
-			<header class="site">
+		<header class="site">
+			<div class="site__inner">
 				<div class="brand">
 					<a href={getRelativeLocaleUrl(locale, '/')}>{t.siteTitle}</a>
 				</div>
@@ -670,6 +676,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 									user ? (
 										<>
 											<p class="site-dd__email muted">{user.email}</p>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'contribute')}>
+												{t.contribute}
+											</a>
 											{
 												user.role === 'admin' ? (
 													<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'admin')}>
@@ -692,7 +701,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 						</details>
 					</div>
 				</div>
-			</header>
+			</div>
+		</header>
+		<div class="wrap">
 			<slot />
 			<SiteFooter locale={locale} />
 		</div>

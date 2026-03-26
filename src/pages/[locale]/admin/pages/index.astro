@@ -3,6 +3,7 @@ import AdminLayout from '../../../../components/admin/AdminLayout.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../lib/strings';
 import { listAllPagesAdmin } from '../../../../lib/pages-db';
+import { contributorAuthorEmailForPublishedPost } from '../../../../lib/submissions-db';
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -17,6 +18,9 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 }
 
 const rows = listAllPagesAdmin();
+function displayPageAuthor(row: (typeof rows)[number]): string {
+	return row.author_email?.trim() || contributorAuthorEmailForPublishedPost('page', row.id) || '';
+}
 const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
 const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
@@ -24,7 +28,7 @@ const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
 
 <AdminLayout
 	locale={locale}
-	title="Pages ‹ Travel Guide Georgia"
+	title="Pages · Travel Guide Georgia"
 	headline="Pages"
 	subtitle="Static content at /{locale}/slug. Footer links are managed under Admin → Footer."
 	activeNav="pages-all"
@@ -38,9 +42,9 @@ const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
 		) : null
 	}
 
-	<div class="postbox">
-		<div class="postbox__header">All pages</div>
-		<div class="postbox__inside">
+	<section class="admin-card">
+		<h2 class="admin-card__h">All pages</h2>
+		<div class="admin-card__bd">
 			<p style="margin:0 0 1rem">
 				<a class="button button-primary" href={newPageUrl}>Add new</a>
 			</p>
@@ -51,23 +55,28 @@ const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
 						footer.
 					</p>
 				) : (
-					<table class="wp-list-table">
-						<thead>
-							<tr>
-								<th>Slug</th>
-								<th>Order</th>
-								<th>EN</th>
-								<th>KA</th>
-								<th>RU</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							{
-								rows.map((row) => (
+					<div class="admin-table-wrap">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>Slug</th>
+									<th>Author</th>
+									<th>Order</th>
+									<th>EN</th>
+									<th>KA</th>
+									<th>RU</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{
+									rows.map((row) => (
 									<tr>
 										<td>
 											<code>{row.slug}</code>
+										</td>
+										<td class="muted" style="font-size:0.88rem;max-width:12rem">
+											{displayPageAuthor(row) || '—'}
 										</td>
 										<td>{row.sort_order}</td>
 										<td>{row.titles.en || '—'}</td>
@@ -82,12 +91,13 @@ const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
 											</div>
 										</td>
 									</tr>
-								))
-							}
-						</tbody>
-					</table>
+									))
+								}
+							</tbody>
+						</table>
+					</div>
 				)
 			}
 		</div>
-	</div>
+	</section>
 </AdminLayout>

@@ -1,0 +1,234 @@
+---
+import AdminLayout from '../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../lib/strings';
+import {
+	listPendingSubmissions,
+	getSubmissions,
+	type ContentSubmission,
+	type SubmissionStatus,
+} from '../../../lib/submissions-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/submissions');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const pending = listPendingSubmissions();
+const recent = [...getSubmissions()]
+	.filter((s) => s.status !== 'pending')
+	.sort((a, b) => (b.reviewed_at ?? b.updated_at) - (a.reviewed_at ?? a.updated_at))
+	.slice(0, 40);
+
+const userEmail = Astro.locals.user.email;
+const adminHome = getRelativeLocaleUrl(locale, 'admin');
+
+function previewSubmissionHref(submissionId: string): string {
+	return getRelativeLocaleUrl(locale, `admin/submissions/preview/${submissionId}`);
+}
+
+function statusLabel(s: SubmissionStatus): string {
+	switch (s) {
+		case 'pending':
+			return 'Pending';
+		case 'approved':
+			return 'Approved';
+		case 'rejected':
+			return 'Rejected';
+		case 'withdrawn':
+			return 'Withdrawn';
+		default:
+			return s;
+	}
+}
+
+function kindLabel(s: ContentSubmission): string {
+	switch (s.kind) {
+		case 'tours':
+			return 'Tour';
+		case 'what-to-do':
+			return 'What to do';
+		case 'page':
+			return 'Page';
+		default:
+			return s.kind;
+	}
+}
+
+function payloadSlug(s: ContentSubmission): string {
+	return (s.payload as { slug: string }).slug;
+}
+
+function payloadTitleHint(s: ContentSubmission): string {
+	const p = s.payload as { i18n?: Record<string, { title?: string }> };
+	const t = p.i18n?.en?.title?.trim() || p.i18n?.ka?.title?.trim() || p.i18n?.ru?.title?.trim();
+	return t || '—';
+}
+---
+
+<AdminLayout
+	locale={locale}
+	title="Approvals · Travel Guide Georgia"
+	headline="Contributor submissions"
+	subtitle="Preview shows the public layout (new tab). Approving publishes the post and records the author on the live item."
+	activeNav="submissions"
+	userEmail={userEmail}
+>
+	<section class="admin-card">
+		<h2 class="admin-card__h">Pending ({pending.length})</h2>
+		<div class="admin-card__bd">
+			{
+				pending.length === 0 ? (
+					<p class="muted" style="margin:0">
+						No pending submissions.{' '}
+						<a href={adminHome}>Back to dashboard</a>
+					</p>
+				) : (
+					<div class="admin-table-wrap">
+						<table class="admin-table">
+							<thead>
+								<tr>
+									<th>Type</th>
+									<th>Slug</th>
+									<th>Title hint</th>
+									<th>Author</th>
+									<th>Submitted</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{pending.map((s) => (
+									<tr data-submission-row={s.id}>
+										<td>{kindLabel(s)}</td>
+										<td>
+											<code>{payloadSlug(s)}</code>
+										</td>
+										<td class="muted" style="max-width:14rem;font-size:0.9rem">
+											{payloadTitleHint(s)}
+										</td>
+										<td>
+											{s.author_email}
+											<div class="muted" style="margin-top:0.25rem;font-size:0.85rem">
+												<code>{s.author_user_id}</code>
+											</div>
+										</td>
+										<td>{new Date(s.created_at).toLocaleString()}</td>
+										<td>
+											<a
+												class="button"
+												href={previewSubmissionHref(s.id)}
+												target="_blank"
+												rel="noopener noreferrer"
+												style="margin-right:0.35rem;display:inline-block"
+											>
+												Preview
+											</a>
+											<button type="button" class="button" data-approve={s.id} style="margin-right:0.35rem">
+												Approve
+											</button>
+											<button type="button" class="button" data-reject={s.id}>
+												Reject
+											</button>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	<section class="admin-card">
+		<h2 class="admin-card__h">Recent decisions</h2>
+		<div class="admin-card__bd">
+			{
+				recent.length === 0 ? (
+					<p class="muted" style="margin:0">No reviewed submissions yet.</p>
+				) : (
+					<div class="admin-table-wrap">
+						<table class="admin-table admin-table--narrow">
+							<thead>
+								<tr>
+									<th>Status</th>
+									<th>Type</th>
+									<th>Slug</th>
+									<th>Author</th>
+									<th>Reviewer</th>
+									<th>When</th>
+								</tr>
+							</thead>
+							<tbody>
+								{recent.map((s) => (
+									<tr>
+										<td>{statusLabel(s.status)}</td>
+										<td>{kindLabel(s)}</td>
+										<td>
+											<code>{payloadSlug(s)}</code>
+										</td>
+										<td>{s.author_email}</td>
+										<td>{s.reviewed_by_email ?? '—'}</td>
+										<td>{s.reviewed_at ? new Date(s.reviewed_at).toLocaleString() : '—'}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	<script is:inline>
+		function postReview(body) {
+			return fetch('/api/admin/submissions/review', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
+				body: JSON.stringify(body),
+			}).then(function (r) {
+				return r.json().then(function (d) {
+					return { ok: r.ok, data: d };
+				});
+			});
+		}
+
+		document.querySelectorAll('[data-approve]').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var id = btn.getAttribute('data-approve');
+				if (!id || !confirm('Publish this submission now?')) return;
+				postReview({ submissionId: id, action: 'approve' }).then(function (x) {
+					if (x.ok && x.data && x.data.ok) {
+						window.location.reload();
+						return;
+					}
+					alert((x.data && x.data.error) || 'Approve failed');
+				});
+			});
+		});
+
+		document.querySelectorAll('[data-reject]').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var id = btn.getAttribute('data-reject');
+				if (!id) return;
+				var reason = window.prompt('Reason for rejection (shown to contributor on Contribute page):', '');
+				if (reason === null) return;
+				postReview({ submissionId: id, action: 'reject', reason: reason }).then(function (x) {
+					if (x.ok && x.data && x.data.ok) {
+						window.location.reload();
+						return;
+					}
+					alert((x.data && x.data.error) || 'Reject failed');
+				});
+			});
+		});
+	</script>
+</AdminLayout>

@@ -1,0 +1,74 @@
+---
+import Shell from '../../../components/Shell.astro';
+import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
+import AdminPageLocalesFields from '../../../components/admin/AdminPageLocalesFields.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../lib/strings';
+import '../../../styles/contribute.css';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'contribute/page');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const back = getRelativeLocaleUrl(locale, 'contribute');
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute/page"
+	title="Propose a page"
+	seoTitle="Propose a page"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={back}>← Back to Contribute</a>
+		</p>
+		<h1>Propose a static page</h1>
+		<p class="muted">For About-style content at <code>/{locale}/your-slug</code>. Slugs reserved for the app (tours, login, …) are not allowed.</p>
+
+		<form id="contribute-page-form" method="post" action="/api/contribute/pages">
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Settings</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug</span>
+							<input
+								type="text"
+								name="slug"
+								required
+								placeholder="e.g. about-guest-authors"
+								pattern="[a-z0-9]+(-[a-z0-9]+)*"
+							/>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>List order (optional)</span>
+							<input type="number" name="sort_order" value="0" step="1" />
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Used only in the admin pages list after publication.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Content</h2>
+				<div class="contribute-card__bd">
+					<AdminPageLocalesFields />
+				</div>
+			</section>
+		</form>
+
+		<ContributeSubmitBar formId="contribute-page-form" cancelHref={back} />
+	</div>
+</Shell>

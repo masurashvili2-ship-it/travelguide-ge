@@ -25,6 +25,13 @@ if (!row) {
 const htmlRaw = marked.parse(row.body, { async: false });
 const html = typeof htmlRaw === 'string' ? htmlRaw : await htmlRaw;
 
+const contactMd = row.contact_sidebar.trim();
+let contactHtml = '';
+if (contactMd) {
+	const contactRaw = marked.parse(contactMd, { async: false });
+	contactHtml = typeof contactRaw === 'string' ? contactRaw : await contactRaw;
+}
+
 const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
 const canonicalPath = `/${locale}/what-to-do/${slug}`;
 const site = Astro.site;
@@ -107,10 +114,11 @@ const adminEditHref =
 		<div class="tour-detail-main">
 			<div class="prose" set:html={html} />
 		</div>
-		<aside class="tour-detail-aside" aria-label={t.tourSidebarSectionTitle}>
+		<aside class="tour-detail-aside" aria-label={`${t.tourSidebarSectionTitle}${contactHtml ? ` · ${t.whatToDoContactAsideTitle}` : ''}`}>
+			<div class="tour-detail-aside__stack">
 			<div class="tour-detail-aside__card">
-				<h2 class="tour-detail-aside__title">{t.tourSidebarSectionTitle}</h2>
-				<dl class="tour-detail-aside__dl">
+				<h2 class="tour-detail-aside__title" id="wtd-aside-summary">{t.tourSidebarSectionTitle}</h2>
+				<dl class="tour-detail-aside__dl" aria-labelledby="wtd-aside-summary">
 					{
 						row.whatDoCategories.length > 0 ? (
 							<div class="tour-detail-aside__row">
@@ -172,6 +180,20 @@ const adminEditHref =
 						) : null
 					}
 				</dl>
+			</div>
+			{
+				contactHtml ? (
+					<section
+						class="tour-detail-aside__card tour-detail-aside__card--contact"
+						aria-labelledby="wtd-aside-contact"
+					>
+						<h2 id="wtd-aside-contact" class="tour-detail-aside__title">
+							{t.whatToDoContactAsideTitle}
+						</h2>
+						<div class="prose tour-detail-aside__contact-prose" set:html={contactHtml} />
+					</section>
+				) : null
+			}
 			</div>
 		</aside>
 	</div>
@@ -269,9 +291,25 @@ const adminEditHref =
 			order: 2;
 		}
 	}
+	[data-tour-detail] .tour-detail-aside__contact-prose {
+		font-size: 0.94rem;
+		line-height: 1.55;
+	}
+	[data-tour-detail] .tour-detail-aside__contact-prose :where(p) {
+		margin: 0.5rem 0;
+	}
+	[data-tour-detail] .tour-detail-aside__contact-prose :where(p:first-child) {
+		margin-top: 0;
+	}
+	[data-tour-detail] .tour-detail-aside__contact-prose :where(p:last-child) {
+		margin-bottom: 0;
+	}
+	[data-tour-detail] .tour-detail-aside__contact-prose :where(a) {
+		word-break: break-word;
+	}
 	@media (min-width: 900px) {
 		[data-tour-detail].tour-detail-layout {
-			grid-template-columns: minmax(0, 1fr) min(280px, 34%);
+			grid-template-columns: minmax(0, 1fr) min(300px, 36%);
 			gap: 2rem;
 		}
 		[data-tour-detail] .tour-detail-main {
@@ -290,6 +328,11 @@ const adminEditHref =
 	[data-tour-detail] .tour-detail-aside {
 		min-width: 0;
 		width: 100%;
+	}
+	[data-tour-detail] .tour-detail-aside__stack {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1rem;
 	}
 	[data-tour-detail] .tour-detail-aside__card {
 		background: var(--surface);

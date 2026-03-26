@@ -7,6 +7,12 @@ import {
 	type TourPhysicalRatingId,
 } from '../../../lib/tour-physical-rating';
 import {
+	parseAdminLocale,
+	publicContentUrl,
+	isJsonRequestBody,
+	wantsJsonApiResponse,
+} from '../../../lib/admin-save-response';
+import {
 	isValidSlug,
 	normalizeTourGalleryInput,
 	parseTourLocation,
@@ -43,6 +49,7 @@ function buildI18nFromFields(fields: Record<string, string>): Partial<Record<Loc
 			seo_title: (fields[`${loc}_seo_title`] ?? '').trim() || null,
 			seo_description: (fields[`${loc}_seo_description`] ?? '').trim() || null,
 			body: fields[`${loc}_body`] ?? '',
+			contact_sidebar: '',
 		};
 	}
 	return i18n;
@@ -53,12 +60,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	if (denied) return denied;
 
 	const ct = request.headers.get('content-type') ?? '';
-	const wantsJson = ct.includes('application/json');
+	const jsonBody = isJsonRequestBody(ct);
+	const respondJson = wantsJsonApiResponse(request, jsonBody);
 
 	let fields: Record<string, string> = {};
 	let galleryUrls: string[] = [];
 
-	if (wantsJson) {
+	if (jsonBody) {
 		const j = (await request.json()) as Record<string, unknown>;
 		const {
 			gallery: galleryRaw,
@@ -90,6 +98,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					seo_description:
 						o.seo_description == null || o.seo_description === '' ? null : String(o.seo_description),
 					body: String(o.body ?? ''),
+					contact_sidebar: '',
 				};
 			}
 			const intent = fields.intent === 'update' ? 'update' : 'create';
@@ -177,10 +186,17 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					headers: { 'Content-Type': 'application/json' },
 				});
 			}
-			return new Response(JSON.stringify({ ok: true }), {
-				status: 200,
-				headers: { 'Content-Type': 'application/json' },
-			});
+			const loc = parseAdminLocale(fields);
+			return new Response(
+				JSON.stringify({
+					ok: true,
+					publicUrl: publicContentUrl(request, loc, 'tours', slug),
+				}),
+				{
+					status: 200,
+					headers: { 'Content-Type': 'application/json' },
+				},
+			);
 		}
 	} else {
 		const fd = await request.formData();
@@ -197,6 +213,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	const image = fields.image?.trim();
 
 	if (!slug || !isValidSlug(slug)) {
+		if (!respondJson) {
+			const back = fields.redirect?.trim() || `/en/admin`;
+			const u = new URL(back, request.url);
+			u.searchParams.set('error', 'Invalid or missing slug');
+			return Response.redirect(u.toString(), 303);
+		}
 		return new Response(JSON.stringify({ error: 'Invalid or missing slug' }), {
 			status: 400,
 			headers: { 'Content-Type': 'application/json' },
@@ -207,7 +229,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
 	const locParsed = parseTourLocationFromForm(fields);
 	if (locParsed.kind === 'error') {
-		if (!wantsJson) {
+		if (!respondJson) {
 			const back = fields.redirect?.trim() || `/en/admin`;
 			const u = new URL(back, request.url);
 			u.searchParams.set('error', locParsed.message);
@@ -228,7 +250,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	} else {
 		const parsed = parseTourCategory(catTrim);
 		if (!parsed) {
-			if (!wantsJson) {
+			if (!respondJson) {
 				const back = fields.redirect?.trim() || `/en/admin`;
 				const u = new URL(back, request.url);
 				u.searchParams.set('error', 'Invalid tour category');
@@ -249,7 +271,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	} else {
 		const parsed = parseTourPhysicalRating(physTrim);
 		if (!parsed) {
-			if (!wantsJson) {
+			if (!respondJson) {
 				const back = fields.redirect?.trim() || `/en/admin`;
 				const u = new URL(back, request.url);
 				u.searchParams.set('error', 'Invalid physical rating');
@@ -279,7 +301,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	});
 
 	if (!result.ok) {
-		if (!wantsJson) {
+		if (!respondJson) {
 			const back = fields.redirect?.trim() || `/en/admin`;
 			const u = new URL(back, request.url);
 			u.searchParams.set('error', result.error);
@@ -291,11 +313,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		});
 	}
 
-	if (wantsJson) {
-		return new Response(JSON.stringify({ ok: true }), {
-			status: 200,
-			headers: { 'Content-Type': 'application/json' },
-		});
+	if (respondJson) {
+		const loc = parseAdminLocale(fields);
+		return new Response(
+			JSON.stringify({
+				ok: true,
+				publicUrl: publicContentUrl(request, loc, 'tours', slug),
+			}),
+			{
+				status: 200,
+				headers: { 'Content-Type': 'application/json' },
+			},
+		);
 	}
 
 	const back = fields.redirect?.trim() || `/en/admin`;

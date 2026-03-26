@@ -56,6 +56,8 @@ export type TourLocaleBlock = {
 	seo_title: string | null;
 	seo_description: string | null;
 	body: string;
+	/** Markdown; “What to do” detail right column contact box only (optional). */
+	contact_sidebar: string;
 };
 
 /** One logical tour: shared slug, cover, gallery; copy varies by language in `i18n`. */
@@ -78,6 +80,9 @@ export type TourPost = {
 	driving_distance: string | null;
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 	updated_at: number;
+	/** Submitter (contributor); visible to admins only on live site. */
+	author_user_id: string | null;
+	author_email: string | null;
 };
 
 export type TourFrontmatter = {
@@ -126,7 +131,10 @@ export type TourRow = {
 	seo_title: string | null;
 	seo_description: string | null;
 	body: string;
+	contact_sidebar: string;
 	updated_at: number;
+	author_user_id: string | null;
+	author_email: string | null;
 };
 
 type JsonFile = Record<string, unknown>;
@@ -281,6 +289,7 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 		seo_title: st == null || st === '' ? null : String(st),
 		seo_description: sd == null || sd === '' ? null : String(sd),
 		body: String(o.body ?? '').trim(),
+		contact_sidebar: String(o.contact_sidebar ?? '').trim(),
 	};
 }
 
@@ -319,6 +328,10 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 		driving_distance: parseDrivingDistance(o.driving_distance),
 		i18n,
 		updated_at: typeof o.updated_at === 'number' ? o.updated_at : Date.now(),
+		author_user_id:
+			typeof o.author_user_id === 'string' && o.author_user_id.trim() ? o.author_user_id.trim() : null,
+		author_email:
+			typeof o.author_email === 'string' && o.author_email.trim() ? o.author_email.trim() : null,
 	};
 }
 
@@ -400,6 +413,7 @@ function migrateLegacyToPosts(rows: LegacyTourRow[]): TourPost[] {
 				seo_title: row.seo_title,
 				seo_description: row.seo_description,
 				body: row.body,
+				contact_sidebar: '',
 			});
 			if (b) i18n[row.locale] = b;
 		}
@@ -418,6 +432,8 @@ function migrateLegacyToPosts(rows: LegacyTourRow[]): TourPost[] {
 			driving_distance: null,
 			i18n,
 			updated_at,
+			author_user_id: null,
+			author_email: null,
 		});
 	}
 	return posts;
@@ -558,6 +574,11 @@ function importFromMarkdownPosts(): TourPost[] {
 	return migrateLegacyToPosts(legacy);
 }
 
+/** Derive a per-locale row from any tour/what-to-do post (including synthetic preview posts). */
+export function flattenTourPostToRow(post: TourPost, locale: Locale): TourRow | null {
+	return flattenPost(post, locale);
+}
+
 function flattenPost(post: TourPost, locale: Locale): TourRow | null {
 	const block = post.i18n[locale];
 	if (!block) return null;
@@ -580,7 +601,10 @@ function flattenPost(post: TourPost, locale: Locale): TourRow | null {
 		seo_title: block.seo_title,
 		seo_description: block.seo_description,
 		body: block.body,
+		contact_sidebar: block.contact_sidebar ?? '',
 		updated_at: post.updated_at,
+		author_user_id: post.author_user_id ?? null,
+		author_email: post.author_email ?? null,
 	};
 }
 
@@ -723,6 +747,32 @@ export function getContentPostById(kind: ContentPostKind, id: string): TourPost 
 	return getPosts(kind).find((p) => p.id === id) ?? null;
 }
 
+export function findContentPostBySlug(kind: ContentPostKind, slug: string): TourPost | null {
+	return getPosts(kind).find((p) => p.slug === slug) ?? null;
+}
+
+/** True if a different post (not `exceptPostId`) already uses this slug. */
+export function isTourSlugUsedByAnotherPost(
+	kind: ContentPostKind,
+	slug: string,
+	exceptPostId?: string | null,
+): boolean {
+	return getPosts(kind).some((p) => p.slug === slug && (!exceptPostId || p.id !== exceptPostId));
+}
+
+export function deleteContentPostById(
+	kind: ContentPostKind,
+	id: string,
+): { ok: true } | { ok: false; error: string } {
+	if (!isValidTourId(id)) return { ok: false, error: 'Invalid id' };
+	const posts = [...getPosts(kind)];
+	const i = posts.findIndex((p) => p.id === id);
+	if (i === -1) return { ok: false, error: 'Post not found' };
+	posts.splice(i, 1);
+	writePostsStore(kind, posts);
+	return { ok: true };
+}
+
 export function getTourPostById(id: string): TourPost | null {
 	return getContentPostById('tours', id);
 }
@@ -747,6 +797,7 @@ export type AdminTourListItem = {
 	slug: string;
 	titles: Record<Locale, string>;
 	locales: Locale[];
+	author_email: string | null;
 };
 
 function listAllAdminForKind(kind: ContentPostKind): AdminTourListItem[] {
@@ -760,7 +811,13 @@ function listAllAdminForKind(kind: ContentPostKind): AdminTourListItem[] {
 				ru: p.i18n.ru?.title ?? '',
 			};
 			const locales = LOCALES.filter((l) => !!p.i18n[l]?.title);
-			return { id: p.id, slug: p.slug, titles, locales };
+			return {
+				id: p.id,
+				slug: p.slug,
+				titles,
+				locales,
+				author_email: p.author_email ?? null,
+			};
 		});
 }
 
@@ -789,30 +846,15 @@ export type SaveTourPostInput = {
 	driving_distance?: string | null;
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 	mode: 'create' | 'update';
+	author_user_id?: string | null;
+	author_email?: string | null;
 };
 
-function savePostForKind(
-	kind: ContentPostKind,
-	input: SaveTourPostInput,
+/** Slug + per-locale rules only (no uniqueness). Used before queuing a contributor submission. */
+export function validateTourPostI18nAndSlug(
+	slug: string,
+	i18n: Partial<Record<Locale, TourLocaleBlock>>,
 ): { ok: true } | { ok: false; error: string } {
-	const {
-		id,
-		slug,
-		image,
-		gallery,
-		location: locationInput,
-		category: categoryInput,
-		whatDoCategories: whatDoCategoriesInput,
-		whatDoSeasons: whatDoSeasonsInput,
-		physical_rating: physicalRatingInput,
-		driving_distance: drivingDistanceInput,
-		i18n,
-		mode,
-	} = input;
-
-	const noun = kind === 'tours' ? 'tour' : 'entry';
-	const nounCap = kind === 'tours' ? 'Tour' : 'Entry';
-
 	if (!isValidSlug(slug)) {
 		return { ok: false, error: 'Invalid slug (use lowercase letters, numbers, hyphens)' };
 	}
@@ -843,6 +885,40 @@ function savePostForKind(
 		}
 	}
 
+	return { ok: true };
+}
+
+export function isTourSlugTakenInStore(kind: ContentPostKind, slug: string): boolean {
+	return getPosts(kind).some((p) => p.slug === slug);
+}
+
+function savePostForKind(
+	kind: ContentPostKind,
+	input: SaveTourPostInput,
+): { ok: true } | { ok: false; error: string } {
+	const {
+		id,
+		slug,
+		image,
+		gallery,
+		location: locationInput,
+		category: categoryInput,
+		whatDoCategories: whatDoCategoriesInput,
+		whatDoSeasons: whatDoSeasonsInput,
+		physical_rating: physicalRatingInput,
+		driving_distance: drivingDistanceInput,
+		i18n,
+		mode,
+		author_user_id: authorUserIn,
+		author_email: authorEmailIn,
+	} = input;
+
+	const noun = kind === 'tours' ? 'tour' : 'entry';
+	const nounCap = kind === 'tours' ? 'Tour' : 'Entry';
+
+	const baseValid = validateTourPostI18nAndSlug(slug, i18n);
+	if (!baseValid.ok) return baseValid;
+
 	const now = Date.now();
 	const galleryInput = gallery ?? [];
 	const galleryVal = normalizeTourGalleryInput(galleryInput);
@@ -867,6 +943,7 @@ function savePostForKind(
 			seo_title: st ? st : null,
 			seo_description: sd ? sd : null,
 			body: (b.body ?? '').trim(),
+			contact_sidebar: (b.contact_sidebar ?? '').trim(),
 		};
 	}
 
@@ -892,6 +969,14 @@ function savePostForKind(
 				: [];
 		const createPhysicalRating = physicalRatingInput === undefined ? null : physicalRatingInput;
 		const createDrivingDistance = drivingDistanceInput === undefined ? null : drivingDistanceInput;
+		const au =
+			authorUserIn !== undefined && authorUserIn !== null && String(authorUserIn).trim()
+				? String(authorUserIn).trim()
+				: null;
+		const ae =
+			authorEmailIn !== undefined && authorEmailIn !== null && String(authorEmailIn).trim()
+				? String(authorEmailIn).trim()
+				: null;
 		posts.push({
 			id: randomUUID(),
 			slug,
@@ -905,6 +990,8 @@ function savePostForKind(
 			driving_distance: createDrivingDistance,
 			i18n: cleanI18n,
 			updated_at: now,
+			author_user_id: au,
+			author_email: ae,
 		});
 		writePostsStore(kind, posts);
 		return { ok: true };
@@ -953,6 +1040,19 @@ function savePostForKind(
 	const nextDrivingDistance =
 		drivingDistanceInput === undefined ? prev.driving_distance : drivingDistanceInput;
 
+	const nextAuthorUserId =
+		authorUserIn !== undefined
+			? authorUserIn !== null && String(authorUserIn).trim()
+				? String(authorUserIn).trim()
+				: null
+			: (prev.author_user_id ?? null);
+	const nextAuthorEmail =
+		authorEmailIn !== undefined
+			? authorEmailIn !== null && String(authorEmailIn).trim()
+				? String(authorEmailIn).trim()
+				: null
+			: (prev.author_email ?? null);
+
 	posts[idx] = {
 		...prev,
 		slug,
@@ -966,6 +1066,8 @@ function savePostForKind(
 		driving_distance: nextDrivingDistance,
 		i18n: cleanI18n,
 		updated_at: now,
+		author_user_id: nextAuthorUserId,
+		author_email: nextAuthorEmail,
 	};
 
 	writePostsStore(kind, posts);
@@ -1030,6 +1132,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 		const post = getTourPostById(id);
 		if (!post) return { ok: false, error: 'Tour not found' };
 		const i18n: Partial<Record<Locale, TourLocaleBlock>> = { ...post.i18n };
+		const prevBlock = post.i18n[locale];
 		i18n[locale] = {
 			title,
 			duration,
@@ -1038,6 +1141,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 			seo_title: seo_title?.trim() ? seo_title.trim() : null,
 			seo_description: seo_description?.trim() ? seo_description.trim() : null,
 			body: body.trim() || '',
+			contact_sidebar: prevBlock?.contact_sidebar ?? '',
 		};
 		return saveTourPost({
 			id,
@@ -1070,6 +1174,7 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 				seo_title: seo_title?.trim() ? seo_title.trim() : null,
 				seo_description: seo_description?.trim() ? seo_description.trim() : null,
 				body: body.trim() || '',
+				contact_sidebar: '',
 			},
 		},
 		mode: 'create',

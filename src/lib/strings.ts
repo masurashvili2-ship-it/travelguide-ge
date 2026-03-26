@@ -23,6 +23,8 @@ export const ui: Record<
 		login: string;
 		register: string;
 		admin: string;
+		/** Account menu: submit content for review */
+		contribute: string;
 		logout: string;
 		/** Site header: language dropdown trigger / region */
 		navLanguage: string;
@@ -112,6 +114,8 @@ export const ui: Record<
 		/** Tour detail: related tours below the article */
 		similarTours: string;
 		similarWhatToDo: string;
+		/** What-to-do detail: right column contact / booking box heading */
+		whatToDoContactAsideTitle: string;
 		/** Reviews & comments (same thread for all locales, keyed by tour id) */
 		tourReviewsTitle: string;
 		tourReviewsOutOf: string;
@@ -140,6 +144,7 @@ export const ui: Record<
 		login: 'Log in',
 		register: 'Register',
 		admin: 'Admin',
+		contribute: 'Contribute',
 		logout: 'Log out',
 		navLanguage: 'Language',
 		navAccount: 'Account',
@@ -250,6 +255,7 @@ export const ui: Record<
 		},
 		similarTours: 'Similar tours',
 		similarWhatToDo: 'More ideas',
+		whatToDoContactAsideTitle: 'Contact & hours',
 		tourReviewsTitle: 'Reviews',
 		tourReviewsOutOf: 'out of 5',
 		tourReviewsCount: '{n} reviews',
@@ -276,6 +282,7 @@ export const ui: Record<
 		login: 'შესვლა',
 		register: 'რეგისტრაცია',
 		admin: 'ადმინი',
+		contribute: 'წვლილი',
 		logout: 'გასვლა',
 		navLanguage: 'ენა',
 		navAccount: 'ანგარიში',
@@ -383,6 +390,7 @@ export const ui: Record<
 		},
 		similarTours: 'მსგავსი ტურები',
 		similarWhatToDo: 'მეტი იდეა',
+		whatToDoContactAsideTitle: 'კონტაქტი და საათები',
 		tourReviewsTitle: 'შეფასებები',
 		tourReviewsOutOf: '5-დან',
 		tourReviewsCount: '{n} შეფასება',
@@ -409,6 +417,7 @@ export const ui: Record<
 		login: 'Вход',
 		register: 'Регистрация',
 		admin: 'Админ',
+		contribute: 'Предложить материал',
 		logout: 'Выход',
 		navLanguage: 'Язык',
 		navAccount: 'Аккаунт',
@@ -519,6 +528,7 @@ export const ui: Record<
 		},
 		similarTours: 'Похожие туры',
 		similarWhatToDo: 'Ещё идеи',
+		whatToDoContactAsideTitle: 'Контакты и часы',
 		tourReviewsTitle: 'Отзывы',
 		tourReviewsOutOf: 'из 5',
 		tourReviewsCount: '{n} отзывов',

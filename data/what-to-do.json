@@ -10,9 +10,6 @@
         "lng": 44.8025,
         "label": "Old Tbilisi"
       },
-      "seasons": [
-        "summer"
-      ],
       "physical_rating": "easy",
       "driving_distance": "Walking only · ~3 km loop",
       "i18n": {
@@ -23,7 +20,8 @@
           "excerpt": "Narikala views, balconied streets, and hidden courtyards after sunset.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Start near **Metekhi** or **Mother Georgia**, then wind through **Abanotubani** and the balconied streets toward **Narikala** (you can skip the cable car and walk up if you prefer).\r\n\r\nEvenings are quieter and the city lights over the **Mtkvari** are worth the climb. Wear comfortable shoes—cobblestones are slippery when wet."
+          "body": "Start near **Metekhi** or **Mother Georgia**, then wind through **Abanotubani** and the balconied streets toward **Narikala** (you can skip the cable car and walk up if you prefer).\r\n\r\nEvenings are quieter and the city lights over the **Mtkvari** are worth the climb. Wear comfortable shoes—cobblestones are slippery when wet.",
+          "contact_sidebar": ""
         },
         "ka": {
           "title": "ძველი თბილისის საღამოს სასიარულო",
@@ -32,7 +30,8 @@
           "excerpt": "ნარიყალას ხედები, აივნებიანი ქუჩები და ეზოები მზის ჩასვლის შემდეგ.",
           "seo_title": null,
           "seo_description": null,
-          "body": "დაიწყეთ **მეტეხის** ან **დედაქალაქის** სიახლოვეს, შემდეგ გაიარეთ **აბანოთუბანი** და **ნარიყალას** მიმართულებით (სურვილისამებრ ფეხით ან საბაგირო გზით).\r\n\r\nსაღამოს ნაკლები ხალხია და **მტკვრის** ხედი ღირსება. ჩაიცვით მოსიარულე ფეხსაცმელი — ქვა ტენიან ამინდში სრიალებს."
+          "body": "დაიწყეთ **მეტეხის** ან **დედაქალაქის** სიახლოვეს, შემდეგ გაიარეთ **აბანოთუბანი** და **ნარიყალას** მიმართულებით (სურვილისამებრ ფეხით ან საბაგირო გზით).\r\n\r\nსაღამოს ნაკლები ხალხია და **მტკვრის** ხედი ღირსება. ჩაიცვით მოსიარულე ფეხსაცმელი — ქვა ტენიან ამინდში სრიალებს.",
+          "contact_sidebar": ""
         },
         "ru": {
           "title": "Вечерняя прогулка по Старому Тбилиси",
@@ -41,12 +40,18 @@
           "excerpt": "Виды на Нарикала, балконные улицы и дворики после заката.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Начните у **Метехи** или **Матери Грузии**, затем пройдите через **Абанотубани** к **Нарикале** (можно пешком или на канатной дороге).\r\n\r\nВечером меньше людей, а подсветка над **Курой** того стоит. Удобная обувь обязательна — мокрый булыжник скользкий."
+          "body": "Начните у **Метехи** или **Матери Грузии**, затем пройдите через **Абанотубани** к **Нарикале** (можно пешком или на канатной дороге).\r\n\r\nВечером меньше людей, а подсветка над **Курой** того стоит. Удобная обувь обязательна — мокрый булыжник скользкий.",
+          "contact_sidebar": ""
         }
       },
       "updated_at": 1775000000000,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "street"
+      ],
+      "seasons": [
+        "summer"
       ]
     },
     {
@@ -59,18 +64,18 @@
         "lng": 44.808,
         "label": "Abanotubani"
       },
-      "seasons": [],
       "physical_rating": "moderate",
       "driving_distance": null,
       "i18n": {
         "en": {
-          "title": "Sulphur baths (Abanotubani)",
+          "title": "Sulphur baths (Abanotubani <3)",
           "duration": "1–2 hours",
           "price": "From ~50–150 GEL depending on bathhouse",
           "excerpt": "Natural hot sulphur water in the heart of Old Tbilisi — book ahead on weekends.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Tbilisi means “warm place” because of these **sulphur springs**. Several historic and modern bathhouses sit in **Abanotubani**.\r\n\r\nBring your own towel unless included, drink water, and avoid if you have certain heart conditions—ask staff if unsure. **Chreli Abano** and **Orbeliani** are popular; reservations help on Friday evenings."
+          "body": "Tbilisi means “warm place” because of these **sulphur springs**. Several historic and modern bathhouses sit in **Abanotubani**.\r\n\r\nBring your own towel unless included, drink water, and avoid if you have certain heart conditions—ask staff if unsure. **Chreli Abano** and **Orbeliani** are popular; reservations help on Friday evenings.",
+          "contact_sidebar": "**Phone:** +995 32X XXX XXX (sample)\r\n\r\n**Email:** [baths@example.ge](mailto:baths@example.ge)\r\n\r\n**Hours:** Daily **10:00–22:00** · weekends busy — book ahead\r\n\r\n**Note:** Prices and hours vary by bathhouse; confirm with the venue."
         },
         "ka": {
           "title": "გოგირდის აბანოები (აბანოთუბანი)",
@@ -79,7 +84,8 @@
           "excerpt": "ცხელი გოგირდიანი წყალი ძველ თბილისში — შაბათ-კვირას წინასწარ დაჯავშნა გამოგადგებათ.",
           "seo_title": null,
           "seo_description": null,
-          "body": "თბილისი სახელითაც **თბილი ადგილია** — **აბანოთუბანში** რამდენიმე ისტორიული და თანამედროვე აბანოა.\r\n\r\nწაიღეთ პირსახოცი, თუ არ არის ჩართული, სვით წყალი და ჯანმრთელობის პრობლემებისას მიმართეთ პერსონალს. **ჩრელი აბანო** და **ორბელიანი** პოპულარულია; პარასკევს წინასწარ დაჯავშნა გამოსადეგია."
+          "body": "თბილისი სახელითაც **თბილი ადგილია** — **აბანოთუბანში** რამდენიმე ისტორიული და თანამედროვე აბანოა.\r\n\r\nწაიღეთ პირსახოცი, თუ არ არის ჩართული, სვით წყალი და ჯანმრთელობის პრობლემებისას მიმართეთ პერსონალს. **ჩრელი აბანო** და **ორბელიანი** პოპულარულია; პარასკევს წინასწარ დაჯავშნა გამოსადეგია.",
+          "contact_sidebar": "**ტელეფონი:** +995 32X XXX XXX (საჩვენებელი)\r\n\r\n**ელფოსტა:** [baths@example.ge](mailto:baths@example.ge)\r\n\r\n**საათები:** ყოველდღე **10:00–22:00** · შაბათ-კვირას დაჯავშნა რეკომენდებულია"
         },
         "ru": {
           "title": "Серные бани (Абанотубани)",
@@ -88,13 +94,17 @@
           "excerpt": "Горячая серная вода в центре Старого Тбилиси — в выходные лучше бронировать.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Название **Тбилиси** связано с этими **источниками**. В **Абанотубани** несколько исторических и современных бань.\r\n\r\nВозьмите полотенце, если не входит в цену, пейте воду. **Чрели-Абано** и **Орбелиани** популярны; в пятницу вечером лучше записаться заранее."
+          "body": "Название **Тбилиси** связано с этими **источниками**. В **Абанотубани** несколько исторических и современных бань.\r\n\r\nВозьмите полотенце, если не входит в цену, пейте воду. **Чрели-Абано** и **Орбелиани** популярны; в пятницу вечером лучше записаться заранее.",
+          "contact_sidebar": "**Телефон:** +995 32X XXX XXX (пример)\r\n\r\n**Почта:** [baths@example.ge](mailto:baths@example.ge)\r\n\r\n**Часы:** ежедневно **10:00–22:00** · в выходные лучше бронировать"
         }
       },
-      "updated_at": 1775000001000,
+      "updated_at": 1774515819306,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "hot-spring"
-      ]
+      ],
+      "seasons": []
     },
     {
       "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a03",
@@ -117,7 +127,6 @@
         "lng": 44.7995,
         "label": "Dry Bridge"
       },
-      "seasons": [],
       "physical_rating": "easy",
       "driving_distance": null,
       "i18n": {
@@ -128,7 +137,8 @@
           "excerpt": "Soviet memorabilia, paintings, books, and curios near Dedaena Park.",
           "seo_title": null,
           "seo_description": null,
-          "body": "The **Dry Bridge** area hosts Tbilisi’s best-known **open-air market** for antiques, art, and bric-a-brac. Mornings are calmer; weekends are busiest.\r\n\r\nCash helps for small purchases. Inspect items if buying electronics or watches—**bargaining** is normal but stay friendly."
+          "body": "The **Dry Bridge** area hosts Tbilisi’s best-known **open-air market** for antiques, art, and bric-a-brac. Mornings are calmer; weekends are busiest.\r\n\r\nCash helps for small purchases. Inspect items if buying electronics or watches—**bargaining** is normal but stay friendly.",
+          "contact_sidebar": "fre"
         },
         "ka": {
           "title": "ზვიგენის ხიდის ბაზრობა",
@@ -137,7 +147,8 @@
           "excerpt": "საბჭოთა სუვენირები, ნახატები, წიგნები და საინტერესო ნივთები დედაენის პარკთან ახლოს.",
           "seo_title": null,
           "seo_description": null,
-          "body": "**ზვიგენის ხიდის** ტერიტორიაზე თბილისის ცნობილი **ღია ბაზრობაა** ანტიკვარიატისა და საინტერესო ნივთებისთვის. დილები უფრო მშვიდია; შაბათ-კვირას ხალხი მეტია.\r\n\r\nპატარა ყიდვებზე **ნაღდი ფული** გამოსადეგია. ტექნიკის ყიდვისას შეამოწმეთ; **ვაჭრობა** ნორმალურია, მაგრამ თავაზიანად."
+          "body": "**ზვიგენის ხიდის** ტერიტორიაზე თბილისის ცნობილი **ღია ბაზრობაა** ანტიკვარიატისა და საინტერესო ნივთებისთვის. დილები უფრო მშვიდია; შაბათ-კვირას ხალხი მეტია.\r\n\r\nპატარა ყიდვებზე **ნაღდი ფული** გამოსადეგია. ტექნიკის ყიდვისას შეამოწმეთ; **ვაჭრობა** ნორმალურია, მაგრამ თავაზიანად.",
+          "contact_sidebar": ""
         },
         "ru": {
           "title": "Блошиный рынок у Сухого моста",
@@ -146,10 +157,13 @@
           "excerpt": "Советские сувениры, картины, книжки и мелочи у парка Дедаэна.",
           "seo_title": null,
           "seo_description": null,
-          "body": "У **Сухого моста** — известный **открытый рынок** с антиквариатом и всякой всячиной. Утром спокойнее, в выходные многолюдно.\r\n\r\nДля мелких покупок удобны **наличные**. При покупке техники смотрите состояние; **торг** уместен, но вежливо."
+          "body": "У **Сухого моста** — известный **открытый рынок** с антиквариатом и всякой всячиной. Утром спокойнее, в выходные многолюдно.\r\n\r\nДля мелких покупок удобны **наличные**. При покупке техники смотрите состояние; **торг** уместен, но вежливо.",
+          "contact_sidebar": ""
         }
       },
-      "updated_at": 1774389608613,
+      "updated_at": 1774516176443,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "hot-spring",
         "lake",
@@ -159,7 +173,8 @@
         "mountain-peaks",
         "history-culture",
         "landmark"
-      ]
+      ],
+      "seasons": []
     },
     {
       "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a04",
@@ -171,11 +186,6 @@
         "lng": 44.7925,
         "label": "Mtatsminda"
       },
-      "seasons": [
-        "spring",
-        "summer",
-        "autumn"
-      ],
       "physical_rating": "easy",
       "driving_distance": "Funicular or taxi to upper station · walking inside the park",
       "i18n": {
@@ -186,7 +196,8 @@
           "excerpt": "Views over Tbilisi, retro rides, and pine air above the city.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Ride the **funicular** from Chonkadze Street up to **Mtatsminda** for wide views over **Tbilisi**. The amusement area suits families; you can also just walk the paths and sit in the shade.\r\n\r\nDress for wind on breezy days. Evenings are lively in summer—check closing times in winter."
+          "body": "Ride the **funicular** from Chonkadze Street up to **Mtatsminda** for wide views over **Tbilisi**. The amusement area suits families; you can also just walk the paths and sit in the shade.\r\n\r\nDress for wind on breezy days. Evenings are lively in summer—check closing times in winter.",
+          "contact_sidebar": ""
         },
         "ka": {
           "title": "მთაწმინდის პარკი და ფუნიკულიორი",
@@ -195,7 +206,8 @@
           "excerpt": "ხედები თბილისზე, ვინტაჟური ატრაქციონები და ქვიშუხის ჰაერი ქალაქის თავზე.",
           "seo_title": null,
           "seo_description": null,
-          "body": "**ფუნიკულიორით** (ჩონკაძის ქუჩიდან) ადით **მთაწმინდაზე** და დაეთვალეთ **თბილისს**. ატრაქციონები ოჯახებისთვისაა; შეგიძლიათ მხოლოდ სეირნობა და დასვენება ჩრდილში.\r\n\r\nქარისთვის მოიმარაგეთ ტანსაცმელი. ზაფხულში საღამოს უფრო ხალხია — ზამთარში სამუშაო საათები შეამოწმეთ."
+          "body": "**ფუნიკულიორით** (ჩონკაძის ქუჩიდან) ადით **მთაწმინდაზე** და დაეთვალეთ **თბილისს**. ატრაქციონები ოჯახებისთვისაა; შეგიძლიათ მხოლოდ სეირნობა და დასვენება ჩრდილში.\r\n\r\nქარისთვის მოიმარაგეთ ტანსაცმელი. ზაფხულში საღამოს უფრო ხალხია — ზამთარში სამუშაო საათები შეამოწმეთ.",
+          "contact_sidebar": ""
         },
         "ru": {
           "title": "Парк Мтацминда и фуникулёр",
@@ -204,13 +216,21 @@
           "excerpt": "Виды на Тбилиси, аттракционы и сосновый воздух над городом.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Поднимитесь на **фуникулёре** с улицы Чонкадзе на **Мтацминду** — открывается панорама **Тбилиси**. Зона аттракционов удобна с детьми; можно просто гулять по дорожкам.\r\n\r\nНа ветру прохладнее, возьмите куртку. Летом вечером оживлённо; зимой уточняйте время работы."
+          "body": "Поднимитесь на **фуникулёре** с улицы Чонкадзе на **Мтацминду** — открывается панорама **Тбилиси**. Зона аттракционов удобна с детьми; можно просто гулять по дорожкам.\r\n\r\nНа ветру прохладнее, возьмите куртку. Летом вечером оживлённо; зимой уточняйте время работы.",
+          "contact_sidebar": ""
         }
       },
       "updated_at": 1775000002000,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "park",
         "landmark"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
       ]
     },
     {
@@ -223,11 +243,6 @@
         "lng": 44.7458,
         "label": "Turtle Lake"
       },
-      "seasons": [
-        "spring",
-        "summer",
-        "autumn"
-      ],
       "physical_rating": "moderate",
       "driving_distance": "Bus/taxi to Vake, then ~15–20 min walk uphill; or drive to car parks near the lake",
       "i18n": {
@@ -238,7 +253,8 @@
           "excerpt": "A small forested lake above Vake — walking paths, cafés, and a quieter city escape.",
           "seo_title": null,
           "seo_description": null,
-          "body": "**Kus Tba** sits above the **Vake** district. Locals jog and walk dogs here; summer brings open-air cafés and pedal boats.\r\n\r\nThe climb from the lower road is steady—comfortable shoes help. Combine with **Ethnographic Museum** nearby if you want a fuller day."
+          "body": "**Kus Tba** sits above the **Vake** district. Locals jog and walk dogs here; summer brings open-air cafés and pedal boats.\r\n\r\nThe climb from the lower road is steady—comfortable shoes help. Combine with **Ethnographic Museum** nearby if you want a fuller day.",
+          "contact_sidebar": ""
         },
         "ka": {
           "title": "კუს ტბა",
@@ -247,7 +263,8 @@
           "excerpt": "პატარა ტბა ვაკის ზემოთ — სასეირნო ბილიკები, კაფეები და ქალაქისგან მშვიდი გასაქცევი.",
           "seo_title": null,
           "seo_description": null,
-          "body": "**კუს ტბა** **ვაკის** ზემოთაა. აქ სეირნობენ და სპორტს მისდევენ; ზაფხულში კაფეები და ნავები მუშაობს.\r\n\r\nქვემოდან აღმართი საშუალოა — მოსიარულე ფეხსაცმელი საჭიროა. სურვილისამებრ შეგიძლიათ **ეთნოგრაფიული მუზეუმიც** მიუერთოთ."
+          "body": "**კუს ტბა** **ვაკის** ზემოთაა. აქ სეირნობენ და სპორტს მისდევენ; ზაფხულში კაფეები და ნავები მუშაობს.\r\n\r\nქვემოდან აღმართი საშუალოა — მოსიარულე ფეხსაცმელი საჭიროა. სურვილისამებრ შეგიძლიათ **ეთნოგრაფიული მუზეუმიც** მიუერთოთ.",
+          "contact_sidebar": ""
         },
         "ru": {
           "title": "Черепашье озеро (Кус-Тба)",
@@ -256,14 +273,22 @@
           "excerpt": "Небольшое озеро над Ваке — тропы, кафе и спокойный отдых от города.",
           "seo_title": null,
           "seo_description": null,
-          "body": "**Кус-Тба** расположено выше района **Ваке**. Здесь гуляют и бегают; летом работают кафе и прокат лодочек.\r\n\r\nПодъём от дороги умеренный, нужна удобная обувь. Рядом **этнографический музей** — можно совместить."
+          "body": "**Кус-Тба** расположено выше района **Ваке**. Здесь гуляют и бегают; летом работают кафе и прокат лодочек.\r\n\r\nПодъём от дороги умеренный, нужна удобная обувь. Рядом **этнографический музей** — можно совместить.",
+          "contact_sidebar": ""
         }
       },
       "updated_at": 1775000003000,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "lake",
         "park",
         "hiking"
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "autumn"
       ]
     },
     {
@@ -276,7 +301,6 @@
         "lng": 44.7993,
         "label": "Rustaveli Avenue"
       },
-      "seasons": [],
       "physical_rating": "easy",
       "driving_distance": null,
       "i18n": {
@@ -287,7 +311,8 @@
           "excerpt": "Gold treasure from Colchis, archaeology, and Soviet-era history under one roof on Rustaveli.",
           "seo_title": null,
           "seo_description": null,
-          "body": "The main building on **Rustaveli Avenue** holds highlights including **Colchian gold** and rich archaeological collections. Exhibits on modern history help contextualize **Georgia** today.\r\n\r\nClosed some public holidays—verify hours before you go. Photography rules vary by hall; ask at the desk."
+          "body": "The main building on **Rustaveli Avenue** holds highlights including **Colchian gold** and rich archaeological collections. Exhibits on modern history help contextualize **Georgia** today.\r\n\r\nClosed some public holidays—verify hours before you go. Photography rules vary by hall; ask at the desk.",
+          "contact_sidebar": ""
         },
         "ka": {
           "title": "საქართველოს ეროვნული მუზეუმი (რუსთაველის გამზირი)",
@@ -296,7 +321,8 @@
           "excerpt": "კოლხეთის ოქრო, არქეოლოგია და თანამედროვე ისტორია რუსთაველის გამზირზე.",
           "seo_title": null,
           "seo_description": null,
-          "body": "ძირითადი შენობა **რუსთაველის გამზირზე** — **კოლხეთის ოქროს** ექსპონატები და არქეოლოგიური კოლექციები. თანამედროვე ისტორიის დარბაზები **საქართველოს** კონტექსტს ხსნის.\r\n\r\nსადღესასწაულო დღეებში შეიძლება იყოს დახურული — საათები წინასწარ გადაამოწმეთ. ფოტოგრაფიის წესები დარბაზების მიხედვით განსხვავდება."
+          "body": "ძირითადი შენობა **რუსთაველის გამზირზე** — **კოლხეთის ოქროს** ექსპონატები და არქეოლოგიური კოლექციები. თანამედროვე ისტორიის დარბაზები **საქართველოს** კონტექსტს ხსნის.\r\n\r\nსადღესასწაულო დღეებში შეიძლება იყოს დახურული — საათები წინასწარ გადაამოწმეთ. ფოტოგრაფიის წესები დარბაზების მიხედვით განსხვავდება.",
+          "contact_sidebar": ""
         },
         "ru": {
           "title": "Национальный музей Грузии (проспект Руставели)",
@@ -305,15 +331,94 @@
           "excerpt": "Золото Колхиды, археология и новейшая история на проспекте Руставели.",
           "seo_title": null,
           "seo_description": null,
-          "body": "Главное здание на **проспекте Руставели** — **колхидское золото** и археология, залы по новой истории помогают понять сегодняшнюю **Грузию**.\r\n\r\nВ праздники может быть закрыто — часы уточняйте заранее. Правила фото различаются по залам, спросите на кассе."
+          "body": "Главное здание на **проспекте Руставели** — **колхидское золото** и археология, залы по новой истории помогают понять сегодняшнюю **Грузию**.\r\n\r\nВ праздники может быть закрыто — часы уточняйте заранее. Правила фото различаются по залам, спросите на кассе.",
+          "contact_sidebar": ""
         }
       },
       "updated_at": 1775000004000,
+      "author_user_id": null,
+      "author_email": null,
       "categories": [
         "museum",
         "history-culture",
         "landmark"
+      ],
+      "seasons": []
+    },
+    {
+      "id": "6898ffa0-9f6e-4b4e-86dd-3bc50b2e960b",
+      "slug": "bridge-of-peace",
+      "image": "https://visitgeorgia.ge/wp-content/uploads/Sighnagi-Kakheti-1.jpg",
+      "gallery": [
+        "/uploads/what-to-do/bridge-of-peace.webp",
+        "/uploads/what-to-do/bridge-of-peace-1.webp",
+        "/uploads/what-to-do/bridge-of-peace-2.webp",
+        "/uploads/what-to-do/bridge-of-peace-3.webp",
+        "/uploads/what-to-do/bridge-of-peace-4.webp",
+        "/uploads/what-to-do/bridge-of-peace-5.webp",
+        "/uploads/what-to-do/bridge-of-peace-6.webp",
+        "/uploads/what-to-do/bridge-of-peace-7.webp",
+        "/uploads/what-to-do/bridge-of-peace-8.webp"
+      ],
+      "location": null,
+      "physical_rating": "easy",
+      "driving_distance": "555",
+      "i18n": {
+        "en": {
+          "title": "Bridge of peace",
+          "duration": "2",
+          "price": null,
+          "excerpt": "5",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "The Bridge of Peace, known locally as Mshvidobis Khidi, is the shimmering crown jewel of modern Tbilisi. Stretching 150 meters across the Mtkvari River, this pedestrian-only bridge serves as a literal and symbolic link between the city’s winding, ancient past and its glass-and-steel future. Designed by Italian architect Michele De Lucchi and French lighting designer Philippe Martinaud, it was unveiled in 2010 to represent Georgia's journey from a difficult history toward a transparent, modern era.\r\n\r\nThe most striking feature of the bridge is its undulating glass canopy, which glows with thousands of white LEDs. If you watch closely, you will see the lights flickering in a specific pattern. This is actually a message in Morse code that lists the chemical elements of the human body found in the periodic table. The artistic intent is to remind every visitor that regardless of nationality or background, we are all made of the same fundamental building blocks.\r\n\r\nFor the best experience, I recommend visiting during the \"Blue Hour\"—roughly 30 minutes after sunset. This is when the sky turns a deep indigo, the bridge lights pulse against the water, and the Narikala Fortress is illuminated on the hill behind it. It is arguably the most photographed spot in the entire country, so be prepared for a bit of a crowd, especially on warm weekend evenings.\r\n\r\nThe bridge connects the charming, cafe-lined streets of Old Tbilisi near Erekle II Street with the wide-open spaces of Rike Park. Once you cross into Rike Park, you are just steps away from the aerial tramway that whisk you up to the Mother of Georgia statue for a panoramic view of the entire valley.\r\n\r\nA few practical tips for your 2026 visit: the bridge is completely free and open 24/7, making it a great spot for a late-night stroll. However, keep in mind that the glass panels can become quite slippery during the rain or winter frosts, so watch your footing. You will also likely encounter many street performers and boat tour promoters near the entrances; a polite but firm \"No, thank you\" is usually enough if you prefer to just enjoy the view in peace.",
+          "contact_sidebar": ""
+        }
+      },
+      "updated_at": 1774519013365,
+      "author_user_id": "f804da20f0b62532c68254d247620b2e",
+      "author_email": "masurashvili2@gmail.com",
+      "categories": [
+        "landmark"
+      ],
+      "seasons": [
+        "winter",
+        "spring"
       ]
+    },
+    {
+      "id": "c306fc38-6d5c-409c-8f25-374772727bf4",
+      "slug": "jyujuy",
+      "image": "/uploads/what-to-do/jyujuy.webp",
+      "gallery": [
+        "/uploads/what-to-do/jyujuy-1.webp",
+        "/uploads/what-to-do/jyujuy-2.webp",
+        "/uploads/what-to-do/jyujuy-3.webp",
+        "/uploads/what-to-do/jyujuy-4.webp",
+        "/uploads/what-to-do/jyujuy-5.webp"
+      ],
+      "location": null,
+      "physical_rating": null,
+      "driving_distance": null,
+      "i18n": {
+        "en": {
+          "title": "hjmhjmh",
+          "duration": "hjm",
+          "price": "hjm",
+          "excerpt": "hjm",
+          "seo_title": null,
+          "seo_description": null,
+          "body": "gfgfgbfgb",
+          "contact_sidebar": "bfgbfgfgb"
+        }
+      },
+      "updated_at": 1774518370606,
+      "author_user_id": "f804da20f0b62532c68254d247620b2e",
+      "author_email": "masurashvili2@gmail.com",
+      "categories": [
+        "hot-spring"
+      ],
+      "seasons": []
     }
   ]
 }

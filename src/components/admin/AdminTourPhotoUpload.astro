@@ -4,9 +4,15 @@ interface Props {
 	uploadApiPath?: string;
 	/** Form `id` the file input is associated with */
 	formId?: string;
+	/** Slug field `id` for upload naming (default matches admin tour form) */
+	slugInputId?: string;
 }
 
-const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-form' } = Astro.props;
+const {
+	uploadApiPath = '/api/admin/upload-tour-image',
+	formId = 'tour-admin-form',
+	slugInputId = 'tour-admin-slug',
+} = Astro.props;
 ---
 
 <div class="upload-widget">
@@ -37,10 +43,10 @@ const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-for
 	.upload-widget {
 		margin: 0 0 1.15rem;
 		padding: 1rem 1.1rem 1.1rem;
-		border-radius: 10px;
-		border: 1px solid rgba(201, 162, 39, 0.45);
-		background: var(--surface, #1a222d);
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+		border-radius: var(--radius-sm, 10px);
+		border: 1px solid var(--border, #e2e8f0);
+		background: var(--surface, #fff);
+		box-shadow: var(--shadow-sm, 0 1px 2px rgba(15, 23, 42, 0.05));
 	}
 	.upload-widget__title {
 		margin: 0 0 0.5rem;
@@ -53,7 +59,7 @@ const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-for
 		margin: 0 0 0.85rem;
 		font-size: 0.84rem;
 		line-height: 1.5;
-		color: var(--muted, #8b9aab);
+		color: var(--muted, #64748b);
 	}
 	.upload-widget__file {
 		margin-bottom: 0.65rem;
@@ -68,11 +74,12 @@ const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-for
 	}
 	.btn--ghost {
 		background: transparent;
-		color: var(--accent);
-		border: 1px solid rgba(201, 162, 39, 0.45);
+		color: var(--accent-dim, #0f766e);
+		border: 1px solid var(--border, #e2e8f0);
 	}
 	.btn--ghost:hover {
-		background: rgba(201, 162, 39, 0.12);
+		background: color-mix(in srgb, var(--accent, #0d9488) 8%, transparent);
+		border-color: color-mix(in srgb, var(--accent, #0d9488) 35%, var(--border, #e2e8f0));
 	}
 	.btn--ghost:disabled {
 		opacity: 0.45;
@@ -85,7 +92,7 @@ const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-for
 	}
 </style>
 
-<script is:inline define:vars={{ uploadApiPath, formId }}>
+<script is:inline define:vars={{ uploadApiPath, formId, slugInputId }}>
 	document.addEventListener('DOMContentLoaded', function () {
 		var NL = String.fromCharCode(10);
 		var fileInput = document.getElementById('tour-upload-files');
@@ -115,7 +122,7 @@ const { uploadApiPath = '/api/admin/upload-tour-image', formId = 'tour-admin-for
 
 		function readTitleSlug() {
 			var titleVal = trimVal(document.getElementById('tour-admin-title')) || firstLocaleTitle();
-			var slugVal = trimVal(document.getElementById('tour-admin-slug'));
+			var slugVal = trimVal(document.getElementById(slugInputId));
 			if (titleVal || slugVal) return { titleVal: titleVal, slugVal: slugVal };
 			var adminForm = document.getElementById(formId) || fileInput.form;
 			if (adminForm && adminForm.elements) {
