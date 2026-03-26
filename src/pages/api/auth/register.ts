@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { registerUser, sanitizeAuthNextPath, sessionCookieHeader } from '../../../lib/auth';
+import { publicOriginFromRequest, registerUser, sanitizeAuthNextPath, sessionCookieHeader } from '../../../lib/auth';
 
 export const POST: APIRoute = async ({ request }) => {
 	const ct = request.headers.get('content-type') ?? '';
@@ -29,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
 				headers: { 'Content-Type': 'application/json' },
 			});
 		}
-		const err = new URL(next, request.url);
+		const err = new URL(next, `${publicOriginFromRequest(request)}/`);
 		err.searchParams.set('error', result.error);
 		return Response.redirect(err, 302);
 	}
@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
 			headers,
 		});
 	}
-	const loc = new URL(next, request.url).toString();
+	const loc = new URL(next, `${publicOriginFromRequest(request)}/`).toString();
 	headers.set('Location', loc);
 	return new Response(null, { status: 303, headers });
 };

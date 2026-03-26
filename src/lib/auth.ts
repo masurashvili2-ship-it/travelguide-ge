@@ -145,6 +145,17 @@ export function isRequestHttps(request: Request): boolean {
 	return xf === 'https';
 }
 
+/**
+ * Public site origin for redirects (Location) behind proxies where `request.url` may be internal http.
+ */
+export function publicOriginFromRequest(request: Request): string {
+	const proto = isRequestHttps(request) ? 'https' : 'http';
+	const xfHost = request.headers.get('x-forwarded-host')?.split(',')[0]?.trim();
+	const url = new URL(request.url);
+	const host = xfHost || request.headers.get('host') || url.host;
+	return `${proto}://${host}`;
+}
+
 /** Only allow same-site path redirects (login/register `next`). */
 export function sanitizeAuthNextPath(next: string, fallback: string): string {
 	const t = next.trim();

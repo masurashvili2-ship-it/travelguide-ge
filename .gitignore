@@ -17,8 +17,8 @@ pnpm-debug.log*
 .env
 .env.production
 
-# local auth store (demo)
-data/users.json
+# Keep data/users.json in git so production has the store (see data/USERS-DEPLOY.md).
+# Use a persistent disk on App Platform so new registrations survive redeploys.
 # local sqlite (if used)
 *.db
 # optional: ignore tour data (remove line to commit content)
