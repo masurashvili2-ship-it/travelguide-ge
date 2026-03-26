@@ -2,6 +2,7 @@
 import Shell from '../../../components/Shell.astro';
 import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
 import AdminTourLocalesFields from '../../../components/admin/AdminTourLocalesFields.astro';
+import AdminSlugAutoFromEnTitle from '../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../components/admin/AdminTourPhotoUpload.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { TOUR_CATEGORY_IDS, TOUR_CATEGORY_LABELS_EN } from '../../../lib/tour-categories';
@@ -160,5 +161,6 @@ const back = getRelativeLocaleUrl(locale, 'contribute');
 		</form>
 
 		<ContributeSubmitBar formId="contribute-tour-form" cancelHref={back} />
+		<AdminSlugAutoFromEnTitle />
 	</div>
 </Shell>

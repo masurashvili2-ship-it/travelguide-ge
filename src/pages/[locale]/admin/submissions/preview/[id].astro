@@ -8,6 +8,8 @@ import {
 	pagePayloadToSyntheticPagePost,
 	tourLikePayloadToSyntheticTourPost,
 } from '../../../../../lib/contribute-synthetic-post';
+import WhatToDoContactAsideCard from '../../../../../components/WhatToDoContactAsideCard.astro';
+import { hasRenderableContactSocialLinks } from '../../../../../lib/contact-social-links';
 import {
 	flattenTourPostToRow,
 	tourCoverImageUrl,
@@ -69,6 +71,7 @@ type PreviewTour = {
 	row: TourRow;
 	bodyHtml: string;
 	contactHtml: string;
+	hasWtdContactAside: boolean;
 	metaDescription: string;
 	canonicalPath: string;
 	pageUrl: string;
@@ -160,6 +163,9 @@ if (sub.kind === 'page') {
 		const contactRaw = marked.parse(contactMd, { async: false });
 		contactHtml = typeof contactRaw === 'string' ? contactRaw : await contactRaw;
 	}
+	const hasWtdContactAside =
+		tourKind === 'what-to-do' &&
+		(Boolean(contactHtml.trim()) || hasRenderableContactSocialLinks(row.social_links));
 
 	const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
 	const slug = row.slug;
@@ -209,6 +215,7 @@ if (sub.kind === 'page') {
 		row,
 		bodyHtml,
 		contactHtml,
+		hasWtdContactAside,
 		metaDescription,
 		canonicalPath,
 		pageUrl,
@@ -326,7 +333,7 @@ if (sub.kind === 'page') {
 					class="tour-detail-aside"
 					aria-label={
 						preview.tourKind === 'what-to-do'
-							? `${tp.tourSidebarSectionTitle}${preview.contactHtml ? ` · ${tp.whatToDoContactAsideTitle}` : ''}`
+							? `${tp.tourSidebarSectionTitle}${preview.hasWtdContactAside ? ` · ${tp.whatToDoContactAsideTitle}` : ''}`
 							: tp.tourSidebarSectionTitle
 					}
 				>
@@ -400,16 +407,12 @@ if (sub.kind === 'page') {
 								) : null}
 							</dl>
 						</div>
-						{preview.tourKind === 'what-to-do' && preview.contactHtml ? (
-							<section
-								class="tour-detail-aside__card tour-detail-aside__card--contact"
-								aria-labelledby="wtd-aside-contact"
-							>
-								<h2 id="wtd-aside-contact" class="tour-detail-aside__title">
-									{tp.whatToDoContactAsideTitle}
-								</h2>
-								<div class="prose tour-detail-aside__contact-prose" set:html={preview.contactHtml} />
-							</section>
+						{preview.tourKind === 'what-to-do' ? (
+							<WhatToDoContactAsideCard
+								title={tp.whatToDoContactAsideTitle}
+								contactHtml={preview.contactHtml}
+								socialLinks={preview.row.social_links}
+							/>
 						) : null}
 					</div>
 				</aside>

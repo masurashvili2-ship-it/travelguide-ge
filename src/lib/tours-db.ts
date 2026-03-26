@@ -14,6 +14,8 @@ export type PostCategoryId = TourCategoryId | WhatToDoCategoryId;
 import type { TourPhysicalRatingId } from './tour-physical-rating';
 import { parseDrivingDistance, parseTourPhysicalRating } from './tour-physical-rating';
 import type { Locale } from './strings';
+import type { ContactSocialLinks } from './contact-social-links';
+import { normalizeSocialLinksFromJson, trimSocialLinks } from './contact-social-links';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
 
@@ -58,6 +60,8 @@ export type TourLocaleBlock = {
 	body: string;
 	/** Markdown; “What to do” detail right column contact box only (optional). */
 	contact_sidebar: string;
+	/** Optional structured links in the same contact aside (what-to-do). */
+	social_links?: ContactSocialLinks;
 };
 
 /** One logical tour: shared slug, cover, gallery; copy varies by language in `i18n`. */
@@ -132,6 +136,7 @@ export type TourRow = {
 	seo_description: string | null;
 	body: string;
 	contact_sidebar: string;
+	social_links: ContactSocialLinks;
 	updated_at: number;
 	author_user_id: string | null;
 	author_email: string | null;
@@ -291,7 +296,9 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 	const p = o.price;
 	const st = o.seo_title;
 	const sd = o.seo_description;
-	return {
+	const contact_sidebar = String(o.contact_sidebar ?? '').trim();
+	const social = normalizeSocialLinksFromJson(o.social_links);
+	const block: TourLocaleBlock = {
 		title,
 		duration,
 		price: p == null || p === '' ? null : String(p),
@@ -299,8 +306,10 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 		seo_title: st == null || st === '' ? null : String(st),
 		seo_description: sd == null || sd === '' ? null : String(sd),
 		body: String(o.body ?? '').trim(),
-		contact_sidebar: String(o.contact_sidebar ?? '').trim(),
+		contact_sidebar,
 	};
+	if (social) block.social_links = social;
+	return block;
 }
 
 function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
@@ -612,6 +621,7 @@ function flattenPost(post: TourPost, locale: Locale): TourRow | null {
 		seo_description: block.seo_description,
 		body: block.body,
 		contact_sidebar: block.contact_sidebar ?? '',
+		social_links: trimSocialLinks(block.social_links),
 		updated_at: post.updated_at,
 		author_user_id: post.author_user_id ?? null,
 		author_email: post.author_email ?? null,
@@ -945,7 +955,8 @@ function savePostForKind(
 		const p = b.price?.trim();
 		const st = b.seo_title?.trim();
 		const sd = b.seo_description?.trim();
-		cleanI18n[loc] = {
+		const socialTrim = trimSocialLinks(b.social_links);
+		const locBlock: TourLocaleBlock = {
 			title: t,
 			duration: d,
 			price: p ? p : null,
@@ -955,6 +966,8 @@ function savePostForKind(
 			body: (b.body ?? '').trim(),
 			contact_sidebar: (b.contact_sidebar ?? '').trim(),
 		};
+		if (Object.keys(socialTrim).length) locBlock.social_links = socialTrim;
+		cleanI18n[loc] = locBlock;
 	}
 
 	if (mode === 'create') {
@@ -1143,7 +1156,8 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 		if (!post) return { ok: false, error: 'Tour not found' };
 		const i18n: Partial<Record<Locale, TourLocaleBlock>> = { ...post.i18n };
 		const prevBlock = post.i18n[locale];
-		i18n[locale] = {
+		const prevSoc = trimSocialLinks(prevBlock?.social_links);
+		const nextLocale: TourLocaleBlock = {
 			title,
 			duration,
 			price: price?.trim() ? price.trim() : null,
@@ -1153,6 +1167,8 @@ export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; erro
 			body: body.trim() || '',
 			contact_sidebar: prevBlock?.contact_sidebar ?? '',
 		};
+		if (Object.keys(prevSoc).length) nextLocale.social_links = prevSoc;
+		i18n[locale] = nextLocale;
 		return saveTourPost({
 			id,
 			slug,

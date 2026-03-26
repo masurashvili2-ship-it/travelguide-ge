@@ -11,6 +11,14 @@ export function slugifyTitleForUploadFilename(source: string): string {
 	return s.slice(0, 72);
 }
 
+/** URL slug from English title (matches `isValidSlug` in tours-db: max 120 chars). */
+export function slugifyTitleForUrlSlug(source: string): string {
+	let s = source.trim().toLowerCase();
+	s = s.replace(/&/g, 'and');
+	s = s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+	return s.length > 120 ? s.slice(0, 120) : s;
+}
+
 /** Next free name: `base.webp`, then `base-1.webp`, `base-2.webp`, … */
 export function nextSequentialWebpFilename(base: string, dir: string): string {
 	mkdirSync(dir, { recursive: true });

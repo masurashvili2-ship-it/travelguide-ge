@@ -2,6 +2,11 @@
 import type { TourPost } from '../../lib/tours-db';
 import type { Locale } from '../../lib/strings';
 import { localeNames } from '../../lib/strings';
+import {
+	CONTACT_SOCIAL_LABELS,
+	CONTACT_SOCIAL_LINK_KEYS,
+	type ContactSocialLinkKey,
+} from '../../lib/contact-social-links';
 
 interface Props {
 	post?: TourPost | null;
@@ -30,6 +35,13 @@ function contactSidebar(loc: Locale): string {
 	const b = post?.i18n[loc];
 	if (!b) return '';
 	return b.contact_sidebar ?? '';
+}
+
+function socialLink(loc: Locale, key: ContactSocialLinkKey): string {
+	const b = post?.i18n[loc];
+	if (!b?.social_links) return '';
+	const v = b.social_links[key];
+	return v == null ? '' : String(v);
 }
 ---
 
@@ -85,18 +97,42 @@ function contactSidebar(loc: Locale): string {
 				</label>
 			</div>
 			{showContactSidebar ? (
-				<div class="row">
-					<label>
-						<span>Contact sidebar (Markdown)</span>
-						<p class="muted" style="margin:0 0 0.35rem">
-							Shown in the right column on the public “What to do” page for this language. Use for phone,
-							email, hours, booking links, etc. Leave empty to hide the box.
+				<>
+					<div class="row">
+						<label>
+							<span>Contact sidebar (Markdown)</span>
+							<p class="muted" style="margin:0 0 0.35rem">
+								Shown under <strong>Contact &amp; hours</strong> on the public “What to do” page for this
+								language. Use for hours, address, booking copy, etc. Optional social URLs below are listed
+								first; this field can add free-form notes.
+							</p>
+							<textarea name={`${loc}_contact_sidebar`} class="body-md contact-sidebar-md">
+								{contactSidebar(loc)}
+							</textarea>
+						</label>
+					</div>
+					<div class="row contact-social-grid-wrap">
+						<span class="contact-social-grid-wrap__label">Social &amp; contact links (optional)</span>
+						<p class="muted" style="margin:0 0 0.5rem">
+							Full URLs are best (e.g. <code>https://instagram.com/yourpage</code>). For WhatsApp, a phone
+							number (digits) or a <code>wa.me</code> link; for Telegram, <code>@username</code> or a{' '}
+							<code>t.me</code> link.
 						</p>
-						<textarea name={`${loc}_contact_sidebar`} class="body-md contact-sidebar-md">
-							{contactSidebar(loc)}
-						</textarea>
-					</label>
-				</div>
+						<div class="contact-social-grid">
+							{CONTACT_SOCIAL_LINK_KEYS.map((key) => (
+								<label class="contact-social-grid__item">
+									<span>{CONTACT_SOCIAL_LABELS[key]}</span>
+									<input
+										type="text"
+										name={`${loc}_social_${key}`}
+										value={socialLink(loc, key)}
+										autocomplete="off"
+									/>
+								</label>
+							))}
+						</div>
+					</div>
+				</>
 			) : null}
 		</fieldset>
 	))
@@ -110,5 +146,24 @@ function contactSidebar(loc: Locale): string {
 	}
 	.contact-sidebar-md {
 		min-height: 120px;
+	}
+	.contact-social-grid-wrap__label {
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+	.contact-social-grid {
+		display: grid;
+		gap: 0.65rem 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+	.contact-social-grid__item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		font-size: 0.88rem;
+	}
+	.contact-social-grid__item input {
+		width: 100%;
 	}
 </style>

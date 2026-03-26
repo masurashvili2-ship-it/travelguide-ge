@@ -236,8 +236,15 @@
     {
       "id": "8b3e2c1a-4f5d-6e7f-8a9b-0c1d2e3f4a05",
       "slug": "turtle-lake-kus-tba",
-      "image": null,
-      "gallery": [],
+      "image": "/uploads/what-to-do/turtle-lake-kus-tba-6.webp",
+      "gallery": [
+        "/uploads/what-to-do/turtle-lake-kus-tba.webp",
+        "/uploads/what-to-do/turtle-lake-kus-tba-1.webp",
+        "/uploads/what-to-do/turtle-lake-kus-tba-2.webp",
+        "/uploads/what-to-do/turtle-lake-kus-tba-3.webp",
+        "/uploads/what-to-do/turtle-lake-kus-tba-4.webp",
+        "/uploads/what-to-do/turtle-lake-kus-tba-5.webp"
+      ],
       "location": {
         "lat": 41.7012,
         "lng": 44.7458,
@@ -277,7 +284,7 @@
           "contact_sidebar": ""
         }
       },
-      "updated_at": 1775000003000,
+      "updated_at": 1774536007863,
       "author_user_id": null,
       "author_email": null,
       "categories": [

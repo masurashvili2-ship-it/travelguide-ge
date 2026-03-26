@@ -14,6 +14,10 @@ import {
 	wantsJsonApiResponse,
 } from '../../../lib/admin-save-response';
 import {
+	normalizeSocialLinksFromJson,
+	parseContactSocialLinksFromForm,
+} from '../../../lib/contact-social-links';
+import {
 	isValidSlug,
 	normalizeTourGalleryInput,
 	parseTourLocation,
@@ -42,7 +46,7 @@ function buildI18nFromFields(fields: Record<string, string>): Partial<Record<Loc
 		const duration = (fields[`${loc}_duration`] ?? '').trim();
 		const excerpt = (fields[`${loc}_excerpt`] ?? '').trim();
 		if (!title && !duration && !excerpt) continue;
-		i18n[loc] = {
+		const block: TourLocaleBlock = {
 			title,
 			duration,
 			excerpt,
@@ -52,6 +56,9 @@ function buildI18nFromFields(fields: Record<string, string>): Partial<Record<Loc
 			body: fields[`${loc}_body`] ?? '',
 			contact_sidebar: fields[`${loc}_contact_sidebar`] ?? '',
 		};
+		const social = parseContactSocialLinksFromForm(fields, loc);
+		if (social) block.social_links = social;
+		i18n[loc] = block;
 	}
 	return i18n;
 }
@@ -87,14 +94,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		if (i18nRaw && typeof i18nRaw === 'object' && !Array.isArray(i18nRaw)) {
 			const i18n: Partial<Record<Locale, TourLocaleBlock>> = {};
 			for (const loc of LOCALES) {
-				const block = (i18nRaw as Record<string, unknown>)[loc];
-				if (!block || typeof block !== 'object') continue;
-				const o = block as Record<string, unknown>;
+				const rawBlock = (i18nRaw as Record<string, unknown>)[loc];
+				if (!rawBlock || typeof rawBlock !== 'object') continue;
+				const o = rawBlock as Record<string, unknown>;
 				const title = String(o.title ?? '').trim();
 				const duration = String(o.duration ?? '').trim();
 				const excerpt = String(o.excerpt ?? '').trim();
 				if (!title && !duration && !excerpt) continue;
-				i18n[loc] = {
+				const localeBlock: TourLocaleBlock = {
 					title,
 					duration,
 					excerpt,
@@ -105,6 +112,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					body: String(o.body ?? ''),
 					contact_sidebar: String(o.contact_sidebar ?? ''),
 				};
+				const social = normalizeSocialLinksFromJson(o.social_links);
+				if (social) localeBlock.social_links = social;
+				i18n[loc] = localeBlock;
 			}
 			const intent = fields.intent === 'update' ? 'update' : 'create';
 			const slug = fields.slug?.trim();

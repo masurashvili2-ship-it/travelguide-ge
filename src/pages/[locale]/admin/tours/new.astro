@@ -2,6 +2,7 @@
 import AdminLayout from '../../../../components/admin/AdminLayout.astro';
 import AdminStickySave from '../../../../components/admin/AdminStickySave.astro';
 import AdminTourLocalesFields from '../../../../components/admin/AdminTourLocalesFields.astro';
+import AdminSlugAutoFromEnTitle from '../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../components/admin/AdminTourPhotoUpload.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { TOUR_CATEGORY_IDS, TOUR_CATEGORY_LABELS_EN } from '../../../../lib/tour-categories';
@@ -177,4 +178,5 @@ const userEmail = Astro.locals.user.email;
 		cancelHref={adminHome}
 		viewMode="tours"
 	/>
+	<AdminSlugAutoFromEnTitle />
 </AdminLayout>

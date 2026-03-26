@@ -2,6 +2,7 @@
 import Shell from '../../../../../components/Shell.astro';
 import ContributeSubmitBar from '../../../../../components/ContributeSubmitBar.astro';
 import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
+import AdminSlugAutoFromEnTitle from '../../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import {
@@ -211,5 +212,6 @@ const enTitle = p.i18n.en?.title ?? '';
 		</form>
 
 		<ContributeSubmitBar formId="contribute-wtd-form" cancelHref={back} submitLabel="Save changes" />
+		<AdminSlugAutoFromEnTitle />
 	</div>
 </Shell>

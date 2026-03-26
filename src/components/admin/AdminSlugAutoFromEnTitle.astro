@@ -1,0 +1,39 @@
+---
+/** Keeps the slug input in sync with the English title until the editor changes the slug manually. */
+interface Props {
+	slugInputId?: string;
+}
+const slugInputId = Astro.props.slugInputId ?? 'tour-admin-slug';
+---
+
+<script is:inline define:vars={{ slugInputId }}>
+	(function () {
+		function slugifyTitleForUrlSlug(source) {
+			var s = String(source).trim().toLowerCase();
+			s = s.replace(/&/g, 'and');
+			s = s.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+			return s.length > 120 ? s.slice(0, 120) : s;
+		}
+		function bind() {
+			var slug = document.getElementById(slugInputId);
+			if (!slug || !(slug instanceof HTMLInputElement)) return;
+			var form = slug.closest('form');
+			if (!form) return;
+			var title = form.querySelector('input[name="en_title"]');
+			if (!(title instanceof HTMLInputElement)) return;
+			var auto =
+				!slug.value.trim() ||
+				slug.value.trim().toLowerCase() === slugifyTitleForUrlSlug(title.value).toLowerCase();
+			title.addEventListener('input', function () {
+				if (!auto) return;
+				var next = slugifyTitleForUrlSlug(title.value);
+				slug.value = next;
+			});
+			slug.addEventListener('input', function () {
+				auto = false;
+			});
+		}
+		if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+		else bind();
+	})();
+</script>

@@ -1,0 +1,64 @@
+---
+import type { ContactSocialLinks } from '../lib/contact-social-links';
+import { listRenderableContactSocialLinks } from '../lib/contact-social-links';
+
+interface Props {
+	title: string;
+	contactHtml: string;
+	socialLinks?: ContactSocialLinks | null;
+}
+
+const { title, contactHtml, socialLinks } = Astro.props;
+const rows = listRenderableContactSocialLinks(socialLinks ?? undefined);
+const hasProse = Boolean(contactHtml?.trim());
+---
+
+{
+	hasProse || rows.length > 0 ? (
+		<section
+			class="tour-detail-aside__card tour-detail-aside__card--contact"
+			aria-labelledby="wtd-aside-contact"
+		>
+			<h2 id="wtd-aside-contact" class="tour-detail-aside__title">
+				{title}
+			</h2>
+			{rows.length > 0 ? (
+				<ul class="tour-detail-aside__social-list">
+					{rows.map((r) => {
+						const external = r.href.startsWith('http');
+						return (
+							<li>
+								<a
+									href={r.href}
+									{...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+								>
+									{r.label}
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			) : null}
+			{hasProse ? <div class="prose tour-detail-aside__contact-prose" set:html={contactHtml} /> : null}
+		</section>
+	) : null
+}
+
+<style is:global>
+	[data-tour-detail] .tour-detail-aside__social-list {
+		list-style: none;
+		margin: 0 0 0.85rem;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		font-size: 0.94rem;
+	}
+	[data-tour-detail] .tour-detail-aside__social-list:last-child {
+		margin-bottom: 0;
+	}
+	[data-tour-detail] .tour-detail-aside__social-list a {
+		font-weight: 600;
+		word-break: break-word;
+	}
+</style>

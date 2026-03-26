@@ -6,6 +6,8 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { marked } from 'marked';
 import { buildTourJsonLd, resolveTourMetaDescription, absoluteSeoUrl } from '../../../lib/seo';
 import { averageRatingFor, listCommentsForPost } from '../../../lib/tour-comments';
+import WhatToDoContactAsideCard from '../../../components/WhatToDoContactAsideCard.astro';
+import { hasRenderableContactSocialLinks } from '../../../lib/contact-social-links';
 import { getSimilarWhatToDo, getWhatToDoRowBySlug, tourCoverImageUrl } from '../../../lib/tours-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
@@ -31,6 +33,9 @@ if (contactMd) {
 	const contactRaw = marked.parse(contactMd, { async: false });
 	contactHtml = typeof contactRaw === 'string' ? contactRaw : await contactRaw;
 }
+
+const hasContactAside =
+	Boolean(contactHtml.trim()) || hasRenderableContactSocialLinks(row.social_links);
 
 const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
 const canonicalPath = `/${locale}/what-to-do/${slug}`;
@@ -114,7 +119,10 @@ const adminEditHref =
 		<div class="tour-detail-main">
 			<div class="prose" set:html={html} />
 		</div>
-		<aside class="tour-detail-aside" aria-label={`${t.tourSidebarSectionTitle}${contactHtml ? ` · ${t.whatToDoContactAsideTitle}` : ''}`}>
+		<aside
+			class="tour-detail-aside"
+			aria-label={`${t.tourSidebarSectionTitle}${hasContactAside ? ` · ${t.whatToDoContactAsideTitle}` : ''}`}
+		>
 			<div class="tour-detail-aside__stack">
 			<div class="tour-detail-aside__card">
 				<h2 class="tour-detail-aside__title" id="wtd-aside-summary">{t.tourSidebarSectionTitle}</h2>
@@ -181,19 +189,11 @@ const adminEditHref =
 					}
 				</dl>
 			</div>
-			{
-				contactHtml ? (
-					<section
-						class="tour-detail-aside__card tour-detail-aside__card--contact"
-						aria-labelledby="wtd-aside-contact"
-					>
-						<h2 id="wtd-aside-contact" class="tour-detail-aside__title">
-							{t.whatToDoContactAsideTitle}
-						</h2>
-						<div class="prose tour-detail-aside__contact-prose" set:html={contactHtml} />
-					</section>
-				) : null
-			}
+			<WhatToDoContactAsideCard
+				title={t.whatToDoContactAsideTitle}
+				contactHtml={contactHtml}
+				socialLinks={row.social_links}
+			/>
 			</div>
 		</aside>
 	</div>
