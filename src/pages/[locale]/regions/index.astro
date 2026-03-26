@@ -65,26 +65,28 @@ function levelLabel(level: RegionLevel): string {
 		cards.length === 0 ? (
 			<p class="muted">No places in this list yet.</p>
 		) : (
-			<div class="card-grid" style="margin-top:0.75rem">
+			<div class="regions-grid">
 				{cards.map((c) => {
 					const cover = tourCoverImageUrl({ image: c.image, gallery: c.gallery });
+					const href = getRelativeLocaleUrl(locale, `regions/${c.slug}`);
 					return (
-						<article class="card">
+						<a class:list={['regions-tile', !cover && 'regions-tile--no-photo']} href={href}>
 							{cover ? (
-								<a class="regions-card__media" href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>
-									<img src={cover} alt="" width="640" height="360" loading="lazy" decoding="async" />
-								</a>
+								<div class="regions-tile__photo" aria-hidden="true">
+									<img src={cover} alt="" width="800" height="450" loading="lazy" decoding="async" />
+								</div>
 							) : null}
-							<p class="regions-card__badge muted">{levelLabel(c.level)}</p>
-							<h2>
-								<a href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>{c.title}</a>
-							</h2>
-							{c.subtitle ? <p class="muted regions-card__sub">{c.subtitle}</p> : null}
-							<p class="muted">{c.excerpt}</p>
-							<a class="btn" href={getRelativeLocaleUrl(locale, `regions/${c.slug}`)}>
-								{t.viewRegion}
-							</a>
-						</article>
+							<div class="regions-tile__scrim" aria-hidden="true" />
+							<div class="regions-tile__body">
+								<span class="regions-tile__badge">{levelLabel(c.level)}</span>
+								<h2 class="regions-tile__title">{c.title}</h2>
+								{c.subtitle ? <p class="regions-tile__subtitle">{c.subtitle}</p> : null}
+								<p class="regions-tile__excerpt">{c.excerpt}</p>
+								<span class="regions-tile__cta">
+									<span class="regions-tile__cta-inner">{t.viewRegion}</span>
+								</span>
+							</div>
+						</a>
 					);
 				})}
 			</div>
@@ -116,30 +118,170 @@ function levelLabel(level: RegionLevel): string {
 		color: var(--bg, #fff);
 		border-color: var(--text, #1e293b);
 	}
-	.regions-card__media {
-		display: block;
-		margin: -0.5rem -0.5rem 0.65rem;
-		border-radius: 8px 8px 0 0;
+
+	.regions-grid {
+		display: grid;
+		gap: 1.35rem;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+		margin-top: 1rem;
+	}
+	@media (min-width: 900px) {
+		.regions-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 1.5rem;
+		}
+	}
+	@media (min-width: 1200px) {
+		.regions-grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	.regions-tile {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		min-height: 17.5rem;
+		border-radius: var(--radius-lg, 14px);
 		overflow: hidden;
-		line-height: 0;
-		background: var(--surface, #f1f5f9);
+		text-decoration: none;
+		color: inherit;
+		border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+		box-shadow: var(--shadow-md, 0 8px 28px rgba(15, 23, 42, 0.1));
+		transition:
+			transform 0.28s ease,
+			box-shadow 0.28s ease,
+			border-color 0.28s ease;
+		isolation: isolate;
 	}
-	.regions-card__media img {
+	.regions-tile:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 18px 44px rgba(15, 23, 42, 0.16);
+		border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+	}
+	.regions-tile:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+
+	.regions-tile--no-photo {
+		background:
+			linear-gradient(145deg, color-mix(in srgb, var(--accent) 12%, var(--surface)) 0%, var(--surface) 48%, color-mix(in srgb, var(--accent) 8%, var(--surface)) 100%),
+			var(--surface);
+		min-height: 14rem;
+	}
+	.regions-tile--no-photo .regions-tile__scrim {
+		background: linear-gradient(
+			to top,
+			rgba(15, 23, 42, 0.88) 0%,
+			rgba(15, 23, 42, 0.35) 55%,
+			transparent 100%
+		);
+	}
+
+	.regions-tile__photo {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+	.regions-tile__photo img {
 		width: 100%;
-		height: auto;
-		max-height: 200px;
+		height: 100%;
 		object-fit: cover;
-		display: block;
+		object-position: center;
+		transform: scale(1.02);
+		transition: transform 0.45s ease;
 	}
-	.regions-card__badge {
-		margin: 0 0 0.35rem;
-		font-size: 0.72rem;
+	.regions-tile:hover .regions-tile__photo img {
+		transform: scale(1.07);
+	}
+
+	.regions-tile__scrim {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+		background: linear-gradient(
+			to top,
+			rgba(15, 23, 42, 0.92) 0%,
+			rgba(15, 23, 42, 0.45) 42%,
+			rgba(15, 23, 42, 0.12) 68%,
+			transparent 100%
+		);
+	}
+
+	.regions-tile__body {
+		position: relative;
+		z-index: 2;
+		padding: 1.35rem 1.35rem 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+		color: #f8fafc;
+	}
+
+	.regions-tile__badge {
+		align-self: flex-start;
+		font-size: 0.68rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		letter-spacing: 0.08em;
+		padding: 0.28rem 0.6rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.14);
+		border: 1px solid rgba(255, 255, 255, 0.22);
+		backdrop-filter: blur(8px);
+		color: rgba(248, 250, 252, 0.95);
 	}
-	.regions-card__sub {
-		margin: -0.25rem 0 0.5rem;
+
+	.regions-tile__title {
+		margin: 0;
+		font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		color: #fff;
+		text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+	}
+
+	.regions-tile__subtitle {
+		margin: 0;
 		font-size: 0.92rem;
+		font-weight: 500;
+		color: rgba(248, 250, 252, 0.88);
+		line-height: 1.35;
+	}
+
+	.regions-tile__excerpt {
+		margin: 0.15rem 0 0;
+		font-size: 0.86rem;
+		line-height: 1.5;
+		color: rgba(226, 232, 240, 0.92);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.regions-tile__cta {
+		margin-top: 0.5rem;
+		padding-top: 0.65rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.14);
+	}
+	.regions-tile__cta-inner {
+		display: inline-flex;
+		align-items: center;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: #fff;
+		opacity: 0.95;
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+	.regions-tile:hover .regions-tile__cta-inner {
+		transform: translateX(3px);
+		opacity: 1;
 	}
 </style>

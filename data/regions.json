@@ -60,12 +60,12 @@
 			"elevation_m": null,
 			"admin_center_name": "Sukhumi (disputed)",
 			"iso_3166_2": "GE-AB",
-			"official_code": null,
-			"official_website": null,
+			"official_code": "null",
+			"official_website": "null",
 			"wikipedia_url": "https://en.wikipedia.org/wiki/Abkhazia",
-			"wikidata_id": null,
-			"geonames_id": null,
-			"settlement_type": null,
+			"wikidata_id": "null",
+			"geonames_id": "null",
+			"settlement_type": "null",
 			"i18n": {
 				"en": {
 					"title": "Abkhazia (Autonomous Republic)",
@@ -73,7 +73,7 @@
 					"excerpt": "Legally an autonomous republic within Georgia, Abkhazia is known for subtropical Black Sea nature and a long political story. Factual overview for readers who want geography and context.",
 					"seo_title": "Abkhazia autonomous republic — geographic context | Georgia",
 					"seo_description": "Neutral overview of Abkhazia on Georgia’s map: geography, stable political summary, and travel-planning context.",
-					"body": "## Geography\n\nAbkhazia lies along Georgia’s **northwestern Black Sea** coast — humid subtropical climate and dense green summers.\n\n## Political situation (slow-changing)\n\nGeorgia considers Abkhazia its **Autonomous Republic**; effective control has been separate since the 1990s and 2008. This guide avoids news-cycle wording on purpose.\n\n## For travellers\n\nMost open itineraries focus on regions with straightforward access. Check your government’s travel advice; rules can differ from the rest of Georgia.\n\n## Why it appears here\n\nGeorgia’s **administrative map** has twelve top-level units — understanding the full picture helps even when you do not visit every part."
+					"body": "## Geography\r\n\r\nAbkhazia lies along Georgia’s **northwestern Black Sea** coast — humid subtropical climate and dense green summers.\r\n\r\n## Political situation (slow-changing)\r\n\r\nGeorgia considers Abkhazia its **Autonomous Republic**; effective control has been separate since the 1990s and 2008. This guide avoids news-cycle wording on purpose.\r\n\r\n## For travellers\r\n\r\nMost open itineraries focus on regions with straightforward access. Check your government’s travel advice; rules can differ from the rest of Georgia.\r\n\r\n## Why it appears here\r\n\r\nGeorgia’s **administrative map** has twelve top-level units — understanding the full picture helps even when you do not visit every part."
 				},
 				"ka": {
 					"title": "აფხაზეთის ავტონომიური რესპუბლიკა",
@@ -81,7 +81,7 @@
 					"excerpt": "საქართველოს სამართლებრივად აფხაზეთი ავტონომიური რესპუბლიკაა — შავი ზღვის ნოტიო სანაპირო და რთული პოლიტიკური ისტორია.",
 					"seo_title": "აფხაზეთის ავტონომიური რესპუბლიკა — გეოგრაფია",
 					"seo_description": "მოკლე, უცვლელი ტექსტი: სად არის რუკაზე და რატომ არის საჭირო ადმინისტრაციულ მიმოხილვაში.",
-					"body": "## გეოგრაფია\n\nაფხაზეთი **შავი ზღვის** ჩრდილო-დასავლეთ სანაპიროზეა.\n\n## პოლიტიკური ჩარჩო\n\nსაქართველოს კონსტიტუციით — **ავტონომიური რესპუბლიკა**; ფაქტობრივი კონტროლის საკითხი გრძელვადიანია.\n\n## მოგზაურობა\n\nგადაამოწმეთ თქვენი ქვეყნის ოფიციალური რეკომენდაციები.\n\n## რატომაა სიაში\n\nსაქართველოს **სრული ადმინისტრაციული სურათი** მთლიანად რომ გაიგოთ."
+					"body": "## გეოგრაფია\r\n\r\nაფხაზეთი **შავი ზღვის** ჩრდილო-დასავლეთ სანაპიროზეა.\r\n\r\n## პოლიტიკური ჩარჩო\r\n\r\nსაქართველოს კონსტიტუციით — **ავტონომიური რესპუბლიკა**; ფაქტობრივი კონტროლის საკითხი გრძელვადიანია.\r\n\r\n## მოგზაურობა\r\n\r\nგადაამოწმეთ თქვენი ქვეყნის ოფიციალური რეკომენდაციები.\r\n\r\n## რატომაა სიაში\r\n\r\nსაქართველოს **სრული ადმინისტრაციული სურათი** მთლიანად რომ გაიგოთ."
 				},
 				"ru": {
 					"title": "Абхазская Автономная Республика",
@@ -89,10 +89,10 @@
 					"excerpt": "По конституции Грузии — автономная республика на северо-западном побережье Чёрного моря. Нейтральный обзор.",
 					"seo_title": "Абхазская автономная республика — география",
 					"seo_description": "Краткое описание для справки: где на карте и почему статус особый.",
-					"body": "## География\n\nАбхазия — **северо-западное** побережье Чёрного моря.\n\n## Политический контекст\n\nДля Грузии это **автономная республика**; фактический контроль — отдельная долгая тема.\n\n## Путешествия\n\nСверяйтесь с рекомендациями МИД.\n\n## Зачем в списке\n\nЧтобы **карта Грузии** читалась целиком."
+					"body": "## География\r\n\r\nАбхазия — **северо-западное** побережье Чёрного моря.\r\n\r\n## Политический контекст\r\n\r\nДля Грузии это **автономная республика**; фактический контроль — отдельная долгая тема.\r\n\r\n## Путешествия\r\n\r\nСверяйтесь с рекомендациями МИД.\r\n\r\n## Зачем в списке\r\n\r\nЧтобы **карта Грузии** читалась целиком."
 				}
 			},
-			"updated_at": 1774549883487
+			"updated_at": 1774552024311
 		},
 		{
 			"id": "29bf4056-c12c-40f7-b925-c48488653989",
@@ -730,7 +730,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Keda, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Keda Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Keda, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a ",
+					"seo_description": "Around Keda, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a",
 					"body": "## Why Keda shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -777,7 +777,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Shuakhevi sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above their weight for food and hospitality.",
 					"seo_title": "Shuakhevi Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Shuakhevi sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above ",
+					"seo_description": "Shuakhevi sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above",
 					"body": "## Shuakhevi at a glance\n\nThis municipality is a useful pin on the map when you are stitching together a route across Georgia: think local markets, family-run guesthouses, and scenery that changes with the seasons rather than with headlines.\n\n## Travel notes\n\nRoads and weather still shape how easy it feels to move around — plan a little buffer, ask locals about the best crossing times in the mountains, and you will usually be rewarded with quieter viewpoints and better stories.\n\n## Staying respectful\n\nChurches, village etiquette, and private land matter here as everywhere in Georgia; a calm hello and a clear question go a long way."
 				},
 				"ka": {
@@ -918,7 +918,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Lanchkhuti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Lanchkhuti Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Lanchkhuti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal ",
+					"seo_description": "Around Lanchkhuti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal",
 					"body": "## Why Lanchkhuti shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -1106,7 +1106,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Vani, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Vani Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Vani, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a ",
+					"seo_description": "Around Vani, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a",
 					"body": "## Why Vani shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -1153,7 +1153,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Zestafoni sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above their weight for food and hospitality.",
 					"seo_title": "Zestafoni Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Zestafoni sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above ",
+					"seo_description": "Zestafoni sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above",
 					"body": "## Zestafoni at a glance\n\nThis municipality is a useful pin on the map when you are stitching together a route across Georgia: think local markets, family-run guesthouses, and scenery that changes with the seasons rather than with headlines.\n\n## Travel notes\n\nRoads and weather still shape how easy it feels to move around — plan a little buffer, ask locals about the best crossing times in the mountains, and you will usually be rewarded with quieter viewpoints and better stories.\n\n## Staying respectful\n\nChurches, village etiquette, and private land matter here as everywhere in Georgia; a calm hello and a clear question go a long way."
 				},
 				"ka": {
@@ -1247,7 +1247,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Samtredia sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above their weight for food and hospitality.",
 					"seo_title": "Samtredia Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Samtredia sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above ",
+					"seo_description": "Samtredia sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above",
 					"body": "## Samtredia at a glance\n\nThis municipality is a useful pin on the map when you are stitching together a route across Georgia: think local markets, family-run guesthouses, and scenery that changes with the seasons rather than with headlines.\n\n## Travel notes\n\nRoads and weather still shape how easy it feels to move around — plan a little buffer, ask locals about the best crossing times in the mountains, and you will usually be rewarded with quieter viewpoints and better stories.\n\n## Staying respectful\n\nChurches, village etiquette, and private land matter here as everywhere in Georgia; a calm hello and a clear question go a long way."
 				},
 				"ka": {
@@ -1482,7 +1482,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Kharagauli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Kharagauli Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Kharagauli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal ",
+					"seo_description": "Around Kharagauli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal",
 					"body": "## Why Kharagauli shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -1576,7 +1576,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Telavi, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Telavi Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Telavi, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and ",
+					"seo_description": "Around Telavi, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and",
 					"body": "## Why Telavi shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -2140,7 +2140,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Ambrolauri, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Ambrolauri Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Ambrolauri, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal ",
+					"seo_description": "Around Ambrolauri, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal",
 					"body": "## Why Ambrolauri shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -2328,7 +2328,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Poti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Poti Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Poti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a ",
+					"seo_description": "Around Poti, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a",
 					"body": "## Why Poti shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -2422,7 +2422,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Abasha, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Abasha Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Abasha, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and ",
+					"seo_description": "Around Abasha, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and",
 					"body": "## Why Abasha shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -2516,7 +2516,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Mestia, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Mestia Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Mestia, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and ",
+					"seo_description": "Around Mestia, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and",
 					"body": "## Why Mestia shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -3127,7 +3127,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Gardabani sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above their weight for food and hospitality.",
 					"seo_title": "Gardabani Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Gardabani sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above ",
+					"seo_description": "Gardabani sits in a corner of Georgia where everyday life still feels closely tied to the land — valleys, scattered villages, and small hubs that punch above",
 					"body": "## Gardabani at a glance\n\nThis municipality is a useful pin on the map when you are stitching together a route across Georgia: think local markets, family-run guesthouses, and scenery that changes with the seasons rather than with headlines.\n\n## Travel notes\n\nRoads and weather still shape how easy it feels to move around — plan a little buffer, ask locals about the best crossing times in the mountains, and you will usually be rewarded with quieter viewpoints and better stories.\n\n## Staying respectful\n\nChurches, village etiquette, and private land matter here as everywhere in Georgia; a calm hello and a clear question go a long way."
 				},
 				"ka": {
@@ -3362,7 +3362,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Gori, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Gori Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Gori, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a ",
+					"seo_description": "Around Gori, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a",
 					"body": "## Why Gori shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
@@ -3456,7 +3456,7 @@
 					"subtitle": "Municipality in Georgia",
 					"excerpt": "Around Kareli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and a walk.",
 					"seo_title": "Kareli Municipality, Georgia — municipalities & travel context | Travel Guide Georgia",
-					"seo_description": "Around Kareli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and ",
+					"seo_description": "Around Kareli, Georgia’s mix of old Soviet-era industry, small-scale farming, and renewed tourism creates a layered story — worth slowing down for a meal and",
 					"body": "## Why Kareli shows up on itineraries\n\nTravelers often pass through on the way to something famous — but the municipality itself can be the reason to stay: slower mornings, regional dishes you will not find in Tbilisi, and roads that teach you Georgia’s scale.\n\n## Landscape & seasons\n\nExpect greens in late spring, deep colours in autumn, and winter quiet in higher pockets. None of that needs updating every year to stay true.\n\n## Plan lightly\n\nGuesthouses and small hotels shift with demand; carrying cash in smaller settlements still saves headaches."
 				},
 				"ka": {
