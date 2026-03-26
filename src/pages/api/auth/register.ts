@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 
 	const headers = new Headers();
-	headers.append('Set-Cookie', sessionCookieHeader(result.user.id, request));
+	headers.append('Set-Cookie', sessionCookieHeader(result.user, request));
 	if (ct.includes('application/json')) {
 		return new Response(JSON.stringify({ ok: true, user: result.user }), {
 			status: 201,

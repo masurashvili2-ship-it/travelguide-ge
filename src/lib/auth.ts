@@ -29,9 +29,17 @@ function usersPath() {
 	return path.join(dataDir(), 'users.json');
 }
 
+let warnedMissingSessionSecret = false;
+
 function secret(): string {
 	const s = process.env.SESSION_SECRET;
 	if (s && s.length >= 16) return s;
+	if (process.env.NODE_ENV === 'production' && !warnedMissingSessionSecret) {
+		warnedMissingSessionSecret = true;
+		console.error(
+			'[auth] SESSION_SECRET missing or shorter than 16 chars at runtime. Set it in App Platform with scope RUN_TIME (not BUILD_TIME-only). See https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/',
+		);
+	}
 	return 'travelguide-dev-secret-change-me';
 }
 
@@ -95,10 +103,20 @@ export async function verifyLogin(
 	return { id: user.id, email: user.email, role: user.role };
 }
 
-function signSession(userId: string, exp: number): string {
-	const payload = `${userId}.${exp}`;
-	const sig = createHmac('sha256', secret()).update(payload).digest('base64url');
-	return `${payload}.${sig}`;
+type SessionPayloadV2 = {
+	v: 2;
+	sub: string;
+	exp: number;
+	email: string;
+	role: UserRole;
+};
+
+/** Signed payload includes identity so we do not re-read users.json per request (fixes App Platform multi-instance). */
+function signSessionV2(user: UserPublic, exp: number): string {
+	const payload: SessionPayloadV2 = { v: 2, sub: user.id, exp, email: user.email, role: user.role };
+	const b64 = Buffer.from(JSON.stringify(payload), 'utf8').toString('base64url');
+	const sig = createHmac('sha256', secret()).update(b64).digest('base64url');
+	return `v2.${b64}.${sig}`;
 }
 
 function extractCookie(cookieHeader: string | null, name: string): string | null {
@@ -107,8 +125,37 @@ function extractCookie(cookieHeader: string | null, name: string): string | null
 	return match ? match[1] : null;
 }
 
-function verifySessionToken(token: string): { userId: string } | null {
+function verifySessionV2(token: string): UserPublic | null {
 	const raw = decodeURIComponent(token.trim());
+	if (!raw.startsWith('v2.')) return null;
+	const rest = raw.slice(3);
+	const lastDot = rest.lastIndexOf('.');
+	if (lastDot <= 0) return null;
+	const b64 = rest.slice(0, lastDot);
+	const sig = rest.slice(lastDot + 1);
+	const expected = createHmac('sha256', secret()).update(b64).digest('base64url');
+	try {
+		if (expected.length !== sig.length || !timingSafeEqual(Buffer.from(expected), Buffer.from(sig))) {
+			return null;
+		}
+	} catch {
+		return null;
+	}
+	let p: SessionPayloadV2;
+	try {
+		p = JSON.parse(Buffer.from(b64, 'base64url').toString('utf8')) as SessionPayloadV2;
+	} catch {
+		return null;
+	}
+	if (p.v !== 2 || !p.sub || typeof p.exp !== 'number' || p.exp < Date.now()) return null;
+	if (p.role !== 'admin' && p.role !== 'user') return null;
+	if (!p.email || typeof p.email !== 'string' || !p.email.includes('@')) return null;
+	return { id: p.sub, email: p.email, role: p.role };
+}
+
+function verifyLegacySessionToken(token: string): { userId: string } | null {
+	const raw = decodeURIComponent(token.trim());
+	if (raw.startsWith('v2.')) return null;
 	const parts = raw.split('.');
 	if (parts.length !== 3) return null;
 	const [userId, expStr, sig] = parts;
@@ -129,10 +176,12 @@ function verifySessionToken(token: string): { userId: string } | null {
 export async function userFromRequest(cookieHeader: string | null): Promise<UserPublic | null> {
 	const token = extractCookie(cookieHeader, SESSION_COOKIE);
 	if (!token) return null;
-	const v = verifySessionToken(token);
-	if (!v) return null;
+	const v2 = verifySessionV2(token);
+	if (v2) return v2;
+	const v1 = verifyLegacySessionToken(token);
+	if (!v1) return null;
 	const users = await readUsers();
-	const full = users.find((u) => u.id === v.userId);
+	const full = users.find((u) => u.id === v1.userId);
 	if (!full) return null;
 	return { id: full.id, email: full.email, role: full.role };
 }
@@ -165,9 +214,9 @@ export function sanitizeAuthNextPath(next: string, fallback: string): string {
 	return t;
 }
 
-export function sessionCookieHeader(userId: string, request: Request): string {
+export function sessionCookieHeader(user: UserPublic, request: Request): string {
 	const exp = Date.now() + SESSION_MAX_AGE_MS;
-	const token = signSession(userId, exp);
+	const token = signSessionV2(user, exp);
 	const secure = isRequestHttps(request) ? '; Secure' : '';
 	return `${SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=${Math.floor(SESSION_MAX_AGE_MS / 1000)}`;
 }
