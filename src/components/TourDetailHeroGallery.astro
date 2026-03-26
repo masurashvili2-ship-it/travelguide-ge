@@ -34,8 +34,8 @@ const lightboxItems = images.map((src) => ({
 	src,
 	alt: tourImageAltFromUrl(title, src),
 }));
-/** Safe for embedding in HTML (closes script tags in strings) */
-const lightboxItemsJsonForDom = JSON.stringify(lightboxItems).replace(/</g, '\\u003c');
+/** Script data: not parsed as HTML elements; escape `<` so `</script>` in strings cannot break out */
+const lightboxItemsJson = JSON.stringify(lightboxItems).replace(/</g, '\\u003c');
 const shareText = excerpt.trim().slice(0, 280);
 ---
 
@@ -140,7 +140,7 @@ const shareText = excerpt.trim().slice(0, 280);
 
 				{excerpt.trim() ? <p class="tdh__excerpt">{excerpt}</p> : null}
 
-				<div id={`tdh-lb-json-${slug}`} class="tdh-lb-payload" hidden set:html={lightboxItemsJsonForDom} />
+				<script type="application/json" id={`tdh-lb-json-${slug}`} hidden set:html={lightboxItemsJson}></script>
 
 				<div class="tdh-lb" id={`tdh-lb-${slug}`} data-tdh-lb hidden>
 					<div class="tdh-lb__backdrop" data-lb-backdrop />

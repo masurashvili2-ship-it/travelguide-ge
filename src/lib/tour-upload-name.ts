@@ -22,19 +22,28 @@ export function nextSequentialWebpFilename(base: string, dir: string): string {
 }
 
 /**
+ * `<` / `>` in titles (e.g. "Abanotubani <3") must not appear raw in alt/aria or in JSON embedded in HTML —
+ * parsers can treat `<…` as markup and break images or lightbox data.
+ */
+function safeAngleCharsForAlt(s: string): string {
+	return s.replace(/</g, '\uFF1C').replace(/>/g, '\uFF1E');
+}
+
+/**
  * Alt text: tour title, or `Title - N` when filename ends with `-N` before extension
  * (e.g. `kakheti-wine-and-village-route-1.webp` → `Title - 1`).
  */
 export function tourImageAltFromUrl(displayTitle: string, src: string): string {
-	const t = displayTitle.trim() || 'Tour';
+	const base = displayTitle.trim() || 'Tour';
+	let out: string;
 	try {
 		const pathPart = src.split('?')[0];
 		const segment = decodeURIComponent(pathPart.split('/').pop() || '');
 		const stem = segment.replace(/\.[^.]+$/i, '');
 		const m = stem.match(/^(.*)-(\d+)$/);
-		if (m) return `${t} - ${m[2]}`;
-		return t;
+		out = m ? `${base} - ${m[2]}` : base;
 	} catch {
-		return t;
+		out = base;
 	}
+	return safeAngleCharsForAlt(out);
 }
