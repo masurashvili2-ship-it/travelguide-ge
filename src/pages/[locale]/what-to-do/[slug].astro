@@ -17,6 +17,8 @@ import {
 	listWhatToDoMapMarkers,
 	tourCoverImageUrl,
 } from '../../../lib/tours-db';
+import type { RegionLevel } from '../../../lib/regions-db';
+import { resolveWhatToDoPlaceLinks } from '../../../lib/what-to-do-places';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
 
@@ -91,6 +93,14 @@ const similarItems = getSimilarWhatToDo(
 	row.whatDoCategories.length ? row.whatDoCategories : null,
 	4,
 );
+
+const placeLinks = resolveWhatToDoPlaceLinks(locale, row.place_ids ?? []);
+
+function placeLevelLabel(level: RegionLevel): string {
+	if (level === 'region') return t.regionsLevelRegion;
+	if (level === 'municipality') return t.regionsLevelMunicipality;
+	return t.regionsLevelVillage;
+}
 
 const allMapMarkers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
 const detailMapFocus = row.location
@@ -168,6 +178,23 @@ const adminEditHref =
 								<dt class="tour-detail-aside__dt">{t.tourSidebarSeason}</dt>
 								<dd class="tour-detail-aside__dd">
 									{row.whatDoSeasons.map((id) => t.whatToDoSeasons[id]).join(', ')}
+								</dd>
+							</div>
+						) : null
+					}
+					{
+						placeLinks.length > 0 ? (
+							<div class="tour-detail-aside__row">
+								<dt class="tour-detail-aside__dt">{t.tourSidebarPlaceLinks}</dt>
+								<dd class="tour-detail-aside__dd tour-detail-aside__dd--places">
+									<ul class="wtd-place-links">
+										{placeLinks.map((p) => (
+											<li>
+												<a href={getRelativeLocaleUrl(locale, `regions/${p.slug}`)}>{p.title}</a>
+												<span class="muted"> · {placeLevelLabel(p.level)}</span>
+											</li>
+										))}
+									</ul>
 								</dd>
 							</div>
 						) : null
@@ -436,6 +463,14 @@ const adminEditHref =
 		margin-top: 0.35rem;
 		font-size: 0.92rem;
 		font-weight: 600;
+	}
+	[data-tour-detail] .wtd-place-links {
+		margin: 0;
+		padding-left: 1.1rem;
+		font-weight: 500;
+	}
+	[data-tour-detail] .wtd-place-links li {
+		margin: 0.2rem 0;
 	}
 
 	[data-similar-tours].similar-tours {

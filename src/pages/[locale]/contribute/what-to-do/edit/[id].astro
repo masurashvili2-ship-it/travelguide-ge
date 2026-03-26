@@ -5,6 +5,7 @@ import ContributeSubmitBar from '../../../../../components/ContributeSubmitBar.a
 import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import AdminWhatToDoPlacePickers from '../../../../../components/admin/AdminWhatToDoPlacePickers.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import {
 	WHAT_TO_DO_CATEGORY_IDS,
@@ -16,6 +17,7 @@ import { tourPostToContributionPayload } from '../../../../../lib/contribute-liv
 import { tourLikePayloadToSyntheticTourPost } from '../../../../../lib/contribute-synthetic-post';
 import type { Locale } from '../../../../../lib/strings';
 import { getSubmissionById, type TourLikeSubmissionPayload } from '../../../../../lib/submissions-db';
+import { listRegionsForWhatToDoPicker } from '../../../../../lib/regions-db';
 import { getWhatToDoPostById } from '../../../../../lib/tours-db';
 import '../../../../../styles/contribute.css';
 
@@ -46,6 +48,8 @@ if (sub.status === 'approved' && sub.published_id) {
 }
 const synthetic = tourLikePayloadToSyntheticTourPost(sub.id, 'what-to-do', p);
 const enTitle = p.i18n.en?.title ?? '';
+const placesForPicker = listRegionsForWhatToDoPicker();
+const selectedPlaceIds = p.place_ids ?? [];
 ---
 
 <Shell
@@ -218,6 +222,8 @@ const enTitle = p.i18n.en?.title ?? '';
 					</div>
 				</div>
 			</section>
+
+			<AdminWhatToDoPlacePickers selectedIds={selectedPlaceIds} places={placesForPicker} />
 
 			<section class="contribute-card">
 				<h2 class="contribute-card__h">Translations</h2>

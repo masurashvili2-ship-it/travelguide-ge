@@ -242,6 +242,62 @@ export function getRegionPostById(id: string): RegionPost | null {
 	return getPosts().find((p) => p.id === id) ?? null;
 }
 
+/**
+ * True if `taggedId` is `ancestorId` or is a municipality/village that sits under that ancestor
+ * (used to show a “What to do” entry on a region/municipality/village page).
+ */
+export function isRegionPostUnderAncestor(taggedId: string, ancestorId: string): boolean {
+	if (taggedId === ancestorId) return true;
+	const byId = new Map(getPosts().map((p) => [p.id, p]));
+	let cur: RegionPost | undefined = byId.get(taggedId);
+	const seen = new Set<string>();
+	while (cur?.parent_id && !seen.has(cur.id)) {
+		seen.add(cur.id);
+		if (cur.parent_id === ancestorId) return true;
+		cur = byId.get(cur.parent_id);
+	}
+	return false;
+}
+
+/** Keep only ids that exist in regions.json (deduped, stable order). */
+export function filterValidRegionIds(ids: string[]): string[] {
+	if (!ids.length) return [];
+	const valid = new Set(getPosts().map((p) => p.id));
+	const out: string[] = [];
+	const seen = new Set<string>();
+	for (const raw of ids) {
+		if (typeof raw !== 'string') continue;
+		const id = raw.trim();
+		if (!isValidTourId(id) || !valid.has(id) || seen.has(id)) continue;
+		seen.add(id);
+		out.push(id);
+	}
+	return out;
+}
+
+export type RegionPlacePickerRow = {
+	id: string;
+	slug: string;
+	level: RegionLevel;
+	/** English title fallback for admin / contribute pickers */
+	label: string;
+};
+
+export function listRegionsForWhatToDoPicker(): RegionPlacePickerRow[] {
+	const out: RegionPlacePickerRow[] = [];
+	for (const p of getPosts()) {
+		const label = p.i18n.en?.title?.trim() || p.slug;
+		out.push({ id: p.id, slug: p.slug, level: p.level, label });
+	}
+	out.sort((a, b) => {
+		const la = REGION_LEVEL_IDS.indexOf(a.level);
+		const lb = REGION_LEVEL_IDS.indexOf(b.level);
+		if (la !== lb) return la - lb;
+		return a.label.localeCompare(b.label, undefined, { sensitivity: 'base' });
+	});
+	return out;
+}
+
 export function findRegionBySlug(slug: string): RegionPost | null {
 	const s = slug.trim();
 	if (!s) return null;

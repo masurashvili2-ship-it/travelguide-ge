@@ -14,6 +14,7 @@ import {
 	normalizeTourGalleryInput,
 	parseTourLocationFromForm,
 } from './tours-db';
+import { filterValidRegionIds } from './regions-db';
 import type { PageSubmissionPayload, TourLikeSubmissionPayload } from './submissions-db';
 
 export function formFieldsFromFormData(fd: FormData): Record<string, string> {
@@ -50,6 +51,7 @@ export function parseTourLikeContributionPayload(
 	let categoryFromForm: TourCategoryId | null = null;
 	let whatDoCategories: WhatToDoCategoryId[] = [];
 	let whatDoSeasons: WhatToDoSeasonId[] = [];
+	let placeIdsFromForm: string[] = [];
 
 	if (kind === 'tours') {
 		const catTrim = (fields.category ?? '').trim();
@@ -81,6 +83,16 @@ export function parseTourLikeContributionPayload(
 			seenSe.add(parsed);
 			whatDoSeasons.push(parsed);
 		}
+		const seenPl = new Set<string>();
+		for (const v of fd.getAll('place_ids')) {
+			if (typeof v !== 'string') continue;
+			const t = v.trim();
+			if (!t) continue;
+			if (seenPl.has(t)) continue;
+			seenPl.add(t);
+			placeIdsFromForm.push(t);
+		}
+		placeIdsFromForm = filterValidRegionIds(placeIdsFromForm);
 	}
 
 	const physTrim = (fields.physical_rating ?? '').trim();
@@ -121,6 +133,7 @@ export function parseTourLikeContributionPayload(
 			category: categoryFromForm,
 			whatDoCategories,
 			whatDoSeasons,
+			place_ids: kind === 'what-to-do' ? placeIdsFromForm : [],
 			physical_rating: physicalRatingFromForm,
 			driving_distance: drivingFromForm,
 			google_directions_url: googleDirections,

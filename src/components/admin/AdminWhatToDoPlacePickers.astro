@@ -1,0 +1,99 @@
+---
+import type { RegionPlacePickerRow } from '../../lib/regions-db';
+
+interface Props {
+	selectedIds: string[];
+	places: RegionPlacePickerRow[];
+}
+
+const { selectedIds, places } = Astro.props;
+const sel = new Set(selectedIds);
+const regions = places.filter((p) => p.level === 'region');
+const municipalities = places.filter((p) => p.level === 'municipality');
+const villages = places.filter((p) => p.level === 'village');
+---
+
+<section class="admin-card" aria-labelledby="wtd-places-h">
+	<h2 class="admin-card__h" id="wtd-places-h">Places (regions, municipalities, villages)</h2>
+	<div class="admin-card__bd">
+		<p class="muted" style="margin:0 0 1rem">
+			Link this entry to one or more administrative places. You can select several — for example, a river that runs
+			through more than one region or municipality. These appear on public “At a glance” and on each place page.
+		</p>
+		<div class="admin-wtd-places-grid">
+			<div class="admin-wtd-places-col">
+				<h3 class="admin-wtd-places-subh">Regions</h3>
+				<div class="admin-wtd-place-list">
+					{
+						regions.map((p) => (
+							<label class="admin-wtd-cat-item">
+								<input type="checkbox" name="place_ids" value={p.id} checked={sel.has(p.id)} />
+								<span>{p.label}</span>
+							</label>
+						))
+					}
+				</div>
+			</div>
+			<div class="admin-wtd-places-col">
+				<h3 class="admin-wtd-places-subh">Municipalities</h3>
+				<div class="admin-wtd-place-list">
+					{
+						municipalities.map((p) => (
+							<label class="admin-wtd-cat-item">
+								<input type="checkbox" name="place_ids" value={p.id} checked={sel.has(p.id)} />
+								<span>{p.label}</span>
+							</label>
+						))
+					}
+				</div>
+			</div>
+			<div class="admin-wtd-places-col">
+				<h3 class="admin-wtd-places-subh">Villages &amp; settlements</h3>
+				<div class="admin-wtd-place-list">
+					{
+						villages.length === 0 ? (
+							<p class="muted" style="margin:0;font-size:0.9rem">
+								No village entries yet — add them under Regions in the admin when needed.
+							</p>
+						) : (
+							villages.map((p) => (
+								<label class="admin-wtd-cat-item">
+									<input type="checkbox" name="place_ids" value={p.id} checked={sel.has(p.id)} />
+									<span>{p.label}</span>
+								</label>
+							))
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.admin-wtd-places-grid {
+		display: grid;
+		gap: 1.25rem;
+	}
+	@media (min-width: 900px) {
+		.admin-wtd-places-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	.admin-wtd-places-subh {
+		margin: 0 0 0.5rem;
+		font-size: 0.95rem;
+		font-weight: 700;
+	}
+	.admin-wtd-place-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		max-height: 14rem;
+		overflow: auto;
+		padding: 0.35rem 0.25rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: 8px;
+		background: var(--surface, #fafafa);
+	}
+</style>

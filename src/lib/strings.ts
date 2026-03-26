@@ -47,6 +47,10 @@ export const ui: Record<
 		regionsFilterAllTypes: string;
 		regionsChildrenMunicipalities: string;
 		regionsChildrenVillages: string;
+		/** What-to-do detail sidebar: linked region/municipality/village row label */
+		tourSidebarPlaceLinks: string;
+		/** Region/municipality/village detail: grid of related activities */
+		regionsWhatToDoInPlace: string;
 		/** What-to-do listing: filter sidebar */
 		whatToDoFiltersTitle: string;
 		whatToDoFiltersApply: string;
@@ -230,6 +234,8 @@ export const ui: Record<
 		regionsFilterAllTypes: 'All types',
 		regionsChildrenMunicipalities: 'Municipalities',
 		regionsChildrenVillages: 'Villages & settlements',
+		tourSidebarPlaceLinks: 'Places',
+		regionsWhatToDoInPlace: 'What to do',
 		whatToDoFiltersTitle: 'Filter',
 		whatToDoFiltersApply: 'Apply filters',
 		whatToDoFiltersClear: 'Clear all',
@@ -423,6 +429,8 @@ export const ui: Record<
 		regionsFilterAllTypes: 'ყველა ტიპი',
 		regionsChildrenMunicipalities: 'მუნიციპალიტეტები',
 		regionsChildrenVillages: 'სოფლები და დასახლებები',
+		tourSidebarPlaceLinks: 'ადგილები',
+		regionsWhatToDoInPlace: 'რა გავაკეთოთ',
 		whatToDoFiltersTitle: 'ფილტრი',
 		whatToDoFiltersApply: 'გამოყენება',
 		whatToDoFiltersClear: 'გასუფთავება',
@@ -618,6 +626,8 @@ export const ui: Record<
 		regionsFilterAllTypes: 'Все типы',
 		regionsChildrenMunicipalities: 'Муниципалитеты',
 		regionsChildrenVillages: 'Сёла и населённые пункты',
+		tourSidebarPlaceLinks: 'Места',
+		regionsWhatToDoInPlace: 'Чем заняться',
 		whatToDoFiltersTitle: 'Фильтр',
 		whatToDoFiltersApply: 'Применить',
 		whatToDoFiltersClear: 'Сбросить всё',

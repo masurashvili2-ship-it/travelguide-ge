@@ -8,6 +8,7 @@ import { getRegionPublicRow, type RegionLevel } from '../../../lib/regions-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
 import { tourCoverImageUrl } from '../../../lib/tours-db';
+import { listWhatToDoRowsForPlace } from '../../../lib/what-to-do-places';
 
 const loc = Astro.params.locale;
 const slug = Astro.params.slug;
@@ -50,6 +51,8 @@ const adminEditHref =
 	Astro.locals.user?.role === 'admin'
 		? getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)
 		: null;
+
+const whatToDoHere = listWhatToDoRowsForPlace(locale, row.id);
 
 const facts: { label: string; value: string }[] = [];
 if (row.population != null) facts.push({ label: 'Population', value: String(row.population) });
@@ -171,6 +174,53 @@ if (row.geonames_id?.trim()) facts.push({ label: 'GeoNames', value: row.geonames
 				</section>
 			) : null
 		}
+
+		{
+			whatToDoHere.length > 0 ? (
+				<section class="region-wtd" aria-labelledby="region-wtd-h">
+					<h2 id="region-wtd-h" class="region-wtd__h">
+						{t.regionsWhatToDoInPlace}
+					</h2>
+					<div class="region-wtd__grid">
+						{whatToDoHere.map((w) => {
+							const thumb = tourCoverImageUrl({
+								image: w.image ?? null,
+								gallery: w.gallery ?? [],
+							});
+							const href = getRelativeLocaleUrl(locale, `what-to-do/${w.slug}`);
+							return (
+								<article class="card region-wtd__card">
+									{thumb ? (
+										<a href={href} class="region-wtd__thumb-link" tabindex="-1" aria-hidden="true">
+											<img
+												class="region-wtd__thumb"
+												src={thumb}
+												alt=""
+												loading="lazy"
+												decoding="async"
+												width="400"
+												height="225"
+											/>
+										</a>
+									) : null}
+									<h3 class="region-wtd__title">{w.title}</h3>
+									<p class="muted" style="margin:0">
+										{w.excerpt}
+									</p>
+									<p class="muted" style="margin:0">
+										{t.duration}: {w.duration}
+										{w.price ? ` · ${w.price}` : ''}
+									</p>
+									<a class="btn" href={href}>
+										{t.viewWhatToDo}
+									</a>
+								</article>
+							);
+						})}
+					</div>
+				</section>
+			) : null
+		}
 	</article>
 </Shell>
 
@@ -249,5 +299,50 @@ if (row.geonames_id?.trim()) facts.push({ label: 'GeoNames', value: row.geonames
 		height: auto;
 		border-radius: 10px;
 		border: 1px solid var(--border, #e2e8f0);
+	}
+	.region-wtd {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--border, #e2e8f0);
+	}
+	.region-wtd__h {
+		margin: 0 0 1.25rem;
+		font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+		font-weight: 700;
+	}
+	.region-wtd__grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: 1fr;
+	}
+	@media (min-width: 640px) {
+		.region-wtd__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+	@media (min-width: 1000px) {
+		.region-wtd__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+	.region-wtd__thumb-link {
+		display: block;
+		margin: -0.25rem -0.25rem 0.65rem;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid var(--border, #e2e8f0);
+		line-height: 0;
+	}
+	.region-wtd__thumb {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+		display: block;
+	}
+	.region-wtd__title {
+		margin: 0 0 0.5rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.25;
 	}
 </style>

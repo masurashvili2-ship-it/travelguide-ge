@@ -48,6 +48,8 @@ export type TourLikeSubmissionPayload = {
 	category: TourCategoryId | null;
 	whatDoCategories: WhatToDoCategoryId[];
 	whatDoSeasons: WhatToDoSeasonId[];
+	/** Region / municipality / village ids (what-to-do) */
+	place_ids: string[];
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
 	/** What-to-do only; tours use null */
@@ -221,6 +223,7 @@ function validateTourLikePayload(
 		category: kind === 'tours' ? p.category : null,
 		whatDoCategories: kind === 'what-to-do' ? p.whatDoCategories : [],
 		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
+		place_ids: kind === 'what-to-do' ? (p.place_ids ?? []) : [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
 		google_directions_url:
@@ -550,6 +553,7 @@ export function approveSubmission(
 				location: p.location,
 				whatDoCategories: p.whatDoCategories,
 				whatDoSeasons: p.whatDoSeasons,
+				place_ids: p.place_ids ?? [],
 				physical_rating: p.physical_rating,
 				driving_distance: p.driving_distance,
 				google_directions_url: p.google_directions_url ?? null,
@@ -585,6 +589,7 @@ export function approveSubmission(
 			location: p.location,
 			whatDoCategories: p.whatDoCategories,
 			whatDoSeasons: p.whatDoSeasons,
+			place_ids: p.place_ids ?? [],
 			physical_rating: p.physical_rating,
 			driving_distance: p.driving_distance,
 			google_directions_url: p.google_directions_url ?? null,

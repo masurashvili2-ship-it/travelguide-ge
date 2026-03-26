@@ -17,6 +17,7 @@ export function tourPostToContributionPayload(
 		category: kind === 'tours' ? post.category : null,
 		whatDoCategories: kind === 'what-to-do' ? [...post.whatDoCategories] : [],
 		whatDoSeasons: kind === 'what-to-do' ? [...post.whatDoSeasons] : [],
+		place_ids: kind === 'what-to-do' ? [...post.place_ids] : [],
 		physical_rating: post.physical_rating,
 		driving_distance: post.driving_distance,
 		google_directions_url: post.google_directions_url ?? null,

@@ -5,6 +5,7 @@ import AdminWhatToDoSocialLinksCard from '../../../../components/admin/AdminWhat
 import AdminTourLocalesFields from '../../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../components/admin/AdminTourPhotoUpload.astro';
+import AdminWhatToDoPlacePickers from '../../../../components/admin/AdminWhatToDoPlacePickers.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import {
 	WHAT_TO_DO_CATEGORY_IDS,
@@ -15,6 +16,7 @@ import {
 	WHAT_TO_DO_SEASON_LABELS_EN,
 } from '../../../../lib/what-to-do-seasons';
 import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../lib/tour-physical-rating';
+import { listRegionsForWhatToDoPicker } from '../../../../lib/regions-db';
 import type { Locale } from '../../../../lib/strings';
 
 const loc = Astro.params.locale;
@@ -31,6 +33,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 
 const adminHome = getRelativeLocaleUrl(locale, 'admin');
 const userEmail = Astro.locals.user.email;
+const placesForPicker = listRegionsForWhatToDoPicker();
 ---
 
 <AdminLayout
@@ -206,6 +209,8 @@ const userEmail = Astro.locals.user.email;
 				</div>
 			</div>
 		</section>
+
+		<AdminWhatToDoPlacePickers selectedIds={[]} places={placesForPicker} />
 
 		<section class="admin-card">
 			<h2 class="admin-card__h">Translations</h2>

@@ -5,6 +5,7 @@ import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
 import AdminTourLocalesFields from '../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../components/admin/AdminTourPhotoUpload.astro';
+import AdminWhatToDoPlacePickers from '../../../components/admin/AdminWhatToDoPlacePickers.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import {
 	WHAT_TO_DO_CATEGORY_IDS,
@@ -12,6 +13,7 @@ import {
 } from '../../../lib/what-to-do-categories';
 import { WHAT_TO_DO_SEASON_IDS, WHAT_TO_DO_SEASON_LABELS_EN } from '../../../lib/what-to-do-seasons';
 import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../lib/tour-physical-rating';
+import { listRegionsForWhatToDoPicker } from '../../../lib/regions-db';
 import type { Locale } from '../../../lib/strings';
 import '../../../styles/contribute.css';
 
@@ -28,6 +30,7 @@ if (!Astro.locals.user) {
 }
 
 const back = getRelativeLocaleUrl(locale, 'contribute');
+const placesForPicker = listRegionsForWhatToDoPicker();
 ---
 
 <Shell
@@ -172,6 +175,8 @@ const back = getRelativeLocaleUrl(locale, 'contribute');
 					</div>
 				</div>
 			</section>
+
+			<AdminWhatToDoPlacePickers selectedIds={[]} places={placesForPicker} />
 
 			<section class="contribute-card">
 				<h2 class="contribute-card__h">Translations</h2>

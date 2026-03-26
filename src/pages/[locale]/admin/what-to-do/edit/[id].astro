@@ -5,6 +5,7 @@ import AdminWhatToDoSocialLinksCard from '../../../../../components/admin/AdminW
 import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
 import AdminSlugAutoFromEnTitle from '../../../../../components/admin/AdminSlugAutoFromEnTitle.astro';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import AdminWhatToDoPlacePickers from '../../../../../components/admin/AdminWhatToDoPlacePickers.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../../lib/strings';
 import {
@@ -16,6 +17,7 @@ import {
 	WHAT_TO_DO_SEASON_LABELS_EN,
 } from '../../../../../lib/what-to-do-seasons';
 import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../../lib/tour-physical-rating';
+import { listRegionsForWhatToDoPicker } from '../../../../../lib/regions-db';
 import { getWhatToDoPostById, isValidTourId } from '../../../../../lib/tours-db';
 
 const loc = Astro.params.locale;
@@ -48,6 +50,7 @@ const displayTitle =
 
 const adminHome = getRelativeLocaleUrl(locale, 'admin');
 const userEmail = Astro.locals.user.email;
+const placesForPicker = listRegionsForWhatToDoPicker();
 ---
 
 <AdminLayout
@@ -88,7 +91,7 @@ const userEmail = Astro.locals.user.email;
 			<h2 class="admin-card__h">Public sidebar</h2>
 			<div class="admin-card__bd">
 				<p class="muted" style="margin:0 0 1rem">
-					The live page shows <strong>At a glance</strong> with categories and seasons (several of each allowed), physical rating, driving distance, duration and price from the active language, location when coordinates are set, and optional Google Maps directions (custom link or auto from coordinates).
+					The live page shows <strong>At a glance</strong> with categories and seasons (several of each allowed), linked <strong>places</strong> (regions / municipalities / villages), physical rating, driving distance, duration and price from the active language, location when coordinates are set, and optional Google Maps directions (custom link or auto from coordinates).
 				</p>
 				<div class="row">
 					<span class="muted" style="display:block;margin-bottom:0.35rem;font-weight:600">
@@ -255,6 +258,8 @@ const userEmail = Astro.locals.user.email;
 				</div>
 			</div>
 		</section>
+
+		<AdminWhatToDoPlacePickers selectedIds={post.place_ids ?? []} places={placesForPicker} />
 
 		<section class="admin-card">
 			<h2 class="admin-card__h">Translations</h2>

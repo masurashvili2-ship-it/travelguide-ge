@@ -85,6 +85,11 @@ export type TourPost = {
 	google_directions_url: string | null;
 	/** Shared social / contact URLs for what-to-do (all locales). */
 	social_links: ContactSocialLinks;
+	/**
+	 * Region / municipality / village post ids from regions.json (what-to-do only).
+	 * Rivers or routes may list several; tours use [].
+	 */
+	place_ids: string[];
 	i18n: Partial<Record<Locale, TourLocaleBlock>>;
 	updated_at: number;
 	/** Submitter (contributor); visible to admins only on live site. */
@@ -142,6 +147,8 @@ export type TourRow = {
 	body: string;
 	contact_sidebar: string;
 	social_links: ContactSocialLinks;
+	/** what-to-do: linked region/municipality/village ids */
+	place_ids: string[];
 	updated_at: number;
 	author_user_id: string | null;
 	author_email: string | null;
@@ -344,6 +351,20 @@ function normalizeLocaleBlock(raw: unknown): TourLocaleBlock | null {
 	return block;
 }
 
+function normalizePlaceIds(raw: unknown): string[] {
+	if (!Array.isArray(raw)) return [];
+	const out: string[] = [];
+	const seen = new Set<string>();
+	for (const el of raw) {
+		if (typeof el !== 'string') continue;
+		const id = el.trim();
+		if (!isValidTourId(id) || seen.has(id)) continue;
+		seen.add(id);
+		out.push(id);
+	}
+	return out;
+}
+
 function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 	if (!raw || typeof raw !== 'object') return null;
 	const o = raw as Record<string, unknown>;
@@ -384,6 +405,7 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 			: [];
 	const whatDoSeasons =
 		kind === 'what-to-do' ? normalizeWhatToDoSeasonsFromRaw(o.seasons, o.season) : [];
+	const place_ids = kind === 'what-to-do' ? normalizePlaceIds(o.place_ids) : [];
 	return {
 		id,
 		slug,
@@ -393,6 +415,7 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 		category,
 		whatDoCategories,
 		whatDoSeasons,
+		place_ids,
 		physical_rating: parseTourPhysicalRating(o.physical_rating),
 		driving_distance: parseDrivingDistance(o.driving_distance),
 		google_directions_url: parseGoogleMapsDirectionsUrl(o.google_directions_url),
@@ -499,6 +522,7 @@ function migrateLegacyToPosts(rows: LegacyTourRow[]): TourPost[] {
 			category: null,
 			whatDoCategories: [],
 			whatDoSeasons: [],
+			place_ids: [],
 			physical_rating: null,
 			driving_distance: null,
 			google_directions_url: null,
@@ -596,7 +620,7 @@ function postToDiskJson(kind: ContentPostKind, post: TourPost): Record<string, u
 		const { whatDoCategories, whatDoSeasons, category: _cat, ...rest } = post;
 		return { ...rest, categories: whatDoCategories, seasons: whatDoSeasons };
 	}
-	const { whatDoCategories: _w, whatDoSeasons: _s, ...rest } = post;
+	const { whatDoCategories: _w, whatDoSeasons: _s, place_ids: _p, ...rest } = post;
 	return rest as Record<string, unknown>;
 }
 
@@ -669,6 +693,7 @@ function flattenPost(post: TourPost, locale: Locale): TourRow | null {
 		category: post.category,
 		whatDoCategories: post.whatDoCategories,
 		whatDoSeasons: post.whatDoSeasons,
+		place_ids: post.place_ids ?? [],
 		physical_rating: post.physical_rating,
 		driving_distance: post.driving_distance,
 		google_directions_url: post.google_directions_url ?? null,
@@ -912,6 +937,25 @@ export function listAllWhatToDoAdmin(): AdminTourListItem[] {
 	return listAllAdminForKind('what-to-do');
 }
 
+/** Full posts for features that need `place_ids` etc. Inlined read avoids bundler issues with the internal `getPosts` symbol across chunks. */
+export function getAllWhatToDoPosts(): TourPost[] {
+	const kind: ContentPostKind = 'what-to-do';
+	const file = storePath(kind);
+	if (!existsSync(file)) {
+		const posts = readPostsFromDisk(kind);
+		postCache.set(kind, { posts, mtime: fileMtime(kind) });
+		return posts;
+	}
+	const mtime = fileMtime(kind);
+	const prev = postCache.get(kind);
+	if (prev === undefined || mtime > prev.mtime) {
+		const posts = readPostsFromDisk(kind);
+		postCache.set(kind, { posts, mtime });
+		return posts;
+	}
+	return prev.posts;
+}
+
 export type SaveTourPostInput = {
 	id?: string;
 	slug: string;
@@ -925,6 +969,8 @@ export type SaveTourPostInput = {
 	whatDoCategories?: WhatToDoCategoryId[] | null;
 	/** What-to-do only; ignored for tours */
 	whatDoSeasons?: WhatToDoSeasonId[] | null;
+	/** What-to-do: region/municipality/village ids; ignored for tours */
+	place_ids?: string[] | null;
 	physical_rating?: TourPhysicalRatingId | null;
 	driving_distance?: string | null;
 	/** What-to-do only; ignored for tours */
@@ -992,6 +1038,7 @@ function savePostForKind(
 		category: categoryInput,
 		whatDoCategories: whatDoCategoriesInput,
 		whatDoSeasons: whatDoSeasonsInput,
+		place_ids: placeIdsInput,
 		physical_rating: physicalRatingInput,
 		driving_distance: drivingDistanceInput,
 		google_directions_url: googleDirectionsInput,
@@ -1057,6 +1104,12 @@ function savePostForKind(
 					? []
 					: whatDoSeasonsInput ?? []
 				: [];
+		const createPlaceIds =
+			kind === 'what-to-do'
+				? placeIdsInput === undefined
+					? []
+					: normalizePlaceIds(placeIdsInput)
+				: [];
 		const createPhysicalRating = physicalRatingInput === undefined ? null : physicalRatingInput;
 		const createDrivingDistance = drivingDistanceInput === undefined ? null : drivingDistanceInput;
 		const createGoogleDirections =
@@ -1079,6 +1132,7 @@ function savePostForKind(
 			category: createCategory,
 			whatDoCategories: createWhatDoCats,
 			whatDoSeasons: createWhatDoSeasons,
+			place_ids: createPlaceIds,
 			physical_rating: createPhysicalRating,
 			driving_distance: createDrivingDistance,
 			google_directions_url: createGoogleDirections,
@@ -1130,6 +1184,12 @@ function savePostForKind(
 				? (prev.whatDoSeasons ?? [])
 				: whatDoSeasonsInput ?? []
 			: [];
+	const nextPlaceIds =
+		kind === 'what-to-do'
+			? placeIdsInput === undefined
+				? (prev.place_ids ?? [])
+				: normalizePlaceIds(placeIdsInput)
+			: [];
 	const nextPhysicalRating =
 		physicalRatingInput === undefined ? prev.physical_rating : physicalRatingInput;
 	const nextDrivingDistance =
@@ -1167,6 +1227,7 @@ function savePostForKind(
 		category: nextCategory,
 		whatDoCategories: nextWhatDoCats,
 		whatDoSeasons: nextWhatDoSeasons,
+		place_ids: nextPlaceIds,
 		physical_rating: nextPhysicalRating,
 		driving_distance: nextDrivingDistance,
 		google_directions_url: nextGoogleDirections,

@@ -20,6 +20,7 @@ import {
 	type ContactSocialLinks,
 } from '../../../lib/contact-social-links';
 import { parseGoogleMapsDirectionsUrl } from '../../../lib/google-maps-urls';
+import { filterValidRegionIds } from '../../../lib/regions-db';
 import {
 	isValidSlug,
 	normalizeTourGalleryInput,
@@ -90,6 +91,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 			driving_distance: drivingDistanceRaw,
 			google_directions_url: googleDirectionsRaw,
 			social_links: socialLinksJsonRaw,
+			place_ids: placeIdsJsonRaw,
 			...rest
 		} = j;
 		fields = Object.fromEntries(Object.entries(rest).map(([k, v]) => [k, v == null ? '' : String(v)]));
@@ -218,6 +220,26 @@ export const POST: APIRoute = async ({ request, locals }) => {
 					whatDoSeasonsField = [p];
 				}
 			}
+			let placeIdsField: string[] | undefined;
+			if (placeIdsJsonRaw !== undefined) {
+				if (!Array.isArray(placeIdsJsonRaw)) {
+					return new Response(JSON.stringify({ error: 'place_ids must be an array of region post ids' }), {
+						status: 400,
+						headers: { 'Content-Type': 'application/json' },
+					});
+				}
+				const seenP = new Set<string>();
+				const parsedP: string[] = [];
+				for (const el of placeIdsJsonRaw) {
+					if (typeof el !== 'string') continue;
+					const id = el.trim();
+					if (!id) continue;
+					if (seenP.has(id)) continue;
+					seenP.add(id);
+					parsedP.push(id);
+				}
+				placeIdsField = filterValidRegionIds(parsedP);
+			}
 			let physicalRatingField: TourPhysicalRatingId | null | undefined;
 			if (physicalRatingRaw === undefined) {
 				physicalRatingField = undefined;
@@ -275,6 +297,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 				location: locationField,
 				whatDoCategories: whatDoCategoriesField,
 				whatDoSeasons: whatDoSeasonsField,
+				place_ids: placeIdsField,
 				physical_rating: physicalRatingField,
 				driving_distance: drivingDistanceField,
 				google_directions_url: googleDirectionsField,
@@ -402,6 +425,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		whatDoSeasonsFromMultipart = outSe;
 	}
 
+	let placeIdsFromMultipart: string[] | undefined;
+	if (multipartFd) {
+		const seenPl = new Set<string>();
+		const outPl: string[] = [];
+		for (const v of multipartFd.getAll('place_ids')) {
+			if (typeof v !== 'string') continue;
+			const t = v.trim();
+			if (!t) continue;
+			if (seenPl.has(t)) continue;
+			seenPl.add(t);
+			outPl.push(t);
+		}
+		placeIdsFromMultipart = filterValidRegionIds(outPl);
+	}
+
 	const physTrim = (fields.physical_rating ?? '').trim();
 	let physicalRatingFromForm: TourPhysicalRatingId | null;
 	if (!physTrim) {
@@ -462,6 +500,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		location: locationFromForm,
 		whatDoCategories: whatDoCategoriesFromMultipart,
 		whatDoSeasons: whatDoSeasonsFromMultipart,
+		place_ids: placeIdsFromMultipart,
 		physical_rating: physicalRatingFromForm,
 		driving_distance: drivingFromForm,
 		google_directions_url: directionsParsed,

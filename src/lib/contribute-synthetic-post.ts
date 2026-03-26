@@ -18,6 +18,7 @@ export function tourLikePayloadToSyntheticTourPost(
 		category: kind === 'tours' ? p.category : null,
 		whatDoCategories: kind === 'what-to-do' ? p.whatDoCategories : [],
 		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
+		place_ids: kind === 'what-to-do' ? (p.place_ids ?? []) : [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
 		google_directions_url: p.google_directions_url ?? null,
