@@ -142,7 +142,8 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			header.site {
 				position: sticky;
 				top: 0;
-				z-index: 8000;
+				/* Above in-page overlays (maps, transformed heroes); tour lightbox uses ~99999 */
+				z-index: 50000;
 				width: 100%;
 				margin-bottom: 2rem;
 				padding: 1rem 0;
@@ -177,16 +178,35 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				letter-spacing: 0.02em;
 				flex: 0 1 auto;
 				min-width: 0;
+				overflow: hidden;
 			}
-			.brand a {
+			.brand a,
+			.brand__link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.55rem;
+				min-width: 0;
+				max-width: 100%;
 				color: var(--text);
 				text-decoration: none;
 			}
-			.brand a:hover {
+			.brand a:hover,
+			.brand__link:hover {
 				color: var(--accent);
 			}
+			.brand__logo {
+				flex-shrink: 0;
+				width: 2.35rem;
+				height: 2.35rem;
+				border-radius: 10px;
+				object-fit: contain;
+				display: block;
+			}
 			.brand__text {
+				min-width: 0;
 				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 			.site-nav-toggle {
 				display: none;
@@ -232,7 +252,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				display: none;
 				position: fixed;
 				inset: 0;
-				z-index: 8400;
+				z-index: 50100;
 				background: rgba(15, 23, 42, 0.45);
 				backdrop-filter: blur(2px);
 				-webkit-backdrop-filter: blur(2px);
@@ -379,7 +399,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border: 1px solid var(--border);
 				border-radius: var(--radius-md);
 				box-shadow: var(--shadow-lg);
-				z-index: 8100;
+				z-index: 50200;
 			}
 			.site-dd--lang .site-dd__panel {
 				min-width: 12.5rem;
@@ -450,8 +470,14 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				}
 				.brand {
 					text-align: left;
-					flex: 1 1 auto;
+					flex: 1 1 0;
 					min-width: 0;
+					font-size: clamp(0.72rem, 2.4vw, 0.98rem);
+				}
+				.brand__logo {
+					width: 2.05rem;
+					height: 2.05rem;
+					border-radius: 9px;
 				}
 				.site-nav-toggle {
 					display: inline-flex;
@@ -489,7 +515,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					background: var(--surface);
 					border-right: 1px solid var(--border);
 					box-shadow: var(--shadow-lg);
-					z-index: 8500;
+					z-index: 50300;
 					transform: translateX(-100%);
 					transition: transform 0.26s ease;
 					overflow-y: auto;
@@ -513,6 +539,10 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					left: auto;
 					right: 0;
 					transform: none;
+				}
+				/* Drawer/backdrop are portaled to <body> on mobile; keep bar above dimmer when open */
+				html.tg-site-nav-open header.site {
+					z-index: 50450;
 				}
 			}
 			.card-grid {
@@ -706,7 +736,16 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			<div class="site__glass-bg" aria-hidden="true"></div>
 			<div class="site__inner">
 				<div class="brand">
-					<a href={getRelativeLocaleUrl(locale, '/')}>
+					<a class="brand__link" href={getRelativeLocaleUrl(locale, '/')}>
+						<img
+							class="brand__logo"
+							src="/logo.svg"
+							width="38"
+							height="38"
+							alt=""
+							decoding="async"
+							fetchpriority="high"
+						/>
 						<span class="brand__text" lang="en" translate="no">TRAVELGEORGIA.GE</span>
 					</a>
 				</div>
@@ -849,12 +888,37 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		</div>
 		<script is:inline>
 			(function () {
-				var btn = document.getElementById('site-nav-toggle');
-				var nav = document.getElementById('site-primary-nav');
-				var backdrop = document.getElementById('site-nav-backdrop');
-				if (!btn || !nav || !backdrop) return;
+				function qs(id) {
+					return document.getElementById(id);
+				}
 
-				function openNav() {
+				function isMobileNav() {
+					return window.matchMedia('(max-width: 768px)').matches;
+				}
+
+				/**
+				 * Fixed + sticky ancestors are inconsistent across browsers/pages.
+				 * On mobile, attach drawer + dimmer to <body> so they always cover the viewport.
+				 */
+				function syncMobileNavPortal() {
+					var backdrop = qs('site-nav-backdrop');
+					var nav = qs('site-primary-nav');
+					var host = document.querySelector('.site-header__main');
+					var tools = host && host.querySelector('.site-header__tools');
+					if (!backdrop || !nav || !host || !tools) return;
+					if (isMobileNav()) {
+						if (backdrop.parentNode !== document.body) {
+							document.body.appendChild(backdrop);
+							document.body.appendChild(nav);
+						}
+					} else if (backdrop.parentNode === document.body) {
+						host.insertBefore(backdrop, tools);
+						host.insertBefore(nav, tools);
+					}
+				}
+
+				function openNav(nav, backdrop, btn) {
+					document.documentElement.classList.add('tg-site-nav-open');
 					nav.classList.add('is-open');
 					backdrop.classList.add('is-open');
 					backdrop.removeAttribute('hidden');
@@ -865,54 +929,95 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					if (first) first.focus();
 				}
 
-				function closeNav() {
+				function closeNav(nav, backdrop, btn) {
+					document.documentElement.classList.remove('tg-site-nav-open');
 					nav.classList.remove('is-open');
 					backdrop.classList.remove('is-open');
 					backdrop.setAttribute('hidden', '');
 					backdrop.setAttribute('aria-hidden', 'true');
 					btn.setAttribute('aria-expanded', 'false');
 					document.body.style.overflow = '';
-					btn.focus();
+					try {
+						btn.focus();
+					} catch (e) {}
 				}
 
-				function isMobileNav() {
-					return window.matchMedia('(max-width: 768px)').matches;
-				}
+				function bindNav() {
+					document.addEventListener(
+						'click',
+						function (e) {
+							var t = e.target;
+							if (!t || !t.closest) return;
+							syncMobileNavPortal();
+							var nav = qs('site-primary-nav');
+							var backdrop = qs('site-nav-backdrop');
+							var btn = qs('site-nav-toggle');
+							if (!nav || !backdrop || !btn) return;
 
-				btn.addEventListener('click', function () {
-					if (!isMobileNav()) return;
-					if (nav.classList.contains('is-open')) closeNav();
-					else openNav();
-				});
+							if (!isMobileNav()) return;
 
-				backdrop.addEventListener('click', function () {
-					if (nav.classList.contains('is-open')) closeNav();
-				});
+							if (t.closest('#site-nav-toggle')) {
+								e.preventDefault();
+								if (nav.classList.contains('is-open')) {
+									closeNav(nav, backdrop, btn);
+								} else {
+									openNav(nav, backdrop, btn);
+								}
+								return;
+							}
 
-				document.addEventListener('keydown', function (e) {
-					if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
-				});
+							if (!nav.classList.contains('is-open')) return;
 
-				window.addEventListener(
-					'resize',
-					function () {
-						if (!isMobileNav() && nav.classList.contains('is-open')) {
-							nav.classList.remove('is-open');
-							backdrop.classList.remove('is-open');
-							backdrop.setAttribute('hidden', '');
-							backdrop.setAttribute('aria-hidden', 'true');
-							btn.setAttribute('aria-expanded', 'false');
-							document.body.style.overflow = '';
-						}
-					},
-					{ passive: true },
-				);
+							if (e.target === backdrop) {
+								closeNav(nav, backdrop, btn);
+								return;
+							}
 
-				nav.querySelectorAll('a').forEach(function (link) {
-					link.addEventListener('click', function () {
-						if (isMobileNav() && nav.classList.contains('is-open')) closeNav();
+							var navLink = t.closest('#site-primary-nav a');
+							if (navLink) {
+								closeNav(nav, backdrop, btn);
+							}
+						},
+						true,
+					);
+
+					document.addEventListener('keydown', function (e) {
+						if (e.key !== 'Escape') return;
+						var nav = qs('site-primary-nav');
+						var backdrop = qs('site-nav-backdrop');
+						var btn = qs('site-nav-toggle');
+						if (!nav || !backdrop || !btn || !nav.classList.contains('is-open')) return;
+						closeNav(nav, backdrop, btn);
 					});
-				});
+
+					window.addEventListener(
+						'resize',
+						function () {
+							syncMobileNavPortal();
+							if (isMobileNav()) return;
+							var nav = qs('site-primary-nav');
+							var backdrop = qs('site-nav-backdrop');
+							var btn = qs('site-nav-toggle');
+							if (!nav || !backdrop || !btn || !nav.classList.contains('is-open')) return;
+							closeNav(nav, backdrop, btn);
+						},
+						{ passive: true },
+					);
+				}
+
+				function boot() {
+					syncMobileNavPortal();
+					if (!window.__tgSiteNavInit) {
+						window.__tgSiteNavInit = true;
+						bindNav();
+					}
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', boot, { once: true });
+				} else {
+					boot();
+				}
 			})();
 		</script>
 	</body>
