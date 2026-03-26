@@ -30,6 +30,8 @@ export const ui: Record<
 		navLanguage: string;
 		/** Site header: account dropdown (login/register or profile) */
 		navAccount: string;
+		/** Mobile header: open/close main navigation drawer */
+		navMainMenu: string;
 		heroTitle: string;
 		heroSubtitle: string;
 		/** Meta description for /tours listing */
@@ -148,6 +150,7 @@ export const ui: Record<
 		logout: 'Log out',
 		navLanguage: 'Language',
 		navAccount: 'Account',
+		navMainMenu: 'Main menu',
 		heroTitle: 'Discover Georgia',
 		heroSubtitle: 'Curated tours, local insight, and routes across the Caucasus — from Tbilisi to the mountains.',
 		toursMetaDescription:
@@ -286,6 +289,7 @@ export const ui: Record<
 		logout: 'გასვლა',
 		navLanguage: 'ენა',
 		navAccount: 'ანგარიში',
+		navMainMenu: 'მთავარი მენიუ',
 		heroTitle: 'აღმოაჩინე საქართველო',
 		heroSubtitle: 'შერჩეული ტურები და მარშრუტები — თბილისიდან მთებამდე.',
 		toursMetaDescription: 'საქართველოს სამოგზაურო ტურები — თბილისი, მთები, ღვინის მარშრუტები და ერთდღიანი ტურები.',
@@ -421,6 +425,7 @@ export const ui: Record<
 		logout: 'Выход',
 		navLanguage: 'Язык',
 		navAccount: 'Аккаунт',
+		navMainMenu: 'Главное меню',
 		heroTitle: 'Откройте Грузию',
 		heroSubtitle: 'Подборка туров и маршрутов — от Тбилиси до гор Кавказа.',
 		toursMetaDescription:

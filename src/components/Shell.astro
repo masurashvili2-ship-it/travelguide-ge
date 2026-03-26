@@ -159,9 +159,10 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			.brand {
 				font-weight: 700;
-				font-size: 1.125rem;
-				letter-spacing: -0.02em;
-				flex: 0 0 auto;
+				font-size: clamp(0.95rem, 2.8vw, 1.125rem);
+				letter-spacing: 0.02em;
+				flex: 0 1 auto;
+				min-width: 0;
 			}
 			.brand a {
 				color: var(--text);
@@ -169,6 +170,65 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			.brand a:hover {
 				color: var(--accent);
+			}
+			.brand__text {
+				white-space: nowrap;
+			}
+			.site-nav-toggle {
+				display: none;
+				align-items: center;
+				justify-content: center;
+				width: 2.65rem;
+				height: 2.65rem;
+				margin: 0;
+				padding: 0;
+				flex-shrink: 0;
+				border: 1px solid var(--border);
+				border-radius: var(--radius-sm);
+				background: var(--surface);
+				color: var(--text);
+				cursor: pointer;
+				box-shadow: var(--shadow-sm);
+				transition:
+					border-color 0.15s ease,
+					background 0.15s ease,
+					box-shadow 0.15s ease;
+			}
+			.site-nav-toggle:hover {
+				border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+				background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+			}
+			.site-nav-toggle:focus-visible {
+				outline: 2px solid var(--accent);
+				outline-offset: 2px;
+			}
+			.site-nav-toggle__bars {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				width: 1.1rem;
+			}
+			.site-nav-toggle__bars span {
+				display: block;
+				height: 2px;
+				border-radius: 1px;
+				background: currentColor;
+			}
+			.site-nav-backdrop {
+				display: none;
+				position: fixed;
+				inset: 0;
+				z-index: 8400;
+				background: rgba(15, 23, 42, 0.45);
+				backdrop-filter: blur(2px);
+				-webkit-backdrop-filter: blur(2px);
+				opacity: 0;
+				transition: opacity 0.22s ease;
+				pointer-events: none;
+			}
+			.site-nav-backdrop.is-open {
+				opacity: 1;
+				pointer-events: auto;
 			}
 			.site-header__main {
 				display: flex;
@@ -369,28 +429,70 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			}
 			@media (max-width: 768px) {
 				.site__inner {
-					flex-direction: column;
-					align-items: stretch;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					align-items: center;
+					gap: 0.65rem 0.75rem;
 				}
 				.brand {
-					text-align: center;
+					text-align: left;
+					flex: 1 1 auto;
+					min-width: 0;
+				}
+				.site-nav-toggle {
+					display: inline-flex;
+				}
+				.site-nav-backdrop {
+					display: block;
 				}
 				.site-header__main {
-					flex-direction: column;
-					align-items: stretch;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					align-items: center;
+					justify-content: flex-end;
+					gap: 0.45rem 0.5rem;
+					flex: 0 0 auto;
 				}
 				.site-nav {
-					justify-content: center;
+					position: fixed;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: min(300px, 86vw);
+					margin: 0;
+					padding: 5.25rem 1rem 1.5rem;
+					flex-direction: column;
+					flex-wrap: nowrap;
+					align-items: stretch;
+					justify-content: flex-start;
+					gap: 0.35rem;
+					background: var(--surface);
+					border-right: 1px solid var(--border);
+					box-shadow: var(--shadow-lg);
+					z-index: 8500;
+					transform: translateX(-100%);
+					transition: transform 0.26s ease;
+					overflow-y: auto;
+					-webkit-overflow-scrolling: touch;
+				}
+				.site-nav.is-open {
+					transform: translateX(0);
+				}
+				.site-nav a {
+					white-space: normal;
+					text-align: left;
+					border-radius: var(--radius-sm);
 				}
 				.site-header__tools {
-					justify-content: center;
-					padding-top: 0.35rem;
-					border-top: 1px solid var(--border);
+					justify-content: flex-end;
+					padding-top: 0;
+					border-top: none;
+					flex-shrink: 0;
 				}
 				.site-dd__panel {
-					left: 50%;
-					right: auto;
-					transform: translateX(-50%);
+					left: auto;
+					right: 0;
+					transform: none;
 				}
 			}
 			.card-grid {
@@ -583,10 +685,27 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		<header class="site">
 			<div class="site__inner">
 				<div class="brand">
-					<a href={getRelativeLocaleUrl(locale, '/')}>{t.siteTitle}</a>
+					<a href={getRelativeLocaleUrl(locale, '/')}>
+						<span class="brand__text" lang="en" translate="no">TRAVELGEORGIA.GE</span>
+					</a>
 				</div>
 				<div class="site-header__main">
-					<nav class="site-nav" aria-label="Main">
+					<button
+						type="button"
+						class="site-nav-toggle"
+						id="site-nav-toggle"
+						aria-expanded="false"
+						aria-controls="site-primary-nav"
+						aria-label={t.navMainMenu}
+					>
+						<span class="site-nav-toggle__bars" aria-hidden="true">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</button>
+					<div class="site-nav-backdrop" id="site-nav-backdrop" hidden aria-hidden="true"></div>
+					<nav class="site-nav" id="site-primary-nav" aria-label="Main">
 						<a href={getRelativeLocaleUrl(locale, '/')} aria-current={subpath === '' ? 'page' : undefined}>{t.home}</a>
 						<a
 							href={getRelativeLocaleUrl(locale, 'tours')}
@@ -707,5 +826,73 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			<slot />
 			<SiteFooter locale={locale} />
 		</div>
+		<script is:inline>
+			(function () {
+				var btn = document.getElementById('site-nav-toggle');
+				var nav = document.getElementById('site-primary-nav');
+				var backdrop = document.getElementById('site-nav-backdrop');
+				if (!btn || !nav || !backdrop) return;
+
+				function openNav() {
+					nav.classList.add('is-open');
+					backdrop.classList.add('is-open');
+					backdrop.removeAttribute('hidden');
+					backdrop.setAttribute('aria-hidden', 'false');
+					btn.setAttribute('aria-expanded', 'true');
+					document.body.style.overflow = 'hidden';
+					var first = nav.querySelector('a');
+					if (first) first.focus();
+				}
+
+				function closeNav() {
+					nav.classList.remove('is-open');
+					backdrop.classList.remove('is-open');
+					backdrop.setAttribute('hidden', '');
+					backdrop.setAttribute('aria-hidden', 'true');
+					btn.setAttribute('aria-expanded', 'false');
+					document.body.style.overflow = '';
+					btn.focus();
+				}
+
+				function isMobileNav() {
+					return window.matchMedia('(max-width: 768px)').matches;
+				}
+
+				btn.addEventListener('click', function () {
+					if (!isMobileNav()) return;
+					if (nav.classList.contains('is-open')) closeNav();
+					else openNav();
+				});
+
+				backdrop.addEventListener('click', function () {
+					if (nav.classList.contains('is-open')) closeNav();
+				});
+
+				document.addEventListener('keydown', function (e) {
+					if (e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
+				});
+
+				window.addEventListener(
+					'resize',
+					function () {
+						if (!isMobileNav() && nav.classList.contains('is-open')) {
+							nav.classList.remove('is-open');
+							backdrop.classList.remove('is-open');
+							backdrop.setAttribute('hidden', '');
+							backdrop.setAttribute('aria-hidden', 'true');
+							btn.setAttribute('aria-expanded', 'false');
+							document.body.style.overflow = '';
+						}
+					},
+					{ passive: true },
+				);
+
+				nav.querySelectorAll('a').forEach(function (link) {
+					link.addEventListener('click', function () {
+						if (isMobileNav() && nav.classList.contains('is-open')) closeNav();
+					});
+				});
+			})();
+		</script>
 	</body>
 </html>
