@@ -1,0 +1,109 @@
+---
+import Shell from '../../components/Shell.astro';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+---
+
+<Shell
+	locale={locale}
+	subpath="policy"
+	title={t.policyPageTitle}
+	seoDescription={t.policyMetaDescription}
+	canonicalPath={`/${locale}/policy`}
+>
+	<article class="prose policy-page">
+		<h1>{t.policyPageTitle}</h1>
+
+		{
+			locale === 'en' ? (
+				<>
+					<p>
+						This page describes how <strong>Travel Guide Georgia</strong> (“we”, “the site”) handles information when you
+						browse, register, sign in, or contribute content. By using the site you agree to these terms.
+					</p>
+					<h2>Accounts & authentication</h2>
+					<p>
+						We store your email address and a secure password hash (or a link to Google when you use “Continue with
+						Google”). We use a signed session cookie to keep you logged in. You are responsible for keeping your password
+						confidential.
+					</p>
+					<h2>Content you submit</h2>
+					<p>
+						Reviews, comments, and contributed material must be lawful and respectful. We may remove or edit content that
+						violates the law or these rules, or that is spam or abusive.
+					</p>
+					<h2>Analytics & cookies</h2>
+					<p>
+						We use essential cookies for sessions and security. We do not use third-party advertising trackers on these
+						pages unless we add them later and update this policy.
+					</p>
+					<h2>Contact</h2>
+					<p>For questions about this policy, contact the site operator using the details in the site footer.</p>
+				</>
+			) : locale === 'ka' ? (
+				<>
+					<p>
+						ეს გვერდი აღწერს, როგორ ვიყენებთ ინფორმაციას <strong>Travel Guide Georgia</strong>-ზე — ბრაუზინგის, რეგისტრაციის,
+						შესვლისა და მასალის გაგზავნისას. საიტის გამოყენებით თქვენ ეთანხმებით ამ წესებს.
+					</p>
+					<h2>ანგარიში და ავტორიზაცია</h2>
+					<p>
+						ვინახავთ ელფოსტას და ვიცავთ პაროლის უსაფრთხო ჰეშს (ან Google-თან ბმულს, თუ იყენებთ Google-ით შესვლას). სესიის
+						ქუქი გამოიყენება შესურვილობის შესანახად.
+					</p>
+					<h2>თქვენ მიერ გაგზავნილი მასალა</h2>
+					<p>
+						შეფასებები და კომენტარები უნდა იყოს კანონიერი და პატივისცემით. შეგვიძლია წავშალოთ ან შევცვალოთ არასათანადო ჩანაწერები.
+					</p>
+					<h2>ქუქი და ანალიტიკა</h2>
+					<p>
+						ვიყენებთ აუცილებელ ქუქიებს სესიისა და უსაფრთხოებისთვის. სარეკლამო ტრეკერებს არ ვიყენებთ თუ ამ გვერდს არ
+						განვაახლებთ.
+					</p>
+					<h2>კონტაქტი</h2>
+					<p>კითხვებისთვის დაუკავშირდით საიტის ოპერატორს ფუტერის მეშვეობით.</p>
+				</>
+			) : (
+				<>
+					<p>
+						На этой странице описано, как <strong>Travel Guide Georgia</strong> обрабатывает данные при просмотре,
+						регистрации, входе и отправке материалов. Используя сайт, вы соглашаетесь с этими условиями.
+					</p>
+					<h2>Учётные записи и вход</h2>
+					<p>
+						Мы храним адрес электронной почты и хеш пароля (или привязку к Google при входе через Google). Для сессии
+						используется подписанная cookie.
+					</p>
+					<h2>Контент пользователей</h2>
+					<p>
+						Отзывы и комментарии должны быть законными и уважительными. Мы можем удалять или править материалы, нарушающие
+						правила или закон.
+					</p>
+					<h2>Файлы cookie</h2>
+					<p>
+						Используются необходимые cookie для сессии и безопасности. Рекламные трекеры не подключены, пока это явно не
+						будет изменено.
+					</p>
+					<h2>Контакты</h2>
+					<p>По вопросам политики обращайтесь к оператору сайта через контакты в подвале страницы.</p>
+				</>
+			)
+		}
+	</article>
+	<style>
+		.policy-page {
+			max-width: min(52ch, 100%);
+		}
+		.policy-page h2 {
+			font-size: 1.1rem;
+			margin-top: 1.5rem;
+		}
+	</style>
+</Shell>

@@ -93,6 +93,19 @@ export const ui: Record<
 		registerErrorEmailTaken: string;
 		registerErrorPasswordShort: string;
 		registerErrorGeneric: string;
+		registerErrorPasswordMismatch: string;
+		registerErrorTermsRequired: string;
+		displayName: string;
+		passwordConfirm: string;
+		authOrContinueWith: string;
+		continueWithGoogle: string;
+		registerPolicyAgree: string;
+		registerPolicyEnd: string;
+		policyPageTitle: string;
+		policyMetaDescription: string;
+		footerPolicy: string;
+		loginErrorGoogleFailed: string;
+		loginErrorGoogleDenied: string;
 		haveAccount: string;
 		noAccount: string;
 		adminDashboard: string;
@@ -290,6 +303,20 @@ export const ui: Record<
 		registerErrorEmailTaken: 'That email is already registered. Log in instead.',
 		registerErrorPasswordShort: 'Password must be at least 8 characters.',
 		registerErrorGeneric: 'Could not create the account. Please try again.',
+		registerErrorPasswordMismatch: 'Passwords do not match.',
+		registerErrorTermsRequired: 'You must accept the privacy policy to register.',
+		displayName: 'Display name',
+		passwordConfirm: 'Confirm password',
+		authOrContinueWith: 'or continue with',
+		continueWithGoogle: 'Google',
+		registerPolicyAgree: 'I have read and agree to the',
+		registerPolicyEnd: '.',
+		policyPageTitle: 'Privacy policy & terms',
+		policyMetaDescription:
+			'How Travel Guide Georgia handles your data, cookies, and the rules for using this site.',
+		footerPolicy: 'Privacy policy',
+		loginErrorGoogleFailed: 'Google sign-in did not complete. Please try again.',
+		loginErrorGoogleDenied: 'Google sign-in was cancelled.',
 		haveAccount: 'Already have an account?',
 		noAccount: 'New here?',
 		adminDashboard: 'Admin dashboard',
@@ -499,6 +526,19 @@ export const ui: Record<
 		registerErrorEmailTaken: 'ეს ელფოსტა უკვე რეგისტრირებულია. შედით სისტემაში.',
 		registerErrorPasswordShort: 'პაროლი მინიმუმ 8 სიმბოლო უნდა იყოს.',
 		registerErrorGeneric: 'ანგარიშის შექმნა ვერ მოხერხდა. სცადეთ ხელახლა.',
+		registerErrorPasswordMismatch: 'პაროლები არ ემთხვევა.',
+		registerErrorTermsRequired: 'რეგისტრაციისთვის უნდა დაეთანხმოთ კონფიდენციალურობის პოლიტიკას.',
+		displayName: 'სახელი (სურვილისამებრ)',
+		passwordConfirm: 'გაიმეორეთ პაროლი',
+		authOrContinueWith: 'ან გააგრძელეთ',
+		continueWithGoogle: 'Google-ით',
+		registerPolicyAgree: 'გავიცანი და ვეთანხმები',
+		registerPolicyEnd: '.',
+		policyPageTitle: 'კონფიდენციალურობა და პირობები',
+		policyMetaDescription: 'როგორ ვიყენებთ თქვენს მონაცემებს და საიტის გამოყენების წესები.',
+		footerPolicy: 'კონფიდენციალურობა',
+		loginErrorGoogleFailed: 'Google-ით შესვლა ვერ დასრულდა. სცადეთ ხელახლა.',
+		loginErrorGoogleDenied: 'Google-ით შესვლა გაუქმდა.',
 		haveAccount: 'უკვე გაქვთ ანგარიში?',
 		noAccount: 'ახალი ხართ?',
 		adminDashboard: 'ადმინ პანელი',
@@ -710,6 +750,19 @@ export const ui: Record<
 		registerErrorEmailTaken: 'Этот email уже зарегистрирован. Войдите.',
 		registerErrorPasswordShort: 'Пароль должен быть не короче 8 символов.',
 		registerErrorGeneric: 'Не удалось создать аккаунт. Попробуйте снова.',
+		registerErrorPasswordMismatch: 'Пароли не совпадают.',
+		registerErrorTermsRequired: 'Для регистрации нужно принять политику конфиденциальности.',
+		displayName: 'Имя (необязательно)',
+		passwordConfirm: 'Повторите пароль',
+		authOrContinueWith: 'или войти через',
+		continueWithGoogle: 'Google',
+		registerPolicyAgree: 'Я прочитал(а) и принимаю',
+		registerPolicyEnd: '.',
+		policyPageTitle: 'Конфиденциальность и условия',
+		policyMetaDescription: 'Как сайт обрабатывает данные и правила использования.',
+		footerPolicy: 'Конфиденциальность',
+		loginErrorGoogleFailed: 'Вход через Google не завершён. Попробуйте снова.',
+		loginErrorGoogleDenied: 'Вход через Google отменён.',
 		haveAccount: 'Уже есть аккаунт?',
 		noAccount: 'Впервые здесь?',
 		adminDashboard: 'Панель администратора',

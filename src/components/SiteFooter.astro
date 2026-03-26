@@ -44,6 +44,9 @@ const year = new Date().getFullYear();
 			<div class="site-footer__blurb prose" set:html={footerBlurbHtml} />
 		) : null
 	}
+	<p class="site-footer__legal">
+		<a href={getRelativeLocaleUrl(locale, 'policy')}>{t.footerPolicy}</a>
+	</p>
 	<p class="site-footer__meta">
 		© {year} {t.siteTitle}
 	</p>

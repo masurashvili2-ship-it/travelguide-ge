@@ -68,9 +68,8 @@ html.admin-app a:hover {
 }
 
 html.admin-app .admin-top {
-	position: sticky;
-	top: 0;
-	z-index: 8000;
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	flex-shrink: 0;
 	margin-bottom: 0;

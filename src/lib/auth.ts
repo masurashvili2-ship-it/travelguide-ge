@@ -8,8 +8,13 @@ export type UserRole = 'admin' | 'user';
 export type StoredUser = {
 	id: string;
 	email: string;
+	/** bcrypt hash; empty string = OAuth-only (password login disabled) */
 	passwordHash: string;
 	role: UserRole;
+	/** Optional display name from registration or Google */
+	displayName?: string;
+	/** Google account id (sub) when linked */
+	googleSub?: string;
 };
 
 export type UserPublic = {
@@ -62,6 +67,7 @@ export async function writeUsers(users: StoredUser[]): Promise<void> {
 export async function registerUser(
 	email: string,
 	password: string,
+	options?: { displayName?: string },
 ): Promise<{ ok: true; user: UserPublic } | { ok: false; error: string }> {
 	const normalized = email.trim().toLowerCase();
 	if (!normalized || !normalized.includes('@')) {
@@ -76,11 +82,58 @@ export async function registerUser(
 	}
 	const passwordHash = await bcrypt.hash(password, 10);
 	const role: UserRole = users.length === 0 ? 'admin' : 'user';
+	const dn = options?.displayName?.trim();
 	const user: StoredUser = {
 		id: randomBytes(16).toString('hex'),
 		email: normalized,
 		passwordHash,
 		role,
+		...(dn ? { displayName: dn } : {}),
+	};
+	users.push(user);
+	await writeUsers(users);
+	return {
+		ok: true,
+		user: { id: user.id, email: user.email, role: user.role },
+	};
+}
+
+/**
+ * Sign in or register via Google. Links `googleSub` to an existing email if present.
+ */
+export async function registerOrLoginGoogleUser(
+	googleSub: string,
+	email: string,
+	displayName: string | undefined,
+): Promise<{ ok: true; user: UserPublic } | { ok: false; error: string }> {
+	const sub = googleSub.trim();
+	if (!sub) return { ok: false, error: 'Invalid Google account' };
+	const normalized = email.trim().toLowerCase();
+	if (!normalized || !normalized.includes('@')) {
+		return { ok: false, error: 'Invalid email' };
+	}
+	const users = await readUsers();
+	const bySub = users.find((u) => u.googleSub === sub);
+	if (bySub) {
+		return { ok: true, user: { id: bySub.id, email: bySub.email, role: bySub.role } };
+	}
+	const byEmail = users.find((u) => u.email === normalized);
+	if (byEmail) {
+		byEmail.googleSub = sub;
+		const dn = displayName?.trim();
+		if (dn && !byEmail.displayName) byEmail.displayName = dn;
+		await writeUsers(users);
+		return { ok: true, user: { id: byEmail.id, email: byEmail.email, role: byEmail.role } };
+	}
+	const role: UserRole = users.length === 0 ? 'admin' : 'user';
+	const dn = displayName?.trim();
+	const user: StoredUser = {
+		id: randomBytes(16).toString('hex'),
+		email: normalized,
+		passwordHash: '',
+		googleSub: sub,
+		role,
+		...(dn ? { displayName: dn } : {}),
 	};
 	users.push(user);
 	await writeUsers(users);
@@ -98,6 +151,7 @@ export async function verifyLogin(
 	const users = await readUsers();
 	const user = users.find((u) => u.email === normalized);
 	if (!user) return null;
+	if (!user.passwordHash) return null;
 	const ok = await bcrypt.compare(password, user.passwordHash);
 	if (!ok) return null;
 	return { id: user.id, email: user.email, role: user.role };
@@ -123,6 +177,40 @@ function extractCookie(cookieHeader: string | null, name: string): string | null
 	if (!cookieHeader) return null;
 	const match = cookieHeader.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
 	return match ? match[1] : null;
+}
+
+/** Read a single cookie value (URL-decoded). */
+export function getCookieFromHeader(cookieHeader: string | null, name: string): string | null {
+	const raw = extractCookie(cookieHeader, name);
+	if (!raw) return null;
+	try {
+		return decodeURIComponent(raw);
+	} catch {
+		return raw;
+	}
+}
+
+export function getGoogleOAuthConfig(): { clientId: string; clientSecret: string } | null {
+	const clientId = process.env.GOOGLE_CLIENT_ID?.trim();
+	const clientSecret = process.env.GOOGLE_CLIENT_SECRET?.trim();
+	if (!clientId || !clientSecret) return null;
+	return { clientId, clientSecret };
+}
+
+export function oauthStateCookieHeader(state: string, request: Request): string {
+	const secure = isRequestHttps(request) ? '; Secure' : '';
+	return `oauth_state=${encodeURIComponent(state)}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=600`;
+}
+
+export function oauthNextCookieHeader(nextPath: string, request: Request): string {
+	const secure = isRequestHttps(request) ? '; Secure' : '';
+	return `oauth_next=${encodeURIComponent(nextPath)}; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=600`;
+}
+
+export function clearOAuthCookieHeaders(request: Request): string[] {
+	const secure = isRequestHttps(request) ? '; Secure' : '';
+	const c = `Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=0`;
+	return [`oauth_state=; ${c}`, `oauth_next=; ${c}`];
 }
 
 function verifySessionV2(token: string): UserPublic | null {
