@@ -142,8 +142,8 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			header.site {
 				position: sticky;
 				top: 0;
-				/* Above in-page overlays (maps, transformed heroes); tour lightbox uses ~99999 */
-				z-index: 50000;
+				/* Above in-page UI (maps, heroes, Leaflet); stay below tour lightbox (.tdh-lb ~99999) */
+				z-index: 90000;
 				width: 100%;
 				margin-bottom: 2rem;
 				padding: 1rem 0;
@@ -252,7 +252,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				display: none;
 				position: fixed;
 				inset: 0;
-				z-index: 50100;
+				z-index: 90100;
 				background: rgba(15, 23, 42, 0.45);
 				backdrop-filter: blur(2px);
 				-webkit-backdrop-filter: blur(2px);
@@ -399,7 +399,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border: 1px solid var(--border);
 				border-radius: var(--radius-md);
 				box-shadow: var(--shadow-lg);
-				z-index: 50200;
+				z-index: 90200;
 			}
 			.site-dd--lang .site-dd__panel {
 				min-width: 12.5rem;
@@ -515,7 +515,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					background: var(--surface);
 					border-right: 1px solid var(--border);
 					box-shadow: var(--shadow-lg);
-					z-index: 50300;
+					z-index: 90300;
 					transform: translateX(-100%);
 					transition: transform 0.26s ease;
 					overflow-y: auto;
@@ -542,7 +542,18 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				}
 				/* Drawer/backdrop are portaled to <body> on mobile; keep bar above dimmer when open */
 				html.tg-site-nav-open header.site {
-					z-index: 50450;
+					z-index: 90450;
+				}
+				/* Portaled nodes: explicit z-index vs in-page fixed/stacked UI (still below .tdh-lb) */
+				body > .site-nav-backdrop {
+					z-index: 90355;
+				}
+				body > #site-primary-nav.site-nav {
+					z-index: 90400;
+				}
+				#site-nav-toggle {
+					touch-action: manipulation;
+					-webkit-tap-highlight-color: transparent;
 				}
 			}
 			.card-grid {
@@ -749,7 +760,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 						<span class="brand__text" lang="en" translate="no">TRAVELGEORGIA.GE</span>
 					</a>
 				</div>
-				<div class="site-header__main">
+				<div class="site-header__main" id="site-header-main">
 					<button
 						type="button"
 						class="site-nav-toggle"
@@ -903,7 +914,7 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				function syncMobileNavPortal() {
 					var backdrop = qs('site-nav-backdrop');
 					var nav = qs('site-primary-nav');
-					var host = document.querySelector('.site-header__main');
+					var host = qs('site-header-main');
 					var tools = host && host.querySelector('.site-header__tools');
 					if (!backdrop || !nav || !host || !tools) return;
 					if (isMobileNav()) {
@@ -943,39 +954,58 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				}
 
 				function bindNav() {
+					function navParts() {
+						return {
+							nav: qs('site-primary-nav'),
+							backdrop: qs('site-nav-backdrop'),
+							btn: qs('site-nav-toggle'),
+						};
+					}
+
+					/* Direct binding: document-level capture can lose to other listeners on heavy pages */
+					function bindToggle() {
+						var btn = qs('site-nav-toggle');
+						if (!btn || btn.dataset.tgNavToggleBound === '1') return;
+						btn.dataset.tgNavToggleBound = '1';
+
+						function onToggle(e) {
+							if (!isMobileNav()) return;
+							var p = navParts();
+							if (!p.nav || !p.backdrop || !p.btn) return;
+							e.preventDefault();
+							e.stopPropagation();
+							if (p.nav.classList.contains('is-open')) {
+								closeNav(p.nav, p.backdrop, p.btn);
+							} else {
+								openNav(p.nav, p.backdrop, p.btn);
+							}
+						}
+
+						btn.addEventListener('click', onToggle, true);
+					}
+
+					bindToggle();
+
 					document.addEventListener(
 						'click',
 						function (e) {
 							var t = e.target;
 							if (!t || !t.closest) return;
-							syncMobileNavPortal();
-							var nav = qs('site-primary-nav');
-							var backdrop = qs('site-nav-backdrop');
-							var btn = qs('site-nav-toggle');
-							if (!nav || !backdrop || !btn) return;
+							if (t.closest('#site-nav-toggle')) return;
 
+							var p = navParts();
+							if (!p.nav || !p.backdrop || !p.btn) return;
 							if (!isMobileNav()) return;
+							if (!p.nav.classList.contains('is-open')) return;
 
-							if (t.closest('#site-nav-toggle')) {
-								e.preventDefault();
-								if (nav.classList.contains('is-open')) {
-									closeNav(nav, backdrop, btn);
-								} else {
-									openNav(nav, backdrop, btn);
-								}
-								return;
-							}
-
-							if (!nav.classList.contains('is-open')) return;
-
-							if (e.target === backdrop) {
-								closeNav(nav, backdrop, btn);
+							if (e.target === p.backdrop || p.backdrop.contains(e.target)) {
+								closeNav(p.nav, p.backdrop, p.btn);
 								return;
 							}
 
 							var navLink = t.closest('#site-primary-nav a');
 							if (navLink) {
-								closeNav(nav, backdrop, btn);
+								closeNav(p.nav, p.backdrop, p.btn);
 							}
 						},
 						true,
@@ -983,26 +1013,36 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 
 					document.addEventListener('keydown', function (e) {
 						if (e.key !== 'Escape') return;
-						var nav = qs('site-primary-nav');
-						var backdrop = qs('site-nav-backdrop');
-						var btn = qs('site-nav-toggle');
-						if (!nav || !backdrop || !btn || !nav.classList.contains('is-open')) return;
-						closeNav(nav, backdrop, btn);
+						var p = navParts();
+						if (!p.nav || !p.backdrop || !p.btn || !p.nav.classList.contains('is-open')) return;
+						closeNav(p.nav, p.backdrop, p.btn);
 					});
 
-					window.addEventListener(
-						'resize',
-						function () {
-							syncMobileNavPortal();
-							if (isMobileNav()) return;
-							var nav = qs('site-primary-nav');
-							var backdrop = qs('site-nav-backdrop');
-							var btn = qs('site-nav-toggle');
-							if (!nav || !backdrop || !btn || !nav.classList.contains('is-open')) return;
-							closeNav(nav, backdrop, btn);
-						},
-						{ passive: true },
-					);
+					function onViewportChange() {
+						syncMobileNavPortal();
+						if (isMobileNav()) return;
+						var p = navParts();
+						if (!p.nav || !p.backdrop || !p.btn || !p.nav.classList.contains('is-open')) return;
+						closeNav(p.nav, p.backdrop, p.btn);
+					}
+
+					window.addEventListener('resize', onViewportChange, { passive: true });
+					window.addEventListener('orientationchange', onViewportChange, { passive: true });
+					window.addEventListener('pageshow', function () {
+						syncMobileNavPortal();
+					});
+
+					try {
+						var mm = window.matchMedia('(max-width: 768px)');
+						function onMq() {
+							onViewportChange();
+						}
+						if (mm.addEventListener) {
+							mm.addEventListener('change', onMq);
+						} else if (mm.addListener) {
+							mm.addListener(onMq);
+						}
+					} catch (err) {}
 				}
 
 				function boot() {
@@ -1011,6 +1051,10 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 						window.__tgSiteNavInit = true;
 						bindNav();
 					}
+					requestAnimationFrame(function () {
+						syncMobileNavPortal();
+						requestAnimationFrame(syncMobileNavPortal);
+					});
 				}
 
 				if (document.readyState === 'loading') {
