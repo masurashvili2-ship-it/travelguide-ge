@@ -6,17 +6,10 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { marked } from 'marked';
 import { buildTourJsonLd, resolveTourMetaDescription, absoluteSeoUrl } from '../../../lib/seo';
 import { averageRatingFor, listCommentsForPost } from '../../../lib/tour-comments';
-import DetailLocationMapSection from '../../../components/DetailLocationMapSection.astro';
 import WhatToDoContactAsideCard from '../../../components/WhatToDoContactAsideCard.astro';
 import { googleDirectionsUrlFromCoords } from '../../../lib/google-maps-urls';
 import { hasRenderableContactSocialLinks } from '../../../lib/contact-social-links';
-import {
-	getSimilarWhatToDo,
-	getWhatToDoRowBySlug,
-	listTourMapMarkers,
-	listWhatToDoMapMarkers,
-	tourCoverImageUrl,
-} from '../../../lib/tours-db';
+import { getSimilarWhatToDo, getWhatToDoRowBySlug, tourCoverImageUrl } from '../../../lib/tours-db';
 import type { RegionLevel } from '../../../lib/regions-db';
 import { resolveWhatToDoPlaceLinks } from '../../../lib/what-to-do-places';
 import type { Locale } from '../../../lib/strings';
@@ -101,17 +94,6 @@ function placeLevelLabel(level: RegionLevel): string {
 	if (level === 'municipality') return t.regionsLevelMunicipality;
 	return t.regionsLevelVillage;
 }
-
-const allMapMarkers = [...listTourMapMarkers(locale), ...listWhatToDoMapMarkers(locale)];
-const detailMapFocus = row.location
-	? {
-			lat: row.location.lat,
-			lng: row.location.lng,
-			zoom: 14,
-			slug: row.slug,
-			kind: 'what-to-do' as const,
-		}
-	: null;
 
 const postComments = await listCommentsForPost('what-to-do', row.id);
 const postAverageRating = averageRatingFor(postComments);
@@ -266,17 +248,6 @@ const adminEditHref =
 			</div>
 		</aside>
 	</div>
-
-	{
-		detailMapFocus && allMapMarkers.length > 0 ? (
-			<DetailLocationMapSection
-				heading={t.detailOnMapHeading}
-				markers={allMapMarkers}
-				focus={detailMapFocus}
-				popupViewDetailsLabel={t.mapPopupViewDetails}
-			/>
-		) : null
-	}
 
 	<TourComments
 		locale={locale}
