@@ -7,10 +7,7 @@ import { getFooterConfig } from '../../../lib/footer-db';
 import { listAllPagesAdmin } from '../../../lib/pages-db';
 import { listAllRegionsAdmin } from '../../../lib/regions-db';
 import { listAllToursAdmin, listAllWhatToDoAdmin } from '../../../lib/tours-db';
-import {
-	contributorAuthorEmailForPublishedPost,
-	countPendingSubmissions,
-} from '../../../lib/submissions-db';
+import { countPendingSubmissions } from '../../../lib/submissions-db';
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -25,15 +22,18 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 }
 
 const users = await readUsers();
-const tourRows = await listAllToursAdmin();
-const wtdRows = await listAllWhatToDoAdmin();
-const regionRows = listAllRegionsAdmin();
+const tourCount = (await listAllToursAdmin()).length;
+const wtdCount = (await listAllWhatToDoAdmin()).length;
+const regionCount = listAllRegionsAdmin().length;
 const pageRows = listAllPagesAdmin();
 const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
+
 const newTourUrl = getRelativeLocaleUrl(locale, 'admin/tours/new');
 const newWtdUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
 const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
+const toursListUrl = getRelativeLocaleUrl(locale, 'admin/tours');
+const wtdListUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const regionsListUrl = getRelativeLocaleUrl(locale, 'admin/regions');
 const pagesAdminUrl = getRelativeLocaleUrl(locale, 'admin/pages');
 const newPageUrl = getRelativeLocaleUrl(locale, 'admin/pages/new');
@@ -41,19 +41,8 @@ const footerAdminUrl = getRelativeLocaleUrl(locale, 'admin/footer');
 const footerLinkCount = getFooterConfig().links.length;
 const submissionsUrl = getRelativeLocaleUrl(locale, 'admin/submissions');
 const reviewsAdminUrl = getRelativeLocaleUrl(locale, 'admin/reviews');
+const backupUrl = getRelativeLocaleUrl(locale, 'admin/backup');
 const pendingSubmissions = countPendingSubmissions();
-
-function displayTourAuthor(row: (typeof tourRows)[number]): string {
-	return (
-		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('tours', row.id) || ''
-	);
-}
-
-function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
-	return (
-		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('what-to-do', row.id) || ''
-	);
-}
 ---
 
 <AdminLayout
@@ -82,16 +71,34 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 				<a class="button" href={reviewsAdminUrl} style="margin-left:0.35rem">
 					Recent reviews & comments
 				</a>
-				<a class="button" href={regionsListUrl} style="margin-left:0.35rem">
-					Regions & places
+				<a class="button" href={backupUrl} style="margin-left:0.35rem">
+					Backup & import
 				</a>
 			</p>
-			<p class="muted" style="margin:0 0 0.5rem">
-				<strong>{tourRows.length}</strong> tour post{tourRows.length === 1 ? '' : 's'} ·{' '}
-				<strong>{regionRows.length}</strong> region / municipality / village{regionRows.length === 1 ? '' : 's'} ·{' '}
-				<strong>{pageRows.length}</strong> page{pageRows.length === 1 ? '' : 's'} ·{' '}
-				<strong>{users.length}</strong> user{users.length === 1 ? '' : 's'} ·{' '}
-				<strong>{footerLinkCount}</strong> footer link{footerLinkCount === 1 ? '' : 's'}
+			<p class="muted" style="margin:0 0 0.75rem">
+				<strong>{tourCount}</strong> tour{tourCount === 1 ? '' : 's'} · <strong>{wtdCount}</strong> what-to-do ·{' '}
+				<strong>{regionCount}</strong> region / municipality / village{regionCount === 1 ? '' : 's'} ·{' '}
+				<strong>{pageRows.length}</strong> page{pageRows.length === 1 ? '' : 's'} · <strong>{users.length}</strong> user
+				{users.length === 1 ? '' : 's'} · <strong>{footerLinkCount}</strong> footer link
+				{footerLinkCount === 1 ? '' : 's'}
+			</p>
+			<p style="margin:0 0 0.75rem">
+				<a class="button button-primary" href={toursListUrl}>All tours</a>
+				<a class="button" href={newTourUrl} style="margin-left:0.35rem">
+					New tour
+				</a>
+				<a class="button" href={wtdListUrl} style="margin-left:0.35rem">
+					All what to do
+				</a>
+				<a class="button" href={newWtdUrl} style="margin-left:0.35rem">
+					New what to do
+				</a>
+				<a class="button" href={regionsListUrl} style="margin-left:0.35rem">
+					All regions &amp; places
+				</a>
+				<a class="button" href={newRegionUrl} style="margin-left:0.35rem">
+					New place
+				</a>
 			</p>
 			<p class="muted" style="margin:0">
 				Data files: <code>tours.json</code>, <code>what-to-do.json</code>, <code>regions.json</code>,{' '}
@@ -147,160 +154,6 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 		</div>
 	</section>
 
-	<section class="admin-card" id="section-tours">
-		<h2 class="admin-card__h">Tours</h2>
-		<div class="admin-card__bd">
-			<p style="margin:0 0 1rem">
-				<a class="button button-primary" href={newTourUrl}>Add new tour</a>
-			</p>
-			<div class="admin-table-wrap">
-				<table class="admin-table">
-					<thead>
-						<tr>
-							<th>Slug</th>
-							<th>Author</th>
-							<th>English</th>
-							<th>Georgian</th>
-							<th>Russian</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							tourRows.map((row) => (
-							<tr>
-								<td>
-									<code>{row.slug}</code>
-								</td>
-								<td class="muted" style="font-size:0.88rem;max-width:12rem">
-									{displayTourAuthor(row) || '—'}
-								</td>
-								<td>{row.titles.en || '—'}</td>
-								<td>{row.titles.ka || '—'}</td>
-								<td>{row.titles.ru || '—'}</td>
-								<td>
-									<a href={getRelativeLocaleUrl(locale, `admin/tours/edit/${row.id}`)}>Edit</a>
-									<div class="view-links muted" style="margin-top:0.35rem">
-										{row.locales.map((code) => (
-											<a href={getRelativeLocaleUrl(code, `tours/${row.slug}`)}>View ({code})</a>
-										))}
-										{row.locales.length === 0 ? <span>No locales</span> : null}
-									</div>
-								</td>
-							</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-
-	<section class="admin-card" id="section-what-to-do">
-		<h2 class="admin-card__h">What to do</h2>
-		<div class="admin-card__bd">
-			<p class="muted" style="margin:0 0 1rem">
-				Activities and ideas — same fields as tours, separate list at <code>/{locale}/what-to-do/</code>.
-			</p>
-			<p style="margin:0 0 1rem">
-				<a class="button button-primary" href={newWtdUrl}>Add new</a>
-			</p>
-			<div class="admin-table-wrap">
-				<table class="admin-table">
-					<thead>
-						<tr>
-							<th>Slug</th>
-							<th>Author</th>
-							<th>English</th>
-							<th>Georgian</th>
-							<th>Russian</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							wtdRows.map((row) => (
-							<tr>
-								<td>
-									<code>{row.slug}</code>
-								</td>
-								<td class="muted" style="font-size:0.88rem;max-width:12rem">
-									{displayWtdAuthor(row) || '—'}
-								</td>
-								<td>{row.titles.en || '—'}</td>
-								<td>{row.titles.ka || '—'}</td>
-								<td>{row.titles.ru || '—'}</td>
-								<td>
-									<a href={getRelativeLocaleUrl(locale, `admin/what-to-do/edit/${row.id}`)}>Edit</a>
-									<div class="view-links muted" style="margin-top:0.35rem">
-										{row.locales.map((code) => (
-											<a href={getRelativeLocaleUrl(code, `what-to-do/${row.slug}`)}>View ({code})</a>
-										))}
-										{row.locales.length === 0 ? <span>No locales</span> : null}
-									</div>
-								</td>
-							</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-
-	<section class="admin-card" id="section-regions">
-		<h2 class="admin-card__h">Regions, municipalities &amp; villages</h2>
-		<div class="admin-card__bd">
-			<p class="muted" style="margin:0 0 1rem">
-				Hierarchical places at <code>/{locale}/regions/</code>. Stored in <code>data/regions.json</code>.
-			</p>
-			<p style="margin:0 0 1rem">
-				<a class="button button-primary" href={newRegionUrl}>Add new place</a>
-				<a class="button" href={regionsListUrl} style="margin-left:0.35rem">
-					Open regions list
-				</a>
-			</p>
-			<div class="admin-table-wrap">
-				<table class="admin-table">
-					<thead>
-						<tr>
-							<th>Slug</th>
-							<th>Type</th>
-							<th>English</th>
-							<th>Georgian</th>
-							<th>Russian</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							regionRows.map((row) => (
-								<tr>
-									<td>
-										<code>{row.slug}</code>
-									</td>
-									<td>{row.level}</td>
-									<td>{row.titles.en || '—'}</td>
-									<td>{row.titles.ka || '—'}</td>
-									<td>{row.titles.ru || '—'}</td>
-									<td>
-										<a href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
-										<div class="view-links muted" style="margin-top:0.35rem">
-											{row.locales.map((code) => (
-												<a href={getRelativeLocaleUrl(code, `regions/${row.slug}`)}>View ({code})</a>
-											))}
-											{row.locales.length === 0 ? <span>No locales</span> : null}
-										</div>
-									</td>
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
-
 	<section class="admin-card" id="section-users">
 		<h2 class="admin-card__h">Users</h2>
 		<div class="admin-card__bd">
@@ -316,10 +169,10 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 					<tbody>
 						{
 							users.map((u) => (
-							<tr>
-								<td>{u.email}</td>
-								<td>{u.role}</td>
-							</tr>
+								<tr>
+									<td>{u.email}</td>
+									<td>{u.role}</td>
+								</tr>
 							))
 						}
 					</tbody>

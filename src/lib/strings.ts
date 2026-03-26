@@ -202,6 +202,23 @@ export const ui: Record<
 		activityLogRatingLabel: string;
 		activityLogPreviewLabel: string;
 		activityLogPostRemoved: string;
+		/** Header + /search */
+		search: string;
+		searchPlaceholder: string;
+		searchTitle: string;
+		searchMetaDescription: string;
+		searchButton: string;
+		searchAriaLabel: string;
+		searchIntro: string;
+		searchEmptyQuery: string;
+		searchNoResults: string;
+		/** "{n}" = number of hits */
+		searchResultsCount: string;
+		/** Result badge */
+		searchKindTour: string;
+		searchKindWhatToDo: string;
+		searchKindRegion: string;
+		searchKindPage: string;
 	}
 > = {
 	en: {
@@ -400,6 +417,20 @@ export const ui: Record<
 		activityLogRatingLabel: 'Your rating',
 		activityLogPreviewLabel: 'What you wrote',
 		activityLogPostRemoved: 'This page is no longer on the site; details are from when the activity was saved.',
+		search: 'Search',
+		searchPlaceholder: 'Search tours, places, pages…',
+		searchTitle: 'Search',
+		searchMetaDescription: 'Search tours, activities, regions, and pages on Travel Guide Georgia.',
+		searchButton: 'Search',
+		searchAriaLabel: 'Search the site',
+		searchIntro: 'Find tours, things to do, regions, and site pages in your language.',
+		searchEmptyQuery: 'Type a word or phrase above and press Search.',
+		searchNoResults: 'No pages matched. Try different words or browse the menu.',
+		searchResultsCount: '{n} results',
+		searchKindTour: 'Tour',
+		searchKindWhatToDo: 'What to do',
+		searchKindRegion: 'Place',
+		searchKindPage: 'Page',
 	},
 	ka: {
 		siteTitle: 'საქართველოს სამოგზაურო გიდი',
@@ -595,6 +626,20 @@ export const ui: Record<
 		activityLogRatingLabel: 'თქვენი ქულა',
 		activityLogPreviewLabel: 'თქვენი ტექსტი',
 		activityLogPostRemoved: 'გვერდი აღარ არის საიტზე; დეტალები შენახულია აქტივობის მომენტის მიხედვით.',
+		search: 'ძიება',
+		searchPlaceholder: 'ტურები, ადგილები, გვერდები…',
+		searchTitle: 'ძიება',
+		searchMetaDescription: 'იპოვეთ ტურები, აქტივობები, რეგიონები და გვერდები.',
+		searchButton: 'ძიება',
+		searchAriaLabel: 'საიტზე ძიება',
+		searchIntro: 'იპოვეთ ტურები, რა გავაკეთოთ, რეგიონები და გვერდები თქვენს ენაზე.',
+		searchEmptyQuery: 'ჩაწერეთ სიტყვა ან ფრაზა და დააჭირეთ ძიებას.',
+		searchNoResults: 'შედეგები არ მოიძებნა. სცადეთ სხვა სიტყვები ან მენიუდ აირჩიეთ.',
+		searchResultsCount: '{n} შედეგი',
+		searchKindTour: 'ტური',
+		searchKindWhatToDo: 'რა გავაკეთოთ',
+		searchKindRegion: 'ადგილი',
+		searchKindPage: 'გვერდი',
 	},
 	ru: {
 		siteTitle: 'Путеводитель по Грузии',
@@ -792,5 +837,19 @@ export const ui: Record<
 		activityLogRatingLabel: 'Ваша оценка',
 		activityLogPreviewLabel: 'Ваш текст',
 		activityLogPostRemoved: 'Страница больше не на сайте; данные — на момент сохранения активности.',
+		search: 'Поиск',
+		searchPlaceholder: 'Туры, места, страницы…',
+		searchTitle: 'Поиск',
+		searchMetaDescription: 'Поиск туров, активностей, регионов и страниц сайта.',
+		searchButton: 'Найти',
+		searchAriaLabel: 'Поиск по сайту',
+		searchIntro: 'Ищите туры, идеи чем заняться, регионы и страницы на вашем языке.',
+		searchEmptyQuery: 'Введите слово или фразу и нажмите «Найти».',
+		searchNoResults: 'Ничего не найдено. Попробуйте другие слова или разделы меню.',
+		searchResultsCount: 'Результатов: {n}',
+		searchKindTour: 'Тур',
+		searchKindWhatToDo: 'Чем заняться',
+		searchKindRegion: 'Место',
+		searchKindPage: 'Страница',
 	},
 };

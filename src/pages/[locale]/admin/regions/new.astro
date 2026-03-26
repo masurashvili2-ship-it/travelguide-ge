@@ -20,7 +20,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
 }
 
-const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const regionsListUrl = getRelativeLocaleUrl(locale, 'admin/regions');
 const userEmail = Astro.locals.user.email;
 
 const parentRegions = listRegionsForParentSelect('region');
@@ -41,7 +41,7 @@ const parentsJson = JSON.stringify({
 >
 	<form id="region-admin-form" method="post" action="/api/admin/regions">
 		<input type="hidden" name="intent" value="create" />
-		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="redirect" value={regionsListUrl} />
 		<input type="hidden" name="admin_locale" value={locale} />
 
 		<section class="admin-card">
@@ -225,7 +225,7 @@ const parentsJson = JSON.stringify({
 		locale={locale}
 		formId="region-admin-form"
 		submitLabel="Publish"
-		cancelHref={adminHome}
+		cancelHref={regionsListUrl}
 		viewMode="regions"
 	/>
 	<AdminSlugAutoFromEnTitle slugInputId="region-admin-slug" />

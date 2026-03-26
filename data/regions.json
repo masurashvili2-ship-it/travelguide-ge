@@ -53,7 +53,12 @@
 			"level": "region",
 			"parent_id": null,
 			"image": null,
-			"gallery": [],
+			"gallery": [
+				"/uploads/regions/abkhazia-autonomous-republic.webp",
+				"/uploads/regions/abkhazia-autonomous-republic-1.webp",
+				"/uploads/regions/abkhazia-autonomous-republic-2.webp",
+				"/uploads/regions/abkhazia-autonomous-republic-3.webp"
+			],
 			"location": null,
 			"population": null,
 			"area_km2": null,
@@ -92,7 +97,7 @@
 					"body": "## География\r\n\r\nАбхазия — **северо-западное** побережье Чёрного моря.\r\n\r\n## Политический контекст\r\n\r\nДля Грузии это **автономная республика**; фактический контроль — отдельная долгая тема.\r\n\r\n## Путешествия\r\n\r\nСверяйтесь с рекомендациями МИД.\r\n\r\n## Зачем в списке\r\n\r\nЧтобы **карта Грузии** читалась целиком."
 				}
 			},
-			"updated_at": 1774552024311
+			"updated_at": 1774552605228
 		},
 		{
 			"id": "29bf4056-c12c-40f7-b925-c48488653989",

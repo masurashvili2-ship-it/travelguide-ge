@@ -13,6 +13,10 @@ import {
 	wantsJsonApiResponse,
 } from '../../../lib/admin-save-response';
 import {
+	adminBulkDeleteContentPostResponse,
+	adminDeleteContentPostResponse,
+} from '../../../lib/admin-delete-content-post';
+import {
 	isValidSlug,
 	normalizeTourGalleryInput,
 	parseTourLocation,
@@ -79,6 +83,16 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		} = j;
 		fields = Object.fromEntries(Object.entries(rest).map(([k, v]) => [k, v == null ? '' : String(v)]));
 		galleryUrls = normalizeTourGalleryInput(galleryRaw);
+		if (fields.intent === 'delete') {
+			return adminDeleteContentPostResponse('tours', request, fields, respondJson);
+		}
+		if (fields.intent === 'bulk_delete') {
+			const idsRaw = (j as Record<string, unknown>).ids;
+			const ids = Array.isArray(idsRaw)
+				? idsRaw.map((x) => (x == null ? '' : String(x)))
+				: [];
+			return adminBulkDeleteContentPostResponse('tours', request, ids, fields, respondJson);
+		}
 		if (i18nRaw && typeof i18nRaw === 'object' && !Array.isArray(i18nRaw)) {
 			const i18n: Partial<Record<Locale, TourLocaleBlock>> = {};
 			for (const loc of LOCALES) {
@@ -205,6 +219,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
 		);
 		const gu = fd.get('gallery_urls');
 		galleryUrls = typeof gu === 'string' ? normalizeTourGalleryInput(gu) : [];
+		if (fields.intent === 'bulk_delete') {
+			const ids = fd.getAll('ids').map((v) => (typeof v === 'string' ? v : ''));
+			return adminBulkDeleteContentPostResponse('tours', request, ids, fields, respondJson);
+		}
+	}
+
+	if (fields.intent === 'delete') {
+		return adminDeleteContentPostResponse('tours', request, fields, respondJson);
 	}
 
 	const intent = fields.intent === 'update' ? 'update' : 'create';

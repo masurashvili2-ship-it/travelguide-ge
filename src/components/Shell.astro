@@ -20,6 +20,8 @@ interface Props {
 	ogType?: 'website' | 'article';
 	jsonLd?: Record<string, unknown> | null;
 	robotsNoindex?: boolean;
+	/** Current search query for the header field (e.g. on /search?q=…) */
+	searchQuery?: string;
 }
 
 const {
@@ -33,8 +35,11 @@ const {
 	ogType = 'website',
 	jsonLd,
 	robotsNoindex,
+	searchQuery = '',
 } = Astro.props;
 const t = ui[locale];
+const searchUrl = getRelativeLocaleUrl(locale, 'search');
+const searchQ = searchQuery.trim();
 const user = Astro.locals.user;
 
 const site = Astro.site;
@@ -306,6 +311,71 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				gap: 0.45rem;
 				flex: 0 0 auto;
 			}
+			.visually-hidden {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border: 0;
+			}
+			.site-search__form {
+				display: flex;
+				gap: 0.35rem;
+				align-items: center;
+				width: 100%;
+			}
+			.site-search__input {
+				flex: 1;
+				min-width: 0;
+				padding: 0.45rem 0.8rem;
+				font: inherit;
+				font-size: 0.88rem;
+				border: 1px solid var(--border);
+				border-radius: 999px;
+				background: var(--surface);
+				color: var(--text);
+				transition:
+					border-color 0.15s ease,
+					box-shadow 0.15s ease;
+			}
+			.site-search__input:focus {
+				outline: none;
+				border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+				box-shadow: 0 0 0 3px var(--accent-glow);
+			}
+			.site-search__btn {
+				flex-shrink: 0;
+				padding: 0.45rem 0.85rem;
+				font: inherit;
+				font-size: 0.8rem;
+				font-weight: 600;
+				color: var(--accent-dim);
+				background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+				border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
+				border-radius: 999px;
+				cursor: pointer;
+				transition:
+					background 0.15s ease,
+					border-color 0.15s ease;
+			}
+			.site-search__btn:hover {
+				background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+				border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+			}
+			.site-search--header {
+				flex: 1 1 10rem;
+				max-width: 19rem;
+				min-width: 0;
+			}
+			.site-search--drawer {
+				display: none;
+				width: 100%;
+				margin-bottom: 0.35rem;
+			}
 			.site-dd {
 				position: relative;
 			}
@@ -462,6 +532,12 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				border-color: color-mix(in srgb, var(--danger) 38%, transparent);
 			}
 			@media (max-width: 768px) {
+				.site-search--header {
+					display: none;
+				}
+				.site-search--drawer {
+					display: block;
+				}
 				.site__inner {
 					flex-direction: row;
 					flex-wrap: nowrap;
@@ -808,6 +884,21 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 					</button>
 					<div class="site-nav-backdrop" id="site-nav-backdrop" hidden aria-hidden="true"></div>
 					<nav class="site-nav" id="site-primary-nav" aria-label="Main">
+						<div class="site-search site-search--drawer">
+							<form method="get" action={searchUrl} class="site-search__form" role="search">
+								<label class="visually-hidden" for="site-search-drawer-q">{t.searchPlaceholder}</label>
+								<input
+									id="site-search-drawer-q"
+									type="search"
+									name="q"
+									value={searchQ}
+									placeholder={t.searchPlaceholder}
+									autocomplete="off"
+									class="site-search__input"
+								/>
+								<button type="submit" class="site-search__btn">{t.searchButton}</button>
+							</form>
+						</div>
 						<a href={getRelativeLocaleUrl(locale, '/')} aria-current={subpath === '' ? 'page' : undefined}>{t.home}</a>
 						<a
 							href={getRelativeLocaleUrl(locale, 'tours')}
@@ -823,6 +914,22 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 							aria-current={subpath === 'map' ? 'page' : undefined}>{t.map}</a>
 					</nav>
 					<div class="site-header__tools">
+						<div class="site-search site-search--header">
+							<form method="get" action={searchUrl} class="site-search__form" role="search">
+								<label class="visually-hidden" for="site-search-header-q">{t.searchPlaceholder}</label>
+								<input
+									id="site-search-header-q"
+									type="search"
+									name="q"
+									value={searchQ}
+									placeholder={t.searchPlaceholder}
+									autocomplete="off"
+									class="site-search__input"
+									aria-label={t.searchAriaLabel}
+								/>
+								<button type="submit" class="site-search__btn">{t.searchButton}</button>
+							</form>
+						</div>
 						<details class="site-dd site-dd--lang">
 							<summary class="site-dd__trigger site-dd__trigger--lang" aria-label={t.navLanguage}>
 								<span class="site-dd__lang-chip">

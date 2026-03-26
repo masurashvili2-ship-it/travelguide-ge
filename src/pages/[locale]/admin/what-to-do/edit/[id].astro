@@ -48,7 +48,7 @@ const displayTitle =
 	post.i18n.ru?.title?.trim() ||
 	post.slug;
 
-const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const wtdListUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const userEmail = Astro.locals.user.email;
 const placesForPicker = listRegionsForWhatToDoPicker();
 ---
@@ -64,7 +64,7 @@ const placesForPicker = listRegionsForWhatToDoPicker();
 	<form id="wtd-admin-form" method="post" action="/api/admin/what-to-do">
 		<input type="hidden" name="intent" value="update" />
 		<input type="hidden" name="id" value={post.id} />
-		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="redirect" value={wtdListUrl} />
 		<input type="hidden" name="admin_locale" value={locale} />
 		<input type="hidden" id="tour-admin-title" value={post.i18n.en?.title ?? ''} />
 
@@ -275,9 +275,30 @@ const placesForPicker = listRegionsForWhatToDoPicker();
 		locale={locale}
 		formId="wtd-admin-form"
 		submitLabel="Update"
-		cancelHref={adminHome}
+		cancelHref={wtdListUrl}
 		viewMode="what-to-do"
 	/>
+
+	<section class="admin-card" style="margin-top:1.5rem">
+		<h2 class="admin-card__h">Delete</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 0.75rem">
+				Removes this entry from the site and deletes all reviews and replies in <code>tour-comments.json</code> for
+				this post.
+			</p>
+			<form
+				method="post"
+				action="/api/admin/what-to-do"
+				onsubmit="return confirm('Delete this “What to do” entry and its reviews? This cannot be undone.');"
+			>
+				<input type="hidden" name="intent" value="delete" />
+				<input type="hidden" name="id" value={post.id} />
+				<input type="hidden" name="redirect" value={wtdListUrl} />
+				<button type="submit" class="button button-danger">Delete this entry</button>
+			</form>
+		</div>
+	</section>
+
 	<AdminSlugAutoFromEnTitle />
 </AdminLayout>
 

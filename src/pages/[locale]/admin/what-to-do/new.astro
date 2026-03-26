@@ -31,7 +31,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
 }
 
-const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const wtdListUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const userEmail = Astro.locals.user.email;
 const placesForPicker = listRegionsForWhatToDoPicker();
 ---
@@ -229,7 +229,7 @@ const placesForPicker = listRegionsForWhatToDoPicker();
 		locale={locale}
 		formId="wtd-admin-form"
 		submitLabel="Publish"
-		cancelHref={adminHome}
+		cancelHref={wtdListUrl}
 		viewMode="what-to-do"
 	/>
 	<AdminSlugAutoFromEnTitle />

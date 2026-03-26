@@ -11,7 +11,7 @@ const LOCALES: Locale[] = ['en', 'ka', 'ru'];
 
 /** URL segments reserved by the app (cannot be used as page slugs). */
 export const RESERVED_PAGE_SLUGS = new Set(
-	['admin', 'tours', 'login', 'register', 'api', 'p', 'pages', 'contribute'].map((s) => s.toLowerCase()),
+	['admin', 'tours', 'login', 'register', 'api', 'p', 'pages', 'contribute', 'search'].map((s) => s.toLowerCase()),
 );
 
 const UUID_RE =
@@ -45,6 +45,12 @@ export type PageRow = PagePost & {
 
 let cachedPosts: PagePost[] | null = null;
 let cachedPagesMtimeMs = 0;
+
+/** Call after replacing `pages.json` on disk (e.g. backup import). */
+export function invalidatePagesCache(): void {
+	cachedPosts = null;
+	cachedPagesMtimeMs = 0;
+}
 
 function pagesFileMtimeMs(): number {
 	if (!existsSync(STORE_FILE)) return 0;

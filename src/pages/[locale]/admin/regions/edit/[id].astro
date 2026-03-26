@@ -39,7 +39,7 @@ const displayTitle =
 	post.i18n.ru?.title?.trim() ||
 	post.slug;
 
-const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const regionsListUrl = getRelativeLocaleUrl(locale, 'admin/regions');
 const userEmail = Astro.locals.user.email;
 
 const parentRegions = listRegionsForParentSelect('region');
@@ -76,7 +76,7 @@ const locPin = post.location;
 		<input type="hidden" name="intent" value="update" />
 		<input type="hidden" name="id" value={post.id} />
 		<input type="hidden" name="level" value={post.level} />
-		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="redirect" value={regionsListUrl} />
 		<input type="hidden" name="admin_locale" value={locale} />
 
 		<section class="admin-card">
@@ -306,7 +306,7 @@ const locPin = post.location;
 		locale={locale}
 		formId="region-admin-form"
 		submitLabel="Save changes"
-		cancelHref={adminHome}
+		cancelHref={regionsListUrl}
 		viewMode="regions"
 	/>
 
@@ -319,7 +319,7 @@ const locPin = post.location;
 			<form method="post" action="/api/admin/regions">
 				<input type="hidden" name="intent" value="delete" />
 				<input type="hidden" name="id" value={post.id} />
-				<input type="hidden" name="redirect" value={adminHome} />
+				<input type="hidden" name="redirect" value={regionsListUrl} />
 				<button type="submit" class="button" style="border-color:#b91c1c;color:#b91c1c">
 					Delete this place
 				</button>

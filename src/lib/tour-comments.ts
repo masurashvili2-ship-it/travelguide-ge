@@ -13,6 +13,7 @@ import {
 export type { CommentPostKind, TourComment } from './tour-comments-data';
 export {
 	averageRatingFor,
+	deleteAllCommentsForPost,
 	flattenThreaded,
 	topLevelReviews,
 	listCommentsForPost,

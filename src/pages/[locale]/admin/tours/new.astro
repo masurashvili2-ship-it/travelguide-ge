@@ -21,7 +21,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
 }
 
-const adminHome = getRelativeLocaleUrl(locale, 'admin');
+const toursListUrl = getRelativeLocaleUrl(locale, 'admin/tours');
 const userEmail = Astro.locals.user.email;
 ---
 
@@ -35,7 +35,7 @@ const userEmail = Astro.locals.user.email;
 >
 	<form id="tour-admin-form" method="post" action="/api/admin/tours">
 		<input type="hidden" name="intent" value="create" />
-		<input type="hidden" name="redirect" value={adminHome} />
+		<input type="hidden" name="redirect" value={toursListUrl} />
 		<input type="hidden" name="admin_locale" value={locale} />
 		<section class="admin-card">
 			<h2 class="admin-card__h">Slug</h2>
@@ -175,7 +175,7 @@ const userEmail = Astro.locals.user.email;
 		locale={locale}
 		formId="tour-admin-form"
 		submitLabel="Publish"
-		cancelHref={adminHome}
+		cancelHref={toursListUrl}
 		viewMode="tours"
 	/>
 	<AdminSlugAutoFromEnTitle />

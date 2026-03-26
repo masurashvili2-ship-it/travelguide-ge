@@ -11,17 +11,6 @@
     "createdAt": 1774382791562
   },
   {
-    "id": "2a452c7e-217e-47dc-926f-5949ae1ee32b",
-    "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
-    "postKind": "tours",
-    "userId": "b7b981da54e17c0e40a1b4f0370302fa",
-    "userEmail": "masurashvili@ymail.com",
-    "rating": 4,
-    "body": "არ მომეწონა",
-    "parentId": null,
-    "createdAt": 1774382806723
-  },
-  {
     "id": "a1dc6317-e533-4823-aae2-77c26b316b45",
     "tourId": "c82d2773-148b-4274-b8be-4123824b147e",
     "postKind": "tours",
@@ -266,5 +255,16 @@
     "body": "lioliol",
     "parentId": null,
     "createdAt": 1774545680891
+  },
+  {
+    "id": "401e9ed4-01a9-4076-90be-82b875f88b01",
+    "tourId": "8d6a9d06-1bf2-4548-80a2-0ac6882854ea",
+    "postKind": "tours",
+    "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
+    "userEmail": "masurashvili@ymail.com",
+    "rating": 5,
+    "body": "jooo",
+    "parentId": null,
+    "createdAt": 1774552553196
   }
 ]

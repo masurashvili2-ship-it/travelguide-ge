@@ -40,6 +40,12 @@ export type FooterNavEntry =
 let cached: FooterConfig | null = null;
 let cachedMtimeMs = 0;
 
+/** Call after replacing `footer.json` on disk (e.g. backup import). */
+export function invalidateFooterCache(): void {
+	cached = null;
+	cachedMtimeMs = 0;
+}
+
 function footerFileMtimeMs(): number {
 	if (!existsSync(STORE_FILE)) return 0;
 	try {

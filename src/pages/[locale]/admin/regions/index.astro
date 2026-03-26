@@ -1,8 +1,18 @@
 ---
 import AdminLayout from '../../../../components/admin/AdminLayout.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import {
+	ADMIN_LIST_PAGE_SIZE,
+	buildAdminQueryLink,
+	filterRegionRowsForAdmin,
+	listRangeLabel,
+	paginateSlice,
+	parseAdminListPage,
+} from '../../../../lib/admin-list-helpers';
 import { listAllRegionsAdmin } from '../../../../lib/regions-db';
 import type { Locale } from '../../../../lib/strings';
+
+export const prerender = false;
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -19,7 +29,24 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 const regionRows = listAllRegionsAdmin();
 const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
+const sp = Astro.url.searchParams;
+const q = (sp.get('q') ?? '').trim();
+const regionRowsFiltered = filterRegionRowsForAdmin(regionRows, q);
+const regionsPag = paginateSlice(
+	regionRowsFiltered,
+	parseAdminListPage(sp, 'page'),
+	ADMIN_LIST_PAGE_SIZE,
+);
+
+const pathOnly = Astro.url.pathname;
+const searchOnly = Astro.url.search;
+
 const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
+const dashboardUrl = getRelativeLocaleUrl(locale, 'admin');
+
+function queryLink(updates: Record<string, string | null | undefined>): string {
+	return buildAdminQueryLink(pathOnly, searchOnly, updates);
+}
 ---
 
 <AdminLayout
@@ -41,61 +68,117 @@ const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
 	<section class="admin-card">
 		<h2 class="admin-card__h">All places</h2>
 		<div class="admin-card__bd">
-			<p class="muted" style="margin:0 0 1rem">
+			<p style="margin:0 0 1rem">
 				<a class="button button-primary" href={newRegionUrl}>
 					Add new place
 				</a>
-				<a class="button" href={getRelativeLocaleUrl(locale, 'admin')} style="margin-left:0.35rem">
-					Back to dashboard
+				<a class="button" href={dashboardUrl} style="margin-left:0.35rem">
+					Dashboard
 				</a>
 			</p>
+
+			<div class="admin-toolbar">
+				<span class="muted" style="font-size:0.88rem;margin:0">
+					{listRangeLabel(regionsPag.page, ADMIN_LIST_PAGE_SIZE, regionsPag.total, 'places')}
+					{q ? ` · filter “${q}”` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {regionsPag.page} /{' '}
+					{regionsPag.totalPages}
+				</span>
+				<form method="get" action={pathOnly} class="admin-toolbar__search">
+					<input type="hidden" name="page" value="1" />
+					<label class="visually-hidden" for="regions-list-q">Search regions</label>
+					<input
+						id="regions-list-q"
+						type="search"
+						name="q"
+						value={q}
+						placeholder="Search slug, type, titles…"
+						autocomplete="off"
+						class="admin-toolbar__search-input"
+					/>
+					<button type="submit" class="button button-sm">Search</button>
+					{
+						q ? (
+							<a class="button button-sm btn--ghost" href={queryLink({ q: null, page: null })}>
+								Clear
+							</a>
+						) : null
+					}
+				</form>
+			</div>
+
 			{
-				regionRows.length === 0 ? (
+				regionsPag.total === 0 ? (
 					<p class="muted" style="margin:0">
-						No places yet. Add a <strong>region</strong> first (no parent), then municipalities under it, then
-						villages.
+						{regionRows.length === 0 ? (
+							<>
+								No places yet. Add a <strong>region</strong> first (no parent), then municipalities under it, then
+								villages.
+							</>
+						) : (
+							<>No places match this search.</>
+						)}
 					</p>
 				) : (
-					<div class="admin-table-wrap">
-						<table class="admin-table">
-							<thead>
-								<tr>
-									<th>Slug</th>
-									<th>Type</th>
-									<th>English</th>
-									<th>Georgian</th>
-									<th>Russian</th>
-									<th>Actions</th>
-								</tr>
-							</thead>
-							<tbody>
-								{
-									regionRows.map((row) => (
-										<tr>
-											<td>
-												<code>{row.slug}</code>
-											</td>
-											<td>{row.level}</td>
-											<td>{row.titles.en || '—'}</td>
-											<td>{row.titles.ka || '—'}</td>
-											<td>{row.titles.ru || '—'}</td>
-											<td>
-												<a href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
-												<div class="view-links muted" style="margin-top:0.35rem">
-													{row.locales.map((code) => (
-														<a href={getRelativeLocaleUrl(code, `regions/${row.slug}`)}>
-															View ({code})
-														</a>
-													))}
-													{row.locales.length === 0 ? <span>No locales</span> : null}
-												</div>
-											</td>
-										</tr>
-									))
-								}
-							</tbody>
-						</table>
-					</div>
+					<>
+						<div class="admin-table-wrap">
+							<table class="admin-table">
+								<thead>
+									<tr>
+										<th>Slug</th>
+										<th>Type</th>
+										<th>English</th>
+										<th>Georgian</th>
+										<th>Russian</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{
+										regionsPag.slice.map((row) => (
+											<tr>
+												<td>
+													<code>{row.slug}</code>
+												</td>
+												<td>{row.level}</td>
+												<td>{row.titles.en || '—'}</td>
+												<td>{row.titles.ka || '—'}</td>
+												<td>{row.titles.ru || '—'}</td>
+												<td>
+													<a href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
+													<div class="view-links muted" style="margin-top:0.35rem">
+														{row.locales.map((code) => (
+															<a href={getRelativeLocaleUrl(code, `regions/${row.slug}`)}>
+																View ({code})
+															</a>
+														))}
+														{row.locales.length === 0 ? <span>No locales</span> : null}
+													</div>
+												</td>
+											</tr>
+										))
+									}
+								</tbody>
+							</table>
+						</div>
+						<nav class="admin-pagination" aria-label="Regions pages">
+							<span class="muted">
+								{regionsPag.page > 1 ? (
+									<a href={queryLink({ page: String(regionsPag.page - 1) })}>← Previous</a>
+								) : (
+									<span style="opacity:0.55">← Previous</span>
+								)}
+								{' · '}
+								{regionsPag.page < regionsPag.totalPages ? (
+									<a href={queryLink({ page: String(regionsPag.page + 1) })}>Next →</a>
+								) : (
+									<span style="opacity:0.55">Next →</span>
+								)}
+							</span>
+							<span class="muted">
+								Page {regionsPag.page} / {regionsPag.totalPages}
+							</span>
+						</nav>
+					</>
 				)
 			}
 		</div>

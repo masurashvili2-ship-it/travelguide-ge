@@ -1,0 +1,116 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { DATA_BACKUP_FILENAMES } from '../../../../lib/admin-data-backup';
+import type { Locale } from '../../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/backup');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const userEmail = Astro.locals.user.email;
+const sp = Astro.url.searchParams;
+const err = sp.get('error');
+const importOk = sp.get('import') === 'ok';
+const importN = sp.get('n');
+
+const dashboardUrl = getRelativeLocaleUrl(locale, 'admin');
+const backupPath = getRelativeLocaleUrl(locale, 'admin/backup');
+const importAction = '/api/admin/data-import';
+const exportUrlAll = '/api/admin/data-export';
+const exportUrlNoUsers = '/api/admin/data-export?include_users=0';
+---
+
+<AdminLayout
+	locale={locale}
+	title="Backup & import · Travel Guide Georgia"
+	headline="Backup & import"
+	subtitle="Download or restore the JSON databases under data/. Uploaded images are not included — only metadata in JSON files."
+	activeNav="data-backup"
+	userEmail={userEmail}
+>
+	{
+		err ? (
+			<div class="notice notice-error" role="alert">
+				{err}
+			</div>
+		) : null
+	}
+	{
+		importOk ? (
+			<div class="notice notice-success" role="status">
+				Import finished. {importN ? `${importN} file(s) updated.` : 'Files were written from the backup.'}
+			</div>
+		) : null
+	}
+
+	<section class="admin-card">
+		<h2 class="admin-card__h">Export</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 1rem">
+				Downloads a single JSON bundle (<code>version</code>, <code>app</code>, <code>files</code>) with these stores when
+				present:
+			</p>
+			<ul class="muted" style="margin:0 0 1rem;padding-left:1.25rem">
+				{DATA_BACKUP_FILENAMES.map((name) => (
+					<li>
+						<code>{name}</code>
+					</li>
+				))}
+			</ul>
+			<p style="margin:0 0 0.75rem">
+				<a class="button button-primary" href={exportUrlAll}>
+					Download full backup
+				</a>
+				<a class="button" href={exportUrlNoUsers} style="margin-left:0.35rem">
+					Download without users.json
+				</a>
+				<a class="button" href={dashboardUrl} style="margin-left:0.35rem">
+					Dashboard
+				</a>
+			</p>
+			<p class="muted" style="margin:0;font-size:0.9rem">
+				Use “without users” when sharing a backup without password hashes. Existing sessions may still be valid until they
+				expire.
+			</p>
+		</div>
+	</section>
+
+	<section class="admin-card">
+		<h2 class="admin-card__h">Import</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 1rem">
+				Upload a bundle produced by this site (same JSON format as export). Only files listed in the bundle are
+				overwritten; others are left unchanged. Validate backups on a copy of the site first.
+			</p>
+			<form method="post" action={importAction} enctype="multipart/form-data">
+				<input type="hidden" name="redirect" value={backupPath} />
+				<p style="margin:0 0 0.75rem">
+					<label>
+						<span class="muted" style="display:block;margin-bottom:0.35rem">
+							Backup file <span class="visually-hidden">(required)</span>
+						</span>
+						<input type="file" name="file" accept="application/json,.json" required />
+					</label>
+				</p>
+				<p style="margin:0 0 0.75rem">
+					<label>
+						<input type="checkbox" name="import_users" />
+						<span class="muted">Also import <code>users.json</code> (replaces passwords and roles)</span>
+					</label>
+				</p>
+				<p style="margin:0">
+					<button type="submit" class="button button-primary">Import from file</button>
+				</p>
+			</form>
+		</div>
+	</section>
+</AdminLayout>

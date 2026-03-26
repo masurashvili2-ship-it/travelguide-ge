@@ -86,6 +86,12 @@ type StoreFile = { submissions: ContentSubmission[] };
 let cached: ContentSubmission[] | null = null;
 let cachedMtime = 0;
 
+/** Call after replacing `content-submissions.json` on disk (e.g. backup import). */
+export function invalidateSubmissionsCache(): void {
+	cached = null;
+	cachedMtime = 0;
+}
+
 function ensureDataDir() {
 	mkdirSync(DATA_DIR, { recursive: true });
 }

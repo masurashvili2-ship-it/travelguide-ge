@@ -212,6 +212,11 @@ function parseStoredNumber(v: unknown): number | null {
 	return n;
 }
 
+/** Call after replacing `regions.json` on disk (e.g. backup import). */
+export function invalidateRegionsCache(): void {
+	cache = null;
+}
+
 function getPosts(): RegionPost[] {
 	const mtime = fileMtime();
 	if (cache && cache.mtime === mtime) return cache.posts;

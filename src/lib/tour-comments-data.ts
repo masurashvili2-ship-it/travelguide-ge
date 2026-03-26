@@ -134,6 +134,19 @@ export async function listCommentsForPost(
 	return all.filter((c) => c.tourId === postId && commentPostKind(c) === postKind);
 }
 
+/** Remove all reviews/replies for a tour or “what to do” post (e.g. when the post is deleted). */
+export async function deleteAllCommentsForPost(
+	postKind: CommentPostKind,
+	postId: string,
+): Promise<number> {
+	const all = await readAllTourComments();
+	const filtered = all.filter((c) => !(c.tourId === postId && commentPostKind(c) === postKind));
+	const removed = all.length - filtered.length;
+	if (removed === 0) return 0;
+	await writeAllTourComments(filtered);
+	return removed;
+}
+
 /** @deprecated use listCommentsForPost('tours', id) */
 export async function listCommentsForTour(tourId: string): Promise<TourComment[]> {
 	return listCommentsForPost('tours', tourId);

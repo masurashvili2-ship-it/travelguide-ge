@@ -1,0 +1,186 @@
+---
+export const prerender = false;
+
+import Shell from '../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { searchSite, type SiteSearchResultKind } from '../../lib/site-search';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+const rawQ = Astro.url.searchParams.get('q') ?? '';
+const q = rawQ.trim();
+const results = q ? searchSite(locale, q) : [];
+
+function kindLabel(kind: SiteSearchResultKind): string {
+	switch (kind) {
+		case 'tour':
+			return t.searchKindTour;
+		case 'what-to-do':
+			return t.searchKindWhatToDo;
+		case 'region':
+			return t.searchKindRegion;
+		default:
+			return t.searchKindPage;
+	}
+}
+
+function formatCount(n: number): string {
+	return t.searchResultsCount.replace('{n}', String(n));
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="search"
+	title={t.searchTitle}
+	seoDescription={t.searchMetaDescription}
+	canonicalPath={q ? `/${locale}/search?q=${encodeURIComponent(q)}` : `/${locale}/search`}
+	searchQuery={q}
+>
+	<section class="hero">
+		<h1>{t.searchTitle}</h1>
+		<p class="muted">{t.searchIntro}</p>
+		<form class="site-search-page-form" method="get" action={getRelativeLocaleUrl(locale, 'search')}>
+			<label class="visually-hidden" for="site-search-page-q">{t.searchPlaceholder}</label>
+			<input
+				id="site-search-page-q"
+				type="search"
+				name="q"
+				value={q}
+				placeholder={t.searchPlaceholder}
+				autocomplete="off"
+				class="site-search-page-input"
+			/>
+			<button type="submit" class="btn">{t.searchButton}</button>
+		</form>
+	</section>
+
+	{
+		!q ? (
+			<p class="muted">{t.searchEmptyQuery}</p>
+		) : results.length === 0 ? (
+			<p class="muted">{t.searchNoResults}</p>
+		) : (
+			<>
+				<p class="muted" style="margin-bottom:1rem">
+					{formatCount(results.length)}
+					{q ? (
+						<>
+							{' '}
+							— “{q}”
+						</>
+					) : null}
+				</p>
+				<ul class="search-results">
+					{results.map((r) => (
+						<li class="search-results__li">
+							<a class="search-results__a" href={getRelativeLocaleUrl(locale, r.path)}>
+								<span class="search-results__badge">{kindLabel(r.kind)}</span>
+								<span class="search-results__title">{r.title}</span>
+								<span class="search-results__snippet muted">{r.snippet}</span>
+							</a>
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+
+	<style>
+		.site-search-page-form {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			align-items: center;
+			margin-top: 1rem;
+			max-width: 36rem;
+		}
+		.site-search-page-input {
+			flex: 1 1 12rem;
+			min-width: 0;
+			padding: 0.62rem 0.85rem;
+			border-radius: var(--radius-sm);
+			border: 1px solid var(--border);
+			background: var(--surface);
+			color: var(--text);
+			font: inherit;
+		}
+		.site-search-page-input:focus {
+			outline: none;
+			border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+			box-shadow: 0 0 0 3px var(--accent-glow);
+		}
+		.search-results {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 0.65rem;
+		}
+		.search-results__li {
+			margin: 0;
+		}
+		.search-results__a {
+			display: flex;
+			flex-direction: column;
+			gap: 0.35rem;
+			padding: 1rem 1.15rem;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-md);
+			box-shadow: var(--shadow-sm);
+			text-decoration: none !important;
+			color: inherit !important;
+			transition:
+				border-color 0.15s ease,
+				box-shadow 0.15s ease;
+		}
+		.search-results__a:hover {
+			border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+			box-shadow: var(--shadow-md);
+		}
+		.search-results__badge {
+			display: inline-block;
+			align-self: flex-start;
+			font-size: 0.72rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			color: var(--accent-dim);
+			background: var(--accent-glow);
+			padding: 0.2rem 0.5rem;
+			border-radius: 0.35rem;
+		}
+		.search-results__title {
+			font-weight: 700;
+			font-size: 1.05rem;
+			color: var(--text);
+		}
+		.search-results__snippet {
+			font-size: 0.9rem;
+			line-height: 1.45;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		.visually-hidden {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
+	</style>
+</Shell>
