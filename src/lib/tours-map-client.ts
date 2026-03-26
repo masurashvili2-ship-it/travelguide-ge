@@ -1,5 +1,3 @@
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 import { regionMapPinDataUrl, tourMapPinDataUrl, whatToDoMapPinDataUrl } from './map-pin-icons';
 import type { TourMapMarker } from './tours-db';
 
@@ -15,34 +13,6 @@ function truncateText(s: string, max: number): string {
 	const t = s.trim();
 	if (t.length <= max) return t;
 	return `${t.slice(0, max - 1)}…`;
-}
-
-const iconCache = new Map<string, L.Icon>();
-
-function markerIconForKey(mapIconKey: string): L.Icon {
-	let icon = iconCache.get(mapIconKey);
-	if (icon) return icon;
-	let url: string;
-	if (mapIconKey === 'tour') {
-		url = tourMapPinDataUrl();
-	} else if (mapIconKey === 'geo-region') {
-		url = regionMapPinDataUrl('region');
-	} else if (mapIconKey === 'geo-municipality') {
-		url = regionMapPinDataUrl('municipality');
-	} else if (mapIconKey === 'geo-village') {
-		url = regionMapPinDataUrl('village');
-	} else {
-		url = whatToDoMapPinDataUrl(mapIconKey);
-	}
-	icon = L.icon({
-		iconUrl: url,
-		iconSize: [36, 46],
-		iconAnchor: [18, 46],
-		popupAnchor: [0, -42],
-		className: 'map-leaflet-pin',
-	});
-	iconCache.set(mapIconKey, icon);
-	return icon;
 }
 
 function buildPopupHtml(m: TourMapMarker, viewDetailsLabel: string): string {
@@ -116,8 +86,39 @@ function updateFilterCount(root: HTMLElement, visible: number, total: number) {
 	el.textContent = tpl.replace(/\{visible\}/g, String(visible)).replace(/\{total\}/g, String(total));
 }
 
-/** Client-only: call after DOM has #tours-leaflet-map */
-export function initTourMap(markerList: TourMapMarker[], options?: TourMapInitOptions) {
+/** Client-only: loads Leaflet + CSS on demand (map route only). */
+export async function initTourMap(markerList: TourMapMarker[], options?: TourMapInitOptions) {
+	await import('leaflet/dist/leaflet.css');
+	const L = (await import('leaflet')).default;
+
+	const iconCache = new Map<string, import('leaflet').Icon>();
+
+	function markerIconForKey(mapIconKey: string): import('leaflet').Icon {
+		let icon = iconCache.get(mapIconKey);
+		if (icon) return icon;
+		let url: string;
+		if (mapIconKey === 'tour') {
+			url = tourMapPinDataUrl();
+		} else if (mapIconKey === 'geo-region') {
+			url = regionMapPinDataUrl('region');
+		} else if (mapIconKey === 'geo-municipality') {
+			url = regionMapPinDataUrl('municipality');
+		} else if (mapIconKey === 'geo-village') {
+			url = regionMapPinDataUrl('village');
+		} else {
+			url = whatToDoMapPinDataUrl(mapIconKey);
+		}
+		icon = L.icon({
+			iconUrl: url,
+			iconSize: [36, 46],
+			iconAnchor: [18, 46],
+			popupAnchor: [0, -42],
+			className: 'map-leaflet-pin',
+		});
+		iconCache.set(mapIconKey, icon);
+		return icon;
+	}
+
 	const el = document.getElementById('tours-leaflet-map');
 	if (!el) return;
 
@@ -136,14 +137,14 @@ export function initTourMap(markerList: TourMapMarker[], options?: TourMapInitOp
 	const markerLayer = L.layerGroup().addTo(map);
 
 	function drawMarkers(list: TourMapMarker[]): {
-		bounds: L.LatLngTuple[];
-		markerByKey: Map<string, L.Marker>;
-		firstMarker: L.Marker | undefined;
+		bounds: [number, number][];
+		markerByKey: Map<string, import('leaflet').Marker>;
+		firstMarker: import('leaflet').Marker | undefined;
 	} {
 		markerLayer.clearLayers();
-		const bounds: L.LatLngTuple[] = [];
-		const markerByKey = new Map<string, L.Marker>();
-		let firstMarker: L.Marker | undefined;
+		const bounds: [number, number][] = [];
+		const markerByKey = new Map<string, import('leaflet').Marker>();
+		let firstMarker: import('leaflet').Marker | undefined;
 		for (const m of list) {
 			const marker = L.marker([m.lat, m.lng], {
 				icon: markerIconForKey(m.mapIconKey),
@@ -159,9 +160,9 @@ export function initTourMap(markerList: TourMapMarker[], options?: TourMapInitOp
 
 	function applyView(
 		list: TourMapMarker[],
-		bounds: L.LatLngTuple[],
-		markerByKey: Map<string, L.Marker>,
-		firstMarker: L.Marker | undefined,
+		bounds: [number, number][],
+		markerByKey: Map<string, import('leaflet').Marker>,
+		firstMarker: import('leaflet').Marker | undefined,
 	) {
 		const focus = options?.focus;
 		const featuredKey =

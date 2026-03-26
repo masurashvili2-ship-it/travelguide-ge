@@ -1191,7 +1191,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 			</div>
 		</header>
 		<div class="wrap">
-			<slot />
+			<main id="main-content">
+				<slot />
+			</main>
 			<SiteFooter locale={locale} />
 		</div>
 		<script

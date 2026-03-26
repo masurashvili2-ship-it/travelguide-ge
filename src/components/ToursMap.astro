@@ -22,43 +22,52 @@ const focusJson = focus ? JSON.stringify(focus).replace(/</g, '\\u003c') : '';
 <script type="application/json" id="tours-map-data" set:html={markersJson}></script>
 {focusJson ? <script type="application/json" id="tours-map-focus" set:html={focusJson} /> : null}
 <script>
-	import { initTourMap } from '../lib/tours-map-client.ts';
-
-	function boot() {
-		const dataEl = document.getElementById('tours-map-data');
-		const raw = dataEl?.textContent?.trim() || '[]';
-		let markerList;
-		try {
-			markerList = JSON.parse(raw);
-		} catch {
-			return;
+	function scheduleBoot() {
+		const run = () => {
+			void (async () => {
+				const dataEl = document.getElementById('tours-map-data');
+				const raw = dataEl?.textContent?.trim() || '[]';
+				let markerList;
+				try {
+					markerList = JSON.parse(raw);
+				} catch {
+					return;
+				}
+				const wrap = document.querySelector('.tours-map-wrap');
+				const label =
+					(wrap && wrap instanceof HTMLElement && wrap.dataset.popupDetails?.trim()) || 'View details';
+				const focusEl = document.getElementById('tours-map-focus');
+				let focusOpt:
+					| { lat: number; lng: number; zoom?: number; slug?: string; kind?: string }
+					| undefined;
+				if (focusEl?.textContent?.trim()) {
+					try {
+						focusOpt = JSON.parse(focusEl.textContent.trim());
+					} catch {
+						focusOpt = undefined;
+					}
+				}
+				const enableFilters = Boolean(document.getElementById('tours-map-filters'));
+				const { initTourMap } = await import('../lib/tours-map-client.ts');
+				await initTourMap(markerList, {
+					focus: focusOpt,
+					popupViewDetailsLabel: label,
+					enableFilters,
+				});
+			})();
+		};
+		/* Yield first paint before Leaflet + CSS (helps TBT on map page). */
+		if (typeof requestIdleCallback === 'function') {
+			requestIdleCallback(run, { timeout: 1800 });
+		} else {
+			requestAnimationFrame(() => setTimeout(run, 0));
 		}
-		const wrap = document.querySelector('.tours-map-wrap');
-		const label =
-			(wrap && wrap instanceof HTMLElement && wrap.dataset.popupDetails?.trim()) || 'View details';
-		const focusEl = document.getElementById('tours-map-focus');
-		let focusOpt:
-			| { lat: number; lng: number; zoom?: number; slug?: string; kind?: string }
-			| undefined;
-		if (focusEl?.textContent?.trim()) {
-			try {
-				focusOpt = JSON.parse(focusEl.textContent.trim());
-			} catch {
-				focusOpt = undefined;
-			}
-		}
-		const enableFilters = Boolean(document.getElementById('tours-map-filters'));
-		initTourMap(markerList, {
-			focus: focusOpt,
-			popupViewDetailsLabel: label,
-			enableFilters,
-		});
 	}
 
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', boot, { once: true });
+		document.addEventListener('DOMContentLoaded', scheduleBoot, { once: true });
 	} else {
-		boot();
+		scheduleBoot();
 	}
 </script>
 

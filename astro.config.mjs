@@ -7,9 +7,12 @@ export default defineConfig({
 	site: 'https://travelguide.ge',
 	output: 'server',
 	adapter: node({ mode: 'standalone' }),
-	/** Inline extracted CSS into HTML to avoid many render-blocking <link rel="stylesheet"> (PageSpeed / LCP). */
+	/**
+	 * `always` merged all route CSS into every HTML response (huge unused CSS, e.g. Leaflet on non-map pages).
+	 * `auto` inlines only small chunks; keeps per-route stylesheets for better splitting.
+	 */
 	build: {
-		inlineStylesheets: 'always',
+		inlineStylesheets: 'auto',
 	},
 	// Trust X-Forwarded-* on these hosts so URL.origin matches the browser (POST forms + checkOrigin).
 	security: {

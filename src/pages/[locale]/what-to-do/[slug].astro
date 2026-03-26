@@ -435,6 +435,16 @@ const adminEditHref =
 		font-size: 0.92rem;
 		font-weight: 600;
 	}
+	/* WCAG: aside links use body text color + underline (teal accent fails contrast on white). */
+	[data-tour-detail] .tour-detail-aside__card :where(.tour-detail-aside__map-link, .wtd-place-links a) {
+		color: var(--text);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	[data-tour-detail] .tour-detail-aside__card :where(.tour-detail-aside__map-link, .wtd-place-links a):hover {
+		color: var(--accent-dim);
+		text-decoration: underline;
+	}
 	[data-tour-detail] .wtd-place-links {
 		margin: 0;
 		padding-left: 1.1rem;
