@@ -16,19 +16,29 @@ export async function serveUserUploadIfPresent(request: Request): Promise<Respon
 	const kind = m[1] as 'tours' | 'what-to-do';
 	const rest = m[2];
 	if (!rest || rest.includes('..')) {
-		return new Response(null, { status: 404 });
+		return new Response(null, {
+			status: 404,
+			headers: { 'Cache-Control': 'private, no-store, must-revalidate' },
+		});
 	}
 	const base = path.resolve(resolveUploadDir(kind));
 	const filePath = path.resolve(path.join(base, rest));
 	const rel = path.relative(base, filePath);
 	if (rel.startsWith('..') || path.isAbsolute(rel)) {
-		return new Response(null, { status: 404 });
+		return new Response(null, {
+			status: 404,
+			headers: { 'Cache-Control': 'private, no-store, must-revalidate' },
+		});
 	}
+	const miss404 = new Response(null, {
+		status: 404,
+		headers: { 'Cache-Control': 'private, no-store, must-revalidate' },
+	});
 	try {
 		const st = await stat(filePath);
-		if (!st.isFile()) return new Response(null, { status: 404 });
+		if (!st.isFile()) return miss404;
 	} catch {
-		return new Response(null, { status: 404 });
+		return miss404;
 	}
 	const body = request.method === 'HEAD' ? null : await readFile(filePath);
 	return new Response(body, {

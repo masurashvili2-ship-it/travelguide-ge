@@ -36,16 +36,20 @@ You still need **`users.json` on shared storage** (or a single instance) so **lo
 Without extra setup, redeploys use an **ephemeral** filesystem.
 
 1. **Users (and optional JSON content)** — add a **persistent volume** mounted at the app’s **`data/`** directory (confirm `process.cwd()` in your build; often `/workspace/data` or similar).
-2. **Uploaded tour / what-to-do images** — either:
-   - mount the **same** volume so it also covers **`dist/client/uploads`** (recommended if you do not set `UPLOAD_ROOT`), **or**
-   - set **`UPLOAD_ROOT`** to a path on the volume that contains subfolders `tours` and `what-to-do`. Middleware serves `/uploads/tours/…` and `/uploads/what-to-do/…` from those directories.
+2. **Uploaded tour / what-to-do images** — **required** if you run **more than one worker/instance**:
+
+   The Node adapter serves static files from `dist/client` **before** SSR. User uploads are written under `dist/client/uploads/…` on **one** instance only. With a load balancer, each refresh can hit a different instance — images **appear and disappear at random** unless uploads live on **shared** storage.
+
+   **Fix:** set **`UPLOAD_ROOT`** (runtime) to a path on a **persistent volume** that contains subfolders `tours` and `what-to-do`. The app entrypoint `scripts/node-with-uploads.mjs` serves `/uploads/…` from that directory **before** the static handler runs, so every instance reads the same files.
+
+   **Alternative:** scale the web component to **1 instance** (no load balancing) until you add a volume.
 
 Set in App → Environment (runtime):
 
-- `UPLOAD_ROOT` — optional; shared base dir for `tours/` and `what-to-do/`
+- `UPLOAD_ROOT` — shared base dir for `tours/` and `what-to-do/` (recommended)
 - `TOUR_UPLOAD_DIR` / `WTD_UPLOAD_DIR` — optional full paths overriding each kind
 
-See `.env.example`.
+See `.env.example`. Production **`npm start`** runs `scripts/node-with-uploads.mjs` (not `dist/server/entry.mjs` directly).
 
 ## Local development
 

@@ -16,5 +16,6 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/data ./data
+COPY --from=build /app/scripts ./scripts
 EXPOSE 8080
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "./scripts/node-with-uploads.mjs"]
