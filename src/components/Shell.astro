@@ -1,4 +1,9 @@
 ---
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/dm-sans/700.css';
+import '@fontsource/dm-sans/400-italic.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import SiteFooter from './SiteFooter.astro';
 import { absoluteSeoUrl } from '../lib/seo';
@@ -63,12 +68,6 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-			rel="stylesheet"
-		/>
 		{robotsNoindex ? <meta name="robots" content="noindex, nofollow" /> : null}
 		<title>{pageTitle}</title>
 		{metaDesc ? <meta name="description" content={metaDesc} /> : null}

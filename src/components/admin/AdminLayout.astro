@@ -1,4 +1,9 @@
 ---
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/dm-sans/700.css';
+import '@fontsource/dm-sans/400-italic.css';
 import '../../styles/admin-layout.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../lib/strings';
@@ -77,12 +82,6 @@ function sideClass(active: boolean) {
 		<meta name="robots" content="noindex, nofollow" />
 		<title>{title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 	<body>
 		<header class="admin-top">
