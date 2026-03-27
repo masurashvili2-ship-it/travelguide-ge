@@ -1,5 +1,11 @@
 [
   {
+    "id": "4d89fe7a-176d-41eb-a1ff-d9a47f98790c",
+    "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
+    "at": 1774633883769,
+    "kind": "login"
+  },
+  {
     "id": "c73842dc-0e18-4fbf-aa80-36f1f3b564e6",
     "userId": "6be5f176b7bc804335b6ef8b7fd36e32",
     "at": 1774555101696,
