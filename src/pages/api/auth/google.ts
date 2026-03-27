@@ -22,7 +22,7 @@ export const GET: APIRoute = async ({ request }) => {
 	const next = sanitizeAuthNextPath(nextRaw, '/en/');
 	const state = randomBytes(24).toString('hex');
 	const origin = publicOriginFromRequest(request);
-	const redirectUri = `${origin}/api/auth/google/callback`;
+	const redirectUri = `${origin}/auth/google/callback`;
 
 	const params = new URLSearchParams({
 		client_id: cfg.clientId,
