@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { parsePageContributionPayloadFromFormData } from '../../../lib/contribute-payload-parse';
 import { addContentSubmission } from '../../../lib/submissions-db';
+import { notifyAdmin } from '../../../lib/mailer';
 
 function requireUser(locals: App.Locals): NonNullable<App.Locals['user']> | null {
 	return locals.user ?? null;
@@ -31,6 +32,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
+
+	notifyAdmin(
+		'[TravelGuide] New page submission',
+		`<p>A new <strong>page</strong> submission has arrived from <strong>${user.email}</strong>.</p>
+<p>Submission ID: <code>${added.id}</code></p>
+<p>Review it in the <a href="/en/admin">admin panel</a>.</p>`,
+	);
 
 	return new Response(JSON.stringify({ ok: true, submissionId: added.id }), {
 		status: 200,

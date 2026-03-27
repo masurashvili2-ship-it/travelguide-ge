@@ -1,0 +1,146 @@
+---
+import Shell from '../../components/Shell.astro';
+import type { Locale } from '../../lib/strings';
+import { ui } from '../../lib/strings';
+import { isMailerConfigured } from '../../lib/mailer';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const mailerReady = isMailerConfigured();
+---
+
+<Shell
+	locale={locale}
+	subpath="contact"
+	title={t.contactPageTitle}
+	seoDescription={t.contactMetaDescription}
+	canonicalPath={`/${locale}/contact`}
+>
+	<article class="prose contact-page">
+		<h1>{t.contactPageTitle}</h1>
+
+		<div id="contact-success" class="contact-banner contact-banner--ok" hidden>
+			{t.contactFormSuccess}
+		</div>
+		<div id="contact-error" class="contact-banner contact-banner--err" hidden></div>
+
+		<form id="contact-form" class="contact-form" novalidate>
+			<div class="contact-form__row">
+				<label for="cf-name">{t.contactFormName}</label>
+				<input id="cf-name" name="name" type="text" autocomplete="name" required />
+			</div>
+			<div class="contact-form__row">
+				<label for="cf-email">{t.contactFormEmail}</label>
+				<input id="cf-email" name="email" type="email" autocomplete="email" required />
+			</div>
+			<div class="contact-form__row">
+				<label for="cf-subject">{t.contactFormSubject}</label>
+				<input id="cf-subject" name="subject" type="text" />
+			</div>
+			<div class="contact-form__row">
+				<label for="cf-message">{t.contactFormMessage}</label>
+				<textarea id="cf-message" name="message" rows="6" required></textarea>
+			</div>
+			<button type="submit" class="contact-form__submit">
+				{t.contactFormSend}
+			</button>
+		</form>
+	</article>
+</Shell>
+
+<style>
+.contact-page {
+	max-width: 640px;
+	margin: 0 auto;
+	padding: 2rem 1.25rem 4rem;
+}
+.contact-banner {
+	padding: .875rem 1.125rem;
+	border-radius: 8px;
+	margin-bottom: 1.5rem;
+	font-size: .95rem;
+	line-height: 1.5;
+}
+.contact-banner--ok  { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.contact-banner--err { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-form__row { display: flex; flex-direction: column; gap: .375rem; }
+.contact-form__row label { font-size: .875rem; font-weight: 600; color: #374151; }
+.contact-form__row input,
+.contact-form__row textarea {
+	padding: .625rem .875rem;
+	border: 1.5px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-family: inherit;
+	transition: border-color .15s;
+	width: 100%;
+	box-sizing: border-box;
+}
+.contact-form__row input:focus,
+.contact-form__row textarea:focus {
+	outline: none;
+	border-color: #6366f1;
+	box-shadow: 0 0 0 3px rgb(99 102 241 / .12);
+}
+.contact-form__row textarea { resize: vertical; min-height: 120px; }
+.contact-form__submit {
+	align-self: flex-start;
+	padding: .7rem 2rem;
+	background: #6366f1;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background .15s, opacity .15s;
+}
+.contact-form__submit:hover { background: #4f46e5; }
+.contact-form__submit:disabled { opacity: .6; cursor: not-allowed; }
+</style>
+
+<script define:vars={{ errorMsg: t.contactFormError }}>
+const form = document.getElementById('contact-form');
+const successBanner = document.getElementById('contact-success');
+const errorBanner  = document.getElementById('contact-error');
+const submitBtn    = form?.querySelector('button[type="submit"]');
+
+form?.addEventListener('submit', async (e) => {
+	e.preventDefault();
+	if (!form) return;
+
+	successBanner.hidden = true;
+	errorBanner.hidden   = true;
+	submitBtn.disabled   = true;
+	const origText       = submitBtn.textContent;
+	submitBtn.textContent = '…';
+
+	const fd = new FormData(form);
+	try {
+		const res = await fetch('/api/contact', {
+			method: 'POST',
+			body: JSON.stringify(Object.fromEntries(fd)),
+			headers: { 'Content-Type': 'application/json' },
+		});
+		const data = await res.json();
+		if (data.ok) {
+			successBanner.hidden = false;
+			form.reset();
+		} else {
+			errorBanner.textContent = data.error || errorMsg;
+			errorBanner.hidden = false;
+		}
+	} catch {
+		errorBanner.textContent = errorMsg;
+		errorBanner.hidden = false;
+	} finally {
+		submitBtn.disabled   = false;
+		submitBtn.textContent = origText;
+	}
+});
+</script>

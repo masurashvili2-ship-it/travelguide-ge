@@ -121,6 +121,16 @@ export const ui: Record<
 		footerColCompany: string;
 		/** Short “about” blurb next to the logo */
 		footerAboutText: string;
+		/** Contact page */
+		contactPageTitle: string;
+		contactMetaDescription: string;
+		contactFormName: string;
+		contactFormEmail: string;
+		contactFormSubject: string;
+		contactFormMessage: string;
+		contactFormSend: string;
+		contactFormSuccess: string;
+		contactFormError: string;
 		/** Small label on tour detail hero (like a category chip) */
 		tourBadge: string;
 		/** Section label for the photo gallery */
@@ -336,6 +346,15 @@ export const ui: Record<
 		footerColCompany: 'Company',
 		footerAboutText:
 			'Independent guide to Georgia — tours, regions, activities, and maps. Made for travelers exploring the Caucasus.',
+		contactPageTitle: 'Contact us',
+		contactMetaDescription: 'Get in touch with the Travel Guide Georgia team.',
+		contactFormName: 'Your name',
+		contactFormEmail: 'Your email',
+		contactFormSubject: 'Subject',
+		contactFormMessage: 'Message',
+		contactFormSend: 'Send message',
+		contactFormSuccess: 'Message sent! We\'ll get back to you soon.',
+		contactFormError: 'Something went wrong. Please try again or email us directly.',
 		tourBadge: 'Tour',
 		gallerySection: 'Photo gallery',
 		adminEditPostAria: 'Edit in admin panel',
@@ -562,6 +581,15 @@ export const ui: Record<
 		footerColCompany: 'ჩვენ შესახებ',
 		footerAboutText:
 			'დამოუკიდებელი გიდი საქართველოში — ტურები, რეგიონები, აქტივობები და რუკა. კავკასიის მოგზაურებისთვის.',
+		contactPageTitle: 'დაგვიკავშირდით',
+		contactMetaDescription: 'დაუკავშირდით Travel Guide Georgia-ს გუნდს.',
+		contactFormName: 'სახელი',
+		contactFormEmail: 'ელ-ფოსტა',
+		contactFormSubject: 'თემა',
+		contactFormMessage: 'შეტყობინება',
+		contactFormSend: 'გაგზავნა',
+		contactFormSuccess: 'შეტყობინება გაიგზავნა! მალე დაგიკავშირდებით.',
+		contactFormError: 'დაფიქსირდა შეცდომა. სცადეთ ხელახლა ან მოგვწერეთ პირდაპირ.',
 		tourBadge: 'ტური',
 		gallerySection: 'ფოტო გალერეა',
 		adminEditPostAria: 'რედაქტირება ადმინ პანელში',
@@ -790,6 +818,15 @@ export const ui: Record<
 		footerColCompany: 'О проекте',
 		footerAboutText:
 			'Независимый путеводитель по Грузии — туры, регионы, активности и карты. Для путешественников по Кавказу.',
+		contactPageTitle: 'Связаться с нами',
+		contactMetaDescription: 'Свяжитесь с командой Travel Guide Georgia.',
+		contactFormName: 'Ваше имя',
+		contactFormEmail: 'Ваш email',
+		contactFormSubject: 'Тема',
+		contactFormMessage: 'Сообщение',
+		contactFormSend: 'Отправить',
+		contactFormSuccess: 'Сообщение отправлено! Мы свяжемся с вами в ближайшее время.',
+		contactFormError: 'Что-то пошло не так. Попробуйте ещё раз или напишите нам напрямую.',
 		tourBadge: 'Тур',
 		gallerySection: 'Фотогалерея',
 		adminEditPostAria: 'Редактировать в админ-панели',
