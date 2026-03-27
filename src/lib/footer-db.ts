@@ -3,8 +3,9 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import type { Locale } from './strings';
 import { isValidSlug } from './tours-db';
+import { getDataDir } from './data-dir';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_DIR = getDataDir();
 const STORE_FILE = path.join(DATA_DIR, 'footer.json');
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];

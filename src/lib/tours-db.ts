@@ -18,7 +18,9 @@ import type { ContactSocialLinks } from './contact-social-links';
 import { normalizeSocialLinksFromJson, trimSocialLinks } from './contact-social-links';
 import { parseGoogleMapsDirectionsUrl } from './google-maps-urls';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+import { getDataDir } from './data-dir';
+
+const DATA_DIR = getDataDir();
 
 /** Shared JSON shape with tours; used for “What to do” and any future lists. */
 export type ContentPostKind = 'tours' | 'what-to-do';

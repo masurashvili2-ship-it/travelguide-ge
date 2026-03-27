@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { getDataDir } from './data-dir';
 
 export type UserRole = 'admin' | 'user';
 
@@ -26,12 +27,8 @@ export type UserPublic = {
 const SESSION_COOKIE = 'tg_session';
 const SESSION_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 14;
 
-function dataDir() {
-	return path.join(process.cwd(), 'data');
-}
-
 function usersPath() {
-	return path.join(dataDir(), 'users.json');
+	return path.join(getDataDir(), 'users.json');
 }
 
 let warnedMissingSessionSecret = false;
@@ -60,7 +57,7 @@ export async function readUsers(): Promise<StoredUser[]> {
 }
 
 export async function writeUsers(users: StoredUser[]): Promise<void> {
-	await mkdir(dataDir(), { recursive: true });
+	await mkdir(getDataDir(), { recursive: true });
 	await writeFile(usersPath(), JSON.stringify(users, null, 2), 'utf-8');
 }
 

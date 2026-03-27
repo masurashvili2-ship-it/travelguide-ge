@@ -2,8 +2,9 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import type { CommentPostKind } from './tour-comments-data';
+import { getDataDir } from './data-dir';
 
-const FILE = path.join(process.cwd(), 'data', 'user-activity.json');
+const FILE = path.join(getDataDir(), 'user-activity.json');
 const MAX_TOTAL = 5000;
 const BODY_PREVIEW_MAX = 220;
 

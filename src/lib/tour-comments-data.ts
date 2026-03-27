@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { getDataDir } from './data-dir';
 
 /** Same values as `ContentPostKind` in tours-db — kept local so this module needs no tours-db import. */
 export type CommentPostKind = 'tours' | 'what-to-do';
@@ -20,7 +21,7 @@ export type TourComment = {
 	updatedAt?: number;
 };
 
-const FILE = path.join(process.cwd(), 'data', 'tour-comments.json');
+const FILE = path.join(getDataDir(), 'tour-comments.json');
 
 function normalizeComment(raw: Record<string, unknown>): TourComment | null {
 	const id = typeof raw.id === 'string' ? raw.id : null;

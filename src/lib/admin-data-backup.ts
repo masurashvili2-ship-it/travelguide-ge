@@ -10,7 +10,9 @@ import {
 import { invalidateSubmissionsCache } from './submissions-db';
 import { invalidateToursCache, invalidateWhatToDoCache } from './tours-db';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+import { getDataDir } from './data-dir';
+
+const DATA_DIR = getDataDir();
 
 /** JSON files under `data/` that can be exported / imported together. */
 export const DATA_BACKUP_FILENAMES = [

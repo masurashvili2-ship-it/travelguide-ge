@@ -3,8 +3,9 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'no
 import path from 'node:path';
 import type { Locale } from './strings';
 import { isValidSlug } from './tours-db';
+import { getDataDir } from './data-dir';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_DIR = getDataDir();
 const STORE_FILE = path.join(DATA_DIR, 'pages.json');
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];

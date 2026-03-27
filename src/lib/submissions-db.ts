@@ -32,7 +32,9 @@ import type { WhatToDoCategoryId } from './what-to-do-categories';
 import type { WhatToDoSeasonId } from './what-to-do-seasons';
 import type { TourPhysicalRatingId } from './tour-physical-rating';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+import { getDataDir } from './data-dir';
+
+const DATA_DIR = getDataDir();
 const STORE_FILE = path.join(DATA_DIR, 'content-submissions.json');
 
 export type SubmissionKind = 'tours' | 'what-to-do' | 'page';

@@ -20,7 +20,9 @@ import {
 	tourCoverImageUrl,
 } from './tours-db';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+import { getDataDir } from './data-dir';
+
+const DATA_DIR = getDataDir();
 const REGIONS_DIR = path.join(DATA_DIR, 'regions');
 const REGIONS_INDEX = path.join(REGIONS_DIR, 'index.json');
 /** Legacy single-file path — kept only for one-time auto-migration */
