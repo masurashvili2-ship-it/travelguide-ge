@@ -21,10 +21,9 @@ import {
 } from './tours-db';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
-/** New folder-based storage */
 const REGIONS_DIR = path.join(DATA_DIR, 'regions');
 const REGIONS_INDEX = path.join(REGIONS_DIR, 'index.json');
-/** Legacy single-file path — used only for auto-migration */
+/** Legacy single-file path — kept only for one-time auto-migration */
 const REGIONS_LEGACY = path.join(DATA_DIR, 'regions.json');
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];
