@@ -8,6 +8,7 @@ import 'easymde/dist/easymde.min.css';
 import '../../styles/admin-layout.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../lib/strings';
+import { countUnread } from '../../lib/messages-db';
 
 type AdminNavId =
 	| 'dashboard'
@@ -27,6 +28,7 @@ type AdminNavId =
 	| 'pages-edit'
 	| 'footer'
 	| 'email-settings'
+	| 'messages'
 	| 'data-backup';
 
 interface Props {
@@ -54,6 +56,7 @@ const urlPages = getRelativeLocaleUrl(locale, 'admin/pages');
 const urlNewPage = getRelativeLocaleUrl(locale, 'admin/pages/new');
 const urlFooter = getRelativeLocaleUrl(locale, 'admin/footer');
 const urlEmailSettings = getRelativeLocaleUrl(locale, 'admin/email-settings');
+const urlMessages = getRelativeLocaleUrl(locale, 'admin/messages');
 const urlDataBackup = getRelativeLocaleUrl(locale, 'admin/backup');
 const urlSiteHome = getRelativeLocaleUrl(locale, '/');
 
@@ -64,6 +67,8 @@ const pagesAll = activeNav === 'pages-all' || activeNav === 'pages-edit';
 const pagesNew = activeNav === 'pages-new';
 const footerActive = activeNav === 'footer';
 const emailSettingsActive = activeNav === 'email-settings';
+const messagesActive = activeNav === 'messages';
+const unreadCount = countUnread();
 const toursBrowse = activeNav === 'tours-all' || activeNav === 'tours-edit';
 const toursNewOnly = activeNav === 'tours-new';
 const wtdBrowse = activeNav === 'wtd-all' || activeNav === 'wtd-edit';
@@ -139,6 +144,12 @@ function sideClass(active: boolean) {
 
 					<p class="admin-side__label">Email</p>
 					<ul class="admin-side__list">
+						<li>
+							<a class:list={sideClass(messagesActive)} href={urlMessages}>
+								Inbox
+								{unreadCount > 0 && <span class="admin-nav-badge">{unreadCount}</span>}
+							</a>
+						</li>
 						<li>
 							<a class:list={sideClass(emailSettingsActive)} href={urlEmailSettings}>Email settings</a>
 						</li>

@@ -23,6 +23,8 @@ pnpm-debug.log*
 data/users.json
 # Email settings contain SMTP password — never commit
 data/email-settings.json
+# Contact form messages — user data, never commit
+data/messages.json
 # local sqlite (if used)
 *.db
 # optional: ignore tour data (remove line to commit content)

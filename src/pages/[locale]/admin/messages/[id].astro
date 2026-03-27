@@ -1,0 +1,211 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { getMessage, markRead, bustMessagesCache } from '../../../../lib/messages-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	return Astro.redirect(`${login}`);
+}
+
+const id = Astro.params.id ?? '';
+const msg = getMessage(id);
+if (!msg) return new Response(null, { status: 404 });
+
+// Auto-mark as read on open
+if (!msg.read) {
+	bustMessagesCache();
+	markRead(id);
+}
+
+const userEmail = Astro.locals.user.email;
+const inboxHref = getRelativeLocaleUrl(locale, 'admin/messages');
+
+function formatDate(ts: number): string {
+	return new Date(ts).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' });
+}
+---
+
+<AdminLayout
+	locale={locale}
+	title={`Message from ${msg.name} — Admin`}
+	headline={msg.subject || '(no subject)'}
+	subtitle={`From ${msg.name} · ${formatDate(msg.created_at)}`}
+	activeNav="messages"
+	userEmail={userEmail}
+>
+	<div class="msg-wrap">
+		<a class="msg-back" href={inboxHref}>← Back to inbox</a>
+
+		<!-- Original message -->
+		<div class="msg-card">
+			<div class="msg-card__header">
+				<div class="msg-card__from">
+					<strong>{msg.name}</strong>
+					<a href={`mailto:${msg.email}`} class="msg-card__email">{msg.email}</a>
+				</div>
+				<time class="msg-card__time">{formatDate(msg.created_at)}</time>
+			</div>
+			<div class="msg-card__body">{msg.body}</div>
+		</div>
+
+		<!-- Previous replies -->
+		{msg.replies.map((r) => (
+			<div class="msg-card msg-card--reply">
+				<div class="msg-card__header">
+					<span class="msg-card__you">You (admin)</span>
+					<time class="msg-card__time">{formatDate(r.sent_at)}</time>
+				</div>
+				<div class="msg-card__body">{r.body}</div>
+			</div>
+		))}
+
+		<!-- Reply form -->
+		<div class="msg-reply">
+			<h2 class="msg-reply__h">Reply to {msg.name}</h2>
+			<div id="reply-feedback" class="reply-feedback" hidden></div>
+			<form id="reply-form">
+				<textarea id="reply-body" class="msg-reply__textarea" rows="6" placeholder={`Write your reply to ${msg.email}…`}></textarea>
+				<div class="msg-reply__actions">
+					<button type="submit" class="msg-btn msg-btn--primary" id="reply-send">Send reply</button>
+					<button type="button" class="msg-btn msg-btn--danger" id="msg-delete">Delete message</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</AdminLayout>
+
+<style>
+.msg-wrap { display: flex; flex-direction: column; gap: 1rem; max-width: 720px; }
+.msg-back { font-size: .875rem; color: #6366f1; text-decoration: none; display: inline-block; margin-bottom: .25rem; }
+.msg-back:hover { text-decoration: underline; }
+
+.msg-card {
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #fff;
+}
+.msg-card--reply { border-color: #c7d2fe; background: #f5f3ff; }
+.msg-card__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: .875rem 1.25rem;
+	border-bottom: 1px solid #e5e7eb;
+	background: #f9fafb;
+}
+.msg-card--reply .msg-card__header { background: #ede9fe; border-bottom-color: #c7d2fe; }
+.msg-card__from { display: flex; flex-direction: column; gap: .15rem; }
+.msg-card__from strong { font-size: .95rem; color: #111827; }
+.msg-card__email { font-size: .8rem; color: #6366f1; text-decoration: none; }
+.msg-card__email:hover { text-decoration: underline; }
+.msg-card__you { font-weight: 700; font-size: .9rem; color: #4f46e5; }
+.msg-card__time { font-size: .78rem; color: #9ca3af; white-space: nowrap; }
+.msg-card__body { padding: 1.125rem 1.25rem; font-size: .95rem; line-height: 1.7; color: #1f2937; white-space: pre-wrap; word-break: break-word; }
+
+.msg-reply { border: 1px solid #e5e7eb; border-radius: 10px; padding: 1.25rem; background: #fff; }
+.msg-reply__h { margin: 0 0 1rem; font-size: 1rem; font-weight: 700; color: #111827; }
+.msg-reply__textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: .75rem;
+	border: 1.5px solid #d1d5db;
+	border-radius: 8px;
+	font-size: .95rem;
+	font-family: inherit;
+	line-height: 1.6;
+	resize: vertical;
+	min-height: 120px;
+	transition: border-color .15s;
+}
+.msg-reply__textarea:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgb(99 102 241/.12); }
+.msg-reply__actions { display: flex; gap: .75rem; margin-top: .875rem; align-items: center; }
+
+.reply-feedback {
+	padding: .7rem 1rem;
+	border-radius: 8px;
+	margin-bottom: .875rem;
+	font-size: .875rem;
+}
+.reply-feedback.ok  { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.reply-feedback.err { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+.msg-btn {
+	padding: .6rem 1.4rem;
+	border-radius: 8px;
+	font-size: .9rem;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	transition: background .15s, opacity .15s;
+}
+.msg-btn:disabled { opacity: .55; cursor: not-allowed; }
+.msg-btn--primary { background: #6366f1; color: #fff; }
+.msg-btn--primary:hover:not(:disabled) { background: #4f46e5; }
+.msg-btn--danger { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+.msg-btn--danger:hover:not(:disabled) { background: #fecaca; }
+</style>
+
+<script define:vars={{ msgId: msg.id, msgEmail: msg.email, inboxHref }}>
+const form     = document.getElementById('reply-form');
+const textarea = document.getElementById('reply-body');
+const sendBtn  = document.getElementById('reply-send');
+const delBtn   = document.getElementById('msg-delete');
+const feedback = document.getElementById('reply-feedback');
+
+function showFeedback(msg, ok) {
+	feedback.textContent = msg;
+	feedback.className = `reply-feedback ${ok ? 'ok' : 'err'}`;
+	feedback.hidden = false;
+}
+
+form.addEventListener('submit', async (e) => {
+	e.preventDefault();
+	const body = textarea.value.trim();
+	if (!body) { showFeedback('Please write a reply first.', false); return; }
+
+	sendBtn.disabled = true;
+	sendBtn.textContent = 'Sending…';
+	feedback.hidden = true;
+
+	try {
+		const res  = await fetch(`/api/admin/messages/${msgId}`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ body, to: msgEmail }),
+		});
+		const data = await res.json();
+		if (data.ok) {
+			showFeedback(`Reply sent to ${msgEmail}.`, true);
+			textarea.value = '';
+		} else {
+			showFeedback(data.error || 'Failed to send.', false);
+		}
+	} catch {
+		showFeedback('Network error.', false);
+	} finally {
+		sendBtn.disabled = false;
+		sendBtn.textContent = 'Send reply';
+	}
+});
+
+delBtn.addEventListener('click', async () => {
+	if (!confirm('Delete this message permanently?')) return;
+	delBtn.disabled = true;
+	try {
+		await fetch(`/api/admin/messages/${msgId}`, { method: 'DELETE' });
+		window.location.href = inboxHref;
+	} catch {
+		delBtn.disabled = false;
+	}
+});
+</script>

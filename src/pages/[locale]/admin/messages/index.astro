@@ -1,0 +1,125 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { listMessages } from '../../../../lib/messages-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/messages');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const messages = listMessages();
+const userEmail = Astro.locals.user.email;
+
+function timeAgo(ts: number): string {
+	const diff = Date.now() - ts;
+	const m = Math.floor(diff / 60000);
+	if (m < 1) return 'just now';
+	if (m < 60) return `${m}m ago`;
+	const h = Math.floor(m / 60);
+	if (h < 24) return `${h}h ago`;
+	const d = Math.floor(h / 24);
+	return `${d}d ago`;
+}
+---
+
+<AdminLayout
+	locale={locale}
+	title="Messages — Admin"
+	headline="Messages"
+	subtitle={`${messages.filter(m => !m.read).length} unread · ${messages.length} total`}
+	activeNav="messages"
+	userEmail={userEmail}
+>
+	{messages.length === 0 ? (
+		<div class="inbox-empty">
+			<p>No messages yet. They'll appear here when someone submits the contact form.</p>
+		</div>
+	) : (
+		<ul class="inbox-list">
+			{messages.map((msg) => (
+				<li class:list={['inbox-item', !msg.read && 'inbox-item--unread']}>
+					<a class="inbox-item__link" href={getRelativeLocaleUrl(locale, `admin/messages/${msg.id}`)}>
+						<div class="inbox-item__meta">
+							<span class="inbox-item__name">{msg.name}</span>
+							<span class="inbox-item__email">{msg.email}</span>
+							{!msg.read && <span class="inbox-item__badge">New</span>}
+							{msg.replies.length > 0 && <span class="inbox-item__replied">Replied</span>}
+						</div>
+						<div class="inbox-item__subject">{msg.subject || '(no subject)'}</div>
+						<div class="inbox-item__preview">{msg.body.slice(0, 120)}{msg.body.length > 120 ? '…' : ''}</div>
+						<div class="inbox-item__time">{timeAgo(msg.created_at)}</div>
+					</a>
+				</li>
+			))}
+		</ul>
+	)}
+</AdminLayout>
+
+<style>
+.inbox-empty {
+	padding: 3rem 1rem;
+	text-align: center;
+	color: #6b7280;
+}
+.inbox-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.inbox-item {
+	border-bottom: 1px solid #e5e7eb;
+	background: #fff;
+	transition: background .12s;
+}
+.inbox-item:last-child { border-bottom: none; }
+.inbox-item--unread { background: #f5f3ff; }
+.inbox-item__link {
+	display: block;
+	padding: 1rem 1.25rem;
+	text-decoration: none;
+	color: inherit;
+}
+.inbox-item__link:hover { background: #f9fafb; }
+.inbox-item--unread .inbox-item__link:hover { background: #ede9fe; }
+.inbox-item__meta {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	margin-bottom: .25rem;
+	flex-wrap: wrap;
+}
+.inbox-item__name { font-weight: 700; font-size: .95rem; color: #111827; }
+.inbox-item__email { font-size: .8rem; color: #6b7280; }
+.inbox-item__badge {
+	font-size: .7rem;
+	font-weight: 700;
+	background: #6366f1;
+	color: #fff;
+	padding: 1px 7px;
+	border-radius: 99px;
+	letter-spacing: .03em;
+}
+.inbox-item__replied {
+	font-size: .7rem;
+	font-weight: 600;
+	background: #dcfce7;
+	color: #166534;
+	padding: 1px 7px;
+	border-radius: 99px;
+}
+.inbox-item__subject { font-size: .9rem; font-weight: 600; color: #374151; margin-bottom: .2rem; }
+.inbox-item__preview { font-size: .83rem; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inbox-item__time { font-size: .75rem; color: #9ca3af; margin-top: .35rem; }
+</style>

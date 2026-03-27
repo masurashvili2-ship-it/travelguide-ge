@@ -717,6 +717,22 @@ html.admin-app .admin-filter-btn.is-active .admin-filter-btn__count {
 	opacity: 0.85;
 }
 
+html.admin-app .admin-nav-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 18px;
+	height: 18px;
+	padding: 0 5px;
+	margin-left: 6px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: 1;
+	border-radius: 99px;
+	background: #6366f1;
+	color: #fff;
+}
+
 html.admin-app .admin-toolbar {
 	display: flex;
 	flex-wrap: wrap;

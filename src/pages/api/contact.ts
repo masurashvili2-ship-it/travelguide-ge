@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getAdminNotifyEmail, sendMail } from '../../lib/mailer';
+import { addMessage, bustMessagesCache } from '../../lib/messages-db';
 
 function escHtml(s: string): string {
 	return s
@@ -49,10 +50,12 @@ export const POST: APIRoute = async ({ request }) => {
 		});
 	}
 
+	// Always save to inbox regardless of SMTP config
+	bustMessagesCache();
+	addMessage({ name, email, subject, body: message });
+
 	const to = getAdminNotifyEmail();
 	if (!to) {
-		// No mailer configured — still accept the submission gracefully in dev
-		console.info('[contact] SMTP not configured; would have sent:', { name, email, subject, message });
 		return new Response(JSON.stringify({ ok: true }), {
 			status: 200,
 			headers: { 'Content-Type': 'application/json' },
