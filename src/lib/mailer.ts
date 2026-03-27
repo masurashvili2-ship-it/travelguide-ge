@@ -1,21 +1,10 @@
 /**
  * Email sending via SMTP (Nodemailer).
- *
- * Required env vars (set in .env locally; hosting platform for production):
- *   SMTP_HOST     — e.g. smtp.gmail.com
- *   SMTP_PORT     — e.g. 587 (TLS) or 465 (SSL)
- *   SMTP_USER     — your full email address
- *   SMTP_PASS     — Gmail App Password (16 chars, no spaces)
- *   SMTP_FROM     — (optional) display name + address, e.g. "Travel Guide <you@gmail.com>"
- *   ADMIN_NOTIFY_EMAIL — (optional) address that receives site notifications (defaults to SMTP_USER)
- *
- * Gmail setup:
- *   1. Google Account → Security → 2-Step Verification (must be ON)
- *   2. Google Account → Security → App passwords → create one for "Mail"
- *   3. Use the 16-char App Password as SMTP_PASS (NOT your Google account password)
+ * Config is read from the admin panel (data/email-settings.json) with .env as fallback.
  */
 
 import nodemailer from 'nodemailer';
+import { getEmailSettings } from './email-settings-db';
 
 export type MailOptions = {
 	to: string;
@@ -26,11 +15,12 @@ export type MailOptions = {
 };
 
 function getSmtpConfig() {
-	const host = process.env.SMTP_HOST?.trim();
-	const user = process.env.SMTP_USER?.trim();
-	const pass = process.env.SMTP_PASS?.trim();
+	const s = getEmailSettings();
+	const host = s.smtp_host || process.env.SMTP_HOST?.trim();
+	const user = s.smtp_user || process.env.SMTP_USER?.trim();
+	const pass = s.smtp_pass || process.env.SMTP_PASS?.trim();
 	if (!host || !user || !pass) return null;
-	const port = parseInt(process.env.SMTP_PORT?.trim() || '587', 10);
+	const port = s.smtp_port || parseInt(process.env.SMTP_PORT?.trim() || '587', 10);
 	const secure = port === 465;
 	return { host, port, secure, user, pass };
 }
@@ -40,20 +30,29 @@ export function isMailerConfigured(): boolean {
 }
 
 export function getAdminNotifyEmail(): string | null {
+	const s = getEmailSettings();
 	return (
+		s.admin_notify_email ||
 		process.env.ADMIN_NOTIFY_EMAIL?.trim() ||
+		s.smtp_user ||
 		process.env.SMTP_USER?.trim() ||
 		null
 	);
 }
 
+export function isSubmissionNotifyEnabled(): boolean {
+	return getEmailSettings().notify_on_submission !== false;
+}
+
 export async function sendMail(opts: MailOptions): Promise<{ ok: true } | { ok: false; error: string }> {
 	const cfg = getSmtpConfig();
 	if (!cfg) {
-		return { ok: false, error: 'SMTP not configured (set SMTP_HOST, SMTP_USER, SMTP_PASS)' };
+		return { ok: false, error: 'SMTP not configured — set it in Admin → Email settings.' };
 	}
 
+	const s = getEmailSettings();
 	const from =
+		s.smtp_from ||
 		process.env.SMTP_FROM?.trim() ||
 		`Travel Guide Georgia <${cfg.user}>`;
 
@@ -83,6 +82,7 @@ export async function sendMail(opts: MailOptions): Promise<{ ok: true } | { ok: 
 
 /** Fire-and-forget admin notification — errors are logged, never thrown. */
 export function notifyAdmin(subject: string, html: string): void {
+	if (!isSubmissionNotifyEnabled()) return;
 	const to = getAdminNotifyEmail();
 	if (!to) return;
 	sendMail({ to, subject, html }).then((r) => {

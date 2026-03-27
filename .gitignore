@@ -21,6 +21,8 @@ pnpm-debug.log*
 # On App Platform: set SEED_ADMIN_EMAIL + SEED_ADMIN_PASSWORD env vars (RUN_TIME scope) so
 # the admin is auto-created on first request after each redeploy when users.json is absent.
 data/users.json
+# Email settings contain SMTP password — never commit
+data/email-settings.json
 # local sqlite (if used)
 *.db
 # optional: ignore tour data (remove line to commit content)

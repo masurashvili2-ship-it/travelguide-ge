@@ -1,0 +1,246 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { getEmailSettings } from '../../../../lib/email-settings-db';
+import { isMailerConfigured } from '../../../../lib/mailer';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/email-settings');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const s = getEmailSettings();
+const configured = isMailerConfigured();
+const userEmail = Astro.locals.user.email;
+---
+
+<AdminLayout
+	locale={locale}
+	title="Email Settings — Admin"
+	headline="Email Settings"
+	subtitle="Configure SMTP for the contact form and admin notifications."
+	activeNav="email-settings"
+	userEmail={userEmail}
+>
+	{configured ? (
+		<div class="es-status es-status--ok">
+			SMTP is configured — emails are active.
+		</div>
+	) : (
+		<div class="es-status es-status--warn">
+			SMTP is not configured. Fill in the fields below to enable email.
+		</div>
+	)}
+
+	<form id="es-form" class="es-form" novalidate>
+		<section class="es-section">
+			<h2 class="es-section__h">SMTP connection</h2>
+
+			<div class="es-row es-row--2">
+				<label class="es-label">
+					<span>SMTP Host</span>
+					<input name="smtp_host" type="text" value={s.smtp_host} placeholder="smtp.gmail.com" />
+					<small>For Gmail use <code>smtp.gmail.com</code></small>
+				</label>
+				<label class="es-label">
+					<span>SMTP Port</span>
+					<input name="smtp_port" type="number" value={s.smtp_port || 587} min="1" max="65535" />
+					<small>587 (TLS) or 465 (SSL)</small>
+				</label>
+			</div>
+
+			<div class="es-row es-row--2">
+				<label class="es-label">
+					<span>SMTP User (your Gmail address)</span>
+					<input name="smtp_user" type="email" value={s.smtp_user} placeholder="you@gmail.com" autocomplete="off" />
+				</label>
+				<label class="es-label">
+					<span>SMTP Password / App Password</span>
+					<input name="smtp_pass" type="password" placeholder={s.smtp_pass ? '••••••••••••••••' : 'Paste 16-char app password'} autocomplete="new-password" />
+					<small>Leave blank to keep the existing password.</small>
+				</label>
+			</div>
+		</section>
+
+		<section class="es-section">
+			<h2 class="es-section__h">Addresses</h2>
+
+			<div class="es-row">
+				<label class="es-label">
+					<span>From address (shown to recipients)</span>
+					<input name="smtp_from" type="text" value={s.smtp_from} placeholder={`Travel Guide Georgia <contact@travelguide.ge>`} />
+					<small>Format: <code>Display Name &lt;email@domain.com&gt;</code>. Defaults to SMTP User if blank.</small>
+				</label>
+			</div>
+
+			<div class="es-row">
+				<label class="es-label">
+					<span>Admin notification email (receives alerts)</span>
+					<input name="admin_notify_email" type="email" value={s.admin_notify_email} placeholder="Defaults to SMTP User if blank" />
+					<small>Contact form messages and new submission alerts are sent here.</small>
+				</label>
+			</div>
+		</section>
+
+		<section class="es-section">
+			<h2 class="es-section__h">Notifications</h2>
+			<label class="es-checkbox">
+				<input name="notify_on_submission" type="checkbox" checked={s.notify_on_submission !== false} />
+				<span>Email me when a user submits new content (tours, what-to-do, pages)</span>
+			</label>
+		</section>
+
+		<div id="es-feedback" class="es-feedback" hidden></div>
+
+		<div class="es-actions">
+			<button type="submit" class="es-btn es-btn--primary" id="es-save">Save settings</button>
+			<button type="button" class="es-btn es-btn--ghost" id="es-test">Send test email</button>
+		</div>
+	</form>
+</AdminLayout>
+
+<style>
+.es-status {
+	padding: .75rem 1rem;
+	border-radius: 8px;
+	margin-bottom: 1.5rem;
+	font-size: .9rem;
+	font-weight: 600;
+}
+.es-status--ok   { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.es-status--warn { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+
+.es-form { display: flex; flex-direction: column; gap: 0; }
+
+.es-section {
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	padding: 1.5rem;
+	margin-bottom: 1.25rem;
+}
+.es-section__h {
+	margin: 0 0 1.25rem;
+	font-size: 1rem;
+	font-weight: 700;
+	color: #111827;
+}
+.es-row { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
+.es-row:last-child { margin-bottom: 0; }
+.es-row--2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .es-row--2 { grid-template-columns: 1fr; } }
+
+.es-label { display: flex; flex-direction: column; gap: .3rem; }
+.es-label > span { font-size: .85rem; font-weight: 600; color: #374151; }
+.es-label input {
+	padding: .55rem .8rem;
+	border: 1.5px solid #d1d5db;
+	border-radius: 7px;
+	font-size: .95rem;
+	font-family: inherit;
+	transition: border-color .15s;
+}
+.es-label input:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgb(99 102 241/.12); }
+.es-label small { font-size: .78rem; color: #6b7280; }
+.es-label small code { background: #f3f4f6; padding: 1px 4px; border-radius: 4px; font-family: monospace; }
+
+.es-checkbox { display: flex; align-items: center; gap: .6rem; font-size: .9rem; cursor: pointer; }
+.es-checkbox input { width: 16px; height: 16px; cursor: pointer; accent-color: #6366f1; }
+
+.es-feedback {
+	padding: .75rem 1rem;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+	font-size: .9rem;
+}
+.es-feedback.ok  { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.es-feedback.err { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+.es-actions { display: flex; gap: .75rem; align-items: center; }
+.es-btn {
+	padding: .65rem 1.5rem;
+	border-radius: 8px;
+	font-size: .95rem;
+	font-weight: 600;
+	cursor: pointer;
+	border: none;
+	transition: background .15s, opacity .15s;
+}
+.es-btn:disabled { opacity: .55; cursor: not-allowed; }
+.es-btn--primary { background: #6366f1; color: #fff; }
+.es-btn--primary:hover:not(:disabled) { background: #4f46e5; }
+.es-btn--ghost { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+.es-btn--ghost:hover:not(:disabled) { background: #e5e7eb; }
+</style>
+
+<script>
+const form     = document.getElementById('es-form') as HTMLFormElement;
+const saveBtn  = document.getElementById('es-save') as HTMLButtonElement;
+const testBtn  = document.getElementById('es-test') as HTMLButtonElement;
+const feedback = document.getElementById('es-feedback') as HTMLDivElement;
+
+function showFeedback(msg: string, ok: boolean) {
+	feedback.textContent = msg;
+	feedback.className = `es-feedback ${ok ? 'ok' : 'err'}`;
+	feedback.hidden = false;
+	feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+form.addEventListener('submit', async (e) => {
+	e.preventDefault();
+	saveBtn.disabled = true;
+	const orig = saveBtn.textContent;
+	saveBtn.textContent = 'Saving…';
+	feedback.hidden = true;
+
+	const fd = new FormData(form);
+	const body: Record<string, unknown> = {};
+	for (const [k, v] of fd.entries()) {
+		if (k === 'smtp_port') body[k] = parseInt(String(v), 10) || 587;
+		else if (k === 'notify_on_submission') body[k] = true;
+		else body[k] = String(v).trim();
+	}
+	if (!body['notify_on_submission']) body['notify_on_submission'] = false;
+
+	try {
+		const res  = await fetch('/api/admin/email-settings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+		const data = await res.json() as { ok: boolean; error?: string };
+		showFeedback(data.ok ? 'Settings saved.' : (data.error ?? 'Error saving.'), data.ok);
+	} catch {
+		showFeedback('Network error.', false);
+	} finally {
+		saveBtn.disabled = false;
+		saveBtn.textContent = orig;
+	}
+});
+
+testBtn.addEventListener('click', async () => {
+	testBtn.disabled = true;
+	const orig = testBtn.textContent;
+	testBtn.textContent = 'Sending…';
+	feedback.hidden = true;
+
+	try {
+		const res  = await fetch('/api/admin/email-settings/test', { method: 'POST' });
+		const data = await res.json() as { ok: boolean; sentTo?: string; error?: string };
+		showFeedback(
+			data.ok
+				? `Test email sent to ${data.sentTo} — check your inbox.`
+				: (data.error ?? 'Failed to send test email.'),
+			data.ok,
+		);
+	} catch {
+		showFeedback('Network error.', false);
+	} finally {
+		testBtn.disabled = false;
+		testBtn.textContent = orig;
+	}
+});
+</script>

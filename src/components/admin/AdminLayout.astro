@@ -26,6 +26,7 @@ type AdminNavId =
 	| 'pages-new'
 	| 'pages-edit'
 	| 'footer'
+	| 'email-settings'
 	| 'data-backup';
 
 interface Props {
@@ -52,6 +53,7 @@ const urlNewRegion = getRelativeLocaleUrl(locale, 'admin/regions/new');
 const urlPages = getRelativeLocaleUrl(locale, 'admin/pages');
 const urlNewPage = getRelativeLocaleUrl(locale, 'admin/pages/new');
 const urlFooter = getRelativeLocaleUrl(locale, 'admin/footer');
+const urlEmailSettings = getRelativeLocaleUrl(locale, 'admin/email-settings');
 const urlDataBackup = getRelativeLocaleUrl(locale, 'admin/backup');
 const urlSiteHome = getRelativeLocaleUrl(locale, '/');
 
@@ -61,6 +63,7 @@ const reviewsNav = activeNav === 'reviews';
 const pagesAll = activeNav === 'pages-all' || activeNav === 'pages-edit';
 const pagesNew = activeNav === 'pages-new';
 const footerActive = activeNav === 'footer';
+const emailSettingsActive = activeNav === 'email-settings';
 const toursBrowse = activeNav === 'tours-all' || activeNav === 'tours-edit';
 const toursNewOnly = activeNav === 'tours-new';
 const wtdBrowse = activeNav === 'wtd-all' || activeNav === 'wtd-edit';
@@ -131,6 +134,13 @@ function sideClass(active: boolean) {
 					<ul class="admin-side__list">
 						<li>
 							<a class:list={sideClass(footerActive)} href={urlFooter}>Edit footer</a>
+						</li>
+					</ul>
+
+					<p class="admin-side__label">Email</p>
+					<ul class="admin-side__list">
+						<li>
+							<a class:list={sideClass(emailSettingsActive)} href={urlEmailSettings}>Email settings</a>
 						</li>
 					</ul>
 
