@@ -13,6 +13,51 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { resolveUploadDir } from './resolve-upload-dir.mjs';
 
+/**
+ * If DATA_DIR is set (persistent volume), copy any files that are missing there
+ * from the built-in /app/data/ directory (git defaults baked into the image).
+ * Files that already exist in DATA_DIR are never overwritten — admin edits survive deploys.
+ */
+async function seedDataDir() {
+	const dataDir = process.env.DATA_DIR?.trim();
+	if (!dataDir) return;
+
+	const builtIn = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1')), '..', 'data');
+
+	async function seedDir(srcDir, destDir) {
+		let entries;
+		try {
+			entries = await fs.readdir(srcDir, { withFileTypes: true });
+		} catch {
+			return;
+		}
+		await fs.mkdir(destDir, { recursive: true });
+		for (const entry of entries) {
+			const src = path.join(srcDir, entry.name);
+			const dest = path.join(destDir, entry.name);
+			if (entry.isDirectory()) {
+				await seedDir(src, dest);
+			} else {
+				try {
+					await fs.access(dest);
+					// File already exists — keep it (preserves admin edits)
+				} catch {
+					try {
+						await fs.copyFile(src, dest);
+						console.log(`[data-seed] seeded ${dest}`);
+					} catch (e) {
+						console.warn(`[data-seed] could not copy ${src} → ${dest}:`, e.message);
+					}
+				}
+			}
+		}
+	}
+
+	await seedDir(builtIn, dataDir);
+}
+
+await seedDataDir();
+
 const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions)\/(.+)$/;
 
 const entryHref = new URL('../dist/server/entry.mjs', import.meta.url).href;
