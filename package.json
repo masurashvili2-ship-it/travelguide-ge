@@ -17,6 +17,7 @@
     "@fontsource/dm-sans": "^5.2.8",
     "astro": "^6.0.8",
     "bcryptjs": "^3.0.3",
+    "easymde": "^2.20.0",
     "gray-matter": "^4.0.3",
     "leaflet": "^1.9.4",
     "marked": "^17.0.5",

@@ -4,6 +4,7 @@ import '@fontsource/dm-sans/500.css';
 import '@fontsource/dm-sans/600.css';
 import '@fontsource/dm-sans/700.css';
 import '@fontsource/dm-sans/400-italic.css';
+import 'easymde/dist/easymde.min.css';
 import '../../styles/admin-layout.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../lib/strings';
@@ -187,3 +188,88 @@ function sideClass(active: boolean) {
 		</div>
 	</body>
 </html>
+
+<script>
+import EasyMDE from 'easymde';
+
+document.addEventListener('DOMContentLoaded', () => {
+	document.querySelectorAll<HTMLTextAreaElement>('textarea.body-md').forEach((ta) => {
+		new EasyMDE({
+			element: ta,
+			spellChecker: false,
+			autosave: { enabled: false },
+			status: false,
+			minHeight: '320px',
+			toolbar: [
+				'bold', 'italic', '|',
+				'heading-2', 'heading-3', '|',
+				'quote', 'unordered-list', 'ordered-list', '|',
+				'link', '|',
+				'preview', 'side-by-side', 'fullscreen',
+			],
+		});
+	});
+});
+</script>
+
+<style>
+	/* ── EasyMDE overrides to match admin design ── */
+	.EasyMDEContainer {
+		display: block;
+	}
+	.EasyMDEContainer .CodeMirror {
+		font-family: ui-monospace, Consolas, monospace;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		border: 1px solid var(--border, #d0d5dd);
+		border-top: none;
+		border-radius: 0 0 6px 6px;
+		color: var(--text, #101828);
+		background: #fff;
+		padding: 0.5rem;
+	}
+	.EasyMDEContainer .editor-toolbar {
+		border: 1px solid var(--border, #d0d5dd);
+		border-bottom: none;
+		border-radius: 6px 6px 0 0;
+		background: #f9fafb;
+		opacity: 1;
+	}
+	.EasyMDEContainer .editor-toolbar button {
+		color: #344054;
+	}
+	.EasyMDEContainer .editor-toolbar button:hover,
+	.EasyMDEContainer .editor-toolbar button.active {
+		background: #e5e7eb;
+		border-color: #d0d5dd;
+	}
+	.EasyMDEContainer .editor-toolbar i.separator {
+		border-color: #d0d5dd;
+	}
+	.EasyMDEContainer .editor-preview,
+	.EasyMDEContainer .editor-preview-side {
+		background: #fff;
+		font-family: inherit;
+		font-size: 0.9rem;
+		line-height: 1.7;
+		padding: 1rem 1.25rem;
+	}
+	.EasyMDEContainer .editor-preview h2,
+	.EasyMDEContainer .editor-preview-side h2 {
+		font-size: 1.15rem;
+		margin: 1.25rem 0 0.5rem;
+	}
+	.EasyMDEContainer .editor-preview h3,
+	.EasyMDEContainer .editor-preview-side h3 {
+		font-size: 1rem;
+		margin: 1rem 0 0.4rem;
+	}
+	.EasyMDEContainer .editor-preview ul,
+	.EasyMDEContainer .editor-preview-side ul {
+		padding-left: 1.4rem;
+	}
+	/* hide the original textarea (EasyMDE does this but add belt+suspenders) */
+	.EasyMDEContainer ~ textarea {
+		display: none;
+	}
+</style>

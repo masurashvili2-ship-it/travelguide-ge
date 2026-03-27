@@ -77,26 +77,22 @@ function contactSidebar(loc: Locale): string {
 				</label>
 			</div>
 			<div class="row">
-				<label>
-					<span>Body (Markdown)</span>
-					<textarea name={`${loc}_body`} class="body-md">
-						{field(loc, 'body')}
-					</textarea>
-				</label>
+				<div class="field-group">
+					<span class="field-label">Body (Markdown)</span>
+					<textarea name={`${loc}_body`} class="body-md">{field(loc, 'body')}</textarea>
+				</div>
 			</div>
 			{showContactSidebar ? (
 				<div class="row">
-					<label>
-						<span>Contact sidebar (Markdown)</span>
+					<div class="field-group">
+						<span class="field-label">Contact sidebar (Markdown)</span>
 						<p class="muted" style="margin:0 0 0.35rem">
 							Shown under <strong>Contact &amp; hours</strong> on the public page for this language (hours,
 							address, booking text). Social URLs are edited once in the <strong>Social &amp; contact</strong>{' '}
 							section below (shared for all languages).
 						</p>
-						<textarea name={`${loc}_contact_sidebar`} class="body-md contact-sidebar-md">
-							{contactSidebar(loc)}
-						</textarea>
-					</label>
+						<textarea name={`${loc}_contact_sidebar`} class="body-md contact-sidebar-md">{contactSidebar(loc)}</textarea>
+					</div>
 				</div>
 			) : null}
 		</fieldset>
@@ -104,12 +100,16 @@ function contactSidebar(loc: Locale): string {
 }
 
 <style>
-	.body-md {
-		min-height: 160px;
-		font-family: ui-monospace, monospace;
-		font-size: 0.88rem;
+	.field-group {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
 	}
-	.contact-sidebar-md {
-		min-height: 120px;
+	.field-label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		margin-bottom: 0.35rem;
+		color: var(--text, #101828);
 	}
 </style>
