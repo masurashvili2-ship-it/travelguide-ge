@@ -320,3 +320,34 @@ export function clearSessionCookieHeader(request: Request): string {
 	const secure = isRequestHttps(request) ? '; Secure' : '';
 	return `${SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax${secure}; Max-Age=0`;
 }
+
+let _seedDone = false;
+
+/**
+ * Called once per server start (from middleware).
+ * If `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD` env vars are set and `users.json`
+ * is empty (fresh deploy), creates the admin account automatically so logins work
+ * immediately without re-registering after every redeploy.
+ *
+ * Set on your hosting platform (e.g. DigitalOcean App Platform → Environment → RUN_TIME):
+ *   SEED_ADMIN_EMAIL=you@example.com
+ *   SEED_ADMIN_PASSWORD=yourpassword
+ */
+export async function seedAdminIfEmpty(): Promise<void> {
+	if (_seedDone) return;
+	_seedDone = true;
+	const email = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
+	const password = process.env.SEED_ADMIN_PASSWORD?.trim();
+	if (!email || !email.includes('@') || !password || password.length < 8) return;
+	const users = await readUsers();
+	if (users.length > 0) return;
+	const passwordHash = await bcrypt.hash(password, 10);
+	const user: StoredUser = {
+		id: randomBytes(16).toString('hex'),
+		email,
+		passwordHash,
+		role: 'admin',
+	};
+	await writeUsers([user]);
+	console.log(`[auth] Seeded admin from env: ${email}`);
+}

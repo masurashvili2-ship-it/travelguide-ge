@@ -32,7 +32,8 @@ const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
 const sp = Astro.url.searchParams;
 const q = (sp.get('q') ?? '').trim();
-const tourRowsFiltered = filterTourRowsForAdmin(tourRows, q, 'tours');
+const categoryFilter = (sp.get('category') ?? '').trim();
+const tourRowsFiltered = filterTourRowsForAdmin(tourRows, q, 'tours', categoryFilter);
 const toursPag = paginateSlice(
 	tourRowsFiltered,
 	parseAdminListPage(sp, 'page'),
@@ -55,6 +56,14 @@ function displayTourAuthor(row: (typeof tourRows)[number]): string {
 		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('tours', row.id) || ''
 	);
 }
+
+const CATEGORY_FILTERS = [
+	{ value: '', label: 'All' },
+	{ value: 'adventure-nature', label: 'Adventure & Nature' },
+	{ value: 'cultural-historical', label: 'Cultural & Historical' },
+	{ value: 'wine-food', label: 'Wine & Food' },
+	{ value: 'religious-pilgrimage', label: 'Religious & Pilgrimage' },
+] as const;
 ---
 
 <AdminLayout
@@ -88,14 +97,33 @@ function displayTourAuthor(row: (typeof tourRows)[number]): string {
 				<input type="hidden" name="redirect" value={selfUrl} />
 			</form>
 
+			<div class="admin-filter-bar">
+				<span class="admin-filter-bar__label">Category:</span>
+				{
+					CATEGORY_FILTERS.map(({ value, label }) => (
+						<a
+							class:list={['admin-filter-btn', categoryFilter === value && 'is-active']}
+							href={queryLink({ category: value || null, page: null, q: null })}
+						>
+							{label}{' '}
+							<span class="admin-filter-btn__count">
+								{value
+									? tourRows.filter((r) => r.category === value).length
+									: tourRows.length}
+							</span>
+						</a>
+					))
+				}
+			</div>
+
 			<div class="admin-toolbar">
 				<span class="muted" style="font-size:0.88rem;margin:0">
 					{listRangeLabel(toursPag.page, ADMIN_LIST_PAGE_SIZE, toursPag.total)}
-					{q ? ` · filter “${q}”` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {toursPag.page} /{' '}
-					{toursPag.totalPages}
+					{q ? ` · search "${q}"` : ''}{categoryFilter ? ` · cat: ${categoryFilter}` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {toursPag.page} / {toursPag.totalPages}
 				</span>
 				<div class="admin-toolbar__bulk">
 					<form method="get" action={pathOnly} class="admin-toolbar__search">
+						{categoryFilter ? <input type="hidden" name="category" value={categoryFilter} /> : null}
 						<input type="hidden" name="page" value="1" />
 						<label class="visually-hidden" for="tours-list-q">Search tours</label>
 						<input

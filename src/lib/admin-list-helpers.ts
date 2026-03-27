@@ -47,11 +47,20 @@ export function filterTourRowsForAdmin(
 	rows: AdminTourListItem[],
 	q: string,
 	kind: 'tours' | 'what-to-do',
+	category?: string,
 ): AdminTourListItem[] {
+	let result = rows;
+	if (category) {
+		result = result.filter((row) =>
+			kind === 'what-to-do'
+				? (row.whatDoCategories ?? []).includes(category)
+				: row.category === category,
+		);
+	}
 	const n = q.trim().toLowerCase();
-	if (!n) return rows;
+	if (!n) return result;
 	const terms = n.split(/\s+/).filter(Boolean);
-	return rows.filter((row) => {
+	return result.filter((row) => {
 		const author =
 			row.author_email?.trim() || contributorAuthorEmailForPublishedPost(kind, row.id) || '';
 		const hay = [row.slug, row.titles.en, row.titles.ka, row.titles.ru, author]
@@ -61,11 +70,19 @@ export function filterTourRowsForAdmin(
 	});
 }
 
-export function filterRegionRowsForAdmin(rows: AdminRegionListItem[], q: string): AdminRegionListItem[] {
+export function filterRegionRowsForAdmin(
+	rows: AdminRegionListItem[],
+	q: string,
+	level?: string,
+): AdminRegionListItem[] {
+	let result = rows;
+	if (level === 'region' || level === 'municipality' || level === 'village') {
+		result = result.filter((row) => row.level === level);
+	}
 	const n = q.trim().toLowerCase();
-	if (!n) return rows;
+	if (!n) return result;
 	const terms = n.split(/\s+/).filter(Boolean);
-	return rows.filter((row) => {
+	return result.filter((row) => {
 		const hay = [row.slug, row.level, row.titles.en, row.titles.ka, row.titles.ru]
 			.join(' ')
 			.toLowerCase();

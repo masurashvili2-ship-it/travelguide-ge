@@ -906,6 +906,10 @@ export type AdminTourListItem = {
 	titles: Record<Locale, string>;
 	locales: Locale[];
 	author_email: string | null;
+	/** Tour category (tours only; null for what-to-do) */
+	category: string | null;
+	/** What-to-do category tags (what-to-do only; empty for tours) */
+	whatDoCategories: string[];
 };
 
 function listAllAdminForKind(kind: ContentPostKind): AdminTourListItem[] {
@@ -925,6 +929,8 @@ function listAllAdminForKind(kind: ContentPostKind): AdminTourListItem[] {
 				titles,
 				locales,
 				author_email: p.author_email ?? null,
+				category: p.category ?? null,
+				whatDoCategories: p.whatDoCategories ?? [],
 			};
 		});
 }

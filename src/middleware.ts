@@ -1,5 +1,5 @@
 import { defineMiddleware } from 'astro:middleware';
-import { userFromRequest } from './lib/auth';
+import { userFromRequest, seedAdminIfEmpty } from './lib/auth';
 import { serveUserUploadIfPresent } from './lib/serve-user-upload';
 
 const CANONICAL_SITE_HOST = 'travelguide.ge';
@@ -28,6 +28,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const upload = await serveUserUploadIfPresent(context.request);
 	if (upload) return upload;
 
+	await seedAdminIfEmpty();
 	context.locals.user = (await userFromRequest(context.request.headers.get('cookie'))) ?? undefined;
 
 	const path = context.url.pathname.replace(/\/$/, '') || '/';

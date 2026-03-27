@@ -31,7 +31,8 @@ const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
 const sp = Astro.url.searchParams;
 const q = (sp.get('q') ?? '').trim();
-const regionRowsFiltered = filterRegionRowsForAdmin(regionRows, q);
+const levelFilter = (sp.get('level') ?? '').trim();
+const regionRowsFiltered = filterRegionRowsForAdmin(regionRows, q, levelFilter);
 const regionsPag = paginateSlice(
 	regionRowsFiltered,
 	parseAdminListPage(sp, 'page'),
@@ -47,13 +48,20 @@ const dashboardUrl = getRelativeLocaleUrl(locale, 'admin');
 function queryLink(updates: Record<string, string | null | undefined>): string {
 	return buildAdminQueryLink(pathOnly, searchOnly, updates);
 }
+
+const LEVEL_FILTERS = [
+	{ value: '', label: 'All' },
+	{ value: 'region', label: 'Regions' },
+	{ value: 'municipality', label: 'Municipalities' },
+	{ value: 'village', label: 'Villages' },
+] as const;
 ---
 
 <AdminLayout
 	locale={locale}
 	title="Regions · Travel Guide Georgia"
 	headline="Regions, municipalities & villages"
-	subtitle="Public URLs: /{locale}/regions/… · Data: data/regions.json"
+	subtitle="Public URLs: /{locale}/regions/… · Data: data/regions/"
 	activeNav="regions-all"
 	userEmail={userEmail}
 >
@@ -77,13 +85,32 @@ function queryLink(updates: Record<string, string | null | undefined>): string {
 				</a>
 			</p>
 
+			<div class="admin-filter-bar">
+				<span class="admin-filter-bar__label">Type:</span>
+				{
+					LEVEL_FILTERS.map(({ value, label }) => (
+						<a
+							class:list={['admin-filter-btn', levelFilter === value && 'is-active']}
+							href={queryLink({ level: value || null, page: null, q: null })}
+						>
+							{label}{' '}
+							<span class="admin-filter-btn__count">
+								{value
+									? regionRows.filter((r) => r.level === value).length
+									: regionRows.length}
+							</span>
+						</a>
+					))
+				}
+			</div>
+
 			<div class="admin-toolbar">
 				<span class="muted" style="font-size:0.88rem;margin:0">
 					{listRangeLabel(regionsPag.page, ADMIN_LIST_PAGE_SIZE, regionsPag.total, 'places')}
-					{q ? ` · filter “${q}”` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {regionsPag.page} /{' '}
-					{regionsPag.totalPages}
+					{q ? ` · search "${q}"` : ''}{levelFilter ? ` · type: ${levelFilter}` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {regionsPag.page} / {regionsPag.totalPages}
 				</span>
 				<form method="get" action={pathOnly} class="admin-toolbar__search">
+					{levelFilter ? <input type="hidden" name="level" value={levelFilter} /> : null}
 					<input type="hidden" name="page" value="1" />
 					<label class="visually-hidden" for="regions-list-q">Search regions</label>
 					<input
@@ -91,7 +118,7 @@ function queryLink(updates: Record<string, string | null | undefined>): string {
 						type="search"
 						name="q"
 						value={q}
-						placeholder="Search slug, type, titles…"
+						placeholder="Search slug, titles…"
 						autocomplete="off"
 						class="admin-toolbar__search-input"
 					/>
@@ -115,7 +142,7 @@ function queryLink(updates: Record<string, string | null | undefined>): string {
 								villages.
 							</>
 						) : (
-							<>No places match this search.</>
+							<>No places match this filter.</>
 						)}
 					</p>
 				) : (

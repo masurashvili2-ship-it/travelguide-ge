@@ -18,7 +18,8 @@ pnpm-debug.log*
 .env.production
 
 # Real accounts — do not commit (copy data/users.json.example → data/users.json locally).
-# On App Platform use a persistent volume on `data/` so registrations survive redeploys.
+# On App Platform: set SEED_ADMIN_EMAIL + SEED_ADMIN_PASSWORD env vars (RUN_TIME scope) so
+# the admin is auto-created on first request after each redeploy when users.json is absent.
 data/users.json
 # local sqlite (if used)
 *.db

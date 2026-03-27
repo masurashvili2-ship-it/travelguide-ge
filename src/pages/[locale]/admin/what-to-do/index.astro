@@ -32,7 +32,8 @@ const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
 const sp = Astro.url.searchParams;
 const q = (sp.get('q') ?? '').trim();
-const wtdRowsFiltered = filterTourRowsForAdmin(wtdRows, q, 'what-to-do');
+const categoryFilter = (sp.get('category') ?? '').trim();
+const wtdRowsFiltered = filterTourRowsForAdmin(wtdRows, q, 'what-to-do', categoryFilter);
 const wtdPag = paginateSlice(
 	wtdRowsFiltered,
 	parseAdminListPage(sp, 'page'),
@@ -55,6 +56,21 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('what-to-do', row.id) || ''
 	);
 }
+
+const WTD_CATEGORY_FILTERS = [
+	{ value: '', label: 'All' },
+	{ value: 'hiking', label: 'Hiking' },
+	{ value: 'history-culture', label: 'History & Culture' },
+	{ value: 'landmark', label: 'Landmark' },
+	{ value: 'museum', label: 'Museum' },
+	{ value: 'park', label: 'Park' },
+	{ value: 'lake', label: 'Lake' },
+	{ value: 'river', label: 'River' },
+	{ value: 'mountain-peaks', label: 'Mountain Peaks' },
+	{ value: 'hot-spring', label: 'Hot Spring' },
+	{ value: 'state-nature-reserve', label: 'Nature Reserve' },
+	{ value: 'street', label: 'Street' },
+] as const;
 ---
 
 <AdminLayout
@@ -91,14 +107,33 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 				<input type="hidden" name="redirect" value={selfUrl} />
 			</form>
 
+			<div class="admin-filter-bar">
+				<span class="admin-filter-bar__label">Category:</span>
+				{
+					WTD_CATEGORY_FILTERS.map(({ value, label }) => (
+						<a
+							class:list={['admin-filter-btn', categoryFilter === value && 'is-active']}
+							href={queryLink({ category: value || null, page: null, q: null })}
+						>
+							{label}{' '}
+							<span class="admin-filter-btn__count">
+								{value
+									? wtdRows.filter((r) => r.whatDoCategories.includes(value)).length
+									: wtdRows.length}
+							</span>
+						</a>
+					))
+				}
+			</div>
+
 			<div class="admin-toolbar">
 				<span class="muted" style="font-size:0.88rem;margin:0">
 					{listRangeLabel(wtdPag.page, ADMIN_LIST_PAGE_SIZE, wtdPag.total)}
-					{q ? ` · filter “${q}”` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {wtdPag.page} /{' '}
-					{wtdPag.totalPages}
+					{q ? ` · search "${q}"` : ''}{categoryFilter ? ` · cat: ${categoryFilter}` : ''} · {ADMIN_LIST_PAGE_SIZE} per page · page {wtdPag.page} / {wtdPag.totalPages}
 				</span>
 				<div class="admin-toolbar__bulk">
 					<form method="get" action={pathOnly} class="admin-toolbar__search">
+						{categoryFilter ? <input type="hidden" name="category" value={categoryFilter} /> : null}
 						<input type="hidden" name="page" value="1" />
 						<label class="visually-hidden" for="wtd-list-q">Search what to do</label>
 						<input
@@ -173,7 +208,7 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 											<form
 												method="post"
 												action="/api/admin/what-to-do"
-												onsubmit="return confirm('Delete this “What to do” entry and its reviews? This cannot be undone.');"
+												onsubmit="return confirm('Delete this \"What to do\" entry and its reviews? This cannot be undone.');"
 											>
 												<input type="hidden" name="intent" value="delete" />
 												<input type="hidden" name="id" value={row.id} />
@@ -244,7 +279,7 @@ function displayWtdAuthor(row: (typeof wtdRows)[number]): string {
 						!confirm(
 							'Delete ' +
 								checked.length +
-								' “What to do” entr' +
+								' "What to do" entr' +
 								(checked.length === 1 ? 'y' : 'ies') +
 								' and their reviews? This cannot be undone.',
 						)
