@@ -2,7 +2,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { invalidateFooterCache } from './footer-db';
 import { invalidatePagesCache } from './pages-db';
-import { invalidateRegionsCache } from './regions-db';
+import {
+	applyRegionsBackupPayload,
+	getRegionsBackupPayload,
+	invalidateRegionsCache,
+} from './regions-db';
 import { invalidateSubmissionsCache } from './submissions-db';
 import { invalidateToursCache, invalidateWhatToDoCache } from './tours-db';
 
@@ -355,6 +359,11 @@ export function buildExportBundle(options: {
 
 	for (const name of names) {
 		if (!options.includeUsers && name === 'users.json') continue;
+		if (name === 'regions.json') {
+			// Regions live in data/regions/ folder — read via the db layer
+			files[name] = getRegionsBackupPayload();
+			continue;
+		}
 		const raw = readJsonFileOrNull(name);
 		if (raw !== null) {
 			files[name] = raw;
@@ -452,14 +461,20 @@ export function applyImportBundle(
 	for (const { name, payload } of planned) {
 		let out = payload;
 		if (options.importMode === 'merge') {
-			const existing = readJsonFileOrNull(name);
+			// For regions, read live data from the folder structure (not a flat file)
+			const existing = name === 'regions.json' ? getRegionsBackupPayload() : readJsonFileOrNull(name);
 			const { payload: merged, added } = mergePayloadForFile(name, payload, existing);
 			out = merged;
 			mergeAdded += added;
 		}
 		const errOut = validatePayload(name, out);
 		if (errOut) return { ok: false, error: `${name} after merge: ${errOut}` };
-		writeFileSync(dataFilePath(name), `${JSON.stringify(out, null, '\t')}\n`, 'utf8');
+		if (name === 'regions.json') {
+			// Regions live in data/regions/ folder — write via the db layer
+			applyRegionsBackupPayload(out as { posts: unknown[] });
+		} else {
+			writeFileSync(dataFilePath(name), `${JSON.stringify(out, null, '\t')}\n`, 'utf8');
+		}
 		written.push(name);
 	}
 

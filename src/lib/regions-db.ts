@@ -1,5 +1,13 @@
 import { randomUUID } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import {
+	existsSync,
+	mkdirSync,
+	readdirSync,
+	readFileSync,
+	statSync,
+	unlinkSync,
+	writeFileSync,
+} from 'node:fs';
 import path from 'node:path';
 import type { Locale } from './strings';
 import type { TourLocation, TourMapMarker } from './tours-db';
@@ -13,7 +21,11 @@ import {
 } from './tours-db';
 
 const DATA_DIR = path.join(process.cwd(), 'data');
-const REGIONS_FILE = path.join(DATA_DIR, 'regions.json');
+/** New folder-based storage */
+const REGIONS_DIR = path.join(DATA_DIR, 'regions');
+const REGIONS_INDEX = path.join(REGIONS_DIR, 'index.json');
+/** Legacy single-file path — used only for auto-migration */
+const REGIONS_LEGACY = path.join(DATA_DIR, 'regions.json');
 
 const LOCALES: Locale[] = ['en', 'ka', 'ru'];
 
@@ -98,32 +110,91 @@ export type RegionPublicRow = {
 	children: { slug: string; title: string; level: RegionLevel }[];
 };
 
-function ensureDataDir() {
-	mkdirSync(DATA_DIR, { recursive: true });
+function ensureRegionsDir() {
+	mkdirSync(REGIONS_DIR, { recursive: true });
 }
 
 let cache: { posts: RegionPost[]; mtime: number } | null = null;
 
+/** Cache key: mtime of index.json (changes on every write since writeStore always rewrites it). */
 function fileMtime(): number {
 	try {
-		return statSync(REGIONS_FILE).mtimeMs;
+		return statSync(REGIONS_INDEX).mtimeMs;
 	} catch {
 		return 0;
 	}
 }
 
-function readRawStore(): { posts: unknown[] } {
-	if (!existsSync(REGIONS_FILE)) {
-		ensureDataDir();
-		writeFileSync(REGIONS_FILE, JSON.stringify({ posts: [] }, null, '\t'), 'utf8');
-		return { posts: [] };
-	}
+/** Auto-migrate legacy single-file → folder structure (runs at most once). */
+function maybeMigrateLegacy(): void {
+	if (!existsSync(REGIONS_LEGACY)) return;
+	if (existsSync(REGIONS_DIR)) return; // already migrated
 	try {
-		const j = JSON.parse(readFileSync(REGIONS_FILE, 'utf8')) as { posts?: unknown[] };
-		return { posts: Array.isArray(j.posts) ? j.posts : [] };
+		const raw = JSON.parse(readFileSync(REGIONS_LEGACY, 'utf8')) as { posts?: unknown[] };
+		const allPosts: RegionPost[] = [];
+		if (Array.isArray(raw.posts)) {
+			for (const row of raw.posts) {
+				const p = normalizeRegionPost(row);
+				if (p) allPosts.push(p);
+			}
+		}
+		mkdirSync(REGIONS_DIR, { recursive: true });
+		const indexPosts = allPosts.filter((p) => p.level !== 'village');
+		const villages = allPosts.filter((p) => p.level === 'village');
+		writeFileSync(REGIONS_INDEX, JSON.stringify({ posts: indexPosts }, null, '\t') + '\n', 'utf8');
+		const grouped = new Map<string, RegionPost[]>();
+		for (const v of villages) {
+			if (!v.parent_id) continue;
+			const arr = grouped.get(v.parent_id) ?? [];
+			arr.push(v);
+			grouped.set(v.parent_id, arr);
+		}
+		for (const [muniId, muniVillages] of grouped) {
+			writeFileSync(
+				path.join(REGIONS_DIR, `${muniId}.json`),
+				JSON.stringify({ posts: muniVillages }, null, '\t') + '\n',
+				'utf8',
+			);
+		}
+		unlinkSync(REGIONS_LEGACY);
 	} catch {
+		// Migration failed; leave legacy file in place so nothing is lost
+	}
+}
+
+function readRawStore(): { posts: unknown[] } {
+	maybeMigrateLegacy();
+
+	if (!existsSync(REGIONS_DIR)) {
+		ensureRegionsDir();
+		writeFileSync(REGIONS_INDEX, JSON.stringify({ posts: [] }, null, '\t') + '\n', 'utf8');
 		return { posts: [] };
 	}
+
+	const all: unknown[] = [];
+
+	// Read index (regions + municipalities)
+	if (existsSync(REGIONS_INDEX)) {
+		try {
+			const j = JSON.parse(readFileSync(REGIONS_INDEX, 'utf8')) as { posts?: unknown[] };
+			if (Array.isArray(j.posts)) all.push(...j.posts);
+		} catch { /* ignore corrupt index */ }
+	}
+
+	// Read all per-municipality village files
+	try {
+		for (const fname of readdirSync(REGIONS_DIR)) {
+			if (!fname.endsWith('.json') || fname === 'index.json') continue;
+			try {
+				const j = JSON.parse(
+					readFileSync(path.join(REGIONS_DIR, fname), 'utf8'),
+				) as { posts?: unknown[] };
+				if (Array.isArray(j.posts)) all.push(...j.posts);
+			} catch { /* ignore corrupt chunk */ }
+		}
+	} catch { /* ignore if dir read fails */ }
+
+	return { posts: all };
 }
 
 function normalizeRegionPost(raw: unknown): RegionPost | null {
@@ -232,13 +303,49 @@ function getPosts(): RegionPost[] {
 }
 
 function writeStore(posts: RegionPost[]) {
-	ensureDataDir();
-	const payload = {
-		posts: posts.map((p) => ({
-			...p,
-		})),
-	};
-	writeFileSync(REGIONS_FILE, JSON.stringify(payload, null, '\t'), 'utf8');
+	ensureRegionsDir();
+
+	const indexPosts = posts.filter((p) => p.level !== 'village');
+	const villages = posts.filter((p) => p.level === 'village');
+
+	// Write index (regions + municipalities) — always first so fileMtime() is fresh
+	writeFileSync(
+		REGIONS_INDEX,
+		JSON.stringify({ posts: indexPosts }, null, '\t') + '\n',
+		'utf8',
+	);
+
+	// Group villages by parent municipality id
+	const grouped = new Map<string, RegionPost[]>();
+	for (const v of villages) {
+		if (!v.parent_id) continue;
+		const arr = grouped.get(v.parent_id) ?? [];
+		arr.push(v);
+		grouped.set(v.parent_id, arr);
+	}
+
+	// Write per-municipality village files
+	const writtenFiles = new Set<string>();
+	for (const [muniId, muniVillages] of grouped) {
+		const fname = `${muniId}.json`;
+		writeFileSync(
+			path.join(REGIONS_DIR, fname),
+			JSON.stringify({ posts: muniVillages }, null, '\t') + '\n',
+			'utf8',
+		);
+		writtenFiles.add(fname);
+	}
+
+	// Remove stale village files (e.g. municipality was deleted)
+	try {
+		for (const fname of readdirSync(REGIONS_DIR)) {
+			if (!fname.endsWith('.json') || fname === 'index.json') continue;
+			if (!writtenFiles.has(fname)) {
+				try { unlinkSync(path.join(REGIONS_DIR, fname)); } catch { /* ignore */ }
+			}
+		}
+	} catch { /* ignore */ }
+
 	cache = { posts: [...posts], mtime: fileMtime() };
 }
 
@@ -756,4 +863,19 @@ export function parseOptionalNumberField(raw: string): number | null {
 	const n = parseFloat(s.replace(/,/g, ''));
 	if (!Number.isFinite(n)) return null;
 	return n;
+}
+
+/** Used by admin-data-backup to export all posts as a single flat bundle. */
+export function getRegionsBackupPayload(): { posts: RegionPost[] } {
+	return { posts: getPosts() };
+}
+
+/** Used by admin-data-backup to restore all posts from a flat bundle. */
+export function applyRegionsBackupPayload(payload: { posts: unknown[] }): void {
+	const posts: RegionPost[] = [];
+	for (const row of payload.posts) {
+		const p = normalizeRegionPost(row);
+		if (p) posts.push(p);
+	}
+	writeStore(posts);
 }
