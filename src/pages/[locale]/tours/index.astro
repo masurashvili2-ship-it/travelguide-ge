@@ -1,8 +1,7 @@
 ---
 import Shell from '../../../components/Shell.astro';
-import TourHeroGallery from '../../../components/TourHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { listAllPublishedPackages, publishedPackagesAsTourListItems } from '../../../lib/guide-packages-db';
+import { listAllPublishedPackages } from '../../../lib/guide-packages-db';
 import { getGuideById } from '../../../lib/guides-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
@@ -13,7 +12,6 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const heroItems = publishedPackagesAsTourListItems(locale);
 const publishedPackages = listAllPublishedPackages();
 const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 
@@ -57,16 +55,8 @@ const pkgCards = publishedPackages.map((pkg) => {
 	seoDescription={t.toursMetaDescription}
 	canonicalPath={`/${locale}/tours`}
 >
-	<TourHeroGallery
-		tours={heroItems}
-		locale={locale}
-		viewLabel={t.viewTour}
-		durationLabel={t.duration}
-		title={t.tours}
-		subtitle={t.toursMetaDescription}
-		layout="bento"
-	/>
-	<div class="card-grid" style="margin-top:0.5rem">
+	<h1 style="margin:0 0 1.25rem">{t.tours}</h1>
+	<div class="card-grid">
 		{
 			pkgCards.map((entry) => (
 				<article class="card pkg-card-public">
