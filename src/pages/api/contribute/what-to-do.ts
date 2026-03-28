@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	}
 
 	const fd = await request.formData();
-	const parsed = parseTourLikeContributionPayload(fd, 'what-to-do');
+	const parsed = parseTourLikeContributionPayload(fd);
 	if (!parsed.ok) {
 		return new Response(JSON.stringify({ error: parsed.error }), {
 			status: 400,

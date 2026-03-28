@@ -53,6 +53,17 @@ export const onRequest = defineMiddleware(async (context, next) => {
 		}
 	}
 
+	const accountMatch = path.match(/^\/(en|ka|ru)\/account(?:\/.*)?$/);
+	if (accountMatch) {
+		const user = context.locals.user;
+		const loc = accountMatch[1];
+		if (!user) {
+			const login = new URL(`/${loc}/login`, context.url);
+			login.searchParams.set('next', path + context.url.search);
+			return Response.redirect(login, 302);
+		}
+	}
+
 	const response = await next();
 	/*
 	 * Proxies/CDNs must not serve one cached HTML shell to users with different cookies, or auth

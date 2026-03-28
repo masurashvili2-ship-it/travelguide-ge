@@ -7,14 +7,21 @@ import {
 	topLevelReviews,
 	updateTourComment,
 } from '../../../../../lib/tour-comments';
-import { getTourPostById, isValidTourId } from '../../../../../lib/tours-db';
+import { getPackageById } from '../../../../../lib/guide-packages-db';
+import { isValidTourId } from '../../../../../lib/tours-db';
 
 export const prerender = false;
 
+function publishedPackage(packageId: string) {
+	const pkg = getPackageById(packageId);
+	if (!pkg || pkg.status !== 'published') return null;
+	return pkg;
+}
+
 export const PATCH: APIRoute = async ({ request, params, locals }) => {
-	const tourId = params.tourId ?? '';
+	const packageId = params.packageId ?? '';
 	const commentId = params.commentId ?? '';
-	if (!isValidTourId(tourId) || !isValidTourId(commentId) || !getTourPostById(tourId)) {
+	if (!isValidTourId(packageId) || !isValidTourId(commentId) || !publishedPackage(packageId)) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
@@ -48,7 +55,7 @@ export const PATCH: APIRoute = async ({ request, params, locals }) => {
 		});
 	}
 
-	const result = await updateTourComment('tours', tourId, commentId, user, body, rating);
+	const result = await updateTourComment('packages', packageId, commentId, user, body, rating);
 	if (!result.ok) {
 		const status = result.error === 'Forbidden' ? 403 : result.error === 'Comment not found' ? 404 : 400;
 		return new Response(JSON.stringify({ error: result.error }), {
@@ -57,7 +64,7 @@ export const PATCH: APIRoute = async ({ request, params, locals }) => {
 		});
 	}
 
-	const comments = await listCommentsForPost('tours', tourId);
+	const comments = await listCommentsForPost('packages', packageId);
 	return new Response(
 		JSON.stringify({
 			ok: true,
@@ -70,9 +77,9 @@ export const PATCH: APIRoute = async ({ request, params, locals }) => {
 };
 
 export const DELETE: APIRoute = async ({ params, locals, request }) => {
-	const tourId = params.tourId ?? '';
+	const packageId = params.packageId ?? '';
 	const commentId = params.commentId ?? '';
-	if (!isValidTourId(tourId) || !isValidTourId(commentId) || !getTourPostById(tourId)) {
+	if (!isValidTourId(packageId) || !isValidTourId(commentId) || !publishedPackage(packageId)) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
@@ -87,7 +94,7 @@ export const DELETE: APIRoute = async ({ params, locals, request }) => {
 		});
 	}
 
-	const result = await deleteTourComment('tours', tourId, commentId, user);
+	const result = await deleteTourComment('packages', packageId, commentId, user);
 	if (!result.ok) {
 		const status = result.error === 'Forbidden' ? 403 : result.error === 'Comment not found' ? 404 : 400;
 		return new Response(JSON.stringify({ error: result.error }), {
@@ -96,7 +103,7 @@ export const DELETE: APIRoute = async ({ params, locals, request }) => {
 		});
 	}
 
-	const comments = await listCommentsForPost('tours', tourId);
+	const comments = await listCommentsForPost('packages', packageId);
 	return new Response(
 		JSON.stringify({
 			ok: true,

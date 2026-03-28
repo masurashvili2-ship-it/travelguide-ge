@@ -254,7 +254,11 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 							</div>
 						</details>
 						<details class="site-dd site-dd--account">
-							<summary class="site-dd__trigger site-dd__trigger--account" aria-label={t.navAccount}>
+							<summary
+								class="site-dd__trigger site-dd__trigger--account"
+								id="tg-account-dd-summary"
+								aria-label={t.navAccount}
+							>
 								<svg
 									class="site-dd__user-icon"
 									width="18"
@@ -289,6 +293,12 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 									user ? (
 										<>
 											<p class="site-dd__email muted">{user.email}</p>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'account')}>
+												{t.navDashboard}
+											</a>
+											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'account/messages')} data-tg-messages-link>
+												{t.navMessages}
+											</a>
 											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'contribute')}>
 												{t.contribute}
 											</a>
@@ -375,6 +385,36 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 				} catch (e) {}
 			})();
 		</script>
+		{user ? (
+			<script is:inline>
+				(function () {
+					function bootNotify() {
+						var sum = document.getElementById('tg-account-dd-summary');
+						if (!sum) return;
+						fetch('/api/account/notifications', { credentials: 'same-origin' })
+							.then(function (r) {
+								return r.json();
+							})
+							.then(function (d) {
+								var n = typeof d.unreadMessages === 'number' ? d.unreadMessages : 0;
+								if (n < 1) return;
+								sum.classList.add('site-dd__trigger--has-notify');
+								sum.setAttribute('data-notify-count', n > 99 ? '99+' : String(n));
+								var ml = document.querySelector('[data-tg-messages-link]');
+								if (ml && ml.textContent && n > 0) {
+									ml.textContent = ml.textContent.replace(/\s*\(\d+\)\s*$/, '') + ' (' + (n > 99 ? '99+' : n) + ')';
+								}
+							})
+							.catch(function () {});
+					}
+					if (document.readyState === 'loading') {
+						document.addEventListener('DOMContentLoaded', bootNotify, { once: true });
+					} else {
+						bootNotify();
+					}
+				})();
+			</script>
+		) : null}
 		<script is:inline>
 			(function () {
 				function qs(id) {

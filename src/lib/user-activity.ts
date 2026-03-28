@@ -52,7 +52,15 @@ function normalizeEntry(raw: Record<string, unknown>): UserActivityEntry | null 
 	if (kind !== 'login' && kind !== 'review_posted' && kind !== 'reply_posted') return null;
 	const tourId = typeof raw.tourId === 'string' ? raw.tourId : undefined;
 	const postKind: CommentPostKind | undefined =
-		raw.postKind === 'what-to-do' ? 'what-to-do' : raw.postKind === 'tours' ? 'tours' : undefined;
+		raw.postKind === 'what-to-do'
+			? 'what-to-do'
+			: raw.postKind === 'tours'
+				? 'tours'
+				: raw.postKind === 'guides'
+					? 'guides'
+					: raw.postKind === 'packages'
+						? 'packages'
+						: undefined;
 	const postTitle = typeof raw.postTitle === 'string' ? raw.postTitle : undefined;
 	const postSlug = typeof raw.postSlug === 'string' ? raw.postSlug : undefined;
 	const commentId = typeof raw.commentId === 'string' ? raw.commentId : undefined;

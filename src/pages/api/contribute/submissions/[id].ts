@@ -40,8 +40,8 @@ export const POST: APIRoute = async ({ params, request, locals }) => {
 
 	const fd = await request.formData();
 
-	if (sub.kind === 'tours') {
-		const parsed = parseTourLikeContributionPayload(fd, 'tours');
+	if (sub.kind === 'what-to-do') {
+		const parsed = parseTourLikeContributionPayload(fd);
 		if (!parsed.ok) {
 			return new Response(JSON.stringify({ error: parsed.error }), {
 				status: 400,
@@ -55,22 +55,7 @@ export const POST: APIRoute = async ({ params, request, locals }) => {
 				headers: { 'Content-Type': 'application/json' },
 			});
 		}
-	} else if (sub.kind === 'what-to-do') {
-		const parsed = parseTourLikeContributionPayload(fd, 'what-to-do');
-		if (!parsed.ok) {
-			return new Response(JSON.stringify({ error: parsed.error }), {
-				status: 400,
-				headers: { 'Content-Type': 'application/json' },
-			});
-		}
-		const result = updatePendingSubmission(id, user.id, parsed.payload);
-		if (!result.ok) {
-			return new Response(JSON.stringify({ error: result.error }), {
-				status: 400,
-				headers: { 'Content-Type': 'application/json' },
-			});
-		}
-	} else {
+	} else if (sub.kind === 'page') {
 		const parsed = parsePageContributionPayloadFromFormData(fd);
 		if (!parsed.ok) {
 			return new Response(JSON.stringify({ error: parsed.error }), {
@@ -85,6 +70,11 @@ export const POST: APIRoute = async ({ params, request, locals }) => {
 				headers: { 'Content-Type': 'application/json' },
 			});
 		}
+	} else {
+		return new Response(JSON.stringify({ error: 'Unsupported submission type' }), {
+			status: 400,
+			headers: { 'Content-Type': 'application/json' },
+		});
 	}
 
 	return new Response(JSON.stringify({ ok: true, updated: true }), {

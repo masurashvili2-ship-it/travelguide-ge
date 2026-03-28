@@ -435,6 +435,26 @@ header.site {
 	padding-inline: 0.45rem 0.5rem;
 	min-width: 2.5rem;
 }
+.site-dd__trigger--account.site-dd__trigger--has-notify {
+	position: relative;
+}
+.site-dd__trigger--account.site-dd__trigger--has-notify::after {
+	content: attr(data-notify-count);
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 1rem;
+	height: 1rem;
+	padding: 0 0.28rem;
+	font-size: 0.62rem;
+	font-weight: 700;
+	line-height: 1rem;
+	color: #fff;
+	background: var(--danger, #b91c1c);
+	border-radius: 999px;
+	transform: translate(18%, -18%);
+	pointer-events: none;
+}
 .site-dd__email {
 	margin: 0;
 	padding: 0.45rem 0.95rem 0.5rem;

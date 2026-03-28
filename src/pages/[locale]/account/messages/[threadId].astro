@@ -1,0 +1,184 @@
+---
+import Shell from '../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { ui } from '../../../../lib/strings';
+import { readUsers } from '../../../../lib/auth';
+import { getBookingById } from '../../../../lib/bookings-db';
+import {
+	getThreadForUser,
+	markThreadRead,
+	otherParticipantId,
+} from '../../../../lib/platform-messages-db';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+const threadId = Astro.params.threadId;
+if ((loc !== 'en' && loc !== 'ka' && loc !== 'ru') || !threadId) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const user = Astro.locals.user!;
+
+const thread = getThreadForUser(threadId, user.id);
+if (!thread) {
+	return new Response(null, { status: 404 });
+}
+markThreadRead(threadId, user.id);
+
+const users = await readUsers();
+const otherId = otherParticipantId(thread, user.id);
+const other = otherId ? users.find((u) => u.id === otherId) : undefined;
+const otherLabel = other?.displayName?.trim() || other?.email || 'User';
+const booking = thread.booking_id ? getBookingById(thread.booking_id) : null;
+
+const listUrl = getRelativeLocaleUrl(locale, 'account/messages');
+const dashUrl = getRelativeLocaleUrl(locale, 'account');
+---
+
+<Shell
+	locale={locale}
+	subpath={`account/messages/${threadId}`}
+	title={`${t.accountMessagesTitle} · ${otherLabel}`}
+	seoTitle={t.accountMessagesTitle}
+	robotsNoindex={true}
+>
+	<div class="account-thread">
+		<p class="account-thread__back muted">
+			<a href={listUrl}>{t.accountBack}</a>
+			{' · '}
+			<a href={dashUrl}>{t.accountDashboardTitle}</a>
+		</p>
+		<h1 class="account-thread__h">{t.accountThreadWith} {otherLabel}</h1>
+		{
+			booking ? (
+				<p class="muted" style="margin:0 0 1rem;font-size:0.92rem">
+					{t.accountBookingRefShort}: <strong>{booking.ref}</strong> · {booking.package_title}
+				</p>
+			) : null
+		}
+
+		<div class="account-thread__stream" id="tg-msg-stream" aria-live="polite">
+			{
+				thread.messages.map((m) => {
+					const mine = m.from_user_id === user.id;
+					return (
+						<div class:list={['account-thread__bubble', mine && 'account-thread__bubble--mine']}>
+							<div class="account-thread__meta muted">
+								{mine ? 'You' : otherLabel} · {new Date(m.created_at).toLocaleString()}
+							</div>
+							<div class="account-thread__body">{m.body}</div>
+						</div>
+					);
+				})
+			}
+		</div>
+
+		<form id="tg-thread-reply-form" class="account-thread__compose" data-thread-id={threadId}>
+			<label class="visually-hidden" for="tg-thread-body">{t.accountMessagePlaceholder}</label>
+			<textarea
+				id="tg-thread-body"
+				class="tg-input account-thread__textarea"
+				rows={4}
+				required
+				maxlength="8000"
+				placeholder={t.accountMessagePlaceholder}
+			/>
+			<button type="submit" class="button button-primary">{t.accountSend}</button>
+		</form>
+		<p id="tg-thread-err" class="notice notice-error" style="display:none;margin-top:0.75rem" role="alert"></p>
+	</div>
+</Shell>
+
+<script>
+	const form = document.getElementById('tg-thread-reply-form') as HTMLFormElement | null;
+	const ta = document.getElementById('tg-thread-body') as HTMLTextAreaElement | null;
+	const err = document.getElementById('tg-thread-err');
+	const stream = document.getElementById('tg-msg-stream');
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!ta || !err || !form || !stream) return;
+		const id = form.dataset.threadId;
+		if (!id) return;
+		err.style.display = 'none';
+		const body = ta.value.trim();
+		if (!body) return;
+		const res = await fetch('/api/account/messages/' + encodeURIComponent(id), {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			credentials: 'same-origin',
+			body: JSON.stringify({ body }),
+		});
+		const data = await res.json().catch(() => ({}));
+		if (!res.ok) {
+			err.textContent = data.error || 'Error';
+			err.style.display = 'block';
+			return;
+		}
+		ta.value = '';
+		window.location.reload();
+	});
+</script>
+
+<style>
+	.account-thread {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 0 1rem 3rem;
+	}
+	.account-thread__back {
+		margin: 2rem 0 0;
+		font-size: 0.9rem;
+	}
+	.account-thread__h {
+		margin: 0.5rem 0 1rem;
+		font-size: clamp(1.15rem, 3vw, 1.45rem);
+	}
+	.account-thread__stream {
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+		margin-bottom: 1.25rem;
+		max-width: 40rem;
+	}
+	.account-thread__bubble {
+		align-self: flex-start;
+		max-width: 92%;
+		padding: 0.65rem 0.85rem;
+		border-radius: 12px;
+		background: var(--surface-2, #f1f5f9);
+		border: 1px solid var(--border, #e2e8f0);
+	}
+	.account-thread__bubble--mine {
+		align-self: flex-end;
+		background: color-mix(in srgb, var(--accent, #2563eb) 12%, var(--surface, #fff));
+		border-color: color-mix(in srgb, var(--accent, #2563eb) 28%, var(--border, #e2e8f0));
+	}
+	.account-thread__meta {
+		font-size: 0.75rem;
+		margin-bottom: 0.35rem;
+	}
+	.account-thread__body {
+		white-space: pre-wrap;
+		word-break: break-word;
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+	.account-thread__compose {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		max-width: 40rem;
+	}
+	.account-thread__textarea {
+		width: 100%;
+		padding: 0.6rem 0.75rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius-sm, 8px);
+		font: inherit;
+		resize: vertical;
+		min-height: 6rem;
+	}
+</style>

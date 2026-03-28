@@ -19,7 +19,6 @@ import {
 	findContentPostBySlug,
 	getContentPostById,
 	isTourSlugUsedByAnotherPost,
-	saveTourPost,
 	saveWhatToDoPost,
 	validateTourPostI18nAndSlug,
 	type ContentPostKind,
@@ -46,7 +45,7 @@ import { getDataDir } from './data-dir';
 const DATA_DIR = getDataDir();
 const STORE_FILE = path.join(DATA_DIR, 'content-submissions.json');
 
-export type SubmissionKind = 'tours' | 'what-to-do' | 'page' | 'guides';
+export type SubmissionKind = 'what-to-do' | 'page' | 'guides';
 
 export type SubmissionStatus = 'pending' | 'approved' | 'rejected' | 'withdrawn';
 
@@ -139,7 +138,10 @@ function readAll(): ContentSubmission[] {
 	try {
 		const raw = JSON.parse(readFileSync(STORE_FILE, 'utf8')) as StoreFile;
 		if (!Array.isArray(raw.submissions)) return [];
-		return raw.submissions.filter((s): s is ContentSubmission => typeof s?.id === 'string');
+		return raw.submissions.filter(
+			(s): s is ContentSubmission =>
+				typeof s?.id === 'string' && (s as ContentSubmission).kind !== 'tours',
+		);
 	} catch {
 		return [];
 	}
@@ -180,8 +182,8 @@ export function isSlugBlockedForSubmission(
 	exceptPublishedPostId?: string | null,
 ): boolean {
 	const normalizedPageSlug = kind === 'page' ? slug.trim().toLowerCase() : slug;
-	if (kind === 'tours' || kind === 'what-to-do') {
-		if (isTourSlugUsedByAnotherPost(kind as ContentPostKind, slug, exceptPublishedPostId ?? null)) return true;
+	if (kind === 'what-to-do') {
+		if (isTourSlugUsedByAnotherPost('what-to-do', slug, exceptPublishedPostId ?? null)) return true;
 	}
 	if (kind === 'guides') {
 		if (isGuideSlugUsedByAnother(slug, exceptPublishedPostId ?? null)) return true;
@@ -244,7 +246,6 @@ export function contributorAuthorEmailForPublishedPost(
 }
 
 function validateTourLikePayload(
-	kind: SubmissionKind,
 	p: TourLikeSubmissionPayload,
 	excludeSubmissionId?: string,
 	exceptPublishedPostId?: string | null,
@@ -254,21 +255,20 @@ function validateTourLikePayload(
 		image: p.image,
 		gallery: p.gallery,
 		location: p.location,
-		category: kind === 'tours' ? p.category : null,
-		whatDoCategories: kind === 'what-to-do' ? p.whatDoCategories : [],
-		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
-		place_ids: kind === 'what-to-do' ? (p.place_ids ?? []) : [],
+		category: null,
+		whatDoCategories: p.whatDoCategories,
+		whatDoSeasons: p.whatDoSeasons,
+		place_ids: p.place_ids ?? [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
-		google_directions_url:
-			kind === 'what-to-do' ? (p.google_directions_url ?? null) : undefined,
+		google_directions_url: p.google_directions_url ?? null,
 		social_links: trimSocialLinks(p.social_links ?? {}),
 		i18n: p.i18n,
 		mode: 'create',
 	};
 	const v = validateTourPostI18nAndSlug(input.slug, input.i18n);
 	if (!v.ok) return v;
-	if (isSlugBlockedForSubmission(kind, p.slug, excludeSubmissionId, exceptPublishedPostId)) {
+	if (isSlugBlockedForSubmission('what-to-do', p.slug, excludeSubmissionId, exceptPublishedPostId)) {
 		return { ok: false, error: 'This slug is already used or has a pending submission' };
 	}
 	return { ok: true };
@@ -302,7 +302,6 @@ function validateGuidePayload(
 
 function unpublishLivePost(s: ContentSubmission): { ok: true } | { ok: false; error: string } {
 	if (!s.published_id) return { ok: true };
-	if (s.kind === 'tours') return deleteContentPostById('tours', s.published_id);
 	if (s.kind === 'what-to-do') return deleteContentPostById('what-to-do', s.published_id);
 	if (s.kind === 'guides') return deleteGuideById(s.published_id);
 	return deletePagePostById(s.published_id);
@@ -314,16 +313,6 @@ function restorePayloadFromLive(
 	| { ok: true; payload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload }
 	| { ok: false; error: string } {
 	if (!s.published_id) return { ok: false, error: 'Missing published reference' };
-	if (s.kind === 'tours') {
-		const post = getContentPostById('tours', s.published_id);
-		if (!post) {
-			return {
-				ok: false,
-				error: 'Live tour is no longer on the site. Contact an admin or delete this row.',
-			};
-		}
-		return { ok: true, payload: tourPostToContributionPayload(post, 'tours') };
-	}
 	if (s.kind === 'what-to-do') {
 		const post = getContentPostById('what-to-do', s.published_id);
 		if (!post) {
@@ -332,7 +321,7 @@ function restorePayloadFromLive(
 				error: 'Live item is no longer on the site. Contact an admin or delete this row.',
 			};
 		}
-		return { ok: true, payload: tourPostToContributionPayload(post, 'what-to-do') };
+		return { ok: true, payload: tourPostToContributionPayload(post) };
 	}
 	if (s.kind === 'guides') {
 		const guide = getGuideById(s.published_id);
@@ -377,8 +366,10 @@ export function addContentSubmission(
 		check = validatePagePayload(payload as PageSubmissionPayload);
 	} else if (kind === 'guides') {
 		check = validateGuidePayload(payload as GuideSubmissionPayload);
+	} else if (kind === 'what-to-do') {
+		check = validateTourLikePayload(payload as TourLikeSubmissionPayload);
 	} else {
-		check = validateTourLikePayload(kind, payload as TourLikeSubmissionPayload);
+		return { ok: false, error: 'Invalid submission kind' };
 	}
 	if (!check.ok) return check;
 
@@ -479,8 +470,14 @@ export function updatePendingSubmission(
 		check = validatePagePayload(nextPayload as PageSubmissionPayload, submissionId, exceptPost);
 	} else if (s.kind === 'guides') {
 		check = validateGuidePayload(nextPayload as GuideSubmissionPayload, submissionId, exceptPost);
+	} else if (s.kind === 'what-to-do') {
+		check = validateTourLikePayload(
+			nextPayload as TourLikeSubmissionPayload,
+			submissionId,
+			exceptPost,
+		);
 	} else {
-		check = validateTourLikePayload(s.kind, nextPayload as TourLikeSubmissionPayload, submissionId, exceptPost);
+		return { ok: false, error: 'Invalid submission kind' };
 	}
 	if (!check.ok) return check;
 
@@ -532,80 +529,6 @@ export function approveSubmission(
 		author_email: s.author_email,
 	};
 	const now = Date.now();
-
-	if (s.kind === 'tours') {
-		const p = s.payload as TourLikeSubmissionPayload;
-		const existingId = s.published_id;
-		const existing = existingId ? getContentPostById('tours', existingId) : null;
-
-		if (existing) {
-			if (isTourSlugUsedByAnotherPost('tours', p.slug, existing.id)) {
-				return { ok: false, error: 'Slug conflict — resolve duplicates before approving' };
-			}
-			if (isSlugBlockedExceptSelf(s.id, 'tours', p.slug)) {
-				return { ok: false, error: 'Another pending submission uses this slug' };
-			}
-			const result = saveTourPost({
-				id: existing.id,
-				mode: 'update',
-				slug: p.slug,
-				image: p.image,
-				gallery: p.gallery,
-				location: p.location,
-				category: p.category,
-				physical_rating: p.physical_rating,
-				driving_distance: p.driving_distance,
-				social_links: trimSocialLinks(p.social_links ?? {}),
-				i18n: p.i18n,
-				author_user_id: author.author_user_id,
-				author_email: author.author_email,
-			});
-			if (!result.ok) return { ok: false, error: result.error };
-			list[idx] = {
-				...s,
-				status: 'approved',
-				updated_at: now,
-				reviewed_at: now,
-				reviewed_by_email: reviewerEmail,
-				reject_reason: null,
-				published_id: existing.id,
-			};
-			writeAll(list);
-			return { ok: true, publishedId: existing.id };
-		}
-
-		if (isTourSlugUsedByAnotherPost('tours', p.slug, null) || isSlugBlockedExceptSelf(s.id, 'tours', p.slug)) {
-			return { ok: false, error: 'Slug conflict — resolve duplicates before approving' };
-		}
-		const result = saveTourPost({
-			slug: p.slug,
-			image: p.image,
-			gallery: p.gallery,
-			location: p.location,
-			category: p.category,
-			physical_rating: p.physical_rating,
-			driving_distance: p.driving_distance,
-			social_links: trimSocialLinks(p.social_links ?? {}),
-			i18n: p.i18n,
-			mode: 'create',
-			author_user_id: author.author_user_id,
-			author_email: author.author_email,
-		});
-		if (!result.ok) return { ok: false, error: result.error };
-		const created = findContentPostBySlug('tours', p.slug);
-		if (!created) return { ok: false, error: 'Save succeeded but post not found' };
-		list[idx] = {
-			...s,
-			status: 'approved',
-			updated_at: now,
-			reviewed_at: now,
-			reviewed_by_email: reviewerEmail,
-			reject_reason: null,
-			published_id: created.id,
-		};
-		writeAll(list);
-		return { ok: true, publishedId: created.id };
-	}
 
 	if (s.kind === 'what-to-do') {
 		const p = s.payload as TourLikeSubmissionPayload;

@@ -7,24 +7,27 @@ import {
 	listCommentsForPost,
 	topLevelReviews,
 } from '../../../../lib/tour-comments';
-import { getTourPostById, isValidTourId, postSnapshotForActivity } from '../../../../lib/tours-db';
+import { getPackageById, packageSnapshotForActivity } from '../../../../lib/guide-packages-db';
+import { isValidTourId } from '../../../../lib/tours-db';
 import { appendUserActivity } from '../../../../lib/user-activity';
-
-function isUuid(s: string): boolean {
-	return isValidTourId(s);
-}
 
 export const prerender = false;
 
+function publishedPackage(packageId: string) {
+	const pkg = getPackageById(packageId);
+	if (!pkg || pkg.status !== 'published') return null;
+	return pkg;
+}
+
 export const GET: APIRoute = async ({ params }) => {
-	const tourId = params.tourId ?? '';
-	if (!isValidTourId(tourId) || !getTourPostById(tourId)) {
+	const packageId = params.packageId ?? '';
+	if (!isValidTourId(packageId) || !publishedPackage(packageId)) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
-	const comments = await listCommentsForPost('tours', tourId);
+	const comments = await listCommentsForPost('packages', packageId);
 	return new Response(
 		JSON.stringify({
 			comments,
@@ -36,21 +39,21 @@ export const GET: APIRoute = async ({ params }) => {
 };
 
 export const POST: APIRoute = async ({ request, params, locals }) => {
-	const tourId = params.tourId ?? '';
-	if (!isValidTourId(tourId)) {
+	const packageId = params.packageId ?? '';
+	if (!isValidTourId(packageId)) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
-	const post = getTourPostById(tourId);
-	if (!post) {
+	const pkg = publishedPackage(packageId);
+	if (!pkg) {
 		return new Response(JSON.stringify({ error: 'Not found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
-	const postSnap = postSnapshotForActivity(post);
+	const postSnap = packageSnapshotForActivity(pkg);
 
 	const user = locals.user ?? (await userFromRequest(request.headers.get('cookie')));
 	if (!user) {
@@ -70,23 +73,23 @@ export const POST: APIRoute = async ({ request, params, locals }) => {
 			parentId = json.parentId;
 		}
 		if (parentId) {
-			if (!isUuid(parentId)) {
+			if (!isValidTourId(parentId)) {
 				return new Response(JSON.stringify({ error: 'Invalid parent comment' }), {
 					status: 400,
 					headers: { 'Content-Type': 'application/json' },
 				});
 			}
-			const result = await addTourReply('tours', tourId, user, parentId, body);
+			const result = await addTourReply('packages', packageId, user, parentId, body);
 			if (!result.ok) {
 				return new Response(JSON.stringify({ error: result.error }), {
 					status: 400,
 					headers: { 'Content-Type': 'application/json' },
 				});
 			}
-			const comments = await listCommentsForPost('tours', tourId);
+			const comments = await listCommentsForPost('packages', packageId);
 			void appendUserActivity(user.id, 'reply_posted', {
-				tourId,
-				postKind: 'tours',
+				tourId: packageId,
+				postKind: 'packages',
 				postTitle: postSnap.postTitle,
 				postSlug: postSnap.postSlug,
 				commentId: result.comment.id,
@@ -110,7 +113,7 @@ export const POST: APIRoute = async ({ request, params, locals }) => {
 		});
 	}
 
-	const result = await addTourComment('tours', tourId, user, rating, body);
+	const result = await addTourComment('packages', packageId, user, rating, body);
 	if (!result.ok) {
 		return new Response(JSON.stringify({ error: result.error }), {
 			status: 400,
@@ -118,10 +121,10 @@ export const POST: APIRoute = async ({ request, params, locals }) => {
 		});
 	}
 
-	const comments = await listCommentsForPost('tours', tourId);
+	const comments = await listCommentsForPost('packages', packageId);
 	void appendUserActivity(user.id, 'review_posted', {
-		tourId,
-		postKind: 'tours',
+		tourId: packageId,
+		postKind: 'packages',
 		postTitle: postSnap.postTitle,
 		postSlug: postSnap.postSlug,
 		commentId: result.comment.id,

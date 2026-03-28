@@ -46,23 +46,18 @@ export function buildAdminQueryLink(
 export function filterTourRowsForAdmin(
 	rows: AdminTourListItem[],
 	q: string,
-	kind: 'tours' | 'what-to-do',
 	category?: string,
 ): AdminTourListItem[] {
 	let result = rows;
 	if (category) {
-		result = result.filter((row) =>
-			kind === 'what-to-do'
-				? (row.whatDoCategories ?? []).includes(category)
-				: row.category === category,
-		);
+		result = result.filter((row) => (row.whatDoCategories ?? []).includes(category));
 	}
 	const n = q.trim().toLowerCase();
 	if (!n) return result;
 	const terms = n.split(/\s+/).filter(Boolean);
 	return result.filter((row) => {
 		const author =
-			row.author_email?.trim() || contributorAuthorEmailForPublishedPost(kind, row.id) || '';
+			row.author_email?.trim() || contributorAuthorEmailForPublishedPost('what-to-do', row.id) || '';
 		const hay = [row.slug, row.titles.en, row.titles.ka, row.titles.ru, author]
 			.join(' ')
 			.toLowerCase();

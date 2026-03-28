@@ -2,8 +2,11 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { getDataDir } from './data-dir';
 
-/** Same values as `ContentPostKind` in tours-db — kept local so this module needs no tours-db import. */
-export type CommentPostKind = 'tours' | 'what-to-do' | 'guides';
+/**
+ * `tours` = legacy editorial tours (removed); kept for existing JSON rows.
+ * `packages` = guide tour packages (`guide-packages.json`).
+ */
+export type CommentPostKind = 'tours' | 'what-to-do' | 'guides' | 'packages';
 
 /** Top-level review: rating 1–5. Replies: rating null, parentId set. */
 export type TourComment = {
@@ -45,8 +48,10 @@ function normalizeComment(raw: Record<string, unknown>): TourComment | null {
 	}
 
 	const updatedAt = typeof raw.updatedAt === 'number' ? raw.updatedAt : undefined;
-	const postKind: CommentPostKind =
-		raw.postKind === 'what-to-do' ? 'what-to-do' : raw.postKind === 'guides' ? 'guides' : 'tours';
+	let postKind: CommentPostKind = 'tours';
+	if (raw.postKind === 'what-to-do') postKind = 'what-to-do';
+	else if (raw.postKind === 'guides') postKind = 'guides';
+	else if (raw.postKind === 'packages') postKind = 'packages';
 
 	return {
 		id,

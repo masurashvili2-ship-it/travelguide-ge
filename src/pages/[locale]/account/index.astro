@@ -1,0 +1,330 @@
+---
+import Shell from '../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+import { getStoredUserById } from '../../../lib/auth';
+import { listBookingsForCustomerEmail, listBookingsForGuide } from '../../../lib/bookings-db';
+import { getGuides } from '../../../lib/guides-db';
+import { listPackagesForGuide } from '../../../lib/guide-packages-db';
+import { listSubmissionsForUser, type ContentSubmission, type SubmissionKind } from '../../../lib/submissions-db';
+import { countUnreadPlatformMessages } from '../../../lib/platform-messages-db';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const user = Astro.locals.user!;
+
+const profile = await getStoredUserById(user.id);
+const displayName = profile?.displayName?.trim() ?? '';
+
+const guides = getGuides().filter((g) => g.author_user_id === user.id);
+const primaryGuide = guides[0] ?? null;
+const customerBookings = listBookingsForCustomerEmail(user.email);
+const guideBookings = primaryGuide ? listBookingsForGuide(primaryGuide.id) : [];
+const submissions = listSubmissionsForUser(user.id);
+const pkgCount = primaryGuide ? listPackagesForGuide(primaryGuide.id).length : 0;
+const unreadMsg = countUnreadPlatformMessages(user.id);
+
+const msgUrl = getRelativeLocaleUrl(locale, 'account/messages');
+const contributeUrl = getRelativeLocaleUrl(locale, 'contribute');
+const activityUrl = getRelativeLocaleUrl(locale, 'activity');
+
+function submissionEditPath(kind: SubmissionKind, id: string): string {
+	switch (kind) {
+		case 'what-to-do':
+			return `contribute/what-to-do/edit/${id}`;
+		case 'page':
+			return `contribute/page/edit/${id}`;
+		case 'guides':
+			return `contribute/guide/edit/${id}`;
+		default:
+			return 'contribute';
+	}
+}
+
+function submissionKindLabel(kind: SubmissionKind): string {
+	switch (kind) {
+		case 'what-to-do':
+			return t.accountSubmissionKindWhatToDo;
+		case 'page':
+			return t.accountSubmissionKindPage;
+		case 'guides':
+			return t.accountSubmissionKindGuide;
+		default:
+			return kind;
+	}
+}
+
+function slugOf(s: ContentSubmission): string {
+	const p = s.payload as { slug?: string };
+	return typeof p.slug === 'string' ? p.slug : '—';
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="account"
+	title={t.accountDashboardTitle}
+	seoTitle={t.accountDashboardTitle}
+	seoDescription={t.accountDashboardIntro}
+	robotsNoindex={true}
+>
+	<div class="account-dash">
+		<h1 class="account-dash__h">{t.accountDashboardTitle}</h1>
+		<p class="muted account-dash__intro">{t.accountDashboardIntro}</p>
+
+		<div class="account-dash__grid">
+			<section class="contribute-card account-dash__card">
+				<h2 class="contribute-card__h">{t.accountProfileTitle}</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 0.75rem;font-size:0.9rem">{t.accountDisplayNameHelp}</p>
+					<p style="margin:0 0 0.5rem;font-size:0.88rem">
+						<strong>{t.email}</strong>: {user.email}
+					</p>
+					<form
+						id="tg-account-profile-form"
+						class="account-dash__profile-form"
+						data-saved-msg={t.accountSaved}
+					>
+						<label class="visually-hidden" for="tg-display-name">{t.displayName}</label>
+						<input
+							id="tg-display-name"
+							name="displayName"
+							type="text"
+							class="tg-input"
+							maxlength="120"
+							value={displayName}
+							placeholder={t.displayName}
+							autocomplete="nickname"
+						/>
+						<button type="submit" class="button button-primary">{t.accountSave}</button>
+					</form>
+					<p id="tg-profile-form-msg" class="muted" style="margin:0.5rem 0 0;min-height:1.25rem;font-size:0.88rem" role="status"></p>
+				</div>
+			</section>
+
+			<section class="contribute-card account-dash__card">
+				<h2 class="contribute-card__h">{t.accountMessagesTitle}</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 0.75rem;font-size:0.9rem">{t.accountMessagesIntro}</p>
+					<p style="margin:0">
+						<a class="button button-primary" href={msgUrl}>
+							{t.accountMsgOpen}
+							{unreadMsg > 0 ? ` (${unreadMsg})` : ''}
+						</a>
+					</p>
+				</div>
+			</section>
+
+			<section class="contribute-card account-dash__card account-dash__card--wide">
+				<h2 class="contribute-card__h">{t.accountBookingsTitle}</h2>
+				<div class="contribute-card__bd">
+					<h3 class="account-dash__subh">{t.accountBookingAsCustomer}</h3>
+					{
+						customerBookings.length === 0 ? (
+							<p class="muted">{t.accountBookingsNone}</p>
+						) : (
+							<ul class="account-dash__list">
+								{customerBookings.slice(0, 8).map((b) => (
+									<li>
+										<a href={getRelativeLocaleUrl(locale, `booking/${b.ref}`)}>{b.package_title}</a>
+										<span class="muted"> · {b.ref} · {b.date}</span>
+										{' '}
+										<a class="account-dash__mini" href={getRelativeLocaleUrl(locale, `booking/${b.ref}`)}>
+											{t.accountView}
+										</a>
+									</li>
+								))}
+							</ul>
+						)
+					}
+
+					<h3 class="account-dash__subh" style="margin-top:1.25rem">{t.accountBookingAsGuide}</h3>
+					{
+						!primaryGuide ? (
+							<p class="muted">{t.accountBookingsNone}</p>
+						) : guideBookings.length === 0 ? (
+							<p class="muted">{t.accountBookingsNone}</p>
+						) : (
+							<ul class="account-dash__list">
+								{guideBookings.slice(0, 8).map((b) => (
+									<li>
+										<a href={getRelativeLocaleUrl(locale, `contribute/packages/${b.package_id}/bookings`)}>
+											{b.package_title}
+										</a>
+										<span class="muted"> · {b.ref} · {b.date}</span>
+									</li>
+								))}
+							</ul>
+						)
+					}
+				</div>
+			</section>
+
+			<section class="contribute-card account-dash__card account-dash__card--wide">
+				<h2 class="contribute-card__h">{t.accountSubmissionsTitle}</h2>
+				<div class="contribute-card__bd">
+					{
+						submissions.length === 0 ? (
+							<p class="muted">{t.accountSubmissionsNone}</p>
+						) : (
+							<ul class="account-dash__list">
+								{submissions.slice(0, 12).map((s) => (
+									<li>
+										<strong>{submissionKindLabel(s.kind)}</strong>
+										<code class="account-dash__code">{slugOf(s)}</code>
+										<span class="muted">
+											· {t.accountStatusPrefix}: {s.status}
+										</span>
+										{' '}
+										<a class="account-dash__mini" href={getRelativeLocaleUrl(locale, submissionEditPath(s.kind, s.id))}>
+											{t.accountEdit}
+										</a>
+									</li>
+								))}
+							</ul>
+						)
+					}
+					<p style="margin:0.75rem 0 0">
+						<a class="button" href={contributeUrl}>{t.accountContributeCta}</a>
+					</p>
+				</div>
+			</section>
+
+			<section class="contribute-card account-dash__card">
+				<h2 class="contribute-card__h">{t.accountGuideTitle}</h2>
+				<div class="contribute-card__bd">
+					{
+						!primaryGuide ? (
+							<>
+								<p class="muted">{t.accountGuideNone}</p>
+								<p style="margin:0.75rem 0 0">
+									<a class="button button-primary" href={getRelativeLocaleUrl(locale, 'contribute/guide')}>
+										{t.accountCreateGuide}
+									</a>
+								</p>
+							</>
+						) : (
+							<>
+								<p style="margin:0">
+									<a class="button button-primary" href={getRelativeLocaleUrl(locale, `contribute/guide/edit/${primaryGuide.id}`)}>
+										{t.accountEdit} ({primaryGuide.slug})
+									</a>
+								</p>
+								<p style="margin:0.75rem 0 0;font-size:0.9rem" class="muted">
+									{t.accountPackagesTitle}: {pkgCount}
+								</p>
+								<p style="margin:0.5rem 0 0">
+									<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/packages')}>{t.accountPackagesCta}</a>
+								</p>
+							</>
+						)
+					}
+				</div>
+			</section>
+
+			<section class="contribute-card account-dash__card">
+				<h2 class="contribute-card__h">{t.navActivityLog}</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 0.75rem">{t.activityLogIntro}</p>
+					<a class="button" href={activityUrl}>{t.navActivityLog}</a>
+				</div>
+			</section>
+		</div>
+	</div>
+</Shell>
+
+<script>
+	const form = document.getElementById('tg-account-profile-form') as HTMLFormElement | null;
+	const msg = document.getElementById('tg-profile-form-msg');
+	const input = document.getElementById('tg-display-name') as HTMLInputElement | null;
+	const savedMsg = form?.dataset.savedMsg || 'Saved.';
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!msg || !input) return;
+		msg.textContent = '';
+		const res = await fetch('/api/account/profile', {
+			method: 'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			credentials: 'same-origin',
+			body: JSON.stringify({ displayName: input.value }),
+		});
+		const data = await res.json().catch(() => ({}));
+		if (!res.ok) {
+			msg.textContent = data.error || 'Error';
+			return;
+		}
+		msg.textContent = savedMsg;
+	});
+</script>
+
+<style>
+	.account-dash {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+	.account-dash__h {
+		margin: 2rem 0 0.35rem;
+		font-size: clamp(1.35rem, 3vw, 1.75rem);
+	}
+	.account-dash__intro {
+		margin: 0 0 1.5rem;
+		max-width: 52rem;
+		line-height: 1.5;
+	}
+	.account-dash__grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+		margin-bottom: 3rem;
+	}
+	.account-dash__card--wide {
+		grid-column: 1 / -1;
+	}
+	@media (min-width: 900px) {
+		.account-dash__card--wide {
+			grid-column: span 2;
+		}
+	}
+	.account-dash__subh {
+		margin: 0 0 0.5rem;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+	.account-dash__list {
+		margin: 0;
+		padding-left: 1.1rem;
+		line-height: 1.55;
+		font-size: 0.92rem;
+	}
+	.account-dash__code {
+		font-size: 0.85em;
+		margin-left: 0.25rem;
+	}
+	.account-dash__mini {
+		font-size: 0.88rem;
+		font-weight: 600;
+	}
+	.account-dash__profile-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		align-items: center;
+		margin-top: 0.5rem;
+	}
+	.account-dash__profile-form .tg-input {
+		flex: 1 1 12rem;
+		min-width: 0;
+		padding: 0.5rem 0.65rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius-sm, 8px);
+		font: inherit;
+	}
+</style>

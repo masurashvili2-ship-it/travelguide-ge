@@ -81,7 +81,7 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 					? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
 					: 0;
 				const editUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`);
-				const previewUrl = getRelativeLocaleUrl(locale, `packages/${pkg.slug}`);
+				const previewUrl = getRelativeLocaleUrl(locale, `tours/${pkg.slug}`);
 				return (
 					<div class="pkg-admin-row">
 						<div class="pkg-admin-row__left">

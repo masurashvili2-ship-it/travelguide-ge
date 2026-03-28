@@ -6,7 +6,8 @@ import { readUsers } from '../../../lib/auth';
 import { getFooterConfig } from '../../../lib/footer-db';
 import { listAllPagesAdmin } from '../../../lib/pages-db';
 import { listAllRegionsAdmin } from '../../../lib/regions-db';
-import { listAllToursAdmin, listAllWhatToDoAdmin } from '../../../lib/tours-db';
+import { getPackages } from '../../../lib/guide-packages-db';
+import { listAllWhatToDoAdmin } from '../../../lib/tours-db';
 import { listAllGuidesAdmin } from '../../../lib/guides-db';
 import { countPendingSubmissions } from '../../../lib/submissions-db';
 
@@ -23,7 +24,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 }
 
 const users = await readUsers();
-const tourCount = (await listAllToursAdmin()).length;
+const packageCount = getPackages().length;
 const wtdCount = (await listAllWhatToDoAdmin()).length;
 const guideCount = listAllGuidesAdmin().length;
 const regionCount = listAllRegionsAdmin().length;
@@ -31,12 +32,11 @@ const pageRows = listAllPagesAdmin();
 const formError = Astro.url.searchParams.get('error');
 const userEmail = Astro.locals.user.email;
 
-const newTourUrl = getRelativeLocaleUrl(locale, 'admin/tours/new');
 const newWtdUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
 const newGuideUrl = getRelativeLocaleUrl(locale, 'admin/guides/new');
 const guidesListUrl = getRelativeLocaleUrl(locale, 'admin/guides');
 const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
-const toursListUrl = getRelativeLocaleUrl(locale, 'admin/tours');
+const packagesListUrl = getRelativeLocaleUrl(locale, 'admin/packages');
 const wtdListUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const regionsListUrl = getRelativeLocaleUrl(locale, 'admin/regions');
 const pagesAdminUrl = getRelativeLocaleUrl(locale, 'admin/pages');
@@ -80,7 +80,8 @@ const pendingSubmissions = countPendingSubmissions();
 				</a>
 			</p>
 			<p class="muted" style="margin:0 0 0.75rem">
-				<strong>{tourCount}</strong> tour{tourCount === 1 ? '' : 's'} · <strong>{wtdCount}</strong> what-to-do ·{' '}
+				<strong>{packageCount}</strong> tour package{packageCount === 1 ? '' : 's'} · <strong>{wtdCount}</strong>{' '}
+				what-to-do ·{' '}
 				<strong>{guideCount}</strong> guide{guideCount === 1 ? '' : 's'} ·{' '}
 				<strong>{regionCount}</strong> region / municipality / village{regionCount === 1 ? '' : 's'} ·{' '}
 				<strong>{pageRows.length}</strong> page{pageRows.length === 1 ? '' : 's'} · <strong>{users.length}</strong> user
@@ -88,10 +89,7 @@ const pendingSubmissions = countPendingSubmissions();
 				{footerLinkCount === 1 ? '' : 's'}
 			</p>
 			<p style="margin:0 0 0.75rem">
-				<a class="button button-primary" href={toursListUrl}>All tours</a>
-				<a class="button" href={newTourUrl} style="margin-left:0.35rem">
-					New tour
-				</a>
+				<a class="button button-primary" href={packagesListUrl}>Tour packages</a>
 				<a class="button" href={wtdListUrl} style="margin-left:0.35rem">
 					All what to do
 				</a>
@@ -112,11 +110,10 @@ const pendingSubmissions = countPendingSubmissions();
 				</a>
 			</p>
 			<p class="muted" style="margin:0">
-				Data files: <code>tours.json</code>, <code>what-to-do.json</code>, <code>guides.json</code>, <code>regions.json</code>,{' '}
-				<code>pages.json</code>,{' '}
-				<code>content-submissions.json</code>, <code>tour-comments.json</code>, <code>footer.json</code>,{' '}
-				<code>users.json</code>.
-				Tours use one slug and shared photos with per-language text. Pages are Markdown at <code>/{locale}/slug</code>.
+				Data files: <code>guide-packages.json</code>, <code>what-to-do.json</code>, <code>guides.json</code>,{' '}
+				<code>regions.json</code>, <code>pages.json</code>, <code>content-submissions.json</code>,{' '}
+				<code>tour-comments.json</code>, <code>footer.json</code>, <code>users.json</code>.
+				Public tour URLs list bookable packages. Pages are Markdown at <code>/{locale}/slug</code>.
 				The <strong>site footer</strong> (all public pages) is edited only under{' '}
 				<a href={footerAdminUrl}>Footer</a>.
 			</p>

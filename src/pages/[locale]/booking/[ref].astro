@@ -3,6 +3,9 @@ import Shell from '../../../components/Shell.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { getBookingByRef } from '../../../lib/bookings-db';
 import type { Locale } from '../../../lib/strings';
+import { ui } from '../../../lib/strings';
+import { readUsers } from '../../../lib/auth';
+import { bookingLinksUsers, customerUserIdForBooking, guideOwnerUserIdForBooking } from '../../../lib/platform-messages-db';
 
 export const prerender = false;
 
@@ -12,9 +15,23 @@ if ((loc !== 'en' && loc !== 'ka' && loc !== 'ru') || !ref) {
 	return new Response(null, { status: 404 });
 }
 const locale = loc as Locale;
+const t = ui[locale];
 
 const booking = getBookingByRef(ref);
 if (!booking) return new Response(null, { status: 404 });
+
+const sessionUser = Astro.locals.user;
+let bookingMessageUrl: string | null = null;
+if (sessionUser) {
+	const users = await readUsers();
+	const gUid = guideOwnerUserIdForBooking(booking);
+	const cUid = customerUserIdForBooking(booking, users);
+	if (gUid && cUid && bookingLinksUsers(booking, users, gUid, cUid)) {
+		if (sessionUser.id === gUid || sessionUser.id === cUid) {
+			bookingMessageUrl = getRelativeLocaleUrl(locale, `account/messages?start=${booking.id}`);
+		}
+	}
+}
 
 const statusInfo: Record<string, { label: string; color: string; icon: string }> = {
 	pending: { label: 'Pending confirmation', color: '#92400e', icon: '⏳' },
@@ -77,6 +94,16 @@ const sym = currencySymbol[booking.currency] ?? booking.currency;
 				Your booking is confirmed! We look forward to seeing you on <strong>{booking.date}</strong>.
 			</div>
 		)}
+
+		{
+			bookingMessageUrl ? (
+				<p style="text-align:center;margin-top:1.25rem">
+					<a href={bookingMessageUrl} class="button button-primary">
+						{t.accountBookingMessage}
+					</a>
+				</p>
+			) : null
+		}
 
 		<p style="text-align:center;margin-top:1.5rem">
 			<a href={getRelativeLocaleUrl(locale, '/')} class="button">← Back to site</a>

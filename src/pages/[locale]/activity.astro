@@ -4,11 +4,9 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../lib/strings';
 import { ui } from '../../lib/strings';
 import { listActivityForUser, type UserActivityEntry } from '../../lib/user-activity';
-import {
-	getContentPostById,
-	urlSegmentForContentKind,
-	type ContentPostKind,
-} from '../../lib/tours-db';
+import { getGuideById } from '../../lib/guides-db';
+import { getPackageById } from '../../lib/guide-packages-db';
+import { getContentPostById, urlSegmentForContentKind } from '../../lib/tours-db';
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -28,16 +26,35 @@ const entries = await listActivityForUser(user.id);
 
 function postHref(e: UserActivityEntry): string | null {
 	if (!e.tourId || !e.postKind) return null;
-	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	if (e.postKind === 'guides' && e.postSlug?.trim()) {
+		return getRelativeLocaleUrl(locale, `guides/${e.postSlug.trim()}`);
+	}
+	if (e.postKind === 'packages' && e.postSlug?.trim()) {
+		return getRelativeLocaleUrl(locale, `tours/${e.postSlug.trim()}`);
+	}
+	if (e.postKind === 'tours' && e.postSlug?.trim()) {
+		return getRelativeLocaleUrl(locale, `tours/${e.postSlug.trim()}`);
+	}
+	const post = getContentPostById('what-to-do', e.tourId);
 	if (!post) return null;
-	const seg = urlSegmentForContentKind(e.postKind as ContentPostKind);
+	const seg = urlSegmentForContentKind('what-to-do');
 	return getRelativeLocaleUrl(locale, `${seg}/${post.slug}`);
 }
 
 function resolvedTitle(e: UserActivityEntry): string {
 	if (e.postTitle?.trim()) return e.postTitle.trim();
 	if (!e.tourId || !e.postKind) return '';
-	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	if (e.postKind === 'guides') {
+		const g = getGuideById(e.tourId);
+		const n = g?.i18n[locale]?.name ?? g?.i18n.en?.name ?? g?.i18n.ka?.name ?? g?.i18n.ru?.name;
+		return n?.trim() || e.postSlug?.trim() || e.tourId;
+	}
+	if (e.postKind === 'packages') {
+		const p = getPackageById(e.tourId);
+		const b = p?.i18n[locale] ?? p?.i18n.en ?? p?.i18n.ka ?? p?.i18n.ru;
+		return b?.title?.trim() || e.postSlug?.trim() || e.tourId;
+	}
+	const post = getContentPostById('what-to-do', e.tourId);
 	const block = post?.i18n[locale] ?? post?.i18n.en ?? post?.i18n.ka ?? post?.i18n.ru;
 	return block?.title?.trim() || e.postSlug?.trim() || post?.slug || e.tourId;
 }
@@ -45,18 +62,25 @@ function resolvedTitle(e: UserActivityEntry): string {
 function resolvedSlug(e: UserActivityEntry): string {
 	if (e.postSlug?.trim()) return e.postSlug.trim();
 	if (!e.tourId || !e.postKind) return '';
-	const post = getContentPostById(e.postKind as ContentPostKind, e.tourId);
+	if (e.postKind === 'guides') return getGuideById(e.tourId)?.slug ?? '';
+	if (e.postKind === 'packages') return getPackageById(e.tourId)?.slug ?? '';
+	const post = getContentPostById('what-to-do', e.tourId);
 	return post?.slug ?? '';
 }
 
 function postStillExists(e: UserActivityEntry): boolean {
 	if (!e.tourId || !e.postKind) return false;
-	return getContentPostById(e.postKind as ContentPostKind, e.tourId) != null;
+	if (e.postKind === 'guides') return getGuideById(e.tourId) != null;
+	if (e.postKind === 'packages') return getPackageById(e.tourId) != null;
+	if (e.postKind === 'tours') return false;
+	return getContentPostById('what-to-do', e.tourId) != null;
 }
 
 function typeLabel(e: UserActivityEntry): string {
 	if (e.postKind === 'what-to-do') return t.activityLogTypeWhatToDo;
 	if (e.postKind === 'tours') return t.activityLogTypeTour;
+	if (e.postKind === 'packages') return t.activityLogTypeTour;
+	if (e.postKind === 'guides') return t.accountSubmissionKindGuide;
 	return '—';
 }
 

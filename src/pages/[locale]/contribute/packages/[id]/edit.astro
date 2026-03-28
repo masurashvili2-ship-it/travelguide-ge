@@ -5,6 +5,7 @@ import type { Locale } from '../../../../../lib/strings';
 import { getPackageById } from '../../../../../lib/guide-packages-db';
 import { getGuides } from '../../../../../lib/guides-db';
 import '../../../../../styles/contribute.css';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
 
 export const prerender = false;
 
@@ -128,9 +129,23 @@ const isAdmin = user.role === 'admin';
 						</label>
 					</div>
 					<div class="row">
+						<AdminTourPhotoUpload
+							formId="pkg-form"
+							uploadApiPath="/api/contribute/upload-package-image"
+							slugInputId="pkg-slug"
+							widgetPrefix="pkg"
+						/>
+					</div>
+					<div class="row">
 						<label>
 							<span>Cover photo URL</span>
-							<input type="url" name="cover_photo" placeholder="https://…" />
+							<input type="url" name="cover_photo" id="pkg-cover-url" placeholder="https://… or upload above" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery (one image URL per line)</span>
+							<textarea name="gallery_urls" id="pkg-gallery-urls" rows="4" placeholder="/uploads/packages/…"></textarea>
 						</label>
 					</div>
 				</div>
@@ -141,6 +156,7 @@ const isAdmin = user.role === 'admin';
 				<div class="contribute-card__bd">
 					<div class="row"><label><span>Title <em>*</em></span><input type="text" name="en_title" required /></label></div>
 					<div class="row"><label><span>Description</span><textarea name="en_description" rows="5"></textarea></label></div>
+					<div class="row"><label><span>Long article (optional, Markdown)</span><textarea name="en_body" rows="8" placeholder="Extended story below the itinerary…"></textarea></label></div>
 					<div class="row"><label><span>What's included</span><textarea name="en_includes_text" rows="4"></textarea></label></div>
 					<div class="row"><label><span>What's excluded</span><textarea name="en_excludes_text" rows="3"></textarea></label></div>
 					<div class="row"><label><span>Meeting point</span><input type="text" name="en_meeting_point_text" /></label></div>
@@ -160,6 +176,18 @@ const isAdmin = user.role === 'admin';
 				<div class="contribute-card__bd">
 					<div class="row"><label><span>Title</span><input type="text" name="ru_title" /></label></div>
 					<div class="row"><label><span>Description</span><textarea name="ru_description" rows="4"></textarea></label></div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Itinerary (English)</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="font-size:0.9rem;line-height:1.5">
+						One block per calendar day (based on duration). Use <strong>Add segment</strong> to choose Starting, Stop, Optional stop, or Ending — then fill title, optional time (24-hour, 15-minute steps), and description. For submit, the day must begin with Starting, end with Ending, and include at least one main stop. <strong>Markdown</strong> and <em>Link suggestions</em> work in descriptions.
+					</p>
+					<div id="pkg-itinerary-day-tabs" class="pkg-itin-tabs" role="tablist" aria-label="Itinerary day"></div>
+					<div id="pkg-itinerary-root" class="pkg-itin-editor-root"></div>
+					<div id="pkg-link-panel" class="pkg-link-panel" style="display:none" role="region" aria-label="Suggested links"></div>
 				</div>
 			</section>
 
@@ -191,38 +219,122 @@ const isAdmin = user.role === 'admin';
 					<div class="tier-table-wrap">
 						<table class="tier-table">
 							<thead>
-								<tr><th>Tier</th><th>Group Size</th><th>Total Price (per group)</th><th>Typical vehicle</th></tr>
+								<tr><th>Tier</th><th>Group Size</th><th>Total Price (per group)</th><th>Vehicle</th><th>Transport notes</th></tr>
 							</thead>
 							<tbody id="tier-tbody">
 								<tr data-tier-id="t1" data-min="1" data-max="3" data-label="Solo & Couple">
 									<td><strong>Solo &amp; Couple</strong></td><td class="tier-range">1–3 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Sedan / SUV</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 								<tr data-tier-id="t2" data-min="4" data-max="6" data-label="Small Group">
 									<td><strong>Small Group</strong></td><td class="tier-range">4–6 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Minivan</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 								<tr data-tier-id="t3" data-min="7" data-max="11" data-label="Medium Group">
 									<td><strong>Medium Group</strong></td><td class="tier-range">7–11 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Minibus</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 								<tr data-tier-id="t4" data-min="12" data-max="16" data-label="Large Group">
 									<td><strong>Large Group</strong></td><td class="tier-range">12–16 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Minibus</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 								<tr data-tier-id="t5" data-min="17" data-max="25" data-label="XL Group">
 									<td><strong>XL Group</strong></td><td class="tier-range">17–25 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Coach Bus</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 								<tr data-tier-id="t6" data-min="26" data-max="30" data-label="XXL Group">
 									<td><strong>XXL Group</strong></td><td class="tier-range">26–30 people</td>
 									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td class="tier-hint muted">Large Bus</td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">Sedan</option>
+											<option value="suv">SUV</option>
+											<option value="minivan">Minivan</option>
+											<option value="minibus">Minibus</option>
+											<option value="bus">Coach bus</option>
+											<option value="boat">Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -242,7 +354,7 @@ const isAdmin = user.role === 'admin';
 					</label>
 				</div>
 				<div id="transport-details" style="display:none">
-					<div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem">
+					<div class="row" style="margin-top:0.5rem">
 						<label><span>Vehicle type</span>
 							<select name="transport_type">
 								<option value="">— Not specified —</option>
@@ -255,9 +367,7 @@ const isAdmin = user.role === 'admin';
 								<option value="other">Other</option>
 							</select>
 						</label>
-						<label><span>Transport notes</span>
-							<input type="text" name="transport_notes" placeholder="e.g. Air-conditioned Mercedes Sprinter" />
-						</label>
+						<p class="muted" style="font-size:0.82rem;margin:0.5rem 0 0">For private tours, add transport details per group size in the pricing table above.</p>
 					</div>
 				</div>
 				<div class="row" style="margin-top:0.75rem">
@@ -311,7 +421,7 @@ const isAdmin = user.role === 'admin';
 		</section>
 
 		<div style="margin-top:1.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
-			<button type="submit" class="button button--primary" id="pkg-submit-btn" data-action="review">Submit for Review</button>
+			<button type="submit" class="button button--primary" id="pkg-submit-btn" data-action="review" data-label-submit="Submit for Review">Submit for Review</button>
 			{!isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
 			{isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
 			<a href={backUrl} class="button">Cancel</a>
@@ -322,7 +432,7 @@ const isAdmin = user.role === 'admin';
 	</div>
 </Shell>
 
-<script is:inline define:vars={{ pkgJson, backUrl, isAdmin }}>
+<script is:inline define:vars={{ pkgJson, backUrl, isAdmin, contributeLocale: locale }}>
 (function () {
 	var pkg = JSON.parse(pkgJson);
 	var rulesEl = document.getElementById('rules-list');
@@ -345,6 +455,403 @@ const isAdmin = user.role === 'admin';
 		'13d': { hours: 312, label: '13 days' },
 		'14d': { hours: 336, label: '14 days' },
 	};
+
+	var itinDays = [];
+	var activeItinDay = 0;
+	var linkTargetTa = null;
+
+	function genId() {
+		return crypto.randomUUID ? crypto.randomUUID() : 's' + Math.random().toString(36).slice(2);
+	}
+	function dayCountFromHours(h) {
+		h = Math.max(1, Number(h) || 8);
+		return Math.max(1, Math.ceil(h / 24));
+	}
+	function emptyDay(idx) {
+		return { id: genId(), day_index: idx + 1, title: null, stops: [] };
+	}
+	var TIME_QUARTER_HOURS = [];
+	(function initTimeSlots() {
+		for (var h = 0; h < 24; h++) {
+			for (var m = 0; m < 60; m += 15) {
+				TIME_QUARTER_HOURS.push(
+					(h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m,
+				);
+			}
+		}
+	})();
+	function fillTimingSelect(selectEl, currentVal) {
+		var v = currentVal ? String(currentVal).trim() : '';
+		selectEl.innerHTML = '';
+		var opt0 = document.createElement('option');
+		opt0.value = '';
+		opt0.textContent = '— Time (optional) —';
+		selectEl.appendChild(opt0);
+		var found = !v;
+		for (var i = 0; i < TIME_QUARTER_HOURS.length; i++) {
+			var t = TIME_QUARTER_HOURS[i];
+			var o = document.createElement('option');
+			o.value = t;
+			o.textContent = t;
+			selectEl.appendChild(o);
+			if (v === t) found = true;
+		}
+		if (v && !found) {
+			var oc = document.createElement('option');
+			oc.value = v;
+			oc.textContent = v + ' (saved)';
+			selectEl.appendChild(oc);
+		}
+		selectEl.value = v;
+	}
+	function normalizeStop(s) {
+		var k = s && s.kind;
+		if (k !== 'start' && k !== 'stop' && k !== 'optional' && k !== 'end') k = 'stop';
+		return {
+			id: (s && s.id) || genId(),
+			kind: k,
+			title: (s && s.title) || '',
+			body: (s && s.body) || '',
+			timing_note: s && s.timing_note ? String(s.timing_note) : null,
+		};
+	}
+	function normalizeDaysFromPkg(hours, existing) {
+		var need = dayCountFromHours(hours);
+		var days = [];
+		var i;
+		if (existing && existing.length) {
+			for (i = 0; i < need; i++) {
+				var d = existing[i];
+				if (d && d.stops && d.stops.length) {
+					days.push({
+						id: d.id || genId(),
+						day_index: i + 1,
+						title: d.title != null && String(d.title).trim() ? String(d.title).trim() : null,
+						stops: d.stops.map(normalizeStop),
+					});
+				} else days.push(emptyDay(i));
+			}
+		} else for (i = 0; i < need; i++) days.push(emptyDay(i));
+		return days;
+	}
+	function resizeDays(need, prev) {
+		var next = [];
+		for (var i = 0; i < need; i++) next.push(prev[i] ? prev[i] : emptyDay(i));
+		return next;
+	}
+	function currentDurationHours() {
+		var el = document.querySelector('[name="duration_preset"]');
+		var preset = el ? el.value : 'full_day';
+		var d = DURATION_MAP[preset];
+		return d ? d.hours : 8;
+	}
+	function syncActiveDayFromDom() {
+		var root = document.getElementById('pkg-itinerary-root');
+		var panel = root && root.querySelector('.pkg-itin-day-panel');
+		if (!panel || !itinDays.length) return;
+		var d = parseInt(panel.getAttribute('data-day') || '0', 10);
+		if (isNaN(d) || d < 0 || d >= itinDays.length) return;
+		var stops = [];
+		panel.querySelectorAll('.pkg-itin-stop-row').forEach(function (row) {
+			var kindEl = row.querySelector('.pkg-itin-kind');
+			var titleEl = row.querySelector('.pkg-itin-stop-title');
+			var bodyEl = row.querySelector('.pkg-itin-stop-body');
+			var timEl = row.querySelector('.pkg-itin-timing');
+			var timVal = timEl && timEl.value ? timEl.value.trim() : '';
+			stops.push({
+				id: row.getAttribute('data-stop-id') || genId(),
+				kind: kindEl ? kindEl.value : 'stop',
+				title: titleEl ? titleEl.value.trim() : '',
+				body: bodyEl ? bodyEl.value : '',
+				timing_note: timVal || null,
+			});
+		});
+		var dt = panel.querySelector('.pkg-itin-day-title-input');
+		itinDays[d] = {
+			id: panel.getAttribute('data-day-id') || itinDays[d].id,
+			day_index: d + 1,
+			title: dt && dt.value.trim() ? dt.value.trim() : null,
+			stops: stops,
+		};
+	}
+	function renderItineraryTabs(need) {
+		var tabs = document.getElementById('pkg-itinerary-day-tabs');
+		if (!tabs) return;
+		tabs.textContent = '';
+		if (need <= 1) {
+			tabs.style.display = 'none';
+			return;
+		}
+		tabs.style.display = 'flex';
+		for (var d = 0; d < need; d++) {
+			var b = document.createElement('button');
+			b.type = 'button';
+			b.className = 'pkg-itin-tab' + (d === activeItinDay ? ' is-active' : '');
+			b.textContent = 'Day ' + (d + 1);
+			(function (dd) {
+				b.addEventListener('click', function () {
+					syncActiveDayFromDom();
+					activeItinDay = dd;
+					renderItineraryUi();
+				});
+			})(d);
+			tabs.appendChild(b);
+		}
+	}
+	function renderStopRow(stop, si, nStops) {
+		var row = document.createElement('div');
+		row.className = 'pkg-itin-stop-row';
+		row.setAttribute('data-stop-id', stop.id);
+		row.innerHTML =
+			'<div class="pkg-itin-stop-row__head">' +
+			'<span class="pkg-itin-stop-num"></span>' +
+			'<label class="pkg-itin-kind-label"><span class="muted">Type</span> ' +
+			'<select class="pkg-itin-kind"><option value="start">Starting</option><option value="stop">Stop</option><option value="optional">Optional stop</option><option value="end">Ending</option></select></label>' +
+			'<button type="button" class="pkg-itin-remove" aria-label="Remove segment">Remove</button></div>' +
+			'<div class="pkg-itin-title-timing-row">' +
+			'<label class="pkg-itin-field"><span class="pkg-itin-field__l">Segment title</span><input type="text" class="pkg-itin-stop-title" placeholder="e.g. Wine tasting in Signagi" /></label>' +
+			'<label class="pkg-itin-field pkg-itin-field--time"><span class="pkg-itin-field__l">Time (24h)</span><select class="pkg-itin-timing"></select></label>' +
+			'</div>' +
+			'<label class="pkg-itin-field pkg-itin-field--full"><span class="pkg-itin-field__l">Description</span><textarea class="pkg-itin-stop-body" rows="4" placeholder="Markdown ok"></textarea></label>' +
+			'<div class="pkg-itin-link-row"><button type="button" class="button pkg-link-suggest-btn">Link suggestions</button></div>';
+		var kindSel = row.querySelector('.pkg-itin-kind');
+		kindSel.value = stop.kind;
+		row.querySelector('.pkg-itin-stop-title').value = stop.title || '';
+		fillTimingSelect(row.querySelector('.pkg-itin-timing'), stop.timing_note);
+		row.querySelector('.pkg-itin-stop-body').value = stop.body || '';
+		var num = row.querySelector('.pkg-itin-stop-num');
+		num.textContent = String(si + 1);
+		function refreshNumAndBadge() {
+			var k = kindSel.value;
+			var labels = { start: 'Start', stop: 'Stop', optional: 'Opt', end: 'End' };
+			num.textContent = labels[k] ? String(si + 1) + ' · ' + labels[k] : String(si + 1);
+		}
+		refreshNumAndBadge();
+		kindSel.addEventListener('change', refreshNumAndBadge);
+		row.querySelector('.pkg-itin-remove').addEventListener('click', function () {
+			syncActiveDayFromDom();
+			itinDays[activeItinDay].stops.splice(si, 1);
+			renderItineraryUi();
+		});
+		row.querySelector('.pkg-link-suggest-btn').addEventListener('click', function () {
+			linkTargetTa = row.querySelector('.pkg-itin-stop-body');
+			var ta = linkTargetTa;
+			var q = '';
+			if (ta.selectionEnd > ta.selectionStart) q = ta.value.slice(ta.selectionStart, ta.selectionEnd).trim();
+			else {
+				var parts = ta.value.trim().split(/\s+/);
+				q = parts.slice(-5).join(' ');
+			}
+			openLinkPanel(q || (ta.value.trim().slice(0, 100) || 'Tbilisi'));
+		});
+		return row;
+	}
+	function renderDayPanel(d) {
+		var root = document.getElementById('pkg-itinerary-root');
+		if (!root) return;
+		root.textContent = '';
+		var day = itinDays[d];
+		if (!day) return;
+		var panel = document.createElement('div');
+		panel.className = 'pkg-itin-day-panel';
+		panel.setAttribute('data-day', String(d));
+		panel.setAttribute('data-day-id', day.id);
+		var head = document.createElement('div');
+		head.className = 'pkg-itin-day-head';
+		head.innerHTML =
+			'<label class="pkg-itin-day-title-label">Day title <span class="muted">(optional)</span><input type="text" class="pkg-itin-day-title-input" /></label>';
+		head.querySelector('.pkg-itin-day-title-input').value = day.title || '';
+		panel.appendChild(head);
+		var sw = document.createElement('div');
+		sw.className = 'pkg-itin-stops';
+		day.stops.forEach(function (stop, si) {
+			sw.appendChild(renderStopRow(stop, si, day.stops.length));
+		});
+		panel.appendChild(sw);
+		var bar = document.createElement('div');
+		bar.className = 'pkg-itin-add-segment';
+		var barTitle = document.createElement('p');
+		barTitle.className = 'pkg-itin-add-segment__title';
+		barTitle.textContent = 'Add segment';
+		bar.appendChild(barTitle);
+		var hint = document.createElement('p');
+		hint.className = 'muted pkg-itin-add-segment__hint';
+		hint.textContent =
+			'Choose the type for the next part of the day (usually: Starting → one or more stops → Ending).';
+		bar.appendChild(hint);
+		var btnRow = document.createElement('div');
+		btnRow.className = 'pkg-itin-add-segment__buttons';
+		var typeSpecs = [
+			{ kind: 'start', label: 'Starting' },
+			{ kind: 'stop', label: 'Stop' },
+			{ kind: 'optional', label: 'Optional stop' },
+			{ kind: 'end', label: 'Ending' },
+		];
+		typeSpecs.forEach(function (spec) {
+			var b = document.createElement('button');
+			b.type = 'button';
+			b.className = 'button pkg-itin-seg-add-btn';
+			b.textContent = spec.label;
+			b.addEventListener('click', function () {
+				syncActiveDayFromDom();
+				itinDays[activeItinDay].stops.push(
+					normalizeStop({ kind: spec.kind, title: '', body: '', timing_note: null }),
+				);
+				renderItineraryUi();
+			});
+			btnRow.appendChild(b);
+		});
+		bar.appendChild(btnRow);
+		panel.appendChild(bar);
+		root.appendChild(panel);
+	}
+	function openLinkPanel(q) {
+		var p = document.getElementById('pkg-link-panel');
+		if (!p) return;
+		p.style.display = 'block';
+		p.innerHTML = '<p class="muted">Loading…</p>';
+		var url =
+			'/api/contribute/package-link-suggestions?q=' +
+			encodeURIComponent(q) +
+			'&locale=' +
+			encodeURIComponent(contributeLocale);
+		fetch(url, { credentials: 'same-origin' })
+			.then(function (r) {
+				return r.json();
+			})
+			.then(function (data) {
+				var s = data.suggestions || [];
+				if (!s.length) {
+					p.innerHTML = '<p class="muted">No matches. Select words in the text and try again.</p>';
+					return;
+				}
+				p.innerHTML = '<p class="pkg-link-panel__title">Insert link</p><ul class="pkg-link-panel__list"></ul>';
+				var ul = p.querySelector('ul');
+				s.forEach(function (item) {
+					var li = document.createElement('li');
+					var btn = document.createElement('button');
+					btn.type = 'button';
+					btn.className = 'pkg-link-item';
+					btn.textContent = item.title + ' · ' + item.kind;
+					btn.addEventListener('click', function () {
+						if (!linkTargetTa) return;
+						var md = '[' + item.title.replace(/\]/g, '') + '](/' + contributeLocale + '/' + item.path + ')';
+						var v = linkTargetTa.value;
+						var st = linkTargetTa.selectionStart || 0;
+						var en = linkTargetTa.selectionEnd || 0;
+						linkTargetTa.value = v.slice(0, st) + md + v.slice(en);
+						p.style.display = 'none';
+						linkTargetTa.focus();
+					});
+					li.appendChild(btn);
+					ul.appendChild(li);
+				});
+			})
+			.catch(function () {
+				p.innerHTML = '<p class="muted">Could not load suggestions.</p>';
+			});
+	}
+	function renderItineraryUi() {
+		var need = dayCountFromHours(currentDurationHours());
+		itinDays = resizeDays(need, itinDays);
+		if (activeItinDay >= need) activeItinDay = 0;
+		renderItineraryTabs(need);
+		renderDayPanel(activeItinDay);
+	}
+	function onDurationPresetChange() {
+		syncActiveDayFromDom();
+		var need = dayCountFromHours(currentDurationHours());
+		itinDays = resizeDays(need, itinDays);
+		activeItinDay = Math.min(activeItinDay, Math.max(0, need - 1));
+		renderItineraryUi();
+	}
+
+	/** Same rules as server `validatePackageForReview` (for clear UX before save). */
+	function reviewValidationErrors(data) {
+		var errs = [];
+		if (!(data.cover_photo && String(data.cover_photo).trim()))
+			errs.push('Add a cover photo (upload above or paste an image URL).');
+		if (!data.gallery || !data.gallery.length)
+			errs.push('Add at least one gallery image (upload or paste one URL per line).');
+		var en = data.i18n && data.i18n.en;
+		if (!en || !String(en.title || '').trim()) errs.push('English title is required.');
+		if (data.tour_style === 'private') {
+			var hasTier = (data.private_tiers || []).some(function (t) {
+				return t.price > 0;
+			});
+			if (!hasTier) errs.push('Private tours need at least one group-size tier with a price set.');
+		} else {
+			if (!data.base_price || data.base_price <= 0)
+				errs.push('Set a base price per person greater than 0 for group tours.');
+		}
+		var hours = data.duration_hours || 8;
+		var daysNeeded = Math.max(1, Math.ceil(Math.max(1, hours) / 24));
+		var it = (en && en.itinerary_days) || [];
+		if (it.length < daysNeeded) {
+			errs.push(
+				'Complete the English itinerary: ' + daysNeeded + ' day block(s) required for this tour length.',
+			);
+		}
+		for (var d = 0; d < daysNeeded; d++) {
+			var day = it[d];
+			var label = 'Day ' + (d + 1);
+			if (!day || !day.stops || !day.stops.length) {
+				errs.push(label + ': add itinerary segments (start, stops, end).');
+				continue;
+			}
+			var stops = day.stops;
+			if (stops[0].kind !== 'start')
+				errs.push(label + ': the first segment must be “Starting” (first row).');
+			if (stops[stops.length - 1].kind !== 'end')
+				errs.push(label + ': the last segment must be “Ending” (last row).');
+			var middle = stops.slice(1, -1);
+			if (middle.length < 1) errs.push(label + ': add at least one main stop between start and end.');
+			for (var i = 0; i < stops.length; i++) {
+				var s = stops[i];
+				if (!String(s.title || '').trim())
+					errs.push(label + ', segment ' + (i + 1) + ': add a title.');
+				if (!String(s.body || '').trim())
+					errs.push(label + ', segment ' + (i + 1) + ': add a description.');
+				if (i > 0 && i < stops.length - 1 && s.kind !== 'stop' && s.kind !== 'optional') {
+					errs.push(label + ', segment ' + (i + 1) + ': middle segments must be Stop or Optional stop.');
+				}
+			}
+		}
+		return errs;
+	}
+
+	function showPkgFormMessage(statusEl, submitBtn, errs, isError) {
+		if (!statusEl) {
+			window.alert(errs.join('\n'));
+			if (submitBtn) {
+				submitBtn.disabled = false;
+				submitBtn.textContent = submitBtn.getAttribute('data-label-submit') || 'Submit for Review';
+			}
+			return;
+		}
+		if (errs.length === 1) {
+			statusEl.textContent = errs[0];
+		} else {
+			statusEl.innerHTML =
+				'<strong>Please fix the following:</strong><ul class="pkg-form-error-list">' +
+				errs
+					.map(function (e) {
+						return '<li>' + String(e).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</li>';
+					})
+					.join('') +
+				'</ul>';
+		}
+		statusEl.className = 'notice ' + (isError ? 'notice-error' : 'notice-info');
+		statusEl.style.display = 'block';
+		statusEl.setAttribute('role', 'alert');
+		try {
+			statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+		} catch (e) {}
+		if (submitBtn) {
+			submitBtn.disabled = false;
+			submitBtn.textContent = submitBtn.getAttribute('data-label-submit') || 'Submit for Review';
+		}
+	}
 
 	function hoursToPreset(h) {
 		for (var key in DURATION_MAP) {
@@ -385,12 +892,18 @@ const isAdmin = user.role === 'admin';
 			var priceEl = row.querySelector('.tier-price-input');
 			var price = priceEl ? parseFloat(priceEl.value) : NaN;
 			if (!isNaN(price) && price > 0) {
+				var vehEl = row.querySelector('.tier-vehicle-select');
+				var vt = vehEl && vehEl.value ? vehEl.value : null;
+				var notesEl = row.querySelector('.tier-transport-notes-input');
+				var tn = notesEl && notesEl.value.trim() ? notesEl.value.trim() : null;
 				tiers.push({
 					id: row.dataset.tierId,
 					label: row.dataset.label,
 					min_pax: parseInt(row.dataset.min),
 					max_pax: parseInt(row.dataset.max),
 					price: price,
+					vehicle_type: vt,
+					transport_notes: tn,
 				});
 			}
 		});
@@ -418,8 +931,17 @@ const isAdmin = user.role === 'admin';
 			setV('en_includes_text', b.includes_text ?? '');
 			setV('en_excludes_text', b.excludes_text ?? '');
 			setV('en_meeting_point_text', b.meeting_point_text ?? '');
+			setV('en_body', b.body ?? '');
 		}
 	});
+
+	var galEl = document.getElementById('pkg-gallery-urls');
+	if (galEl && pkg.gallery && pkg.gallery.length) galEl.value = pkg.gallery.join('\n');
+
+	itinDays = normalizeDaysFromPkg(pkg.duration_hours, pkg.i18n && pkg.i18n.en && pkg.i18n.en.itinerary_days);
+	renderItineraryUi();
+
+	document.querySelector('[name="duration_preset"]')?.addEventListener('change', onDurationPresetChange);
 
 	// Tour style
 	var styleEl = document.querySelector('[name="tour_style"][value="' + (pkg.tour_style || 'group') + '"]');
@@ -430,10 +952,15 @@ const isAdmin = user.role === 'admin';
 	if (pkg.private_tiers && pkg.private_tiers.length > 0) {
 		pkg.private_tiers.forEach(function (tier) {
 			var row = document.querySelector('[data-tier-id="' + tier.id + '"]');
-			if (row && tier.price > 0) {
+			if (!row) return;
+			var veh = row.querySelector('.tier-vehicle-select');
+			if (veh && tier.vehicle_type) veh.value = tier.vehicle_type;
+			if (tier.price > 0) {
 				var inp = row.querySelector('.tier-price-input');
 				if (inp) inp.value = tier.price;
 			}
+			var notesInp = row.querySelector('.tier-transport-notes-input');
+			if (notesInp && tier.transport_notes) notesInp.value = tier.transport_notes;
 		});
 	}
 
@@ -443,7 +970,6 @@ const isAdmin = user.role === 'admin';
 		if (ti) { ti.checked = true; document.getElementById('transport-details').style.display = ''; }
 	}
 	setV('transport_type', pkg.transport_type ?? '');
-	setV('transport_notes', pkg.transport_notes ?? '');
 
 	if (pkg.pickup_offered) {
 		var po = document.getElementById('pickup-offered');
@@ -501,6 +1027,7 @@ const isAdmin = user.role === 'admin';
 	document.getElementById('add-rule-btn')?.addEventListener('click', function () { addRuleRow(null); });
 
 	function collectRules() {
+		if (!rulesEl) return [];
 		return Array.from(rulesEl.querySelectorAll('.rule-row')).map(function (row) {
 			var kind = row.querySelector('.rule-kind')?.value;
 			return {
@@ -527,9 +1054,30 @@ const isAdmin = user.role === 'admin';
 
 	function getFormData(action) {
 		function fv(n) { return (document.querySelector('[name="' + n + '"]')?.value || '').trim(); }
+		syncActiveDayFromDom();
+		var galleryRaw = document.getElementById('pkg-gallery-urls');
+		var gallery = galleryRaw
+			? galleryRaw.value
+					.split(/\n/)
+					.map(function (s) {
+						return s.trim();
+					})
+					.filter(Boolean)
+			: pkg.gallery || [];
 		var i18n = {};
 		var enTitle = fv('en_title');
-		if (enTitle) i18n.en = { title: enTitle, description: fv('en_description'), includes_text: fv('en_includes_text') || null, excludes_text: fv('en_excludes_text') || null, meeting_point_text: fv('en_meeting_point_text') || null, seo_title: null, seo_description: null };
+		if (enTitle)
+			i18n.en = {
+				title: enTitle,
+				description: fv('en_description'),
+				body: fv('en_body'),
+				itinerary_days: itinDays,
+				includes_text: fv('en_includes_text') || null,
+				excludes_text: fv('en_excludes_text') || null,
+				meeting_point_text: fv('en_meeting_point_text') || null,
+				seo_title: null,
+				seo_description: null,
+			};
 		var kaTitle = fv('ka_title');
 		if (kaTitle) i18n.ka = { title: kaTitle, description: fv('ka_description'), includes_text: null, excludes_text: null, meeting_point_text: null, seo_title: null, seo_description: null };
 		var ruTitle = fv('ru_title');
@@ -548,7 +1096,7 @@ const isAdmin = user.role === 'admin';
 			slug: fv('slug'),
 			status: resolvedStatus,
 			cover_photo: fv('cover_photo') || null,
-			gallery: pkg.gallery || [],
+			gallery: gallery,
 			duration_hours: durInfo.hours,
 			duration_label: durInfo.label,
 			min_people: parseInt(fv('min_people')) || 1,
@@ -561,7 +1109,6 @@ const isAdmin = user.role === 'admin';
 			pricing_rules: collectRules(),
 			transport_included: document.getElementById('transport-included')?.checked || false,
 			transport_type: fv('transport_type') || null,
-			transport_notes: fv('transport_notes') || null,
 			pickup_offered: document.getElementById('pickup-offered')?.checked || false,
 			pickup_notes: fv('pickup_notes') || null,
 			difficulty: fv('difficulty') || null,
@@ -575,13 +1122,30 @@ const isAdmin = user.role === 'admin';
 		e.preventDefault();
 		var statusEl = document.getElementById('pkg-status');
 		var submitBtn = document.getElementById('pkg-submit-btn');
+		if (!submitBtn) return;
 		var action = submitBtn.dataset.action || 'review';
-		var data = getFormData(action);
-		if (!data.i18n.en?.title) {
-			statusEl.textContent = 'English title is required.';
-			statusEl.className = 'notice notice-error';
-			statusEl.style.display = 'block';
+		var data;
+		try {
+			data = getFormData(action);
+		} catch (err) {
+			showPkgFormMessage(
+				statusEl,
+				null,
+				[err && err.message ? err.message : 'Could not read the form. Try refreshing the page.'],
+				true,
+			);
 			return;
+		}
+		if (!data.i18n.en?.title) {
+			showPkgFormMessage(statusEl, submitBtn, ['English title is required.'], true);
+			return;
+		}
+		if (data.status === 'pending_review' || data.status === 'published') {
+			var revErrs = reviewValidationErrors(data);
+			if (revErrs.length) {
+				showPkgFormMessage(statusEl, submitBtn, revErrs, true);
+				return;
+			}
 		}
 		submitBtn.disabled = true;
 		submitBtn.textContent = 'Saving…';
@@ -592,22 +1156,31 @@ const isAdmin = user.role === 'admin';
 				credentials: 'same-origin',
 				body: JSON.stringify(data),
 			});
-			var resp = await res.json();
-			if (res.ok && resp.ok) {
-				window.location.href = backUrl;
-			} else {
-				statusEl.textContent = resp.error || 'Error saving';
-				statusEl.className = 'notice notice-error';
-				statusEl.style.display = 'block';
-				submitBtn.disabled = false;
-				submitBtn.textContent = 'Submit for Review';
+			var rawText = await res.text();
+			var resp = {};
+			try {
+				resp = rawText ? JSON.parse(rawText) : {};
+			} catch (parseErr) {
+				resp = { error: rawText || res.statusText || 'Invalid server response' };
 			}
-		} catch {
-			statusEl.textContent = 'Network error';
-			statusEl.className = 'notice notice-error';
-			statusEl.style.display = 'block';
-			submitBtn.disabled = false;
-			submitBtn.textContent = 'Submit for Review';
+			if (res.ok && resp.ok !== false) {
+				window.location.href = backUrl;
+				return;
+			}
+			var list =
+				Array.isArray(resp.errors) && resp.errors.length
+					? resp.errors
+					: resp.error
+						? [resp.error]
+						: ['Save failed (HTTP ' + res.status + ').'];
+			showPkgFormMessage(statusEl, submitBtn, list, true);
+		} catch (err) {
+			showPkgFormMessage(
+				statusEl,
+				submitBtn,
+				[err && err.message ? err.message : 'Network error — check your connection and try again.'],
+				true,
+			);
 		}
 	});
 
@@ -652,4 +1225,176 @@ const isAdmin = user.role === 'admin';
 .tier-price-input:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
 .checkbox-row-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.925rem; font-weight: 500; }
 .checkbox-row-label input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+
+.pkg-itin-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+.pkg-itin-tab {
+	border: 1px solid #cbd5e1;
+	background: #f8fafc;
+	padding: 0.4rem 0.85rem;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	cursor: pointer;
+	font-family: inherit;
+}
+.pkg-itin-tab.is-active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.pkg-itin-editor-root { margin-bottom: 0.5rem; }
+.pkg-itin-day-head { margin-bottom: 1rem; }
+.pkg-itin-day-title-label { display: block; font-size: 0.88rem; font-weight: 600; }
+.pkg-itin-day-title-input { width: 100%; margin-top: 0.35rem; padding: 0.45rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; box-sizing: border-box; }
+.pkg-itin-stop-row {
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 0.85rem 1rem;
+	margin-bottom: 0.75rem;
+	background: #fafafa;
+}
+.pkg-itin-stop-row__head {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 0.65rem;
+	flex-wrap: wrap;
+}
+.pkg-itin-stop-num {
+	font-size: 0.78rem;
+	font-weight: 800;
+	color: #4f46e5;
+	min-width: 3.5rem;
+	flex-shrink: 0;
+}
+.pkg-itin-kind-label {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	flex: 1;
+	min-width: 12rem;
+}
+.pkg-itin-kind-label .muted { font-weight: 500; }
+.pkg-itin-kind {
+	font-size: 0.82rem;
+	padding: 0.3rem 0.45rem;
+	border-radius: 6px;
+	border: 1px solid #cbd5e1;
+	flex: 1;
+	max-width: 12rem;
+	font-family: inherit;
+}
+.pkg-itin-remove {
+	margin-left: auto;
+	color: #b91c1c;
+	background: #fff;
+	border: 1px solid #fecaca;
+	border-radius: 6px;
+	padding: 0.35rem 0.65rem;
+	cursor: pointer;
+	font: inherit;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+.pkg-itin-title-timing-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: flex-end;
+	gap: 1rem;
+	margin-bottom: 0.55rem;
+}
+.pkg-itin-title-timing-row .pkg-itin-field:first-child {
+	flex: 1 1 0;
+	min-width: 0;
+}
+.pkg-itin-title-timing-row .pkg-itin-field--time {
+	flex: 0 0 auto;
+	width: 9.5rem;
+}
+.pkg-itin-field { display: flex; flex-direction: column; gap: 0.25rem; margin: 0; }
+.pkg-itin-field--full { margin-top: 0.25rem; }
+.pkg-itin-field__l { font-size: 0.78rem; font-weight: 600; color: #475569; }
+.pkg-itin-stop-title,
+.pkg-itin-timing {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.45rem 0.55rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	font: inherit;
+}
+.pkg-itin-stop-body {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.5rem 0.6rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	font: inherit;
+	resize: vertical;
+	min-height: 5rem;
+}
+.pkg-itin-link-row { margin-top: 0.4rem; }
+.pkg-itin-add-segment {
+	margin-top: 1rem;
+	padding: 1rem;
+	border: 1px dashed #c7d2fe;
+	border-radius: 12px;
+	background: #f8fafc;
+}
+.pkg-itin-add-segment__title {
+	margin: 0 0 0.35rem;
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: #1e293b;
+}
+.pkg-itin-add-segment__hint { margin: 0 0 0.75rem; font-size: 0.84rem; line-height: 1.45; }
+.pkg-itin-add-segment__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem;
+}
+.pkg-itin-seg-add-btn { font-size: 0.85rem; padding: 0.4rem 0.75rem; }
+.tier-vehicle-select {
+	width: 100%;
+	max-width: 11rem;
+	padding: 0.35rem 0.45rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 7px;
+	font-size: 0.85rem;
+	font-family: inherit;
+}
+.tier-transport-notes-input {
+	width: 100%;
+	min-width: 10rem;
+	max-width: 18rem;
+	padding: 0.35rem 0.5rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 7px;
+	font-size: 0.85rem;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+.pkg-link-panel {
+	border: 1px solid #c7d2fe;
+	background: #eef2ff;
+	border-radius: 10px;
+	padding: 0.75rem 1rem;
+	margin-top: 0.75rem;
+	font-size: 0.88rem;
+}
+.pkg-link-panel__title { margin: 0 0 0.5rem; font-weight: 700; font-size: 0.9rem; }
+.pkg-link-panel__list { margin: 0; padding-left: 1.1rem; }
+.pkg-link-item {
+	display: block;
+	width: 100%;
+	text-align: left;
+	margin: 0.25rem 0;
+	padding: 0.35rem 0.5rem;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	background: #fff;
+	cursor: pointer;
+	font: inherit;
+}
+.pkg-link-item:hover { border-color: #818cf8; background: #f5f3ff; }
+.pkg-form-error-list { margin: 0.5rem 0 0 1.1rem; padding: 0; line-height: 1.45; }
 </style>

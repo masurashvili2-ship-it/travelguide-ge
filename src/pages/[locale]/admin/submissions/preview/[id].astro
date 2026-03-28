@@ -68,7 +68,6 @@ type PreviewPage = {
 
 type PreviewTour = {
 	kind: 'tour';
-	tourKind: 'tours' | 'what-to-do';
 	row: TourRow;
 	bodyHtml: string;
 	contactHtml: string;
@@ -124,10 +123,9 @@ if (sub.kind === 'page') {
 		seoDescription,
 		canonicalPath,
 	};
-} else {
+} else if (sub.kind === 'what-to-do') {
 	const payload = sub.payload as TourLikeSubmissionPayload;
-	const tourKind = sub.kind as 'tours' | 'what-to-do';
-	let synthetic: TourPost = tourLikePayloadToSyntheticTourPost(sub.id, tourKind, payload);
+	let synthetic: TourPost = tourLikePayloadToSyntheticTourPost(sub.id, payload);
 	synthetic = {
 		...synthetic,
 		author_user_id: sub.author_user_id,
@@ -166,12 +164,11 @@ if (sub.kind === 'page') {
 		contactHtml = typeof contactRaw === 'string' ? contactRaw : await contactRaw;
 	}
 	const hasWtdContactAside =
-		tourKind === 'what-to-do' &&
-		(Boolean(contactHtml.trim()) || hasRenderableContactSocialLinks(row.social_links));
+		Boolean(contactHtml.trim()) || hasRenderableContactSocialLinks(row.social_links);
 
 	const metaDescription = resolveTourMetaDescription(row.seo_description, row.excerpt, row.body);
 	const slug = row.slug;
-	const pathSeg = tourKind === 'tours' ? `tours/${slug}` : `what-to-do/${slug}`;
+	const pathSeg = `what-to-do/${slug}`;
 	const canonicalPath = `/${previewLocale}/${pathSeg}`;
 	const site = Astro.site;
 	const pageUrl = site ? new URL(canonicalPath, site).href : Astro.url.href;
@@ -206,22 +203,14 @@ if (sub.kind === 'page') {
 				: `${row.location.lat.toFixed(4)}, ${row.location.lng.toFixed(4)}`;
 
 	const directionsHref =
-		tourKind === 'what-to-do'
-			? row.google_directions_url?.trim() ||
-				(row.location
-					? googleDirectionsUrlFromCoords(row.location.lat, row.location.lng)
-					: null)
-			: null;
+		row.google_directions_url?.trim() ||
+		(row.location ? googleDirectionsUrlFromCoords(row.location.lat, row.location.lng) : null);
 
-	const listHref =
-		tourKind === 'tours'
-			? getRelativeLocaleUrl(previewLocale, 'tours')
-			: getRelativeLocaleUrl(previewLocale, 'what-to-do');
-	const listLabel = tourKind === 'tours' ? tp.tours : tp.whatToDo;
+	const listHref = getRelativeLocaleUrl(previewLocale, 'what-to-do');
+	const listLabel = tp.whatToDo;
 
 	preview = {
 		kind: 'tour',
-		tourKind,
 		row,
 		bodyHtml,
 		contactHtml,
@@ -238,6 +227,8 @@ if (sub.kind === 'page') {
 		listHref,
 		listLabel,
 	};
+} else {
+	return new Response(null, { status: 404 });
 }
 ---
 
@@ -342,31 +333,15 @@ if (sub.kind === 'page') {
 				</div>
 				<aside
 					class="tour-detail-aside"
-					aria-label={
-						preview.tourKind === 'what-to-do'
-							? `${tp.tourSidebarSectionTitle}${preview.hasWtdContactAside ? ` · ${tp.whatToDoContactAsideTitle}` : ''}`
-							: tp.tourSidebarSectionTitle
-					}
+					aria-label={`${tp.tourSidebarSectionTitle}${preview.hasWtdContactAside ? ` · ${tp.whatToDoContactAsideTitle}` : ''}`}
 				>
 					<div class="tour-detail-aside__stack">
 						<div class="tour-detail-aside__card">
-							<h2
-								class="tour-detail-aside__title"
-								id={preview.tourKind === 'what-to-do' ? 'wtd-aside-summary' : undefined}
-							>
+							<h2 class="tour-detail-aside__title" id="wtd-aside-summary">
 								{tp.tourSidebarSectionTitle}
 							</h2>
-							<dl
-								class="tour-detail-aside__dl"
-								aria-labelledby={preview.tourKind === 'what-to-do' ? 'wtd-aside-summary' : undefined}
-							>
-								{preview.tourKind === 'tours' && preview.row.category ? (
-									<div class="tour-detail-aside__row">
-										<dt class="tour-detail-aside__dt">{tp.tourSidebarCategory}</dt>
-										<dd class="tour-detail-aside__dd">{tp.tourCategories[preview.row.category]}</dd>
-									</div>
-								) : null}
-								{preview.tourKind === 'what-to-do' && preview.row.whatDoCategories.length > 0 ? (
+							<dl class="tour-detail-aside__dl" aria-labelledby="wtd-aside-summary">
+								{preview.row.whatDoCategories.length > 0 ? (
 									<div class="tour-detail-aside__row">
 										<dt class="tour-detail-aside__dt">{tp.tourSidebarCategory}</dt>
 										<dd class="tour-detail-aside__dd">
@@ -374,7 +349,7 @@ if (sub.kind === 'page') {
 										</dd>
 									</div>
 								) : null}
-								{preview.tourKind === 'what-to-do' && preview.row.whatDoSeasons.length > 0 ? (
+								{preview.row.whatDoSeasons.length > 0 ? (
 									<div class="tour-detail-aside__row">
 										<dt class="tour-detail-aside__dt">{tp.tourSidebarSeason}</dt>
 										<dd class="tour-detail-aside__dd">
@@ -416,7 +391,7 @@ if (sub.kind === 'page') {
 										</dd>
 									</div>
 								) : null}
-								{preview.tourKind === 'what-to-do' && preview.directionsHref ? (
+								{preview.directionsHref ? (
 									<div class="tour-detail-aside__row">
 										<dt class="tour-detail-aside__dt">{tp.tourSidebarDirections}</dt>
 										<dd class="tour-detail-aside__dd">
@@ -433,13 +408,11 @@ if (sub.kind === 'page') {
 								) : null}
 							</dl>
 						</div>
-						{preview.tourKind === 'what-to-do' ? (
-							<WhatToDoContactAsideCard
-								title={tp.whatToDoContactAsideTitle}
-								contactHtml={preview.contactHtml}
-								socialLinks={preview.row.social_links}
-							/>
-						) : null}
+						<WhatToDoContactAsideCard
+							title={tp.whatToDoContactAsideTitle}
+							contactHtml={preview.contactHtml}
+							socialLinks={preview.row.social_links}
+						/>
 					</div>
 				</aside>
 			</div>

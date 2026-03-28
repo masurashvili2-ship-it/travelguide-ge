@@ -1,6 +1,131 @@
 {
   "packages": [
     {
+      "id": "8b0994b0-9499-4d23-92ce-bba63a79f081",
+      "guide_id": "d0daeba2-952e-43db-b612-9a3a7df0cd4a",
+      "slug": "kakheti-day-tour-wine-bread-the-city-of-love",
+      "status": "published",
+      "cover_photo": "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love.webp",
+      "gallery": [
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-1.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-2.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-3.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-4.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-5.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-6.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-7.webp",
+        "/uploads/packages/kakheti-day-tour-wine-bread-and-the-city-of-love-8.webp"
+      ],
+      "duration_hours": 8,
+      "duration_label": "Full day",
+      "min_people": 1,
+      "max_people": 10,
+      "languages": [
+        "Englis",
+        "Georgia",
+        "Russian",
+        "Spanish"
+      ],
+      "tour_style": "group",
+      "private_tiers": [],
+      "base_price": 25,
+      "currency": "GEL",
+      "pricing_rules": [],
+      "transport_included": true,
+      "transport_type": "minivan",
+      "transport_notes": "Toyota Camry",
+      "pickup_offered": true,
+      "pickup_notes": "Pickup from your desired location",
+      "difficulty": "easy",
+      "min_age": 6,
+      "cancellation_policy": null,
+      "category": null,
+      "location": null,
+      "place_ids": [],
+      "physical_rating": null,
+      "driving_distance": null,
+      "i18n": {
+        "en": {
+          "title": "Kakheti Day Tour: Wine, Bread & The City of Love",
+          "description": "",
+          "body": "",
+          "itinerary_days": [
+            {
+              "id": "200bec14-77fd-42f0-81f6-294e26cc38b7",
+              "day_index": 1,
+              "title": "Leaving Tbilisi",
+              "stops": [
+                {
+                  "id": "25f1bc28-bf32-4df8-b3dc-6fb7733f41f5",
+                  "kind": "start",
+                  "title": "Starting the trip",
+                  "body": "We will start our day in Tbilisi and begin our comfortable drive toward the beautiful Kakheti[Kakheti](/en/regions/kakheti) region.",
+                  "timing_note": null
+                },
+                {
+                  "id": "ab959780-5a7c-4952-9030-b5c111c99b36",
+                  "kind": "stop",
+                  "title": "Free Wine Tasting in Patardzeuli",
+                  "body": "On our way, we will stop at the KTW traditional winemaking company to taste some delicious local wines for free.",
+                  "timing_note": null
+                },
+                {
+                  "id": "e9084e78-f4d9-40b4-903e-bdbd21a44fcb",
+                  "kind": "optional",
+                  "title": "Churchkhela in Manavi",
+                  "body": "We can make a quick stop in the village of Manavi to taste and buy traditional Georgian Churchkhela, a famous sweet made from nuts and grape juice.",
+                  "timing_note": null
+                },
+                {
+                  "id": "c25400a9-b540-4de0-8b19-15461a2b1baf",
+                  "kind": "optional",
+                  "title": "Local Bakeries in Badiauri",
+                  "body": "Next, we have the option to visit a local bakery in the small village of Badiauri. Here, you can watch how traditional Georgian bread is baked in a special clay oven and try it warm!",
+                  "timing_note": null
+                },
+                {
+                  "id": "b118d9f1-be38-4e47-ad5e-f83e358eb489",
+                  "kind": "stop",
+                  "title": "Exploring the “City of Love”",
+                  "body": "We will arrive in Sighnaghi, one of the prettiest towns in Georgia. It sits high on a hill and is full of old, beautiful houses. From here, you will get an amazing view of the huge snowy Caucasus Mountains and the green valley below.",
+                  "timing_note": null
+                },
+                {
+                  "id": "2741d1df-1b4d-4136-b2fe-59069571069d",
+                  "kind": "stop",
+                  "title": "Walking the Old City Wall",
+                  "body": "Sighnaghi is surrounded by a very old stone defensive wall. We will walk along this wall and climb its towers. It is a really fun experience and a great place to take wonderful photos.",
+                  "timing_note": null
+                },
+                {
+                  "id": "396ddc68-c45e-45e5-89ac-91b289c93301",
+                  "kind": "stop",
+                  "title": "Lunch & The Peaceful Bodbe Convent",
+                  "body": "After our walk, we can stop for a nice lunch in town. Then, we can visit the Bodbe Convent. This is a very peaceful and important church where St. Nino, the woman who brought Christianity to Georgia, is buried.",
+                  "timing_note": null
+                },
+                {
+                  "id": "ee2ccccc-e18d-41a4-97df-66dbcdb48e4f",
+                  "kind": "end",
+                  "title": "Ending the trip",
+                  "body": "After a full day of wine, food, and beautiful sights, we will drive back to Tbilisi. The ride takes about two hours, so you can sit back, relax, and look at the photos from your great day!\n\n",
+                  "timing_note": "Back to Tbilisi"
+                }
+              ]
+            }
+          ],
+          "includes_text": "Free wine testing in KTW\nTransportation",
+          "excludes_text": "Hotel pickup/dropoff",
+          "meeting_point_text": null,
+          "seo_title": null,
+          "seo_description": null
+        }
+      },
+      "created_at": 1774719775421,
+      "updated_at": 1774721480293,
+      "mode": "update"
+    },
+    {
       "id": "a09f5276-0203-45a0-a378-004548daaa2f",
       "guide_id": "d0daeba2-952e-43db-b612-9a3a7df0cd4a",
       "slug": "tbilisi-old-town",
@@ -12,6 +137,8 @@
       "min_people": 1,
       "max_people": 10,
       "languages": [],
+      "tour_style": "group",
+      "private_tiers": [],
       "base_price": 25,
       "currency": "USD",
       "pricing_rules": [
@@ -38,10 +165,25 @@
           "date_to": null
         }
       ],
+      "transport_included": false,
+      "transport_type": null,
+      "transport_notes": null,
+      "pickup_offered": false,
+      "pickup_notes": null,
+      "difficulty": null,
+      "min_age": null,
+      "cancellation_policy": null,
+      "category": null,
+      "location": null,
+      "place_ids": [],
+      "physical_rating": null,
+      "driving_distance": null,
       "i18n": {
         "en": {
           "title": "Sulphur baths (Abanotubani)",
           "description": "erfgerferferf",
+          "body": "",
+          "itinerary_days": [],
           "includes_text": "ferfer\nferferf\nferferf",
           "excludes_text": "ferferf\neferfer",
           "meeting_point_text": "liberty square",
@@ -51,6 +193,8 @@
         "ka": {
           "title": "გოგირდის აბანოები (აბანოთუბანი)",
           "description": "gtrgtrgrt",
+          "body": "",
+          "itinerary_days": [],
           "includes_text": null,
           "excludes_text": null,
           "meeting_point_text": null,
@@ -60,6 +204,8 @@
         "ru": {
           "title": "Черепашье озеро (Кус-Тба)",
           "description": "rtgrtgrt",
+          "body": "",
+          "itinerary_days": [],
           "includes_text": null,
           "excludes_text": null,
           "meeting_point_text": null,
@@ -68,8 +214,7 @@
         }
       },
       "created_at": 1774709046178,
-      "updated_at": 1774712201577,
-      "mode": "update"
+      "updated_at": 1774712201577
     }
   ],
   "availability": [

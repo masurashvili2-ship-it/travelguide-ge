@@ -2,7 +2,8 @@ import { getPagePosts } from './pages-db';
 import { listRegionIndexCards } from './regions-db';
 import type { Locale } from './strings';
 import { isLocale } from './tours-db';
-import { listToursForLocale, listWhatToDoForLocale } from './tours-db';
+import { listAllPublishedPackages } from './guide-packages-db';
+import { listWhatToDoForLocale } from './tours-db';
 import { listGuidesForLocale } from './guides-db';
 
 export type SiteSearchResultKind = 'tour' | 'what-to-do' | 'region' | 'page' | 'guide';
@@ -87,23 +88,29 @@ export function searchSite(locale: Locale, query: string): SiteSearchResult[] {
 
 	const out: SiteSearchResult[] = [];
 
-	for (const item of listToursForLocale(locale)) {
-		const title = item.data.title ?? '';
-		const excerpt = item.data.excerpt ?? '';
-		const body = item.body ?? '';
-		const slug = item.data.slug ?? '';
+	for (const pkg of listAllPublishedPackages()) {
+		const block = pkg.i18n[locale] ?? pkg.i18n['en'] ?? pkg.i18n['ka'] ?? pkg.i18n['ru'];
+		if (!block?.title?.trim()) continue;
+		const title = block.title.trim();
+		const desc = block.description ?? '';
+		const body = block.body ?? '';
+		const slug = pkg.slug;
+		const includes = block.includes_text ?? '';
+		const meeting = block.meeting_point_text ?? '';
 		const score = scoreAgainst(terms, [
 			{ text: title, weight: 12 },
 			{ text: slug, weight: 10 },
-			{ text: excerpt, weight: 7 },
+			{ text: desc, weight: 6 },
 			{ text: body, weight: 2 },
+			{ text: includes, weight: 3 },
+			{ text: meeting, weight: 2 },
 		]);
 		if (score <= 0) continue;
 		out.push({
 			kind: 'tour',
-			path: `tours/${item.data.slug}`,
-			title: title || slug,
-			snippet: makeSnippet(excerpt || body || title, terms),
+			path: `tours/${slug}`,
+			title,
+			snippet: makeSnippet(desc || title, terms),
 			score,
 		});
 	}

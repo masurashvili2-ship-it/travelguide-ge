@@ -153,6 +153,15 @@ export function listBookingsForGuide(guideId: string): Booking[] {
 		.sort((a, b) => b.created_at - a.created_at);
 }
 
+/** Bookings where the customer email matches a registered user's email (case-insensitive). */
+export function listBookingsForCustomerEmail(email: string): Booking[] {
+	const em = email.trim().toLowerCase();
+	if (!em) return [];
+	return getAll()
+		.filter((b) => b.customer_email.trim().toLowerCase() === em)
+		.sort((a, b) => b.created_at - a.created_at);
+}
+
 export function listBookingsForPackage(packageId: string): Booking[] {
 	return getAll()
 		.filter((b) => b.package_id === packageId)

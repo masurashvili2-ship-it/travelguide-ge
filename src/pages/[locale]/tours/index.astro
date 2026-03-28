@@ -2,8 +2,7 @@
 import Shell from '../../../components/Shell.astro';
 import TourHeroGallery from '../../../components/TourHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { listToursForLocale } from '../../../lib/tours-db';
-import { listAllPublishedPackages } from '../../../lib/guide-packages-db';
+import { listAllPublishedPackages, publishedPackagesAsTourListItems } from '../../../lib/guide-packages-db';
 import { getGuideById } from '../../../lib/guides-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
@@ -14,10 +13,41 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const sorted = listToursForLocale(locale);
-
+const heroItems = publishedPackagesAsTourListItems(locale);
 const publishedPackages = listAllPublishedPackages();
 const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+
+const pkgCards = publishedPackages.map((pkg) => {
+	const title =
+		pkg.i18n[locale]?.title ?? pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? pkg.slug;
+	const excerpt =
+		pkg.i18n[locale]?.description ?? pkg.i18n['en']?.description ?? pkg.i18n['ka']?.description ?? '';
+	const sym = symMap[pkg.currency] ?? pkg.currency;
+	const maxDiscount = pkg.pricing_rules.length
+		? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
+		: 0;
+	const guide = getGuideById(pkg.guide_id);
+	const guideName = guide?.i18n?.[locale]?.name ?? guide?.i18n?.['en']?.name ?? '';
+	const enabledTiers =
+		pkg.tour_style === 'private' ? pkg.private_tiers.filter((tier) => tier.price > 0) : [];
+	const lowestTier =
+		enabledTiers.length > 0 ? Math.min(...enabledTiers.map((tier) => tier.price)) : null;
+	const priceLine =
+		pkg.tour_style === 'private' && lowestTier != null
+			? `From ${sym}${lowestTier.toFixed(0)} / group`
+			: `From ${sym}${pkg.base_price} / person`;
+	return {
+		sortKey: title.toLocaleLowerCase(locale),
+		title,
+		excerpt,
+		duration: pkg.duration_label ?? `${pkg.duration_hours}h`,
+		priceLine,
+		href: getRelativeLocaleUrl(locale, `tours/${pkg.slug}`),
+		image: pkg.cover_photo,
+		guideLine: guideName ? `${guideName}` : null,
+		discountPct: maxDiscount,
+	};
+}).sort((a, b) => a.sortKey.localeCompare(b.sortKey, locale, { sensitivity: 'base' }));
 ---
 
 <Shell
@@ -28,7 +58,7 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 	canonicalPath={`/${locale}/tours`}
 >
 	<TourHeroGallery
-		tours={sorted}
+		tours={heroItems}
 		locale={locale}
 		viewLabel={t.viewTour}
 		durationLabel={t.duration}
@@ -38,76 +68,72 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 	/>
 	<div class="card-grid" style="margin-top:0.5rem">
 		{
-			sorted.map((entry) => (
-				<article class="card">
-					<h2>{entry.data.title}</h2>
-					<p class="muted">{entry.data.excerpt}</p>
-					<p class="muted">
-						{t.duration}: {entry.data.duration}
-					</p>
+			pkgCards.map((entry) => (
+				<article class="card pkg-card-public">
+					{entry.image && (
+						<a href={entry.href} class="tours-merged-card__thumb-link" tabindex="-1" aria-hidden="true">
+							<img src={entry.image} alt="" class="pkg-card-public__img" loading="lazy" width="400" height="225" />
+						</a>
+					)}
+					<h2>{entry.title}</h2>
+					{entry.guideLine && <p class="muted" style="font-size:0.85rem;margin:0 0 0.25rem">by {entry.guideLine}</p>}
+					{entry.excerpt && <p class="muted">{entry.excerpt.slice(0, 140)}{entry.excerpt.length > 140 ? '…' : ''}</p>}
+					<p class="muted">{t.duration}: {entry.duration}</p>
 					<div class="tour-badges">
-						{entry.data.price && <span class="price-badge">💰 {entry.data.price}</span>}
+						<span class="price-badge">💰 {entry.priceLine}</span>
+						<span class="price-badge price-badge--book">📅 Bookable</span>
+						{entry.discountPct > 0 && <span class="discount-badge">Up to {entry.discountPct}% off</span>}
 					</div>
-					<a class="btn" href={getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`)}>{t.viewTour}</a>
+					<a class="btn" href={entry.href}>
+						{t.viewTour}
+					</a>
 				</article>
 			))
 		}
 	</div>
-
-	{publishedPackages.length > 0 && (
-		<>
-			<h2 class="section-heading" style="margin-top:3rem">Guide Tour Packages</h2>
-			<p class="muted" style="margin-bottom:1.5rem">Custom tours designed and led by our verified local guides.</p>
-			<div class="card-grid">
-				{publishedPackages.map((pkg) => {
-					const title = pkg.i18n[locale]?.title ?? pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? '';
-					const excerpt = pkg.i18n[locale]?.description ?? pkg.i18n['en']?.description ?? '';
-					const sym = symMap[pkg.currency] ?? pkg.currency;
-					const maxDiscount = pkg.pricing_rules.length
-						? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
-						: 0;
-					const guide = getGuideById(pkg.guide_id);
-					const guideName = guide?.i18n?.[locale]?.name ?? guide?.i18n?.['en']?.name ?? '';
-					const pkgUrl = getRelativeLocaleUrl(locale, `packages/${pkg.slug}`);
-					return (
-						<article class="card pkg-card-public">
-							{pkg.cover_photo && (
-								<img src={pkg.cover_photo} alt={title} class="pkg-card-public__img" loading="lazy" />
-							)}
-							<h2>{title}</h2>
-							{guideName && <p class="muted" style="font-size:0.85rem;margin:0 0 0.25rem">by {guideName}</p>}
-							{excerpt && <p class="muted">{excerpt.slice(0, 100)}{excerpt.length > 100 ? '…' : ''}</p>}
-							<p class="muted">{t.duration}: {pkg.duration_label ?? `${pkg.duration_hours}h`}</p>
-							<div class="tour-badges">
-								<span class="price-badge">💰 From {sym}{pkg.base_price} / person</span>
-								{maxDiscount > 0 && <span class="discount-badge">Up to {maxDiscount}% off</span>}
-							</div>
-							<a class="btn" href={pkgUrl}>Book now</a>
-						</article>
-					);
-				})}
-			</div>
-		</>
-	)}
 </Shell>
 
 <style>
-.tour-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0 0.75rem; }
-.price-badge {
-	background: #eff6ff; color: #1d4ed8;
-	font-size: 0.8rem; font-weight: 600;
-	padding: 0.2rem 0.6rem; border-radius: 99px;
-	border: 1px solid #bfdbfe;
-}
-.discount-badge {
-	background: #dcfce7; color: #15803d;
-	font-size: 0.8rem; font-weight: 700;
-	padding: 0.2rem 0.6rem; border-radius: 99px;
-	border: 1px solid #bbf7d0;
-}
-.pkg-card-public__img {
-	width: 100%; height: 160px; object-fit: cover;
-	border-radius: 8px; margin-bottom: 0.75rem;
-}
-.section-heading { font-size: 1.5rem; font-weight: 800; }
+	.tour-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0.4rem 0 0.75rem;
+	}
+	.price-badge {
+		background: #eff6ff;
+		color: #1d4ed8;
+		font-size: 0.8rem;
+		font-weight: 600;
+		padding: 0.2rem 0.6rem;
+		border-radius: 99px;
+		border: 1px solid #bfdbfe;
+	}
+	.price-badge--book {
+		background: #ecfdf5;
+		color: #047857;
+		border-color: #a7f3d0;
+	}
+	.discount-badge {
+		background: #dcfce7;
+		color: #15803d;
+		font-size: 0.8rem;
+		font-weight: 700;
+		padding: 0.2rem 0.6rem;
+		border-radius: 99px;
+		border: 1px solid #bbf7d0;
+	}
+	.pkg-card-public__img,
+	.tours-merged-card__thumb {
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+		border-radius: 8px;
+		margin-bottom: 0.75rem;
+		display: block;
+	}
+	.tours-merged-card__thumb-link {
+		display: block;
+		text-decoration: none;
+	}
 </style>

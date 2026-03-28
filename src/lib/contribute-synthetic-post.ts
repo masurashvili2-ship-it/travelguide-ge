@@ -6,7 +6,6 @@ import type { TourPost } from './tours-db';
 /** Fills `AdminTourLocalesFields` / edit forms from a queued submission payload. */
 export function tourLikePayloadToSyntheticTourPost(
 	submissionId: string,
-	kind: 'tours' | 'what-to-do',
 	p: TourLikeSubmissionPayload,
 ): TourPost {
 	return {
@@ -15,10 +14,10 @@ export function tourLikePayloadToSyntheticTourPost(
 		image: p.image,
 		gallery: p.gallery,
 		location: p.location,
-		category: kind === 'tours' ? p.category : null,
-		whatDoCategories: kind === 'what-to-do' ? p.whatDoCategories : [],
-		whatDoSeasons: kind === 'what-to-do' ? p.whatDoSeasons : [],
-		place_ids: kind === 'what-to-do' ? (p.place_ids ?? []) : [],
+		category: null,
+		whatDoCategories: p.whatDoCategories,
+		whatDoSeasons: p.whatDoSeasons,
+		place_ids: p.place_ids ?? [],
 		physical_rating: p.physical_rating,
 		driving_distance: p.driving_distance,
 		google_directions_url: p.google_directions_url ?? null,

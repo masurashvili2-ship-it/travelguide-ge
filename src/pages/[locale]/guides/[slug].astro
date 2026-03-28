@@ -149,7 +149,7 @@ const galleryId = `guide-lb-${guide.id.slice(0, 8)}`;
 
 		{guidePackages.length > 0 && (
 			<div class="guide-packages-section">
-				<h2 class="guide-packages-section__title">Available Tours &amp; Packages</h2>
+				<h2 class="guide-packages-section__title">Tours</h2>
 				<div class="guide-packages-grid">
 					{guidePackages.map((pkg) => {
 						const pkgBlock = pkg.i18n[locale] ?? pkg.i18n['en'] ?? pkg.i18n['ka'] ?? pkg.i18n['ru'];
@@ -157,7 +157,7 @@ const galleryId = `guide-lb-${guide.id.slice(0, 8)}`;
 						const pkgDesc = pkgBlock?.description ?? '';
 						const sym = pkgCurrencySymbols[pkg.currency] ?? pkg.currency;
 						return (
-							<a href={getRelativeLocaleUrl(locale, `packages/${pkg.slug}`)} class="guide-pkg-card">
+							<a href={getRelativeLocaleUrl(locale, `tours/${pkg.slug}`)} class="guide-pkg-card">
 								{pkg.cover_photo && (
 									<img src={pkg.cover_photo} alt={pkgTitle} class="guide-pkg-card__img" loading="lazy" />
 								)}

@@ -2,7 +2,7 @@
 import Shell from '../../components/Shell.astro';
 import TourHeroGallery from '../../components/TourHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { listToursForLocale } from '../../lib/tours-db';
+import { publishedPackagesAsTourListItems } from '../../lib/guide-packages-db';
 import type { Locale } from '../../lib/strings';
 import { ui } from '../../lib/strings';
 
@@ -12,8 +12,8 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 }
 const locale = loc as Locale;
 const t = ui[locale];
-const tours = listToursForLocale(locale);
-const featured = tours.slice(0, 6);
+const packages = publishedPackagesAsTourListItems(locale);
+const featured = packages.slice(0, 6);
 ---
 
 <Shell
@@ -35,8 +35,8 @@ const featured = tours.slice(0, 6);
 		{
 			featured.length === 0 ? (
 				<p class="muted">
-					No tours in this language yet. Admins can add them from{' '}
-					<a href={getRelativeLocaleUrl(locale, 'admin')}>Admin</a> → Add tour.
+					No published tour packages yet. Guides can list packages from{' '}
+					<a href={getRelativeLocaleUrl(locale, 'contribute/packages')}>Contribute → My tour packages</a>.
 				</p>
 			) : (
 				<>
@@ -54,10 +54,7 @@ const featured = tours.slice(0, 6);
 							<article class="card">
 								<h2>{entry.data.title}</h2>
 								<p class="muted">{entry.data.excerpt}</p>
-								<p class="muted">
-									{t.duration}: {entry.data.duration}
-									{entry.data.price ? ` · ${entry.data.price}` : ''}
-								</p>
+								<p class="muted">{t.duration}: {entry.data.duration}</p>
 								<a class="btn" href={getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`)}>{t.viewTour}</a>
 							</article>
 						))}

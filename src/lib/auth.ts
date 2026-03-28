@@ -45,6 +45,26 @@ function secret(): string {
 	return 'travelguide-dev-secret-change-me';
 }
 
+export async function getStoredUserById(id: string): Promise<StoredUser | null> {
+	const users = await readUsers();
+	return users.find((u) => u.id === id) ?? null;
+}
+
+export async function updateUserDisplayName(
+	userId: string,
+	displayName: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+	const dn = displayName.trim();
+	if (dn.length > 120) return { ok: false, error: 'Display name is too long' };
+	const users = await readUsers();
+	const u = users.find((x) => x.id === userId);
+	if (!u) return { ok: false, error: 'User not found' };
+	if (dn) u.displayName = dn;
+	else delete u.displayName;
+	await writeUsers(users);
+	return { ok: true };
+}
+
 export async function readUsers(): Promise<StoredUser[]> {
 	try {
 		const raw = await readFile(usersPath(), 'utf-8');

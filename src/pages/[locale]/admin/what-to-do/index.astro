@@ -33,7 +33,7 @@ const userEmail = Astro.locals.user.email;
 const sp = Astro.url.searchParams;
 const q = (sp.get('q') ?? '').trim();
 const categoryFilter = (sp.get('category') ?? '').trim();
-const wtdRowsFiltered = filterTourRowsForAdmin(wtdRows, q, 'what-to-do', categoryFilter);
+const wtdRowsFiltered = filterTourRowsForAdmin(wtdRows, q, categoryFilter);
 const wtdPag = paginateSlice(
 	wtdRowsFiltered,
 	parseAdminListPage(sp, 'page'),

@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import type { UserPublic } from './auth';
-import { type ContentPostKind, getContentPostById, urlSegmentForContentKind } from './tours-db';
+import { getContentPostById, urlSegmentForContentKind } from './tours-db';
 import { getGuideById } from './guides-db';
+import { getPackageById } from './guide-packages-db';
 import {
 	type CommentPostKind,
 	type TourComment,
@@ -10,6 +11,13 @@ import {
 	topLevelReviews,
 	writeAllTourComments,
 } from './tour-comments-data';
+
+function postExistsForComments(postKind: CommentPostKind, postId: string): boolean {
+	if (postKind === 'guides') return getGuideById(postId) != null;
+	if (postKind === 'packages') return getPackageById(postId) != null;
+	if (postKind === 'tours') return false;
+	return getContentPostById('what-to-do', postId) != null;
+}
 
 export type { CommentPostKind, TourComment } from './tour-comments-data';
 export {
@@ -22,17 +30,13 @@ export {
 } from './tour-comments-data';
 
 export async function addTourComment(
-	postKind: ContentPostKind | 'guides',
+	postKind: CommentPostKind,
 	tourId: string,
 	user: UserPublic,
 	rating: number,
 	body: string,
 ): Promise<{ ok: true; comment: TourComment } | { ok: false; error: string }> {
-	const postExists =
-		postKind === 'guides'
-			? getGuideById(tourId) != null
-			: getContentPostById(postKind, tourId) != null;
-	if (!postExists) {
+	if (!postExistsForComments(postKind, tourId)) {
 		return { ok: false, error: 'Post not found' };
 	}
 	const r = Math.round(rating);
@@ -62,7 +66,7 @@ export async function addTourComment(
 	const comment: TourComment = {
 		id: randomUUID(),
 		tourId,
-		postKind: postKind as CommentPostKind,
+		postKind,
 		userId: user.id,
 		userEmail: user.email,
 		rating: r,
@@ -77,17 +81,13 @@ export async function addTourComment(
 }
 
 export async function addTourReply(
-	postKind: ContentPostKind | 'guides',
+	postKind: CommentPostKind,
 	tourId: string,
 	user: UserPublic,
 	parentId: string,
 	body: string,
 ): Promise<{ ok: true; comment: TourComment } | { ok: false; error: string }> {
-	const postExists =
-		postKind === 'guides'
-			? getGuideById(tourId) != null
-			: getContentPostById(postKind, tourId) != null;
-	if (!postExists) {
+	if (!postExistsForComments(postKind, tourId)) {
 		return { ok: false, error: 'Post not found' };
 	}
 	const trimmed = body.trim();
@@ -124,7 +124,7 @@ export async function addTourReply(
 	const comment: TourComment = {
 		id: randomUUID(),
 		tourId,
-		postKind: postKind as CommentPostKind,
+		postKind,
 		userId: user.id,
 		userEmail: user.email,
 		rating: null,
@@ -139,7 +139,7 @@ export async function addTourReply(
 }
 
 export async function updateTourComment(
-	postKind: ContentPostKind | 'guides',
+	postKind: CommentPostKind,
 	tourId: string,
 	commentId: string,
 	actor: UserPublic,
@@ -190,7 +190,7 @@ export async function updateTourComment(
 
 function descendantIdsForRemoval(
 	all: TourComment[],
-	postKind: ContentPostKind,
+	postKind: CommentPostKind,
 	tourId: string,
 	rootId: string,
 ): Set<string> {
@@ -210,7 +210,7 @@ function descendantIdsForRemoval(
 }
 
 export async function deleteTourComment(
-	postKind: ContentPostKind | 'guides',
+	postKind: CommentPostKind,
 	tourId: string,
 	commentId: string,
 	actor: UserPublic,
@@ -259,7 +259,26 @@ export async function listRecentCommentsForAdmin(limit = 100): Promise<RecentCom
 				urlSegment: 'guides',
 			};
 		}
-		const post = getContentPostById(kind, c.tourId);
+		if (kind === 'packages') {
+			const pkg = getPackageById(c.tourId);
+			const block = pkg?.i18n?.en ?? pkg?.i18n?.ka ?? pkg?.i18n?.ru;
+			const title = block?.title?.trim() || '(package)';
+			return {
+				...c,
+				postTitle: title,
+				postSlug: pkg?.slug ?? c.tourId,
+				urlSegment: 'tours',
+			};
+		}
+		if (kind === 'tours') {
+			return {
+				...c,
+				postTitle: '(removed tour)',
+				postSlug: c.tourId,
+				urlSegment: 'tours',
+			};
+		}
+		const post = getContentPostById('what-to-do', c.tourId);
 		const block = post?.i18n.en ?? post?.i18n.ka ?? post?.i18n.ru;
 		const title = block?.title?.trim() || '(untitled)';
 		const slug = post?.slug ?? c.tourId;
@@ -267,7 +286,7 @@ export async function listRecentCommentsForAdmin(limit = 100): Promise<RecentCom
 			...c,
 			postTitle: title,
 			postSlug: slug,
-			urlSegment: urlSegmentForContentKind(kind),
+			urlSegment: urlSegmentForContentKind('what-to-do'),
 		};
 	});
 }

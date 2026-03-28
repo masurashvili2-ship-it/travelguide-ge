@@ -6,8 +6,7 @@ import {
 	parseTourPhysicalRating,
 	type TourPhysicalRatingId,
 } from './tour-physical-rating';
-import { parseContactSocialLinksFromFormGlobal, trimSocialLinks } from './contact-social-links';
-import { parseTourCategory, type TourCategoryId } from './tour-categories';
+import { parseContactSocialLinksFromFormGlobal } from './contact-social-links';
 import { parseGoogleMapsDirectionsUrl } from './google-maps-urls';
 import {
 	isValidSlug,
@@ -23,7 +22,6 @@ export function formFieldsFromFormData(fd: FormData): Record<string, string> {
 
 export function parseTourLikeContributionPayload(
 	fd: FormData,
-	kind: 'tours' | 'what-to-do',
 ): { ok: true; payload: TourLikeSubmissionPayload } | { ok: false; error: string } {
 	const fields = formFieldsFromFormData(fd);
 	const gu = fd.get('gallery_urls');
@@ -37,10 +35,9 @@ export function parseTourLikeContributionPayload(
 	}
 
 	const i18n = buildTourI18nFromContributeForm(fields, {
-		contactSidebar: kind === 'what-to-do',
+		contactSidebar: true,
 	});
-	const social_links =
-		kind === 'what-to-do' ? parseContactSocialLinksFromFormGlobal(fields) : trimSocialLinks({});
+	const social_links = parseContactSocialLinksFromFormGlobal(fields);
 
 	const locParsed = parseTourLocationFromForm(fields);
 	if (locParsed.kind === 'error') {
@@ -48,52 +45,42 @@ export function parseTourLikeContributionPayload(
 	}
 	const locationFromForm = locParsed.kind === 'empty' ? null : locParsed.value;
 
-	let categoryFromForm: TourCategoryId | null = null;
 	let whatDoCategories: WhatToDoCategoryId[] = [];
 	let whatDoSeasons: WhatToDoSeasonId[] = [];
 	let placeIdsFromForm: string[] = [];
 
-	if (kind === 'tours') {
-		const catTrim = (fields.category ?? '').trim();
-		if (catTrim) {
-			const parsed = parseTourCategory(catTrim);
-			if (!parsed) return { ok: false, error: 'Invalid tour category' };
-			categoryFromForm = parsed;
-		}
-	} else {
-		const seen = new Set<string>();
-		for (const v of fd.getAll('categories')) {
-			if (typeof v !== 'string') continue;
-			const t = v.trim();
-			if (!t) continue;
-			const parsed = parseWhatToDoCategory(t);
-			if (!parsed) return { ok: false, error: 'Invalid what-to-do category' };
-			if (seen.has(parsed)) continue;
-			seen.add(parsed);
-			whatDoCategories.push(parsed);
-		}
-		const seenSe = new Set<string>();
-		for (const v of fd.getAll('seasons')) {
-			if (typeof v !== 'string') continue;
-			const t = v.trim();
-			if (!t) continue;
-			const parsed = parseWhatToDoSeason(t);
-			if (!parsed) return { ok: false, error: 'Invalid season' };
-			if (seenSe.has(parsed)) continue;
-			seenSe.add(parsed);
-			whatDoSeasons.push(parsed);
-		}
-		const seenPl = new Set<string>();
-		for (const v of fd.getAll('place_ids')) {
-			if (typeof v !== 'string') continue;
-			const t = v.trim();
-			if (!t) continue;
-			if (seenPl.has(t)) continue;
-			seenPl.add(t);
-			placeIdsFromForm.push(t);
-		}
-		placeIdsFromForm = filterValidRegionIds(placeIdsFromForm);
+	const seen = new Set<string>();
+	for (const v of fd.getAll('categories')) {
+		if (typeof v !== 'string') continue;
+		const t = v.trim();
+		if (!t) continue;
+		const parsed = parseWhatToDoCategory(t);
+		if (!parsed) return { ok: false, error: 'Invalid what-to-do category' };
+		if (seen.has(parsed)) continue;
+		seen.add(parsed);
+		whatDoCategories.push(parsed);
 	}
+	const seenSe = new Set<string>();
+	for (const v of fd.getAll('seasons')) {
+		if (typeof v !== 'string') continue;
+		const t = v.trim();
+		if (!t) continue;
+		const parsed = parseWhatToDoSeason(t);
+		if (!parsed) return { ok: false, error: 'Invalid season' };
+		if (seenSe.has(parsed)) continue;
+		seenSe.add(parsed);
+		whatDoSeasons.push(parsed);
+	}
+	const seenPl = new Set<string>();
+	for (const v of fd.getAll('place_ids')) {
+		if (typeof v !== 'string') continue;
+		const t = v.trim();
+		if (!t) continue;
+		if (seenPl.has(t)) continue;
+		seenPl.add(t);
+		placeIdsFromForm.push(t);
+	}
+	placeIdsFromForm = filterValidRegionIds(placeIdsFromForm);
 
 	const physTrim = (fields.physical_rating ?? '').trim();
 	let physicalRatingFromForm: TourPhysicalRatingId | null;
@@ -108,19 +95,17 @@ export function parseTourLikeContributionPayload(
 	const drivingFromForm = parseDrivingDistance(fields.driving_distance ?? '');
 
 	let googleDirections: string | null = null;
-	if (kind === 'what-to-do') {
-		const dTrim = (fields.google_directions_url ?? '').trim();
-		if (dTrim) {
-			const parsed = parseGoogleMapsDirectionsUrl(dTrim);
-			if (!parsed) {
-				return {
-					ok: false,
-					error:
-						'Invalid Google Maps URL — use maps.google.com, google.com/maps, or a goo.gl link',
-				};
-			}
-			googleDirections = parsed;
+	const dTrim = (fields.google_directions_url ?? '').trim();
+	if (dTrim) {
+		const parsed = parseGoogleMapsDirectionsUrl(dTrim);
+		if (!parsed) {
+			return {
+				ok: false,
+				error:
+					'Invalid Google Maps URL — use maps.google.com, google.com/maps, or a goo.gl link',
+			};
 		}
+		googleDirections = parsed;
 	}
 
 	return {
@@ -130,10 +115,10 @@ export function parseTourLikeContributionPayload(
 			image: image || null,
 			gallery: galleryUrls,
 			location: locationFromForm,
-			category: categoryFromForm,
+			category: null,
 			whatDoCategories,
 			whatDoSeasons,
-			place_ids: kind === 'what-to-do' ? placeIdsFromForm : [],
+			place_ids: placeIdsFromForm,
 			physical_rating: physicalRatingFromForm,
 			driving_distance: drivingFromForm,
 			google_directions_url: googleDirections,

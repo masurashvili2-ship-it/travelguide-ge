@@ -22,16 +22,14 @@ import { getDataDir } from './data-dir';
 
 const DATA_DIR = getDataDir();
 
-/** Shared JSON shape with tours; used for “What to do” and any future lists. */
-export type ContentPostKind = 'tours' | 'what-to-do';
+/** Editorial activities (“What to do”) — classic tours were merged into guide packages. */
+export type ContentPostKind = 'what-to-do';
 
 const STORE_FILES: Record<ContentPostKind, string> = {
-	tours: 'tours.json',
 	'what-to-do': 'what-to-do.json',
 };
 
 const URL_SEGMENTS: Record<ContentPostKind, string> = {
-	tours: 'tours',
 	'what-to-do': 'what-to-do',
 };
 
@@ -241,7 +239,7 @@ export function parseTourLocation(raw: unknown): TourLocation | null {
 }
 
 /** Map layer: tours, what-to-do, or administrative geography posts */
-export type MapMarkerPostKind = ContentPostKind | 'regions';
+export type MapMarkerPostKind = ContentPostKind | 'regions' | 'packages';
 
 export type TourMapMarker = {
 	slug: string;
@@ -274,13 +272,8 @@ export function listMapMarkersForKind(kind: ContentPostKind, locale: string): To
 		if (!title) continue;
 		const excerpt = block.excerpt?.trim() ?? '';
 		const cover = tourCoverImageUrl({ image: p.image, gallery: p.gallery });
-		const mapIconKey =
-			kind === 'tours'
-				? 'tour'
-				: p.whatDoCategories?.length
-					? p.whatDoCategories[0]
-					: 'landmark';
-		const tourCategory = kind === 'tours' ? (p.category ?? null) : null;
+		const mapIconKey = p.whatDoCategories?.length ? p.whatDoCategories[0] : 'landmark';
+		const tourCategory = null;
 		const whatDoCategoryIds =
 			kind === 'what-to-do' ? [...(p.whatDoCategories ?? [])] : [];
 		out.push({
@@ -301,8 +294,9 @@ export function listMapMarkersForKind(kind: ContentPostKind, locale: string): To
 	return out;
 }
 
-export function listTourMapMarkers(locale: string): TourMapMarker[] {
-	return listMapMarkersForKind('tours', locale);
+/** @deprecated Packages supply map pins via `listPublishedPackageMapMarkers` in guide-packages-db. */
+export function listTourMapMarkers(_locale: string): TourMapMarker[] {
+	return [];
 }
 
 export function listWhatToDoMapMarkers(locale: string): TourMapMarker[] {
@@ -400,14 +394,10 @@ function normalizePost(raw: unknown, kind: ContentPostKind): TourPost | null {
 		}
 	}
 	const img = o.image;
-	const category = kind === 'tours' ? parseTourCategory(o.category) : null;
-	const whatDoCategories =
-		kind === 'what-to-do'
-			? normalizeWhatToDoCategoriesFromRaw(o.categories, o.category)
-			: [];
-	const whatDoSeasons =
-		kind === 'what-to-do' ? normalizeWhatToDoSeasonsFromRaw(o.seasons, o.season) : [];
-	const place_ids = kind === 'what-to-do' ? normalizePlaceIds(o.place_ids) : [];
+	const category = null;
+	const whatDoCategories = normalizeWhatToDoCategoriesFromRaw(o.categories, o.category);
+	const whatDoSeasons = normalizeWhatToDoSeasonsFromRaw(o.seasons, o.season);
+	const place_ids = normalizePlaceIds(o.place_ids);
 	return {
 		id,
 		slug,
@@ -541,39 +531,15 @@ function migrateLegacyToPosts(rows: LegacyTourRow[]): TourPost[] {
 function readPostsFromDisk(kind: ContentPostKind): TourPost[] {
 	ensureDataDir();
 	const file = storePath(kind);
-	if (kind === 'what-to-do') {
-		if (!existsSync(file)) {
-			writePostsStore(kind, []);
-			return [];
-		}
-		try {
-			const parsed = JSON.parse(readFileSync(file, 'utf-8')) as JsonFile;
-			const postsRaw = parsed.posts;
-			if (!Array.isArray(postsRaw)) return [];
-			return postsRaw.map((r) => normalizePost(r, 'what-to-do')).filter((p): p is TourPost => p !== null);
-		} catch {
-			return [];
-		}
-	}
 	if (!existsSync(file)) {
-		const fromMd = importFromMarkdownPosts();
-		writePostsStore('tours', fromMd);
-		return fromMd;
+		writePostsStore(kind, []);
+		return [];
 	}
 	try {
 		const parsed = JSON.parse(readFileSync(file, 'utf-8')) as JsonFile;
 		const postsRaw = parsed.posts;
-		if (Array.isArray(postsRaw)) {
-			return postsRaw.map((r) => normalizePost(r, 'tours')).filter((p): p is TourPost => p !== null);
-		}
-		const toursRaw = parsed.tours;
-		if (Array.isArray(toursRaw)) {
-			const legacy = toursRaw.map(normalizeLegacyRow).filter((r): r is LegacyTourRow => r !== null);
-			const migrated = migrateLegacyToPosts(legacy);
-			writePostsStore('tours', migrated);
-			return migrated;
-		}
-		return [];
+		if (!Array.isArray(postsRaw)) return [];
+		return postsRaw.map((r) => normalizePost(r, 'what-to-do')).filter((p): p is TourPost => p !== null);
 	} catch {
 		return [];
 	}
@@ -610,20 +576,16 @@ function getPosts(kind: ContentPostKind): TourPost[] {
 }
 
 export function invalidateToursCache() {
-	postCache.delete('tours');
+	/* Legacy no-op: tours live in guide-packages.json */
 }
 
 export function invalidateWhatToDoCache() {
 	postCache.delete('what-to-do');
 }
 
-function postToDiskJson(kind: ContentPostKind, post: TourPost): Record<string, unknown> {
-	if (kind === 'what-to-do') {
-		const { whatDoCategories, whatDoSeasons, category: _cat, ...rest } = post;
-		return { ...rest, categories: whatDoCategories, seasons: whatDoSeasons };
-	}
-	const { whatDoCategories: _w, whatDoSeasons: _s, place_ids: _p, ...rest } = post;
-	return rest as Record<string, unknown>;
+function postToDiskJson(_kind: ContentPostKind, post: TourPost): Record<string, unknown> {
+	const { whatDoCategories, whatDoSeasons, category: _cat, ...rest } = post;
+	return { ...rest, categories: whatDoCategories, seasons: whatDoSeasons };
 }
 
 function writePostsStore(kind: ContentPostKind, posts: TourPost[]) {
@@ -736,19 +698,6 @@ function rowToListItem(row: TourRow): TourListItem {
 	};
 }
 
-export function listToursForLocale(locale: string): TourListItem[] {
-	if (!isLocale(locale)) return [];
-	const posts = getPosts('tours');
-	const out: TourListItem[] = [];
-	for (const p of posts) {
-		const row = flattenPost(p, locale);
-		if (row) out.push(rowToListItem(row));
-	}
-	return out.sort((a, b) =>
-		a.data.title.localeCompare(b.data.title, undefined, { sensitivity: 'base' }),
-	);
-}
-
 export function listWhatToDoForLocale(locale: string): TourListItem[] {
 	if (!isLocale(locale)) return [];
 	const posts = getPosts('what-to-do');
@@ -769,45 +718,30 @@ const SIMILAR_TOURS_DEFAULT_LIMIT = 4;
  * Tours: prefers the same `category` when set. What-to-do: prefers items that share any category tag.
  */
 function getSimilarForKind(
-	kind: ContentPostKind,
+	_locale: ContentPostKind,
 	locale: string,
 	excludeSlug: string,
-	category: PostCategoryId | null,
+	_category: PostCategoryId | null,
 	limit: number = SIMILAR_TOURS_DEFAULT_LIMIT,
 	whatDoCategoryTags: WhatToDoCategoryId[] | null = null,
 ): TourListItem[] {
 	if (!isLocale(locale) || !isValidSlug(excludeSlug)) return [];
-	const listFn = kind === 'tours' ? listToursForLocale : listWhatToDoForLocale;
-	const all = listFn(locale).filter((t) => t.data.slug !== excludeSlug);
+	const all = listWhatToDoForLocale(locale).filter((t) => t.data.slug !== excludeSlug);
 	if (all.length === 0) return [];
 
 	const same: TourListItem[] = [];
 	const other: TourListItem[] = [];
 	for (const t of all) {
-		if (kind === 'tours') {
-			if (category && t.data.category === category) same.push(t);
-			else other.push(t);
-		} else {
-			const postTags = t.data.whatDoCategories ?? [];
-			const want = whatDoCategoryTags ?? [];
-			if (want.length > 0 && postTags.some((x) => want.includes(x))) same.push(t);
-			else other.push(t);
-		}
+		const postTags = t.data.whatDoCategories ?? [];
+		const want = whatDoCategoryTags ?? [];
+		if (want.length > 0 && postTags.some((x) => want.includes(x))) same.push(t);
+		else other.push(t);
 	}
 	const byTitle = (a: TourListItem, b: TourListItem) =>
 		a.data.title.localeCompare(b.data.title, undefined, { sensitivity: 'base' });
 	same.sort(byTitle);
 	other.sort(byTitle);
 	return [...same, ...other].slice(0, limit);
-}
-
-export function getSimilarTours(
-	locale: string,
-	excludeSlug: string,
-	category: PostCategoryId | null,
-	limit: number = SIMILAR_TOURS_DEFAULT_LIMIT,
-): TourListItem[] {
-	return getSimilarForKind('tours', locale, excludeSlug, category, limit, null);
 }
 
 export function getSimilarWhatToDo(
@@ -817,11 +751,6 @@ export function getSimilarWhatToDo(
 	limit: number = SIMILAR_TOURS_DEFAULT_LIMIT,
 ): TourListItem[] {
 	return getSimilarForKind('what-to-do', locale, excludeSlug, null, limit, whatDoCategoryTags);
-}
-
-export function getTourBySlug(locale: string, slug: string): TourListItem | null {
-	const row = getTourRowBySlug(locale, slug);
-	return row ? rowToListItem(row) : null;
 }
 
 export function getWhatToDoRowBySlug(locale: string, slug: string): TourRow | null {
@@ -835,14 +764,6 @@ export function getWhatToDoRowBySlug(locale: string, slug: string): TourRow | nu
 export function getWhatToDoBySlug(locale: string, slug: string): TourListItem | null {
 	const row = getWhatToDoRowBySlug(locale, slug);
 	return row ? rowToListItem(row) : null;
-}
-
-export function getTourRowBySlug(locale: string, slug: string): TourRow | null {
-	if (!isLocale(locale) || !isValidSlug(slug)) return null;
-	const posts = getPosts('tours');
-	const post = posts.find((p) => p.slug === slug);
-	if (!post) return null;
-	return flattenPost(post, locale);
 }
 
 export function getContentPostById(kind: ContentPostKind, id: string): TourPost | null {
@@ -883,23 +804,8 @@ export function deleteContentPostById(
 	return { ok: true };
 }
 
-export function getTourPostById(id: string): TourPost | null {
-	return getContentPostById('tours', id);
-}
-
 export function getWhatToDoPostById(id: string): TourPost | null {
 	return getContentPostById('what-to-do', id);
-}
-
-/** @deprecated use getTourPostById — kept for any stray imports */
-export function getTourRowById(id: string): TourRow | null {
-	const post = getTourPostById(id);
-	if (!post) return null;
-	for (const loc of LOCALES) {
-		const row = flattenPost(post, loc);
-		if (row) return row;
-	}
-	return null;
 }
 
 export type AdminTourListItem = {
@@ -935,10 +841,6 @@ function listAllAdminForKind(kind: ContentPostKind): AdminTourListItem[] {
 				whatDoCategories: p.whatDoCategories ?? [],
 			};
 		});
-}
-
-export function listAllToursAdmin(): AdminTourListItem[] {
-	return listAllAdminForKind('tours');
 }
 
 export function listAllWhatToDoAdmin(): AdminTourListItem[] {
@@ -1057,8 +959,8 @@ function savePostForKind(
 		author_email: authorEmailIn,
 	} = input;
 
-	const noun = kind === 'tours' ? 'tour' : 'entry';
-	const nounCap = kind === 'tours' ? 'Tour' : 'Entry';
+	const noun = 'entry';
+	const nounCap = 'Entry';
 
 	const baseValid = validateTourPostI18nAndSlug(slug, i18n);
 	if (!baseValid.ok) return baseValid;
@@ -1099,29 +1001,16 @@ function savePostForKind(
 		const createImage =
 			image !== undefined ? (typeof image === 'string' && image.trim() ? image.trim() : null) : null;
 		const createLocation = locationInput === undefined ? null : locationInput;
-		const createCategory = kind === 'tours' ? (categoryInput === undefined ? null : categoryInput) : null;
+		const createCategory = null;
 		const createWhatDoCats =
-			kind === 'what-to-do'
-				? whatDoCategoriesInput === undefined
-					? []
-					: whatDoCategoriesInput ?? []
-				: [];
+			whatDoCategoriesInput === undefined ? [] : whatDoCategoriesInput ?? [];
 		const createWhatDoSeasons =
-			kind === 'what-to-do'
-				? whatDoSeasonsInput === undefined
-					? []
-					: whatDoSeasonsInput ?? []
-				: [];
+			whatDoSeasonsInput === undefined ? [] : whatDoSeasonsInput ?? [];
 		const createPlaceIds =
-			kind === 'what-to-do'
-				? placeIdsInput === undefined
-					? []
-					: normalizePlaceIds(placeIdsInput)
-				: [];
+			placeIdsInput === undefined ? [] : normalizePlaceIds(placeIdsInput);
 		const createPhysicalRating = physicalRatingInput === undefined ? null : physicalRatingInput;
 		const createDrivingDistance = drivingDistanceInput === undefined ? null : drivingDistanceInput;
-		const createGoogleDirections =
-			kind === 'what-to-do' ? (googleDirectionsInput ?? null) : null;
+		const createGoogleDirections = googleDirectionsInput ?? null;
 		const createSocial = trimSocialLinks(socialLinksInput ?? {});
 		const au =
 			authorUserIn !== undefined && authorUserIn !== null && String(authorUserIn).trim()
@@ -1178,36 +1067,25 @@ function savePostForKind(
 	const nextGallery = gallery !== undefined ? galleryVal : prev.gallery;
 	const nextLocation =
 		locationInput === undefined ? prev.location : locationInput;
-	const nextCategory =
-		kind === 'tours' ? (categoryInput === undefined ? prev.category : categoryInput) : null;
+	const nextCategory = null;
 	const nextWhatDoCats =
-		kind === 'what-to-do'
-			? whatDoCategoriesInput === undefined
-				? (prev.whatDoCategories ?? [])
-				: whatDoCategoriesInput ?? []
-			: [];
+		whatDoCategoriesInput === undefined
+			? (prev.whatDoCategories ?? [])
+			: whatDoCategoriesInput ?? [];
 	const nextWhatDoSeasons =
-		kind === 'what-to-do'
-			? whatDoSeasonsInput === undefined
-				? (prev.whatDoSeasons ?? [])
-				: whatDoSeasonsInput ?? []
-			: [];
+		whatDoSeasonsInput === undefined
+			? (prev.whatDoSeasons ?? [])
+			: whatDoSeasonsInput ?? [];
 	const nextPlaceIds =
-		kind === 'what-to-do'
-			? placeIdsInput === undefined
-				? (prev.place_ids ?? [])
-				: normalizePlaceIds(placeIdsInput)
-			: [];
+		placeIdsInput === undefined ? (prev.place_ids ?? []) : normalizePlaceIds(placeIdsInput);
 	const nextPhysicalRating =
 		physicalRatingInput === undefined ? prev.physical_rating : physicalRatingInput;
 	const nextDrivingDistance =
 		drivingDistanceInput === undefined ? prev.driving_distance : drivingDistanceInput;
 	const nextGoogleDirections =
-		kind === 'what-to-do'
-			? googleDirectionsInput === undefined
-				? (prev.google_directions_url ?? null)
-				: googleDirectionsInput
-			: null;
+		googleDirectionsInput === undefined
+			? (prev.google_directions_url ?? null)
+			: googleDirectionsInput;
 	const nextSocial =
 		socialLinksInput === undefined
 			? trimSocialLinks(prev.social_links ?? {})
@@ -1250,112 +1128,8 @@ function savePostForKind(
 	return { ok: true };
 }
 
-export function saveTourPost(
-	input: SaveTourPostInput,
-): { ok: true } | { ok: false; error: string } {
-	return savePostForKind('tours', input);
-}
-
 export function saveWhatToDoPost(
 	input: SaveTourPostInput,
 ): { ok: true } | { ok: false; error: string } {
 	return savePostForKind('what-to-do', input);
-}
-
-/** Back-compat wrapper for older callers */
-export type SaveTourInput = {
-	id?: string;
-	locale: Locale;
-	slug: string;
-	title: string;
-	duration: string;
-	excerpt: string;
-	price?: string;
-	image?: string;
-	gallery?: string[];
-	location?: TourLocation | null;
-	category?: PostCategoryId | null;
-	physical_rating?: TourPhysicalRatingId | null;
-	driving_distance?: string | null;
-	seo_title?: string;
-	seo_description?: string;
-	body: string;
-	mode: 'create' | 'update';
-};
-
-export function saveTour(input: SaveTourInput): { ok: true } | { ok: false; error: string } {
-	const {
-		id,
-		locale,
-		slug,
-		title,
-		duration,
-		excerpt,
-		price,
-		image,
-		gallery,
-		location,
-		category,
-		physical_rating,
-		driving_distance,
-		seo_title,
-		seo_description,
-		body,
-		mode,
-	} = input;
-
-	if (mode === 'update' && id) {
-		const post = getTourPostById(id);
-		if (!post) return { ok: false, error: 'Tour not found' };
-		const i18n: Partial<Record<Locale, TourLocaleBlock>> = { ...post.i18n };
-		const prevBlock = post.i18n[locale];
-		const nextLocale: TourLocaleBlock = {
-			title,
-			duration,
-			price: price?.trim() ? price.trim() : null,
-			excerpt,
-			seo_title: seo_title?.trim() ? seo_title.trim() : null,
-			seo_description: seo_description?.trim() ? seo_description.trim() : null,
-			body: body.trim() || '',
-			contact_sidebar: prevBlock?.contact_sidebar ?? '',
-		};
-		i18n[locale] = nextLocale;
-		return saveTourPost({
-			id,
-			slug,
-			image: image !== undefined ? (image?.trim() ? image.trim() : null) : post.image,
-			gallery: gallery !== undefined ? normalizeTourGalleryInput(gallery) : post.gallery,
-			location: location !== undefined ? location : post.location,
-			category: category !== undefined ? category : post.category,
-			physical_rating: physical_rating !== undefined ? physical_rating : post.physical_rating,
-			driving_distance: driving_distance !== undefined ? driving_distance : post.driving_distance,
-			social_links: trimSocialLinks(post.social_links ?? {}),
-			i18n,
-			mode: 'update',
-		});
-	}
-
-	return saveTourPost({
-		slug,
-		image: image !== undefined ? (image?.trim() ? image.trim() : null) : null,
-		gallery: normalizeTourGalleryInput(gallery ?? []),
-		location: location ?? null,
-		category: category ?? null,
-		physical_rating: physical_rating ?? null,
-		driving_distance: driving_distance ?? null,
-		social_links: {},
-		i18n: {
-			[locale]: {
-				title,
-				duration,
-				price: price?.trim() ? price.trim() : null,
-				excerpt,
-				seo_title: seo_title?.trim() ? seo_title.trim() : null,
-				seo_description: seo_description?.trim() ? seo_description.trim() : null,
-				body: body.trim() || '',
-				contact_sidebar: '',
-			},
-		},
-		mode: 'create',
-	});
 }

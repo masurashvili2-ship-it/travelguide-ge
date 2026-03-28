@@ -10,8 +10,8 @@ import type { UserPublic } from '../lib/auth';
 
 type Props = {
 	locale: Locale;
-	/** API path segment: `tours` or `what-to-do` */
-	apiSegment?: 'tours' | 'what-to-do' | 'guides';
+	/** API path segment under `/api/{segment}/…/comments` (e.g. `packages`, `what-to-do`, `guides`). */
+	apiSegment?: 'packages' | 'what-to-do' | 'guides';
 	tourId: string;
 	comments: TourComment[];
 	averageRating: number | null;
@@ -43,7 +43,7 @@ type Props = {
 	loginHref: string;
 };
 
-const { locale, apiSegment = 'tours', tourId, comments, averageRating, user, labels, loginHref } =
+const { locale, apiSegment = 'what-to-do', tourId, comments, averageRating, user, labels, loginHref } =
 	Astro.props;
 
 const roots = topLevelReviews(comments);
@@ -310,7 +310,7 @@ const headingId = `tour-reviews-${tourId.slice(0, 8)}`;
 	function init() {
 		const root = document.querySelector('.tour-comments');
 		if (!root) return;
-		const apiSeg = root.dataset.apiSegment || 'tours';
+		const apiSeg = root.dataset.apiSegment || 'what-to-do';
 
 		const deleteConfirm = root.dataset.deleteConfirm?.trim() || 'Delete this comment?';
 

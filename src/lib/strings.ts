@@ -214,6 +214,45 @@ export const ui: Record<
 		tourReviewsDeleteConfirm: string;
 		/** Account menu: recent sign-ins and reviews */
 		navActivityLog: string;
+		navDashboard: string;
+		navMessages: string;
+		accountDashboardTitle: string;
+		accountDashboardIntro: string;
+		accountProfileTitle: string;
+		accountDisplayNameHelp: string;
+		accountSave: string;
+		accountSaved: string;
+		accountBookingsTitle: string;
+		accountBookingAsCustomer: string;
+		accountBookingAsGuide: string;
+		accountBookingsNone: string;
+		accountView: string;
+		accountSubmissionsTitle: string;
+		accountEdit: string;
+		accountSubmissionsNone: string;
+		accountContributeCta: string;
+		accountGuideTitle: string;
+		accountGuideNone: string;
+		accountCreateGuide: string;
+		accountPackagesTitle: string;
+		accountPackagesCta: string;
+		accountMessagesTitle: string;
+		accountMessagesIntro: string;
+		accountMsgOpen: string;
+		accountMsgNew: string;
+		accountBookingMessage: string;
+		accountMsgEmpty: string;
+		accountThreadWith: string;
+		accountBack: string;
+		accountSend: string;
+		accountMessagePlaceholder: string;
+		accountPeerLabel: string;
+		accountBookingRefShort: string;
+		accountSubmissionKindTour: string;
+		accountSubmissionKindWhatToDo: string;
+		accountSubmissionKindPage: string;
+		accountSubmissionKindGuide: string;
+		accountStatusPrefix: string;
 		activityLogTitle: string;
 		activityLogIntro: string;
 		activityLogEmpty: string;
@@ -472,6 +511,47 @@ export const ui: Record<
 		tourReviewsDeleting: 'Deleting…',
 		tourReviewsDeleteConfirm: 'Delete this comment and all replies under it?',
 		navActivityLog: 'Activity',
+		navDashboard: 'Dashboard',
+		navMessages: 'Messages',
+		accountDashboardTitle: 'Your dashboard',
+		accountDashboardIntro:
+			'Update your profile, review bookings, continue editing your submissions, and exchange messages with guides or travelers you share a booking with.',
+		accountProfileTitle: 'Profile',
+		accountDisplayNameHelp: 'Optional name shown in a few places on the site. Your login email stays the same.',
+		accountSave: 'Save',
+		accountSaved: 'Profile updated.',
+		accountBookingsTitle: 'Bookings',
+		accountBookingAsCustomer: 'As a traveler',
+		accountBookingAsGuide: 'As a guide',
+		accountBookingsNone: 'No bookings here yet.',
+		accountView: 'View',
+		accountSubmissionsTitle: 'Content submissions',
+		accountEdit: 'Edit',
+		accountSubmissionsNone: 'You have not submitted any content for review yet.',
+		accountContributeCta: 'Go to Contribute',
+		accountGuideTitle: 'Guide profile',
+		accountGuideNone: 'You have not created a guide profile yet.',
+		accountCreateGuide: 'Create guide profile',
+		accountPackagesTitle: 'Tour packages',
+		accountPackagesCta: 'Manage packages',
+		accountMessagesTitle: 'Messages',
+		accountMessagesIntro:
+			'Chat on the site with someone you share a booking with. Both people need an account; the traveler’s booking email must match their login email.',
+		accountMsgOpen: 'Open inbox',
+		accountMsgNew: 'New conversation',
+		accountBookingMessage: 'Message about this booking',
+		accountMsgEmpty: 'No conversations yet. Open a thread from a booking when you are logged in, or start one below.',
+		accountThreadWith: 'With',
+		accountBack: 'Back',
+		accountSend: 'Send',
+		accountMessagePlaceholder: 'Write your message…',
+		accountPeerLabel: 'Contact',
+		accountBookingRefShort: 'Booking',
+		accountSubmissionKindTour: 'Tour',
+		accountSubmissionKindWhatToDo: 'What to do',
+		accountSubmissionKindPage: 'Page',
+		accountSubmissionKindGuide: 'Guide',
+		accountStatusPrefix: 'Status',
 		activityLogTitle: 'Your activity',
 		activityLogIntro: 'Recent sign-ins and reviews you posted on the site.',
 		activityLogEmpty: 'No activity recorded yet. Sign in and post a review to see entries here.',
@@ -720,6 +800,47 @@ export const ui: Record<
 		tourReviewsDeleting: 'იშლება…',
 		tourReviewsDeleteConfirm: 'წავშალოთ ეს კომენტარი და ყველა ქვედა პასუხი?',
 		navActivityLog: 'აქტივობა',
+		navDashboard: 'პანელი',
+		navMessages: 'შეტყობინებები',
+		accountDashboardTitle: 'თქვენი პანელი',
+		accountDashboardIntro:
+			'განაახლეთ პროფილი, ნახეთ ჯავშნები, გააგრძელეთ კონტენტის რედაქტირება და დაუკავშირდით გიდებს ან მოგზაურებს, ვისთანაც გაქვთ საერთო ჯავშანი.',
+		accountProfileTitle: 'პროფილი',
+		accountDisplayNameHelp: 'არასავალდებულო სახელი. ელფოსტა რჩება შესვლისთვის.',
+		accountSave: 'შენახვა',
+		accountSaved: 'პროფილი განახლდა.',
+		accountBookingsTitle: 'ჯავშნები',
+		accountBookingAsCustomer: 'მოგზაურად',
+		accountBookingAsGuide: 'გიდად',
+		accountBookingsNone: 'ჯერ არაფერია.',
+		accountView: 'ნახვა',
+		accountSubmissionsTitle: 'კონტენტის გაგზავნები',
+		accountEdit: 'რედაქტირება',
+		accountSubmissionsNone: 'ჯერ არ გაგიგზავნიათ კონტენტი შესაბამისად.',
+		accountContributeCta: 'წვლილის გვერდზე',
+		accountGuideTitle: 'გიდის პროფილი',
+		accountGuideNone: 'გიდის პროფილი ჯერ არ გაქვთ.',
+		accountCreateGuide: 'პროფილის შექმნა',
+		accountPackagesTitle: 'ტურის პაკეტები',
+		accountPackagesCta: 'პაკეტების მართვა',
+		accountMessagesTitle: 'შეტყობინებები',
+		accountMessagesIntro:
+			'საუბარი შესაძლებელია იმ პირთან, ვისთანაც გაქვთ საერთო ჯავშანი. ორივეს სჭირდება ანგარიში; მოგზაურის ელფოსტა უნდა ემთხვეოდეს შესვლის ელფოსტას.',
+		accountMsgOpen: 'ფოსტის ყუთი',
+		accountMsgNew: 'ახალი საუბარი',
+		accountBookingMessage: 'შეტყობინება ამ ჯავშანზე',
+		accountMsgEmpty: 'ჯერ არაფერია. დაიწყეთ ჯავშნის გვერდიდან ან ქვემოთ.',
+		accountThreadWith: 'კონტაქტი',
+		accountBack: 'უკან',
+		accountSend: 'გაგზავნა',
+		accountMessagePlaceholder: 'დაწერეთ შეტყობინება…',
+		accountPeerLabel: 'ვისთან',
+		accountBookingRefShort: 'ჯავშანი',
+		accountSubmissionKindTour: 'ტური',
+		accountSubmissionKindWhatToDo: 'რა გავაკეთოთ',
+		accountSubmissionKindPage: 'გვერდი',
+		accountSubmissionKindGuide: 'გიდი',
+		accountStatusPrefix: 'სტატუსი',
 		activityLogTitle: 'თქვენი აქტივობა',
 		activityLogIntro: 'ბოლო შესვლები და გამოქვეყნებული შეფასებები.',
 		activityLogEmpty: 'ჩანაწერები ჯერ არ არის. შედით და დატოვეთ შეფასება.',
@@ -970,6 +1091,47 @@ export const ui: Record<
 		tourReviewsDeleting: 'Удаление…',
 		tourReviewsDeleteConfirm: 'Удалить этот комментарий и все ответы под ним?',
 		navActivityLog: 'Активность',
+		navDashboard: 'Панель',
+		navMessages: 'Сообщения',
+		accountDashboardTitle: 'Ваша панель',
+		accountDashboardIntro:
+			'Обновите профиль, просмотрите бронирования, продолжите править материалы и переписывайтесь с гидами или путешественниками по общему бронированию.',
+		accountProfileTitle: 'Профиль',
+		accountDisplayNameHelp: 'Необязательное имя. Email для входа не меняется.',
+		accountSave: 'Сохранить',
+		accountSaved: 'Профиль обновлён.',
+		accountBookingsTitle: 'Бронирования',
+		accountBookingAsCustomer: 'Как путешественник',
+		accountBookingAsGuide: 'Как гид',
+		accountBookingsNone: 'Пока нет записей.',
+		accountView: 'Открыть',
+		accountSubmissionsTitle: 'Материалы на модерации',
+		accountEdit: 'Править',
+		accountSubmissionsNone: 'Вы ещё не отправляли материалы.',
+		accountContributeCta: 'К разделу «Вклад»',
+		accountGuideTitle: 'Профиль гида',
+		accountGuideNone: 'Профиля гида пока нет.',
+		accountCreateGuide: 'Создать профиль гида',
+		accountPackagesTitle: 'Турпакеты',
+		accountPackagesCta: 'Управлять пакетами',
+		accountMessagesTitle: 'Сообщения',
+		accountMessagesIntro:
+			'Переписка доступна с тем, с кем у вас общее бронирование. Нужны аккаунты у обоих; email в брони должен совпадать с email входа путешественника.',
+		accountMsgOpen: 'Открыть сообщения',
+		accountMsgNew: 'Новый диалог',
+		accountBookingMessage: 'Сообщение по бронированию',
+		accountMsgEmpty: 'Пока нет диалогов. Начните со страницы брони или ниже.',
+		accountThreadWith: 'С кем',
+		accountBack: 'Назад',
+		accountSend: 'Отправить',
+		accountMessagePlaceholder: 'Текст сообщения…',
+		accountPeerLabel: 'Контакт',
+		accountBookingRefShort: 'Бронь',
+		accountSubmissionKindTour: 'Тур',
+		accountSubmissionKindWhatToDo: 'Что делать',
+		accountSubmissionKindPage: 'Страница',
+		accountSubmissionKindGuide: 'Гид',
+		accountStatusPrefix: 'Статус',
 		activityLogTitle: 'Ваша активность',
 		activityLogIntro: 'Недавние входы и опубликованные отзывы.',
 		activityLogEmpty: 'Пока нет записей. Войдите и оставьте отзыв.',

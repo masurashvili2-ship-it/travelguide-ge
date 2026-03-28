@@ -44,8 +44,6 @@ function statusLabel(s: SubmissionStatus): string {
 
 function kindLabel(s: ContentSubmission): string {
 	switch (s.kind) {
-		case 'tours':
-			return 'Tour';
 		case 'what-to-do':
 			return 'What to do';
 		case 'page':
@@ -59,8 +57,6 @@ function kindLabel(s: ContentSubmission): string {
 
 function editUrlForSubmission(s: ContentSubmission): string | null {
 	switch (s.kind) {
-		case 'tours':
-			return getRelativeLocaleUrl(locale, `contribute/tour/edit/${s.id}`);
 		case 'what-to-do':
 			return getRelativeLocaleUrl(locale, `contribute/what-to-do/edit/${s.id}`);
 		case 'page':
@@ -81,8 +77,6 @@ function viewLiveHref(s: ContentSubmission): string | null {
 	if (s.status !== 'approved') return null;
 	const slug = payloadSlug(s);
 	switch (s.kind) {
-		case 'tours':
-			return getRelativeLocaleUrl(locale, `tours/${slug}`);
 		case 'what-to-do':
 			return getRelativeLocaleUrl(locale, `what-to-do/${slug}`);
 		case 'guides':
@@ -119,7 +113,6 @@ function viewLiveHref(s: ContentSubmission): string | null {
 		</div>
 
 		<p style="margin:0 0 1.25rem">
-			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/tour')} style="margin-right:0.5rem">Propose a tour</a>
 			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/what-to-do')} style="margin-right:0.5rem">
 				Propose “What to do”
 			</a>

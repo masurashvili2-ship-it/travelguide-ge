@@ -42,11 +42,11 @@ if (!sub || sub.kind !== 'what-to-do' || sub.author_user_id !== Astro.locals.use
 let p: TourLikeSubmissionPayload;
 if (sub.status === 'approved' && sub.published_id) {
 	const live = getWhatToDoPostById(sub.published_id);
-	p = live ? tourPostToContributionPayload(live, 'what-to-do') : (sub.payload as TourLikeSubmissionPayload);
+	p = live ? tourPostToContributionPayload(live) : (sub.payload as TourLikeSubmissionPayload);
 } else {
 	p = sub.payload as TourLikeSubmissionPayload;
 }
-const synthetic = tourLikePayloadToSyntheticTourPost(sub.id, 'what-to-do', p);
+const synthetic = tourLikePayloadToSyntheticTourPost(sub.id, p);
 const enTitle = p.i18n.en?.title ?? '';
 const placesForPicker = listRegionsForWhatToDoPicker();
 const selectedPlaceIds = p.place_ids ?? [];

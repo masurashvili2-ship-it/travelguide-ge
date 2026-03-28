@@ -1,0 +1,273 @@
+---
+import Shell from '../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { ui } from '../../../../lib/strings';
+import { readUsers } from '../../../../lib/auth';
+import { getBookingById } from '../../../../lib/bookings-db';
+import {
+	bookingLinksUsers,
+	customerUserIdForBooking,
+	getOrCreateThread,
+	guideOwnerUserIdForBooking,
+	listMessagingPeers,
+	listThreadsForUser,
+	otherParticipantId,
+} from '../../../../lib/platform-messages-db';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const user = Astro.locals.user!;
+
+const startBookingId = Astro.url.searchParams.get('start')?.trim() || '';
+if (startBookingId) {
+	const b = getBookingById(startBookingId);
+	if (b) {
+		const users = await readUsers();
+		const gUid = guideOwnerUserIdForBooking(b);
+		const cUid = customerUserIdForBooking(b, users);
+		if (gUid && cUid && bookingLinksUsers(b, users, gUid, cUid)) {
+			let peer: string | null = null;
+			if (user.id === gUid) peer = cUid;
+			else if (user.id === cUid) peer = gUid;
+			if (peer) {
+				const { thread } = getOrCreateThread(user.id, peer, b.id);
+				return Astro.redirect(getRelativeLocaleUrl(locale, `account/messages/${thread.id}`));
+			}
+		}
+	}
+}
+
+const users = await readUsers();
+const peers = listMessagingPeers(users, user.id, user.email);
+const threads = listThreadsForUser(user.id);
+
+function threadLabel(thread: (typeof threads)[0]): { label: string; ref: string | null } {
+	const otherId = otherParticipantId(thread, user.id);
+	const other = otherId ? users.find((u) => u.id === otherId) : undefined;
+	const label = other?.displayName?.trim() || other?.email || 'User';
+	const b = thread.booking_id ? getBookingById(thread.booking_id) : null;
+	return { label, ref: b?.ref ?? null };
+}
+
+const dashUrl = getRelativeLocaleUrl(locale, 'account');
+---
+
+<Shell
+	locale={locale}
+	subpath="account/messages"
+	title={t.accountMessagesTitle}
+	seoTitle={t.accountMessagesTitle}
+	robotsNoindex={true}
+>
+	<div class="account-messages">
+		<p class="account-messages__back">
+			<a href={dashUrl} class="muted">{t.accountBack}</a>
+			{' · '}
+			<a href={dashUrl}>{t.accountDashboardTitle}</a>
+		</p>
+		<h1 class="account-messages__h">{t.accountMessagesTitle}</h1>
+		<p class="muted account-messages__intro">{t.accountMessagesIntro}</p>
+
+		<section class="contribute-card" style="margin-bottom:1.25rem">
+			<h2 class="contribute-card__h">{t.accountMsgNew}</h2>
+			<div class="contribute-card__bd">
+				{
+					peers.length === 0 ? (
+						<p class="muted" style="margin:0">
+							{t.accountMsgEmpty}
+						</p>
+					) : (
+						<form id="tg-new-thread-form" class="account-messages__new-form">
+							<label for="tg-peer-select">{t.accountPeerLabel}</label>
+							<select id="tg-peer-select" class="tg-input account-messages__select" required>
+								<option value="">—</option>
+								{peers.map((p) => (
+									<option value={JSON.stringify({ peer_user_id: p.peer_user_id, booking_id: p.booking_id })}>
+										{p.peer_label} · {t.accountBookingRefShort} {p.booking_ref} · {p.package_title}
+									</option>
+								))}
+							</select>
+							<button type="submit" class="button button-primary">
+								{t.accountMsgNew}
+							</button>
+						</form>
+						<p id="tg-new-thread-err" class="notice notice-error" style="display:none;margin-top:0.75rem" role="alert"></p>
+					)
+				}
+			</div>
+		</section>
+
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">{t.accountMsgOpen}</h2>
+			<div class="contribute-card__bd">
+				{
+					threads.length === 0 ? (
+						<p class="muted" style="margin:0">
+							{t.accountMsgEmpty}
+						</p>
+					) : (
+						<ul class="account-messages__thread-list">
+							{threads.map((th) => {
+								const { label, ref } = threadLabel(th);
+								const last = th.messages[th.messages.length - 1];
+								const lastRead = th.last_read_up_to[user.id] ?? 0;
+								const unread = th.messages.filter(
+									(m) => m.from_user_id !== user.id && m.created_at > lastRead,
+								).length;
+								return (
+									<li class="account-messages__thread-row">
+										<a
+											href={getRelativeLocaleUrl(locale, `account/messages/${th.id}`)}
+											class="account-messages__thread-link"
+										>
+											<span class="account-messages__thread-main">
+												<strong>{t.accountThreadWith}</strong> {label}
+												{ref ? (
+													<span class="muted">
+														{' '}
+														· {t.accountBookingRefShort} {ref}
+													</span>
+												) : null}
+											</span>
+											{last ? (
+												<span class="account-messages__preview muted">
+													{last.from_user_id === user.id ? 'You: ' : ''}
+													{last.body.length > 100 ? `${last.body.slice(0, 97)}…` : last.body}
+												</span>
+											) : null}
+											{unread > 0 ? (
+												<span class="account-messages__unread">{unread > 99 ? '99+' : unread}</span>
+											) : null}
+										</a>
+									</li>
+								);
+							})}
+						</ul>
+					)
+				}
+			</div>
+		</section>
+	</div>
+</Shell>
+
+<script>
+	const form = document.getElementById('tg-new-thread-form');
+	const err = document.getElementById('tg-new-thread-err');
+	const sel = document.getElementById('tg-peer-select') as HTMLSelectElement | null;
+	form?.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		if (!sel || !err) return;
+		err.style.display = 'none';
+		err.textContent = '';
+		let payload: { peer_user_id: string; booking_id: string };
+		try {
+			payload = JSON.parse(sel.value) as { peer_user_id: string; booking_id: string };
+		} catch {
+			return;
+		}
+		if (!payload?.peer_user_id) return;
+		const res = await fetch('/api/account/messages', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			credentials: 'same-origin',
+			body: JSON.stringify({ peer_user_id: payload.peer_user_id, booking_id: payload.booking_id }),
+		});
+		const data = await res.json().catch(() => ({}));
+		if (!res.ok) {
+			err.textContent = data.error || 'Error';
+			err.style.display = 'block';
+			return;
+		}
+		if (data.thread_id) {
+			const p = window.location.pathname;
+			const idx = p.lastIndexOf('/messages');
+			const prefix = idx >= 0 ? p.slice(0, idx) : p;
+			window.location.href = `${prefix}/messages/${encodeURIComponent(data.thread_id)}`;
+		}
+	});
+</script>
+
+<style>
+	.account-messages {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 0 1rem 3rem;
+	}
+	.account-messages__h {
+		margin: 0.5rem 0 0.35rem;
+		font-size: clamp(1.25rem, 3vw, 1.6rem);
+	}
+	.account-messages__intro {
+		margin: 0 0 1.25rem;
+		max-width: 44rem;
+		line-height: 1.5;
+	}
+	.account-messages__back {
+		margin: 2rem 0 0;
+		font-size: 0.9rem;
+	}
+	.account-messages__new-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		max-width: 36rem;
+	}
+	.account-messages__select {
+		padding: 0.5rem 0.65rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius-sm, 8px);
+		font: inherit;
+	}
+	.account-messages__thread-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.account-messages__thread-row {
+		border-bottom: 1px solid var(--border, #e2e8f0);
+	}
+	.account-messages__thread-row:last-child {
+		border-bottom: none;
+	}
+	.account-messages__thread-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 0.85rem 0.25rem;
+		text-decoration: none;
+		color: inherit;
+		position: relative;
+		padding-right: 3rem;
+	}
+	.account-messages__thread-link:hover {
+		background: color-mix(in srgb, var(--accent, #2563eb) 6%, transparent);
+	}
+	.account-messages__preview {
+		font-size: 0.88rem;
+		display: block;
+	}
+	.account-messages__unread {
+		position: absolute;
+		right: 0.25rem;
+		top: 50%;
+		transform: translateY(-50%);
+		min-width: 1.35rem;
+		height: 1.35rem;
+		padding: 0 0.35rem;
+		border-radius: 999px;
+		background: var(--danger, #b91c1c);
+		color: #fff;
+		font-size: 0.72rem;
+		font-weight: 700;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>

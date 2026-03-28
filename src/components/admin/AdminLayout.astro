@@ -12,9 +12,6 @@ type AdminNavId =
 	| 'dashboard'
 	| 'submissions'
 	| 'reviews'
-	| 'tours-all'
-	| 'tours-new'
-	| 'tours-edit'
 	| 'wtd-all'
 	| 'wtd-new'
 	| 'wtd-edit'
@@ -50,8 +47,6 @@ const { locale, title, headline, subtitle, activeNav, userEmail } = Astro.props;
 const urlAdmin = getRelativeLocaleUrl(locale, 'admin');
 const urlSubmissions = getRelativeLocaleUrl(locale, 'admin/submissions');
 const urlReviews = getRelativeLocaleUrl(locale, 'admin/reviews');
-const urlToursList = getRelativeLocaleUrl(locale, 'admin/tours');
-const urlNewTour = getRelativeLocaleUrl(locale, 'admin/tours/new');
 const urlWtdList = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const urlNewWtd = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
 const urlGuidesList = getRelativeLocaleUrl(locale, 'admin/guides');
@@ -79,8 +74,6 @@ const emailSettingsActive = activeNav === 'email-settings';
 const messagesActive = activeNav === 'messages';
 const unreadCount = countUnread();
 const pendingBookingsCount = countPendingBookings();
-const toursBrowse = activeNav === 'tours-all' || activeNav === 'tours-edit';
-const toursNewOnly = activeNav === 'tours-new';
 const wtdBrowse = activeNav === 'wtd-all' || activeNav === 'wtd-edit';
 const wtdNewOnly = activeNav === 'wtd-new';
 const guidesBrowse = activeNav === 'guides-all' || activeNav === 'guides-edit';
@@ -181,16 +174,6 @@ function sideClass(active: boolean) {
 						</li>
 						<li>
 							<a class:list={sideClass(emailSettingsActive)} href={urlEmailSettings}>Email settings</a>
-						</li>
-					</ul>
-
-					<p class="admin-side__label">Tours</p>
-					<ul class="admin-side__list">
-						<li>
-							<a class:list={sideClass(toursBrowse)} href={urlToursList}>All tours</a>
-						</li>
-						<li>
-							<a class:list={sideClass(toursNewOnly)} href={urlNewTour}>New tour</a>
 						</li>
 					</ul>
 

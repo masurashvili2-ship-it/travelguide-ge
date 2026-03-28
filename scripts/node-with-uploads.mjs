@@ -4,7 +4,7 @@
  * instance only has files that were uploaded to that box — images randomly break behind a load
  * balancer. This layer uses the same paths as `src/lib/resolve-upload-dir.ts`.
  *
- * Set `UPLOAD_ROOT` to a persistent volume (subfolders `tours`, `what-to-do`, `regions`) on App Platform.
+ * Set `UPLOAD_ROOT` to a persistent volume (subfolders `tours`, `what-to-do`, `regions`, `guides`, `packages`) on App Platform.
  */
 process.env.ASTRO_NODE_AUTOSTART = 'disabled';
 
@@ -58,7 +58,7 @@ async function seedDataDir() {
 
 await seedDataDir();
 
-const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions|guides)\/(.+)$/;
+const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions|guides|packages)\/(.+)$/;
 
 const entryHref = new URL('../dist/server/entry.mjs', import.meta.url).href;
 const { handler: astroHandler } = await import(entryHref);
@@ -72,12 +72,13 @@ if (process.env.NODE_ENV === 'production') {
 		Boolean(process.env.TOUR_UPLOAD_DIR?.trim()) ||
 		Boolean(process.env.WTD_UPLOAD_DIR?.trim()) ||
 		Boolean(process.env.REGION_UPLOAD_DIR?.trim()) ||
-		Boolean(process.env.GUIDES_UPLOAD_DIR?.trim());
+		Boolean(process.env.GUIDES_UPLOAD_DIR?.trim()) ||
+		Boolean(process.env.PACKAGES_UPLOAD_DIR?.trim());
 	if (!hasShared) {
 		console.warn(
-			'[travelguide] No UPLOAD_ROOT / TOUR_UPLOAD_DIR / WTD_UPLOAD_DIR / REGION_UPLOAD_DIR / GUIDES_UPLOAD_DIR. With more than one app worker, ' +
+			'[travelguide] No UPLOAD_ROOT / TOUR_UPLOAD_DIR / WTD_UPLOAD_DIR / REGION_UPLOAD_DIR / GUIDES_UPLOAD_DIR / PACKAGES_UPLOAD_DIR. With more than one app worker, ' +
 				'uploads exist only on the instance that handled the upload — images will randomly break. ' +
-				'Set UPLOAD_ROOT to a persistent volume (subfolders `tours`, `what-to-do`, `regions`, `guides`) or scale to 1 worker. ' +
+				'Set UPLOAD_ROOT to a persistent volume (subfolders `tours`, `what-to-do`, `regions`, `guides`, `packages`) or scale to 1 worker. ' +
 				'See data/USERS-DEPLOY.md.',
 		);
 	}

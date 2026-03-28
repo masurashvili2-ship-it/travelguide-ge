@@ -8,7 +8,7 @@ import {
 	invalidateRegionsCache,
 } from './regions-db';
 import { invalidateSubmissionsCache } from './submissions-db';
-import { invalidateToursCache, invalidateWhatToDoCache } from './tours-db';
+import { invalidateWhatToDoCache } from './tours-db';
 import { invalidateGuidesCache } from './guides-db';
 import { invalidateGuidePackagesCache } from './guide-packages-db';
 import { invalidateBookingsCache } from './bookings-db';
@@ -19,7 +19,6 @@ const DATA_DIR = getDataDir();
 
 /** JSON files under `data/` that can be exported / imported together. */
 export const DATA_BACKUP_FILENAMES = [
-	'tours.json',
 	'what-to-do.json',
 	'guides.json',
 	'guide-packages.json',
@@ -39,7 +38,6 @@ export type DataBackupFilename = (typeof DATA_BACKUP_FILENAMES)[number];
  * Logical post / store types for selective export and import (each maps to one JSON file).
  */
 export const BACKUP_KIND_IDS = [
-	'tours',
 	'what-to-do',
 	'guides',
 	'guide-packages',
@@ -56,7 +54,6 @@ export const BACKUP_KIND_IDS = [
 export type BackupKind = (typeof BACKUP_KIND_IDS)[number];
 
 export const BACKUP_KIND_FILE: Record<BackupKind, DataBackupFilename> = {
-	tours: 'tours.json',
 	'what-to-do': 'what-to-do.json',
 	guides: 'guides.json',
 	'guide-packages': 'guide-packages.json',
@@ -132,7 +129,6 @@ function readJsonFileOrNull(relPath: string): unknown | null {
 function validatePayload(name: DataBackupFilename, data: unknown): string | null {
 	if (data === null || typeof data !== 'object') return 'value must be a JSON object or array';
 	switch (name) {
-		case 'tours.json':
 		case 'what-to-do.json':
 		case 'regions.json':
 		case 'pages.json': {
@@ -372,7 +368,6 @@ function mergePayloadForFile(
 	existing: unknown | null,
 ): { payload: unknown; added: number } {
 	switch (name) {
-		case 'tours.json':
 		case 'what-to-do.json':
 		case 'regions.json':
 		case 'pages.json': {
@@ -470,7 +465,6 @@ export function parseBackupBundle(raw: unknown): DataBackupBundleV1 | { error: s
 
 function invalidateCachesForFiles(written: DataBackupFilename[]): void {
 	const w = new Set(written);
-	if (w.has('tours.json')) invalidateToursCache();
 	if (w.has('what-to-do.json')) invalidateWhatToDoCache();
 	if (w.has('guides.json')) invalidateGuidesCache();
 	if (w.has('guide-packages.json')) invalidateGuidePackagesCache();

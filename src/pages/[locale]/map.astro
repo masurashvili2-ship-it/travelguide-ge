@@ -3,6 +3,7 @@ import MapFiltersPanel from '../../components/MapFiltersPanel.astro';
 import Shell from '../../components/Shell.astro';
 import ToursMap from '../../components/ToursMap.astro';
 import { listRegionMapMarkers } from '../../lib/regions-db';
+import { listPublishedPackageMapMarkers } from '../../lib/guide-packages-db';
 import { listTourMapMarkers, listWhatToDoMapMarkers } from '../../lib/tours-db';
 import type { Locale } from '../../lib/strings';
 import { ui } from '../../lib/strings';
@@ -15,6 +16,7 @@ const locale = loc as Locale;
 const t = ui[locale];
 const markers = [
 	...listTourMapMarkers(locale),
+	...listPublishedPackageMapMarkers(locale),
 	...listWhatToDoMapMarkers(locale),
 	...listRegionMapMarkers(locale),
 ];

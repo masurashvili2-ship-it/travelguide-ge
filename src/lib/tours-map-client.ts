@@ -40,7 +40,7 @@ export type TourMapFocusOptions = {
 	lng: number;
 	zoom?: number;
 	slug?: string;
-	kind?: 'tours' | 'what-to-do' | 'regions';
+	kind?: 'tours' | 'packages' | 'what-to-do' | 'regions';
 };
 
 export type TourMapInitOptions = {
@@ -66,7 +66,7 @@ function filterMarkers(all: TourMapMarker[], root: HTMLElement): TourMapMarker[]
 		if (kindMode === 'what-to-do' && m.kind !== 'what-to-do') return false;
 		if (kindMode === 'regions' && m.kind !== 'regions') return false;
 
-		if (m.kind === 'tours') return true;
+		if (m.kind === 'tours' || m.kind === 'packages') return true;
 		if (m.kind === 'regions') return true;
 
 		if (m.kind === 'what-to-do') {
@@ -168,7 +168,10 @@ export async function initTourMap(markerList: TourMapMarker[], options?: TourMap
 		const featuredKey =
 			focus?.slug &&
 			focus?.kind &&
-			(focus.kind === 'tours' || focus.kind === 'what-to-do' || focus.kind === 'regions')
+			(focus.kind === 'tours' ||
+				focus.kind === 'packages' ||
+				focus.kind === 'what-to-do' ||
+				focus.kind === 'regions')
 				? `${focus.kind}:${focus.slug}`
 				: null;
 		const featuredMarker = featuredKey ? markerByKey.get(featuredKey) : undefined;

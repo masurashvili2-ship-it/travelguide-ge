@@ -6,7 +6,7 @@ interface Props {
 	formId: string;
 	submitLabel: string;
 	cancelHref: string;
-	viewMode: 'tours' | 'what-to-do' | 'regions' | 'page' | 'guides';
+	viewMode: 'what-to-do' | 'regions' | 'page' | 'guides';
 }
 
 const { locale, formId, submitLabel, cancelHref, viewMode } = Astro.props;
@@ -54,7 +54,7 @@ const { locale, formId, submitLabel, cancelHref, viewMode } = Astro.props;
 			root.setAttribute('data-admin-sticky-bound', '1');
 			var formId = root.getAttribute('data-form-id');
 			var loc = root.getAttribute('data-admin-locale') || 'en';
-			var mode = root.getAttribute('data-view-mode') || 'tours';
+			var mode = root.getAttribute('data-view-mode') || 'what-to-do';
 			var form = formId ? document.getElementById(formId) : null;
 			var statusEl = root.querySelector('[id^="admin-save-status-"]');
 			var viewLink = root.querySelector('[data-admin-view-link]');

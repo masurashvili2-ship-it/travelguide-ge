@@ -4,20 +4,17 @@ import type { Locale } from './strings';
 import type { TourLocaleBlock, TourPost } from './tours-db';
 import type { PageSubmissionPayload, TourLikeSubmissionPayload } from './submissions-db';
 
-/** Map a live tour / activity post into the shape stored on a submission (for edit forms). */
-export function tourPostToContributionPayload(
-	post: TourPost,
-	kind: 'tours' | 'what-to-do',
-): TourLikeSubmissionPayload {
+/** Map a live “what to do” post into the shape stored on a submission (for edit forms). */
+export function tourPostToContributionPayload(post: TourPost): TourLikeSubmissionPayload {
 	return {
 		slug: post.slug,
 		image: post.image,
 		gallery: [...post.gallery],
 		location: post.location,
-		category: kind === 'tours' ? post.category : null,
-		whatDoCategories: kind === 'what-to-do' ? [...post.whatDoCategories] : [],
-		whatDoSeasons: kind === 'what-to-do' ? [...post.whatDoSeasons] : [],
-		place_ids: kind === 'what-to-do' ? [...post.place_ids] : [],
+		category: null,
+		whatDoCategories: [...post.whatDoCategories],
+		whatDoSeasons: [...post.whatDoSeasons],
+		place_ids: [...post.place_ids],
 		physical_rating: post.physical_rating,
 		driving_distance: post.driving_distance,
 		google_directions_url: post.google_directions_url ?? null,
