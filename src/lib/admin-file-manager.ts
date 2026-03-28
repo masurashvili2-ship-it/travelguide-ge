@@ -8,6 +8,7 @@ import {
 	writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
+import { getUploadRootBase } from './upload-root';
 
 export type FileManagerEntry = {
 	name: string;
@@ -20,8 +21,8 @@ export type FileManagerEntry = {
 };
 
 function getUploadRoot(): string {
-	const root = process.env.UPLOAD_ROOT?.trim();
-	if (root) return path.resolve(root);
+	const root = getUploadRootBase();
+	if (root) return root;
 	const prodClient = path.join(process.cwd(), 'dist', 'client', 'uploads');
 	if (
 		process.env.NODE_ENV === 'production' &&

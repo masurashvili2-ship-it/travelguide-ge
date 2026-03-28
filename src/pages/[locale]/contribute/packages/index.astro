@@ -61,10 +61,10 @@ const guideProfileUrl = myGuide
 			<>
 				<p class="muted">Create and manage your own tour packages with custom pricing, availability calendar, and booking management.</p>
 
-				<p style="margin-bottom:1.5rem">
-					<a class="button" href={newUrl}>+ New package</a>
+				<p style="margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">
+					<a class="btn" href={newUrl}>+ New package</a>
 					{bookings.length > 0 && (
-						<a class="button" href={getRelativeLocaleUrl(locale, `contribute/packages/bookings`)} style="margin-left:0.5rem">
+						<a class="btn btn-ghost btn-sm" href={getRelativeLocaleUrl(locale, `contribute/packages/bookings`)}>
 							View all bookings ({bookings.length})
 						</a>
 					)}
@@ -74,7 +74,7 @@ const guideProfileUrl = myGuide
 					<div class="contribute-card">
 						<div class="contribute-card__bd" style="text-align:center;padding:2.5rem 1rem">
 							<p class="muted" style="margin:0 0 1rem">You haven't created any tour packages yet.</p>
-							<a class="button" href={newUrl}>Create your first package</a>
+							<a class="btn" href={newUrl}>Create your first package</a>
 						</div>
 					</div>
 				) : (
@@ -106,13 +106,13 @@ const guideProfileUrl = myGuide
 										</div>
 										{desc && <p class="pkg-card__desc">{desc.slice(0, 100)}{desc.length > 100 ? '…' : ''}</p>}
 										<div class="pkg-card__actions">
-											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`)} class="button">Edit</a>
-											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/calendar`)} class="button">Calendar</a>
-											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/bookings`)} class="button">
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`)} class="btn btn-ghost btn-sm">Edit</a>
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/calendar`)} class="btn btn-ghost btn-sm">Calendar</a>
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/bookings`)} class="btn btn-ghost btn-sm">
 												Bookings {pkgBookings.length > 0 ? `(${pkgBookings.length})` : ''}
 											</a>
 											{pkg.status === 'published' && (
-												<a href={getRelativeLocaleUrl(locale, `tours/${pkg.slug}`)} target="_blank" class="button">Preview</a>
+												<a href={getRelativeLocaleUrl(locale, `tours/${pkg.slug}`)} target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Preview</a>
 											)}
 										</div>
 									</div>
@@ -180,9 +180,6 @@ const guideProfileUrl = myGuide
 	flex-wrap: wrap;
 	gap: 0.4rem;
 	margin-top: 0.75rem;
-}
-.pkg-card__actions .button {
-	font-size: 0.82rem;
-	padding: 0.3rem 0.65rem;
+	align-items: center;
 }
 </style>

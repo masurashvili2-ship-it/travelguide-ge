@@ -51,6 +51,20 @@ Set in App → Environment (runtime):
 
 See `.env.example`. Production **`npm start`** runs `scripts/node-with-uploads.mjs` (not `dist/server/entry.mjs` directly).
 
+## Coolify (Nixpacks)
+
+Redeploys use a **fresh container filesystem** unless JSON data and uploads live on a **persistent volume**.
+
+1. In Coolify → your application → **Persistent Storage**, add a volume and note the **mount path** (often like `/data/coolify/applications/<uuid>`).
+2. Set **runtime** environment variables:
+   - **`DATA_DIR`** = that mount path (same value at build + runtime is fine).
+   - **`UPLOAD_ROOT`** = optional. If omitted, the app uses **`${DATA_DIR}/uploads`** automatically.
+3. **Start command** must be production Node, not `astro dev`. This repo’s **`package.json`** `start` script runs **`node ./scripts/node-with-uploads.mjs`** — use **`npm start`** or that command explicitly.
+4. On boot, logs should include: **`[travelguide] persistent paths: DATA_DIR=… uploads=…`**. If you see **`DATA_DIR not set`**, the app is still using ephemeral `./data` and data will reset when the container is replaced.
+5. Name the session variable **`SESSION_SECRET`** exactly (not `ESSION_SECRET`). It must be available at **runtime** (min 16 characters).
+
+After the first successful deploy with a volume, copy/restore any JSON backups into `DATA_DIR` if you are migrating from an old server.
+
 ## Local development
 
 Copy `users.json` from backup or use **Register** on localhost as usual. If the file is missing, start from `data/users.json.example`.

@@ -3,6 +3,7 @@ import Shell from '../../../components/Shell.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
+import '../../../styles/contribute.css';
 import { getStoredUserById } from '../../../lib/auth';
 import { listBookingsForCustomerEmail, listBookingsForGuide } from '../../../lib/bookings-db';
 import { getGuides } from '../../../lib/guides-db';
@@ -75,7 +76,7 @@ function slugOf(s: ContentSubmission): string {
 	seoDescription={t.accountDashboardIntro}
 	robotsNoindex={true}
 >
-	<div class="account-dash">
+	<div class="account-dash contribute-page">
 		<h1 class="account-dash__h">{t.accountDashboardTitle}</h1>
 		<p class="muted account-dash__intro">{t.accountDashboardIntro}</p>
 
@@ -183,7 +184,7 @@ function slugOf(s: ContentSubmission): string {
 											· {t.accountStatusPrefix}: {s.status}
 										</span>
 										{' '}
-										<a class="account-dash__mini" href={getRelativeLocaleUrl(locale, submissionEditPath(s.kind, s.id))}>
+										<a class="btn btn-ghost btn-sm account-dash__edit-inline" href={getRelativeLocaleUrl(locale, submissionEditPath(s.kind, s.id))}>
 											{t.accountEdit}
 										</a>
 									</li>
@@ -192,7 +193,7 @@ function slugOf(s: ContentSubmission): string {
 						)
 					}
 					<p style="margin:0.75rem 0 0">
-						<a class="button" href={contributeUrl}>{t.accountContributeCta}</a>
+						<a class="btn btn-ghost btn-sm" href={contributeUrl}>{t.accountContributeCta}</a>
 					</p>
 				</div>
 			</section>
@@ -205,7 +206,7 @@ function slugOf(s: ContentSubmission): string {
 							<>
 								<p class="muted">{t.accountGuideNone}</p>
 								<p style="margin:0.75rem 0 0">
-									<a class="button button-primary" href={getRelativeLocaleUrl(locale, 'contribute/guide')}>
+									<a class="btn" href={getRelativeLocaleUrl(locale, 'contribute/guide')}>
 										{t.accountCreateGuide}
 									</a>
 								</p>
@@ -213,7 +214,7 @@ function slugOf(s: ContentSubmission): string {
 						) : (
 							<>
 								<p style="margin:0">
-									<a class="button button-primary" href={getRelativeLocaleUrl(locale, `contribute/guide/edit/${primaryGuide.id}`)}>
+									<a class="btn" href={getRelativeLocaleUrl(locale, `contribute/guide/edit/${primaryGuide.id}`)}>
 										{t.accountEdit} ({primaryGuide.slug})
 									</a>
 								</p>
@@ -221,7 +222,7 @@ function slugOf(s: ContentSubmission): string {
 									{t.accountPackagesTitle}: {pkgCount}
 								</p>
 								<p style="margin:0.5rem 0 0">
-									<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/packages')}>{t.accountPackagesCta}</a>
+									<a class="btn btn-ghost btn-sm" href={getRelativeLocaleUrl(locale, 'contribute/packages')}>{t.accountPackagesCta}</a>
 								</p>
 							</>
 						)
@@ -233,7 +234,7 @@ function slugOf(s: ContentSubmission): string {
 				<h2 class="contribute-card__h">{t.navActivityLog}</h2>
 				<div class="contribute-card__bd">
 					<p class="muted" style="margin:0 0 0.75rem">{t.activityLogIntro}</p>
-					<a class="button" href={activityUrl}>{t.navActivityLog}</a>
+					<a class="btn btn-ghost btn-sm" href={activityUrl}>{t.navActivityLog}</a>
 				</div>
 			</section>
 		</div>
@@ -308,9 +309,9 @@ function slugOf(s: ContentSubmission): string {
 		font-size: 0.85em;
 		margin-left: 0.25rem;
 	}
-	.account-dash__mini {
-		font-size: 0.88rem;
-		font-weight: 600;
+	.account-dash__edit-inline {
+		margin-left: 0.15rem;
+		vertical-align: middle;
 	}
 	.account-dash__profile-form {
 		display: flex;

@@ -166,7 +166,7 @@ function displayGuideAuthor(row: (typeof guideRows)[number]): string {
 									<td>{row.verified ? '✓' : '—'}</td>
 									<td>
 										<div class="admin-actions">
-											<a href={getRelativeLocaleUrl(locale, `admin/guides/edit/${row.id}`)}>Edit</a>
+											<a class="button button-sm" href={getRelativeLocaleUrl(locale, `admin/guides/edit/${row.id}`)}>Edit</a>
 											<form
 												method="post"
 												action="/api/admin/guides"

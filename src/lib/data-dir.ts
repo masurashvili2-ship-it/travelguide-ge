@@ -9,7 +9,11 @@ import path from 'node:path';
  *
  *   DATA_DIR=/data/coolify/applications/<your-app-id>
  *
- * Falls back to <cwd>/data when DATA_DIR is not set (works in dev and CI).
+ * Falls back to `process.cwd()/data` when DATA_DIR is not set (works in dev and CI).
+ *
+ * Coolify: attach persistent storage, mount it (e.g. under `/data/coolify/applications/...`),
+ * set DATA_DIR to that mount at runtime. UPLOAD_ROOT is optional — if unset, uploads use
+ * `DATA_DIR/uploads` automatically.
  */
 export function getDataDir(): string {
 	const env = process.env.DATA_DIR?.trim();

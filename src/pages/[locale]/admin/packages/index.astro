@@ -109,7 +109,7 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 							{pkg.status === 'pending_review' && (
 								<button
 									type="button"
-									class="btn-action btn-approve"
+									class="button button-primary button-sm"
 									data-id={pkg.id}
 									data-action="publish"
 								>✓ Approve</button>
@@ -117,7 +117,7 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 							{pkg.status !== 'published' && pkg.status !== 'pending_review' && (
 								<button
 									type="button"
-									class="btn-action btn-approve"
+									class="button button-primary button-sm"
 									data-id={pkg.id}
 									data-action="publish"
 								>Publish</button>
@@ -125,14 +125,14 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 							{pkg.status !== 'draft' && (
 								<button
 									type="button"
-									class="btn-action btn-reject"
+									class="button button-danger button-sm"
 									data-id={pkg.id}
 									data-action="draft"
 								>{pkg.status === 'pending_review' ? '✗ Reject' : 'Unpublish'}</button>
 							)}
-							<a href={editUrl} class="btn-action btn-edit">Edit</a>
+							<a href={editUrl} class="button button-sm">Edit</a>
 							{pkg.status === 'published' && (
-								<a href={previewUrl} target="_blank" class="btn-action btn-view">View</a>
+								<a href={previewUrl} target="_blank" rel="noopener noreferrer" class="button button-sm">View</a>
 							)}
 						</div>
 					</div>
@@ -218,16 +218,5 @@ const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 .discount-badge { background: #dcfce7; color: #166534; font-weight: 600; padding: 0.1rem 0.45rem; border-radius: 99px; font-size: 0.75rem; }
 
 .pkg-admin-row__actions { display: flex; flex-direction: column; gap: 0.4rem; min-width: 110px; }
-.btn-action {
-	padding: 0.35rem 0.65rem; border-radius: 7px; font-size: 0.8rem; font-weight: 600;
-	cursor: pointer; border: 1px solid #e2e8f0; background: #fff; color: #374151;
-	text-align: center; text-decoration: none; display: block; white-space: nowrap;
-}
-.btn-action:hover { background: #f8fafc; }
-.btn-approve { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
-.btn-approve:hover { background: #bbf7d0; }
-.btn-reject { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
-.btn-reject:hover { background: #fecaca; }
-.btn-edit { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-.btn-view { background: #f8fafc; color: #64748b; }
+.pkg-admin-row__actions .button { width: 100%; justify-content: center; margin: 0; }
 </style>

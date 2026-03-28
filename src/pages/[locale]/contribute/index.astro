@@ -171,14 +171,14 @@ function viewLiveHref(s: ContentSubmission): string | null {
 												<td class="contribute-actions-col">
 													<div class="contribute-actions-inner">
 														{editU ? (
-															<a class="button" href={editU} style="font-size:0.88rem;padding:0.35rem 0.65rem">
+															<a class="btn btn-ghost btn-sm" href={editU}>
 																Edit
 															</a>
 														) : null}
 														{showWithdraw ? (
 															<button
 																type="button"
-																class="btn-withdraw"
+																class="btn btn-ghost btn-sm btn-withdraw"
 																data-withdraw-id={s.id}
 																data-withdraw-mode={
 																	s.status === 'approved'
@@ -187,7 +187,6 @@ function viewLiveHref(s: ContentSubmission): string | null {
 																			? 'discard-draft'
 																			: 'queue'
 																}
-																style="font:inherit;font-size:0.88rem;color:#64748b;background:transparent;border:1px solid #e2e8f0;border-radius:6px;padding:0.35rem 0.5rem;cursor:pointer"
 															>
 																Withdraw
 															</button>
@@ -195,21 +194,19 @@ function viewLiveHref(s: ContentSubmission): string | null {
 														{showDelete ? (
 															<button
 																type="button"
-																class="btn-delete-submission"
+																class="btn btn-ghost btn-sm btn-danger-soft btn-delete-submission"
 																data-delete-id={s.id}
 																data-delete-live={s.published_id ? '1' : ''}
-																style="font:inherit;font-size:0.88rem;color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.35rem 0.5rem;cursor:pointer"
 															>
 																Delete
 															</button>
 														) : null}
 														{viewU ? (
 															<a
-																class="button"
+																class="btn btn-ghost btn-sm"
 																href={viewU}
 																target="_blank"
 																rel="noopener noreferrer"
-																style="font-size:0.88rem;padding:0.35rem 0.65rem"
 															>
 																View live
 															</a>

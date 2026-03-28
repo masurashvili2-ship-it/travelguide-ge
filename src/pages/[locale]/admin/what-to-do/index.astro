@@ -204,7 +204,7 @@ const WTD_CATEGORY_FILTERS = [
 									<td>{row.titles.ru || '—'}</td>
 									<td>
 										<div class="admin-actions">
-											<a href={getRelativeLocaleUrl(locale, `admin/what-to-do/edit/${row.id}`)}>Edit</a>
+											<a class="button button-sm" href={getRelativeLocaleUrl(locale, `admin/what-to-do/edit/${row.id}`)}>Edit</a>
 											<form
 												method="post"
 												action="/api/admin/what-to-do"

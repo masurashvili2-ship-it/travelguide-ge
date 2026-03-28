@@ -171,7 +171,7 @@ const LEVEL_FILTERS = [
 												<td>{row.titles.ka || '—'}</td>
 												<td>{row.titles.ru || '—'}</td>
 												<td>
-													<a href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
+													<a class="button button-sm" href={getRelativeLocaleUrl(locale, `admin/regions/edit/${row.id}`)}>Edit</a>
 													<div class="view-links muted" style="margin-top:0.35rem">
 														{row.locales.map((code) => (
 															<a href={getRelativeLocaleUrl(code, `regions/${row.slug}`)}>

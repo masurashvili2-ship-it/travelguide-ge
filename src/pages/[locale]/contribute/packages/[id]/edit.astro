@@ -46,15 +46,170 @@ const isAdmin = user.role === 'admin';
 		<p class="muted" style="margin-top:0"><a href={backUrl}>← Back to Packages</a></p>
 		<div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
 			<h1 style="margin:0">Edit Package</h1>
-			<div style="display:flex;gap:0.5rem">
-				<a href={calendarUrl} class="button">Manage Calendar</a>
-				<a href={bookingsUrl} class="button">View Bookings</a>
+			<div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center">
+				<a href={calendarUrl} class="btn btn-ghost btn-sm">Manage Calendar</a>
+				<a href={bookingsUrl} class="btn btn-ghost btn-sm">View Bookings</a>
 			</div>
 		</div>
 
 		<div id="pkg-status" class="notice" style="display:none"></div>
 
 		<form id="pkg-form" novalidate>
+		<!-- ── Tour Type (choose first) ─────────────────────────── -->
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Tour Type</h2>
+			<div class="contribute-card__bd">
+				<p class="muted" style="font-size:0.88rem;margin:0 0 1rem;line-height:1.5">
+					Choose whether this package is a <strong>group</strong> tour (per-person pricing) or a <strong>private</strong> tour (fixed price by group size). You can change this later.
+				</p>
+				<div class="tour-style-grid">
+					<label class="tour-style-option">
+						<input type="radio" name="tour_style" value="group" id="style-group" />
+						<div class="tour-style-card">
+							<span class="tour-style-icon">👥</span>
+							<strong>Group Tour</strong>
+							<p>Shared departures. Per-person pricing.</p>
+						</div>
+					</label>
+					<label class="tour-style-option">
+						<input type="radio" name="tour_style" value="private" id="style-private" />
+						<div class="tour-style-card">
+							<span class="tour-style-icon">🔒</span>
+							<strong>Private Guided Tour</strong>
+							<p>Exclusive, just for one group. Fixed total price by group size.</p>
+						</div>
+					</label>
+				</div>
+				<div id="private-tiers-section" style="display:none;margin-top:1.5rem">
+					<h3 style="margin:0 0 0.4rem;font-size:0.95rem;font-weight:700">Pricing by Group Size</h3>
+					<p class="muted" style="font-size:0.85rem;margin:0 0 1rem">Set a fixed total price per tier. Leave blank to hide that tier from booking.</p>
+					<div class="tier-table-wrap">
+						<table class="tier-table">
+							<thead>
+								<tr><th>Tier</th><th>Group Size</th><th>Total Price (per group)</th><th>Vehicle</th><th>Transport notes</th></tr>
+							</thead>
+							<tbody id="tier-tbody">
+								<tr data-tier-id="t1" data-min="1" data-max="3" data-label="Solo & Couple">
+									<td><strong>Solo &amp; Couple</strong></td><td class="tier-range">1–3 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+								<tr data-tier-id="t2" data-min="4" data-max="6" data-label="Small Group">
+									<td><strong>Small Group</strong></td><td class="tier-range">4–6 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+								<tr data-tier-id="t3" data-min="7" data-max="11" data-label="Medium Group">
+									<td><strong>Medium Group</strong></td><td class="tier-range">7–11 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+								<tr data-tier-id="t4" data-min="12" data-max="16" data-label="Large Group">
+									<td><strong>Large Group</strong></td><td class="tier-range">12–16 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+								<tr data-tier-id="t5" data-min="17" data-max="25" data-label="XL Group">
+									<td><strong>XL Group</strong></td><td class="tier-range">17–25 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+								<tr data-tier-id="t6" data-min="26" data-max="30" data-label="XXL Group">
+									<td><strong>XXL Group</strong></td><td class="tier-range">26–30 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td>
+										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
+											<option value="">— Not set —</option>
+											<option value="sedan">🚗 Sedan (2–3 pax)</option>
+											<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+											<option value="minivan">🚐 Minivan (5–8 pax)</option>
+											<option value="minibus">🚌 Minibus (8–20 pax)</option>
+											<option value="bus">🚌 Coach Bus (20+ pax)</option>
+											<option value="boat">⛵ Boat</option>
+											<option value="other">Other</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
 			<section class="contribute-card">
 				<h2 class="contribute-card__h">Basic Info</h2>
 				<div class="contribute-card__bd">
@@ -98,7 +253,7 @@ const isAdmin = user.role === 'admin';
 							</select>
 						</label>
 					</div>
-					<div class="row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+					<div class="row" id="group-capacity-row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
 						<label>
 							<span>Min people</span>
 							<input type="number" name="min_people" min="1" max="100" />
@@ -107,6 +262,8 @@ const isAdmin = user.role === 'admin';
 							<span>Max people</span>
 							<input type="number" name="max_people" min="1" max="100" />
 						</label>
+					</div>
+					<div class="row">
 						<label>
 							<span>Currency</span>
 							<select name="currency">
@@ -191,158 +348,6 @@ const isAdmin = user.role === 'admin';
 				</div>
 			</section>
 
-		<!-- ── Tour Type ─────────────────────────────────────── -->
-		<section class="contribute-card">
-			<h2 class="contribute-card__h">Tour Type</h2>
-			<div class="contribute-card__bd">
-				<div class="tour-style-grid">
-					<label class="tour-style-option">
-						<input type="radio" name="tour_style" value="group" id="style-group" />
-						<div class="tour-style-card">
-							<span class="tour-style-icon">👥</span>
-							<strong>Group Tour</strong>
-							<p>Shared departures. Per-person pricing.</p>
-						</div>
-					</label>
-					<label class="tour-style-option">
-						<input type="radio" name="tour_style" value="private" id="style-private" />
-						<div class="tour-style-card">
-							<span class="tour-style-icon">🔒</span>
-							<strong>Private Guided Tour</strong>
-							<p>Exclusive, just for one group. Fixed total price by group size.</p>
-						</div>
-					</label>
-				</div>
-				<div id="private-tiers-section" style="display:none;margin-top:1.5rem">
-					<h3 style="margin:0 0 0.4rem;font-size:0.95rem;font-weight:700">Pricing by Group Size</h3>
-					<p class="muted" style="font-size:0.85rem;margin:0 0 1rem">Set a fixed total price per tier. Leave blank to hide that tier from booking.</p>
-					<div class="tier-table-wrap">
-						<table class="tier-table">
-							<thead>
-								<tr><th>Tier</th><th>Group Size</th><th>Total Price (per group)</th><th>Vehicle</th><th>Transport notes</th></tr>
-							</thead>
-							<tbody id="tier-tbody">
-								<tr data-tier-id="t1" data-min="1" data-max="3" data-label="Solo & Couple">
-									<td><strong>Solo &amp; Couple</strong></td><td class="tier-range">1–3 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-								<tr data-tier-id="t2" data-min="4" data-max="6" data-label="Small Group">
-									<td><strong>Small Group</strong></td><td class="tier-range">4–6 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-								<tr data-tier-id="t3" data-min="7" data-max="11" data-label="Medium Group">
-									<td><strong>Medium Group</strong></td><td class="tier-range">7–11 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-								<tr data-tier-id="t4" data-min="12" data-max="16" data-label="Large Group">
-									<td><strong>Large Group</strong></td><td class="tier-range">12–16 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-								<tr data-tier-id="t5" data-min="17" data-max="25" data-label="XL Group">
-									<td><strong>XL Group</strong></td><td class="tier-range">17–25 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-								<tr data-tier-id="t6" data-min="26" data-max="30" data-label="XXL Group">
-									<td><strong>XXL Group</strong></td><td class="tier-range">26–30 people</td>
-									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
-									<td>
-										<select class="tier-vehicle-select" aria-label="Vehicle for this tier">
-											<option value="">— Not set —</option>
-											<option value="sedan">Sedan</option>
-											<option value="suv">SUV</option>
-											<option value="minivan">Minivan</option>
-											<option value="minibus">Minibus</option>
-											<option value="bus">Coach bus</option>
-											<option value="boat">Boat</option>
-											<option value="other">Other</option>
-										</select>
-									</td>
-									<td>
-										<input type="text" class="tier-transport-notes-input" placeholder="e.g. Mercedes V-class" aria-label="Transport notes for this tier" />
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<!-- ── Transportation & Logistics ───────────────────── -->
 		<section class="contribute-card">
 			<h2 class="contribute-card__h">Transportation & Logistics</h2>
@@ -352,23 +357,6 @@ const isAdmin = user.role === 'admin';
 						<input type="checkbox" name="transport_included" id="transport-included" />
 						<span>Transportation is included in the tour price</span>
 					</label>
-				</div>
-				<div id="transport-details" style="display:none">
-					<div class="row" style="margin-top:0.5rem">
-						<label><span>Vehicle type</span>
-							<select name="transport_type">
-								<option value="">— Not specified —</option>
-								<option value="sedan">🚗 Sedan (2–3 pax)</option>
-								<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
-								<option value="minivan">🚐 Minivan (5–8 pax)</option>
-								<option value="minibus">🚌 Minibus (8–20 pax)</option>
-								<option value="bus">🚌 Coach Bus (20+ pax)</option>
-								<option value="boat">⛵ Boat</option>
-								<option value="other">Other</option>
-							</select>
-						</label>
-						<p class="muted" style="font-size:0.82rem;margin:0.5rem 0 0">For private tours, add transport details per group size in the pricing table above.</p>
-					</div>
 				</div>
 				<div class="row" style="margin-top:0.75rem">
 					<label class="checkbox-row-label">
@@ -416,16 +404,15 @@ const isAdmin = user.role === 'admin';
 			<div class="contribute-card__bd">
 				<p class="muted">The best applicable discount is applied automatically at checkout.</p>
 				<div id="rules-list"></div>
-				<button type="button" id="add-rule-btn" class="button" style="margin-top:0.5rem">+ Add discount rule</button>
+				<button type="button" id="add-rule-btn" class="btn btn-ghost btn-sm" style="margin-top:0.5rem">+ Add discount rule</button>
 			</div>
 		</section>
 
-		<div style="margin-top:1.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
-			<button type="submit" class="button button--primary" id="pkg-submit-btn" data-action="review" data-label-submit="Submit for Review">Submit for Review</button>
-			{!isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
-			{isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
-			<a href={backUrl} class="button">Cancel</a>
-			<button type="button" id="pkg-delete-btn" style="margin-left:auto;color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.45rem 0.9rem;cursor:pointer;font:inherit">Delete Package</button>
+		<div class="pkg-form-actions" style="margin-top:1.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
+			<button type="submit" class="btn" id="pkg-submit-btn" data-action="review" data-label-submit="Submit for Review">Submit for Review</button>
+			<button type="button" class="btn btn-ghost btn-sm" id="pkg-draft-btn">Save as Draft</button>
+			<a href={backUrl} class="btn btn-ghost btn-sm">Cancel</a>
+			<button type="button" class="btn btn-ghost btn-sm btn-danger-soft" id="pkg-delete-btn" style="margin-left:auto">Delete Package</button>
 		</div>
 		{!isAdmin && <p class="muted" style="font-size:0.85rem;margin-top:0.5rem">Changes will be reviewed by admin before going live.</p>}
 		</form>
@@ -607,13 +594,13 @@ const isAdmin = user.role === 'admin';
 			'<span class="pkg-itin-stop-num"></span>' +
 			'<label class="pkg-itin-kind-label"><span class="muted">Type</span> ' +
 			'<select class="pkg-itin-kind"><option value="start">Starting</option><option value="stop">Stop</option><option value="optional">Optional stop</option><option value="end">Ending</option></select></label>' +
-			'<button type="button" class="pkg-itin-remove" aria-label="Remove segment">Remove</button></div>' +
+			'<button type="button" class="pkg-itin-remove btn btn-ghost btn-sm btn-danger-soft" aria-label="Remove segment">Remove</button></div>' +
 			'<div class="pkg-itin-title-timing-row">' +
 			'<label class="pkg-itin-field"><span class="pkg-itin-field__l">Segment title</span><input type="text" class="pkg-itin-stop-title" placeholder="e.g. Wine tasting in Signagi" /></label>' +
 			'<label class="pkg-itin-field pkg-itin-field--time"><span class="pkg-itin-field__l">Time (24h)</span><select class="pkg-itin-timing"></select></label>' +
 			'</div>' +
 			'<label class="pkg-itin-field pkg-itin-field--full"><span class="pkg-itin-field__l">Description</span><textarea class="pkg-itin-stop-body" rows="4" placeholder="Markdown ok"></textarea></label>' +
-			'<div class="pkg-itin-link-row"><button type="button" class="button pkg-link-suggest-btn">Link suggestions</button></div>';
+			'<div class="pkg-itin-link-row"><button type="button" class="btn btn-ghost btn-sm pkg-link-suggest-btn">Link suggestions</button></div>';
 		var kindSel = row.querySelector('.pkg-itin-kind');
 		kindSel.value = stop.kind;
 		row.querySelector('.pkg-itin-stop-title').value = stop.title || '';
@@ -690,7 +677,7 @@ const isAdmin = user.role === 'admin';
 		typeSpecs.forEach(function (spec) {
 			var b = document.createElement('button');
 			b.type = 'button';
-			b.className = 'button pkg-itin-seg-add-btn';
+			b.className = 'btn btn-ghost btn-sm pkg-itin-seg-add-btn';
 			b.textContent = spec.label;
 			b.addEventListener('click', function () {
 				syncActiveDayFromDom();
@@ -873,13 +860,11 @@ const isAdmin = user.role === 'admin';
 		var isPrivate = document.getElementById('style-private')?.checked;
 		var tierSection = document.getElementById('private-tiers-section');
 		if (tierSection) tierSection.style.display = isPrivate ? '' : 'none';
+		var capRow = document.getElementById('group-capacity-row');
+		if (capRow) capRow.style.display = isPrivate ? 'none' : '';
 	}
 	document.querySelectorAll('[name="tour_style"]').forEach(function (r) {
 		r.addEventListener('change', updateTourStyleUI);
-	});
-	document.getElementById('transport-included')?.addEventListener('change', function () {
-		var det = document.getElementById('transport-details');
-		if (det) det.style.display = this.checked ? '' : 'none';
 	});
 	document.getElementById('pickup-offered')?.addEventListener('change', function () {
 		var det = document.getElementById('pickup-details');
@@ -967,9 +952,8 @@ const isAdmin = user.role === 'admin';
 	// Transport
 	if (pkg.transport_included) {
 		var ti = document.getElementById('transport-included');
-		if (ti) { ti.checked = true; document.getElementById('transport-details').style.display = ''; }
+		if (ti) ti.checked = true;
 	}
-	setV('transport_type', pkg.transport_type ?? '');
 
 	if (pkg.pickup_offered) {
 		var po = document.getElementById('pickup-offered');
@@ -994,7 +978,7 @@ const isAdmin = user.role === 'admin';
 			'<select class="rule-kind" data-rule="' + id + '"><option value="group">Group discount</option><option value="early_bird">Early bird</option><option value="seasonal">Seasonal</option></select>' +
 			'<input type="number" class="rule-discount" placeholder="Discount %" min="1" max="100" style="width:110px" />' +
 			'<input type="text" class="rule-label" placeholder="Label (optional)" style="flex:1" />' +
-			'<button type="button" class="btn-remove-rule" style="color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.3rem 0.6rem;cursor:pointer">✕</button>' +
+			'<button type="button" class="btn btn-ghost btn-sm btn-danger-soft btn-remove-rule" aria-label="Remove rule">✕</button>' +
 			'</div>' +
 			'<div class="rule-extra" id="extra-' + id + '"></div>';
 		rulesEl.appendChild(div);
@@ -1092,6 +1076,8 @@ const isAdmin = user.role === 'admin';
 			resolvedStatus = action === 'draft' ? 'draft' : 'pending_review';
 		}
 		var tourStyle = fv('tour_style') || 'group';
+		var minP = tourStyle === 'private' ? 1 : parseInt(fv('min_people')) || 1;
+		var maxP = tourStyle === 'private' ? 30 : parseInt(fv('max_people')) || 10;
 		return {
 			slug: fv('slug'),
 			status: resolvedStatus,
@@ -1099,8 +1085,8 @@ const isAdmin = user.role === 'admin';
 			gallery: gallery,
 			duration_hours: durInfo.hours,
 			duration_label: durInfo.label,
-			min_people: parseInt(fv('min_people')) || 1,
-			max_people: parseInt(fv('max_people')) || 10,
+			min_people: minP,
+			max_people: maxP,
 			languages: fv('languages').split(/[,\s]+/).map(function(s){ return s.trim(); }).filter(Boolean),
 			tour_style: tourStyle,
 			private_tiers: tourStyle === 'private' ? collectPrivateTiers() : [],
@@ -1108,7 +1094,7 @@ const isAdmin = user.role === 'admin';
 			currency: fv('currency') || 'USD',
 			pricing_rules: collectRules(),
 			transport_included: document.getElementById('transport-included')?.checked || false,
-			transport_type: fv('transport_type') || null,
+			transport_type: null,
 			pickup_offered: document.getElementById('pickup-offered')?.checked || false,
 			pickup_notes: fv('pickup_notes') || null,
 			difficulty: fv('difficulty') || null,
@@ -1226,18 +1212,6 @@ const isAdmin = user.role === 'admin';
 .checkbox-row-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.925rem; font-weight: 500; }
 .checkbox-row-label input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
 
-.pkg-itin-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
-.pkg-itin-tab {
-	border: 1px solid #cbd5e1;
-	background: #f8fafc;
-	padding: 0.4rem 0.85rem;
-	border-radius: 999px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	cursor: pointer;
-	font-family: inherit;
-}
-.pkg-itin-tab.is-active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
 .pkg-itin-editor-root { margin-bottom: 0.5rem; }
 .pkg-itin-day-head { margin-bottom: 1rem; }
 .pkg-itin-day-title-label { display: block; font-size: 0.88rem; font-weight: 600; }
@@ -1282,34 +1256,6 @@ const isAdmin = user.role === 'admin';
 	max-width: 12rem;
 	font-family: inherit;
 }
-.pkg-itin-remove {
-	margin-left: auto;
-	color: #b91c1c;
-	background: #fff;
-	border: 1px solid #fecaca;
-	border-radius: 6px;
-	padding: 0.35rem 0.65rem;
-	cursor: pointer;
-	font: inherit;
-	font-size: 0.8rem;
-	font-weight: 600;
-}
-.pkg-itin-title-timing-row {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: flex-end;
-	gap: 1rem;
-	margin-bottom: 0.55rem;
-}
-.pkg-itin-title-timing-row .pkg-itin-field:first-child {
-	flex: 1 1 0;
-	min-width: 0;
-}
-.pkg-itin-title-timing-row .pkg-itin-field--time {
-	flex: 0 0 auto;
-	width: 9.5rem;
-}
 .pkg-itin-field { display: flex; flex-direction: column; gap: 0.25rem; margin: 0; }
 .pkg-itin-field--full { margin-top: 0.25rem; }
 .pkg-itin-field__l { font-size: 0.78rem; font-weight: 600; color: #475569; }
@@ -1352,7 +1298,6 @@ const isAdmin = user.role === 'admin';
 	flex-wrap: wrap;
 	gap: 0.45rem;
 }
-.pkg-itin-seg-add-btn { font-size: 0.85rem; padding: 0.4rem 0.75rem; }
 .tier-vehicle-select {
 	width: 100%;
 	max-width: 11rem;

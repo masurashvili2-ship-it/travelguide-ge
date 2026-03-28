@@ -58,6 +58,28 @@ async function seedDataDir() {
 
 await seedDataDir();
 
+/** Ensure volume paths exist (Coolify / first deploy). */
+async function ensurePersistentDirs() {
+	const dataDir = process.env.DATA_DIR?.trim();
+	if (!dataDir) {
+		console.log('[travelguide] DATA_DIR not set — JSON stores use ./data (ephemeral on many hosts).');
+		return;
+	}
+	await fs.mkdir(dataDir, { recursive: true });
+	const uploadBase =
+		process.env.UPLOAD_ROOT?.trim() || path.join(dataDir, 'uploads');
+	const resolvedUpload = path.resolve(uploadBase);
+	await fs.mkdir(resolvedUpload, { recursive: true });
+	for (const sub of ['tours', 'what-to-do', 'regions', 'guides', 'packages']) {
+		await fs.mkdir(path.join(resolvedUpload, sub), { recursive: true });
+	}
+	console.log(
+		`[travelguide] persistent paths: DATA_DIR=${path.resolve(dataDir)}  uploads=${resolvedUpload}`,
+	);
+}
+
+await ensurePersistentDirs();
+
 const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions|guides|packages)\/(.+)$/;
 
 const entryHref = new URL('../dist/server/entry.mjs', import.meta.url).href;
@@ -69,6 +91,7 @@ const host = process.env.HOST ?? '0.0.0.0';
 if (process.env.NODE_ENV === 'production') {
 	const hasShared =
 		Boolean(process.env.UPLOAD_ROOT?.trim()) ||
+		Boolean(process.env.DATA_DIR?.trim()) ||
 		Boolean(process.env.TOUR_UPLOAD_DIR?.trim()) ||
 		Boolean(process.env.WTD_UPLOAD_DIR?.trim()) ||
 		Boolean(process.env.REGION_UPLOAD_DIR?.trim()) ||

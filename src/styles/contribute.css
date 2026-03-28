@@ -120,13 +120,28 @@
 }
 
 .contribute-page a.button {
-	display: inline-block;
-	padding: 0.5rem 1rem;
-	border-radius: 8px;
-	border: 1px solid #e2e8f0;
-	text-decoration: none;
-	color: #0f172a;
-	font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.4rem 0.95rem;
+	border-radius: 999px;
+	border: 1px solid var(--border, #e2e8f0);
+	text-decoration: none !important;
+	color: var(--accent-dim, #0f766e) !important;
+	font-weight: 600;
+	font-size: 0.82rem;
+	background: var(--surface, #fff);
+	box-shadow: var(--shadow-sm, 0 1px 2px rgba(15, 23, 42, 0.05));
+	transition:
+		background 0.15s ease,
+		border-color 0.15s ease,
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+}
+.contribute-page a.button:hover {
+	background: color-mix(in srgb, var(--accent, #0d9488) 6%, var(--surface, #fff));
+	border-color: color-mix(in srgb, var(--accent, #0d9488) 35%, var(--border, #e2e8f0));
+	transform: translateY(-1px);
 }
 
 .contribute-page .notice {
@@ -192,4 +207,59 @@
 	width: auto;
 	margin-top: 0.2em;
 	flex-shrink: 0;
+}
+
+/* Tour package itinerary editor: force title + time on one row (grid beats stray flex/width rules) */
+.contribute-page .pkg-itin-title-timing-row {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) 10.5rem;
+	align-items: end;
+	gap: 0.65rem 1rem;
+	margin-bottom: 0.55rem;
+}
+.contribute-page .pkg-itin-title-timing-row > .pkg-itin-field {
+	min-width: 0;
+	margin: 0;
+}
+
+.contribute-page .pkg-itin-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin-bottom: 1rem;
+}
+.contribute-page .pkg-itin-tab {
+	border: 1px solid var(--border, #e2e8f0);
+	background: var(--surface, #fff);
+	padding: 0.4rem 0.9rem;
+	border-radius: 999px;
+	font-size: 0.82rem;
+	font-weight: 600;
+	cursor: pointer;
+	font-family: inherit;
+	color: var(--accent-dim, #0f766e);
+	box-shadow: var(--shadow-sm, 0 1px 2px rgba(15, 23, 42, 0.05));
+	transition:
+		background 0.15s ease,
+		border-color 0.15s ease,
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+}
+.contribute-page .pkg-itin-tab:hover {
+	background: color-mix(in srgb, var(--accent, #0d9488) 6%, var(--surface, #fff));
+	border-color: color-mix(in srgb, var(--accent, #0d9488) 35%, var(--border, #e2e8f0));
+}
+.contribute-page .pkg-itin-tab.is-active {
+	background: linear-gradient(165deg, var(--accent, #0d9488) 0%, var(--accent-dim, #0f766e) 100%);
+	color: #fff !important;
+	border-color: transparent;
+	box-shadow: 0 2px 12px color-mix(in srgb, var(--accent, #0d9488) 35%, transparent);
+}
+.contribute-page .pkg-itin-remove.btn {
+	margin-left: auto;
+	flex-shrink: 0;
+}
+.contribute-page .pkg-link-suggest-btn.btn,
+.contribute-page .pkg-itin-seg-add-btn.btn {
+	margin: 0;
 }
