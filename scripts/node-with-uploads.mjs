@@ -58,7 +58,7 @@ async function seedDataDir() {
 
 await seedDataDir();
 
-const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions)\/(.+)$/;
+const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|regions|guides)\/(.+)$/;
 
 const entryHref = new URL('../dist/server/entry.mjs', import.meta.url).href;
 const { handler: astroHandler } = await import(entryHref);
@@ -71,12 +71,13 @@ if (process.env.NODE_ENV === 'production') {
 		Boolean(process.env.UPLOAD_ROOT?.trim()) ||
 		Boolean(process.env.TOUR_UPLOAD_DIR?.trim()) ||
 		Boolean(process.env.WTD_UPLOAD_DIR?.trim()) ||
-		Boolean(process.env.REGION_UPLOAD_DIR?.trim());
+		Boolean(process.env.REGION_UPLOAD_DIR?.trim()) ||
+		Boolean(process.env.GUIDES_UPLOAD_DIR?.trim());
 	if (!hasShared) {
 		console.warn(
-			'[travelguide] No UPLOAD_ROOT / TOUR_UPLOAD_DIR / WTD_UPLOAD_DIR / REGION_UPLOAD_DIR. With more than one app worker, ' +
+			'[travelguide] No UPLOAD_ROOT / TOUR_UPLOAD_DIR / WTD_UPLOAD_DIR / REGION_UPLOAD_DIR / GUIDES_UPLOAD_DIR. With more than one app worker, ' +
 				'uploads exist only on the instance that handled the upload — images will randomly break. ' +
-				'Set UPLOAD_ROOT to a persistent volume (subfolders `tours`, `what-to-do`, `regions`) or scale to 1 worker. ' +
+				'Set UPLOAD_ROOT to a persistent volume (subfolders `tours`, `what-to-do`, `regions`, `guides`) or scale to 1 worker. ' +
 				'See data/USERS-DEPLOY.md.',
 		);
 	}

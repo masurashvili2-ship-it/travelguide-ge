@@ -3,6 +3,8 @@ import Shell from '../../../components/Shell.astro';
 import TourHeroGallery from '../../../components/TourHeroGallery.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { listToursForLocale } from '../../../lib/tours-db';
+import { listAllPublishedPackages } from '../../../lib/guide-packages-db';
+import { getGuideById } from '../../../lib/guides-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
 
@@ -13,6 +15,9 @@ if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
 const locale = loc as Locale;
 const t = ui[locale];
 const sorted = listToursForLocale(locale);
+
+const publishedPackages = listAllPublishedPackages();
+const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 ---
 
 <Shell
@@ -39,11 +44,70 @@ const sorted = listToursForLocale(locale);
 					<p class="muted">{entry.data.excerpt}</p>
 					<p class="muted">
 						{t.duration}: {entry.data.duration}
-						{entry.data.price ? ` · ${entry.data.price}` : ''}
 					</p>
+					<div class="tour-badges">
+						{entry.data.price && <span class="price-badge">💰 {entry.data.price}</span>}
+					</div>
 					<a class="btn" href={getRelativeLocaleUrl(locale, `tours/${entry.data.slug}`)}>{t.viewTour}</a>
 				</article>
 			))
 		}
 	</div>
+
+	{publishedPackages.length > 0 && (
+		<>
+			<h2 class="section-heading" style="margin-top:3rem">Guide Tour Packages</h2>
+			<p class="muted" style="margin-bottom:1.5rem">Custom tours designed and led by our verified local guides.</p>
+			<div class="card-grid">
+				{publishedPackages.map((pkg) => {
+					const title = pkg.i18n[locale]?.title ?? pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? '';
+					const excerpt = pkg.i18n[locale]?.description ?? pkg.i18n['en']?.description ?? '';
+					const sym = symMap[pkg.currency] ?? pkg.currency;
+					const maxDiscount = pkg.pricing_rules.length
+						? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
+						: 0;
+					const guide = getGuideById(pkg.guide_id);
+					const guideName = guide?.i18n?.[locale]?.name ?? guide?.i18n?.['en']?.name ?? '';
+					const pkgUrl = getRelativeLocaleUrl(locale, `packages/${pkg.slug}`);
+					return (
+						<article class="card pkg-card-public">
+							{pkg.cover_photo && (
+								<img src={pkg.cover_photo} alt={title} class="pkg-card-public__img" loading="lazy" />
+							)}
+							<h2>{title}</h2>
+							{guideName && <p class="muted" style="font-size:0.85rem;margin:0 0 0.25rem">by {guideName}</p>}
+							{excerpt && <p class="muted">{excerpt.slice(0, 100)}{excerpt.length > 100 ? '…' : ''}</p>}
+							<p class="muted">{t.duration}: {pkg.duration_label ?? `${pkg.duration_hours}h`}</p>
+							<div class="tour-badges">
+								<span class="price-badge">💰 From {sym}{pkg.base_price} / person</span>
+								{maxDiscount > 0 && <span class="discount-badge">Up to {maxDiscount}% off</span>}
+							</div>
+							<a class="btn" href={pkgUrl}>Book now</a>
+						</article>
+					);
+				})}
+			</div>
+		</>
+	)}
 </Shell>
+
+<style>
+.tour-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0 0.75rem; }
+.price-badge {
+	background: #eff6ff; color: #1d4ed8;
+	font-size: 0.8rem; font-weight: 600;
+	padding: 0.2rem 0.6rem; border-radius: 99px;
+	border: 1px solid #bfdbfe;
+}
+.discount-badge {
+	background: #dcfce7; color: #15803d;
+	font-size: 0.8rem; font-weight: 700;
+	padding: 0.2rem 0.6rem; border-radius: 99px;
+	border: 1px solid #bbf7d0;
+}
+.pkg-card-public__img {
+	width: 100%; height: 160px; object-fit: cover;
+	border-radius: 8px; margin-bottom: 0.75rem;
+}
+.section-heading { font-size: 1.5rem; font-weight: 800; }
+</style>

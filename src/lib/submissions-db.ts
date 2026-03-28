@@ -31,13 +31,22 @@ import type { TourCategoryId } from './tour-categories';
 import type { WhatToDoCategoryId } from './what-to-do-categories';
 import type { WhatToDoSeasonId } from './what-to-do-seasons';
 import type { TourPhysicalRatingId } from './tour-physical-rating';
+import {
+	deleteGuideById,
+	getGuideById,
+	isGuideSlugUsedByAnother,
+	saveGuidePost,
+	validateGuideI18nAndSlug,
+	type GuideLocaleBlock,
+} from './guides-db';
+import type { GuideSpecialtyId } from './guide-specialties';
 
 import { getDataDir } from './data-dir';
 
 const DATA_DIR = getDataDir();
 const STORE_FILE = path.join(DATA_DIR, 'content-submissions.json');
 
-export type SubmissionKind = 'tours' | 'what-to-do' | 'page';
+export type SubmissionKind = 'tours' | 'what-to-do' | 'page' | 'guides';
 
 export type SubmissionStatus = 'pending' | 'approved' | 'rejected' | 'withdrawn';
 
@@ -67,6 +76,20 @@ export type PageSubmissionPayload = {
 	i18n: Partial<Record<Locale, PageLocaleBlock>>;
 };
 
+export type GuideSubmissionPayload = {
+	slug: string;
+	profile_photo: string | null;
+	gallery: string[];
+	social_links: ContactSocialLinks;
+	languages_spoken: string[];
+	years_experience: number | null;
+	base_location: string | null;
+	place_ids: string[];
+	price_from: string | null;
+	specialties: GuideSpecialtyId[];
+	i18n: Partial<Record<Locale, GuideLocaleBlock>>;
+};
+
 export type ContentSubmission = {
 	id: string;
 	kind: SubmissionKind;
@@ -80,7 +103,7 @@ export type ContentSubmission = {
 	reviewed_by_email: string | null;
 	/** Live post id after approval */
 	published_id: string | null;
-	payload: TourLikeSubmissionPayload | PageSubmissionPayload;
+	payload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload;
 };
 
 type StoreFile = { submissions: ContentSubmission[] };
@@ -138,11 +161,11 @@ function writeAll(list: ContentSubmission[]) {
 	cachedMtime = fileMtime();
 }
 
-function slugForPayload(kind: SubmissionKind, payload: TourLikeSubmissionPayload | PageSubmissionPayload): string {
+function slugForPayload(kind: SubmissionKind, payload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload): string {
 	if (kind === 'page') {
 		return (payload as PageSubmissionPayload).slug.trim().toLowerCase();
 	}
-	return (payload as TourLikeSubmissionPayload).slug.trim();
+	return (payload as TourLikeSubmissionPayload | GuideSubmissionPayload).slug.trim();
 }
 
 /**
@@ -159,6 +182,9 @@ export function isSlugBlockedForSubmission(
 	const normalizedPageSlug = kind === 'page' ? slug.trim().toLowerCase() : slug;
 	if (kind === 'tours' || kind === 'what-to-do') {
 		if (isTourSlugUsedByAnotherPost(kind as ContentPostKind, slug, exceptPublishedPostId ?? null)) return true;
+	}
+	if (kind === 'guides') {
+		if (isGuideSlugUsedByAnother(slug, exceptPublishedPostId ?? null)) return true;
 	}
 	if (kind === 'page') {
 		if (isPageSlugUsedByAnotherPage(normalizedPageSlug, exceptPublishedPostId ?? null)) return true;
@@ -261,17 +287,31 @@ function validatePagePayload(
 	return { ok: true };
 }
 
+function validateGuidePayload(
+	p: GuideSubmissionPayload,
+	excludeSubmissionId?: string,
+	exceptPublishedPostId?: string | null,
+): { ok: true } | { ok: false; error: string } {
+	const v = validateGuideI18nAndSlug(p.slug, p.i18n);
+	if (!v.ok) return v;
+	if (isSlugBlockedForSubmission('guides', p.slug, excludeSubmissionId, exceptPublishedPostId)) {
+		return { ok: false, error: 'This slug is already used or has a pending submission' };
+	}
+	return { ok: true };
+}
+
 function unpublishLivePost(s: ContentSubmission): { ok: true } | { ok: false; error: string } {
 	if (!s.published_id) return { ok: true };
 	if (s.kind === 'tours') return deleteContentPostById('tours', s.published_id);
 	if (s.kind === 'what-to-do') return deleteContentPostById('what-to-do', s.published_id);
+	if (s.kind === 'guides') return deleteGuideById(s.published_id);
 	return deletePagePostById(s.published_id);
 }
 
 function restorePayloadFromLive(
 	s: ContentSubmission,
 ):
-	| { ok: true; payload: TourLikeSubmissionPayload | PageSubmissionPayload }
+	| { ok: true; payload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload }
 	| { ok: false; error: string } {
 	if (!s.published_id) return { ok: false, error: 'Missing published reference' };
 	if (s.kind === 'tours') {
@@ -294,6 +334,29 @@ function restorePayloadFromLive(
 		}
 		return { ok: true, payload: tourPostToContributionPayload(post, 'what-to-do') };
 	}
+	if (s.kind === 'guides') {
+		const guide = getGuideById(s.published_id);
+		if (!guide) {
+			return {
+				ok: false,
+				error: 'Live guide is no longer on the site. Contact an admin or delete this row.',
+			};
+		}
+		const gp: GuideSubmissionPayload = {
+			slug: guide.slug,
+			profile_photo: guide.profile_photo,
+			gallery: guide.gallery,
+			social_links: guide.social_links,
+			languages_spoken: guide.languages_spoken,
+			years_experience: guide.years_experience,
+			base_location: guide.base_location,
+			place_ids: guide.place_ids,
+			price_from: guide.price_from,
+			specialties: guide.specialties,
+			i18n: guide.i18n,
+		};
+		return { ok: true, payload: gp };
+	}
 	const page = getPagePostById(s.published_id);
 	if (!page) {
 		return {
@@ -306,12 +369,14 @@ function restorePayloadFromLive(
 
 export function addContentSubmission(
 	kind: SubmissionKind,
-	payload: TourLikeSubmissionPayload | PageSubmissionPayload,
+	payload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload,
 	author: { userId: string; email: string },
 ): { ok: true; id: string } | { ok: false; error: string } {
 	let check: { ok: true } | { ok: false; error: string };
 	if (kind === 'page') {
 		check = validatePagePayload(payload as PageSubmissionPayload);
+	} else if (kind === 'guides') {
+		check = validateGuidePayload(payload as GuideSubmissionPayload);
 	} else {
 		check = validateTourLikePayload(kind, payload as TourLikeSubmissionPayload);
 	}
@@ -396,7 +461,7 @@ const EDITABLE_STATUSES: SubmissionStatus[] = ['pending', 'rejected', 'withdrawn
 export function updatePendingSubmission(
 	submissionId: string,
 	userId: string,
-	nextPayload: TourLikeSubmissionPayload | PageSubmissionPayload,
+	nextPayload: TourLikeSubmissionPayload | PageSubmissionPayload | GuideSubmissionPayload,
 ): { ok: true } | { ok: false; error: string } {
 	const list = [...getSubmissions()];
 	const idx = list.findIndex((s) => s.id === submissionId);
@@ -412,6 +477,8 @@ export function updatePendingSubmission(
 	let check: { ok: true } | { ok: false; error: string };
 	if (s.kind === 'page') {
 		check = validatePagePayload(nextPayload as PageSubmissionPayload, submissionId, exceptPost);
+	} else if (s.kind === 'guides') {
+		check = validateGuidePayload(nextPayload as GuideSubmissionPayload, submissionId, exceptPost);
 	} else {
 		check = validateTourLikePayload(s.kind, nextPayload as TourLikeSubmissionPayload, submissionId, exceptPost);
 	}
@@ -621,6 +688,82 @@ export function approveSubmission(
 		};
 		writeAll(list);
 		return { ok: true, publishedId: created.id };
+	}
+
+	if (s.kind === 'guides') {
+		const p = s.payload as GuideSubmissionPayload;
+		const existingId = s.published_id;
+		const existing = existingId ? getGuideById(existingId) : null;
+
+		if (existing) {
+			if (isGuideSlugUsedByAnother(p.slug, existing.id)) {
+				return { ok: false, error: 'Slug conflict — resolve duplicates before approving' };
+			}
+			if (isSlugBlockedExceptSelf(s.id, 'guides', p.slug)) {
+				return { ok: false, error: 'Another pending submission uses this slug' };
+			}
+			const result = saveGuidePost({
+				id: existing.id,
+				mode: 'update',
+				slug: p.slug,
+				profile_photo: p.profile_photo,
+				gallery: p.gallery,
+				social_links: trimSocialLinks(p.social_links ?? {}),
+				languages_spoken: p.languages_spoken ?? [],
+				years_experience: p.years_experience ?? null,
+				base_location: p.base_location ?? null,
+				place_ids: p.place_ids ?? [],
+				price_from: p.price_from ?? null,
+				specialties: p.specialties ?? [],
+				i18n: p.i18n,
+				author_user_id: author.author_user_id,
+				author_email: author.author_email,
+			});
+			if (!result.ok) return { ok: false, error: result.error };
+			list[idx] = {
+				...s,
+				status: 'approved',
+				updated_at: now,
+				reviewed_at: now,
+				reviewed_by_email: reviewerEmail,
+				reject_reason: null,
+				published_id: existing.id,
+			};
+			writeAll(list);
+			return { ok: true, publishedId: existing.id };
+		}
+
+		if (isGuideSlugUsedByAnother(p.slug, null) || isSlugBlockedExceptSelf(s.id, 'guides', p.slug)) {
+			return { ok: false, error: 'Slug conflict — resolve duplicates before approving' };
+		}
+		const result = saveGuidePost({
+			slug: p.slug,
+			mode: 'create',
+			profile_photo: p.profile_photo,
+			gallery: p.gallery,
+			social_links: trimSocialLinks(p.social_links ?? {}),
+			languages_spoken: p.languages_spoken ?? [],
+			years_experience: p.years_experience ?? null,
+			base_location: p.base_location ?? null,
+			place_ids: p.place_ids ?? [],
+			price_from: p.price_from ?? null,
+			specialties: p.specialties ?? [],
+			i18n: p.i18n,
+			author_user_id: author.author_user_id,
+			author_email: author.author_email,
+		});
+		if (!result.ok) return { ok: false, error: result.error };
+		list[idx] = {
+			...s,
+			status: 'approved',
+			updated_at: now,
+			reviewed_at: now,
+			reviewed_by_email: reviewerEmail,
+			reject_reason: null,
+			published_id: result.id,
+		};
+		writeAll(list);
+		return { ok: true, publishedId: result.id };
 	}
 
 	const p = s.payload as PageSubmissionPayload;

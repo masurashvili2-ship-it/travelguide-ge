@@ -1,0 +1,247 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import {
+	ADMIN_LIST_PAGE_SIZE,
+	buildAdminQueryLink,
+	listRangeLabel,
+	paginateSlice,
+	parseAdminListPage,
+} from '../../../../lib/admin-list-helpers';
+import { filterGuideRowsForAdmin, listAllGuidesAdmin } from '../../../../lib/guides-db';
+import { contributorAuthorEmailForPublishedPost } from '../../../../lib/submissions-db';
+import type { Locale } from '../../../../lib/strings';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/guides');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const guideRows = listAllGuidesAdmin();
+const formError = Astro.url.searchParams.get('error');
+const userEmail = Astro.locals.user.email;
+const sp = Astro.url.searchParams;
+const q = (sp.get('q') ?? '').trim();
+const guideRowsFiltered = filterGuideRowsForAdmin(guideRows, q);
+const guidesPag = paginateSlice(
+	guideRowsFiltered,
+	parseAdminListPage(sp, 'page'),
+	ADMIN_LIST_PAGE_SIZE,
+);
+
+const selfUrl = `${Astro.url.pathname}${Astro.url.search}`;
+const pathOnly = Astro.url.pathname;
+const searchOnly = Astro.url.search;
+
+const newGuideUrl = getRelativeLocaleUrl(locale, 'admin/guides/new');
+const dashboardUrl = getRelativeLocaleUrl(locale, 'admin');
+
+function queryLink(updates: Record<string, string | null | undefined>): string {
+	return buildAdminQueryLink(pathOnly, searchOnly, updates);
+}
+
+function displayGuideAuthor(row: (typeof guideRows)[number]): string {
+	return (
+		row.author_email?.trim() || contributorAuthorEmailForPublishedPost('guides', row.id) || ''
+	);
+}
+---
+
+<AdminLayout
+	locale={locale}
+	title="Tour Guides · Travel Guide Georgia"
+	headline="Tour Guides"
+	subtitle="Public list at /{locale}/guides/ · data/guides.json"
+	activeNav="guides-all"
+	userEmail={userEmail}
+>
+	{
+		formError ? (
+			<div class="notice notice-error" role="alert">
+				{formError}
+			</div>
+		) : null
+	}
+
+	<section class="admin-card">
+		<h2 class="admin-card__h">All guides</h2>
+		<div class="admin-card__bd">
+			<p style="margin:0 0 1rem">
+				<a class="button button-primary" href={newGuideUrl}>Add new guide</a>
+				<a class="button" href={dashboardUrl} style="margin-left:0.35rem">
+					Dashboard
+				</a>
+			</p>
+
+			<form id="bulk-guides-form" method="post" action="/api/admin/guides" class="admin-bulk-form">
+				<input type="hidden" name="intent" value="bulk_delete" />
+				<input type="hidden" name="redirect" value={selfUrl} />
+			</form>
+
+			<div class="admin-toolbar">
+				<span class="muted" style="font-size:0.88rem;margin:0">
+					{listRangeLabel(guidesPag.page, ADMIN_LIST_PAGE_SIZE, guidesPag.total, 'guides')}
+					{q ? ` · search "${q}"` : ''} · {ADMIN_LIST_PAGE_SIZE} per page
+				</span>
+				<div class="admin-toolbar__bulk">
+					<form method="get" action={pathOnly} class="admin-toolbar__search">
+						<input type="hidden" name="page" value="1" />
+						<label class="visually-hidden" for="guides-list-q">Search guides</label>
+						<input
+							id="guides-list-q"
+							type="search"
+							name="q"
+							value={q}
+							placeholder="Search slug, names, author…"
+							autocomplete="off"
+							class="admin-toolbar__search-input"
+						/>
+						<button type="submit" class="button button-sm">Search</button>
+						{
+							q ? (
+								<a class="button button-sm btn--ghost" href={queryLink({ q: null, page: null })}>
+									Clear
+								</a>
+							) : null
+						}
+					</form>
+					<label>
+						<input type="checkbox" data-bulk-select-all="guides" />
+						Select all on page
+					</label>
+					<button type="submit" form="bulk-guides-form" class="button button-danger button-sm">
+						Delete selected
+					</button>
+				</div>
+			</div>
+
+			<div class="admin-table-wrap">
+				<table class="admin-table">
+					<thead>
+						<tr>
+							<th class="admin-table__check" scope="col">
+								<span class="visually-hidden">Select</span>
+							</th>
+							<th>Slug</th>
+							<th>Author</th>
+							<th>English</th>
+							<th>Georgian</th>
+							<th>Russian</th>
+							<th>Verified</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							guidesPag.slice.map((row) => (
+								<tr>
+									<td class="admin-table__check">
+										<input
+											type="checkbox"
+											name="ids"
+											value={row.id}
+											form="bulk-guides-form"
+											data-bulk-row="guides"
+											aria-label={`Select guide ${row.slug}`}
+										/>
+									</td>
+									<td>
+										<code>{row.slug}</code>
+									</td>
+									<td class="muted" style="font-size:0.88rem;max-width:12rem">
+										{displayGuideAuthor(row) || '—'}
+									</td>
+									<td>{row.names.en || '—'}</td>
+									<td>{row.names.ka || '—'}</td>
+									<td>{row.names.ru || '—'}</td>
+									<td>{row.verified ? '✓' : '—'}</td>
+									<td>
+										<div class="admin-actions">
+											<a href={getRelativeLocaleUrl(locale, `admin/guides/edit/${row.id}`)}>Edit</a>
+											<form
+												method="post"
+												action="/api/admin/guides"
+												onsubmit="return confirm('Delete this guide? This cannot be undone.');"
+											>
+												<input type="hidden" name="intent" value="delete" />
+												<input type="hidden" name="id" value={row.id} />
+												<input type="hidden" name="redirect" value={selfUrl} />
+												<button type="submit" class="button button-danger button-sm">Delete</button>
+											</form>
+										</div>
+										<div class="view-links muted" style="margin-top:0.35rem">
+											{row.locales.map((code) => (
+												<a href={getRelativeLocaleUrl(code, `guides/${row.slug}`)}>View ({code})</a>
+											))}
+											{row.locales.length === 0 ? <span>No locales</span> : null}
+										</div>
+									</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+
+			<nav class="admin-pagination" aria-label="Guides pages">
+				<span class="muted">
+					{guidesPag.page > 1 ? (
+						<a href={queryLink({ page: String(guidesPag.page - 1) })}>← Previous</a>
+					) : (
+						<span style="opacity:0.55">← Previous</span>
+					)}
+					{' · '}
+					{guidesPag.page < guidesPag.totalPages ? (
+						<a href={queryLink({ page: String(guidesPag.page + 1) })}>Next →</a>
+					) : (
+						<span style="opacity:0.55">Next →</span>
+					)}
+				</span>
+				<span class="muted">
+					Page {guidesPag.page} / {guidesPag.totalPages}
+				</span>
+			</nav>
+		</div>
+	</section>
+
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('[data-bulk-select-all]').forEach(function (master) {
+				var scope = master.getAttribute('data-bulk-select-all');
+				if (!scope) return;
+				master.addEventListener('change', function () {
+					document.querySelectorAll('[data-bulk-row="' + scope + '"]').forEach(function (cb) {
+						cb.checked = master.checked;
+					});
+				});
+			});
+			var form = document.getElementById('bulk-guides-form');
+			if (form) {
+				form.addEventListener('submit', function (e) {
+					var checked = [];
+					for (var i = 0; i < form.elements.length; i++) {
+						var el = form.elements[i];
+						if (el.name === 'ids' && el.type === 'checkbox' && el.checked) checked.push(el);
+					}
+					if (checked.length === 0) {
+						e.preventDefault();
+						alert('Select at least one guide.');
+						return;
+					}
+					if (!confirm('Delete ' + checked.length + ' guide' + (checked.length === 1 ? '' : 's') + '? This cannot be undone.')) {
+						e.preventDefault();
+					}
+				});
+			}
+		});
+	</script>
+</AdminLayout>

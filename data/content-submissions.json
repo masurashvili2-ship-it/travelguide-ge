@@ -94,6 +94,49 @@
           }
         }
       }
+    },
+    {
+      "id": "dc223c0b-6d75-4954-8ee0-011489c2f023",
+      "kind": "guides",
+      "status": "approved",
+      "author_user_id": "08e20c0a3e125bb879eefe87d82088c5",
+      "author_email": "masurashvili2@gmail.com",
+      "created_at": 1774708716660,
+      "updated_at": 1774708779281,
+      "reject_reason": null,
+      "reviewed_at": 1774708779281,
+      "reviewed_by_email": "masurashvili@ymail.com",
+      "published_id": "d0daeba2-952e-43db-b612-9a3a7df0cd4a",
+      "payload": {
+        "slug": "manuchar-masurashvili",
+        "profile_photo": "/uploads/guides/manuchar-masurashvili.webp",
+        "gallery": [],
+        "social_links": {},
+        "languages_spoken": [
+          "Spanish",
+          "Russian",
+          "English",
+          "Georgian"
+        ],
+        "years_experience": 9,
+        "base_location": "Tbilisi",
+        "place_ids": [],
+        "price_from": null,
+        "specialties": [
+          "adventure-hiking",
+          "religious-pilgrimage",
+          "private-custom"
+        ],
+        "i18n": {
+          "en": {
+            "name": "Manuchar Masurashvili",
+            "tagline": "Travel guide around Georgia",
+            "bio": "To truly understand Georgia, you need more than a map; you need a connection to the history, the land, and the people. As the founder of tbilisitrips.com, I have dedicated myself to uncovering the layers of Georgian culture—from the ancient corridors of our history to the hidden gems of our diverse geography.\r\n\r\nWhether you are looking for a deep dive into the historical significance of our landmarks or a seamless journey through the Caucasus, I bring a tech-forward and highly organized approach to every trip. My goal is to ensure that your experience is as smooth as it is memorable, combining traditional Georgian hospitality with modern reliability.",
+            "seo_title": null,
+            "seo_description": null
+          }
+        }
+      }
     }
   ]
 }

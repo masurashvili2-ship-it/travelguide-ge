@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import type { UserPublic } from './auth';
 import { type ContentPostKind, getContentPostById, urlSegmentForContentKind } from './tours-db';
+import { getGuideById } from './guides-db';
 import {
 	type CommentPostKind,
 	type TourComment,
@@ -21,14 +22,17 @@ export {
 } from './tour-comments-data';
 
 export async function addTourComment(
-	postKind: ContentPostKind,
+	postKind: ContentPostKind | 'guides',
 	tourId: string,
 	user: UserPublic,
 	rating: number,
 	body: string,
 ): Promise<{ ok: true; comment: TourComment } | { ok: false; error: string }> {
-	const post = getContentPostById(postKind, tourId);
-	if (!post) {
+	const postExists =
+		postKind === 'guides'
+			? getGuideById(tourId) != null
+			: getContentPostById(postKind, tourId) != null;
+	if (!postExists) {
 		return { ok: false, error: 'Post not found' };
 	}
 	const r = Math.round(rating);
@@ -73,14 +77,17 @@ export async function addTourComment(
 }
 
 export async function addTourReply(
-	postKind: ContentPostKind,
+	postKind: ContentPostKind | 'guides',
 	tourId: string,
 	user: UserPublic,
 	parentId: string,
 	body: string,
 ): Promise<{ ok: true; comment: TourComment } | { ok: false; error: string }> {
-	const post = getContentPostById(postKind, tourId);
-	if (!post) {
+	const postExists =
+		postKind === 'guides'
+			? getGuideById(tourId) != null
+			: getContentPostById(postKind, tourId) != null;
+	if (!postExists) {
 		return { ok: false, error: 'Post not found' };
 	}
 	const trimmed = body.trim();
@@ -132,7 +139,7 @@ export async function addTourReply(
 }
 
 export async function updateTourComment(
-	postKind: ContentPostKind,
+	postKind: ContentPostKind | 'guides',
 	tourId: string,
 	commentId: string,
 	actor: UserPublic,
@@ -203,7 +210,7 @@ function descendantIdsForRemoval(
 }
 
 export async function deleteTourComment(
-	postKind: ContentPostKind,
+	postKind: ContentPostKind | 'guides',
 	tourId: string,
 	commentId: string,
 	actor: UserPublic,
@@ -238,6 +245,20 @@ export async function listRecentCommentsForAdmin(limit = 100): Promise<RecentCom
 	const sorted = [...all].sort((a, b) => b.createdAt - a.createdAt).slice(0, limit);
 	return sorted.map((c) => {
 		const kind = commentPostKind(c);
+		if (kind === 'guides') {
+			const guide = getGuideById(c.tourId);
+			const name =
+				guide?.i18n?.en?.name?.trim() ||
+				guide?.i18n?.ka?.name?.trim() ||
+				guide?.i18n?.ru?.name?.trim() ||
+				'(unnamed guide)';
+			return {
+				...c,
+				postTitle: name,
+				postSlug: guide?.slug ?? c.tourId,
+				urlSegment: 'guides',
+			};
+		}
 		const post = getContentPostById(kind, c.tourId);
 		const block = post?.i18n.en ?? post?.i18n.ka ?? post?.i18n.ru;
 		const title = block?.title?.trim() || '(untitled)';

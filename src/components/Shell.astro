@@ -7,6 +7,7 @@ import { absoluteSeoUrl } from '../lib/seo';
 import type { Locale } from '../lib/strings';
 import LocaleFlag from './LocaleFlag.astro';
 import { localeNames, ui } from '../lib/strings';
+import { getGuides } from '../lib/guides-db';
 
 interface Props {
 	locale: Locale;
@@ -43,6 +44,9 @@ const t = ui[locale];
 const searchUrl = getRelativeLocaleUrl(locale, 'search');
 const searchQ = searchQuery.trim();
 const user = Astro.locals.user;
+const isGuide = user
+	? getGuides().some((g) => g.author_user_id === user.id)
+	: false;
 
 const site = Astro.site;
 const pathForCanonical = canonicalPath ?? Astro.url.pathname;
@@ -168,6 +172,9 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 							href={getRelativeLocaleUrl(locale, 'regions')}
 							aria-current={subpath.startsWith('regions') ? 'page' : undefined}>{t.regions}</a>
 						<a
+							href={getRelativeLocaleUrl(locale, 'guides')}
+							aria-current={subpath.startsWith('guides') ? 'page' : undefined}>{t.guides}</a>
+						<a
 							href={getRelativeLocaleUrl(locale, 'map')}
 							aria-current={subpath === 'map' ? 'page' : undefined}>{t.map}</a>
 					</nav>
@@ -285,6 +292,11 @@ const locales: Locale[] = ['en', 'ka', 'ru'];
 											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'contribute')}>
 												{t.contribute}
 											</a>
+											{isGuide && (
+												<a class="site-dd__link site-dd__link--guide" href={getRelativeLocaleUrl(locale, 'contribute/packages')}>
+													🗓 My packages
+												</a>
+											)}
 											<a class="site-dd__link" href={getRelativeLocaleUrl(locale, 'activity')}>
 												{t.navActivityLog}
 											</a>

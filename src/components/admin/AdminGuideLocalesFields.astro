@@ -1,0 +1,84 @@
+---
+import type { GuidePost } from '../../lib/guides-db';
+import type { Locale } from '../../lib/strings';
+import { localeNames } from '../../lib/strings';
+
+interface Props {
+	post?: GuidePost | null;
+}
+
+const { post } = Astro.props;
+const locales: Locale[] = ['en', 'ka', 'ru'];
+
+function field(loc: Locale, key: 'name' | 'tagline'): string {
+	const b = post?.i18n[loc];
+	if (!b) return '';
+	return String(b[key] ?? '');
+}
+
+function bio(loc: Locale): string {
+	return post?.i18n[loc]?.bio ?? '';
+}
+
+function seo(loc: Locale, key: 'seo_title' | 'seo_description'): string {
+	const b = post?.i18n[loc];
+	if (!b) return '';
+	return String(b[key] ?? '');
+}
+---
+
+{
+	locales.map((loc) => (
+		<fieldset class="locale-block">
+			<legend>{localeNames[loc]} ({loc})</legend>
+			<p class="muted" style="margin:0 0 0.75rem">
+				Leave name and tagline both empty to omit this language from the site.
+			</p>
+			<div class="row">
+				<label>
+					<span>Name</span>
+					<input type="text" name={`${loc}_name`} value={field(loc, 'name')} placeholder="e.g. Giorgi Beridze" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>Tagline</span>
+					<input type="text" name={`${loc}_tagline`} value={field(loc, 'tagline')} placeholder="e.g. Expert Tbilisi walking guide" />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>SEO title (optional)</span>
+					<input type="text" name={`${loc}_seo_title`} value={seo(loc, 'seo_title')} />
+				</label>
+			</div>
+			<div class="row">
+				<label>
+					<span>SEO description (optional)</span>
+					<input type="text" name={`${loc}_seo_description`} value={seo(loc, 'seo_description')} />
+				</label>
+			</div>
+			<div class="row">
+				<div class="field-group">
+					<span class="field-label">Bio (Markdown)</span>
+					<textarea name={`${loc}_bio`} class="body-md">{bio(loc)}</textarea>
+				</div>
+			</div>
+		</fieldset>
+	))
+}
+
+<style>
+	.field-group {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	.field-label {
+		display: block;
+		font-size: 0.875rem;
+		font-weight: 500;
+		margin-bottom: 0.35rem;
+		color: var(--text, #101828);
+	}
+</style>

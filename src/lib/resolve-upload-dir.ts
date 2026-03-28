@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-export type UploadSubdir = 'tours' | 'what-to-do' | 'regions';
+export type UploadSubdir = 'tours' | 'what-to-do' | 'regions' | 'guides';
 
 /**
  * Writable directory for user uploads. URLs stay `/uploads/{subdir}/…`.
@@ -21,6 +21,10 @@ export function resolveUploadDir(subdir: UploadSubdir): string {
 	}
 	if (subdir === 'regions') {
 		const o = process.env.REGION_UPLOAD_DIR?.trim();
+		if (o) return path.resolve(o);
+	}
+	if (subdir === 'guides') {
+		const o = process.env.GUIDES_UPLOAD_DIR?.trim();
 		if (o) return path.resolve(o);
 	}
 	const root = process.env.UPLOAD_ROOT?.trim();

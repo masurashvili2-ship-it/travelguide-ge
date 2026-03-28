@@ -7,6 +7,7 @@ import { getFooterConfig } from '../../../lib/footer-db';
 import { listAllPagesAdmin } from '../../../lib/pages-db';
 import { listAllRegionsAdmin } from '../../../lib/regions-db';
 import { listAllToursAdmin, listAllWhatToDoAdmin } from '../../../lib/tours-db';
+import { listAllGuidesAdmin } from '../../../lib/guides-db';
 import { countPendingSubmissions } from '../../../lib/submissions-db';
 
 const loc = Astro.params.locale;
@@ -24,6 +25,7 @@ if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
 const users = await readUsers();
 const tourCount = (await listAllToursAdmin()).length;
 const wtdCount = (await listAllWhatToDoAdmin()).length;
+const guideCount = listAllGuidesAdmin().length;
 const regionCount = listAllRegionsAdmin().length;
 const pageRows = listAllPagesAdmin();
 const formError = Astro.url.searchParams.get('error');
@@ -31,6 +33,8 @@ const userEmail = Astro.locals.user.email;
 
 const newTourUrl = getRelativeLocaleUrl(locale, 'admin/tours/new');
 const newWtdUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
+const newGuideUrl = getRelativeLocaleUrl(locale, 'admin/guides/new');
+const guidesListUrl = getRelativeLocaleUrl(locale, 'admin/guides');
 const newRegionUrl = getRelativeLocaleUrl(locale, 'admin/regions/new');
 const toursListUrl = getRelativeLocaleUrl(locale, 'admin/tours');
 const wtdListUrl = getRelativeLocaleUrl(locale, 'admin/what-to-do');
@@ -77,6 +81,7 @@ const pendingSubmissions = countPendingSubmissions();
 			</p>
 			<p class="muted" style="margin:0 0 0.75rem">
 				<strong>{tourCount}</strong> tour{tourCount === 1 ? '' : 's'} · <strong>{wtdCount}</strong> what-to-do ·{' '}
+				<strong>{guideCount}</strong> guide{guideCount === 1 ? '' : 's'} ·{' '}
 				<strong>{regionCount}</strong> region / municipality / village{regionCount === 1 ? '' : 's'} ·{' '}
 				<strong>{pageRows.length}</strong> page{pageRows.length === 1 ? '' : 's'} · <strong>{users.length}</strong> user
 				{users.length === 1 ? '' : 's'} · <strong>{footerLinkCount}</strong> footer link
@@ -93,6 +98,12 @@ const pendingSubmissions = countPendingSubmissions();
 				<a class="button" href={newWtdUrl} style="margin-left:0.35rem">
 					New what to do
 				</a>
+				<a class="button" href={guidesListUrl} style="margin-left:0.35rem">
+					All guides
+				</a>
+				<a class="button" href={newGuideUrl} style="margin-left:0.35rem">
+					New guide
+				</a>
 				<a class="button" href={regionsListUrl} style="margin-left:0.35rem">
 					All regions &amp; places
 				</a>
@@ -101,7 +112,7 @@ const pendingSubmissions = countPendingSubmissions();
 				</a>
 			</p>
 			<p class="muted" style="margin:0">
-				Data files: <code>tours.json</code>, <code>what-to-do.json</code>, <code>regions.json</code>,{' '}
+				Data files: <code>tours.json</code>, <code>what-to-do.json</code>, <code>guides.json</code>, <code>regions.json</code>,{' '}
 				<code>pages.json</code>,{' '}
 				<code>content-submissions.json</code>, <code>tour-comments.json</code>, <code>footer.json</code>,{' '}
 				<code>users.json</code>.

@@ -1,0 +1,209 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listAllBookingsAdmin } from '../../../../lib/bookings-db';
+import { getPackageById } from '../../../../lib/guide-packages-db';
+import { getGuideById } from '../../../../lib/guides-db';
+import type { Locale } from '../../../../lib/strings';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+
+const userEmail = Astro.locals.user.email;
+const allBookings = listAllBookingsAdmin();
+const statusFilter = Astro.url.searchParams.get('status') ?? '';
+const bookings = statusFilter
+	? allBookings.filter((b) => b.status === statusFilter)
+	: allBookings;
+
+const counts = {
+	all: allBookings.length,
+	pending: allBookings.filter((b) => b.status === 'pending').length,
+	confirmed: allBookings.filter((b) => b.status === 'confirmed').length,
+	completed: allBookings.filter((b) => b.status === 'completed').length,
+	cancelled: allBookings.filter((b) => b.status === 'cancelled').length,
+};
+
+const currencySymbol: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+function sym(c: string) { return currencySymbol[c] ?? c; }
+
+function statusStyle(status: string) {
+	const s: Record<string, string> = {
+		pending: 'background:#fef3c7;color:#92400e',
+		confirmed: 'background:#dcfce7;color:#166534',
+		completed: 'background:#dbeafe;color:#1e40af',
+		cancelled: 'background:#fee2e2;color:#991b1b',
+	};
+	return s[status] ?? '';
+}
+
+const selfPath = Astro.url.pathname;
+function filterUrl(s: string) { return `${selfPath}${s ? `?status=${s}` : ''}`; }
+---
+
+<AdminLayout
+	locale={locale}
+	activeNav="bookings"
+	title="Bookings"
+	headline="Bookings"
+	userEmail={userEmail}
+>
+	<div style="margin-bottom:1rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+		{[
+			{ label: `All (${counts.all})`, val: '' },
+			{ label: `Pending (${counts.pending})`, val: 'pending' },
+			{ label: `Confirmed (${counts.confirmed})`, val: 'confirmed' },
+			{ label: `Completed (${counts.completed})`, val: 'completed' },
+			{ label: `Cancelled (${counts.cancelled})`, val: 'cancelled' },
+		].map(({ label, val }) => (
+			<a
+				href={filterUrl(val)}
+				class={`button${statusFilter === val ? ' button--primary' : ''}`}
+				style="font-size:0.85rem;padding:0.3rem 0.75rem"
+			>
+				{label}
+			</a>
+		))}
+	</div>
+
+	<div id="action-status" class="notice" style="display:none;margin-bottom:1rem"></div>
+
+	{bookings.length === 0 ? (
+		<p class="muted">No bookings found.</p>
+	) : (
+		<div class="admin-table-wrap">
+			<table class="admin-table" style="min-width:100%">
+				<thead>
+					<tr>
+						<th><input type="checkbox" id="select-all" title="Select all" /></th>
+						<th>Ref</th>
+						<th>Package</th>
+						<th>Guide</th>
+						<th>Date</th>
+						<th>Customer</th>
+						<th>Pax</th>
+						<th>Total</th>
+						<th>Status</th>
+						<th>Booked</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{bookings.map((b) => {
+						const pkg = getPackageById(b.package_id);
+						const guide = getGuideById(b.guide_id);
+						const guideName = guide?.i18n?.en?.name ?? guide?.i18n?.ka?.name ?? '—';
+						return (
+							<tr id={`row-${b.id}`}>
+								<td><input type="checkbox" class="row-check" data-id={b.id} /></td>
+								<td><code style="font-size:0.82rem">{b.ref}</code></td>
+								<td style="font-size:0.875rem">{b.package_title}</td>
+								<td style="font-size:0.875rem">{guideName}</td>
+								<td style="font-size:0.875rem">{b.date}{b.time_start ? ` ${b.time_start}` : ''}</td>
+								<td>
+									<div style="font-size:0.875rem">{b.customer_name}</div>
+									<div class="muted" style="font-size:0.8rem">{b.customer_email}</div>
+									{b.customer_phone && <div class="muted" style="font-size:0.8rem">{b.customer_phone}</div>}
+								</td>
+								<td>{b.pax}</td>
+								<td style="white-space:nowrap">
+									{sym(b.currency)}{b.total_price}
+									{b.discount_pct > 0 && <div style="font-size:0.78rem;color:#16a34a">-{b.discount_pct}%</div>}
+								</td>
+								<td>
+									<span
+										id={`status-${b.ref}`}
+										style={`padding:0.2rem 0.55rem;border-radius:99px;font-size:0.78rem;font-weight:600;${statusStyle(b.status)}`}
+									>
+										{b.status}
+									</span>
+								</td>
+								<td style="font-size:0.8rem;color:#64748b">{new Date(b.created_at).toLocaleDateString()}</td>
+								<td>
+									<div style="display:flex;flex-wrap:wrap;gap:0.3rem">
+										{b.status === 'pending' && (
+											<button type="button" class="btn-status" data-ref={b.ref} data-status="confirmed" style="background:#dcfce7;color:#166534;border:1px solid #bbf7d0;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Confirm</button>
+										)}
+										{b.status === 'confirmed' && (
+											<button type="button" class="btn-status" data-ref={b.ref} data-status="completed" style="background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Complete</button>
+										)}
+										{(b.status === 'pending' || b.status === 'confirmed') && (
+											<button type="button" class="btn-status btn-cancel" data-ref={b.ref} data-status="cancelled" style="background:#fee2e2;color:#991b1b;border:1px solid #fecaca;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Cancel</button>
+										)}
+										<a href={getRelativeLocaleUrl(locale, `booking/${b.ref}`)} target="_blank" style="background:#f1f5f9;color:#475569;border:1px solid #e2e8f0;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;text-decoration:none">View</a>
+									</div>
+								</td>
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
+	)}
+
+	<div style="margin-top:1rem;display:flex;gap:0.5rem">
+		<button type="button" id="bulk-delete-btn" class="button" style="color:#dc2626;border-color:#fecaca" disabled>
+			Delete selected
+		</button>
+	</div>
+</AdminLayout>
+
+<script is:inline>
+// Select all
+document.getElementById('select-all')?.addEventListener('change', function () {
+	document.querySelectorAll('.row-check').forEach(function (cb) { cb.checked = this.checked; }.bind(this));
+	updateBulkBtn();
+});
+document.querySelectorAll('.row-check').forEach(function (cb) {
+	cb.addEventListener('change', updateBulkBtn);
+});
+function updateBulkBtn() {
+	var checked = document.querySelectorAll('.row-check:checked').length;
+	var btn = document.getElementById('bulk-delete-btn');
+	if (btn) btn.disabled = checked === 0;
+}
+
+// Status updates
+document.querySelectorAll('.btn-status').forEach(function (btn) {
+	btn.addEventListener('click', async function () {
+		var ref = this.dataset.ref;
+		var status = this.dataset.status;
+		var reason = null;
+		if (status === 'cancelled') reason = prompt('Cancellation reason (optional):') ?? '';
+		try {
+			var res = await fetch('/api/bookings/' + encodeURIComponent(ref) + '/status', {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
+				body: JSON.stringify({ status, reason }),
+			});
+			var data = await res.json();
+			if (res.ok && data.ok) { location.reload(); }
+			else { alert(data.error || 'Error'); }
+		} catch { alert('Network error'); }
+	});
+});
+
+// Bulk delete
+document.getElementById('bulk-delete-btn')?.addEventListener('click', async function () {
+	var ids = Array.from(document.querySelectorAll('.row-check:checked')).map(function (cb) { return cb.dataset.id; });
+	if (!ids.length || !confirm('Delete ' + ids.length + ' booking(s)? This cannot be undone.')) return;
+	try {
+		var res = await fetch('/api/admin/bookings', {
+			method: 'DELETE',
+			headers: { 'Content-Type': 'application/json' },
+			credentials: 'same-origin',
+			body: JSON.stringify({ ids }),
+		});
+		if (res.ok) { location.reload(); }
+		else { alert('Error deleting'); }
+	} catch { alert('Network error'); }
+});
+</script>

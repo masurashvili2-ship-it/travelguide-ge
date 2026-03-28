@@ -1,0 +1,927 @@
+---
+import Shell from '../../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { getPackageById, getSlotsForPackage } from '../../../../../lib/guide-packages-db';
+import { getGuides } from '../../../../../lib/guides-db';
+import '../../../../../styles/contribute.css';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+const user = Astro.locals.user;
+
+const pkg = getPackageById(Astro.params.id ?? '');
+if (!pkg) return new Response(null, { status: 404 });
+
+const allGuides = getGuides();
+const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
+if (user.role !== 'admin' && pkg.guide_id !== myGuide?.id) {
+	return new Response(null, { status: 403 });
+}
+
+const slots = getSlotsForPackage(pkg.id);
+const title = pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? 'Package';
+const backUrl = getRelativeLocaleUrl(locale, 'contribute/packages');
+const editUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`);
+const slotsJson = JSON.stringify(slots).replace(/</g, '\\u003c');
+const pkgId = pkg.id;
+const basePrice = pkg.base_price;
+const currency = pkg.currency;
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title={`Calendar — ${title}`}
+	seoTitle="Availability Calendar"
+	robotsNoindex={true}
+>
+	<div class="contribute-page cal-page">
+		<p class="muted" style="margin-top:0">
+			<a href={backUrl}>← Packages</a> / <a href={editUrl}>{title}</a>
+		</p>
+
+		<div class="cal-topbar">
+			<h1 style="margin:0">Availability Calendar</h1>
+			<div class="cal-mode-btns">
+				<button type="button" id="mode-single"   class="cal-mode-btn is-active" title="Click a single date to edit it">Single</button>
+				<button type="button" id="mode-range"    class="cal-mode-btn"           title="Click start then end to select a range (max 90 days)">Range</button>
+				<button type="button" id="mode-multi"    class="cal-mode-btn"           title="Shift-click to toggle individual dates">Multi-select</button>
+			</div>
+		</div>
+		<p class="muted cal-hint" id="cal-hint-text">Click a date to edit it.</p>
+
+		<div id="cal-toast" class="cal-toast" hidden></div>
+
+		<div class="cal-layout">
+			<!-- ── Left: calendar grid ── -->
+			<div class="cal-main">
+				<div class="cal-header">
+					<button type="button" id="cal-prev" class="cal-nav-btn" aria-label="Previous month">‹</button>
+					<h2 id="cal-month-label" style="margin:0;font-size:1.05rem;font-weight:700"></h2>
+					<button type="button" id="cal-next" class="cal-nav-btn" aria-label="Next month">›</button>
+				</div>
+				<div id="cal-grid" class="cal-grid"></div>
+				<div class="cal-legend">
+					<span class="cal-legend-item"><span class="cal-dot cal-dot--open"></span>Open</span>
+					<span class="cal-legend-item"><span class="cal-dot cal-dot--booked"></span>Partially booked</span>
+					<span class="cal-legend-item"><span class="cal-dot cal-dot--full"></span>Full</span>
+					<span class="cal-legend-item"><span class="cal-dot cal-dot--blocked"></span>Blocked</span>
+				</div>
+			</div>
+
+			<!-- ── Right: panels ── -->
+			<div class="cal-sidebar">
+
+				<!-- Single-date panel -->
+				<div id="panel-single" class="cal-panel" style="display:none">
+					<h3 id="single-title" class="cal-panel__h"></h3>
+					<div id="single-msg" class="notice" style="display:none"></div>
+					<div class="field-row">
+						<label>Status
+							<select id="single-status">
+								<option value="open">Open for booking</option>
+								<option value="blocked">Blocked / unavailable</option>
+							</select>
+						</label>
+					</div>
+					<div class="field-row">
+						<label>Start time <span class="muted-inline">(optional)</span>
+							<input type="time" id="single-time" />
+						</label>
+					</div>
+					<div class="field-row">
+						<label>Capacity
+							<input type="number" id="single-capacity" min="1" value="1" />
+						</label>
+					</div>
+
+					<!-- Pricing section (mirrors bulk panel) -->
+					<div class="field-section">
+						<p class="field-section__label">Pricing</p>
+						<div class="pricing-tabs single-pricing-tabs">
+							<button type="button" class="pricing-tab is-active" data-single-tab="default">Base price</button>
+							<button type="button" class="pricing-tab" data-single-tab="fixed">Fixed price</button>
+							<button type="button" class="pricing-tab" data-single-tab="discount">Discount %</button>
+						</div>
+						<div id="single-pricing-default" class="pricing-content">
+							<p class="field-hint">Uses package base price: <strong>{basePrice} {currency}</strong> / person</p>
+						</div>
+						<div id="single-pricing-fixed" class="pricing-content" style="display:none">
+							<label>Price / person ({currency})
+								<input type="number" id="single-fixed-price" min="0" step="0.01" placeholder={String(basePrice)} />
+							</label>
+						</div>
+						<div id="single-pricing-discount" class="pricing-content" style="display:none">
+							<label>Discount %
+								<div style="display:flex;align-items:center;gap:0.5rem">
+									<input type="number" id="single-discount-pct" min="1" max="99" placeholder="e.g. 20" style="width:90px" />
+									<span class="muted-inline" id="single-discount-preview"></span>
+								</div>
+							</label>
+							<p class="field-hint">Base × (1 – discount%)</p>
+						</div>
+					</div>
+
+					<div id="single-booked-info" class="booked-info"></div>
+					<div style="display:flex;gap:0.5rem;margin-top:0.85rem">
+						<button type="button" id="single-save" class="button button--primary">Save</button>
+						<button type="button" id="single-remove" class="button btn-danger">Remove slot</button>
+					</div>
+				</div>
+
+				<!-- Range / multi bulk panel -->
+				<div id="panel-bulk" class="cal-panel" style="display:none">
+					<h3 class="cal-panel__h">Bulk Edit</h3>
+					<div id="bulk-summary" class="bulk-summary"></div>
+					<div id="bulk-msg" class="notice" style="display:none"></div>
+
+					<!-- Day-of-week filter -->
+					<div class="field-section">
+						<p class="field-section__label">Apply to</p>
+						<div class="dow-btns">
+							<button type="button" class="dow-preset is-active" data-preset="all">All days</button>
+							<button type="button" class="dow-preset" data-preset="weekdays">Weekdays</button>
+							<button type="button" class="dow-preset" data-preset="weekends">Weekends</button>
+							<button type="button" class="dow-preset" data-preset="custom">Custom…</button>
+						</div>
+						<div id="dow-custom-row" class="dow-custom-row" style="display:none">
+							{['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map((d, i) => (
+								<label class="dow-check">
+									<input type="checkbox" class="dow-cb" value={String(i)} checked /> {d}
+								</label>
+							))}
+						</div>
+					</div>
+
+					<div class="field-row">
+						<label>Status
+							<select id="bulk-status">
+								<option value="open">Open for booking</option>
+								<option value="blocked">Blocked / unavailable</option>
+							</select>
+						</label>
+					</div>
+					<div class="field-row">
+						<label>Start time <span class="muted-inline">(optional)</span>
+							<input type="time" id="bulk-time" />
+						</label>
+					</div>
+					<div class="field-row">
+						<label>Capacity per day
+							<input type="number" id="bulk-capacity" min="1" value="1" />
+						</label>
+					</div>
+
+					<!-- Pricing section -->
+					<div class="field-section">
+						<p class="field-section__label">Pricing</p>
+						<div class="pricing-tabs">
+							<button type="button" class="pricing-tab is-active" data-tab="default">Base price</button>
+							<button type="button" class="pricing-tab" data-tab="fixed">Fixed price</button>
+							<button type="button" class="pricing-tab" data-tab="discount">Discount %</button>
+						</div>
+						<div id="pricing-default" class="pricing-content">
+							<p class="field-hint">Uses package base price: <strong>{basePrice} {currency}</strong> / person</p>
+						</div>
+						<div id="pricing-fixed" class="pricing-content" style="display:none">
+							<label>Price / person ({currency})
+								<input type="number" id="bulk-fixed-price" min="0" step="0.01" placeholder={String(basePrice)} />
+							</label>
+						</div>
+						<div id="pricing-discount" class="pricing-content" style="display:none">
+							<label>Discount %
+								<div style="display:flex;align-items:center;gap:0.5rem">
+									<input type="number" id="bulk-discount-pct" min="1" max="99" placeholder="e.g. 20" style="width:90px" />
+									<span class="muted-inline" id="discount-preview"></span>
+								</div>
+							</label>
+							<p class="field-hint">Applies as a custom price: base × (1 – discount%)</p>
+						</div>
+					</div>
+
+					<div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem">
+						<button type="button" id="bulk-apply" class="button button--primary">Apply to selection</button>
+						<button type="button" id="bulk-remove" class="button btn-danger">Remove slots from selection</button>
+						<button type="button" id="bulk-clear" class="button">Clear selection</button>
+					</div>
+				</div>
+
+				<!-- Empty state hint -->
+				<div id="panel-hint" class="cal-panel cal-panel--hint">
+					<p style="margin:0;color:#64748b;font-size:0.9rem">Select a date or choose <strong>Range</strong> mode to edit multiple dates at once.</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</Shell>
+
+<script is:inline define:vars={{ slotsJson, pkgId, basePrice, currency }}>
+(function () {
+	/* ── State ─────────────────────────────────────────────── */
+	var slots = JSON.parse(slotsJson);
+	var slotsMap = {};
+	slots.forEach(function (s) { slotsMap[s.date] = s; });
+
+	var today      = new Date();
+	var curYear    = today.getFullYear();
+	var curMonth   = today.getMonth();
+	var selMode    = 'single';
+	var selSingle  = null;
+	var rangeStart = null;
+	var rangeHover = null;
+	var multiSet   = new Set();
+	var MAX_RANGE  = 90;
+
+	/* ── DOM refs ───────────────────────────────────────────── */
+	var grid       = document.getElementById('cal-grid');
+	var monthLabel = document.getElementById('cal-month-label');
+	var hintText   = document.getElementById('cal-hint-text');
+	var toast      = document.getElementById('cal-toast');
+
+	var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+	/* ── Helpers ────────────────────────────────────────────── */
+	function pad(n) { return String(n).padStart(2, '0'); }
+	function dk(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+	function todayKey() {
+		return today.getFullYear() + '-' + pad(today.getMonth() + 1) + '-' + pad(today.getDate());
+	}
+	function daysInRange(a, b) {
+		return Math.round(Math.abs(new Date(b) - new Date(a)) / 86400000) + 1;
+	}
+	function datesBetween(a, b) {
+		var start = a < b ? a : b;
+		var end   = a < b ? b : a;
+		var out   = [];
+		var cur   = new Date(start + 'T00:00:00');
+		var endD  = new Date(end   + 'T00:00:00');
+		while (cur <= endD) {
+			out.push(cur.getFullYear() + '-' + pad(cur.getMonth() + 1) + '-' + pad(cur.getDate()));
+			cur.setDate(cur.getDate() + 1);
+		}
+		return out;
+	}
+
+	function showToast(msg, type) {
+		toast.textContent = msg;
+		toast.className   = 'cal-toast cal-toast--' + (type || 'success');
+		toast.hidden      = false;
+		clearTimeout(toast._t);
+		toast._t = setTimeout(function () { toast.hidden = true; }, 3000);
+	}
+
+	/* ── Mode buttons ───────────────────────────────────────── */
+	var hintMap = {
+		single: 'Click a date to edit it.',
+		range:  'Click a start date, then an end date (max 90 days). Hover to preview the range.',
+		multi:  'Click dates to toggle them individually. Then bulk-edit the selection.',
+	};
+
+	document.querySelectorAll('.cal-mode-btn').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			selMode    = btn.id.replace('mode-', '');
+			rangeStart = null; rangeHover = null;
+			multiSet   = new Set();
+			selSingle  = null;
+			document.querySelectorAll('.cal-mode-btn').forEach(function (b) { b.classList.remove('is-active'); });
+			btn.classList.add('is-active');
+			hintText.textContent = hintMap[selMode];
+			showPanel('hint');
+			renderCalendar();
+		});
+	});
+
+	/* ── Panels ─────────────────────────────────────────────── */
+	function showPanel(which) {
+		document.getElementById('panel-single').style.display = which === 'single' ? '' : 'none';
+		document.getElementById('panel-bulk').style.display   = which === 'bulk'   ? '' : 'none';
+		document.getElementById('panel-hint').style.display   = which === 'hint'   ? '' : 'none';
+	}
+
+	/* ── Calendar render (builds DOM once per month/mode change) ── */
+	function renderCalendar() {
+		monthLabel.textContent = MONTHS[curMonth] + ' ' + curYear;
+		grid.innerHTML = '';
+
+		['Mo','Tu','We','Th','Fr','Sa','Su'].forEach(function (d) {
+			var el = document.createElement('div');
+			el.className = 'cal-day-header';
+			el.textContent = d;
+			grid.appendChild(el);
+		});
+
+		// getDay() returns 0=Sun…6=Sat; shift so Mon=0, Tue=1, …, Sun=6
+		var firstDay = (new Date(curYear, curMonth, 1).getDay() + 6) % 7;
+		var daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+		var tkey        = todayKey();
+
+		for (var i = 0; i < firstDay; i++) {
+			var emp = document.createElement('div');
+			emp.className = 'cal-cell cal-cell--empty';
+			grid.appendChild(emp);
+		}
+
+		for (var d = 1; d <= daysInMonth; d++) {
+			var key  = dk(curYear, curMonth, d);
+			var slot = slotsMap[key];
+			var cell = document.createElement('div');
+			cell.className = 'cal-cell';
+			cell.dataset.date = key;
+
+			if (key < tkey)   cell.classList.add('cal-cell--past');
+			if (key === tkey) cell.classList.add('cal-cell--today');
+
+			// Selection state applied by applySelectionClasses()
+			var num = document.createElement('span');
+			num.className = 'cal-day-num';
+			num.textContent = d;
+			cell.appendChild(num);
+
+			if (slot) {
+				var dot = document.createElement('span');
+				var left = slot.capacity - slot.booked_count;
+				if      (slot.status === 'blocked') dot.className = 'cal-dot cal-dot--blocked';
+				else if (left <= 0)                 dot.className = 'cal-dot cal-dot--full';
+				else if (slot.booked_count > 0)     dot.className = 'cal-dot cal-dot--booked';
+				else                                dot.className = 'cal-dot cal-dot--open';
+				cell.appendChild(dot);
+
+				if (slot.time_start) {
+					var te = document.createElement('span');
+					te.className = 'cal-time';
+					te.textContent = slot.time_start;
+					cell.appendChild(te);
+				}
+				if (slot.custom_price != null) {
+					var pe = document.createElement('span');
+					pe.className = 'cal-price';
+					pe.textContent = slot.custom_price + ' ' + currency;
+					cell.appendChild(pe);
+				}
+			}
+
+			grid.appendChild(cell);
+		}
+
+		applySelectionClasses();
+	}
+
+	/* ── Lightweight selection highlight (no DOM rebuild) ───── */
+	function applySelectionClasses() {
+		// Live hover range (while picking end date)
+		var hoverArr = (selMode === 'range' && rangeStart && rangeHover)
+			? datesBetween(rangeStart, rangeHover) : [];
+		var hoverSet = new Set(hoverArr);
+		var hoverMin = hoverArr.length ? hoverArr[0] : null;
+		var hoverMax = hoverArr.length ? hoverArr[hoverArr.length - 1] : null;
+
+		// Committed range/multi — shown whenever multiSet is non-empty
+		var committedMin = null, committedMax = null;
+		if (multiSet.size > 0) {
+			var sortedC = Array.from(multiSet).sort();
+			committedMin = sortedC[0];
+			committedMax = sortedC[sortedC.length - 1];
+		}
+
+		grid.querySelectorAll('.cal-cell[data-date]').forEach(function (cell) {
+			var key = cell.dataset.date;
+			cell.classList.remove(
+				'cal-cell--selected', 'cal-cell--multi',
+				'cal-cell--range', 'cal-cell--range-start', 'cal-cell--range-end'
+			);
+
+			if (selMode === 'single' && key === selSingle) {
+				// ── Single mode ──────────────────────────────────────
+				cell.classList.add('cal-cell--selected');
+
+			} else if (selMode === 'multi') {
+				// ── Multi mode ───────────────────────────────────────
+				if (multiSet.has(key)) {
+					cell.classList.add('cal-cell--multi');
+				}
+
+			} else if (selMode === 'range') {
+				if (rangeStart && hoverSet.has(key)) {
+					// Actively hovering — show preview range
+					cell.classList.add('cal-cell--range');
+					if (key === hoverMin) cell.classList.add('cal-cell--range-start');
+					if (key === hoverMax) cell.classList.add('cal-cell--range-end');
+				} else if (!rangeStart && multiSet.has(key)) {
+					// Range committed — keep it colored
+					cell.classList.add('cal-cell--range');
+					if (key === committedMin) cell.classList.add('cal-cell--range-start');
+					if (key === committedMax) cell.classList.add('cal-cell--range-end');
+				} else if (rangeStart && !rangeHover && key === rangeStart) {
+					// Only start picked, no hover yet
+					cell.classList.add('cal-cell--range-start');
+				}
+			}
+		});
+	}
+
+	/* ── Event delegation on grid ───────────────────────────── */
+	// Single delegated click — no per-cell listeners, so clicking end date always works
+	grid.addEventListener('click', function (e) {
+		var cell = e.target.closest('.cal-cell[data-date]');
+		if (!cell) return;
+		if (cell.classList.contains('cal-cell--empty')) return;
+		handleCellClick(cell.dataset.date);
+	});
+
+	// Single delegated mouseover for range hover preview
+	grid.addEventListener('mouseover', function (e) {
+		if (selMode !== 'range' || !rangeStart) return;
+		var cell = e.target.closest('.cal-cell[data-date]');
+		if (!cell || cell.classList.contains('cal-cell--empty')) return;
+		var key = cell.dataset.date;
+		if (key !== rangeHover) {
+			rangeHover = key;
+			applySelectionClasses(); // cheap — no DOM rebuild
+		}
+	});
+
+	/* ── Click handler ──────────────────────────────────────── */
+	function handleCellClick(key) {
+		if (selMode === 'single') {
+			selSingle = key;
+			applySelectionClasses();
+			openSinglePanel(key);
+
+		} else if (selMode === 'range') {
+			if (!rangeStart) {
+				// First click → set start
+				rangeStart = key;
+				rangeHover = key;
+				hintText.textContent = 'Now click the end date (max 90 days from ' + rangeStart + ').';
+				applySelectionClasses();
+			} else {
+				// Second click → commit range
+				var a = rangeStart < key ? rangeStart : key;
+				var b = rangeStart < key ? key : rangeStart;
+				var days = daysInRange(a, b);
+				if (days > MAX_RANGE) {
+					showToast('Range exceeds 90 days — pick a closer end date.', 'error');
+					return;
+				}
+				multiSet = new Set(datesBetween(a, b));
+				rangeStart = null;
+				rangeHover = null;
+				hintText.textContent = days + ' day' + (days !== 1 ? 's' : '') + ' selected.';
+				applySelectionClasses();
+				openBulkPanel();
+			}
+
+		} else if (selMode === 'multi') {
+			if (multiSet.has(key)) { multiSet.delete(key); } else { multiSet.add(key); }
+			applySelectionClasses();
+			if (multiSet.size > 0) openBulkPanel(); else showPanel('hint');
+		}
+	}
+
+	/* ── Single-panel pricing tabs ──────────────────────────── */
+	var activeSinglePricingTab = 'default';
+
+	document.querySelectorAll('[data-single-tab]').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			activeSinglePricingTab = btn.dataset.singleTab;
+			document.querySelectorAll('[data-single-tab]').forEach(function (b) { b.classList.remove('is-active'); });
+			btn.classList.add('is-active');
+			['default', 'fixed', 'discount'].forEach(function (t) {
+				document.getElementById('single-pricing-' + t).style.display = t === activeSinglePricingTab ? '' : 'none';
+			});
+		});
+	});
+
+	document.getElementById('single-discount-pct')?.addEventListener('input', function () {
+		var pct  = parseFloat(this.value);
+		var prev = document.getElementById('single-discount-preview');
+		if (!isNaN(pct) && pct > 0 && pct < 100) {
+			var after = Math.round(basePrice * (1 - pct / 100) * 100) / 100;
+			prev.textContent = '→ ' + after + ' ' + currency + ' / person';
+		} else {
+			prev.textContent = '';
+		}
+	});
+
+	function resolveSingleCustomPrice() {
+		if (activeSinglePricingTab === 'default') return null;
+		if (activeSinglePricingTab === 'fixed') {
+			var v = document.getElementById('single-fixed-price').value;
+			return v ? parseFloat(v) : null;
+		}
+		if (activeSinglePricingTab === 'discount') {
+			var pct = parseFloat(document.getElementById('single-discount-pct').value);
+			if (isNaN(pct) || pct <= 0 || pct >= 100) return null;
+			return Math.round(basePrice * (1 - pct / 100) * 100) / 100;
+		}
+		return null;
+	}
+
+	function setSinglePricingFromSlot(slot) {
+		// Reset tabs to default first
+		activeSinglePricingTab = 'default';
+		document.querySelectorAll('[data-single-tab]').forEach(function (b) { b.classList.remove('is-active'); });
+		document.querySelector('[data-single-tab="default"]').classList.add('is-active');
+		['default', 'fixed', 'discount'].forEach(function (t) {
+			document.getElementById('single-pricing-' + t).style.display = t === 'default' ? '' : 'none';
+		});
+		document.getElementById('single-fixed-price').value = '';
+		document.getElementById('single-discount-pct').value = '';
+		document.getElementById('single-discount-preview').textContent = '';
+
+		if (slot && slot.custom_price != null) {
+			// Figure out if it's a discount or fixed
+			var expected = Math.round(basePrice * 100) / 100;
+			if (slot.custom_price < expected) {
+				// Show as discount tab
+				var pct = Math.round((1 - slot.custom_price / basePrice) * 100);
+				if (pct > 0 && pct < 100) {
+					activeSinglePricingTab = 'discount';
+					document.querySelector('[data-single-tab="default"]').classList.remove('is-active');
+					document.querySelector('[data-single-tab="discount"]').classList.add('is-active');
+					document.getElementById('single-pricing-default').style.display = 'none';
+					document.getElementById('single-pricing-discount').style.display = '';
+					document.getElementById('single-discount-pct').value = pct;
+					document.getElementById('single-discount-preview').textContent = '→ ' + slot.custom_price + ' ' + currency + ' / person';
+					return;
+				}
+			}
+			// Show as fixed
+			activeSinglePricingTab = 'fixed';
+			document.querySelector('[data-single-tab="default"]').classList.remove('is-active');
+			document.querySelector('[data-single-tab="fixed"]').classList.add('is-active');
+			document.getElementById('single-pricing-default').style.display = 'none';
+			document.getElementById('single-pricing-fixed').style.display = '';
+			document.getElementById('single-fixed-price').value = slot.custom_price;
+		}
+	}
+
+	/* ── Single panel ───────────────────────────────────────── */
+	function openSinglePanel(date) {
+		showPanel('single');
+		document.getElementById('single-title').textContent = formatDate(date);
+		var slot = slotsMap[date];
+		document.getElementById('single-status').value   = slot ? slot.status    : 'open';
+		document.getElementById('single-time').value     = slot ? (slot.time_start || '') : '';
+		document.getElementById('single-capacity').value = slot ? slot.capacity   : 1;
+		setSinglePricingFromSlot(slot || null);
+		var info = document.getElementById('single-booked-info');
+		info.textContent = slot ? ('Booked: ' + slot.booked_count + ' / ' + slot.capacity) : 'No slot yet — will be created on save.';
+		document.getElementById('single-msg').style.display = 'none';
+	}
+
+	function formatDate(d) {
+		var parts = d.split('-');
+		var dt = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+		return dt.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+	}
+
+	document.getElementById('single-save').addEventListener('click', async function () {
+		if (!selSingle) return;
+		var msg = document.getElementById('single-msg');
+		var payload = {
+			action: 'upsert',
+			date: selSingle,
+			status:       document.getElementById('single-status').value,
+			time_start:   document.getElementById('single-time').value || null,
+			capacity:     parseInt(document.getElementById('single-capacity').value) || 1,
+			custom_price: resolveSingleCustomPrice(),
+		};
+		try {
+			var res  = await apiFetch(payload);
+			var data = await res.json();
+			if (res.ok && data.ok) {
+				slotsMap[selSingle] = data.slot;
+				msg.textContent = 'Saved!'; msg.className = 'notice notice-success'; msg.style.display = '';
+				setTimeout(function () { msg.style.display = 'none'; }, 2000);
+				renderCalendar();
+			} else {
+				msg.textContent = data.error || 'Error'; msg.className = 'notice notice-error'; msg.style.display = '';
+			}
+		} catch { msg.textContent = 'Network error'; msg.className = 'notice notice-error'; msg.style.display = ''; }
+	});
+
+	document.getElementById('single-remove').addEventListener('click', async function () {
+		if (!selSingle || !confirm('Remove slot for ' + selSingle + '?')) return;
+		try {
+			var res  = await apiFetch({ action: 'delete', date: selSingle });
+			var data = await res.json();
+			if (res.ok && data.ok) {
+				delete slotsMap[selSingle];
+				showPanel('hint'); selSingle = null;
+				renderCalendar(); showToast('Slot removed.');
+			} else { showToast(data.error || 'Error', 'error'); }
+		} catch { showToast('Network error', 'error'); }
+	});
+
+	/* ── Bulk panel ─────────────────────────────────────────── */
+	function openBulkPanel() {
+		showPanel('bulk');
+		updateBulkSummary();
+	}
+
+	function updateBulkSummary() {
+		var el = document.getElementById('bulk-summary');
+		var n  = multiSet.size;
+		if (n === 0) { el.textContent = 'No dates selected.'; return; }
+		var sorted = Array.from(multiSet).sort();
+		el.textContent = n + ' date' + (n !== 1 ? 's' : '') + ' selected (' + sorted[0] + ' → ' + sorted[sorted.length - 1] + ')';
+	}
+
+	// Day-of-week filter presets
+	var activeDow = null; // null = all
+	document.querySelectorAll('.dow-preset').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			document.querySelectorAll('.dow-preset').forEach(function (b) { b.classList.remove('is-active'); });
+			btn.classList.add('is-active');
+			var preset = btn.dataset.preset;
+			var customRow = document.getElementById('dow-custom-row');
+			customRow.style.display = preset === 'custom' ? '' : 'none';
+			if      (preset === 'all')      activeDow = null;
+			else if (preset === 'weekdays') activeDow = [1,2,3,4,5];
+			else if (preset === 'weekends') activeDow = [0,6];
+			else                            activeDow = 'custom';
+		});
+	});
+
+	function getActiveDowSet() {
+		if (activeDow === null) return null;
+		if (activeDow === 'custom') {
+			var checked = Array.from(document.querySelectorAll('.dow-cb:checked')).map(function (cb) { return parseInt(cb.value); });
+			return checked.length ? new Set(checked) : null;
+		}
+		return new Set(activeDow);
+	}
+
+	function filterDatesByDow(dates) {
+		var dowSet = getActiveDowSet();
+		if (!dowSet) return dates;
+		return dates.filter(function (d) {
+			var dow = new Date(d + 'T00:00:00').getDay();
+			return dowSet.has(dow);
+		});
+	}
+
+	// Pricing tabs
+	var activePricingTab = 'default';
+	document.querySelectorAll('.pricing-tab').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			activePricingTab = btn.dataset.tab;
+			document.querySelectorAll('.pricing-tab').forEach(function (b) { b.classList.remove('is-active'); });
+			btn.classList.add('is-active');
+			['default','fixed','discount'].forEach(function (t) {
+				document.getElementById('pricing-' + t).style.display = t === activePricingTab ? '' : 'none';
+			});
+		});
+	});
+
+	// Live discount preview
+	document.getElementById('bulk-discount-pct').addEventListener('input', function () {
+		var pct   = parseFloat(this.value);
+		var prev  = document.getElementById('discount-preview');
+		if (!isNaN(pct) && pct > 0 && pct < 100) {
+			var after = Math.round(basePrice * (1 - pct / 100) * 100) / 100;
+			prev.textContent = '→ ' + after + ' ' + currency + ' / person';
+		} else {
+			prev.textContent = '';
+		}
+	});
+
+	function resolveCustomPrice() {
+		if (activePricingTab === 'default') return null;
+		if (activePricingTab === 'fixed') {
+			var v = document.getElementById('bulk-fixed-price').value;
+			return v ? parseFloat(v) : null;
+		}
+		if (activePricingTab === 'discount') {
+			var pct = parseFloat(document.getElementById('bulk-discount-pct').value);
+			if (isNaN(pct) || pct <= 0 || pct >= 100) return null;
+			return Math.round(basePrice * (1 - pct / 100) * 100) / 100;
+		}
+		return null;
+	}
+
+	document.getElementById('bulk-apply').addEventListener('click', async function () {
+		var allDates   = Array.from(multiSet).sort();
+		var dates      = filterDatesByDow(allDates);
+		if (!dates.length) { showToast('No dates match the current day filter.', 'error'); return; }
+
+		var msg = document.getElementById('bulk-msg');
+		var payload = {
+			action:       'bulk',
+			dates:        dates,
+			status:       document.getElementById('bulk-status').value,
+			time_start:   document.getElementById('bulk-time').value || null,
+			capacity:     parseInt(document.getElementById('bulk-capacity').value) || 1,
+			custom_price: resolveCustomPrice(),
+		};
+		try {
+			var res  = await apiFetch(payload);
+			var data = await res.json();
+			if (res.ok && data.ok) {
+				// Re-sync local state
+				var r2 = await fetch('/api/guide-packages/' + pkgId, { credentials: 'same-origin' });
+				var d2 = await r2.json();
+				slotsMap = {};
+				(d2.slots || []).forEach(function (s) { slotsMap[s.date] = s; });
+				showToast('Applied to ' + dates.length + ' date' + (dates.length !== 1 ? 's' : '') + '.');
+				renderCalendar();
+				msg.style.display = 'none';
+			} else {
+				msg.textContent = data.error || 'Error'; msg.className = 'notice notice-error'; msg.style.display = '';
+			}
+		} catch { msg.textContent = 'Network error'; msg.className = 'notice notice-error'; msg.style.display = ''; }
+	});
+
+	document.getElementById('bulk-remove').addEventListener('click', async function () {
+		var allDates = Array.from(multiSet).sort();
+		var dates    = filterDatesByDow(allDates).filter(function (d) { return !!slotsMap[d]; });
+		if (!dates.length) { showToast('No existing slots in selection.', 'error'); return; }
+		if (!confirm('Remove ' + dates.length + ' slot(s) from the calendar?')) return;
+
+		var failed = 0;
+		for (var i = 0; i < dates.length; i++) {
+			try {
+				var res  = await apiFetch({ action: 'delete', date: dates[i] });
+				var data = await res.json();
+				if (res.ok && data.ok) delete slotsMap[dates[i]];
+				else failed++;
+			} catch { failed++; }
+		}
+		showToast('Removed ' + (dates.length - failed) + ' slot(s).' + (failed ? ' ' + failed + ' failed.' : ''));
+		renderCalendar();
+	});
+
+	document.getElementById('bulk-clear').addEventListener('click', function () {
+		multiSet.clear();
+		rangeStart = null; rangeHover = null;
+		showPanel('hint');
+		hintText.textContent = hintMap[selMode];
+		renderCalendar();
+	});
+
+	/* ── Navigation ─────────────────────────────────────────── */
+	document.getElementById('cal-prev').addEventListener('click', function () {
+		curMonth--; if (curMonth < 0) { curMonth = 11; curYear--; }
+		renderCalendar();
+	});
+	document.getElementById('cal-next').addEventListener('click', function () {
+		curMonth++; if (curMonth > 11) { curMonth = 0; curYear++; }
+		renderCalendar();
+	});
+
+	/* ── API helper ─────────────────────────────────────────── */
+	function apiFetch(payload) {
+		return fetch('/api/guide-packages/' + pkgId, {
+			method:  'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			credentials: 'same-origin',
+			body:    JSON.stringify(payload),
+		});
+	}
+
+	/* ── Init ───────────────────────────────────────────────── */
+	renderCalendar();
+})();
+</script>
+
+<style is:global>
+/* ── Page layout ────────────────────────────────────────────── */
+.cal-page { max-width: 1100px; }
+.cal-topbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.25rem; }
+.cal-hint   { margin: 0 0 1rem; font-size: 0.875rem; min-height: 1.4em; }
+.cal-layout { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
+@media (max-width: 780px) { .cal-layout { grid-template-columns: 1fr; } }
+
+/* ── Mode buttons ───────────────────────────────────────────── */
+.cal-mode-btns  { display: flex; gap: 0; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; }
+.cal-mode-btn   { background: #fff; border: none; border-right: 1px solid #e2e8f0; padding: 0.4rem 0.85rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: #64748b; white-space: nowrap; transition: background 0.15s; }
+.cal-mode-btn:last-child { border-right: none; }
+.cal-mode-btn:hover      { background: #f8fafc; }
+.cal-mode-btn.is-active  { background: #4f46e5; color: #fff; }
+
+/* ── Calendar main ──────────────────────────────────────────── */
+.cal-main    { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; }
+.cal-header  { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+.cal-nav-btn { background: transparent; border: 1px solid #e2e8f0; border-radius: 7px; font-size: 1.3rem; cursor: pointer; padding: 0.1rem 0.65rem; color: #475569; line-height: 1.6; }
+.cal-nav-btn:hover { background: #f1f5f9; }
+
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); }
+.cal-day-header { padding: 0.35rem 0.2rem; text-align: center; font-size: 0.7rem; font-weight: 700; color: #94a3b8; background: #f8fafc; border-bottom: 1px solid #e2e8f0; letter-spacing: 0.04em; text-transform: uppercase; }
+.cal-cell {
+	min-height: 58px; padding: 0.25rem; border: 1px solid #f1f5f9;
+	cursor: pointer; position: relative;
+	display: flex; flex-direction: column; align-items: center; gap: 2px;
+	transition: background 0.12s;
+	user-select: none;
+}
+.cal-cell:hover:not(.cal-cell--empty):not(.cal-cell--past) { background: #f0f9ff; }
+.cal-cell--empty  { cursor: default; background: #fafafa; }
+.cal-cell--past   { opacity: 0.38; cursor: default; }
+
+/* Today ring */
+.cal-cell--today .cal-day-num {
+	background: #4f46e5; color: #fff;
+	border-radius: 50%; width: 22px; height: 22px;
+	display: flex; align-items: center; justify-content: center;
+}
+/* Single selection */
+.cal-cell--selected { background: #eff6ff !important; outline: 2px solid #4f46e5; outline-offset: -2px; }
+/* Multi selection */
+.cal-cell--multi { background: #f0fdf4 !important; outline: 2px solid #16a34a; outline-offset: -2px; }
+/* Range selection */
+.cal-cell--range           { background: #e0e7ff !important; }
+.cal-cell--range-start     { background: #c7d2fe !important; border-radius: 8px 0 0 8px; outline: 2px solid #4f46e5; outline-offset: -2px; }
+.cal-cell--range-end       { background: #c7d2fe !important; border-radius: 0 8px 8px 0; outline: 2px solid #4f46e5; outline-offset: -2px; }
+/* Start = end (single day range) */
+.cal-cell--range-start.cal-cell--range-end { border-radius: 8px; }
+
+.cal-day-num { font-size: 0.82rem; font-weight: 500; line-height: 1; }
+
+/* Status dots */
+.cal-dot {
+	width: 8px; height: 8px; border-radius: 50%;
+	display: inline-block; flex-shrink: 0;
+	box-shadow: 0 0 0 1.5px #fff; /* white ring so dot pops on any background */
+}
+.cal-dot--open    { background: #16a34a; }
+.cal-dot--booked  { background: #f59e0b; }
+.cal-dot--full    { background: #dc2626; }
+.cal-dot--blocked { background: #94a3b8; }
+/* Make dots brighter on highlighted cells */
+.cal-cell--range .cal-dot,
+.cal-cell--range-start .cal-dot,
+.cal-cell--range-end .cal-dot,
+.cal-cell--multi .cal-dot {
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.9);
+	width: 9px; height: 9px;
+}
+
+.cal-time  { font-size: 0.6rem; color: #64748b; line-height: 1; }
+.cal-price { font-size: 0.6rem; color: #4f46e5; font-weight: 700; line-height: 1; }
+
+.cal-legend { display: flex; gap: 0.85rem; padding: 0.5rem 0.85rem; border-top: 1px solid #e2e8f0; flex-wrap: wrap; }
+.cal-legend-item { display: flex; align-items: center; gap: 4px; font-size: 0.78rem; color: #64748b; }
+
+/* ── Sidebar / panels ───────────────────────────────────────── */
+.cal-sidebar { display: flex; flex-direction: column; gap: 0.75rem; position: sticky; top: 1rem; }
+.cal-panel {
+	background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 1rem;
+}
+.cal-panel--hint { border-style: dashed; background: transparent; }
+.cal-panel__h { margin: 0 0 0.85rem; font-size: 1rem; font-weight: 700; }
+
+.field-row { margin-bottom: 0.75rem; }
+.field-row label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.875rem; font-weight: 600; color: #374151; }
+.field-row input, .field-row select { padding: 0.45rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 7px; font-size: 0.9rem; font-family: inherit; width: 100%; box-sizing: border-box; }
+.field-row input:focus, .field-row select:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+.field-hint { font-size: 0.78rem; color: #94a3b8; margin: 0.2rem 0 0; }
+.muted-inline { font-weight: 400; color: #94a3b8; }
+.booked-info { font-size: 0.8rem; color: #64748b; margin-top: 0.5rem; }
+
+.btn-danger { color: #dc2626 !important; border-color: #fecaca !important; }
+.btn-danger:hover { background: #fff1f2 !important; }
+
+/* Bulk summary */
+.bulk-summary { font-size: 0.82rem; font-weight: 600; color: #4f46e5; background: #eff6ff; border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.75rem; }
+
+/* Field sections */
+.field-section { margin-bottom: 0.75rem; }
+.field-section__label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin: 0 0 0.4rem; }
+
+/* Day-of-week buttons */
+.dow-btns { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+.dow-preset { background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.25rem 0.6rem; font-size: 0.78rem; font-weight: 600; cursor: pointer; color: #475569; }
+.dow-preset.is-active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.dow-custom-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.35rem; }
+.dow-check { display: flex; align-items: center; gap: 0.2rem; font-size: 0.8rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 5px; padding: 0.2rem 0.5rem; cursor: pointer; }
+
+/* Pricing tabs */
+.pricing-tabs { display: flex; gap: 0; border: 1px solid #e2e8f0; border-radius: 7px; overflow: hidden; margin-bottom: 0.5rem; }
+.pricing-tab { flex: 1; background: #fff; border: none; border-right: 1px solid #e2e8f0; padding: 0.35rem 0.5rem; font-size: 0.78rem; font-weight: 600; cursor: pointer; color: #64748b; }
+.pricing-tab:last-child { border-right: none; }
+.pricing-tab.is-active  { background: #4f46e5; color: #fff; }
+.pricing-content { font-size: 0.875rem; }
+.pricing-content label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.875rem; font-weight: 600; color: #374151; }
+.pricing-content input { padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 7px; font-size: 0.9rem; font-family: inherit; }
+
+/* Toast */
+.cal-toast {
+	position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+	background: #1e293b; color: #fff; border-radius: 8px;
+	padding: 0.6rem 1.25rem; font-size: 0.9rem; font-weight: 500;
+	z-index: 9999; box-shadow: 0 4px 16px rgba(0,0,0,.25);
+	pointer-events: none;
+}
+.cal-toast--error { background: #dc2626; }
+.cal-toast--success { background: #16a34a; }
+</style>

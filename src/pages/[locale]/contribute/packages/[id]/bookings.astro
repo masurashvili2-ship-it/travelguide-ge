@@ -1,0 +1,161 @@
+---
+import Shell from '../../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { getPackageById } from '../../../../../lib/guide-packages-db';
+import { getGuides } from '../../../../../lib/guides-db';
+import { listBookingsForPackage } from '../../../../../lib/bookings-db';
+import '../../../../../styles/contribute.css';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+const user = Astro.locals.user;
+
+const pkg = getPackageById(Astro.params.id ?? '');
+if (!pkg) return new Response(null, { status: 404 });
+
+const allGuides = getGuides();
+const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
+if (user.role !== 'admin' && pkg.guide_id !== myGuide?.id) {
+	return new Response(null, { status: 403 });
+}
+
+const bookings = listBookingsForPackage(pkg.id);
+const title = pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? 'Package';
+const backUrl = getRelativeLocaleUrl(locale, 'contribute/packages');
+const editUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`);
+
+function statusBadge(status: string) {
+	const colors: Record<string, string> = {
+		pending: 'background:#fef3c7;color:#92400e',
+		confirmed: 'background:#dcfce7;color:#166534',
+		completed: 'background:#dbeafe;color:#1e40af',
+		cancelled: 'background:#fee2e2;color:#991b1b',
+	};
+	return colors[status] ?? '';
+}
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title={`Bookings — ${title}`}
+	seoTitle="Bookings"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={backUrl}>← Packages</a> / <a href={editUrl}>{title}</a>
+		</p>
+		<h1>Bookings for "{title}"</h1>
+
+		<div id="action-status" class="notice" style="display:none"></div>
+
+		{bookings.length === 0 ? (
+			<div class="contribute-card">
+				<div class="contribute-card__bd" style="text-align:center;padding:2rem">
+					<p class="muted">No bookings yet for this package.</p>
+				</div>
+			</div>
+		) : (
+			<div class="admin-table-wrap">
+				<table class="admin-table" style="min-width:100%">
+					<thead>
+						<tr>
+							<th>Ref</th>
+							<th>Date</th>
+							<th>Customer</th>
+							<th>Pax</th>
+							<th>Total</th>
+							<th>Status</th>
+							<th>Booked on</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{bookings.map((b) => (
+							<tr id={`row-${b.ref}`}>
+								<td><code>{b.ref}</code></td>
+								<td>{b.date}{b.time_start ? ` ${b.time_start}` : ''}</td>
+								<td>
+									<div>{b.customer_name}</div>
+									<div class="muted" style="font-size:0.82rem">{b.customer_email}</div>
+									{b.customer_phone && <div class="muted" style="font-size:0.82rem">{b.customer_phone}</div>}
+									{b.special_requests && (
+										<div style="font-size:0.8rem;color:#4f46e5;margin-top:2px">💬 {b.special_requests.slice(0, 60)}{b.special_requests.length > 60 ? '…' : ''}</div>
+									)}
+								</td>
+								<td>{b.pax}</td>
+								<td>
+									{b.total_price} {b.currency}
+									{b.discount_pct > 0 && <div style="font-size:0.8rem;color:#16a34a">-{b.discount_pct}%</div>}
+								</td>
+								<td>
+									<span style={`padding:0.2rem 0.6rem;border-radius:99px;font-size:0.78rem;font-weight:600;${statusBadge(b.status)}`} id={`status-${b.ref}`}>
+										{b.status}
+									</span>
+								</td>
+								<td style="font-size:0.82rem;color:#64748b">{new Date(b.created_at).toLocaleDateString()}</td>
+								<td>
+									<div style="display:flex;flex-wrap:wrap;gap:0.35rem">
+										{(b.status === 'pending' || b.status === 'confirmed') && (
+											<>
+												{b.status === 'pending' && (
+													<button type="button" class="btn-action" data-ref={b.ref} data-action="confirmed" style="background:#dcfce7;color:#166534;border:1px solid #bbf7d0;border-radius:6px;padding:0.25rem 0.6rem;cursor:pointer;font-size:0.82rem">Confirm</button>
+												)}
+												{b.status === 'confirmed' && (
+													<button type="button" class="btn-action" data-ref={b.ref} data-action="completed" style="background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;border-radius:6px;padding:0.25rem 0.6rem;cursor:pointer;font-size:0.82rem">Mark complete</button>
+												)}
+												<button type="button" class="btn-action btn-cancel" data-ref={b.ref} data-action="cancelled" style="background:#fee2e2;color:#991b1b;border:1px solid #fecaca;border-radius:6px;padding:0.25rem 0.6rem;cursor:pointer;font-size:0.82rem">Cancel</button>
+											</>
+										)}
+										{b.guide_notes && (
+											<span title={b.guide_notes} style="font-size:0.8rem;color:#64748b;cursor:help">📝 note</span>
+										)}
+									</div>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		)}
+	</div>
+</Shell>
+
+<script is:inline>
+document.querySelectorAll('.btn-action').forEach(function (btn) {
+	btn.addEventListener('click', async function () {
+		var ref = this.dataset.ref;
+		var action = this.dataset.action;
+		var reason = null;
+		if (action === 'cancelled') {
+			reason = prompt('Reason for cancellation (optional):') ?? '';
+		}
+		try {
+			var res = await fetch('/api/bookings/' + encodeURIComponent(ref) + '/status', {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
+				body: JSON.stringify({ status: action, reason: reason }),
+			});
+			var data = await res.json();
+			if (res.ok && data.ok) {
+				var statusEl = document.getElementById('status-' + ref);
+				if (statusEl) statusEl.textContent = action;
+				// Reload to reflect updated button state
+				location.reload();
+			} else {
+				alert(data.error || 'Error updating booking');
+			}
+		} catch { alert('Network error'); }
+	});
+});
+</script>

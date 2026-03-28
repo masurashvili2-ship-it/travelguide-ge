@@ -247,6 +247,22 @@ export const ui: Record<
 		searchKindWhatToDo: string;
 		searchKindRegion: string;
 		searchKindPage: string;
+		searchKindGuide: string;
+		/** Tour guides section */
+		guides: string;
+		guidesMetaDescription: string;
+		guidesIntro: string;
+		/** Guide detail badge (like tourBadge) */
+		guideBadge: string;
+		viewGuide: string;
+		/** Guide detail sidebar */
+		guideLanguages: string;
+		guideExperience: string;
+		guideBaseLocation: string;
+		guideSpecialties: string;
+		guidePriceFrom: string;
+		guideContactTitle: string;
+		guideVerified: string;
 	}
 > = {
 	en: {
@@ -486,6 +502,19 @@ export const ui: Record<
 		searchKindWhatToDo: 'What to do',
 		searchKindRegion: 'Place',
 		searchKindPage: 'Page',
+		searchKindGuide: 'Guide',
+		guides: 'Guides',
+		guidesMetaDescription: 'Find local tour guides in Georgia — experienced guides for hikes, cultural tours, wine routes, and more.',
+		guidesIntro: 'Browse professional tour guides available in Georgia. Filter by specialty, language, or location.',
+		guideBadge: 'Guide',
+		viewGuide: 'View profile',
+		guideLanguages: 'Languages',
+		guideExperience: 'Experience',
+		guideBaseLocation: 'Based in',
+		guideSpecialties: 'Specialties',
+		guidePriceFrom: 'Price from',
+		guideContactTitle: 'Contact & booking',
+		guideVerified: 'Verified guide',
 	},
 	ka: {
 		siteTitle: 'საქართველოს სამოგზაურო გიდი',
@@ -721,6 +750,19 @@ export const ui: Record<
 		searchKindWhatToDo: 'რა გავაკეთოთ',
 		searchKindRegion: 'ადგილი',
 		searchKindPage: 'გვერდი',
+		searchKindGuide: 'გიდი',
+		guides: 'გიდები',
+		guidesMetaDescription: 'იპოვეთ ადგილობრივი ტურ-გიდები საქართველოში — გამოცდილი გიდები походakh, კულტურული ტურები, ღვინის მარშრუტები და სხვა.',
+		guidesIntro: 'დაათვალიერეთ პროფესიონალი ტურ-გიდები საქართველოში. გაფილტრეთ სპეციალობის, ენის ან ადგილმდებარეობის მიხედვით.',
+		guideBadge: 'გიდი',
+		viewGuide: 'პროფილის ნახვა',
+		guideLanguages: 'ენები',
+		guideExperience: 'გამოცდილება',
+		guideBaseLocation: 'ბაზირებულია',
+		guideSpecialties: 'სპეციალიზაცია',
+		guidePriceFrom: 'ფასი',
+		guideContactTitle: 'კონტაქტი და დაჯავშნა',
+		guideVerified: 'დადასტურებული გიდი',
 	},
 	ru: {
 		siteTitle: 'Путеводитель по Грузии',
@@ -958,5 +1000,18 @@ export const ui: Record<
 		searchKindWhatToDo: 'Чем заняться',
 		searchKindRegion: 'Место',
 		searchKindPage: 'Страница',
+		searchKindGuide: 'Гид',
+		guides: 'Гиды',
+		guidesMetaDescription: 'Найдите местных гидов в Грузии — опытные специалисты для походов, культурных туров, винных маршрутов и многого другого.',
+		guidesIntro: 'Просматривайте профессиональных тур-гидов в Грузии. Фильтруйте по специализации, языку или местонахождению.',
+		guideBadge: 'Гид',
+		viewGuide: 'Смотреть профиль',
+		guideLanguages: 'Языки',
+		guideExperience: 'Опыт',
+		guideBaseLocation: 'Базируется в',
+		guideSpecialties: 'Специализации',
+		guidePriceFrom: 'Цена от',
+		guideContactTitle: 'Контакты и бронирование',
+		guideVerified: 'Проверенный гид',
 	},
 };

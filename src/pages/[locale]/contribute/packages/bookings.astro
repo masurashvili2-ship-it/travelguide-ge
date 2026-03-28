@@ -1,0 +1,160 @@
+---
+import Shell from '../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { getGuides } from '../../../../lib/guides-db';
+import { listBookingsForGuide } from '../../../../lib/bookings-db';
+import '../../../../styles/contribute.css';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+const user = Astro.locals.user;
+const allGuides = getGuides();
+const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
+if (!myGuide) {
+	return Astro.redirect(getRelativeLocaleUrl(locale, 'contribute/packages'));
+}
+
+const bookings = listBookingsForGuide(myGuide.id);
+const statusFilter = Astro.url.searchParams.get('status') ?? '';
+const filtered = statusFilter ? bookings.filter((b) => b.status === statusFilter) : bookings;
+
+const backUrl = getRelativeLocaleUrl(locale, 'contribute/packages');
+const counts = {
+	all: bookings.length,
+	pending: bookings.filter((b) => b.status === 'pending').length,
+	confirmed: bookings.filter((b) => b.status === 'confirmed').length,
+	completed: bookings.filter((b) => b.status === 'completed').length,
+	cancelled: bookings.filter((b) => b.status === 'cancelled').length,
+};
+
+function statusStyle(status: string) {
+	const s: Record<string, string> = {
+		pending: 'background:#fef3c7;color:#92400e',
+		confirmed: 'background:#dcfce7;color:#166534',
+		completed: 'background:#dbeafe;color:#1e40af',
+		cancelled: 'background:#fee2e2;color:#991b1b',
+	};
+	return s[status] ?? '';
+}
+const sym: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+const selfPath = Astro.url.pathname;
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title="All Bookings"
+	seoTitle="All Bookings"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0"><a href={backUrl}>← Back to Packages</a></p>
+		<h1>All Bookings</h1>
+
+		<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+			{[
+				{ label: `All (${counts.all})`, val: '' },
+				{ label: `Pending (${counts.pending})`, val: 'pending' },
+				{ label: `Confirmed (${counts.confirmed})`, val: 'confirmed' },
+				{ label: `Completed (${counts.completed})`, val: 'completed' },
+				{ label: `Cancelled (${counts.cancelled})`, val: 'cancelled' },
+			].map(({ label, val }) => (
+				<a
+					href={`${selfPath}${val ? `?status=${val}` : ''}`}
+					class={`button${statusFilter === val ? ' button--primary' : ''}`}
+					style="font-size:0.82rem;padding:0.3rem 0.7rem"
+				>
+					{label}
+				</a>
+			))}
+		</div>
+
+		{filtered.length === 0 ? (
+			<div class="contribute-card">
+				<div class="contribute-card__bd" style="text-align:center;padding:2rem">
+					<p class="muted">No bookings found.</p>
+				</div>
+			</div>
+		) : (
+			<div class="admin-table-wrap">
+				<table class="admin-table" style="min-width:100%">
+					<thead>
+						<tr>
+							<th>Ref</th>
+							<th>Package</th>
+							<th>Date</th>
+							<th>Customer</th>
+							<th>Pax</th>
+							<th>Total</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{filtered.map((b) => (
+							<tr>
+								<td><code style="font-size:0.82rem">{b.ref}</code></td>
+								<td style="font-size:0.875rem">{b.package_title}</td>
+								<td style="font-size:0.875rem">{b.date}{b.time_start ? ` ${b.time_start}` : ''}</td>
+								<td>
+									<div style="font-size:0.875rem">{b.customer_name}</div>
+									<div class="muted" style="font-size:0.8rem">{b.customer_email}</div>
+								</td>
+								<td>{b.pax}</td>
+								<td>{sym[b.currency] ?? b.currency}{b.total_price}</td>
+								<td>
+									<span style={`padding:0.2rem 0.6rem;border-radius:99px;font-size:0.78rem;font-weight:600;${statusStyle(b.status)}`}>
+										{b.status}
+									</span>
+								</td>
+								<td>
+									<div style="display:flex;gap:0.35rem;flex-wrap:wrap">
+										{b.status === 'pending' && (
+											<button type="button" class="btn-status" data-ref={b.ref} data-status="confirmed" style="background:#dcfce7;color:#166534;border:1px solid #bbf7d0;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Confirm</button>
+										)}
+										{b.status === 'confirmed' && (
+											<button type="button" class="btn-status" data-ref={b.ref} data-status="completed" style="background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Complete</button>
+										)}
+										{(b.status === 'pending' || b.status === 'confirmed') && (
+											<button type="button" class="btn-status" data-ref={b.ref} data-status="cancelled" style="background:#fee2e2;color:#991b1b;border:1px solid #fecaca;border-radius:5px;padding:0.2rem 0.5rem;font-size:0.78rem;cursor:pointer">Cancel</button>
+										)}
+									</div>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		)}
+	</div>
+</Shell>
+
+<script is:inline>
+document.querySelectorAll('.btn-status').forEach(function (btn) {
+	btn.addEventListener('click', async function () {
+		var ref = this.dataset.ref;
+		var status = this.dataset.status;
+		var reason = null;
+		if (status === 'cancelled') reason = prompt('Reason for cancellation (optional):') ?? '';
+		try {
+			var res = await fetch('/api/bookings/' + encodeURIComponent(ref) + '/status', {
+				method: 'PATCH',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
+				body: JSON.stringify({ status, reason }),
+			});
+			var data = await res.json();
+			if (res.ok && data.ok) { location.reload(); }
+			else { alert(data.error || 'Error'); }
+		} catch { alert('Network error'); }
+	});
+});
+</script>

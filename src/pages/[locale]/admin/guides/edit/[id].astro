@@ -1,0 +1,198 @@
+---
+import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminStickySave from '../../../../../components/admin/AdminStickySave.astro';
+import AdminGuideLocalesFields from '../../../../../components/admin/AdminGuideLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import AdminWhatToDoSocialLinksCard from '../../../../../components/admin/AdminWhatToDoSocialLinksCard.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { GUIDE_SPECIALTY_IDS, GUIDE_SPECIALTY_LABELS_EN } from '../../../../../lib/guide-specialties';
+import { getGuideById, isValidGuideId } from '../../../../../lib/guides-db';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `admin/guides/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+if (!isValidGuideId(idParam)) {
+	return new Response(null, { status: 404 });
+}
+
+const post = getGuideById(idParam);
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const displayName =
+	post.i18n.en?.name?.trim() ||
+	post.i18n.ka?.name?.trim() ||
+	post.i18n.ru?.name?.trim() ||
+	post.slug;
+
+const guidesListUrl = getRelativeLocaleUrl(locale, 'admin/guides');
+const userEmail = Astro.locals.user.email;
+---
+
+<AdminLayout
+	locale={locale}
+	title={`Edit "${displayName}" · Travel Guide Georgia`}
+	headline="Edit tour guide"
+	subtitle={`Post ID ${post.id} · slug: ${post.slug}${post.author_email ? ` · Author: ${post.author_email}` : ''}`}
+	activeNav="guides-edit"
+	userEmail={userEmail}
+>
+	<form id="guide-admin-form" method="post" action="/api/admin/guides">
+		<input type="hidden" name="intent" value="update" />
+		<input type="hidden" name="id" value={post.id} />
+		<input type="hidden" name="redirect" value={guidesListUrl} />
+		<input type="hidden" name="admin_locale" value={locale} />
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Slug</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Slug (URL)</span>
+						<input
+							type="text"
+							id="guide-admin-slug"
+							name="slug"
+							required
+							value={post.slug}
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+						/>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Guide details (shared)</h2>
+			<div class="admin-card__bd">
+				<div class="row">
+					<label>
+						<span>Base location</span>
+						<input type="text" name="base_location" autocomplete="off" value={post.base_location ?? ''} placeholder="e.g. Tbilisi" />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Languages spoken</span>
+						<input
+							type="text"
+							name="languages_spoken"
+							autocomplete="off"
+							value={post.languages_spoken.join(', ')}
+							placeholder="e.g. English, Georgian, Russian"
+						/>
+					</label>
+					<p class="muted" style="margin:0.35rem 0 0">Comma-separated list of languages.</p>
+				</div>
+				<div class="row">
+					<label>
+						<span>Years of experience (optional)</span>
+						<input type="number" name="years_experience" min="0" max="99" autocomplete="off" value={post.years_experience ?? ''} />
+					</label>
+				</div>
+				<div class="row">
+					<label>
+						<span>Starting price (optional)</span>
+						<input type="text" name="price_from" autocomplete="off" value={post.price_from ?? ''} placeholder="e.g. $80/day" />
+					</label>
+				</div>
+				<div class="row">
+					<fieldset style="border:none;padding:0;margin:0">
+						<legend style="font-size:0.875rem;font-weight:500;margin-bottom:0.5rem">Specialties</legend>
+						<div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem">
+							{GUIDE_SPECIALTY_IDS.map((id) => (
+								<label style="display:flex;align-items:center;gap:0.35rem;font-size:0.9rem">
+									<input type="checkbox" name="specialties" value={id} checked={post.specialties.includes(id)} />
+									{GUIDE_SPECIALTY_LABELS_EN[id]}
+								</label>
+							))}
+						</div>
+					</fieldset>
+				</div>
+				<div class="row" style="margin-top:0.75rem">
+					<label style="display:flex;align-items:center;gap:0.5rem">
+						<input type="checkbox" name="verified" value="1" checked={post.verified} />
+						<span>Verified guide</span>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Profile photo &amp; gallery</h2>
+			<div class="admin-card__bd">
+				<fieldset class="photos" style="background:transparent;border-style:dashed">
+					<AdminTourPhotoUpload
+						uploadApiPath="/api/admin/upload-guide-image"
+						formId="guide-admin-form"
+						slugInputId="guide-admin-slug"
+						widgetPrefix="guide"
+					/>
+					<div class="row">
+						<label>
+							<span>Profile photo URL (optional)</span>
+							<input type="text" name="profile_photo" id="guide-cover-url" value={post.profile_photo ?? ''} />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea class="gallery-urls" name="gallery_urls" id="guide-gallery-urls">
+								{post.gallery.join('\n')}
+							</textarea>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</section>
+
+		<section class="admin-card">
+			<h2 class="admin-card__h">Translations</h2>
+			<div class="admin-card__bd">
+				<AdminGuideLocalesFields post={post} />
+			</div>
+		</section>
+
+		<AdminWhatToDoSocialLinksCard socialLinks={post.social_links} />
+
+	</form>
+
+	<AdminStickySave
+		locale={locale}
+		formId="guide-admin-form"
+		submitLabel="Update"
+		cancelHref={guidesListUrl}
+		viewMode="guides"
+	/>
+
+	<section class="admin-card" style="margin-top:1.5rem">
+		<h2 class="admin-card__h">Delete</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 0.75rem">
+				Permanently removes this guide from the site.
+			</p>
+			<form
+				method="post"
+				action="/api/admin/guides"
+				onsubmit="return confirm('Delete this guide? This cannot be undone.');"
+			>
+				<input type="hidden" name="intent" value="delete" />
+				<input type="hidden" name="id" value={post.id} />
+				<input type="hidden" name="redirect" value={guidesListUrl} />
+				<button type="submit" class="button button-danger">Delete this guide</button>
+			</form>
+		</div>
+	</section>
+</AdminLayout>

@@ -1,0 +1,234 @@
+---
+import Shell from '../../../../../components/Shell.astro';
+import ContributeSubmitBar from '../../../../../components/ContributeSubmitBar.astro';
+import AdminGuideLocalesFields from '../../../../../components/admin/AdminGuideLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { GUIDE_SPECIALTY_IDS, GUIDE_SPECIALTY_LABELS_EN } from '../../../../../lib/guide-specialties';
+import { CONTACT_SOCIAL_LINK_KEYS, CONTACT_SOCIAL_LABELS } from '../../../../../lib/contact-social-links';
+import type { Locale } from '../../../../../lib/strings';
+import { getSubmissionById, type GuideSubmissionPayload } from '../../../../../lib/submissions-db';
+import { getGuideById } from '../../../../../lib/guides-db';
+import type { GuidePost } from '../../../../../lib/guides-db';
+import '../../../../../styles/contribute.css';
+
+const loc = Astro.params.locale;
+const idParam = Astro.params.id;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru' || !idParam) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, `contribute/guide/edit/${idParam}`);
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const back = getRelativeLocaleUrl(locale, 'contribute');
+const sub = getSubmissionById(idParam);
+if (!sub || sub.kind !== 'guides' || sub.author_user_id !== Astro.locals.user.id) {
+	return Astro.redirect(back);
+}
+
+let p: GuideSubmissionPayload;
+if (sub.status === 'approved' && sub.published_id) {
+	const live = getGuideById(sub.published_id);
+	if (live) {
+		p = {
+			slug: live.slug,
+			profile_photo: live.profile_photo,
+			gallery: live.gallery,
+			social_links: live.social_links,
+			languages_spoken: live.languages_spoken,
+			years_experience: live.years_experience,
+			base_location: live.base_location,
+			place_ids: live.place_ids,
+			price_from: live.price_from,
+			specialties: live.specialties,
+			i18n: live.i18n,
+		};
+	} else {
+		p = sub.payload as GuideSubmissionPayload;
+	}
+} else {
+	p = sub.payload as GuideSubmissionPayload;
+}
+
+/** Synthetic GuidePost for prefilling the locale fields component */
+const syntheticPost: GuidePost = {
+	id: sub.id,
+	slug: p.slug,
+	profile_photo: p.profile_photo,
+	gallery: p.gallery,
+	social_links: p.social_links ?? {},
+	languages_spoken: p.languages_spoken ?? [],
+	years_experience: p.years_experience ?? null,
+	base_location: p.base_location ?? null,
+	place_ids: p.place_ids ?? [],
+	price_from: p.price_from ?? null,
+	verified: false,
+	specialties: p.specialties ?? [],
+	i18n: p.i18n,
+	updated_at: sub.updated_at,
+	author_user_id: sub.author_user_id,
+	author_email: sub.author_email,
+};
+
+const enName = p.i18n.en?.name ?? '';
+---
+
+<Shell
+	locale={locale}
+	subpath={`contribute/guide/edit/${idParam}`}
+	title="Edit guide proposal"
+	seoTitle="Edit guide proposal"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={back}>← Back to Contribute</a>
+		</p>
+		<h1>Edit guide proposal</h1>
+		<p class="muted">
+			Status: <strong>{sub.status}</strong>.
+			{sub.status === 'approved' ? (
+				<span> Your guide is live. Editing it will send it back for review.</span>
+			) : sub.status === 'rejected' && sub.reject_reason ? (
+				<span> Rejection reason: <em>{sub.reject_reason}</em></span>
+			) : null}
+		</p>
+
+		<form id="contribute-guide-form" method="post" action={`/api/contribute/guides?edit=${idParam}`}>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Slug</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug (URL)</span>
+							<input
+								type="text"
+								id="guide-admin-slug"
+								name="slug"
+								required
+								value={p.slug}
+								pattern="[a-z0-9]+(-[a-z0-9]+)*"
+							/>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Guide details</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Base location</span>
+							<input type="text" name="base_location" autocomplete="off" value={p.base_location ?? ''} placeholder="e.g. Tbilisi" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Languages spoken</span>
+							<input type="text" name="languages_spoken" autocomplete="off" value={(p.languages_spoken ?? []).join(', ')} />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Years of experience (optional)</span>
+							<input type="number" name="years_experience" min="0" max="99" value={p.years_experience ?? ''} />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Starting price (optional)</span>
+							<input type="text" name="price_from" autocomplete="off" value={p.price_from ?? ''} />
+						</label>
+					</div>
+					<div class="row">
+						<fieldset style="border:none;padding:0;margin:0">
+							<legend style="font-size:0.875rem;font-weight:500;margin-bottom:0.5rem">Specialties</legend>
+							<div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem">
+								{GUIDE_SPECIALTY_IDS.map((id) => (
+									<label style="display:flex;align-items:center;gap:0.35rem;font-size:0.9rem">
+										<input type="checkbox" name="specialties" value={id} checked={(p.specialties ?? []).includes(id)} />
+										{GUIDE_SPECIALTY_LABELS_EN[id]}
+									</label>
+								))}
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Profile photo &amp; gallery</h2>
+				<div class="contribute-card__bd">
+					<fieldset style="border:none;padding:0;margin:0">
+						<AdminTourPhotoUpload
+							formId="contribute-guide-form"
+							uploadApiPath="/api/contribute/upload-guide-image"
+							slugInputId="guide-admin-slug"
+							widgetPrefix="guide"
+						/>
+					</fieldset>
+					<div class="row">
+						<label>
+							<span>Profile photo URL (optional)</span>
+							<input type="text" name="profile_photo" id="guide-cover-url" value={p.profile_photo ?? ''} />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea name="gallery_urls" id="guide-gallery-urls" rows={4}>{(p.gallery ?? []).join('\n')}</textarea>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Contact &amp; social links</h2>
+				<div class="contribute-card__bd">
+					<div class="contact-social-grid">
+						{CONTACT_SOCIAL_LINK_KEYS.map((key) => (
+							<label class="contact-social-grid__item">
+								<span>{CONTACT_SOCIAL_LABELS[key]}</span>
+								<input type="text" name={`social_${key}`} autocomplete="off" value={(p.social_links ?? {})[key] ?? ''} />
+							</label>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Translations</h2>
+				<div class="contribute-card__bd">
+					<AdminGuideLocalesFields post={syntheticPost} />
+				</div>
+			</section>
+
+		</form>
+
+		<ContributeSubmitBar formId="contribute-guide-form" cancelHref={back} />
+	</div>
+</Shell>
+
+<style is:global>
+	.contact-social-grid {
+		display: grid;
+		gap: 0.65rem 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+	.contact-social-grid__item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		font-size: 0.88rem;
+	}
+	.contact-social-grid__item input {
+		width: 100%;
+	}
+</style>

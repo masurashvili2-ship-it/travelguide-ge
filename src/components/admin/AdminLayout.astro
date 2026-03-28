@@ -5,6 +5,8 @@ import '../../styles/admin-layout.css';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../lib/strings';
 import { countUnread } from '../../lib/messages-db';
+import { countPendingBookings } from '../../lib/bookings-db';
+import { countPendingReviewPackages } from '../../lib/guide-packages-db';
 
 type AdminNavId =
 	| 'dashboard'
@@ -16,6 +18,9 @@ type AdminNavId =
 	| 'wtd-all'
 	| 'wtd-new'
 	| 'wtd-edit'
+	| 'guides-all'
+	| 'guides-new'
+	| 'guides-edit'
 	| 'regions-all'
 	| 'regions-new'
 	| 'regions-edit'
@@ -25,7 +30,10 @@ type AdminNavId =
 	| 'footer'
 	| 'email-settings'
 	| 'messages'
-	| 'data-backup';
+	| 'data-backup'
+	| 'files'
+	| 'bookings'
+	| 'packages-all';
 
 interface Props {
 	locale: Locale;
@@ -46,6 +54,8 @@ const urlToursList = getRelativeLocaleUrl(locale, 'admin/tours');
 const urlNewTour = getRelativeLocaleUrl(locale, 'admin/tours/new');
 const urlWtdList = getRelativeLocaleUrl(locale, 'admin/what-to-do');
 const urlNewWtd = getRelativeLocaleUrl(locale, 'admin/what-to-do/new');
+const urlGuidesList = getRelativeLocaleUrl(locale, 'admin/guides');
+const urlNewGuide = getRelativeLocaleUrl(locale, 'admin/guides/new');
 const urlRegionsList = getRelativeLocaleUrl(locale, 'admin/regions');
 const urlNewRegion = getRelativeLocaleUrl(locale, 'admin/regions/new');
 const urlPages = getRelativeLocaleUrl(locale, 'admin/pages');
@@ -54,6 +64,9 @@ const urlFooter = getRelativeLocaleUrl(locale, 'admin/footer');
 const urlEmailSettings = getRelativeLocaleUrl(locale, 'admin/email-settings');
 const urlMessages = getRelativeLocaleUrl(locale, 'admin/messages');
 const urlDataBackup = getRelativeLocaleUrl(locale, 'admin/backup');
+const urlFiles = getRelativeLocaleUrl(locale, 'admin/files');
+const urlBookings = getRelativeLocaleUrl(locale, 'admin/bookings');
+const urlPackages = getRelativeLocaleUrl(locale, 'admin/packages');
 const urlSiteHome = getRelativeLocaleUrl(locale, '/');
 
 const dash = activeNav === 'dashboard';
@@ -65,14 +78,21 @@ const footerActive = activeNav === 'footer';
 const emailSettingsActive = activeNav === 'email-settings';
 const messagesActive = activeNav === 'messages';
 const unreadCount = countUnread();
+const pendingBookingsCount = countPendingBookings();
 const toursBrowse = activeNav === 'tours-all' || activeNav === 'tours-edit';
 const toursNewOnly = activeNav === 'tours-new';
 const wtdBrowse = activeNav === 'wtd-all' || activeNav === 'wtd-edit';
 const wtdNewOnly = activeNav === 'wtd-new';
+const guidesBrowse = activeNav === 'guides-all' || activeNav === 'guides-edit';
+const guidesNewOnly = activeNav === 'guides-new';
 const regionsBrowse = activeNav === 'regions-all' || activeNav === 'regions-edit';
 const regionsNewOnly = activeNav === 'regions-new';
 const usersBrowse = activeNav === 'dashboard';
 const dataBackupNav = activeNav === 'data-backup';
+const filesNav = activeNav === 'files';
+const bookingsNav = activeNav === 'bookings';
+const packagesNav = activeNav === 'packages-all';
+const pendingPackagesCount = countPendingReviewPackages();
 
 function sideClass(active: boolean) {
 	return ['admin-side__a', active && 'is-active'].filter(Boolean) as string[];
@@ -112,13 +132,26 @@ function sideClass(active: boolean) {
 						</li>
 						<li>
 							<a class:list={sideClass(dataBackupNav)} href={urlDataBackup}>Backup & import</a>
+						<a class:list={sideClass(filesNav)} href={urlFiles}>File manager</a>
 						</li>
 						<li>
 							<a class:list={sideClass(submissionsNav)} href={urlSubmissions}>Approvals</a>
 						</li>
-						<li>
-							<a class:list={sideClass(reviewsNav)} href={urlReviews}>Reviews</a>
-						</li>
+					<li>
+						<a class:list={sideClass(reviewsNav)} href={urlReviews}>Reviews</a>
+					</li>
+					<li>
+						<a class:list={sideClass(bookingsNav)} href={urlBookings}>
+							Bookings
+							{pendingBookingsCount > 0 && <span class="admin-nav-badge">{pendingBookingsCount}</span>}
+						</a>
+					</li>
+					<li>
+						<a class:list={sideClass(packagesNav)} href={urlPackages}>
+							Guide Packages
+							{pendingPackagesCount > 0 && <span class="admin-nav-badge">{pendingPackagesCount}</span>}
+						</a>
+					</li>
 					</ul>
 
 					<p class="admin-side__label">Pages</p>
@@ -168,6 +201,16 @@ function sideClass(active: boolean) {
 						</li>
 						<li>
 							<a class:list={sideClass(wtdNewOnly)} href={urlNewWtd}>New entry</a>
+						</li>
+					</ul>
+
+					<p class="admin-side__label">Tour Guides</p>
+					<ul class="admin-side__list">
+						<li>
+							<a class:list={sideClass(guidesBrowse)} href={urlGuidesList}>All guides</a>
+						</li>
+						<li>
+							<a class:list={sideClass(guidesNewOnly)} href={urlNewGuide}>New guide</a>
 						</li>
 					</ul>
 

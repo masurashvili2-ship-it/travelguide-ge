@@ -1,0 +1,206 @@
+---
+import Shell from '../../../components/Shell.astro';
+import ContributeSubmitBar from '../../../components/ContributeSubmitBar.astro';
+import AdminGuideLocalesFields from '../../../components/admin/AdminGuideLocalesFields.astro';
+import AdminTourPhotoUpload from '../../../components/admin/AdminTourPhotoUpload.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { GUIDE_SPECIALTY_IDS, GUIDE_SPECIALTY_LABELS_EN } from '../../../lib/guide-specialties';
+import { CONTACT_SOCIAL_LINK_KEYS, CONTACT_SOCIAL_LABELS } from '../../../lib/contact-social-links';
+import type { Locale } from '../../../lib/strings';
+import '../../../styles/contribute.css';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'contribute/guide');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const back = getRelativeLocaleUrl(locale, 'contribute');
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute/guide"
+	title="Propose a tour guide"
+	seoTitle="Propose a tour guide"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0">
+			<a href={back}>← Back to Contribute</a>
+		</p>
+		<h1>Propose a tour guide</h1>
+		<p class="muted">
+			Submit a tour guide profile for review. Once approved, the guide will appear in the public guides directory.
+			You can upload photos (WebP, watermarked) or paste URLs.
+		</p>
+
+		<form id="contribute-guide-form" method="post" action="/api/contribute/guides">
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Slug</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug (URL)</span>
+							<input
+								type="text"
+								id="guide-admin-slug"
+								name="slug"
+								required
+								placeholder="e.g. giorgi-beridze"
+								pattern="[a-z0-9]+(-[a-z0-9]+)*"
+							/>
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Lowercase Latin letters, numbers, hyphens. Must be unique.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Guide details</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Base location</span>
+							<input type="text" name="base_location" autocomplete="off" placeholder="e.g. Tbilisi" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Languages spoken</span>
+							<input type="text" name="languages_spoken" autocomplete="off" placeholder="e.g. English, Georgian, Russian" />
+						</label>
+						<p class="muted" style="margin:0.35rem 0 0">Comma-separated.</p>
+					</div>
+					<div class="row">
+						<label>
+							<span>Years of experience (optional)</span>
+							<input type="number" name="years_experience" min="0" max="99" autocomplete="off" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Starting price (optional)</span>
+							<input type="text" name="price_from" autocomplete="off" placeholder="e.g. $80/day" />
+						</label>
+					</div>
+					<div class="row">
+						<fieldset style="border:none;padding:0;margin:0">
+							<legend style="font-size:0.875rem;font-weight:500;margin-bottom:0.5rem">Specialties</legend>
+							<div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem">
+								{GUIDE_SPECIALTY_IDS.map((id) => (
+									<label style="display:flex;align-items:center;gap:0.35rem;font-size:0.9rem">
+										<input type="checkbox" name="specialties" value={id} />
+										{GUIDE_SPECIALTY_LABELS_EN[id]}
+									</label>
+								))}
+							</div>
+						</fieldset>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Profile photo &amp; gallery</h2>
+				<div class="contribute-card__bd">
+					<fieldset style="border:none;padding:0;margin:0">
+						<AdminTourPhotoUpload
+							formId="contribute-guide-form"
+							uploadApiPath="/api/contribute/upload-guide-image"
+							slugInputId="guide-admin-slug"
+							widgetPrefix="guide"
+						/>
+					</fieldset>
+					<div class="row">
+						<label>
+							<span>Profile photo URL (optional)</span>
+							<input type="text" name="profile_photo" id="guide-cover-url" placeholder="/uploads/guides/… or https://…" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Gallery URLs (optional)</span>
+							<textarea name="gallery_urls" id="guide-gallery-urls" rows={4} placeholder="One URL per line."></textarea>
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Contact &amp; social links</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 1rem">
+						How clients can contact or find the guide online.
+					</p>
+					<div class="contact-social-grid">
+						{CONTACT_SOCIAL_LINK_KEYS.map((key) => (
+							<label class="contact-social-grid__item">
+								<span>{CONTACT_SOCIAL_LABELS[key]}</span>
+								<input type="text" name={`social_${key}`} autocomplete="off" />
+							</label>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Translations</h2>
+				<div class="contribute-card__bd">
+					<p class="muted" style="margin:0 0 1rem">
+						At least one language needs a name and tagline.
+					</p>
+					<AdminGuideLocalesFields />
+				</div>
+			</section>
+
+		</form>
+
+		<ContributeSubmitBar formId="contribute-guide-form" cancelHref={back} />
+
+		<script is:inline>
+			(function () {
+				function slugify(s) {
+					s = String(s).trim().toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+					return s.length > 120 ? s.slice(0, 120) : s;
+				}
+				function bind() {
+					var slug = document.getElementById('guide-admin-slug');
+					if (!slug) return;
+					var form = slug.closest('form');
+					if (!form) return;
+					var name = form.querySelector('input[name="en_name"]');
+					if (!name) return;
+					var auto = !slug.value.trim() || slug.value.trim() === slugify(name.value);
+					name.addEventListener('input', function () { if (auto) slug.value = slugify(name.value); });
+					slug.addEventListener('input', function () { auto = false; });
+				}
+				if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+				else bind();
+			})();
+		</script>
+	</div>
+</Shell>
+
+<style is:global>
+	.contact-social-grid {
+		display: grid;
+		gap: 0.65rem 1rem;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	}
+	.contact-social-grid__item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		font-size: 0.88rem;
+	}
+	.contact-social-grid__item input {
+		width: 100%;
+	}
+</style>

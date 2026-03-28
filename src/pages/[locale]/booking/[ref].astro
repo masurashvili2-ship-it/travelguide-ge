@@ -1,0 +1,95 @@
+---
+import Shell from '../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getBookingByRef } from '../../../lib/bookings-db';
+import type { Locale } from '../../../lib/strings';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+const ref = Astro.params.ref;
+if ((loc !== 'en' && loc !== 'ka' && loc !== 'ru') || !ref) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+
+const booking = getBookingByRef(ref);
+if (!booking) return new Response(null, { status: 404 });
+
+const statusInfo: Record<string, { label: string; color: string; icon: string }> = {
+	pending: { label: 'Pending confirmation', color: '#92400e', icon: '⏳' },
+	confirmed: { label: 'Confirmed', color: '#166534', icon: '✅' },
+	completed: { label: 'Completed', color: '#1e40af', icon: '🏁' },
+	cancelled: { label: 'Cancelled', color: '#991b1b', icon: '❌' },
+};
+const info = statusInfo[booking.status] ?? { label: booking.status, color: '#374151', icon: '📋' };
+const currencySymbol: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+const sym = currencySymbol[booking.currency] ?? booking.currency;
+---
+
+<Shell
+	locale={locale}
+	subpath="booking"
+	title={`Booking ${booking.ref}`}
+	seoTitle={`Booking ${booking.ref}`}
+	robotsNoindex={true}
+>
+	<div style="max-width:580px;margin:3rem auto;padding:0 1rem">
+		<div style="text-align:center;margin-bottom:2rem">
+			<div style="font-size:3rem;margin-bottom:0.5rem">{info.icon}</div>
+			<h1 style="margin:0 0 0.25rem;font-size:1.6rem">{info.label}</h1>
+			<p class="muted">Booking reference: <strong>{booking.ref}</strong></p>
+		</div>
+
+		<div style="background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden">
+			<table style="width:100%;border-collapse:collapse">
+				<tbody>
+					{[
+						['Tour', booking.package_title],
+						['Date', booking.date + (booking.time_start ? ' at ' + booking.time_start : '')],
+						['People', String(booking.pax)],
+						['Customer', booking.customer_name],
+						['Total', `${sym}${booking.total_price}${booking.discount_pct > 0 ? ` (${booking.discount_pct}% discount applied)` : ''}`],
+						['Status', info.label],
+						['Booked on', new Date(booking.created_at).toLocaleString()],
+						...(booking.confirmed_at ? [['Confirmed on', new Date(booking.confirmed_at).toLocaleString()]] : []),
+						...(booking.cancelled_at ? [['Cancelled on', new Date(booking.cancelled_at).toLocaleString()]] : []),
+						...(booking.cancellation_reason ? [['Cancellation reason', booking.cancellation_reason]] : []),
+						...(booking.special_requests ? [['Special requests', booking.special_requests]] : []),
+					].map(([label, value]) => (
+						<tr>
+							<td style="padding:0.75rem 1.25rem;background:#f8fafc;font-weight:600;font-size:0.9rem;width:40%;border-bottom:1px solid #e2e8f0">{label}</td>
+							<td style="padding:0.75rem 1.25rem;font-size:0.9rem;border-bottom:1px solid #e2e8f0">{value}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+
+		{booking.status === 'pending' && (
+			<div class="notice notice-info" style="margin-top:1.5rem">
+				Your booking is awaiting confirmation from the guide. You'll receive an email once it's confirmed.
+			</div>
+		)}
+
+		{booking.status === 'confirmed' && (
+			<div class="notice notice-success" style="margin-top:1.5rem">
+				Your booking is confirmed! We look forward to seeing you on <strong>{booking.date}</strong>.
+			</div>
+		)}
+
+		<p style="text-align:center;margin-top:1.5rem">
+			<a href={getRelativeLocaleUrl(locale, '/')} class="button">← Back to site</a>
+		</p>
+	</div>
+</Shell>
+
+<style>
+.notice-success {
+	background: #f0fdf4;
+	border: 1px solid #bbf7d0;
+	color: #166534;
+	padding: 0.75rem 1rem;
+	border-radius: 8px;
+}
+</style>

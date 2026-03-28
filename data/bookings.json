@@ -1,0 +1,31 @@
+{
+  "bookings": [
+    {
+      "id": "a3f9ea5e-38cd-4111-9cbd-35e184af1413",
+      "ref": "TG-260328-J53T",
+      "package_id": "a09f5276-0203-45a0-a378-004548daaa2f",
+      "guide_id": "d0daeba2-952e-43db-b612-9a3a7df0cd4a",
+      "slot_id": "3867f8d5-e4d2-49ad-be3f-4deafac712e6",
+      "date": "2026-04-20",
+      "time_start": null,
+      "pax": 1,
+      "unit_price": 25,
+      "total_price": 25,
+      "currency": "USD",
+      "discount_pct": 0,
+      "discount_label": null,
+      "customer_name": "Manuchar Masurashvili",
+      "customer_email": "masurashvili2@gmail.com",
+      "customer_phone": "+995598225556",
+      "special_requests": null,
+      "package_title": "Sulphur baths (Abanotubani)",
+      "status": "completed",
+      "guide_notes": null,
+      "created_at": 1774712282096,
+      "updated_at": 1774712326315,
+      "confirmed_at": 1774712318028,
+      "cancelled_at": null,
+      "cancellation_reason": null
+    }
+  ]
+}

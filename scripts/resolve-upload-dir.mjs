@@ -17,6 +17,10 @@ export function resolveUploadDir(subdir) {
 		const o = process.env.REGION_UPLOAD_DIR?.trim();
 		if (o) return path.resolve(o);
 	}
+	if (subdir === 'guides') {
+		const o = process.env.GUIDES_UPLOAD_DIR?.trim();
+		if (o) return path.resolve(o);
+	}
 	const root = process.env.UPLOAD_ROOT?.trim();
 	if (root) return path.resolve(path.join(root, subdir));
 

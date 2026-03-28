@@ -1,0 +1,233 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getPackages } from '../../../../lib/guide-packages-db';
+import { getGuideById } from '../../../../lib/guides-db';
+import type { Locale } from '../../../../lib/strings';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+
+const userEmail = Astro.locals.user.email;
+const allPackages = getPackages().sort((a, b) => b.updated_at - a.updated_at);
+const statusFilter = Astro.url.searchParams.get('status') ?? '';
+const packages = statusFilter ? allPackages.filter((p) => p.status === statusFilter) : allPackages;
+
+const counts = {
+	all: allPackages.length,
+	draft: allPackages.filter((p) => p.status === 'draft').length,
+	pending_review: allPackages.filter((p) => p.status === 'pending_review').length,
+	published: allPackages.filter((p) => p.status === 'published').length,
+};
+
+const selfPath = Astro.url.pathname;
+function filterUrl(s: string) { return `${selfPath}${s ? `?status=${s}` : ''}`; }
+
+function statusLabel(status: string) {
+	if (status === 'pending_review') return 'Under Review';
+	if (status === 'published') return 'Published';
+	return 'Draft';
+}
+function statusStyle(status: string) {
+	const s: Record<string, string> = {
+		draft: 'background:#f1f5f9;color:#64748b',
+		pending_review: 'background:#fef3c7;color:#92400e',
+		published: 'background:#dcfce7;color:#166534',
+	};
+	return s[status] ?? '';
+}
+
+const symMap: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+---
+
+<AdminLayout
+	locale={locale}
+	title="Guide Packages"
+	headline="Guide Packages"
+	subtitle="Review and publish tour packages submitted by guides"
+	activeNav="packages-all"
+	userEmail={userEmail}
+>
+	<!-- Status filter tabs -->
+	<div class="pkg-filter-tabs">
+		<a href={filterUrl('')} class={`pkg-tab${!statusFilter ? ' is-active' : ''}`}>All ({counts.all})</a>
+		<a href={filterUrl('pending_review')} class={`pkg-tab${statusFilter === 'pending_review' ? ' is-active' : ''}`}>
+			Under Review ({counts.pending_review})
+			{counts.pending_review > 0 && <span class="pkg-tab-badge">{counts.pending_review}</span>}
+		</a>
+		<a href={filterUrl('draft')} class={`pkg-tab${statusFilter === 'draft' ? ' is-active' : ''}`}>Draft ({counts.draft})</a>
+		<a href={filterUrl('published')} class={`pkg-tab${statusFilter === 'published' ? ' is-active' : ''}`}>Published ({counts.published})</a>
+	</div>
+
+	<div id="admin-msg" class="notice" style="display:none;margin-bottom:1rem"></div>
+
+	{packages.length === 0 ? (
+		<p class="muted" style="padding:2rem 0">No packages found for this filter.</p>
+	) : (
+		<div class="pkg-admin-table">
+			{packages.map((pkg) => {
+				const title = pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? '(untitled)';
+				const guide = getGuideById(pkg.guide_id);
+				const guideName = guide?.i18n?.['en']?.name ?? guide?.i18n?.['ka']?.name ?? '(unknown guide)';
+				const sym = symMap[pkg.currency] ?? pkg.currency;
+				const maxDiscount = pkg.pricing_rules.length
+					? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
+					: 0;
+				const editUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`);
+				const previewUrl = getRelativeLocaleUrl(locale, `packages/${pkg.slug}`);
+				return (
+					<div class="pkg-admin-row">
+						<div class="pkg-admin-row__left">
+							{pkg.cover_photo && (
+								<img src={pkg.cover_photo} alt={title} class="pkg-admin-thumb" loading="lazy" />
+							)}
+							{!pkg.cover_photo && <div class="pkg-admin-thumb pkg-admin-thumb--empty"></div>}
+						</div>
+						<div class="pkg-admin-row__body">
+							<div class="pkg-admin-row__top">
+								<span style={`font-size:0.75rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:99px;${statusStyle(pkg.status)}`}>
+									{statusLabel(pkg.status)}
+								</span>
+								<span class="pkg-admin-row__guide">Guide: <strong>{guideName}</strong></span>
+							</div>
+							<h3 class="pkg-admin-row__title">{title}</h3>
+							<div class="pkg-admin-row__meta">
+								<span>⏱ {pkg.duration_label ?? `${pkg.duration_hours}h`}</span>
+								<span>👥 {pkg.min_people}–{pkg.max_people} pax</span>
+								<span>💰 From {sym}{pkg.base_price}/{pkg.currency}</span>
+								{maxDiscount > 0 && <span class="discount-badge">Up to {maxDiscount}% off</span>}
+							</div>
+						</div>
+						<div class="pkg-admin-row__actions">
+							{pkg.status === 'pending_review' && (
+								<button
+									type="button"
+									class="btn-action btn-approve"
+									data-id={pkg.id}
+									data-action="publish"
+								>✓ Approve</button>
+							)}
+							{pkg.status !== 'published' && pkg.status !== 'pending_review' && (
+								<button
+									type="button"
+									class="btn-action btn-approve"
+									data-id={pkg.id}
+									data-action="publish"
+								>Publish</button>
+							)}
+							{pkg.status !== 'draft' && (
+								<button
+									type="button"
+									class="btn-action btn-reject"
+									data-id={pkg.id}
+									data-action="draft"
+								>{pkg.status === 'pending_review' ? '✗ Reject' : 'Unpublish'}</button>
+							)}
+							<a href={editUrl} class="btn-action btn-edit">Edit</a>
+							{pkg.status === 'published' && (
+								<a href={previewUrl} target="_blank" class="btn-action btn-view">View</a>
+							)}
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	)}
+</AdminLayout>
+
+<script is:inline>
+(function () {
+	var msgEl = document.getElementById('admin-msg');
+
+	function showMsg(text, type) {
+		msgEl.textContent = text;
+		msgEl.className = 'notice notice-' + type;
+		msgEl.style.display = 'block';
+		setTimeout(function () { msgEl.style.display = 'none'; }, 3000);
+	}
+
+	document.querySelectorAll('[data-action]').forEach(function (btn) {
+		btn.addEventListener('click', async function () {
+			var id = btn.dataset.id;
+			var action = btn.dataset.action;
+			var newStatus = action === 'publish' ? 'published' : 'draft';
+
+			btn.disabled = true;
+			try {
+				var res = await fetch('/api/guide-packages/' + id, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					credentials: 'same-origin',
+					body: JSON.stringify({ status: newStatus }),
+				});
+				var data = await res.json();
+				if (res.ok && data.ok) {
+					showMsg(action === 'publish' ? 'Package published!' : 'Package unpublished.', 'success');
+					setTimeout(function () { location.reload(); }, 800);
+				} else {
+					showMsg(data.error || 'Error', 'error');
+					btn.disabled = false;
+				}
+			} catch {
+				showMsg('Network error', 'error');
+				btn.disabled = false;
+			}
+		});
+	});
+})();
+</script>
+
+<style>
+.pkg-filter-tabs { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.pkg-tab {
+	background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; border-radius: 7px;
+	padding: 0.35rem 0.75rem; font-size: 0.85rem; font-weight: 500; text-decoration: none;
+	display: flex; align-items: center; gap: 0.4rem;
+}
+.pkg-tab:hover { background: #e2e8f0; }
+.pkg-tab.is-active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.pkg-tab-badge { background: #dc2626; color: #fff; border-radius: 99px; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.45rem; }
+
+.pkg-admin-table { display: flex; flex-direction: column; gap: 0.85rem; }
+.pkg-admin-row {
+	display: grid;
+	grid-template-columns: 80px 1fr auto;
+	gap: 1rem;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 0.85rem;
+	align-items: start;
+}
+@media (max-width: 640px) { .pkg-admin-row { grid-template-columns: 1fr; } }
+
+.pkg-admin-thumb { width: 80px; height: 60px; object-fit: cover; border-radius: 8px; }
+.pkg-admin-thumb--empty { background: #f1f5f9; border-radius: 8px; }
+
+.pkg-admin-row__top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; flex-wrap: wrap; }
+.pkg-admin-row__guide { font-size: 0.82rem; color: #64748b; }
+.pkg-admin-row__title { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 700; }
+.pkg-admin-row__meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.82rem; color: #64748b; }
+.discount-badge { background: #dcfce7; color: #166534; font-weight: 600; padding: 0.1rem 0.45rem; border-radius: 99px; font-size: 0.75rem; }
+
+.pkg-admin-row__actions { display: flex; flex-direction: column; gap: 0.4rem; min-width: 110px; }
+.btn-action {
+	padding: 0.35rem 0.65rem; border-radius: 7px; font-size: 0.8rem; font-weight: 600;
+	cursor: pointer; border: 1px solid #e2e8f0; background: #fff; color: #374151;
+	text-align: center; text-decoration: none; display: block; white-space: nowrap;
+}
+.btn-action:hover { background: #f8fafc; }
+.btn-approve { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+.btn-approve:hover { background: #bbf7d0; }
+.btn-reject { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+.btn-reject:hover { background: #fecaca; }
+.btn-edit { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.btn-view { background: #f8fafc; color: #64748b; }
+</style>

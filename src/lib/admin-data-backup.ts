@@ -9,6 +9,9 @@ import {
 } from './regions-db';
 import { invalidateSubmissionsCache } from './submissions-db';
 import { invalidateToursCache, invalidateWhatToDoCache } from './tours-db';
+import { invalidateGuidesCache } from './guides-db';
+import { invalidateGuidePackagesCache } from './guide-packages-db';
+import { invalidateBookingsCache } from './bookings-db';
 
 import { getDataDir } from './data-dir';
 
@@ -18,6 +21,9 @@ const DATA_DIR = getDataDir();
 export const DATA_BACKUP_FILENAMES = [
 	'tours.json',
 	'what-to-do.json',
+	'guides.json',
+	'guide-packages.json',
+	'bookings.json',
 	'regions.json',
 	'pages.json',
 	'footer.json',
@@ -35,6 +41,9 @@ export type DataBackupFilename = (typeof DATA_BACKUP_FILENAMES)[number];
 export const BACKUP_KIND_IDS = [
 	'tours',
 	'what-to-do',
+	'guides',
+	'guide-packages',
+	'bookings',
 	'regions',
 	'pages',
 	'footer',
@@ -49,6 +58,9 @@ export type BackupKind = (typeof BACKUP_KIND_IDS)[number];
 export const BACKUP_KIND_FILE: Record<BackupKind, DataBackupFilename> = {
 	tours: 'tours.json',
 	'what-to-do': 'what-to-do.json',
+	guides: 'guides.json',
+	'guide-packages': 'guide-packages.json',
+	bookings: 'bookings.json',
 	regions: 'regions.json',
 	pages: 'pages.json',
 	footer: 'footer.json',
@@ -126,6 +138,21 @@ function validatePayload(name: DataBackupFilename, data: unknown): string | null
 		case 'pages.json': {
 			const o = data as Record<string, unknown>;
 			if (!Array.isArray(o.posts)) return 'expected { posts: array }';
+			return null;
+		}
+		case 'guides.json': {
+			const o = data as Record<string, unknown>;
+			if (!Array.isArray(o.guides)) return 'expected { guides: array }';
+			return null;
+		}
+		case 'guide-packages.json': {
+			const o = data as Record<string, unknown>;
+			if (!Array.isArray(o.packages)) return 'expected { packages: array, availability: array }';
+			return null;
+		}
+		case 'bookings.json': {
+			const o = data as Record<string, unknown>;
+			if (!Array.isArray(o.bookings)) return 'expected { bookings: array }';
 			return null;
 		}
 		case 'footer.json': {
@@ -311,6 +338,34 @@ function mergeUsersArray(incoming: unknown[], existing: unknown | null): { merge
 	return { merged: rows, added };
 }
 
+function mergeGuidesStore(incoming: unknown, existing: unknown | null): { merged: { guides: unknown[] }; added: number } {
+	const inc = incoming as { guides: unknown[] };
+	const existingGuides =
+		existing !== null && typeof existing === 'object' && Array.isArray((existing as Record<string, unknown>).guides)
+			? [...((existing as { guides: unknown[] }).guides)]
+			: [];
+	const ids = new Set(existingGuides.map((p) => getRecordId(p)).filter(Boolean) as string[]);
+	const slugs = new Set(existingGuides.map((p) => getPostSlug(p)).filter(Boolean));
+	let added = 0;
+	for (const raw of inc.guides) {
+		const id = getRecordId(raw);
+		if (!id || ids.has(id)) continue;
+		let row = raw;
+		const slug = getPostSlug(raw);
+		if (slug && slugs.has(slug)) {
+			const nextSlug = uniquifySlug(slug, slugs);
+			row = raw && typeof raw === 'object' ? { ...(raw as Record<string, unknown>), slug: nextSlug } : raw;
+			slugs.add(nextSlug);
+		} else if (slug) {
+			slugs.add(slug);
+		}
+		ids.add(id);
+		existingGuides.push(row);
+		added += 1;
+	}
+	return { merged: { guides: existingGuides }, added };
+}
+
 function mergePayloadForFile(
 	name: DataBackupFilename,
 	incoming: unknown,
@@ -322,6 +377,10 @@ function mergePayloadForFile(
 		case 'regions.json':
 		case 'pages.json': {
 			const { merged, added } = mergePostsStore(incoming, existing);
+			return { payload: merged, added };
+		}
+		case 'guides.json': {
+			const { merged, added } = mergeGuidesStore(incoming, existing);
 			return { payload: merged, added };
 		}
 		case 'footer.json': {
@@ -413,6 +472,9 @@ function invalidateCachesForFiles(written: DataBackupFilename[]): void {
 	const w = new Set(written);
 	if (w.has('tours.json')) invalidateToursCache();
 	if (w.has('what-to-do.json')) invalidateWhatToDoCache();
+	if (w.has('guides.json')) invalidateGuidesCache();
+	if (w.has('guide-packages.json')) invalidateGuidePackagesCache();
+	if (w.has('bookings.json')) invalidateBookingsCache();
 	if (w.has('regions.json')) invalidateRegionsCache();
 	if (w.has('pages.json')) invalidatePagesCache();
 	if (w.has('footer.json')) invalidateFooterCache();

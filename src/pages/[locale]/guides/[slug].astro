@@ -1,0 +1,748 @@
+---
+import Shell from '../../../components/Shell.astro';
+import TourComments from '../../../components/TourComments.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { marked } from 'marked';
+import { getGuideBySlug } from '../../../lib/guides-db';
+import { GUIDE_SPECIALTY_LABELS_EN } from '../../../lib/guide-specialties';
+import { listRenderableContactSocialLinks } from '../../../lib/contact-social-links';
+import { listCommentsForPost, averageRatingFor } from '../../../lib/tour-comments';
+import { listPublishedPackagesForGuide } from '../../../lib/guide-packages-db';
+import { type Locale, ui } from '../../../lib/strings';
+
+const loc = Astro.params.locale;
+const slug = Astro.params.slug;
+if ((loc !== 'en' && loc !== 'ka' && loc !== 'ru') || !slug) {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+
+const guide = getGuideBySlug(slug);
+if (!guide) {
+	return new Response(null, { status: 404 });
+}
+
+const block = guide.i18n[locale];
+if (!block?.name?.trim()) {
+	return new Response(null, { status: 404 });
+}
+
+const name = block.name.trim();
+const tagline = block.tagline?.trim() ?? '';
+const bioHtmlRaw = block.bio ? marked.parse(block.bio, { async: false }) : '';
+const bioHtml = typeof bioHtmlRaw === 'string' ? bioHtmlRaw : await bioHtmlRaw;
+const metaDesc = block.seo_description?.trim() || tagline || `Tour guide ${name} in Georgia.`;
+const canonicalPath = `/${locale}/guides/${slug}`;
+
+const socialLinks = listRenderableContactSocialLinks(guide.social_links);
+
+const adminEditHref =
+	Astro.locals.user?.role === 'admin'
+		? getRelativeLocaleUrl(locale, `admin/guides/edit/${guide.id}`)
+		: null;
+
+const pageUrl = `${Astro.site ?? ''}${canonicalPath}`;
+const loginHref = `${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(canonicalPath)}`;
+
+const guideComments = await listCommentsForPost('guides', guide.id);
+const averageRating = averageRatingFor(guideComments);
+const guidePackages = listPublishedPackagesForGuide(guide.id);
+const pkgCurrencySymbols: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
+
+const galleryImages = guide.gallery.filter((s) => typeof s === 'string' && s.trim());
+const coverImage = guide.profile_photo || galleryImages[0] || null;
+
+// Lightbox items: cover photo first (if it differs from gallery[0]), then gallery
+const allLightboxImages: string[] = [];
+if (guide.profile_photo) allLightboxImages.push(guide.profile_photo);
+for (const img of galleryImages) {
+	if (img !== guide.profile_photo) allLightboxImages.push(img);
+}
+const lightboxJson = JSON.stringify(allLightboxImages.map((src) => ({ src, alt: name }))).replace(/</g, '\\u003c');
+const galleryId = `guide-lb-${guide.id.slice(0, 8)}`;
+---
+
+<Shell
+	locale={locale}
+	subpath={`guides/${slug}`}
+	title={name}
+	seoTitle={block.seo_title ?? undefined}
+	seoDescription={metaDesc}
+	canonicalPath={canonicalPath}
+	seoImage={coverImage}
+	ogType="article"
+>
+	<p class="muted" style="margin:0 0 1rem">
+		<a href={getRelativeLocaleUrl(locale, 'guides')}>{t.guides}</a>
+		<span aria-hidden="true"> / </span>
+		<span>{name}</span>
+	</p>
+
+	<div class="guide-detail-layout" data-guide-detail id={`guide-page-${guide.id.slice(0,8)}`}>
+		<div class="guide-detail-main">
+
+			<div class="guide-hero">
+				{coverImage ? (
+					<button
+						type="button"
+						class="guide-hero__photo-btn"
+						data-glb-open
+						data-glb-start="0"
+						data-gallery={galleryId}
+						aria-label={t.galleryLightboxLabel}
+					>
+						<img
+							class="guide-hero__photo"
+							src={coverImage}
+							alt={name}
+							loading="eager"
+							decoding="async"
+							width="400"
+							height="400"
+						/>
+					</button>
+				) : (
+					<div class="guide-hero__placeholder" aria-hidden="true">
+						<span>{name.slice(0, 2).toUpperCase()}</span>
+					</div>
+				)}
+				<div class="guide-hero__info">
+					<div class="guide-hero__name-row">
+						<h1 class="guide-hero__name">{name}</h1>
+						{guide.verified && (
+							<span class="guide-hero__verified" title={t.guideVerified}>✓ {t.guideVerified}</span>
+						)}
+					</div>
+					{tagline ? <p class="guide-hero__tagline">{tagline}</p> : null}
+					{adminEditHref ? (
+						<a href={adminEditHref} class="btn guide-hero__edit" style="font-size:0.85rem;padding:0.3rem 0.65rem">
+							Edit (admin)
+						</a>
+					) : null}
+				</div>
+			</div>
+
+			{galleryImages.length > 0 ? (
+				<div class="guide-gallery" id={`gallery-strip-${guide.id.slice(0,8)}`}>
+					{allLightboxImages.slice(0, 9).map((src, i) => (
+						<button
+							type="button"
+							class="guide-gallery__item"
+							data-glb-open
+							data-glb-start={String(i)}
+							data-gallery={galleryId}
+							aria-label={`${t.galleryLightboxLabel} — ${i + 1} / ${allLightboxImages.length}`}
+						>
+							<img src={src} alt="" loading="lazy" decoding="async" width="200" height="150" />
+							{i === 8 && allLightboxImages.length > 9 ? (
+								<span class="guide-gallery__more">+{allLightboxImages.length - 9}</span>
+							) : null}
+						</button>
+					))}
+				</div>
+			) : null}
+
+		{bioHtml ? (
+			<div class="prose guide-bio" set:html={bioHtml} />
+		) : null}
+
+		{guidePackages.length > 0 && (
+			<div class="guide-packages-section">
+				<h2 class="guide-packages-section__title">Available Tours &amp; Packages</h2>
+				<div class="guide-packages-grid">
+					{guidePackages.map((pkg) => {
+						const pkgBlock = pkg.i18n[locale] ?? pkg.i18n['en'] ?? pkg.i18n['ka'] ?? pkg.i18n['ru'];
+						const pkgTitle = pkgBlock?.title ?? 'Tour package';
+						const pkgDesc = pkgBlock?.description ?? '';
+						const sym = pkgCurrencySymbols[pkg.currency] ?? pkg.currency;
+						return (
+							<a href={getRelativeLocaleUrl(locale, `packages/${pkg.slug}`)} class="guide-pkg-card">
+								{pkg.cover_photo && (
+									<img src={pkg.cover_photo} alt={pkgTitle} class="guide-pkg-card__img" loading="lazy" />
+								)}
+								<div class="guide-pkg-card__body">
+									<h3 class="guide-pkg-card__title">{pkgTitle}</h3>
+									<div class="guide-pkg-card__meta">
+										<span>⏱ {pkg.duration_label ?? `${pkg.duration_hours}h`}</span>
+										<span>👥 {pkg.min_people}–{pkg.max_people}</span>
+									</div>
+									{pkgDesc && (
+										<p class="guide-pkg-card__desc">{pkgDesc.slice(0, 90)}{pkgDesc.length > 90 ? '…' : ''}</p>
+									)}
+									<div class="guide-pkg-card__price">
+										From <strong>{sym}{pkg.base_price}</strong> / person
+									</div>
+									{pkg.pricing_rules.length > 0 && (() => {
+										const maxDisc = Math.max(...pkg.pricing_rules.map((r) => r.discount_pct));
+										return maxDisc > 0 ? <span class="guide-pkg-discount-badge">Up to {maxDisc}% off</span> : null;
+									})()}
+									<span class="guide-pkg-card__cta">Book now →</span>
+								</div>
+							</a>
+						);
+					})}
+				</div>
+			</div>
+		)}
+
+		<div style="margin-top:2.5rem">
+			<TourComments
+					locale={locale}
+					apiSegment="guides"
+					tourId={guide.id}
+					comments={guideComments}
+					averageRating={averageRating}
+					user={Astro.locals.user}
+					loginHref={loginHref}
+					labels={{
+						title: t.tourReviewsTitle,
+						outOf: t.tourReviewsOutOf,
+						count: t.tourReviewsCount,
+						loginPrompt: t.tourReviewsLoginPrompt,
+						ratingLabel: t.tourReviewsRatingLabel,
+						commentLabel: t.tourReviewsCommentLabel,
+						submit: t.tourReviewsSubmit,
+						empty: t.tourReviewsEmpty,
+						signedInAs: t.tourReviewsSignedInAs,
+						errorGeneric: t.tourReviewsErrorGeneric,
+						posting: t.tourReviewsPosting,
+						login: t.login,
+						edit: t.tourReviewsEdit,
+						reply: t.tourReviewsReply,
+						save: t.tourReviewsSave,
+						edited: t.tourReviewsEdited,
+						replySubmit: t.tourReviewsReplySubmit,
+						delete: t.tourReviewsDelete,
+						deleting: t.tourReviewsDeleting,
+						deleteConfirm: t.tourReviewsDeleteConfirm,
+						alreadyReviewedTitle: t.tourReviewsAlreadyReviewedTitle,
+						alreadyReviewedHint: t.tourReviewsAlreadyReviewedHint,
+					}}
+				/>
+			</div>
+		</div>
+
+		<aside class="guide-detail-aside" aria-label="Guide info">
+			<div class="guide-aside-card">
+				<h2 class="guide-aside-card__title">{t.tourSidebarSectionTitle}</h2>
+				<dl class="guide-aside-card__dl">
+					{guide.base_location ? (
+						<div class="guide-aside-row">
+							<dt>{t.guideBaseLocation}</dt>
+							<dd>{guide.base_location}</dd>
+						</div>
+					) : null}
+					{guide.languages_spoken.length > 0 ? (
+						<div class="guide-aside-row">
+							<dt>{t.guideLanguages}</dt>
+							<dd>{guide.languages_spoken.join(', ')}</dd>
+						</div>
+					) : null}
+					{guide.years_experience !== null ? (
+						<div class="guide-aside-row">
+							<dt>{t.guideExperience}</dt>
+							<dd>{guide.years_experience} year{guide.years_experience === 1 ? '' : 's'}</dd>
+						</div>
+					) : null}
+					{guide.price_from ? (
+						<div class="guide-aside-row">
+							<dt>{t.guidePriceFrom}</dt>
+							<dd>{guide.price_from}</dd>
+						</div>
+					) : null}
+					{guide.specialties.length > 0 ? (
+						<div class="guide-aside-row">
+							<dt>{t.guideSpecialties}</dt>
+							<dd>
+								<div class="guide-aside-tags">
+									{guide.specialties.map((s) => (
+										<span class="guide-aside-tag">{GUIDE_SPECIALTY_LABELS_EN[s]}</span>
+									))}
+								</div>
+							</dd>
+						</div>
+					) : null}
+				</dl>
+			</div>
+
+			{socialLinks.length > 0 ? (
+				<div class="guide-aside-card" style="margin-top:1rem">
+					<h2 class="guide-aside-card__title">{t.guideContactTitle}</h2>
+					<ul class="guide-contact-list">
+						{socialLinks.map(({ key, label, href }) => (
+							<li>
+								<a
+									href={href}
+									class={`guide-contact-link guide-contact-link--${key}`}
+									target={href.startsWith('http') ? '_blank' : undefined}
+									rel="noopener noreferrer"
+								>
+									{label}
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			) : null}
+		</aside>
+	</div>
+
+	<!-- Lightbox overlay -->
+	<script type="application/json" id={`${galleryId}-json`} hidden set:html={lightboxJson}></script>
+	<div class="glb" id={galleryId} hidden>
+		<div class="glb__backdrop" data-glb-close></div>
+		<div class="glb__dialog" role="dialog" aria-modal="true" aria-label={t.galleryLightboxLabel}>
+			<div class="glb__toolbar">
+				<span class="glb__counter"><span data-glb-i>1</span> / <span data-glb-n>{allLightboxImages.length}</span></span>
+				<button type="button" class="glb__close" data-glb-close aria-label={t.galleryClose}>×</button>
+			</div>
+			<button type="button" class="glb__chev glb__chev--prev" data-glb-prev aria-label={t.galleryPrev}>‹</button>
+			<button type="button" class="glb__chev glb__chev--next" data-glb-next aria-label={t.galleryNext}>›</button>
+			<div class="glb__stage">
+				<img class="glb__img" data-glb-img alt="" src="" draggable="false" />
+			</div>
+		</div>
+	</div>
+</Shell>
+
+<script is:inline define:vars={{ galleryId }}>
+(function () {
+	function boot() {
+		var jsonEl = document.getElementById(galleryId + '-json');
+		if (!jsonEl) return;
+		var items;
+		try { items = JSON.parse(jsonEl.textContent || '[]'); } catch { return; }
+		if (!items.length) return;
+
+		var lb = document.getElementById(galleryId);
+		if (!lb) return;
+
+		if (document.body && lb.parentElement !== document.body) {
+			document.body.appendChild(lb);
+		}
+
+		var img = lb.querySelector('[data-glb-img]');
+		var idxEl = lb.querySelector('[data-glb-i]');
+		var btnPrev = lb.querySelector('[data-glb-prev]');
+		var btnNext = lb.querySelector('[data-glb-next]');
+		var total = items.length;
+		var index = 0;
+		var lastScroll = '';
+
+		function show(i) {
+			if (i < 0 || i >= total) return;
+			index = i;
+			img.src = items[i].src;
+			img.alt = items[i].alt;
+			if (idxEl) idxEl.textContent = String(i + 1);
+			if (btnPrev) btnPrev.disabled = i <= 0;
+			if (btnNext) btnNext.disabled = i >= total - 1;
+		}
+
+		function open(i) {
+			show(i);
+			lb.removeAttribute('hidden');
+			lastScroll = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+			var closeBtn = lb.querySelector('[data-glb-close]');
+			if (closeBtn && closeBtn.tagName === 'BUTTON') closeBtn.focus();
+		}
+
+		function close() {
+			lb.setAttribute('hidden', '');
+			document.body.style.overflow = lastScroll;
+		}
+
+		document.addEventListener('click', function (e) {
+			var el = e.target;
+			if (!el || !el.closest) return;
+			// open trigger
+			var openBtn = el.closest('[data-glb-open][data-gallery="' + galleryId + '"]');
+			if (openBtn) {
+				e.preventDefault();
+				var s = parseInt(openBtn.getAttribute('data-glb-start') || '0', 10);
+				open(isFinite(s) ? s : 0);
+				return;
+			}
+			// close triggers
+			if (el.closest('[data-glb-close]') && lb.contains(el.closest('[data-glb-close]'))) {
+				close();
+			}
+		});
+
+		if (btnPrev) btnPrev.addEventListener('click', function () { show(index - 1); });
+		if (btnNext) btnNext.addEventListener('click', function () { show(index + 1); });
+
+		document.addEventListener('keydown', function (e) {
+			if (lb.hasAttribute('hidden')) return;
+			if (e.key === 'Escape') { e.preventDefault(); close(); }
+			else if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
+			else if (e.key === 'ArrowRight') { e.preventDefault(); show(index + 1); }
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', boot);
+	} else {
+		boot();
+	}
+})();
+</script>
+
+<style is:global>
+	[data-guide-detail].guide-detail-layout {
+		display: grid;
+		gap: 1.75rem;
+		align-items: start;
+		margin-top: 0.5rem;
+		width: 100%;
+	}
+	@media (min-width: 900px) {
+		[data-guide-detail].guide-detail-layout {
+			grid-template-columns: minmax(0, 1fr) min(300px, 36%);
+		}
+	}
+	.guide-hero {
+		display: flex;
+		gap: 1.5rem;
+		align-items: flex-start;
+		margin-bottom: 1.5rem;
+		flex-wrap: wrap;
+	}
+	.guide-hero__photo-btn {
+		padding: 0;
+		border: 3px solid var(--border);
+		border-radius: 50%;
+		overflow: hidden;
+		cursor: pointer;
+		flex-shrink: 0;
+		background: none;
+		transition: border-color 0.15s;
+	}
+	.guide-hero__photo-btn:hover { border-color: var(--accent, #0d9488); }
+	.guide-hero__photo {
+		width: 140px;
+		height: 140px;
+		object-fit: cover;
+		display: block;
+	}
+	.guide-hero__placeholder {
+		width: 140px;
+		height: 140px;
+		border-radius: 50%;
+		background: var(--accent, #0d9488);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.guide-hero__placeholder span {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #fff;
+	}
+	.guide-hero__info {
+		flex: 1;
+		min-width: 0;
+	}
+	.guide-hero__name-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+	}
+	.guide-hero__name {
+		margin: 0;
+		font-size: clamp(1.4rem, 3vw, 2rem);
+		font-weight: 700;
+		line-height: 1.2;
+	}
+	.guide-hero__verified {
+		background: var(--accent, #0d9488);
+		color: #fff;
+		font-size: 0.75rem;
+		font-weight: 600;
+		border-radius: 20px;
+		padding: 0.2rem 0.55rem;
+	}
+	.guide-hero__tagline {
+		margin: 0.4rem 0 0;
+		font-size: 1.05rem;
+		color: var(--muted);
+		line-height: 1.45;
+	}
+	.guide-hero__edit { margin-top: 0.65rem; }
+
+	.guide-gallery {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+	.guide-gallery__item {
+		position: relative;
+		display: block;
+		line-height: 0;
+		border-radius: 6px;
+		overflow: hidden;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		background: var(--surface);
+	}
+	.guide-gallery__item img {
+		width: 120px;
+		height: 90px;
+		object-fit: cover;
+		display: block;
+		transition: opacity 0.15s;
+	}
+	.guide-gallery__item:hover img { opacity: 0.8; }
+	.guide-gallery__more {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(0,0,0,0.45);
+		color: #fff;
+		font-size: 1.1rem;
+		font-weight: 700;
+	}
+	.guide-bio { margin-top: 0; }
+
+	/* Aside */
+	.guide-detail-aside { min-width: 0; }
+	@media (min-width: 900px) {
+		.guide-detail-aside { position: sticky; top: 1rem; align-self: start; }
+	}
+	.guide-aside-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 10px;
+		padding: 1.1rem 1.2rem;
+		box-shadow: 0 2px 10px rgba(26,35,50,0.08);
+	}
+	.guide-aside-card__title {
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--text);
+	}
+	.guide-aside-card__dl {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+	}
+	.guide-aside-row dt {
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--muted);
+		margin: 0 0 0.15rem;
+	}
+	.guide-aside-row dd {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+	.guide-aside-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+		margin-top: 0.15rem;
+	}
+	.guide-aside-tag {
+		background: color-mix(in srgb, var(--accent, #0d9488) 10%, transparent);
+		color: var(--accent-dim, #0f766e);
+		border: 1px solid color-mix(in srgb, var(--accent, #0d9488) 25%, transparent);
+		border-radius: 4px;
+		padding: 0.15rem 0.45rem;
+		font-size: 0.78rem;
+		font-weight: 500;
+	}
+	.guide-contact-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.guide-contact-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: var(--accent, #0d9488);
+		text-decoration: none;
+	}
+	.guide-contact-link:hover { text-decoration: underline; }
+
+	/* Lightbox */
+	.glb {
+		position: fixed;
+		inset: 0;
+		z-index: 99999;
+		display: flex;
+		align-items: stretch;
+	}
+	.glb[hidden] { display: none !important; }
+	.glb__backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(8, 10, 14, 0.94);
+		cursor: pointer;
+	}
+	.glb__dialog {
+		position: relative;
+		z-index: 1;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+	}
+	.glb__toolbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.65rem 0.75rem;
+		background: linear-gradient(to bottom, rgba(0,0,0,0.65), transparent);
+	}
+	.glb__counter {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: #fff;
+	}
+	.glb__close {
+		font-size: 1.55rem;
+		line-height: 1;
+		padding: 0.1rem 0.5rem;
+		border-radius: 8px;
+		border: 1px solid rgba(255,255,255,0.2);
+		background: rgba(255,255,255,0.1);
+		color: #fff;
+		cursor: pointer;
+	}
+	.glb__close:hover { background: rgba(255,255,255,0.2); }
+	.glb__chev {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+		width: 2.75rem;
+		height: 3.5rem;
+		border: 1px solid rgba(255,255,255,0.15);
+		background: rgba(0,0,0,0.35);
+		color: #fff;
+		font-size: 1.75rem;
+		line-height: 1;
+		cursor: pointer;
+		transition: background 0.15s;
+	}
+	.glb__chev:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 50%, rgba(0,0,0,0.5)); }
+	.glb__chev:disabled { opacity: 0.2; cursor: not-allowed; }
+	.glb__chev--prev { left: 0; border-radius: 0 8px 8px 0; }
+	.glb__chev--next { right: 0; border-radius: 8px 0 0 8px; }
+	.glb__stage {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: auto;
+		padding: 0.5rem 3rem 1.25rem;
+	}
+	.glb__img {
+		max-width: 100%;
+		max-height: min(82vh, 1000px);
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		user-select: none;
+	}
+
+	/* Guide packages section */
+	.guide-packages-section {
+		margin-top: 2.5rem;
+	}
+	.guide-packages-section__title {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin: 0 0 1rem;
+	}
+	.guide-packages-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+	.guide-pkg-card {
+		border: 1px solid #e2e8f0;
+		border-radius: 12px;
+		overflow: hidden;
+		background: #fff;
+		text-decoration: none;
+		color: inherit;
+		transition: box-shadow 0.2s, transform 0.15s;
+		display: flex;
+		flex-direction: column;
+	}
+	.guide-pkg-card:hover {
+		box-shadow: 0 6px 20px rgba(0,0,0,.1);
+		transform: translateY(-2px);
+	}
+	.guide-pkg-card__img {
+		width: 100%;
+		height: 140px;
+		object-fit: cover;
+	}
+	.guide-pkg-card__body {
+		padding: 0.85rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+	.guide-pkg-card__title {
+		font-size: 0.95rem;
+		font-weight: 700;
+		margin: 0;
+	}
+	.guide-pkg-card__meta {
+		display: flex;
+		gap: 0.75rem;
+		font-size: 0.8rem;
+		color: #64748b;
+	}
+	.guide-pkg-card__desc {
+		font-size: 0.82rem;
+		color: #64748b;
+		margin: 0;
+		line-height: 1.45;
+	}
+	.guide-pkg-card__price {
+		font-size: 0.875rem;
+		color: #374151;
+		margin-top: auto;
+		padding-top: 0.35rem;
+	}
+	.guide-pkg-card__cta {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: #4f46e5;
+	}
+	.guide-pkg-discount-badge {
+		display: inline-block;
+		background: #dcfce7;
+		color: #15803d;
+		font-size: 0.72rem;
+		font-weight: 700;
+		padding: 0.15rem 0.5rem;
+		border-radius: 99px;
+		border: 1px solid #bbf7d0;
+	}
+</style>

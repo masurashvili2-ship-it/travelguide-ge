@@ -1,0 +1,348 @@
+{
+  "guides": [
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567801",
+      "slug": "giorgi-kvaratskhelia",
+      "profile_photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      "gallery": [
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1494578379344-d6c710782a3d?w=800&h=600&fit=crop"
+      ],
+      "social_links": {
+        "website": "https://giorgi-guide.ge",
+        "facebook": "https://facebook.com/giorgi.guide.georgia",
+        "instagram": "https://instagram.com/giorgi_tbilisi_guide",
+        "tripadvisor": "https://tripadvisor.com/Profile/GiorgiKvara",
+        "whatsapp": "+995599112233",
+        "telegram": "@giorgi_guide_ge",
+        "email": "giorgi@giorgi-guide.ge",
+        "phone": "+995599112233"
+      },
+      "languages_spoken": [
+        "en",
+        "ka",
+        "ru",
+        "de"
+      ],
+      "years_experience": 12,
+      "base_location": "Tbilisi",
+      "place_ids": [],
+      "price_from": "$80 / day",
+      "verified": true,
+      "specialties": [
+        "cultural-historical",
+        "wine-food",
+        "private-custom"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Giorgi Kvaratskhelia",
+          "tagline": "Licensed Tbilisi cultural guide with 12 years of experience — history, wine, and off-the-beaten-path stories",
+          "bio": "## About Me\n\nI'm Giorgi, a licensed Georgian guide born and raised in Tbilisi's old town. Over the past 12 years I've led thousands of travellers through the winding streets of Abanotubani, the vineyards of Kakheti, and the ancient cave cities of central Georgia.\n\n## What I Offer\n\n- **Tbilisi walking tours** — old town, Narikala fortress, Metekhi church, carpet bazaar\n- **Kakheti wine tours** — Telavi, Sighnaghi, family-run cellars with qvevri tastings\n- **Multi-day Caucasus routes** — Kazbegi, Svaneti, Vardzia cave monastery\n- **Private custom itineraries** for couples, families, and corporate groups\n\n## My Approach\n\nI believe the best way to understand Georgia is through its people, food, and stories. Every tour I lead includes home-cooked meals with local families and visits to places that don't appear in guidebooks.\n\n> *\"Giorgi made our trip unforgettable. His knowledge of history combined with personal family stories gave us a completely different perspective on Georgia.\"* — Maria S., Germany",
+          "seo_title": "Giorgi Kvaratskhelia — Licensed Tbilisi Tour Guide | Georgia",
+          "seo_description": "Hire Giorgi Kvaratskhelia, a licensed Tbilisi cultural guide with 12 years' experience. Expert in history, wine tours, and private custom itineraries across Georgia."
+        },
+        "ka": {
+          "name": "გიორგი კვარაცხელია",
+          "tagline": "ლიცენზირებული თბილისის კულტურული გიდი — ისტორია, ღვინო და უცნობი ადგილები",
+          "bio": "## ჩემ შესახებ\n\nმე ვარ გიორგი, ლიცენზირებული ქართული გიდი, დაბადებული და გაზრდილი თბილისის ძველ უბანში. 12 წლის განმავლობაში ათასობით მოგზაურს გავუძეღვი აბანოთუბნის ირგვლივ, კახეთის ვენახებში და შუა საქართველოს ძველ გამოქვაბულ ქალაქებში.\n\n## ჩემი მომსახურება\n\n- **თბილისის ფეხით ტური** — ძველი ქალაქი, ნარიყალა, მეტეხი, ხალიჩის ბაზარი\n- **კახეთის ღვინის ტური** — თელავი, სიღნაღი, ოჯახური მარნები\n- **მრავალდღიანი მარშრუტები** — ყაზბეგი, სვანეთი, ვარძია",
+          "seo_title": "გიორგი კვარაცხელია — ლიცენზირებული თბილისის გიდი",
+          "seo_description": "დაიქირავეთ გიორგი კვარაცხელია, ლიცენზირებული თბილისის კულტურული გიდი 12 წლიანი გამოცდილებით."
+        },
+        "ru": {
+          "name": "Георгий Кварацхелия",
+          "tagline": "Лицензированный тбилисский культурный гид — история, вино и скрытые жемчужины Грузии",
+          "bio": "## Обо мне\n\nЯ Георгий, лицензированный грузинский гид, родившийся и выросший в старом городе Тбилиси. За 12 лет я провёл тысячи путешественников по улочкам Абанотубани, виноградникам Кахети и древним пещерным городам центральной Грузии.\n\n## Что я предлагаю\n\n- **Пешие туры по Тбилиси** — старый город, крепость Нарикала, церковь Метехи\n- **Винные туры в Кахети** — Телави, Сигнахи, домашние марани с дегустацией квеври\n- **Многодневные маршруты** — Казбеги, Сванетия, пещерный монастырь Вардзия",
+          "seo_title": "Георгий Кварацхелия — лицензированный гид по Тбилиси | Грузия",
+          "seo_description": "Наймите Георгия Кварацхелию — лицензированного культурного гида по Тбилиси с 12-летним опытом."
+        }
+      },
+      "updated_at": 1742900000000,
+      "author_user_id": null,
+      "author_email": null
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567802",
+      "slug": "nino-lomidze-adventure",
+      "profile_photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
+      "gallery": [
+        "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?w=800&h=600&fit=crop"
+      ],
+      "social_links": {
+        "website": "https://nino-adventures.ge",
+        "instagram": "https://instagram.com/nino_adventure_georgia",
+        "youtube": "https://youtube.com/@ninogeorgiatreks",
+        "whatsapp": "+995577334455",
+        "telegram": "@nino_adventure",
+        "email": "nino@nino-adventures.ge",
+        "phone": "+995577334455"
+      },
+      "languages_spoken": [
+        "en",
+        "ka",
+        "fr"
+      ],
+      "years_experience": 8,
+      "base_location": "Kutaisi",
+      "place_ids": [],
+      "price_from": "$70 / day",
+      "verified": true,
+      "specialties": [
+        "adventure-hiking",
+        "photography",
+        "family-friendly"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Nino Lomidze",
+          "tagline": "Adventure & hiking guide based in Kutaisi — trekking, waterfalls, and Svaneti expeditions",
+          "bio": "## Hello, I'm Nino!\n\nI grew up hiking in the Racha highlands and have spent the last 8 years guiding adventurers through Georgia's most spectacular mountain landscapes. From beginner day hikes to multi-day Svaneti expeditions, I tailor every trip to the group's fitness level and interests.\n\n## Specialties\n\n### Mountain & Trekking\n- Svaneti trek (Mestia to Ushguli, 4 days)\n- Racha gorge waterfall trails\n- Borjomi-Kharagauli National Park day hikes\n- Prometheus Cave + Okatse Canyon combo day\n\n### Photography Tours\nI'm a certified photography guide and carry professional gear. I know every golden-hour viewpoint in western Georgia and can help you capture that perfect Caucasus shot.\n\n### Family Adventures\nKids are welcome! I offer adapted itineraries with shorter distances, fun storytelling, and pit stops at local farm stays.\n\n## Certifications\n- Georgian National Tourism Administration — Licensed Mountain Guide (Level 2)\n- Wilderness First Responder (WFR) certified\n- Leave No Trace trainer",
+          "seo_title": "Nino Lomidze — Adventure & Hiking Guide in Georgia",
+          "seo_description": "Book Nino Lomidze for adventure treks, photography tours, and family hikes across Georgia — Svaneti, Racha, and Borjomi-Kharagauli National Park."
+        },
+        "ka": {
+          "name": "ნინო ლომიძე",
+          "tagline": "სათავგადასავლო და ლაშქრობის გიდი ქუთაისიდან — ლაშქრობა, ჩანჩქერები, სვანეთი",
+          "bio": "## გამარჯობა, მე ვარ ნინო!\n\nრაჭის მთებში გავიზარდე და ბოლო 8 წლია მოგზაურებს ვუძღვები საქართველოს ულამაზეს მთიან ლანდშაფტებში. დამწყები ლაშქრობიდან მრავალდღიან სვანეთის ექსპედიციებამდე.\n\n## სპეციალიზაცია\n\n- სვანეთის ლაშქრობა (მესტია-უშგული, 4 დღე)\n- რაჭის ხეობის ჩანჩქერები\n- ბორჯომი-ხარაგაული ეროვნული პარკი\n- პრომეთეს გამოქვაბული + ოქაცეს კანიონი",
+          "seo_title": "ნინო ლომიძე — სათავგადასავლო გიდი საქართველოში",
+          "seo_description": "დაჯავშნეთ ნინო ლომიძე სვანეთის, რაჭის და ბორჯომი-ხარაგაულის ლაშქრობებისთვის."
+        },
+        "ru": {
+          "name": "Нино Ломидзе",
+          "tagline": "Гид по приключениям и хайкингу из Кутаиси — треккинг, водопады, экспедиции в Сванетию",
+          "bio": "## Привет, я Нино!\n\nЯ выросла в горах Рача и последние 8 лет вожу искателей приключений по самым захватывающим горным пейзажам Грузии.\n\n## Специализации\n\n- Треккинг в Сванетии (Местиа — Ушгули, 4 дня)\n- Водопады ущелья Рача\n- Национальный парк Боржоми-Харагаули\n- Пещера Прометея + каньон Окаце",
+          "seo_title": "Нино Ломидзе — гид по приключениям и хайкингу в Грузии",
+          "seo_description": "Закажите Нино Ломидзе для треккинга в Сванетии, фототуров и семейных походов по Грузии."
+        }
+      },
+      "updated_at": 1742810000000,
+      "author_user_id": null,
+      "author_email": null
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567803",
+      "slug": "davit-asatiani-wine",
+      "profile_photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      "gallery": [
+        "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+      ],
+      "social_links": {
+        "website": "https://georgiawinetourguru.com",
+        "facebook": "https://facebook.com/DavitWineGeorgia",
+        "instagram": "https://instagram.com/georgia_wine_davit",
+        "linkedin": "https://linkedin.com/in/davitasatiani",
+        "tripadvisor": "https://tripadvisor.com/Profile/DavitAsatiani",
+        "whatsapp": "+995598223344",
+        "email": "davit@georgiawinetourguru.com",
+        "phone": "+995598223344"
+      },
+      "languages_spoken": [
+        "en",
+        "ka",
+        "it",
+        "ru"
+      ],
+      "years_experience": 15,
+      "base_location": "Telavi, Kakheti",
+      "place_ids": [],
+      "price_from": "$90 / day",
+      "verified": true,
+      "specialties": [
+        "wine-food",
+        "cultural-historical",
+        "private-custom"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Davit Asatiani",
+          "tagline": "Kakheti wine expert and certified sommelier — 8,000 years of winemaking history in your glass",
+          "bio": "## Meet Davit\n\nI'm a certified sommelier and licensed guide born in the heart of Kakheti — Georgia's premier wine region and the cradle of world viticulture. For 15 years I have been sharing my passion for Georgian wine, food, and culture with visitors from every corner of the world.\n\n## Wine Tours\n\n### Signature Kakheti Day Tour\nVisit 3–4 family wineries, taste amber and red qvevri wines, see traditional winemaking equipment, and enjoy a Georgian feast (supra) with the winemaker's family. Transport from Tbilisi included.\n\n### Natural Wine Deep-Dive\nGeorgia is the birthplace of natural wine. I'll take you to biodynamic producers and small-batch cellars that export to the best wine bars in Paris and Tokyo.\n\n### Harvest Season (September–October)\nJoin a real grape harvest (rtveli), stomp grapes in the traditional way, and help fill a qvevri. This is the most authentic Georgian experience available.\n\n## Food & Culture\nEvery wine tour includes a full supra — the traditional Georgian feast. I work with local families who prepare recipes passed down for generations: churchkhela, pkhali, badrijani, and of course, fresh-baked shoti bread.\n\n## Certifications\n- WSET Level 3 (Wine & Spirits Education Trust)\n- Georgian National Tourism Administration — Licensed Guide\n- Georgian Sommelier Association — Certified Member",
+          "seo_title": "Davit Asatiani — Kakheti Wine Tour Guide & Sommelier | Georgia",
+          "seo_description": "Tour Georgia's wine country with Davit Asatiani, a WSET-certified sommelier and Kakheti guide. Qvevri tastings, supra feasts, and harvest experiences."
+        },
+        "ka": {
+          "name": "დავით ასათიანი",
+          "tagline": "კახეთის ღვინის ექსპერტი და სომელიე — 8000 წლის მეღვინეობის ისტორია თქვენს ჭიქაში",
+          "bio": "## გაიცანით დავითი\n\nმე ვარ სომელიე და ლიცენზირებული გიდი, კახეთის გულში დაბადებული. 15 წლის განმავლობაში ვუზიარებ ჩემს ვნებას ქართული ღვინის, სამზარეულოს და კულტურის მიმართ.\n\n## ღვინის ტურები\n\n- კახეთის ოჯახური მარნები — 3-4 ვიზიტი\n- ბუნებრივი ღვინო — ბიოდინამიური მწარმოებლები\n- სარდგული — ყურძნის მოსავლის სეზონი (სექტემბერი-ოქტომბერი)\n- ქვევრის ყველა საიდუმლო",
+          "seo_title": "დავით ასათიანი — კახეთის ღვინის გიდი და სომელიე",
+          "seo_description": "შეისწავლეთ ქართული ღვინო დავით ასათიანთან ერთად — სომელიე და ლიცენზირებული კახეთის გიდი."
+        },
+        "ru": {
+          "name": "Давит Асатиани",
+          "tagline": "Эксперт по вину Кахети и сертифицированный сомелье — 8000 лет виноделия в вашем бокале",
+          "bio": "## Познакомьтесь с Давитом\n\nЯ сертифицированный сомелье и лицензированный гид, рождённый в самом сердце Кахети. За 15 лет я делюсь своей страстью к грузинскому вину, кухне и культуре с гостями со всего мира.\n\n## Винные туры\n\n- Семейные марани Кахети — 3–4 визита\n- Натуральное вино — биодинамические производители\n- Ртвели — участие в сборе урожая (сентябрь–октябрь)\n- Все секреты квеври",
+          "seo_title": "Давит Асатиани — гид по винам Кахети и сомелье | Грузия",
+          "seo_description": "Исследуйте винную страну Грузии с Давитом Асатиани — сертифицированным сомелье и гидом по Кахети."
+        }
+      },
+      "updated_at": 1742720000000,
+      "author_user_id": null,
+      "author_email": null
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567804",
+      "slug": "tamar-beridze-religious",
+      "profile_photo": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face",
+      "gallery": [
+        "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1597149186290-78e5e2e40d21?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560248636-4b8d0a7c2e6d?w=800&h=600&fit=crop"
+      ],
+      "social_links": {
+        "website": "https://sacredsites.ge",
+        "facebook": "https://facebook.com/tamar.sacred.georgia",
+        "instagram": "https://instagram.com/tamar_pilgrimage_ge",
+        "whatsapp": "+995555667788",
+        "telegram": "@tamar_sacred_ge",
+        "email": "tamar@sacredsites.ge",
+        "phone": "+995555667788"
+      },
+      "languages_spoken": [
+        "en",
+        "ka",
+        "ru",
+        "gr"
+      ],
+      "years_experience": 10,
+      "base_location": "Mtskheta",
+      "place_ids": [],
+      "price_from": "$65 / day",
+      "verified": true,
+      "specialties": [
+        "religious-pilgrimage",
+        "cultural-historical"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Tamar Beridze",
+          "tagline": "Specialist in Georgian Orthodox pilgrimage sites — Mtskheta, Vardzia, Alaverdi, and the ancient cross-roads of Christianity",
+          "bio": "## About Tamar\n\nWith a master's degree in Art History and Religious Studies, I have dedicated 10 years to guiding pilgrims and curious travellers through Georgia's extraordinary network of medieval churches, monasteries, and sacred landscapes.\n\nGeorgia was among the first nations to adopt Christianity in 337 AD, and its spiritual heritage is unlike anywhere else in the world — from the vine cross of St. Nino to the icons of the Sioni Cathedral.\n\n## What I Offer\n\n### Mtskheta — Georgia's Spiritual Capital\nJvari Monastery (perched above the confluence of the Mtkvari and Aragvi rivers), Svetitskhoveli Cathedral (built over the robe of Christ according to tradition), Samtavro Monastery.\n\n### Vardzia Cave Monastery\nA 13th-century cliff city carved by Queen Tamar — 6,000 rooms, 13 churches, and remarkable frescoes. I offer full-day and overnight tours.\n\n### Kakheti Monastery Circuit\nDavid Gareja desert monastery (UNESCO tentative list), Alaverdi Cathedral, Bodbe Convent (burial site of St. Nino).\n\n### Mount Kazbegi Pilgrimage\nGergeti Trinity Church at 2,170 m — one of the most iconic images in all of Georgia. Combined with the village of Stepantsminda and the Dariali Gorge.\n\n## Languages & Sensitivity\nI guide tours with deep respect for active religious communities. All dress codes and local customs are observed. Visits can be arranged around liturgical schedules on request.",
+          "seo_title": "Tamar Beridze — Religious & Pilgrimage Tour Guide in Georgia",
+          "seo_description": "Explore Georgia's sacred heritage with Tamar Beridze — expert guide for Mtskheta, Vardzia, David Gareja, and Georgia's ancient Christian sites."
+        },
+        "ka": {
+          "name": "თამარ ბერიძე",
+          "tagline": "ქართული მართლმადიდებლური მონასტრებისა და სალოცავების სპეციალისტი",
+          "bio": "## თამარის შესახებ\n\nხელოვნების ისტორიისა და რელიგიური კვლევების მაგისტრი, 10 წელია ვმოძღვრავ მომლოცველებს საქართველოს შუასაუკუნეების ეკლესიებში, მონასტრებსა და საკრალურ ლანდშაფტებში.\n\n## ჩემი ტურები\n\n- **მცხეთა** — ჯვარი, სვეტიცხოველი, სამთავრო\n- **ვარძია** — დედოფალ თამარის კლდეში ამოკვეთილი ქალაქი\n- **კახეთი** — დავით გარეჯი, ალავერდი, ბოდბე\n- **ყაზბეგი** — გერგეტის სამება (2170 მ)",
+          "seo_title": "თამარ ბერიძე — რელიგიური ტურების გიდი საქართველოში",
+          "seo_description": "მცხეთა, ვარძია, დავით გარეჯი და ქართული ქრისტიანობის ძეგლები — თამარ ბერიძის სახელმძღვანელოთი."
+        },
+        "ru": {
+          "name": "Тамар Беридзе",
+          "tagline": "Специалист по православным паломническим маршрутам Грузии — Мцхета, Вардзия, Алаверди",
+          "bio": "## О Тамар\n\nС магистерской степенью по истории искусств и религиоведению я посвятила 10 лет сопровождению паломников и любознательных путешественников по удивительной сети средневековых церквей Грузии.\n\n## Мои туры\n\n- **Мцхета** — монастырь Джвари, собор Светицховели, Самтавро\n- **Вардзия** — пещерный город царицы Тамары\n- **Кахети** — Давид Гареджа, Алаверди, Бодбе\n- **Казбеги** — Гергетская Троица (2170 м)",
+          "seo_title": "Тамар Беридзе — гид по религиозным и паломническим маршрутам Грузии",
+          "seo_description": "Исследуйте священное наследие Грузии с Тамар Беридзе — экспертом по Мцхета, Вардзии и Давид Гареджа."
+        }
+      },
+      "updated_at": 1742630000000,
+      "author_user_id": null,
+      "author_email": null
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567805",
+      "slug": "luca-marchetti-photography",
+      "profile_photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+      "gallery": [
+        "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502759683299-cdcd6974244f?w=800&h=600&fit=crop"
+      ],
+      "social_links": {
+        "website": "https://lucamarchettigeorgia.com",
+        "facebook": "https://facebook.com/luca.marchetti.georgia",
+        "instagram": "https://instagram.com/luca_georgia_photo",
+        "youtube": "https://youtube.com/@lucamarchettigeorgia",
+        "whatsapp": "+995597889900",
+        "email": "luca@lucamarchettigeorgia.com",
+        "phone": "+995597889900"
+      },
+      "languages_spoken": [
+        "en",
+        "it",
+        "ka",
+        "fr"
+      ],
+      "years_experience": 7,
+      "base_location": "Tbilisi",
+      "place_ids": [],
+      "price_from": "$120 / day",
+      "verified": false,
+      "specialties": [
+        "photography",
+        "adventure-hiking",
+        "private-custom"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Luca Marchetti",
+          "tagline": "Landscape & travel photographer based in Tbilisi — photo tours, workshops, and Milky Way expeditions across the Caucasus",
+          "bio": "## About Me\n\nI'm Luca, an Italian-born landscape photographer who fell in love with Georgia six years ago and never left. My work has been published in National Geographic Traveller, Condé Nast Traveller, and Lonely Planet Pathfinder.\n\nI lead photo tours and workshops for all levels — from smartphone photographers to professionals with full-frame cameras.\n\n## Photo Tours\n\n### Golden Hour Tbilisi\nSunrise over the old town from Narikala, followed by the colourful balconies of Abanotubani in the soft morning light. 3-hour walking tour.\n\n### Kazbegi Milky Way Expedition\nDrive to Kazbegi, photograph the Gergeti Trinity Church at sunset, spend the night at altitude, and capture the Milky Way arching over the Caucasus mountains. 2-day trip.\n\n### Svaneti Landscape Week\n7 days in the UNESCO-listed mountain villages of Svaneti — Ushguli, Mestia, Mazeri. Landscape, architecture, portrait photography of local Svan culture.\n\n### Kakheti Harvest Photography\nSeptember–October: document the grape harvest in golden autumn light. Access to family vineyards not open to the public.\n\n## Workshops\nHalf-day and full-day workshops on composition, natural light, and post-processing (Lightroom & Capture One). All skill levels welcome.",
+          "seo_title": "Luca Marchetti — Photography Tour Guide in Georgia | Tbilisi",
+          "seo_description": "Join Luca Marchetti for photography tours and workshops in Georgia — Milky Way Kazbegi, Svaneti landscape week, golden hour Tbilisi, and Kakheti harvest."
+        },
+        "ka": {
+          "name": "ლუკა მარჩეტი",
+          "tagline": "ლანდშაფტური და სამოგზაურო ფოტოგრაფი თბილისიდან — ფოტოტურები, სემინარები, ირმის ნახტომი კავკასიაში",
+          "bio": "## ჩემ შესახებ\n\nმე ვარ ლუკა, იტალიელი ლანდშაფტური ფოტოგრაფი, რომელიც 6 წლის წინ საქართველოში შეიყვარა და დარჩა. ჩემი ნამუშევრები გამოქვეყნებულია National Geographic Traveller-სა და Lonely Planet-ში.\n\n## ფოტოტურები\n\n- **თბილისის ოქროს საათი** — გამთენიის ფოტოსესია\n- **ყაზბეგის ირმის ნახტომი** — 2-დღიანი ექსპედიცია\n- **სვანეთის ლანდშაფტი** — 7-დღიანი ტური",
+          "seo_title": "ლუკა მარჩეტი — ფოტო-ტურების გიდი საქართველოში",
+          "seo_description": "შეუერთდით ლუკა მარჩეტის ფოტოტურებსა და სემინარებს საქართველოში."
+        },
+        "ru": {
+          "name": "Лука Маркетти",
+          "tagline": "Пейзажный и тревел-фотограф из Тбилиси — фототуры, мастер-классы, экспедиции к Млечному пути на Кавказе",
+          "bio": "## Обо мне\n\nЯ Лука, итальянский пейзажный фотограф, влюбившийся в Грузию шесть лет назад и оставшийся здесь навсегда. Мои работы публиковались в National Geographic Traveller и Lonely Planet.\n\n## Фототуры\n\n- **Золотой час в Тбилиси** — рассветная фотосессия\n- **Экспедиция к Млечному пути в Казбеги** — 2 дня\n- **Пейзажи Сванетии** — 7-дневный тур",
+          "seo_title": "Лука Маркетти — гид по фототурам в Грузии | Тбилиси",
+          "seo_description": "Присоединяйтесь к Луке Маркетти для фототуров и мастер-классов в Грузии."
+        }
+      },
+      "updated_at": 1742540000000,
+      "author_user_id": null,
+      "author_email": null
+    },
+    {
+      "id": "d0daeba2-952e-43db-b612-9a3a7df0cd4a",
+      "slug": "manuchar-masurashvili",
+      "profile_photo": "/uploads/guides/manuchar-masurashvili.webp",
+      "gallery": [],
+      "social_links": {},
+      "languages_spoken": [
+        "Spanish",
+        "Russian",
+        "English",
+        "Georgian"
+      ],
+      "years_experience": 9,
+      "base_location": "Tbilisi",
+      "place_ids": [],
+      "price_from": null,
+      "verified": false,
+      "specialties": [
+        "adventure-hiking",
+        "religious-pilgrimage",
+        "private-custom"
+      ],
+      "i18n": {
+        "en": {
+          "name": "Manuchar Masurashvili",
+          "tagline": "Travel guide around Georgia",
+          "bio": "To truly understand Georgia, you need more than a map; you need a connection to the history, the land, and the people. As the founder of tbilisitrips.com, I have dedicated myself to uncovering the layers of Georgian culture—from the ancient corridors of our history to the hidden gems of our diverse geography.\r\n\r\nWhether you are looking for a deep dive into the historical significance of our landmarks or a seamless journey through the Caucasus, I bring a tech-forward and highly organized approach to every trip. My goal is to ensure that your experience is as smooth as it is memorable, combining traditional Georgian hospitality with modern reliability.",
+          "seo_title": null,
+          "seo_description": null
+        }
+      },
+      "updated_at": 1774708779282,
+      "author_user_id": "08e20c0a3e125bb879eefe87d82088c5",
+      "author_email": "masurashvili2@gmail.com"
+    }
+  ]
+}

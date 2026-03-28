@@ -50,6 +50,8 @@ function kindLabel(s: ContentSubmission): string {
 			return 'What to do';
 		case 'page':
 			return 'Page';
+		case 'guides':
+			return 'Guide';
 		default:
 			return s.kind;
 	}
@@ -63,6 +65,8 @@ function editUrlForSubmission(s: ContentSubmission): string | null {
 			return getRelativeLocaleUrl(locale, `contribute/what-to-do/edit/${s.id}`);
 		case 'page':
 			return getRelativeLocaleUrl(locale, `contribute/page/edit/${s.id}`);
+		case 'guides':
+			return getRelativeLocaleUrl(locale, `contribute/guide/edit/${s.id}`);
 		default:
 			return null;
 	}
@@ -81,6 +85,8 @@ function viewLiveHref(s: ContentSubmission): string | null {
 			return getRelativeLocaleUrl(locale, `tours/${slug}`);
 		case 'what-to-do':
 			return getRelativeLocaleUrl(locale, `what-to-do/${slug}`);
+		case 'guides':
+			return getRelativeLocaleUrl(locale, `guides/${slug}`);
 		case 'page':
 			return getRelativeLocaleUrl(locale, slug);
 		default:
@@ -117,7 +123,13 @@ function viewLiveHref(s: ContentSubmission): string | null {
 			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/what-to-do')} style="margin-right:0.5rem">
 				Propose “What to do”
 			</a>
-			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/page')}>Propose a page</a>
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/guide')} style="margin-right:0.5rem">
+				Propose a guide
+			</a>
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/page')} style="margin-right:0.5rem">Propose a page</a>
+			<a class="button" href={getRelativeLocaleUrl(locale, 'contribute/packages')} style="margin-right:0.5rem">
+				My tour packages
+			</a>
 		</p>
 
 		<section class="contribute-card">

@@ -1,0 +1,188 @@
+---
+import Shell from '../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { listPackagesForGuide } from '../../../../lib/guide-packages-db';
+import { getGuides } from '../../../../lib/guides-db';
+import { listBookingsForGuide, countPendingBookings } from '../../../../lib/bookings-db';
+import '../../../../styles/contribute.css';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(getRelativeLocaleUrl(locale, 'contribute/packages'))}`);
+}
+const user = Astro.locals.user;
+
+const allGuides = getGuides();
+const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
+
+const packages = myGuide ? listPackagesForGuide(myGuide.id) : [];
+const bookings = myGuide ? listBookingsForGuide(myGuide.id) : [];
+const pendingCount = bookings.filter((b) => b.status === 'pending').length;
+
+const newUrl = getRelativeLocaleUrl(locale, 'contribute/packages/new');
+const backUrl = getRelativeLocaleUrl(locale, 'contribute');
+const guideProfileUrl = myGuide
+	? getRelativeLocaleUrl(locale, `contribute/guide/edit/${myGuide.id}`)
+	: getRelativeLocaleUrl(locale, 'contribute/guide');
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title="My Tour Packages"
+	seoTitle="My Tour Packages"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0"><a href={backUrl}>← Back to Dashboard</a></p>
+		<div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
+			<h1 style="margin:0">My Tour Packages</h1>
+			{pendingCount > 0 && (
+				<span style="background:#fef3c7;color:#92400e;padding:0.25rem 0.75rem;border-radius:99px;font-size:0.85rem;font-weight:600">
+					{pendingCount} pending booking{pendingCount > 1 ? 's' : ''}
+				</span>
+			)}
+		</div>
+
+		{!myGuide && (
+			<div class="notice notice-info">
+				<strong>No guide profile found.</strong> You need to create a guide profile before adding tour packages.
+				<a href={guideProfileUrl}>Create guide profile →</a>
+			</div>
+		)}
+
+		{myGuide && (
+			<>
+				<p class="muted">Create and manage your own tour packages with custom pricing, availability calendar, and booking management.</p>
+
+				<p style="margin-bottom:1.5rem">
+					<a class="button" href={newUrl}>+ New package</a>
+					{bookings.length > 0 && (
+						<a class="button" href={getRelativeLocaleUrl(locale, `contribute/packages/bookings`)} style="margin-left:0.5rem">
+							View all bookings ({bookings.length})
+						</a>
+					)}
+				</p>
+
+				{packages.length === 0 ? (
+					<div class="contribute-card">
+						<div class="contribute-card__bd" style="text-align:center;padding:2.5rem 1rem">
+							<p class="muted" style="margin:0 0 1rem">You haven't created any tour packages yet.</p>
+							<a class="button" href={newUrl}>Create your first package</a>
+						</div>
+					</div>
+				) : (
+					<div class="pkg-grid">
+						{packages.map((pkg) => {
+							const title = pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? pkg.i18n['ru']?.title ?? '(untitled)';
+							const desc = pkg.i18n['en']?.description ?? '';
+							const pkgBookings = bookings.filter((b) => b.package_id === pkg.id);
+							const pendingPkg = pkgBookings.filter((b) => b.status === 'pending').length;
+							return (
+								<div class="pkg-card">
+									{pkg.cover_photo && (
+										<img src={pkg.cover_photo} alt={title} class="pkg-card__img" loading="lazy" />
+									)}
+									<div class="pkg-card__body">
+										<div class="pkg-card__badges">
+											<span class={`pkg-badge pkg-badge--${pkg.status}`}>
+									{pkg.status === 'pending_review' ? 'Under Review' : pkg.status}
+								</span>
+											{pendingPkg > 0 && (
+												<span class="pkg-badge pkg-badge--pending-booking">{pendingPkg} pending</span>
+											)}
+										</div>
+										<h3 class="pkg-card__title">{title}</h3>
+										<div class="pkg-card__meta">
+											<span>⏱ {pkg.duration_label ?? `${pkg.duration_hours}h`}</span>
+											<span>👥 {pkg.min_people}–{pkg.max_people} people</span>
+											<span>💰 {pkg.base_price} {pkg.currency}/person</span>
+										</div>
+										{desc && <p class="pkg-card__desc">{desc.slice(0, 100)}{desc.length > 100 ? '…' : ''}</p>}
+										<div class="pkg-card__actions">
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/edit`)} class="button">Edit</a>
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/calendar`)} class="button">Calendar</a>
+											<a href={getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/bookings`)} class="button">
+												Bookings {pkgBookings.length > 0 ? `(${pkgBookings.length})` : ''}
+											</a>
+											{pkg.status === 'published' && (
+												<a href={getRelativeLocaleUrl(locale, `packages/${pkg.slug}`)} target="_blank" class="button">Preview</a>
+											)}
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				)}
+			</>
+		)}
+	</div>
+</Shell>
+
+<style>
+.pkg-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: 1.25rem;
+}
+.pkg-card {
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 1px 4px rgba(0,0,0,.04);
+	transition: box-shadow 0.2s;
+}
+.pkg-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+.pkg-card__img {
+	width: 100%;
+	height: 160px;
+	object-fit: cover;
+}
+.pkg-card__body { padding: 1rem; }
+.pkg-card__badges { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+.pkg-badge {
+	font-size: 0.75rem;
+	font-weight: 600;
+	padding: 0.2rem 0.6rem;
+	border-radius: 99px;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+.pkg-badge--draft { background: #f1f5f9; color: #64748b; }
+.pkg-badge--pending_review { background: #fef3c7; color: #92400e; }
+.pkg-badge--published { background: #dcfce7; color: #166534; }
+.pkg-badge--pending-booking { background: #fef9e7; color: #b45309; }
+.pkg-card__title { margin: 0 0 0.5rem; font-size: 1.05rem; font-weight: 700; }
+.pkg-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	font-size: 0.85rem;
+	color: #64748b;
+	margin-bottom: 0.5rem;
+}
+.pkg-card__desc {
+	font-size: 0.875rem;
+	color: #64748b;
+	margin: 0.5rem 0;
+	line-height: 1.5;
+}
+.pkg-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 0.75rem;
+}
+.pkg-card__actions .button {
+	font-size: 0.82rem;
+	padding: 0.3rem 0.65rem;
+}
+</style>

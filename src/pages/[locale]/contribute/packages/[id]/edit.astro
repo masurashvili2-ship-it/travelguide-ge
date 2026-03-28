@@ -1,0 +1,655 @@
+---
+import Shell from '../../../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../../lib/strings';
+import { getPackageById } from '../../../../../lib/guide-packages-db';
+import { getGuides } from '../../../../../lib/guides-db';
+import '../../../../../styles/contribute.css';
+
+export const prerender = false;
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user) {
+	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(Astro.url.pathname)}`);
+}
+const user = Astro.locals.user;
+
+const pkg = getPackageById(Astro.params.id ?? '');
+if (!pkg) return new Response(null, { status: 404 });
+
+// Verify ownership (or admin)
+const allGuides = getGuides();
+const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
+if (user.role !== 'admin' && pkg.guide_id !== myGuide?.id) {
+	return new Response(null, { status: 403 });
+}
+
+const backUrl = getRelativeLocaleUrl(locale, 'contribute/packages');
+const calendarUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/calendar`);
+const bookingsUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/bookings`);
+const pkgJson = JSON.stringify(pkg).replace(/</g, '\\u003c');
+const isAdmin = user.role === 'admin';
+---
+
+<Shell
+	locale={locale}
+	subpath="contribute"
+	title="Edit Package"
+	seoTitle="Edit Package"
+	robotsNoindex={true}
+>
+	<div class="contribute-page">
+		<p class="muted" style="margin-top:0"><a href={backUrl}>← Back to Packages</a></p>
+		<div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+			<h1 style="margin:0">Edit Package</h1>
+			<div style="display:flex;gap:0.5rem">
+				<a href={calendarUrl} class="button">Manage Calendar</a>
+				<a href={bookingsUrl} class="button">View Bookings</a>
+			</div>
+		</div>
+
+		<div id="pkg-status" class="notice" style="display:none"></div>
+
+		<form id="pkg-form" novalidate>
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Basic Info</h2>
+				<div class="contribute-card__bd">
+					<div class="row">
+						<label>
+							<span>Slug <em>*</em></span>
+							<input type="text" id="pkg-slug" name="slug" required pattern="[a-z0-9]+(-[a-z0-9]+)*" />
+						</label>
+					</div>
+					{isAdmin && (
+						<div class="row">
+							<label>
+								<span>Status (admin only)</span>
+								<select name="status" id="pkg-status-select">
+									<option value="draft">Draft</option>
+									<option value="pending_review">Pending Review</option>
+									<option value="published">Published</option>
+								</select>
+							</label>
+						</div>
+					)}
+					<div class="row">
+						<label>
+							<span>Duration <em>*</em></span>
+							<select name="duration_preset" id="pkg-duration-preset" required>
+								<option value="half_day">Half day (4h)</option>
+								<option value="full_day">Full day (8h)</option>
+								<option value="2d">2 days</option>
+								<option value="3d">3 days</option>
+								<option value="4d">4 days</option>
+								<option value="5d">5 days</option>
+								<option value="6d">6 days</option>
+								<option value="7d">7 days</option>
+								<option value="8d">8 days</option>
+								<option value="9d">9 days</option>
+								<option value="10d">10 days</option>
+								<option value="11d">11 days</option>
+								<option value="12d">12 days</option>
+								<option value="13d">13 days</option>
+								<option value="14d">14 days</option>
+							</select>
+						</label>
+					</div>
+					<div class="row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+						<label>
+							<span>Min people</span>
+							<input type="number" name="min_people" min="1" max="100" />
+						</label>
+						<label>
+							<span>Max people</span>
+							<input type="number" name="max_people" min="1" max="100" />
+						</label>
+						<label>
+							<span>Currency</span>
+							<select name="currency">
+								<option value="USD">USD $</option>
+								<option value="EUR">EUR €</option>
+								<option value="GEL">GEL ₾</option>
+							</select>
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Base price per person</span>
+							<input type="number" name="base_price" min="0" step="0.01" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Languages (comma-separated)</span>
+							<input type="text" name="languages" placeholder="en, ka" />
+						</label>
+					</div>
+					<div class="row">
+						<label>
+							<span>Cover photo URL</span>
+							<input type="url" name="cover_photo" placeholder="https://…" />
+						</label>
+					</div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Tour Details (English)</h2>
+				<div class="contribute-card__bd">
+					<div class="row"><label><span>Title <em>*</em></span><input type="text" name="en_title" required /></label></div>
+					<div class="row"><label><span>Description</span><textarea name="en_description" rows="5"></textarea></label></div>
+					<div class="row"><label><span>What's included</span><textarea name="en_includes_text" rows="4"></textarea></label></div>
+					<div class="row"><label><span>What's excluded</span><textarea name="en_excludes_text" rows="3"></textarea></label></div>
+					<div class="row"><label><span>Meeting point</span><input type="text" name="en_meeting_point_text" /></label></div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Tour Details (Georgian)</h2>
+				<div class="contribute-card__bd">
+					<div class="row"><label><span>Title</span><input type="text" name="ka_title" /></label></div>
+					<div class="row"><label><span>Description</span><textarea name="ka_description" rows="4"></textarea></label></div>
+				</div>
+			</section>
+
+			<section class="contribute-card">
+				<h2 class="contribute-card__h">Tour Details (Russian)</h2>
+				<div class="contribute-card__bd">
+					<div class="row"><label><span>Title</span><input type="text" name="ru_title" /></label></div>
+					<div class="row"><label><span>Description</span><textarea name="ru_description" rows="4"></textarea></label></div>
+				</div>
+			</section>
+
+		<!-- ── Tour Type ─────────────────────────────────────── -->
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Tour Type</h2>
+			<div class="contribute-card__bd">
+				<div class="tour-style-grid">
+					<label class="tour-style-option">
+						<input type="radio" name="tour_style" value="group" id="style-group" />
+						<div class="tour-style-card">
+							<span class="tour-style-icon">👥</span>
+							<strong>Group Tour</strong>
+							<p>Shared departures. Per-person pricing.</p>
+						</div>
+					</label>
+					<label class="tour-style-option">
+						<input type="radio" name="tour_style" value="private" id="style-private" />
+						<div class="tour-style-card">
+							<span class="tour-style-icon">🔒</span>
+							<strong>Private Guided Tour</strong>
+							<p>Exclusive, just for one group. Fixed total price by group size.</p>
+						</div>
+					</label>
+				</div>
+				<div id="private-tiers-section" style="display:none;margin-top:1.5rem">
+					<h3 style="margin:0 0 0.4rem;font-size:0.95rem;font-weight:700">Pricing by Group Size</h3>
+					<p class="muted" style="font-size:0.85rem;margin:0 0 1rem">Set a fixed total price per tier. Leave blank to hide that tier from booking.</p>
+					<div class="tier-table-wrap">
+						<table class="tier-table">
+							<thead>
+								<tr><th>Tier</th><th>Group Size</th><th>Total Price (per group)</th><th>Typical vehicle</th></tr>
+							</thead>
+							<tbody id="tier-tbody">
+								<tr data-tier-id="t1" data-min="1" data-max="3" data-label="Solo & Couple">
+									<td><strong>Solo &amp; Couple</strong></td><td class="tier-range">1–3 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Sedan / SUV</td>
+								</tr>
+								<tr data-tier-id="t2" data-min="4" data-max="6" data-label="Small Group">
+									<td><strong>Small Group</strong></td><td class="tier-range">4–6 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Minivan</td>
+								</tr>
+								<tr data-tier-id="t3" data-min="7" data-max="11" data-label="Medium Group">
+									<td><strong>Medium Group</strong></td><td class="tier-range">7–11 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Minibus</td>
+								</tr>
+								<tr data-tier-id="t4" data-min="12" data-max="16" data-label="Large Group">
+									<td><strong>Large Group</strong></td><td class="tier-range">12–16 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Minibus</td>
+								</tr>
+								<tr data-tier-id="t5" data-min="17" data-max="25" data-label="XL Group">
+									<td><strong>XL Group</strong></td><td class="tier-range">17–25 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Coach Bus</td>
+								</tr>
+								<tr data-tier-id="t6" data-min="26" data-max="30" data-label="XXL Group">
+									<td><strong>XXL Group</strong></td><td class="tier-range">26–30 people</td>
+									<td><input type="number" class="tier-price-input" min="0" step="0.01" placeholder="—" /></td>
+									<td class="tier-hint muted">Large Bus</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Transportation & Logistics ───────────────────── -->
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Transportation & Logistics</h2>
+			<div class="contribute-card__bd">
+				<div class="row">
+					<label class="checkbox-row-label">
+						<input type="checkbox" name="transport_included" id="transport-included" />
+						<span>Transportation is included in the tour price</span>
+					</label>
+				</div>
+				<div id="transport-details" style="display:none">
+					<div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.5rem">
+						<label><span>Vehicle type</span>
+							<select name="transport_type">
+								<option value="">— Not specified —</option>
+								<option value="sedan">🚗 Sedan (2–3 pax)</option>
+								<option value="suv">🚙 SUV / Crossover (3–5 pax)</option>
+								<option value="minivan">🚐 Minivan (5–8 pax)</option>
+								<option value="minibus">🚌 Minibus (8–20 pax)</option>
+								<option value="bus">🚌 Coach Bus (20+ pax)</option>
+								<option value="boat">⛵ Boat</option>
+								<option value="other">Other</option>
+							</select>
+						</label>
+						<label><span>Transport notes</span>
+							<input type="text" name="transport_notes" placeholder="e.g. Air-conditioned Mercedes Sprinter" />
+						</label>
+					</div>
+				</div>
+				<div class="row" style="margin-top:0.75rem">
+					<label class="checkbox-row-label">
+						<input type="checkbox" name="pickup_offered" id="pickup-offered" />
+						<span>Hotel / airport pickup & drop-off available</span>
+					</label>
+				</div>
+				<div id="pickup-details" style="display:none;margin-top:0.5rem">
+					<div class="row">
+						<label><span>Pickup notes</span>
+							<input type="text" name="pickup_notes" placeholder="e.g. Free pickup within Tbilisi city centre" />
+						</label>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Additional Info ───────────────────────────────── -->
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Additional Information</h2>
+			<div class="contribute-card__bd">
+				<div class="row" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+					<label><span>Difficulty level</span>
+						<select name="difficulty">
+							<option value="">Not specified</option>
+							<option value="easy">🟢 Easy — suitable for all</option>
+							<option value="moderate">🟡 Moderate — some walking required</option>
+							<option value="challenging">🔴 Challenging — good fitness needed</option>
+						</select>
+					</label>
+					<label><span>Minimum age (blank = no restriction)</span>
+						<input type="number" name="min_age" min="0" max="99" placeholder="e.g. 6" />
+					</label>
+				</div>
+				<div class="row">
+					<label><span>Cancellation & refund policy</span>
+						<textarea name="cancellation_policy" rows="2" placeholder="e.g. Full refund 48h before. 50% within 24h."></textarea>
+					</label>
+				</div>
+			</div>
+		</section>
+
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Pricing Rules & Discounts</h2>
+			<div class="contribute-card__bd">
+				<p class="muted">The best applicable discount is applied automatically at checkout.</p>
+				<div id="rules-list"></div>
+				<button type="button" id="add-rule-btn" class="button" style="margin-top:0.5rem">+ Add discount rule</button>
+			</div>
+		</section>
+
+		<div style="margin-top:1.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
+			<button type="submit" class="button button--primary" id="pkg-submit-btn" data-action="review">Submit for Review</button>
+			{!isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
+			{isAdmin && <button type="button" class="button" id="pkg-draft-btn">Save as Draft</button>}
+			<a href={backUrl} class="button">Cancel</a>
+			<button type="button" id="pkg-delete-btn" style="margin-left:auto;color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.45rem 0.9rem;cursor:pointer;font:inherit">Delete Package</button>
+		</div>
+		{!isAdmin && <p class="muted" style="font-size:0.85rem;margin-top:0.5rem">Changes will be reviewed by admin before going live.</p>}
+		</form>
+	</div>
+</Shell>
+
+<script is:inline define:vars={{ pkgJson, backUrl, isAdmin }}>
+(function () {
+	var pkg = JSON.parse(pkgJson);
+	var rulesEl = document.getElementById('rules-list');
+	var ruleCount = 0;
+
+	var DURATION_MAP = {
+		'half_day': { hours: 4, label: 'Half day' },
+		'full_day': { hours: 8, label: 'Full day' },
+		'2d':  { hours: 48,  label: '2 days' },
+		'3d':  { hours: 72,  label: '3 days' },
+		'4d':  { hours: 96,  label: '4 days' },
+		'5d':  { hours: 120, label: '5 days' },
+		'6d':  { hours: 144, label: '6 days' },
+		'7d':  { hours: 168, label: '7 days' },
+		'8d':  { hours: 192, label: '8 days' },
+		'9d':  { hours: 216, label: '9 days' },
+		'10d': { hours: 240, label: '10 days' },
+		'11d': { hours: 264, label: '11 days' },
+		'12d': { hours: 288, label: '12 days' },
+		'13d': { hours: 312, label: '13 days' },
+		'14d': { hours: 336, label: '14 days' },
+	};
+
+	function hoursToPreset(h) {
+		for (var key in DURATION_MAP) {
+			if (DURATION_MAP[key].hours === h) return key;
+		}
+		// Fallback: nearest day
+		if (h <= 4) return 'half_day';
+		if (h <= 8) return 'full_day';
+		var days = Math.round(h / 24);
+		var k = days + 'd';
+		return DURATION_MAP[k] ? k : 'full_day';
+	}
+
+	function v(name) { return document.querySelector('[name="' + name + '"]'); }
+	function setV(name, val) { var el = v(name); if (el) el.value = val ?? ''; }
+
+	// ── Tour style + transport toggles ──────────────────────
+	function updateTourStyleUI() {
+		var isPrivate = document.getElementById('style-private')?.checked;
+		var tierSection = document.getElementById('private-tiers-section');
+		if (tierSection) tierSection.style.display = isPrivate ? '' : 'none';
+	}
+	document.querySelectorAll('[name="tour_style"]').forEach(function (r) {
+		r.addEventListener('change', updateTourStyleUI);
+	});
+	document.getElementById('transport-included')?.addEventListener('change', function () {
+		var det = document.getElementById('transport-details');
+		if (det) det.style.display = this.checked ? '' : 'none';
+	});
+	document.getElementById('pickup-offered')?.addEventListener('change', function () {
+		var det = document.getElementById('pickup-details');
+		if (det) det.style.display = this.checked ? '' : 'none';
+	});
+
+	function collectPrivateTiers() {
+		var tiers = [];
+		document.querySelectorAll('#tier-tbody tr').forEach(function (row) {
+			var priceEl = row.querySelector('.tier-price-input');
+			var price = priceEl ? parseFloat(priceEl.value) : NaN;
+			if (!isNaN(price) && price > 0) {
+				tiers.push({
+					id: row.dataset.tierId,
+					label: row.dataset.label,
+					min_pax: parseInt(row.dataset.min),
+					max_pax: parseInt(row.dataset.max),
+					price: price,
+				});
+			}
+		});
+		return tiers;
+	}
+
+	// ── Populate form ────────────────────────────────────────
+	setV('slug', pkg.slug);
+	if (isAdmin) setV('status', pkg.status);
+	setV('duration_preset', hoursToPreset(pkg.duration_hours));
+	setV('min_people', pkg.min_people);
+	setV('max_people', pkg.max_people);
+	setV('base_price', pkg.base_price);
+	setV('currency', pkg.currency);
+	setV('cover_photo', pkg.cover_photo ?? '');
+	setV('languages', (pkg.languages || []).join(', '));
+
+	// i18n
+	['en', 'ka', 'ru'].forEach(function (loc) {
+		var b = pkg.i18n?.[loc];
+		if (!b) return;
+		setV(loc + '_title', b.title ?? '');
+		setV(loc + '_description', b.description ?? '');
+		if (loc === 'en') {
+			setV('en_includes_text', b.includes_text ?? '');
+			setV('en_excludes_text', b.excludes_text ?? '');
+			setV('en_meeting_point_text', b.meeting_point_text ?? '');
+		}
+	});
+
+	// Tour style
+	var styleEl = document.querySelector('[name="tour_style"][value="' + (pkg.tour_style || 'group') + '"]');
+	if (styleEl) styleEl.checked = true;
+	updateTourStyleUI();
+
+	// Private tiers
+	if (pkg.private_tiers && pkg.private_tiers.length > 0) {
+		pkg.private_tiers.forEach(function (tier) {
+			var row = document.querySelector('[data-tier-id="' + tier.id + '"]');
+			if (row && tier.price > 0) {
+				var inp = row.querySelector('.tier-price-input');
+				if (inp) inp.value = tier.price;
+			}
+		});
+	}
+
+	// Transport
+	if (pkg.transport_included) {
+		var ti = document.getElementById('transport-included');
+		if (ti) { ti.checked = true; document.getElementById('transport-details').style.display = ''; }
+	}
+	setV('transport_type', pkg.transport_type ?? '');
+	setV('transport_notes', pkg.transport_notes ?? '');
+
+	if (pkg.pickup_offered) {
+		var po = document.getElementById('pickup-offered');
+		if (po) { po.checked = true; document.getElementById('pickup-details').style.display = ''; }
+	}
+	setV('pickup_notes', pkg.pickup_notes ?? '');
+
+	// Additional info
+	setV('difficulty', pkg.difficulty ?? '');
+	setV('min_age', pkg.min_age ?? '');
+	setV('cancellation_policy', pkg.cancellation_policy ?? '');
+
+	// Pricing rules
+	(pkg.pricing_rules || []).forEach(function (rule) { addRuleRow(rule); });
+
+	function addRuleRow(existing) {
+		var id = 'rule-' + (++ruleCount);
+		var div = document.createElement('div');
+		div.className = 'rule-row';
+		div.innerHTML =
+			'<div class="rule-fields">' +
+			'<select class="rule-kind" data-rule="' + id + '"><option value="group">Group discount</option><option value="early_bird">Early bird</option><option value="seasonal">Seasonal</option></select>' +
+			'<input type="number" class="rule-discount" placeholder="Discount %" min="1" max="100" style="width:110px" />' +
+			'<input type="text" class="rule-label" placeholder="Label (optional)" style="flex:1" />' +
+			'<button type="button" class="btn-remove-rule" style="color:#dc2626;background:transparent;border:1px solid #fecaca;border-radius:6px;padding:0.3rem 0.6rem;cursor:pointer">✕</button>' +
+			'</div>' +
+			'<div class="rule-extra" id="extra-' + id + '"></div>';
+		rulesEl.appendChild(div);
+
+		var kindEl = div.querySelector('.rule-kind');
+		var extraEl = document.getElementById('extra-' + id);
+		kindEl.value = existing?.kind || 'group';
+		div.querySelector('.rule-discount').value = existing?.discount_pct || '';
+		div.querySelector('.rule-label').value = existing?.label || '';
+
+		function renderExtra() {
+			if (kindEl.value === 'group') {
+				extraEl.innerHTML = '<label>Min people: <input type="number" class="rule-min-pax" min="1" style="width:70px" /></label><label style="margin-left:0.5rem">Max people: <input type="number" class="rule-max-pax" min="1" placeholder="∞" style="width:70px" /></label>';
+				if (existing?.min_pax != null) extraEl.querySelector('.rule-min-pax').value = existing.min_pax;
+				if (existing?.max_pax != null) extraEl.querySelector('.rule-max-pax').value = existing.max_pax;
+			} else if (kindEl.value === 'early_bird') {
+				extraEl.innerHTML = '<label>Book at least <input type="number" class="rule-days-before" min="1" style="width:70px" /> days in advance</label>';
+				if (existing?.days_before != null) extraEl.querySelector('.rule-days-before').value = existing.days_before;
+			} else if (kindEl.value === 'seasonal') {
+				extraEl.innerHTML = '<label>From: <input type="date" class="rule-date-from" /></label><label style="margin-left:0.5rem">To: <input type="date" class="rule-date-to" /></label>';
+				if (existing?.date_from) extraEl.querySelector('.rule-date-from').value = existing.date_from;
+				if (existing?.date_to) extraEl.querySelector('.rule-date-to').value = existing.date_to;
+			}
+		}
+		renderExtra();
+		kindEl.addEventListener('change', function () { existing = null; renderExtra(); });
+		div.querySelector('.btn-remove-rule').addEventListener('click', function () { div.remove(); });
+	}
+
+	document.getElementById('add-rule-btn')?.addEventListener('click', function () { addRuleRow(null); });
+
+	function collectRules() {
+		return Array.from(rulesEl.querySelectorAll('.rule-row')).map(function (row) {
+			var kind = row.querySelector('.rule-kind')?.value;
+			return {
+				id: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2),
+				kind: kind,
+				label: row.querySelector('.rule-label')?.value?.trim() || null,
+				discount_pct: parseFloat(row.querySelector('.rule-discount')?.value || '0'),
+				min_pax: kind === 'group' ? (parseInt(row.querySelector('.rule-min-pax')?.value) || null) : null,
+				max_pax: kind === 'group' ? (parseInt(row.querySelector('.rule-max-pax')?.value) || null) : null,
+				days_before: kind === 'early_bird' ? (parseInt(row.querySelector('.rule-days-before')?.value) || null) : null,
+				date_from: kind === 'seasonal' ? (row.querySelector('.rule-date-from')?.value || null) : null,
+				date_to: kind === 'seasonal' ? (row.querySelector('.rule-date-to')?.value || null) : null,
+			};
+		});
+	}
+
+	// Draft button
+	document.getElementById('pkg-draft-btn')?.addEventListener('click', function () {
+		var btn = document.getElementById('pkg-submit-btn');
+		btn.dataset.action = 'draft';
+		btn.click();
+		btn.dataset.action = 'review';
+	});
+
+	function getFormData(action) {
+		function fv(n) { return (document.querySelector('[name="' + n + '"]')?.value || '').trim(); }
+		var i18n = {};
+		var enTitle = fv('en_title');
+		if (enTitle) i18n.en = { title: enTitle, description: fv('en_description'), includes_text: fv('en_includes_text') || null, excludes_text: fv('en_excludes_text') || null, meeting_point_text: fv('en_meeting_point_text') || null, seo_title: null, seo_description: null };
+		var kaTitle = fv('ka_title');
+		if (kaTitle) i18n.ka = { title: kaTitle, description: fv('ka_description'), includes_text: null, excludes_text: null, meeting_point_text: null, seo_title: null, seo_description: null };
+		var ruTitle = fv('ru_title');
+		if (ruTitle) i18n.ru = { title: ruTitle, description: fv('ru_description'), includes_text: null, excludes_text: null, meeting_point_text: null, seo_title: null, seo_description: null };
+		var durPreset = fv('duration_preset');
+		var durInfo = DURATION_MAP[durPreset] || { hours: 8, label: 'Full day' };
+		var resolvedStatus;
+		if (isAdmin) {
+			var adminStatus = fv('status');
+			resolvedStatus = ['draft','pending_review','published'].includes(adminStatus) ? adminStatus : 'draft';
+		} else {
+			resolvedStatus = action === 'draft' ? 'draft' : 'pending_review';
+		}
+		var tourStyle = fv('tour_style') || 'group';
+		return {
+			slug: fv('slug'),
+			status: resolvedStatus,
+			cover_photo: fv('cover_photo') || null,
+			gallery: pkg.gallery || [],
+			duration_hours: durInfo.hours,
+			duration_label: durInfo.label,
+			min_people: parseInt(fv('min_people')) || 1,
+			max_people: parseInt(fv('max_people')) || 10,
+			languages: fv('languages').split(/[,\s]+/).map(function(s){ return s.trim(); }).filter(Boolean),
+			tour_style: tourStyle,
+			private_tiers: tourStyle === 'private' ? collectPrivateTiers() : [],
+			base_price: parseFloat(fv('base_price')) || 0,
+			currency: fv('currency') || 'USD',
+			pricing_rules: collectRules(),
+			transport_included: document.getElementById('transport-included')?.checked || false,
+			transport_type: fv('transport_type') || null,
+			transport_notes: fv('transport_notes') || null,
+			pickup_offered: document.getElementById('pickup-offered')?.checked || false,
+			pickup_notes: fv('pickup_notes') || null,
+			difficulty: fv('difficulty') || null,
+			min_age: parseInt(fv('min_age')) || null,
+			cancellation_policy: fv('cancellation_policy') || null,
+			i18n: i18n,
+		};
+	}
+
+	document.getElementById('pkg-form')?.addEventListener('submit', async function (e) {
+		e.preventDefault();
+		var statusEl = document.getElementById('pkg-status');
+		var submitBtn = document.getElementById('pkg-submit-btn');
+		var action = submitBtn.dataset.action || 'review';
+		var data = getFormData(action);
+		if (!data.i18n.en?.title) {
+			statusEl.textContent = 'English title is required.';
+			statusEl.className = 'notice notice-error';
+			statusEl.style.display = 'block';
+			return;
+		}
+		submitBtn.disabled = true;
+		submitBtn.textContent = 'Saving…';
+		try {
+			var res = await fetch('/api/guide-packages/' + pkg.id, {
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json' },
+				credentials: 'same-origin',
+				body: JSON.stringify(data),
+			});
+			var resp = await res.json();
+			if (res.ok && resp.ok) {
+				window.location.href = backUrl;
+			} else {
+				statusEl.textContent = resp.error || 'Error saving';
+				statusEl.className = 'notice notice-error';
+				statusEl.style.display = 'block';
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Submit for Review';
+			}
+		} catch {
+			statusEl.textContent = 'Network error';
+			statusEl.className = 'notice notice-error';
+			statusEl.style.display = 'block';
+			submitBtn.disabled = false;
+			submitBtn.textContent = 'Submit for Review';
+		}
+	});
+
+	document.getElementById('pkg-delete-btn')?.addEventListener('click', async function () {
+		if (!confirm('Delete this package? All bookings for it will remain in the system but the package will be removed. This cannot be undone.')) return;
+		try {
+			var res = await fetch('/api/guide-packages/' + pkg.id, { method: 'DELETE', credentials: 'same-origin' });
+			var resp = await res.json();
+			if (res.ok && resp.ok) {
+				window.location.href = backUrl;
+			} else {
+				alert(resp.error || 'Error deleting');
+			}
+		} catch { alert('Network error'); }
+	});
+})();
+</script>
+
+<style>
+.rule-row { border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.75rem; background: #f8fafc; }
+.rule-fields { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+.rule-extra { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; font-size: 0.9rem; }
+.rule-extra label { display: flex; align-items: center; gap: 0.25rem; }
+.tour-style-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .tour-style-grid { grid-template-columns: 1fr; } }
+.tour-style-option { cursor: pointer; }
+.tour-style-option input[type="radio"] { display: none; }
+.tour-style-card { border: 2px solid #e2e8f0; border-radius: 12px; padding: 1.1rem 1.2rem; background: #f8fafc; transition: border-color 0.15s, background 0.15s; }
+.tour-style-card:hover { border-color: #a5b4fc; background: #f5f3ff; }
+.tour-style-option input:checked + .tour-style-card { border-color: #4f46e5; background: #eff6ff; }
+.tour-style-icon { font-size: 1.5rem; display: block; margin-bottom: 0.3rem; }
+.tour-style-card strong { font-size: 1rem; display: block; margin-bottom: 0.25rem; }
+.tour-style-card p { font-size: 0.82rem; color: #64748b; margin: 0; line-height: 1.45; }
+.tier-table-wrap { overflow-x: auto; }
+.tier-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.tier-table th { text-align: left; padding: 0.5rem 0.75rem; background: #f1f5f9; font-size: 0.78rem; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #e2e8f0; }
+.tier-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+.tier-table tr:last-child td { border-bottom: none; }
+.tier-range { color: #64748b; font-size: 0.85rem; }
+.tier-hint { font-size: 0.8rem; }
+.tier-price-input { width: 120px; padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 7px; font-size: 0.9rem; font-family: inherit; }
+.tier-price-input:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+.checkbox-row-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.925rem; font-weight: 500; }
+.checkbox-row-label input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; }
+</style>

@@ -1,0 +1,200 @@
+---
+import Shell from '../../../components/Shell.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { listGuidesForLocale } from '../../../lib/guides-db';
+import { GUIDE_SPECIALTY_LABELS_EN } from '../../../lib/guide-specialties';
+import { type Locale, ui } from '../../../lib/strings';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
+	return new Response(null, { status: 404 });
+}
+const locale = loc as Locale;
+const t = ui[locale];
+const guides = listGuidesForLocale(locale);
+---
+
+<Shell
+	locale={locale}
+	subpath="guides"
+	title={t.guides}
+	seoDescription={t.guidesMetaDescription}
+	canonicalPath={`/${locale}/guides`}
+>
+	<div style="margin-bottom:1.5rem">
+		<h1 style="margin:0 0 0.5rem">{t.guides}</h1>
+		<p class="muted" style="margin:0">
+			{t.guidesIntro}
+		</p>
+	</div>
+
+	{
+		guides.length === 0 ? (
+			<p class="muted">No guides available yet.</p>
+		) : (
+			<div class="guides-grid">
+				{guides.map((g) => {
+					const href = getRelativeLocaleUrl(locale, `guides/${g.slug}`);
+					return (
+						<article class="guide-card">
+							{g.profile_photo ? (
+								<a href={href} class="guide-card__photo-link" tabindex="-1" aria-hidden="true">
+									<img
+										class="guide-card__photo"
+										src={g.profile_photo}
+										alt=""
+										loading="lazy"
+										decoding="async"
+										width="300"
+										height="300"
+									/>
+								</a>
+							) : (
+								<div class="guide-card__photo-placeholder" aria-hidden="true">
+									<span>{g.name.slice(0, 2).toUpperCase()}</span>
+								</div>
+							)}
+							<div class="guide-card__body">
+								<div class="guide-card__name-row">
+									<h2 class="guide-card__name">
+										<a href={href}>{g.name}</a>
+									</h2>
+									{g.verified && (
+										<span class="guide-card__verified" title={t.guideVerified}>✓</span>
+									)}
+								</div>
+								{g.tagline ? (
+									<p class="guide-card__tagline">{g.tagline}</p>
+								) : null}
+								{g.base_location ? (
+									<p class="guide-card__location muted">{g.base_location}</p>
+								) : null}
+								{g.specialties.length > 0 ? (
+									<div class="guide-card__specialties">
+										{g.specialties.map((s) => (
+											<span class="guide-card__specialty-tag">{GUIDE_SPECIALTY_LABELS_EN[s]}</span>
+										))}
+									</div>
+								) : null}
+								<a class="btn guide-card__cta" href={href}>{t.viewGuide}</a>
+							</div>
+						</article>
+					);
+				})}
+			</div>
+		)
+	}
+</Shell>
+
+<style is:global>
+	.guides-grid {
+		display: grid;
+		gap: 1.25rem;
+		grid-template-columns: 1fr;
+	}
+	@media (min-width: 540px) {
+		.guides-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (min-width: 900px) {
+		.guides-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+	@media (min-width: 1200px) {
+		.guides-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	}
+	.guide-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(26,35,50,0.06);
+		display: flex;
+		flex-direction: column;
+	}
+	.guide-card__photo-link { display: block; line-height: 0; }
+	.guide-card__photo {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		display: block;
+	}
+	.guide-card__photo-placeholder {
+		width: 100%;
+		height: 200px;
+		background: var(--accent, #0d9488);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.guide-card__photo-placeholder span {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #fff;
+		opacity: 0.9;
+	}
+	.guide-card__body {
+		padding: 1rem 1.1rem 1.2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		flex: 1;
+	}
+	.guide-card__name-row {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	.guide-card__name {
+		margin: 0;
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+	.guide-card__name a {
+		color: var(--text);
+		text-decoration: none;
+	}
+	.guide-card__name a:hover { text-decoration: underline; }
+	.guide-card__verified {
+		background: var(--accent, #0d9488);
+		color: #fff;
+		font-size: 0.7rem;
+		font-weight: 700;
+		border-radius: 50%;
+		width: 1.35rem;
+		height: 1.35rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+	.guide-card__tagline {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--text);
+		line-height: 1.4;
+	}
+	.guide-card__location {
+		margin: 0;
+		font-size: 0.85rem;
+	}
+	.guide-card__specialties {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+		margin-top: 0.1rem;
+	}
+	.guide-card__specialty-tag {
+		background: color-mix(in srgb, var(--accent, #0d9488) 10%, transparent);
+		color: var(--accent-dim, #0f766e);
+		border: 1px solid color-mix(in srgb, var(--accent, #0d9488) 25%, transparent);
+		border-radius: 4px;
+		padding: 0.15rem 0.45rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+	}
+	.guide-card__cta {
+		margin-top: auto;
+		padding-top: 0.9rem;
+		align-self: flex-start;
+	}
+</style>

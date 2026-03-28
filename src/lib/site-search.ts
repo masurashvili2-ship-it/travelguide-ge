@@ -3,8 +3,9 @@ import { listRegionIndexCards } from './regions-db';
 import type { Locale } from './strings';
 import { isLocale } from './tours-db';
 import { listToursForLocale, listWhatToDoForLocale } from './tours-db';
+import { listGuidesForLocale } from './guides-db';
 
-export type SiteSearchResultKind = 'tour' | 'what-to-do' | 'region' | 'page';
+export type SiteSearchResultKind = 'tour' | 'what-to-do' | 'region' | 'page' | 'guide';
 
 export type SiteSearchResult = {
 	kind: SiteSearchResultKind;
@@ -124,6 +125,26 @@ export function searchSite(locale: Locale, query: string): SiteSearchResult[] {
 			path: `what-to-do/${item.data.slug}`,
 			title: title || slug,
 			snippet: makeSnippet(excerpt || body || title, terms),
+			score,
+		});
+	}
+
+	for (const guide of listGuidesForLocale(locale)) {
+		const name = guide.name ?? '';
+		const tagline = guide.tagline ?? '';
+		const slug = guide.slug ?? '';
+		const score = scoreAgainst(terms, [
+			{ text: name, weight: 14 },
+			{ text: slug, weight: 10 },
+			{ text: tagline, weight: 7 },
+			{ text: guide.base_location ?? '', weight: 4 },
+		]);
+		if (score <= 0) continue;
+		out.push({
+			kind: 'guide',
+			path: `guides/${slug}`,
+			title: name || slug,
+			snippet: makeSnippet(tagline || name, terms),
 			score,
 		});
 	}

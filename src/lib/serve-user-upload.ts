@@ -2,7 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { resolveUploadDir } from './resolve-upload-dir';
 
-const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do)\/(.+)$/;
+const UPLOAD_PATH = /^\/uploads\/(tours|what-to-do|guides)\/(.+)$/;
 
 /**
  * Serves `/uploads/tours/…` and `/uploads/what-to-do/…` from the same dirs the upload APIs write to
@@ -13,7 +13,7 @@ export async function serveUserUploadIfPresent(request: Request): Promise<Respon
 	const pathname = new URL(request.url).pathname;
 	const m = pathname.match(UPLOAD_PATH);
 	if (!m) return null;
-	const kind = m[1] as 'tours' | 'what-to-do';
+	const kind = m[1] as 'tours' | 'what-to-do' | 'guides';
 	const rest = m[2];
 	if (!rest || rest.includes('..')) {
 		return new Response(null, {
