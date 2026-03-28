@@ -51,19 +51,55 @@ Set in App → Environment (runtime):
 
 See `.env.example`. Production **`npm start`** runs `scripts/node-with-uploads.mjs` (not `dist/server/entry.mjs` directly).
 
-## Coolify (Nixpacks)
+## Coolify — persistent data (pushing code does **not** wipe the volume)
 
-Redeploys use a **fresh container filesystem** unless JSON data and uploads live on a **persistent volume**.
+Git push only rebuilds the **image** and replaces the **container**. Your JSON “databases” and uploads are wiped on redeploy **only** when the app still writes to **ephemeral** paths inside the container (`/app/data`, etc.). Fixing that is **configuration**, not a code change: the app already uses `DATA_DIR` and `UPLOAD_ROOT` when you set them.
 
-1. In Coolify → your application → **Persistent Storage**, add a volume and note the **mount path** (often like `/data/coolify/applications/<uuid>`).
-2. Set **runtime** environment variables:
-   - **`DATA_DIR`** = that mount path (same value at build + runtime is fine).
-   - **`UPLOAD_ROOT`** = optional. If omitted, the app uses **`${DATA_DIR}/uploads`** automatically.
-3. **Start command** must be production Node, not `astro dev`. This repo’s **`package.json`** `start` script runs **`node ./scripts/node-with-uploads.mjs`** — use **`npm start`** or that command explicitly.
-4. On boot, logs should include: **`[travelguide] persistent paths: DATA_DIR=… uploads=…`**. If you see **`DATA_DIR not set`**, the app is still using ephemeral `./data` and data will reset when the container is replaced.
-5. Name the session variable **`SESSION_SECRET`** exactly (not `ESSION_SECRET`). It must be available at **runtime** (min 16 characters).
+### 1. Persistent Storage mount path = `DATA_DIR`
 
-After the first successful deploy with a volume, copy/restore any JSON backups into `DATA_DIR` if you are migrating from an old server.
+1. Coolify → **your application** → **Persistent Storage** → add a volume.
+2. Set the volume **destination / mount path** in the container to exactly the directory you will use as `DATA_DIR`, for example `/data/coolify/applications/<uuid>` (Coolify usually shows the full path when you create storage).
+3. **Critical:** `DATA_DIR` in environment variables must be the **same path** as that mount. If they differ, the app writes to a folder that is **not** on the volume → every redeploy looks like a “database wipe”.
+
+### 2. Environment variables (runtime)
+
+Set at least:
+
+| Variable        | Example value |
+|-----------------|---------------|
+| `DATA_DIR`      | `/data/coolify/applications/<your-app-uuid>` |
+| `UPLOAD_ROOT`   | `/data/coolify/applications/<your-app-uuid>/uploads` (optional but explicit is fine) |
+
+- If you **omit** `UPLOAD_ROOT`, the app uses **`${DATA_DIR}/uploads`** automatically (`src/lib/upload-root.ts`).
+- **`SESSION_SECRET`**: runtime, min 16 characters, exact name `SESSION_SECRET`.
+- Prefer marking **`DATA_DIR` / `UPLOAD_ROOT` as runtime-only** if Coolify distinguishes build vs runtime (build does not need the volume to exist).
+
+### 3. Start command
+
+Use production Node, not `astro dev`. Default Docker **`CMD`** is `node ./scripts/node-with-uploads.mjs` (same as **`npm start`**). Do not point Coolify at `dist/server/entry.mjs` alone — you would skip upload serving and data seeding.
+
+### 4. Verify after deploy
+
+Open application **logs** on boot. You should see:
+
+`[travelguide] persistent paths: DATA_DIR=/data/coolify/applications/… uploads=…`
+
+- If you see **`DATA_DIR not set`**, the server is still using **`./data` inside the container** → that folder is recreated empty on every deploy.
+
+You may also see **`[data-seed] seeded …`** lines: on first run, missing files are copied from the image’s baked-in `/app/data` into `DATA_DIR` only if they **don’t** already exist on the volume (existing production files are never overwritten).
+
+### 5. One-time migration (data only lived on old container disk)
+
+If you already had live data under `/app/data` **before** attaching the volume:
+
+1. Open a **terminal / exec** into the **old** container (or restore a backup of `/app/data` and `uploads`).
+2. Copy onto the volume (paths illustrative — use your real `DATA_DIR`):
+
+   `cp -a /app/data/. "$DATA_DIR/"`
+
+3. If uploads were under `/app/dist/client/uploads` or similar, merge them into **`$UPLOAD_ROOT`** (or `$DATA_DIR/uploads`) preserving subfolders `tours`, `what-to-do`, `regions`, `guides`, `packages`.
+
+After this, redeploys keep using the same volume.
 
 ## Local development
 
