@@ -1206,16 +1206,19 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 	/* Hide sidebar from normal layout flow */
 	.pkg-sidebar {
 		position: fixed !important;
+		top: 64px;  /* sit below sticky header (~64px tall on mobile) */
 		bottom: 0;
 		left: 0;
 		right: 0;
+		width: 100%;
+		box-sizing: border-box;
 		z-index: 600;
-		max-height: 92vh;
+		overflow-x: hidden;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 		border-radius: 20px 20px 0 0;
 		box-shadow: 0 -8px 40px rgba(15,23,42,0.22);
-		transform: translateY(100%);
+		transform: translateY(110%);
 		transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
 		padding: 0 !important;
 		order: unset !important;
@@ -1226,10 +1229,15 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 	}
 	/* Sheet inner padding */
 	.pkg-sidebar > * {
-		padding-left: 1.1rem;
-		padding-right: 1.1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+		overflow-wrap: break-word;
+		word-break: break-word;
 	}
-	.pkg-sidebar > *:first-child { padding-top: 1rem; }
+	.pkg-sidebar > *:first-child { padding-top: 0.5rem; }
 	.pkg-sidebar > *:last-child { padding-bottom: 5rem; }
 	/* Drag handle */
 	.pkg-sidebar::before {
@@ -1277,12 +1285,26 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		box-shadow: none !important;
 		border-radius: 0 !important;
 		padding: 0.75rem 0 0 !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
+		overflow: hidden;
 	}
 	.pkg-glance-card {
 		border-radius: 0 !important;
 		border-left: none !important;
 		border-right: none !important;
 		box-shadow: none !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
+	}
+	.tier-card {
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.form-row input,
+	.form-row select,
+	.form-row textarea {
+		max-width: 100%;
 	}
 
 	/* Backdrop */
