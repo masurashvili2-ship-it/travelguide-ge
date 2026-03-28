@@ -47,9 +47,11 @@ a:hover {
 	text-underline-offset: 3px;
 }
 .wrap {
-	max-width: min(1200px, calc(100vw - 2rem));
+	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 1.25rem 3.5rem;
+	box-sizing: border-box;
 }
 /**
  * Blur lives on .site__glass-bg, not on header itself — otherwise `backdrop-filter` on the
@@ -80,9 +82,11 @@ header.site {
 .site__inner {
 	position: relative;
 	z-index: 1;
-	max-width: min(1200px, calc(100vw - 2rem));
+	max-width: 1200px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 1.25rem;
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
