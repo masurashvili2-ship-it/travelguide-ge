@@ -505,6 +505,21 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		</div>
 	</article>
 
+	<!-- Mobile: fixed bottom booking bar -->
+	<div class="pkg-book-bar" id="pkg-book-bar">
+		<div class="pkg-book-bar__price">
+			<span class="pkg-book-bar__amount" id="bar-price-amount">
+				{pkg.tour_style === 'private' && lowestTierPrice ? `${sym}${lowestTierPrice.toFixed(0)}` : `${sym}${pkg.base_price}`}
+			</span>
+			<span class="pkg-book-bar__unit">{pkg.tour_style === 'private' ? '/ group' : '/ person'}</span>
+		</div>
+		<button type="button" class="pkg-book-bar__btn" id="pkg-book-open-btn">
+			Book Now
+		</button>
+	</div>
+	<!-- Mobile: backdrop -->
+	<div class="pkg-book-backdrop" id="pkg-book-backdrop"></div>
+
 	{
 		similarPkgs.length > 0 ? (
 			<section class="similar-tours" data-similar-tours aria-labelledby="similar-pkg-heading">
@@ -584,6 +599,38 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			alreadyReviewedHint: t.tourReviewsAlreadyReviewedHint,
 		}}
 	/>
+
+<script is:inline>
+// ── Mobile bottom sheet ────────────────────────────────
+(function () {
+	var sidebar = document.querySelector('.pkg-sidebar');
+	var backdrop = document.getElementById('pkg-book-backdrop');
+	var openBtn = document.getElementById('pkg-book-open-btn');
+	if (!sidebar || !backdrop || !openBtn) return;
+
+	// Inject sheet header (close button) once
+	var sheetHeader = document.createElement('div');
+	sheetHeader.className = 'pkg-sheet-close';
+	sheetHeader.innerHTML = '<span class="pkg-sheet-close__title">Book this tour</span><button type="button" class="pkg-sheet-close__btn" aria-label="Close">✕</button>';
+	sidebar.insertBefore(sheetHeader, sidebar.firstChild);
+
+	function openSheet() {
+		sidebar.classList.add('sheet-open');
+		backdrop.classList.add('backdrop-open');
+		document.body.style.overflow = 'hidden';
+	}
+	function closeSheet() {
+		sidebar.classList.remove('sheet-open');
+		backdrop.classList.remove('backdrop-open');
+		document.body.style.overflow = '';
+	}
+
+	openBtn.addEventListener('click', openSheet);
+	backdrop.addEventListener('click', closeSheet);
+	sheetHeader.querySelector('button').addEventListener('click', closeSheet);
+	document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
+})();
+</script>
 
 <script is:inline>
 	document.addEventListener('click', function (e) {
@@ -1149,6 +1196,161 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 	font-size: 1.05rem;
 	font-weight: 700;
 	line-height: 1.25;
+}
+
+/* ── Mobile bottom sheet ─────────────────────────────── */
+.pkg-book-bar { display: none; }
+.pkg-book-backdrop { display: none; }
+
+@media (max-width: 860px) {
+	/* Hide sidebar from normal layout flow */
+	.pkg-sidebar {
+		position: fixed !important;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 600;
+		max-height: 92vh;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		border-radius: 20px 20px 0 0;
+		box-shadow: 0 -8px 40px rgba(15,23,42,0.22);
+		transform: translateY(100%);
+		transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+		padding: 0 !important;
+		order: unset !important;
+		background: #fff;
+	}
+	.pkg-sidebar.sheet-open {
+		transform: translateY(0);
+	}
+	/* Sheet inner padding */
+	.pkg-sidebar > * {
+		padding-left: 1.1rem;
+		padding-right: 1.1rem;
+	}
+	.pkg-sidebar > *:first-child { padding-top: 1rem; }
+	.pkg-sidebar > *:last-child { padding-bottom: 5rem; }
+	/* Drag handle */
+	.pkg-sidebar::before {
+		content: '';
+		display: block;
+		width: 40px;
+		height: 4px;
+		background: #cbd5e1;
+		border-radius: 2px;
+		margin: 0.85rem auto 0.5rem;
+		flex-shrink: 0;
+	}
+	/* Sheet close button */
+	.pkg-sheet-close {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.4rem 1.1rem 0.6rem;
+		border-bottom: 1px solid #e2e8f0;
+		margin-bottom: 0.5rem;
+	}
+	.pkg-sheet-close__title {
+		font-size: 1rem;
+		font-weight: 700;
+		color: #0f172a;
+	}
+	.pkg-sheet-close__btn {
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		border: 1px solid #e2e8f0;
+		background: #f8fafc;
+		font-size: 1.1rem;
+		line-height: 1;
+		cursor: pointer;
+		color: #64748b;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	/* Override sticky on mobile (we handle positioning ourselves) */
+	.pkg-booking-card {
+		position: static !important;
+		border: none !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+		padding: 0.75rem 0 0 !important;
+	}
+	.pkg-glance-card {
+		border-radius: 0 !important;
+		border-left: none !important;
+		border-right: none !important;
+		box-shadow: none !important;
+	}
+
+	/* Backdrop */
+	.pkg-book-backdrop {
+		display: block;
+		position: fixed;
+		inset: 0;
+		z-index: 599;
+		background: rgba(15, 23, 42, 0.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+		backdrop-filter: blur(2px);
+	}
+	.pkg-book-backdrop.backdrop-open {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	/* Fixed bottom bar */
+	.pkg-book-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 598;
+		padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+		background: rgba(255,255,255,0.97);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-top: 1px solid #e2e8f0;
+		box-shadow: 0 -4px 20px rgba(15,23,42,0.1);
+		gap: 1rem;
+	}
+	.pkg-book-bar__price {
+		display: flex;
+		align-items: baseline;
+		gap: 0.3rem;
+	}
+	.pkg-book-bar__amount {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: #0f172a;
+	}
+	.pkg-book-bar__unit {
+		font-size: 0.85rem;
+		color: #64748b;
+	}
+	.pkg-book-bar__btn {
+		flex-shrink: 0;
+		padding: 0.7rem 1.6rem;
+		background: var(--accent, #0d9488);
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 700;
+		border: none;
+		border-radius: 12px;
+		cursor: pointer;
+		box-shadow: 0 4px 14px rgba(13,148,136,0.35);
+		transition: background 0.15s, transform 0.1s;
+	}
+	.pkg-book-bar__btn:active { transform: scale(0.97); }
+
+	/* Add bottom padding to page so content isn't hidden behind bar */
+	.pkg-detail { padding-bottom: 5rem; }
 }
 </style>
 </Shell>
