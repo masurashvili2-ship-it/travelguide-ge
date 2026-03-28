@@ -5,6 +5,7 @@ import { listAllPublishedPackages } from '../../../lib/guide-packages-db';
 import { getGuideById } from '../../../lib/guides-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
+import { TOUR_CATEGORY_LABELS_EN } from '../../../lib/tour-categories';
 
 const loc = Astro.params.locale;
 if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') {
@@ -34,18 +35,30 @@ const pkgCards = publishedPackages.map((pkg) => {
 		pkg.tour_style === 'private' && lowestTier != null
 			? `From ${sym}${lowestTier.toFixed(0)} / group`
 			: `From ${sym}${pkg.base_price} / person`;
+	const lowestPrice =
+		pkg.tour_style === 'private' && lowestTier != null ? lowestTier : pkg.base_price;
 	return {
 		sortKey: title.toLocaleLowerCase(locale),
 		title,
 		excerpt,
 		duration: pkg.duration_label ?? `${pkg.duration_hours}h`,
+		durationHours: pkg.duration_hours,
 		priceLine,
+		lowestPrice,
 		href: getRelativeLocaleUrl(locale, `tours/${pkg.slug}`),
 		image: pkg.cover_photo,
 		guideLine: guideName ? `${guideName}` : null,
 		discountPct: maxDiscount,
+		tourStyle: pkg.tour_style,
+		category: pkg.category ?? '',
+		difficulty: pkg.difficulty ?? '',
+		transportIncluded: pkg.transport_included,
 	};
 }).sort((a, b) => a.sortKey.localeCompare(b.sortKey, locale, { sensitivity: 'base' }));
+
+// Collect categories actually used
+const usedCategories = [...new Set(pkgCards.map(c => c.category).filter(Boolean))];
+const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 ---
 
 <Shell
@@ -55,11 +68,95 @@ const pkgCards = publishedPackages.map((pkg) => {
 	seoDescription={t.toursMetaDescription}
 	canonicalPath={`/${locale}/tours`}
 >
-	<h1 style="margin:0 0 1.25rem">{t.tours}</h1>
-	<div class="card-grid">
+	<h1 style="margin:0 0 1rem">{t.tours}</h1>
+
+	<!-- Filter bar -->
+	<div class="tf-bar" id="tour-filters">
+		<!-- Search -->
+		<div class="tf-search-wrap">
+			<svg class="tf-search-icon" viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+			<input
+				id="tf-search"
+				type="search"
+				placeholder="Search tours…"
+				class="tf-search"
+				autocomplete="off"
+			/>
+		</div>
+
+		<!-- Category -->
+		{usedCategories.length > 0 && (
+			<div class="tf-group">
+				<span class="tf-label">Category</span>
+				<div class="tf-pills" id="tf-category" data-filter="category">
+					<button class="tf-pill is-active" data-val="">All</button>
+					{usedCategories.map(cat => (
+						<button class="tf-pill" data-val={cat}>
+							{TOUR_CATEGORY_LABELS_EN[cat as keyof typeof TOUR_CATEGORY_LABELS_EN] ?? cat}
+						</button>
+					))}
+				</div>
+			</div>
+		)}
+
+		<!-- Tour type -->
+		<div class="tf-group">
+			<span class="tf-label">Type</span>
+			<div class="tf-pills" id="tf-style" data-filter="style">
+				<button class="tf-pill is-active" data-val="">All</button>
+				<button class="tf-pill" data-val="group">Group</button>
+				<button class="tf-pill" data-val="private">Private</button>
+			</div>
+		</div>
+
+		<!-- Duration -->
+		<div class="tf-group">
+			<span class="tf-label">Duration</span>
+			<div class="tf-pills" id="tf-duration" data-filter="duration">
+				<button class="tf-pill is-active" data-val="">All</button>
+				<button class="tf-pill" data-val="half">Half day</button>
+				<button class="tf-pill" data-val="full">Full day</button>
+				<button class="tf-pill" data-val="multi">Multi-day</button>
+			</div>
+		</div>
+
+		<!-- Difficulty -->
+		<div class="tf-group">
+			<span class="tf-label">Difficulty</span>
+			<div class="tf-pills" id="tf-difficulty" data-filter="difficulty">
+				<button class="tf-pill is-active" data-val="">All</button>
+				<button class="tf-pill" data-val="easy">Easy</button>
+				<button class="tf-pill" data-val="moderate">Moderate</button>
+				<button class="tf-pill" data-val="challenging">Challenging</button>
+			</div>
+		</div>
+
+		<!-- Transport included -->
+		<div class="tf-group">
+			<span class="tf-label">Transport</span>
+			<div class="tf-pills" id="tf-transport" data-filter="transport">
+				<button class="tf-pill is-active" data-val="">All</button>
+				<button class="tf-pill" data-val="included">Included</button>
+			</div>
+		</div>
+
+		<button class="tf-clear" id="tf-clear" hidden>Clear filters</button>
+	</div>
+
+	<p class="tf-count" id="tf-count" aria-live="polite"></p>
+
+	<div class="card-grid" id="tour-grid">
 		{
 			pkgCards.map((entry) => (
-				<article class="card pkg-card-public">
+				<article
+					class="card pkg-card-public"
+					data-title={entry.title.toLowerCase()}
+					data-category={entry.category}
+					data-style={entry.tourStyle}
+					data-duration={entry.durationHours < 8 ? 'half' : entry.durationHours <= 24 ? 'full' : 'multi'}
+					data-difficulty={entry.difficulty}
+					data-transport={entry.transportIncluded ? 'included' : ''}
+				>
 					{entry.image && (
 						<a href={entry.href} class="tours-merged-card__thumb-link" tabindex="-1" aria-hidden="true">
 							<img src={entry.image} alt="" class="pkg-card-public__img" loading="lazy" width="400" height="225" />
@@ -81,9 +178,192 @@ const pkgCards = publishedPackages.map((pkg) => {
 			))
 		}
 	</div>
+	<p class="tf-empty" id="tf-empty" hidden>No tours match your filters.</p>
 </Shell>
 
+<script is:inline>
+(function () {
+	var searchEl = document.getElementById('tf-search');
+	var grid = document.getElementById('tour-grid');
+	var countEl = document.getElementById('tf-count');
+	var emptyEl = document.getElementById('tf-empty');
+	var clearBtn = document.getElementById('tf-clear');
+	if (!grid) return;
+
+	var cards = Array.from(grid.querySelectorAll('article[data-title]'));
+	var total = cards.length;
+
+	var state = { search: '', category: '', style: '', duration: '', difficulty: '', transport: '' };
+
+	function matches(card) {
+		var d = card.dataset;
+		if (state.search && !d.title.includes(state.search)) return false;
+		if (state.category && d.category !== state.category) return false;
+		if (state.style && d.style !== state.style) return false;
+		if (state.duration && d.duration !== state.duration) return false;
+		if (state.difficulty && d.difficulty !== state.difficulty) return false;
+		if (state.transport && d.transport !== state.transport) return false;
+		return true;
+	}
+
+	function applyFilters() {
+		var shown = 0;
+		cards.forEach(function (c) {
+			var vis = matches(c);
+			c.style.display = vis ? '' : 'none';
+			if (vis) shown++;
+		});
+		var isFiltered = Object.values(state).some(Boolean);
+		if (countEl) countEl.textContent = isFiltered ? shown + ' of ' + total + ' tours' : '';
+		if (emptyEl) emptyEl.hidden = shown > 0;
+		if (clearBtn) clearBtn.hidden = !isFiltered;
+	}
+
+	// Search
+	if (searchEl) {
+		searchEl.addEventListener('input', function () {
+			state.search = this.value.trim().toLowerCase();
+			applyFilters();
+		});
+	}
+
+	// Pill groups
+	document.querySelectorAll('.tf-pills[data-filter]').forEach(function (group) {
+		var key = group.getAttribute('data-filter');
+		group.addEventListener('click', function (e) {
+			var btn = e.target.closest('.tf-pill');
+			if (!btn) return;
+			group.querySelectorAll('.tf-pill').forEach(function (b) { b.classList.remove('is-active'); });
+			btn.classList.add('is-active');
+			state[key] = btn.getAttribute('data-val') || '';
+			applyFilters();
+		});
+	});
+
+	// Clear
+	if (clearBtn) {
+		clearBtn.addEventListener('click', function () {
+			state = { search: '', category: '', style: '', duration: '', difficulty: '', transport: '' };
+			if (searchEl) searchEl.value = '';
+			document.querySelectorAll('.tf-pill').forEach(function (b) {
+				b.classList.toggle('is-active', b.getAttribute('data-val') === '');
+			});
+			applyFilters();
+		});
+	}
+})();
+</script>
+
 <style>
+	/* ── Filter bar ─────────────────────────────────────────── */
+	.tf-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.25rem;
+		align-items: flex-start;
+		background: var(--surface, #f8fafc);
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: 12px;
+		padding: 0.85rem 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.tf-search-wrap {
+		position: relative;
+		flex: 1 1 200px;
+		min-width: 180px;
+	}
+	.tf-search-icon {
+		position: absolute;
+		left: 0.6rem;
+		top: 50%;
+		transform: translateY(-50%);
+		color: var(--muted, #94a3b8);
+		pointer-events: none;
+	}
+	.tf-search {
+		width: 100%;
+		padding: 0.42rem 0.75rem 0.42rem 2rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: 8px;
+		font-size: 0.88rem;
+		background: var(--bg, #fff);
+		color: var(--text, #0f172a);
+		outline: none;
+		box-sizing: border-box;
+	}
+	.tf-search:focus {
+		border-color: var(--accent, #0d9488);
+		box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent, #0d9488) 18%, transparent);
+	}
+
+	.tf-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+	.tf-label {
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		color: var(--muted, #64748b);
+	}
+	.tf-pills {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+	}
+	.tf-pill {
+		padding: 0.25rem 0.7rem;
+		font-size: 0.8rem;
+		font-weight: 500;
+		border-radius: 99px;
+		border: 1px solid var(--border, #e2e8f0);
+		background: var(--bg, #fff);
+		color: var(--text, #0f172a);
+		cursor: pointer;
+		white-space: nowrap;
+		transition: background 0.12s, border-color 0.12s, color 0.12s;
+	}
+	.tf-pill:hover {
+		border-color: var(--accent, #0d9488);
+		color: var(--accent, #0d9488);
+	}
+	.tf-pill.is-active {
+		background: var(--accent, #0d9488);
+		border-color: var(--accent, #0d9488);
+		color: #fff;
+	}
+
+	.tf-clear {
+		align-self: flex-end;
+		padding: 0.3rem 0.75rem;
+		font-size: 0.8rem;
+		border-radius: 8px;
+		border: 1px solid #fca5a5;
+		background: #fee2e2;
+		color: #dc2626;
+		cursor: pointer;
+		font-weight: 500;
+		transition: background 0.12s;
+	}
+	.tf-clear:hover { background: #fecaca; }
+
+	.tf-count {
+		font-size: 0.85rem;
+		color: var(--muted, #64748b);
+		margin: 0 0 0.5rem;
+		min-height: 1.2em;
+	}
+	.tf-empty {
+		text-align: center;
+		color: var(--muted, #64748b);
+		padding: 3rem 1rem;
+		font-size: 1rem;
+	}
+
+	/* ── Cards ──────────────────────────────────────────────── */
 	.tour-badges {
 		display: flex;
 		flex-wrap: wrap;
