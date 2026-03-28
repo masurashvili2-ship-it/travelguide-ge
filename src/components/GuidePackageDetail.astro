@@ -392,7 +392,7 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 									<option value="">— Choose a date —</option>
 									{slots.map((s) => (
 										<option value={s.date}>
-											{s.date}{s.time_start ? ` at ${s.time_start}` : ''} — {s.capacity - s.booked_count} spot{s.capacity - s.booked_count !== 1 ? 's' : ''} left
+											{s.date}{s.time_start ? ` at ${s.time_start}` : ''}
 										</option>
 									))}
 								</select>
