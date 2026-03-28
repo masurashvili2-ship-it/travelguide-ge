@@ -111,8 +111,14 @@ export const POST: APIRoute = async ({ request }) => {
 			headers: { 'Content-Type': 'application/json' },
 		});
 	}
-	if (slot.booked_count + pax > slot.capacity) {
-		return new Response(JSON.stringify({ error: 'Not enough spots available on this date' }), {
+	// Private tours reserve one departure per booking (pax is headcount for pricing only).
+	const capacityUnits = pkg.tour_style === 'private' ? 1 : pax;
+	if (slot.booked_count + capacityUnits > slot.capacity) {
+		const err =
+			pkg.tour_style === 'private'
+				? 'This date is already booked or not available'
+				: 'Not enough spots available on this date';
+		return new Response(JSON.stringify({ error: err }), {
 			status: 400,
 			headers: { 'Content-Type': 'application/json' },
 		});
