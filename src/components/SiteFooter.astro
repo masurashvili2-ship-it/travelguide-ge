@@ -1,7 +1,17 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { marked } from 'marked';
-import { getFooterBlurbMarkdown, getFooterNavForLocale } from '../lib/footer-db';
+import {
+	getFooterBlurbMarkdown,
+	getFooterNavForLocale,
+	getFooterBrandLine,
+	getFooterAboutMarkdown,
+	getFooterExploreHeading,
+	getFooterCompanyHeading,
+	getFooterExploreNavForLocale,
+	getFooterCompanyNavForLocale,
+	type FooterNavEntry,
+} from '../lib/footer-db';
 import type { Locale } from '../lib/strings';
 import { ui } from '../lib/strings';
 
@@ -19,7 +29,23 @@ const footerHasExtras = footerNav.length > 0 || footerBlurbHtml.trim().length > 
 const year = new Date().getFullYear();
 const home = getRelativeLocaleUrl(locale, '/');
 const policyHref = getRelativeLocaleUrl(locale, 'policy');
-const searchHref = getRelativeLocaleUrl(locale, 'search');
+
+const brandLine = getFooterBrandLine(locale) ?? 'TRAVELGEORGIA.GE';
+const exploreHeading = getFooterExploreHeading(locale) ?? t.footerColExplore;
+const companyHeading = getFooterCompanyHeading(locale) ?? t.footerColCompany;
+const exploreNav = getFooterExploreNavForLocale(locale);
+const companyNav = getFooterCompanyNavForLocale(locale);
+
+const aboutMd = getFooterAboutMarkdown(locale);
+const aboutParsed = aboutMd ? marked.parse(aboutMd, { async: false }) : '';
+const aboutHtml = typeof aboutParsed === 'string' ? aboutParsed : '';
+const aboutIsCustom = aboutMd.trim().length > 0;
+
+function footerNavHref(e: FooterNavEntry): string {
+	if (e.kind === 'external') return e.url;
+	if (e.path === '') return home;
+	return getRelativeLocaleUrl(locale, e.path);
+}
 ---
 
 <footer class="site-footer">
@@ -35,31 +61,40 @@ const searchHref = getRelativeLocaleUrl(locale, 'search');
 					decoding="async"
 					loading="lazy"
 				/>
-				<span class="site-footer__brand-text" lang="en" translate="no">TRAVELGEORGIA.GE</span>
+				<span class="site-footer__brand-text" lang="en" translate="no">{brandLine}</span>
 			</a>
-			<p class="site-footer__about">{t.footerAboutText}</p>
+			{
+				aboutIsCustom ? (
+					<div class="site-footer__about site-footer__about--md prose" set:html={aboutHtml} />
+				) : (
+					<p class="site-footer__about">{t.footerAboutText}</p>
+				)
+			}
 		</div>
 
 		<nav class="site-footer__col" aria-labelledby="footer-explore-h">
-			<h2 id="footer-explore-h" class="site-footer__h">{t.footerColExplore}</h2>
+			<h2 id="footer-explore-h" class="site-footer__h">{exploreHeading}</h2>
 			<ul class="site-footer__list">
-				<li><a href={home}>{t.home}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'tours')}>{t.tours}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'what-to-do')}>{t.whatToDo}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'regions')}>{t.regions}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'map')}>{t.map}</a></li>
-				<li><a href={searchHref}>{t.searchButton}</a></li>
+				{exploreNav.map((e) => (
+					<li>
+						<a href={footerNavHref(e)} {...(e.kind === 'external' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+							{e.title}
+						</a>
+					</li>
+				))}
 			</ul>
 		</nav>
 
 		<nav class="site-footer__col" aria-labelledby="footer-company-h">
-			<h2 id="footer-company-h" class="site-footer__h">{t.footerColCompany}</h2>
+			<h2 id="footer-company-h" class="site-footer__h">{companyHeading}</h2>
 			<ul class="site-footer__list">
-				<li><a href={policyHref}>{t.footerPolicy}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'contribute')}>{t.contribute}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'contact')}>{t.contactPageTitle}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'login')}>{t.login}</a></li>
-				<li><a href={getRelativeLocaleUrl(locale, 'register')}>{t.register}</a></li>
+				{companyNav.map((e) => (
+					<li>
+						<a href={footerNavHref(e)} {...(e.kind === 'external' ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+							{e.title}
+						</a>
+					</li>
+				))}
 			</ul>
 		</nav>
 	</div>

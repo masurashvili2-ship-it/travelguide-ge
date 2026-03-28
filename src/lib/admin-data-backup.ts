@@ -260,20 +260,28 @@ function mergeFooterStore(incoming: unknown, existing: unknown | null): { merged
 		exLinks.push(withOrder);
 		added += 1;
 	}
+	const empty3 = { en: '', ka: '', ru: '' };
+	const pickObj = (a: unknown, b: unknown) =>
+		a && typeof a === 'object' && !Array.isArray(a) ? a : b && typeof b === 'object' && !Array.isArray(b) ? b : empty3;
 	const merged = {
 		updated_at: Math.max(
 			typeof ex.updated_at === 'number' ? ex.updated_at : 0,
 			typeof inc.updated_at === 'number' ? inc.updated_at : 0,
 			Date.now(),
 		),
+		brand_title: pickObj(ex.brand_title, inc.brand_title),
+		about_text: pickObj(ex.about_text, inc.about_text),
+		explore_heading: pickObj(ex.explore_heading, inc.explore_heading),
+		company_heading: pickObj(ex.company_heading, inc.company_heading),
+		explore_links: Array.isArray(ex.explore_links) ? ex.explore_links : Array.isArray(inc.explore_links) ? inc.explore_links : [],
+		company_links: Array.isArray(ex.company_links) ? ex.company_links : Array.isArray(inc.company_links) ? inc.company_links : [],
 		links: exLinks,
-		/** Keep local footer text; only new links are appended from the bundle. */
 		blurb:
 			ex.blurb && typeof ex.blurb === 'object'
 				? ex.blurb
 				: inc.blurb && typeof inc.blurb === 'object'
 					? inc.blurb
-					: { en: '', ka: '', ru: '' },
+					: empty3,
 	};
 	return { merged, added };
 }
