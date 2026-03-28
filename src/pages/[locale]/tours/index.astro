@@ -411,18 +411,23 @@ const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 	article.pkg-card-public {
 		display: flex;
 		flex-direction: column;
+		gap: 0.3rem;
 	}
 	article.pkg-card-public .btn {
 		margin-top: auto;
 		align-self: flex-start;
+		padding-top: 0.5rem;
 	}
 	article.pkg-card-public h2 {
 		font-size: 1rem;
-		margin: 0 0 0.3rem;
+		margin: 0;
 		line-height: 1.35;
 	}
 	article.pkg-card-public p.muted {
 		font-size: 0.85rem;
-		margin: 0 0 0.3rem;
+		margin: 0;
+	}
+	article.pkg-card-public .tour-badges {
+		margin: 0.2rem 0 0;
 	}
 </style>
