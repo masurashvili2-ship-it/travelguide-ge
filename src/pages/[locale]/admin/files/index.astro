@@ -27,9 +27,9 @@ const userEmail = Astro.locals.user.email;
 	<div class="fm" id="fm-app" data-api="/api/admin/files">
 		<div class="fm-toolbar">
 			<div class="fm-toolbar__left">
-				<nav class="fm-breadcrumb" id="fm-breadcrumb" aria-label="Location">
-					<span class="fm-breadcrumb__root" data-fm-nav="">Uploads</span>
-				</nav>
+			<nav class="fm-breadcrumb" id="fm-breadcrumb" aria-label="Location">
+				<span class="fm-breadcrumb__root" data-fm-nav="">Files</span>
+			</nav>
 			</div>
 			<div class="fm-toolbar__right">
 				<button type="button" class="fm-btn fm-btn--icon" id="fm-btn-view-grid" title="Grid view" aria-pressed="true">
@@ -129,7 +129,7 @@ const userEmail = Astro.locals.user.email;
 		var root = document.createElement('button');
 		root.type = 'button';
 		root.className = 'fm-breadcrumb__item';
-		root.textContent = 'Uploads';
+		root.textContent = 'Files';
 		root.addEventListener('click', function() { navigateTo(''); });
 		el.appendChild(root);
 		if (!relPath) return;

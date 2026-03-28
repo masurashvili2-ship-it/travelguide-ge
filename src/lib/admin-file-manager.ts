@@ -8,6 +8,7 @@ import {
 	writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
+import { getDataDir } from './data-dir';
 import { getUploadRootBase } from './upload-root';
 
 export type FileManagerEntry = {
@@ -20,20 +21,29 @@ export type FileManagerEntry = {
 	url: string | null;
 };
 
-function getUploadRoot(): string {
-	const root = getUploadRootBase();
-	if (root) return root;
-	const prodClient = path.join(process.cwd(), 'dist', 'client', 'uploads');
+function getRoot(): string {
+	const dataDir = process.env.DATA_DIR?.trim();
+	if (dataDir) return path.resolve(dataDir);
+	// Fallback: use upload root so the file manager still works without DATA_DIR
+	const uploadRoot = getUploadRootBase();
+	if (uploadRoot) return uploadRoot;
 	if (
 		process.env.NODE_ENV === 'production' &&
 		existsSync(path.join(process.cwd(), 'dist', 'client'))
 	) {
-		return prodClient;
+		return path.join(process.cwd(), 'dist', 'client', 'uploads');
 	}
 	return path.join(process.cwd(), 'public', 'uploads');
 }
 
-export const FM_ROOT = getUploadRoot();
+export const FM_ROOT = getRoot();
+
+/** Uploads subdir within FM_ROOT (used for public URL mapping). */
+const UPLOADS_SUBDIR = (() => {
+	const uploadRoot = getUploadRootBase();
+	if (uploadRoot) return path.resolve(uploadRoot);
+	return path.join(FM_ROOT, 'uploads');
+})();
 
 /** Resolve a relative path safely within FM_ROOT, returning null on traversal. */
 export function resolveSafe(rel: string): string | null {
@@ -52,12 +62,16 @@ function extOf(name: string): string {
 	return i >= 0 ? name.slice(i + 1).toLowerCase() : '';
 }
 
-function relUrl(abs: string): string | null {
-	const rel = abs.slice(FM_ROOT.length).replace(/\\/g, '/');
-	if (!rel.startsWith('/uploads/') && !rel.startsWith('/')) return null;
-	// Map abs path to a /uploads/... URL
-	const urlPart = '/uploads' + rel;
-	return urlPart;
+function relUrl(abs: string, relPath: string): string | null {
+	// Files inside the uploads subdir have public /uploads/... URLs
+	const uploadsNorm = UPLOADS_SUBDIR.replace(/\\/g, '/');
+	const absNorm = abs.replace(/\\/g, '/');
+	if (absNorm.startsWith(uploadsNorm + '/') || absNorm === uploadsNorm) {
+		const after = absNorm.slice(uploadsNorm.length);
+		return '/uploads' + after;
+	}
+	// All other files (JSON, etc.) are served via admin download endpoint
+	return `/api/admin/files/raw?path=${encodeURIComponent(relPath)}`;
 }
 
 export function listDirectory(rel: string): { ok: true; entries: FileManagerEntry[]; relPath: string } | { ok: false; error: string } {
@@ -77,7 +91,7 @@ export function listDirectory(rel: string): { ok: true; entries: FileManagerEntr
 				const s = statSync(full);
 				const isDir = s.isDirectory();
 				const relFull = full.slice(FM_ROOT.length).replace(/\\/g, '/').replace(/^\//, '');
-				const url = isDir ? null : relUrl(full);
+				const url = isDir ? null : relUrl(full, relFull);
 				entries.push({
 					name,
 					path: relFull,

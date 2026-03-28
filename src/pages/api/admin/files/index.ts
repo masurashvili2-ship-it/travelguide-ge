@@ -6,7 +6,7 @@ import {
 	moveEntry,
 	renameEntry,
 	saveUploadedFile,
-} from '../../../lib/admin-file-manager';
+} from '../../../../lib/admin-file-manager';
 
 export const prerender = false;
 
