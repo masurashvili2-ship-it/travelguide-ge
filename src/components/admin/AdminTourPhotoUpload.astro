@@ -43,8 +43,8 @@ const widGalleryField = `${widgetPrefix}-gallery-urls`;
 		multiple
 	/>
 	<div class="upload-widget__actions">
-		<button type="button" class="btn btn--ghost" id={widCoverBtn}>Set first file as cover</button>
-		<button type="button" class="btn btn--ghost" id={widGalleryBtn}>Add all files to gallery</button>
+		<button type="button" class="upload-widget__action-btn" id={widCoverBtn}>Set first file as cover</button>
+		<button type="button" class="upload-widget__action-btn" id={widGalleryBtn}>Add all files to gallery</button>
 	</div>
 	<p class="muted upload-widget__status" id={widStatus} aria-live="polite"></p>
 </div>
@@ -82,7 +82,15 @@ const widGalleryField = `${widgetPrefix}-gallery-urls`;
 		gap: 0.5rem;
 		margin-bottom: 0.35rem;
 	}
-	.upload-widget__actions .btn--ghost {
+	/* Dedicated class — avoids global `.btn` (!important color + gradient) and admin `.btn--ghost` overrides */
+	.upload-widget__action-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		font-family: inherit;
+		cursor: pointer;
+		text-decoration: none;
 		background: #fff;
 		color: var(--accent-dim, #0f766e);
 		border: 1px solid color-mix(in srgb, var(--accent, #0d9488) 28%, var(--border, #e2e8f0));
@@ -90,23 +98,26 @@ const widGalleryField = `${widgetPrefix}-gallery-urls`;
 		padding: 0.5rem 1.1rem;
 		font-size: 0.875rem;
 		font-weight: 600;
+		line-height: 1.25;
 		box-shadow:
 			0 2px 14px color-mix(in srgb, var(--accent, #0d9488) 22%, transparent),
 			0 0 0 1px color-mix(in srgb, var(--accent, #0d9488) 8%, transparent);
 		transition:
 			box-shadow 0.18s ease,
 			border-color 0.18s ease,
-			transform 0.15s ease;
+			transform 0.15s ease,
+			background 0.18s ease;
 	}
-	.upload-widget__actions .btn--ghost:hover {
+	.upload-widget__action-btn:hover {
 		background: #fff;
+		color: var(--accent-dim, #0f766e);
 		border-color: color-mix(in srgb, var(--accent, #0d9488) 42%, var(--border, #e2e8f0));
 		box-shadow:
 			0 4px 18px color-mix(in srgb, var(--accent, #0d9488) 28%, transparent),
 			0 0 0 1px color-mix(in srgb, var(--accent, #0d9488) 14%, transparent);
 		transform: translateY(-1px);
 	}
-	.upload-widget__actions .btn--ghost:disabled {
+	.upload-widget__action-btn:disabled {
 		opacity: 0.45;
 		cursor: not-allowed;
 		transform: none;
