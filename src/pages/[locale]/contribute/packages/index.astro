@@ -2,9 +2,9 @@
 import Shell from '../../../../components/Shell.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../lib/strings';
-import { listPackagesForGuide } from '../../../../lib/guide-packages-db';
+import { getPackages, listPackagesForGuide } from '../../../../lib/guide-packages-db';
 import { getGuides } from '../../../../lib/guides-db';
-import { listBookingsForGuide, countPendingBookings } from '../../../../lib/bookings-db';
+import { listBookingsForGuide, listAllBookingsAdmin } from '../../../../lib/bookings-db';
 import '../../../../styles/contribute.css';
 
 export const prerender = false;
@@ -17,12 +17,17 @@ if (!Astro.locals.user) {
 	return Astro.redirect(`${getRelativeLocaleUrl(locale, 'login')}?next=${encodeURIComponent(getRelativeLocaleUrl(locale, 'contribute/packages'))}`);
 }
 const user = Astro.locals.user;
+const isAdmin = user.role === 'admin';
 
 const allGuides = getGuides();
 const myGuide = allGuides.find((g) => g.author_user_id === user.id) ?? null;
 
-const packages = myGuide ? listPackagesForGuide(myGuide.id) : [];
-const bookings = myGuide ? listBookingsForGuide(myGuide.id) : [];
+const packages = isAdmin
+	? [...getPackages()].sort((a, b) => b.updated_at - a.updated_at)
+	: myGuide
+		? listPackagesForGuide(myGuide.id)
+		: [];
+const bookings = isAdmin ? listAllBookingsAdmin() : myGuide ? listBookingsForGuide(myGuide.id) : [];
 const pendingCount = bookings.filter((b) => b.status === 'pending').length;
 
 const newUrl = getRelativeLocaleUrl(locale, 'contribute/packages/new');
@@ -35,14 +40,14 @@ const guideProfileUrl = myGuide
 <Shell
 	locale={locale}
 	subpath="contribute"
-	title="My Tour Packages"
-	seoTitle="My Tour Packages"
+	title={isAdmin ? 'Tour packages' : 'My Tour Packages'}
+	seoTitle={isAdmin ? 'Tour packages' : 'My Tour Packages'}
 	robotsNoindex={true}
 >
 	<div class="contribute-page">
 		<p class="muted" style="margin-top:0"><a href={backUrl}>← Back to Dashboard</a></p>
 		<div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
-			<h1 style="margin:0">My Tour Packages</h1>
+			<h1 style="margin:0">{isAdmin ? 'All tour packages' : 'My Tour Packages'}</h1>
 			{pendingCount > 0 && (
 				<span style="background:#fef3c7;color:#92400e;padding:0.25rem 0.75rem;border-radius:99px;font-size:0.85rem;font-weight:600">
 					{pendingCount} pending booking{pendingCount > 1 ? 's' : ''}
@@ -50,19 +55,28 @@ const guideProfileUrl = myGuide
 			)}
 		</div>
 
-		{!myGuide && (
+		{!isAdmin && !myGuide && (
 			<div class="notice notice-info">
 				<strong>No guide profile found.</strong> You need to create a guide profile before adding tour packages.
 				<a href={guideProfileUrl}>Create guide profile →</a>
 			</div>
 		)}
 
-		{myGuide && (
+		{(isAdmin || myGuide) && (
 			<>
-				<p class="muted">Create and manage your own tour packages with custom pricing, availability calendar, and booking management.</p>
+				<p class="muted">
+					{isAdmin
+						? 'As an admin you can open and edit any guide’s package. Use the admin panel for bulk status actions.'
+						: 'Create and manage your own tour packages with custom pricing, availability calendar, and booking management.'}
+				</p>
 
 				<p style="margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">
-					<a class="btn" href={newUrl}>+ New package</a>
+					{myGuide && <a class="btn" href={newUrl}>+ New package</a>}
+					{isAdmin && (
+						<a class="btn btn-ghost btn-sm" href={getRelativeLocaleUrl(locale, 'admin/packages')}>
+							Admin packages
+						</a>
+					)}
 					{bookings.length > 0 && (
 						<a class="btn btn-ghost btn-sm" href={getRelativeLocaleUrl(locale, `contribute/packages/bookings`)}>
 							View all bookings ({bookings.length})

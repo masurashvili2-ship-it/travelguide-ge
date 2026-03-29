@@ -1134,7 +1134,19 @@ const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 	});
 
 	function getFormData(action) {
-		function fv(n) { return (document.querySelector('[name="' + n + '"]')?.value || '').trim(); }
+		/** Field value by name. Radio groups must use :checked — querySelector('[name=x]') is always the first input. */
+		function fv(n) {
+			var all = document.querySelectorAll('[name="' + n + '"]');
+			if (all.length > 1) {
+				var first = all[0];
+				if (first && first.type === 'radio') {
+					var picked = document.querySelector('[name="' + n + '"]:checked');
+					return picked ? String(picked.value || '').trim() : '';
+				}
+			}
+			var el = document.querySelector('[name="' + n + '"]');
+			return el && 'value' in el ? String(el.value || '').trim() : '';
+		}
 		syncActiveDayFromDom();
 		var galleryRaw = document.getElementById('pkg-gallery-urls');
 		var gallery = galleryRaw
@@ -1191,7 +1203,7 @@ const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 			currency: fv('currency') || 'USD',
 			pricing_rules: collectRules(),
 			transport_included: document.getElementById('transport-included')?.checked || false,
-			transport_type: null,
+			transport_type: pkg.transport_type ?? null,
 			pickup_offered: document.getElementById('pickup-offered')?.checked || false,
 			pickup_notes: fv('pickup_notes') || null,
 			difficulty: fv('difficulty') || null,

@@ -874,6 +874,30 @@ export function buildSavePackageInputFromJsonBody(
 	return base;
 }
 
+/** Keys the contribute edit form may omit; without this, `buildSavePackageInputFromJsonBody` would overwrite with null/[]. */
+const UPDATE_BODY_KEYS_TO_PRESERVE: (keyof Pick<
+	GuidePackage,
+	'category' | 'location' | 'place_ids' | 'physical_rating' | 'driving_distance'
+>)[] = ['category', 'location', 'place_ids', 'physical_rating', 'driving_distance'];
+
+/**
+ * For PUT updates: if the client JSON omitted a field, keep the existing package value.
+ * (The web form does not POST category, map fields, etc.)
+ */
+export function mergeUpdateInputWithPrevPackage(
+	body: Record<string, unknown>,
+	prev: GuidePackage,
+	input: SavePackageInput,
+): SavePackageInput {
+	const out: SavePackageInput = { ...input };
+	for (const k of UPDATE_BODY_KEYS_TO_PRESERVE) {
+		if (!(k in body)) {
+			(out as Record<string, unknown>)[k] = prev[k];
+		}
+	}
+	return out;
+}
+
 export function savePackage(
 	input: SavePackageInput,
 ): { ok: true; id: string } | { ok: false; error: string; errors?: string[] } {

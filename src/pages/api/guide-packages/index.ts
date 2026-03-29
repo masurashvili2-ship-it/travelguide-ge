@@ -52,11 +52,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	const denied = requireUser(locals);
 	if (denied) return denied;
 
-	const guideId =
-		locals.user!.role === 'admin'
-			? ((await request.json().catch(() => null)) as Record<string, unknown> | null)?.guide_id as string | null
-			: getGuideIdForUser(locals.user!.id);
-
 	const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
 	if (!body) {
 		return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
@@ -66,7 +61,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
 	}
 
 	const resolvedGuideId =
-		locals.user!.role === 'admin' ? (body.guide_id as string) : (guideId ?? '');
+		locals.user!.role === 'admin'
+			? (typeof body.guide_id === 'string' ? body.guide_id : '')
+			: (getGuideIdForUser(locals.user!.id) ?? '');
 
 	if (!resolvedGuideId) {
 		return new Response(JSON.stringify({ error: 'No guide profile linked to your account. Create a guide profile first.' }), {

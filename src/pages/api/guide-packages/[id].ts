@@ -14,6 +14,7 @@ import {
 	upsertSlot,
 	deleteSlot,
 	buildSavePackageInputFromJsonBody,
+	mergeUpdateInputWithPrevPackage,
 } from '../../../lib/guide-packages-db';
 import { getGuides } from '../../../lib/guides-db';
 
@@ -106,11 +107,15 @@ export const PUT: APIRoute = async ({ params, request, locals }) => {
 		});
 	}
 
-	const input = buildSavePackageInputFromJsonBody(body, {
-		guideId: pkg.guide_id,
-		mode: 'update',
-		existingId: pkg.id,
-	});
+	const input = mergeUpdateInputWithPrevPackage(
+		body,
+		pkg,
+		buildSavePackageInputFromJsonBody(body, {
+			guideId: pkg.guide_id,
+			mode: 'update',
+			existingId: pkg.id,
+		}),
+	);
 	const result = savePackage(input);
 	if (!result.ok) {
 		return new Response(
