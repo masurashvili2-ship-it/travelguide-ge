@@ -233,6 +233,29 @@ export function isValidGuideId(id: string): boolean {
 	return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
 }
 
+/** Fields for admin “edit as JSON” — `POST /api/admin/guides` with `Content-Type: application/json`. */
+export function guidePostToAdminJsonRecord(post: GuidePost, adminLocale: Locale): Record<string, unknown> {
+	return {
+		intent: 'update',
+		admin_locale: adminLocale,
+		id: post.id,
+		slug: post.slug,
+		profile_photo: post.profile_photo ?? '',
+		gallery: [...post.gallery],
+		social_links: { ...post.social_links },
+		languages_spoken: [...post.languages_spoken],
+		years_experience: post.years_experience,
+		base_location: post.base_location,
+		place_ids: [...post.place_ids],
+		price_from: post.price_from,
+		verified: post.verified,
+		specialties: [...post.specialties],
+		i18n: post.i18n,
+		author_user_id: post.author_user_id,
+		author_email: post.author_email,
+	};
+}
+
 export type SaveGuidePostInput = {
 	id?: string;
 	mode: 'create' | 'update';

@@ -1,5 +1,6 @@
 ---
 import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminEditAsJsonCard from '../../../../../components/admin/AdminEditAsJsonCard.astro';
 import AdminStickySave from '../../../../../components/admin/AdminStickySave.astro';
 import AdminGuideLocalesFields from '../../../../../components/admin/AdminGuideLocalesFields.astro';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
@@ -7,7 +8,7 @@ import AdminWhatToDoSocialLinksCard from '../../../../../components/admin/AdminW
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../../lib/strings';
 import { GUIDE_SPECIALTY_IDS, GUIDE_SPECIALTY_LABELS_EN } from '../../../../../lib/guide-specialties';
-import { getGuideById, isValidGuideId } from '../../../../../lib/guides-db';
+import { getGuideById, guidePostToAdminJsonRecord, isValidGuideId } from '../../../../../lib/guides-db';
 
 const loc = Astro.params.locale;
 const idParam = Astro.params.id;
@@ -175,6 +176,13 @@ const userEmail = Astro.locals.user.email;
 		submitLabel="Update"
 		cancelHref={guidesListUrl}
 		viewMode="guides"
+	/>
+
+	<AdminEditAsJsonCard
+		apiPath="/api/admin/guides"
+		adminLocale={locale}
+		editorId="guide-edit-json"
+		initialRecord={guidePostToAdminJsonRecord(post, locale)}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

@@ -20,7 +20,7 @@ export function parseAdminLocale(fields: Record<string, string>): Locale {
 export function publicContentUrl(
 	request: Request,
 	locale: Locale,
-	kind: 'tours' | 'what-to-do' | 'regions' | 'page',
+	kind: 'tours' | 'what-to-do' | 'regions' | 'page' | 'guides',
 	slug: string,
 ): string {
 	let path: string;
@@ -30,6 +30,8 @@ export function publicContentUrl(
 		path = `/${locale}/tours/${slug}`;
 	} else if (kind === 'what-to-do') {
 		path = `/${locale}/what-to-do/${slug}`;
+	} else if (kind === 'guides') {
+		path = `/${locale}/guides/${slug}`;
 	} else {
 		path = `/${locale}/regions/${slug}`;
 	}
