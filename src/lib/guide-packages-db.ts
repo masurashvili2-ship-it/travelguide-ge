@@ -898,8 +898,14 @@ export function mergeUpdateInputWithPrevPackage(
 	return out;
 }
 
+export type SavePackageOptions = {
+	/** Admin edits: skip completeness checks for published / pending_review */
+	skipReviewValidation?: boolean;
+};
+
 export function savePackage(
 	input: SavePackageInput,
+	opts?: SavePackageOptions,
 ): { ok: true; id: string } | { ok: false; error: string; errors?: string[] } {
 	const slugTrim = input.slug.trim();
 	if (!slugTrim || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/i.test(slugTrim)) {
@@ -924,22 +930,46 @@ export function savePackage(
 			return { ok: false, error: 'Slug already used' };
 		}
 		const prev = store.packages[idx];
-		const mergedI18n = mergePackageI18n(prev.i18n, input.i18n);
+		let privateTiers = input.private_tiers;
+		if (input.tour_style === 'group' && privateTiers.length === 0) {
+			privateTiers = prev.private_tiers;
+		}
+		let minPeople = input.min_people;
+		let maxPeople = input.max_people;
+		let basePrice = input.base_price;
+		if (input.tour_style === 'private') {
+			minPeople = prev.min_people;
+			maxPeople = prev.max_people;
+			if (basePrice <= 0 && prev.base_price > 0) {
+				basePrice = prev.base_price;
+			}
+		}
+		const inputAdjusted: SavePackageInput = {
+			...input,
+			private_tiers: privateTiers,
+			min_people: minPeople,
+			max_people: maxPeople,
+			base_price: basePrice,
+		};
+		const mergedI18n = mergePackageI18n(prev.i18n, inputAdjusted.i18n);
 		const nextTransportNotes =
-			input.tour_style === 'private'
+			inputAdjusted.tour_style === 'private'
 				? null
-				: 'transport_notes' in input
-					? input.transport_notes ?? null
+				: 'transport_notes' in inputAdjusted
+					? inputAdjusted.transport_notes ?? null
 					: prev.transport_notes;
 		const next: GuidePackage = {
 			...prev,
-			...input,
+			...inputAdjusted,
 			slug: slugTrim,
 			i18n: mergedI18n as GuidePackage['i18n'],
 			transport_notes: nextTransportNotes,
 			updated_at: now,
 		};
-		if (next.status === 'pending_review' || next.status === 'published') {
+		if (
+			!opts?.skipReviewValidation &&
+			(next.status === 'pending_review' || next.status === 'published')
+		) {
 			const v = validatePackageForReview(next);
 			if (v.length) return { ok: false, error: v.join('\n'), errors: v };
 		}
@@ -953,7 +983,10 @@ export function savePackage(
 	}
 	const newId = randomUUID();
 	const pkg = guidePackageFromSaveInput(input, newId, now);
-	if (pkg.status === 'pending_review' || pkg.status === 'published') {
+	if (
+		!opts?.skipReviewValidation &&
+		(pkg.status === 'pending_review' || pkg.status === 'published')
+	) {
 		const v = validatePackageForReview(pkg);
 		if (v.length) return { ok: false, error: v.join('\n'), errors: v };
 	}

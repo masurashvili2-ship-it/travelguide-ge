@@ -17,6 +17,8 @@ const registerErrors: Record<string, string> = {
 	password_short: t.registerErrorPasswordShort,
 	password_mismatch: t.registerErrorPasswordMismatch,
 	terms_required: t.registerErrorTermsRequired,
+	missing_full_name: t.registerErrorMissingFullName,
+	missing_phone: t.registerErrorMissingPhone,
 	generic: t.registerErrorGeneric,
 };
 const errMessage = errParam ? registerErrors[errParam] ?? t.registerErrorGeneric : null;
@@ -74,8 +76,16 @@ const googleStartUrl = `/api/auth/google?next=${encodeURIComponent(next)}`;
 	<form class="auth" method="post" action="/api/auth/register" data-auth-form>
 		<input type="hidden" name="next" value={next} />
 		<label>
+			<span>{t.fullLegalName}</span>
+			<input type="text" name="full_name" required autocomplete="name" maxlength="120" />
+		</label>
+		<label>
 			<span>{t.displayName}</span>
-			<input type="text" name="display_name" autocomplete="name" maxlength="120" />
+			<input type="text" name="display_name" autocomplete="nickname" maxlength="120" />
+		</label>
+		<label>
+			<span>{t.accountPhone}</span>
+			<input type="tel" name="phone" required autocomplete="tel" />
 		</label>
 		<label>
 			<span>{t.email}</span>

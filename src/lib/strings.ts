@@ -95,6 +95,14 @@ export const ui: Record<
 		registerErrorGeneric: string;
 		registerErrorPasswordMismatch: string;
 		registerErrorTermsRequired: string;
+		registerErrorMissingFullName: string;
+		registerErrorMissingPhone: string;
+		fullLegalName: string;
+		accountPhone: string;
+		accountFullNameHelp: string;
+		accountPhoneHelp: string;
+		bookingPhoneLabel: string;
+		bookingPhoneRequired: string;
 		displayName: string;
 		passwordConfirm: string;
 		authOrContinueWith: string;
@@ -375,7 +383,15 @@ export const ui: Record<
 		registerErrorGeneric: 'Could not create the account. Please try again.',
 		registerErrorPasswordMismatch: 'Passwords do not match.',
 		registerErrorTermsRequired: 'You must accept the privacy policy to register.',
-		displayName: 'Display name',
+		registerErrorMissingFullName: 'Please enter your full name.',
+		registerErrorMissingPhone: 'Please enter your phone number.',
+		fullLegalName: 'Full name',
+		accountPhone: 'Phone',
+		accountFullNameHelp: 'Your legal or contact name (required). Used for bookings and records.',
+		accountPhoneHelp: 'Include country code if applicable (required).',
+		bookingPhoneLabel: 'Phone',
+		bookingPhoneRequired: 'Please enter your phone number.',
+		displayName: 'Display name (optional)',
 		passwordConfirm: 'Confirm password',
 		authOrContinueWith: 'or continue with',
 		continueWithGoogle: 'Google',
@@ -665,7 +681,15 @@ export const ui: Record<
 		registerErrorGeneric: 'ანგარიშის შექმნა ვერ მოხერხდა. სცადეთ ხელახლა.',
 		registerErrorPasswordMismatch: 'პაროლები არ ემთხვევა.',
 		registerErrorTermsRequired: 'რეგისტრაციისთვის უნდა დაეთანხმოთ კონფიდენციალურობის პოლიტიკას.',
-		displayName: 'სახელი (სურვილისამებრ)',
+		registerErrorMissingFullName: 'მიუთითეთ სრული სახელი.',
+		registerErrorMissingPhone: 'მიუთითეთ ტელეფონის ნომერი.',
+		fullLegalName: 'სრული სახელი',
+		accountPhone: 'ტელეფონი',
+		accountFullNameHelp: 'საკონტაქტო სრული სახელი (სავალდებულო). გამოიყენება ჯავშნებისთვის.',
+		accountPhoneHelp: 'სასურველია ქვეყნის კოდი (სავალდებულო).',
+		bookingPhoneLabel: 'ტელეფონი',
+		bookingPhoneRequired: 'შეიყვანეთ ტელეფონის ნომერი.',
+		displayName: 'სახელი (არასავალდებულო)',
 		passwordConfirm: 'გაიმეორეთ პაროლი',
 		authOrContinueWith: 'ან გააგრძელეთ',
 		continueWithGoogle: 'Google-ით',
@@ -956,7 +980,15 @@ export const ui: Record<
 		registerErrorGeneric: 'Не удалось создать аккаунт. Попробуйте снова.',
 		registerErrorPasswordMismatch: 'Пароли не совпадают.',
 		registerErrorTermsRequired: 'Для регистрации нужно принять политику конфиденциальности.',
-		displayName: 'Имя (необязательно)',
+		registerErrorMissingFullName: 'Укажите полное имя.',
+		registerErrorMissingPhone: 'Укажите номер телефона.',
+		fullLegalName: 'Полное имя',
+		accountPhone: 'Телефон',
+		accountFullNameHelp: 'Полное имя для связи (обязательно). Используется при бронировании.',
+		accountPhoneHelp: 'Укажите код страны при необходимости (обязательно).',
+		bookingPhoneLabel: 'Телефон',
+		bookingPhoneRequired: 'Введите номер телефона.',
+		displayName: 'Имя для отображения (необязательно)',
 		passwordConfirm: 'Повторите пароль',
 		authOrContinueWith: 'или войти через',
 		continueWithGoogle: 'Google',

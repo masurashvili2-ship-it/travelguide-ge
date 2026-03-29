@@ -156,6 +156,12 @@
 	color: #0e7490;
 }
 
+.contribute-page .notice-success {
+	background: #ecfdf5;
+	border: 1px solid #a7f3d0;
+	color: #065f46;
+}
+
 .contribute-page .admin-table {
 	width: 100%;
 	border-collapse: collapse;

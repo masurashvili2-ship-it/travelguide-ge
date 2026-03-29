@@ -22,9 +22,11 @@ interface Props {
 	/** Full path e.g. `/en/tours/my-tour` for canonical + SEO */
 	canonicalPath: string;
 	user?: UserPublic;
+	/** Logged-in traveler defaults for the booking form (still editable) */
+	bookingDefaults?: { fullName: string; email: string; phone: string };
 }
 
-const { locale, pkg, canonicalPath, user } = Astro.props;
+const { locale, pkg, canonicalPath, user, bookingDefaults } = Astro.props;
 const t = ui[locale];
 
 const paySettings = getPaymentSettings();
@@ -498,15 +500,36 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 							<!-- Contact details -->
 							<div class="form-row">
 								<label for="book-name">Your name</label>
-								<input type="text" id="book-name" name="customer_name" required placeholder="Full name" />
+								<input
+									type="text"
+									id="book-name"
+									name="customer_name"
+									required
+									placeholder="Full name"
+									value={bookingDefaults?.fullName ?? ''}
+								/>
 							</div>
 							<div class="form-row">
 								<label for="book-email">Email</label>
-								<input type="email" id="book-email" name="customer_email" required placeholder="your@email.com" />
+								<input
+									type="email"
+									id="book-email"
+									name="customer_email"
+									required
+									placeholder="your@email.com"
+									value={bookingDefaults?.email ?? ''}
+								/>
 							</div>
 							<div class="form-row">
-								<label for="book-phone">Phone (optional)</label>
-								<input type="tel" id="book-phone" name="customer_phone" placeholder="+995 …" />
+								<label for="book-phone">{t.bookingPhoneLabel}</label>
+								<input
+									type="tel"
+									id="book-phone"
+									name="customer_phone"
+									required
+									placeholder="+995 …"
+									value={bookingDefaults?.phone ?? ''}
+								/>
 							</div>
 							<div class="form-row">
 								<label for="book-requests">Special requests (optional)</label>
@@ -743,7 +766,7 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 	});
 </script>
 
-<script is:inline define:vars={{ slotsMapJson, pkgJson }}>
+<script is:inline define:vars={{ slotsMapJson, pkgJson, bookingPhoneRequired: t.bookingPhoneRequired }}>
 (function () {
 	var slotsMap = JSON.parse(slotsMapJson);
 	var pkg = JSON.parse(pkgJson);
@@ -962,7 +985,7 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			tier_id: isPrivate ? (fv('tier_id') || null) : null,
 			customer_name: fv('customer_name'),
 			customer_email: fv('customer_email'),
-			customer_phone: fv('customer_phone') || null,
+			customer_phone: fv('customer_phone'),
 			special_requests: fv('special_requests') || null,
 			payment_method: paymentMethod,
 			locale: document.documentElement.lang || 'en',
@@ -972,6 +995,11 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		if (isPrivate && !payload.tier_id) { errEl.textContent = 'Please select a group size.'; errEl.style.display = 'block'; return; }
 		if (!payload.customer_name) { errEl.textContent = 'Please enter your name.'; errEl.style.display = 'block'; return; }
 		if (!payload.customer_email) { errEl.textContent = 'Please enter your email.'; errEl.style.display = 'block'; return; }
+		if (!payload.customer_phone || payload.customer_phone.length < 6) {
+			errEl.textContent = bookingPhoneRequired;
+			errEl.style.display = 'block';
+			return;
+		}
 
 		var hasPayOptions = document.getElementById('pay-options');
 		if (hasPayOptions && !paymentMethod) {

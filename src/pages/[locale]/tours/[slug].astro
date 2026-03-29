@@ -1,6 +1,7 @@
 ---
 import GuidePackageDetail from '../../../components/GuidePackageDetail.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getStoredUserById } from '../../../lib/auth';
 import { getPublishedPackageBySlug } from '../../../lib/guide-packages-db';
 import { getWhatToDoRowBySlug } from '../../../lib/tours-db';
 import type { Locale } from '../../../lib/strings';
@@ -25,11 +26,22 @@ const block = pkg.i18n[locale] ?? pkg.i18n.en ?? pkg.i18n.ka ?? pkg.i18n.ru;
 if (!block?.title?.trim()) {
 	return new Response(null, { status: 404 });
 }
+
+const sessionUser = Astro.locals.user;
+const storedProfile = sessionUser ? await getStoredUserById(sessionUser.id) : null;
+const bookingDefaults = sessionUser
+	? {
+			fullName: (storedProfile?.fullName ?? '').trim(),
+			email: sessionUser.email,
+			phone: (storedProfile?.phone ?? '').trim(),
+		}
+	: undefined;
 ---
 
 <GuidePackageDetail
 	locale={locale}
 	pkg={pkg}
 	canonicalPath={`/${locale}/tours/${slug}`}
-	user={Astro.locals.user}
+	user={sessionUser}
+	bookingDefaults={bookingDefaults}
 />

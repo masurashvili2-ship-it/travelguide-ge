@@ -19,6 +19,10 @@ function registerErrorCode(message: string): string {
 			return 'terms_required';
 		case 'Passwords do not match':
 			return 'password_mismatch';
+		case 'Full name is required':
+			return 'missing_full_name';
+		case 'Phone number is required':
+			return 'missing_phone';
 		default:
 			return 'generic';
 	}
@@ -31,6 +35,8 @@ export const POST: APIRoute = async ({ request }) => {
 	let next = '/en/';
 
 	let displayName = '';
+	let fullName = '';
+	let phone = '';
 	let passwordConfirm = '';
 	let acceptPolicy = false;
 
@@ -40,6 +46,8 @@ export const POST: APIRoute = async ({ request }) => {
 			password?: string;
 			next?: string;
 			display_name?: string;
+			full_name?: string;
+			phone?: string;
 			password_confirm?: string;
 			accept_policy?: boolean;
 		};
@@ -47,6 +55,8 @@ export const POST: APIRoute = async ({ request }) => {
 		password = body.password ?? '';
 		next = typeof body.next === 'string' ? body.next : '/en/';
 		displayName = typeof body.display_name === 'string' ? body.display_name : '';
+		fullName = typeof body.full_name === 'string' ? body.full_name : '';
+		phone = typeof body.phone === 'string' ? body.phone : '';
 		passwordConfirm = typeof body.password_confirm === 'string' ? body.password_confirm : '';
 		acceptPolicy = body.accept_policy === true;
 	} else {
@@ -55,6 +65,8 @@ export const POST: APIRoute = async ({ request }) => {
 		password = String(form.get('password') ?? '');
 		next = String(form.get('next') ?? '/en/');
 		displayName = String(form.get('display_name') ?? '');
+		fullName = String(form.get('full_name') ?? '');
+		phone = String(form.get('phone') ?? '');
 		passwordConfirm = String(form.get('password_confirm') ?? '');
 		acceptPolicy = form.get('accept_policy') === 'on' || form.get('accept_policy') === 'true';
 	}
@@ -90,6 +102,8 @@ export const POST: APIRoute = async ({ request }) => {
 	}
 
 	const result = await registerUser(email, password, {
+		fullName,
+		phone,
 		displayName: displayName.trim() || undefined,
 	});
 	if (!result.ok) {

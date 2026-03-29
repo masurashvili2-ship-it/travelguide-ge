@@ -30,7 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
 	const tierId = String(body.tier_id ?? '').trim() || null;
 	const customerName = String(body.customer_name ?? '').trim();
 	const customerEmail = String(body.customer_email ?? '').trim();
-	const customerPhone = String(body.customer_phone ?? '').trim() || null;
+	const customerPhone = String(body.customer_phone ?? '').trim();
 	const specialRequests = String(body.special_requests ?? '').trim() || null;
 	const paymentMethodRaw = String(body.payment_method ?? '').trim() || null;
 	const locale = String(body.locale ?? 'en').trim();
@@ -41,8 +41,15 @@ export const POST: APIRoute = async ({ request }) => {
 		? (paymentMethodRaw as ValidMethod)
 		: null;
 
-	if (!packageId || !date || !customerName || !customerEmail) {
+	if (!packageId || !date || !customerName || !customerEmail || !customerPhone) {
 		return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+			status: 400,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	if (customerPhone.length < 6) {
+		return new Response(JSON.stringify({ error: 'Please enter a valid phone number' }), {
 			status: 400,
 			headers: { 'Content-Type': 'application/json' },
 		});

@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { updateUserDisplayName } from '../../../lib/auth';
+import { updateUserProfile } from '../../../lib/auth';
 
 export const PATCH: APIRoute = async ({ locals, request }) => {
 	if (!locals.user) {
@@ -9,9 +9,13 @@ export const PATCH: APIRoute = async ({ locals, request }) => {
 		});
 	}
 
+	let fullName = '';
+	let phone = '';
 	let displayName = '';
 	try {
 		const data = (await request.json()) as Record<string, unknown>;
+		fullName = String(data.fullName ?? '');
+		phone = String(data.phone ?? '');
 		displayName = String(data.displayName ?? '');
 	} catch {
 		return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
@@ -20,7 +24,7 @@ export const PATCH: APIRoute = async ({ locals, request }) => {
 		});
 	}
 
-	const result = await updateUserDisplayName(locals.user.id, displayName);
+	const result = await updateUserProfile(locals.user.id, { fullName, phone, displayName });
 	if (!result.ok) {
 		return new Response(JSON.stringify({ error: result.error }), {
 			status: 400,

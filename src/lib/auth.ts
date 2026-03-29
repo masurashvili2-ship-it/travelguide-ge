@@ -12,7 +12,11 @@ export type StoredUser = {
 	/** bcrypt hash; empty string = OAuth-only (password login disabled) */
 	passwordHash: string;
 	role: UserRole;
-	/** Optional display name from registration or Google */
+	/** Legal / contact full name (required for new accounts; used for bookings) */
+	fullName?: string;
+	/** Contact phone (required for new accounts) */
+	phone?: string;
+	/** Optional nickname shown on the site */
 	displayName?: string;
 	/** Google account id (sub) when linked */
 	googleSub?: string;
@@ -50,15 +54,21 @@ export async function getStoredUserById(id: string): Promise<StoredUser | null> 
 	return users.find((u) => u.id === id) ?? null;
 }
 
-export async function updateUserDisplayName(
+export async function updateUserProfile(
 	userId: string,
-	displayName: string,
+	patch: { fullName: string; phone: string; displayName?: string },
 ): Promise<{ ok: true } | { ok: false; error: string }> {
-	const dn = displayName.trim();
-	if (dn.length > 120) return { ok: false, error: 'Display name is too long' };
+	const fn = patch.fullName.trim();
+	const ph = patch.phone.trim();
+	const dn = patch.displayName?.trim();
+	if (fn.length < 2) return { ok: false, error: 'Full name is required (at least 2 characters)' };
+	if (ph.length < 6) return { ok: false, error: 'Please enter a valid phone number' };
+	if (dn && dn.length > 120) return { ok: false, error: 'Display name is too long' };
 	const users = await readUsers();
 	const u = users.find((x) => x.id === userId);
 	if (!u) return { ok: false, error: 'User not found' };
+	u.fullName = fn;
+	u.phone = ph;
 	if (dn) u.displayName = dn;
 	else delete u.displayName;
 	await writeUsers(users);
@@ -84,7 +94,7 @@ export async function writeUsers(users: StoredUser[]): Promise<void> {
 export async function registerUser(
 	email: string,
 	password: string,
-	options?: { displayName?: string },
+	options: { fullName: string; phone: string; displayName?: string },
 ): Promise<{ ok: true; user: UserPublic } | { ok: false; error: string }> {
 	const normalized = email.trim().toLowerCase();
 	if (!normalized || !normalized.includes('@')) {
@@ -93,18 +103,28 @@ export async function registerUser(
 	if (password.length < 8) {
 		return { ok: false, error: 'Password must be at least 8 characters' };
 	}
+	const fullName = options.fullName.trim();
+	const phone = options.phone.trim();
+	if (fullName.length < 2) {
+		return { ok: false, error: 'Full name is required' };
+	}
+	if (phone.length < 6) {
+		return { ok: false, error: 'Phone number is required' };
+	}
 	const users = await readUsers();
 	if (users.some((u) => u.email === normalized)) {
 		return { ok: false, error: 'Email already registered' };
 	}
 	const passwordHash = await bcrypt.hash(password, 10);
 	const role: UserRole = users.length === 0 ? 'admin' : 'user';
-	const dn = options?.displayName?.trim();
+	const dn = options.displayName?.trim();
 	const user: StoredUser = {
 		id: randomBytes(16).toString('hex'),
 		email: normalized,
 		passwordHash,
 		role,
+		fullName,
+		phone,
 		...(dn ? { displayName: dn } : {}),
 	};
 	users.push(user);
@@ -139,6 +159,7 @@ export async function registerOrLoginGoogleUser(
 		byEmail.googleSub = sub;
 		const dn = displayName?.trim();
 		if (dn && !byEmail.displayName) byEmail.displayName = dn;
+		if (dn && !byEmail.fullName) byEmail.fullName = dn;
 		await writeUsers(users);
 		return { ok: true, user: { id: byEmail.id, email: byEmail.email, role: byEmail.role } };
 	}
@@ -150,7 +171,7 @@ export async function registerOrLoginGoogleUser(
 		passwordHash: '',
 		googleSub: sub,
 		role,
-		...(dn ? { displayName: dn } : {}),
+		...(dn ? { displayName: dn, fullName: dn } : {}),
 	};
 	users.push(user);
 	await writeUsers(users);

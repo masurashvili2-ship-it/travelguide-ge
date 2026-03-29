@@ -23,6 +23,8 @@ const user = Astro.locals.user!;
 
 const profile = await getStoredUserById(user.id);
 const displayName = profile?.displayName?.trim() ?? '';
+const fullName = profile?.fullName?.trim() ?? '';
+const phone = profile?.phone?.trim() ?? '';
 
 const guides = getGuides().filter((g) => g.author_user_id === user.id);
 const primaryGuide = guides[0] ?? null;
@@ -84,26 +86,57 @@ function slugOf(s: ContentSubmission): string {
 			<section class="contribute-card account-dash__card">
 				<h2 class="contribute-card__h">{t.accountProfileTitle}</h2>
 				<div class="contribute-card__bd">
-					<p class="muted" style="margin:0 0 0.75rem;font-size:0.9rem">{t.accountDisplayNameHelp}</p>
+					<p class="muted" style="margin:0 0 0.75rem;font-size:0.9rem">
+						{t.accountFullNameHelp} {t.accountPhoneHelp}
+					</p>
 					<p style="margin:0 0 0.5rem;font-size:0.88rem">
 						<strong>{t.email}</strong>: {user.email}
 					</p>
 					<form
 						id="tg-account-profile-form"
-						class="account-dash__profile-form"
+						class="account-dash__profile-form account-dash__profile-form--stacked"
 						data-saved-msg={t.accountSaved}
 					>
-						<label class="visually-hidden" for="tg-display-name">{t.displayName}</label>
-						<input
-							id="tg-display-name"
-							name="displayName"
-							type="text"
-							class="tg-input"
-							maxlength="120"
-							value={displayName}
-							placeholder={t.displayName}
-							autocomplete="nickname"
-						/>
+						<div class="account-dash__profile-fields">
+							<label class="account-dash__field">
+								<span class="account-dash__field-label">{t.fullLegalName} <em>*</em></span>
+								<input
+									id="tg-full-name"
+									name="fullName"
+									type="text"
+									class="tg-input"
+									required
+									maxlength="120"
+									value={fullName}
+									autocomplete="name"
+								/>
+							</label>
+							<label class="account-dash__field">
+								<span class="account-dash__field-label">{t.accountPhone} <em>*</em></span>
+								<input
+									id="tg-phone"
+									name="phone"
+									type="tel"
+									class="tg-input"
+									required
+									maxlength="40"
+									value={phone}
+									autocomplete="tel"
+								/>
+							</label>
+							<label class="account-dash__field">
+								<span class="account-dash__field-label">{t.displayName}</span>
+								<input
+									id="tg-display-name"
+									name="displayName"
+									type="text"
+									class="tg-input"
+									maxlength="120"
+									value={displayName}
+									autocomplete="nickname"
+								/>
+							</label>
+						</div>
 						<button type="submit" class="button button-primary">{t.accountSave}</button>
 					</form>
 					<p id="tg-profile-form-msg" class="muted" style="margin:0.5rem 0 0;min-height:1.25rem;font-size:0.88rem" role="status"></p>
@@ -244,17 +277,23 @@ function slugOf(s: ContentSubmission): string {
 <script>
 	const form = document.getElementById('tg-account-profile-form') as HTMLFormElement | null;
 	const msg = document.getElementById('tg-profile-form-msg');
-	const input = document.getElementById('tg-display-name') as HTMLInputElement | null;
+	const fullNameEl = document.getElementById('tg-full-name') as HTMLInputElement | null;
+	const phoneEl = document.getElementById('tg-phone') as HTMLInputElement | null;
+	const displayNameEl = document.getElementById('tg-display-name') as HTMLInputElement | null;
 	const savedMsg = form?.dataset.savedMsg || 'Saved.';
 	form?.addEventListener('submit', async (e) => {
 		e.preventDefault();
-		if (!msg || !input) return;
+		if (!msg || !fullNameEl || !phoneEl || !displayNameEl) return;
 		msg.textContent = '';
 		const res = await fetch('/api/account/profile', {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json' },
 			credentials: 'same-origin',
-			body: JSON.stringify({ displayName: input.value }),
+			body: JSON.stringify({
+				fullName: fullNameEl.value,
+				phone: phoneEl.value,
+				displayName: displayNameEl.value,
+			}),
 		});
 		const data = await res.json().catch(() => ({}));
 		if (!res.ok) {
@@ -316,13 +355,35 @@ function slugOf(s: ContentSubmission): string {
 	.account-dash__profile-form {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
-		align-items: center;
+		gap: 0.75rem;
+		align-items: flex-end;
 		margin-top: 0.5rem;
 	}
+	.account-dash__profile-form--stacked {
+		flex-direction: column;
+		align-items: stretch;
+	}
+	.account-dash__profile-fields {
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+		width: 100%;
+		max-width: 28rem;
+	}
+	.account-dash__field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin: 0;
+	}
+	.account-dash__field-label {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--muted, #64748b);
+	}
 	.account-dash__profile-form .tg-input {
-		flex: 1 1 12rem;
-		min-width: 0;
+		width: 100%;
+		box-sizing: border-box;
 		padding: 0.5rem 0.65rem;
 		border: 1px solid var(--border, #e2e8f0);
 		border-radius: var(--radius-sm, 8px);

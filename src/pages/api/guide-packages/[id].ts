@@ -96,12 +96,14 @@ export const PUT: APIRoute = async ({ params, request, locals }) => {
 		'status' in body &&
 		['draft', 'pending_review', 'published'].includes(body.status as string);
 
+	const adminSkip = locals.user?.role === 'admin';
+
 	if (statusOnlyUpdate) {
 		const input = buildSavePackageInputFromJsonBody(
 			{ ...pkg, status: body.status },
 			{ guideId: pkg.guide_id, mode: 'update', existingId: pkg.id },
 		);
-		const result = savePackage(input);
+		const result = savePackage(input, { skipReviewValidation: adminSkip });
 		return new Response(JSON.stringify(result), {
 			headers: { 'Content-Type': 'application/json' },
 		});
@@ -116,7 +118,7 @@ export const PUT: APIRoute = async ({ params, request, locals }) => {
 			existingId: pkg.id,
 		}),
 	);
-	const result = savePackage(input);
+	const result = savePackage(input, { skipReviewValidation: adminSkip });
 	if (!result.ok) {
 		return new Response(
 			JSON.stringify({

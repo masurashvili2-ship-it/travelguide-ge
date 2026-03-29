@@ -910,7 +910,7 @@ const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 					.join('') +
 				'</ul>';
 		}
-		statusEl.className = 'notice ' + (isError ? 'notice-error' : 'notice-info');
+		statusEl.className = 'notice ' + (isError ? 'notice-error' : 'notice-success');
 		statusEl.style.display = 'block';
 		statusEl.setAttribute('role', 'alert');
 		try {
@@ -1253,7 +1253,7 @@ const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 			showPkgFormMessage(statusEl, submitBtn, ['English title is required.'], true);
 			return;
 		}
-		if (data.status === 'pending_review' || data.status === 'published') {
+		if (!isAdmin && (data.status === 'pending_review' || data.status === 'published')) {
 			var revErrs = reviewValidationErrors(data);
 			if (revErrs.length) {
 				showPkgFormMessage(statusEl, submitBtn, revErrs, true);
@@ -1277,6 +1277,10 @@ const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 				resp = { error: rawText || res.statusText || 'Invalid server response' };
 			}
 			if (res.ok && resp.ok !== false) {
+				if (isAdmin) {
+					showPkgFormMessage(statusEl, submitBtn, ['Package saved.'], false);
+					return;
+				}
 				window.location.href = backUrl;
 				return;
 			}
