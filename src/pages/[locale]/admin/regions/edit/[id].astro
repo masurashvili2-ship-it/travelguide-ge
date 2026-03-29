@@ -1,5 +1,6 @@
 ---
 import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminEditAsJsonCard from '../../../../../components/admin/AdminEditAsJsonCard.astro';
 import AdminRegionLocalesFields from '../../../../../components/admin/AdminRegionLocalesFields.astro';
 import AdminStickySave from '../../../../../components/admin/AdminStickySave.astro';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
@@ -7,6 +8,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import {
 	getRegionPostById,
 	listRegionsForParentSelect,
+	regionPostToAdminJsonRecord,
 } from '../../../../../lib/regions-db';
 import type { Locale } from '../../../../../lib/strings';
 import { isValidTourId } from '../../../../../lib/tours-db';
@@ -308,6 +310,13 @@ const locPin = post.location;
 		submitLabel="Save changes"
 		cancelHref={regionsListUrl}
 		viewMode="regions"
+	/>
+
+	<AdminEditAsJsonCard
+		apiPath="/api/admin/regions"
+		adminLocale={locale}
+		editorId="region-edit-json"
+		initialRecord={regionPostToAdminJsonRecord(post, locale)}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

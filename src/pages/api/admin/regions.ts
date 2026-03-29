@@ -1,11 +1,18 @@
 import type { APIRoute } from 'astro';
 import type { Locale } from '../../../lib/strings';
-import { parseAdminLocale, publicContentUrl, wantsJsonApiResponse } from '../../../lib/admin-save-response';
+import {
+	isJsonRequestBody,
+	parseAdminLocale,
+	publicContentUrl,
+	wantsJsonApiResponse,
+} from '../../../lib/admin-save-response';
 import {
 	isValidSlug,
 	isValidTourId,
 	normalizeTourGalleryInput,
+	parseTourLocation,
 	parseTourLocationFromForm,
+	type TourLocation,
 } from '../../../lib/tours-db';
 import {
 	deleteRegionPost,
@@ -68,11 +75,215 @@ function parseLevelAndParent(fields: Record<string, string>): {
 	return { ok: true, level, parent_id: parentTrim };
 }
 
+function parseJsonNumberField(val: unknown): number | null {
+	if (val == null || val === '') return null;
+	if (typeof val === 'number' && Number.isFinite(val)) return val;
+	if (typeof val === 'string') {
+		const t = val.trim();
+		if (!t) return null;
+		const n = parseFloat(t);
+		return Number.isFinite(n) ? n : null;
+	}
+	return null;
+}
+
+function optionalJsonNumber(j: Record<string, unknown>, key: string): number | null | undefined {
+	if (!(key in j)) return undefined;
+	return parseJsonNumberField(j[key]);
+}
+
+function optionalJsonStringNull(j: Record<string, unknown>, key: string): string | null | undefined {
+	if (!(key in j)) return undefined;
+	const v = j[key];
+	if (v == null) return null;
+	const t = String(v).trim();
+	return t ? t : null;
+}
+
+function buildRegionI18nFromJson(i18nRaw: unknown): Partial<Record<Locale, RegionLocaleBlock>> {
+	const i18n: Partial<Record<Locale, RegionLocaleBlock>> = {};
+	if (!i18nRaw || typeof i18nRaw !== 'object' || Array.isArray(i18nRaw)) return i18n;
+	for (const loc of LOCALES) {
+		const rawBlock = (i18nRaw as Record<string, unknown>)[loc];
+		if (!rawBlock || typeof rawBlock !== 'object') continue;
+		const o = rawBlock as Record<string, unknown>;
+		const title = String(o.title ?? '').trim();
+		const excerpt = String(o.excerpt ?? '').trim();
+		if (!title && !excerpt) continue;
+		const sub = o.subtitle;
+		i18n[loc] = {
+			title,
+			subtitle: sub == null || sub === '' ? null : String(sub).trim() || null,
+			excerpt,
+			seo_title: o.seo_title == null || o.seo_title === '' ? null : String(o.seo_title),
+			seo_description:
+				o.seo_description == null || o.seo_description === '' ? null : String(o.seo_description),
+			body: String(o.body ?? ''),
+		};
+	}
+	return i18n;
+}
+
 export const POST: APIRoute = async ({ request, locals }) => {
 	const denied = requireAdmin(locals);
 	if (denied) return denied;
 
 	const ct = request.headers.get('content-type') ?? '';
+
+	if (isJsonRequestBody(ct)) {
+		let j: Record<string, unknown>;
+		try {
+			j = (await request.json()) as Record<string, unknown>;
+		} catch {
+			return new Response(JSON.stringify({ error: 'Invalid JSON body' }), {
+				status: 400,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+		const fields = Object.fromEntries(Object.entries(j).map(([k, v]) => [k, v == null ? '' : String(v)]));
+
+		if (j.intent === 'delete') {
+			const id = String(j.id ?? '').trim();
+			if (!id) {
+				return new Response(JSON.stringify({ error: 'Missing place id' }), {
+					status: 400,
+					headers: { 'Content-Type': 'application/json' },
+				});
+			}
+			const del = deleteRegionPost(id);
+			if (!del.ok) {
+				return new Response(JSON.stringify({ error: del.error }), {
+					status: 400,
+					headers: { 'Content-Type': 'application/json' },
+				});
+			}
+			return new Response(JSON.stringify({ ok: true }), {
+				status: 200,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
+		const intent = j.intent === 'update' ? 'update' : 'create';
+		const slug = String(j.slug ?? '').trim();
+		const id = j.id != null ? String(j.id).trim() : '';
+
+		if (intent === 'update' && (!id || !isValidTourId(id))) {
+			return new Response(JSON.stringify({ error: 'Missing or invalid place id for update' }), {
+				status: 400,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
+		if (!slug || !isValidSlug(slug)) {
+			return new Response(JSON.stringify({ error: 'Invalid or missing slug' }), {
+				status: 400,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
+		const level = parseRegionLevel(String(j.level ?? ''));
+		if (!level) {
+			return new Response(JSON.stringify({ error: 'Invalid level (region, municipality, or village)' }), {
+				status: 400,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
+		let parent_id: string | null;
+		if (level === 'region') {
+			parent_id = null;
+		} else {
+			const p = j.parent_id;
+			if (p == null || p === '') {
+				return new Response(JSON.stringify({ error: 'Choose a parent region or municipality' }), {
+					status: 400,
+					headers: { 'Content-Type': 'application/json' },
+				});
+			}
+			const ps = String(p).trim();
+			if (!isValidTourId(ps)) {
+				return new Response(JSON.stringify({ error: 'Invalid parent id' }), {
+					status: 400,
+					headers: { 'Content-Type': 'application/json' },
+				});
+			}
+			parent_id = ps;
+		}
+
+		let locationField: TourLocation | null | undefined;
+		if (!('location' in j)) {
+			locationField = undefined;
+		} else if (j.location === null) {
+			locationField = null;
+		} else {
+			const parsed = parseTourLocation(j.location);
+			if (!parsed) {
+				return new Response(
+					JSON.stringify({
+						error: 'Invalid location: expected { lat, lng } (numbers) and optional label (string)',
+					}),
+					{ status: 400, headers: { 'Content-Type': 'application/json' } },
+				);
+			}
+			locationField = parsed;
+		}
+
+		let galleryUrls: string[] | undefined;
+		if (!('gallery' in j)) galleryUrls = undefined;
+		else galleryUrls = normalizeTourGalleryInput(j.gallery);
+
+		const i18n = buildRegionI18nFromJson(j.i18n);
+
+		let imageInput: string | null | undefined;
+		if (!('image' in j)) imageInput = undefined;
+		else {
+			const im = j.image;
+			imageInput = im == null || im === '' ? null : String(im).trim() || null;
+		}
+
+		const result = saveRegionPost({
+			id: intent === 'update' ? id : undefined,
+			slug,
+			level,
+			parent_id,
+			image: imageInput,
+			gallery: galleryUrls,
+			location: locationField,
+			population: optionalJsonNumber(j, 'population'),
+			area_km2: optionalJsonNumber(j, 'area_km2'),
+			elevation_m: optionalJsonNumber(j, 'elevation_m'),
+			admin_center_name: optionalJsonStringNull(j, 'admin_center_name'),
+			iso_3166_2: optionalJsonStringNull(j, 'iso_3166_2'),
+			official_code: optionalJsonStringNull(j, 'official_code'),
+			official_website: optionalJsonStringNull(j, 'official_website'),
+			wikipedia_url: optionalJsonStringNull(j, 'wikipedia_url'),
+			wikidata_id: optionalJsonStringNull(j, 'wikidata_id'),
+			geonames_id: optionalJsonStringNull(j, 'geonames_id'),
+			settlement_type: optionalJsonStringNull(j, 'settlement_type'),
+			i18n,
+			mode: intent,
+		});
+
+		if (!result.ok) {
+			return new Response(JSON.stringify({ error: result.error }), {
+				status: intent === 'create' ? 409 : 400,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
+		const loc = parseAdminLocale(fields);
+		return new Response(
+			JSON.stringify({
+				ok: true,
+				publicUrl: publicContentUrl(request, loc, 'regions', slug),
+			}),
+			{
+				status: 200,
+				headers: { 'Content-Type': 'application/json' },
+			},
+		);
+	}
+
 	const respondJson = wantsJsonApiResponse(request, false);
 
 	let fields: Record<string, string> = {};

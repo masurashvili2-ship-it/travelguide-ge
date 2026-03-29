@@ -1,0 +1,118 @@
+---
+import type { Locale } from '../../lib/strings';
+
+interface Props {
+	apiPath: string;
+	adminLocale: Locale;
+	initialRecord: Record<string, unknown>;
+	editorId: string;
+}
+
+const { apiPath, adminLocale, initialRecord, editorId } = Astro.props;
+const safePayload = JSON.stringify(initialRecord).replace(/</g, '\\u003c');
+const prettyInitial = JSON.stringify(initialRecord, null, 2);
+---
+
+<section class="admin-card admin-edit-json" aria-labelledby={`${editorId}-json-heading`}>
+	<h2 class="admin-card__h" id={`${editorId}-json-heading`}>Edit as JSON</h2>
+	<div class="admin-card__bd">
+		<p class="muted" style="margin:0 0 0.75rem">
+			Full record as sent to the admin API (<code>application/json</code>). Fix parse errors below, then save. The page
+			reloads after a successful save. For new images, upload in the form above and paste URLs here if needed.
+		</p>
+		<label class="visually-hidden" for={`${editorId}-json-ta`}>JSON record</label>
+		<textarea
+			id={`${editorId}-json-ta`}
+			class="admin-edit-json__ta"
+			spellcheck="false"
+			rows="24"
+			autocomplete="off">{prettyInitial}</textarea>
+		<p id={`${editorId}-json-msg`} class="admin-edit-json__msg" role="status"></p>
+		<div class="row" style="gap:0.5rem;flex-wrap:wrap">
+			<button type="button" class="button button-primary" id={`${editorId}-json-save`}>Save JSON</button>
+			<button type="button" class="button" id={`${editorId}-json-reset`}>Reset to original</button>
+		</div>
+	</div>
+</section>
+
+<style>
+	.admin-edit-json__ta {
+		width: 100%;
+		font-family: ui-monospace, monospace;
+		font-size: 0.8rem;
+		line-height: 1.35;
+		padding: 0.65rem 0.75rem;
+		border: 1px solid var(--color-border, #ccc);
+		border-radius: 6px;
+		resize: vertical;
+		min-height: 12rem;
+	}
+	.admin-edit-json__msg {
+		margin: 0.5rem 0;
+		min-height: 1.25em;
+		color: var(--color-text-muted, #666);
+	}
+	.admin-edit-json__msg[data-tone='error'] {
+		color: #b91c1c;
+	}
+</style>
+
+<script define:vars={{ apiPath, adminLocale, editorId, safePayload }}>
+	(function () {
+		var ta = document.getElementById(editorId + '-json-ta');
+		var msg = document.getElementById(editorId + '-json-msg');
+		var saveBtn = document.getElementById(editorId + '-json-save');
+		var resetBtn = document.getElementById(editorId + '-json-reset');
+		if (!ta || !msg || !saveBtn || !resetBtn) return;
+		function setMsg(text, tone) {
+			msg.textContent = text || '';
+			if (tone === 'error') msg.setAttribute('data-tone', 'error');
+			else msg.removeAttribute('data-tone');
+		}
+		var baselinePretty = '';
+		try {
+			baselinePretty = JSON.stringify(JSON.parse(safePayload), null, 2);
+		} catch {
+			baselinePretty = ta.value;
+		}
+		resetBtn.addEventListener('click', function () {
+			ta.value = baselinePretty;
+			setMsg('');
+		});
+		saveBtn.addEventListener('click', function () {
+			var body;
+			try {
+				body = JSON.parse(ta.value);
+			} catch (e) {
+				setMsg('Invalid JSON: ' + (e instanceof Error ? e.message : String(e)), 'error');
+				return;
+			}
+			if (typeof body !== 'object' || body === null || Array.isArray(body)) {
+				setMsg('Root must be a JSON object.', 'error');
+				return;
+			}
+			body.admin_locale = adminLocale;
+			setMsg('Saving…');
+			fetch(apiPath, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+				body: JSON.stringify(body),
+			})
+				.then(function (res) {
+					return res.json().then(function (data) {
+						return { res: res, data: data };
+					});
+				})
+				.then(function (ref) {
+					if (!ref.res.ok) {
+						setMsg(typeof ref.data.error === 'string' ? ref.data.error : 'Save failed (' + ref.res.status + ')', 'error');
+						return;
+					}
+					location.reload();
+				})
+				.catch(function () {
+					setMsg('Network error.', 'error');
+				});
+		});
+	})();
+</script>

@@ -583,6 +583,27 @@ export function invalidateWhatToDoCache() {
 	postCache.delete('what-to-do');
 }
 
+/** Fields for admin “edit as JSON” — matches `POST /api/admin/what-to-do` with `Content-Type: application/json`. */
+export function whatToDoPostToAdminJsonRecord(post: TourPost, adminLocale: Locale): Record<string, unknown> {
+	return {
+		intent: 'update',
+		admin_locale: adminLocale,
+		id: post.id,
+		slug: post.slug,
+		image: post.image ?? '',
+		gallery: [...post.gallery],
+		i18n: post.i18n,
+		location: post.location,
+		categories: [...post.whatDoCategories],
+		seasons: [...post.whatDoSeasons],
+		place_ids: [...(post.place_ids ?? [])],
+		physical_rating: post.physical_rating,
+		driving_distance: post.driving_distance,
+		google_directions_url: post.google_directions_url,
+		social_links: { ...post.social_links },
+	};
+}
+
 function postToDiskJson(_kind: ContentPostKind, post: TourPost): Record<string, unknown> {
 	const { whatDoCategories, whatDoSeasons, category: _cat, ...rest } = post;
 	return { ...rest, categories: whatDoCategories, seasons: whatDoSeasons };

@@ -1,5 +1,6 @@
 ---
 import AdminLayout from '../../../../../components/admin/AdminLayout.astro';
+import AdminEditAsJsonCard from '../../../../../components/admin/AdminEditAsJsonCard.astro';
 import AdminStickySave from '../../../../../components/admin/AdminStickySave.astro';
 import AdminWhatToDoSocialLinksCard from '../../../../../components/admin/AdminWhatToDoSocialLinksCard.astro';
 import AdminTourLocalesFields from '../../../../../components/admin/AdminTourLocalesFields.astro';
@@ -18,7 +19,7 @@ import {
 } from '../../../../../lib/what-to-do-seasons';
 import { PHYSICAL_RATING_IDS, PHYSICAL_RATING_LABELS_EN } from '../../../../../lib/tour-physical-rating';
 import { listRegionsForWhatToDoPicker } from '../../../../../lib/regions-db';
-import { getWhatToDoPostById, isValidTourId } from '../../../../../lib/tours-db';
+import { getWhatToDoPostById, isValidTourId, whatToDoPostToAdminJsonRecord } from '../../../../../lib/tours-db';
 
 const loc = Astro.params.locale;
 const idParam = Astro.params.id;
@@ -277,6 +278,13 @@ const placesForPicker = listRegionsForWhatToDoPicker();
 		submitLabel="Update"
 		cancelHref={wtdListUrl}
 		viewMode="what-to-do"
+	/>
+
+	<AdminEditAsJsonCard
+		apiPath="/api/admin/what-to-do"
+		adminLocale={locale}
+		editorId="wtd-edit-json"
+		initialRecord={whatToDoPostToAdminJsonRecord(post, locale)}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

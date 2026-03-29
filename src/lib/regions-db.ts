@@ -82,6 +82,33 @@ export type AdminRegionListItem = {
 	locales: Locale[];
 };
 
+/** Fields for admin “edit as JSON” — matches `POST /api/admin/regions` with `Content-Type: application/json`. */
+export function regionPostToAdminJsonRecord(post: RegionPost, adminLocale: Locale): Record<string, unknown> {
+	return {
+		intent: 'update',
+		admin_locale: adminLocale,
+		id: post.id,
+		slug: post.slug,
+		level: post.level,
+		parent_id: post.parent_id,
+		image: post.image ?? '',
+		gallery: [...post.gallery],
+		location: post.location,
+		population: post.population,
+		area_km2: post.area_km2,
+		elevation_m: post.elevation_m,
+		admin_center_name: post.admin_center_name,
+		iso_3166_2: post.iso_3166_2,
+		official_code: post.official_code,
+		official_website: post.official_website,
+		wikipedia_url: post.wikipedia_url,
+		wikidata_id: post.wikidata_id,
+		geonames_id: post.geonames_id,
+		settlement_type: post.settlement_type,
+		i18n: post.i18n,
+	};
+}
+
 export type RegionPublicRow = {
 	id: string;
 	slug: string;
