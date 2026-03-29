@@ -76,14 +76,49 @@ const LEVEL_FILTERS = [
 	<section class="admin-card">
 		<h2 class="admin-card__h">All places</h2>
 		<div class="admin-card__bd">
-			<p style="margin:0 0 1rem">
-				<a class="button button-primary" href={newRegionUrl}>
-					Add new place
-				</a>
-				<a class="button" href={dashboardUrl} style="margin-left:0.35rem">
-					Dashboard
-				</a>
-			</p>
+		<p style="margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center">
+			<a class="button button-primary" href={newRegionUrl}>
+				Add new place
+			</a>
+			<a class="button" href={dashboardUrl}>
+				Dashboard
+			</a>
+			<button id="import-villages-btn" class="button" type="button" style="background:#0ea5e9;color:#fff;border-color:#0ea5e9">
+				⬇ Import villages from Wikidata
+			</button>
+		</p>
+		<div id="import-villages-status" style="display:none;margin:0.75rem 0 0;padding:0.75rem 1rem;border-radius:8px;font-size:0.92rem"></div>
+		<script is:inline>
+		document.getElementById('import-villages-btn')?.addEventListener('click', async function() {
+			const btn = this;
+			const status = document.getElementById('import-villages-status');
+			btn.disabled = true;
+			btn.textContent = '⏳ Importing… (this may take ~30s)';
+			status.style.display = 'block';
+			status.style.background = '#f0f9ff';
+			status.style.border = '1px solid #bae6fd';
+			status.textContent = 'Querying Wikidata SPARQL endpoint…';
+			try {
+				const res = await fetch('/api/admin/import-villages', { method: 'POST' });
+				const data = await res.json();
+				if (data.ok) {
+					status.style.background = '#f0fdf4';
+					status.style.border = '1px solid #86efac';
+					status.innerHTML = '✅ ' + data.message + (data.total_added > 0 ? ' <strong>Reload the page to see updates.</strong>' : '');
+				} else {
+					status.style.background = '#fef2f2';
+					status.style.border = '1px solid #fca5a5';
+					status.textContent = '❌ ' + (data.error ?? 'Import failed');
+				}
+			} catch (e) {
+				status.style.background = '#fef2f2';
+				status.style.border = '1px solid #fca5a5';
+				status.textContent = '❌ Network error: ' + e.message;
+			}
+			btn.disabled = false;
+			btn.textContent = '⬇ Import villages from Wikidata';
+		});
+		</script>
 
 			<div class="admin-filter-bar">
 				<span class="admin-filter-bar__label">Type:</span>

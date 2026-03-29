@@ -408,6 +408,67 @@ const isAdmin = user.role === 'admin';
 			</div>
 		</section>
 
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Payment Methods</h2>
+			<div class="contribute-card__bd">
+				<p class="muted" style="margin-bottom:1rem">
+					Choose which payment options customers can use for this tour. You can optionally offer an extra discount for specific payment methods (applied on top of any other discount).
+				</p>
+				<div class="pm-grid">
+					<div class="pm-row pm-row--head">
+						<span>Payment method</span>
+						<span>Accept</span>
+						<span>Extra discount %</span>
+					</div>
+					<div class="pm-row">
+						<label class="pm-row__label" for="pm-paypal-full-enabled">
+							<span class="pm-icon">💳</span>
+							<span>
+								<strong>PayPal — Full payment</strong>
+								<small>Customer pays the full amount online via PayPal.</small>
+							</span>
+						</label>
+						<input type="checkbox" id="pm-paypal-full-enabled" name="pm_paypal_full_enabled" checked />
+						<div class="pm-discount-wrap">
+							<input type="number" id="pm-paypal-full-discount" name="pm_paypal_full_discount" min="0" max="99" value="0" placeholder="0" />
+							<span class="pm-pct">%</span>
+						</div>
+					</div>
+					<div class="pm-row">
+						<label class="pm-row__label" for="pm-paypal-deposit-enabled">
+							<span class="pm-icon">💳</span>
+							<span>
+								<strong>PayPal — Deposit</strong>
+								<small>Customer pays a deposit online and the rest on tour day.</small>
+							</span>
+						</label>
+						<input type="checkbox" id="pm-paypal-deposit-enabled" name="pm_paypal_deposit_enabled" checked />
+						<div class="pm-discount-wrap">
+							<input type="number" id="pm-paypal-deposit-discount" name="pm_paypal_deposit_discount" min="0" max="99" value="0" placeholder="0" />
+							<span class="pm-pct">%</span>
+						</div>
+					</div>
+					<div class="pm-row">
+						<label class="pm-row__label" for="pm-cash-enabled">
+							<span class="pm-icon">💵</span>
+							<span>
+								<strong>Cash</strong>
+								<small>Customer pays in cash on tour day.</small>
+							</span>
+						</label>
+						<input type="checkbox" id="pm-cash-enabled" name="pm_cash_enabled" checked />
+						<div class="pm-discount-wrap">
+							<input type="number" id="pm-cash-discount" name="pm_cash_discount" min="0" max="99" value="0" placeholder="0" />
+							<span class="pm-pct">%</span>
+						</div>
+					</div>
+				</div>
+				<p class="muted" style="margin-top:0.75rem;font-size:0.82rem">
+					Note: PayPal options are only shown to customers if PayPal is enabled in the admin Payment Settings.
+				</p>
+			</div>
+		</section>
+
 		<div class="pkg-form-actions" style="margin-top:1.5rem;display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap">
 			<button type="submit" class="btn" id="pkg-submit-btn" data-action="review" data-label-submit="Submit for Review">Submit for Review</button>
 			<button type="button" class="btn btn-ghost btn-sm" id="pkg-draft-btn">Save as Draft</button>
@@ -969,6 +1030,19 @@ const isAdmin = user.role === 'admin';
 	// Pricing rules
 	(pkg.pricing_rules || []).forEach(function (rule) { addRuleRow(rule); });
 
+	// Payment options
+	var po = pkg.payment_options || {};
+	function setPayOpt(method, defaults) {
+		var opt = po[method] || defaults;
+		var enabledEl = document.getElementById('pm-' + method.replace('_', '-') + '-enabled');
+		var discountEl = document.getElementById('pm-' + method.replace('_', '-') + '-discount');
+		if (enabledEl) enabledEl.checked = opt.enabled !== false;
+		if (discountEl) discountEl.value = opt.discount_pct || 0;
+	}
+	setPayOpt('paypal_full',    { enabled: true, discount_pct: 0 });
+	setPayOpt('paypal_deposit', { enabled: true, discount_pct: 0 });
+	setPayOpt('cash',           { enabled: true, discount_pct: 0 });
+
 	function addRuleRow(existing) {
 		var id = 'rule-' + (++ruleCount);
 		var div = document.createElement('div');
@@ -1100,6 +1174,20 @@ const isAdmin = user.role === 'admin';
 			difficulty: fv('difficulty') || null,
 			min_age: parseInt(fv('min_age')) || null,
 			cancellation_policy: fv('cancellation_policy') || null,
+			payment_options: {
+				paypal_full: {
+					enabled: document.getElementById('pm-paypal-full-enabled')?.checked !== false,
+					discount_pct: parseFloat(document.getElementById('pm-paypal-full-discount')?.value || '0') || 0,
+				},
+				paypal_deposit: {
+					enabled: document.getElementById('pm-paypal-deposit-enabled')?.checked !== false,
+					discount_pct: parseFloat(document.getElementById('pm-paypal-deposit-discount')?.value || '0') || 0,
+				},
+				cash: {
+					enabled: document.getElementById('pm-cash-enabled')?.checked !== false,
+					discount_pct: parseFloat(document.getElementById('pm-cash-discount')?.value || '0') || 0,
+				},
+			},
 			i18n: i18n,
 		};
 	}

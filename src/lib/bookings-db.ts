@@ -9,6 +9,8 @@ const STORE_FILE = path.join(DATA_DIR, 'bookings.json');
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type BookingStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
+export type PaymentMethod = 'paypal_full' | 'paypal_deposit' | 'cash' | null;
+export type PaymentStatus = 'unpaid' | 'deposit_paid' | 'fully_paid' | 'refunded';
 
 export type Booking = {
 	id: string;
@@ -33,6 +35,18 @@ export type Booking = {
 	/** For private tours: label e.g. "Small Group (4–6 pax)" */
 	tier_label: string | null;
 	status: BookingStatus;
+	/** How the customer chose to pay */
+	payment_method: PaymentMethod;
+	/** Current payment state */
+	payment_status: PaymentStatus;
+	/** Amount actually paid so far */
+	amount_paid: number;
+	/** Deposit amount (if deposit chosen) */
+	deposit_amount: number | null;
+	/** PayPal order ID (pending capture) */
+	paypal_order_id: string | null;
+	/** PayPal capture ID (after successful payment) */
+	paypal_capture_id: string | null;
 	customer_name: string;
 	customer_email: string;
 	customer_phone: string | null;
@@ -89,6 +103,9 @@ function getAll(): Booking[] {
 	return _cached;
 }
 
+const VALID_PAYMENT_METHODS: PaymentMethod[] = ['paypal_full', 'paypal_deposit', 'cash', null];
+const VALID_PAYMENT_STATUSES: PaymentStatus[] = ['unpaid', 'deposit_paid', 'fully_paid', 'refunded'];
+
 function normalizeBooking(raw: Booking): Booking {
 	return {
 		id: String(raw.id ?? ''),
@@ -107,11 +124,14 @@ function normalizeBooking(raw: Booking): Booking {
 		tour_style: raw.tour_style === 'private' ? 'private' : 'group',
 		tier_id: (raw.tier_id as string)?.trim() || null,
 		tier_label: (raw.tier_label as string)?.trim() || null,
-		status: (['pending', 'confirmed', 'completed', 'cancelled'] as BookingStatus[]).includes(
-			raw.status,
-		)
-			? raw.status
-			: 'pending',
+		status: (['pending', 'confirmed', 'completed', 'cancelled'] as BookingStatus[]).includes(raw.status)
+			? raw.status : 'pending',
+		payment_method: VALID_PAYMENT_METHODS.includes(raw.payment_method) ? raw.payment_method : null,
+		payment_status: VALID_PAYMENT_STATUSES.includes(raw.payment_status) ? raw.payment_status : 'unpaid',
+		amount_paid: typeof raw.amount_paid === 'number' ? raw.amount_paid : 0,
+		deposit_amount: typeof raw.deposit_amount === 'number' ? raw.deposit_amount : null,
+		paypal_order_id: (raw.paypal_order_id as string)?.trim() || null,
+		paypal_capture_id: (raw.paypal_capture_id as string)?.trim() || null,
 		customer_name: String(raw.customer_name ?? ''),
 		customer_email: String(raw.customer_email ?? ''),
 		customer_phone: raw.customer_phone?.trim() || null,
@@ -198,6 +218,8 @@ export type CreateBookingInput = {
 	customer_phone: string | null;
 	special_requests: string | null;
 	package_title: string;
+	payment_method?: PaymentMethod;
+	deposit_amount?: number | null;
 };
 
 export function createBooking(
@@ -214,6 +236,12 @@ export function createBooking(
 		ref: generateRef(),
 		...input,
 		status: 'pending',
+		payment_method: input.payment_method ?? null,
+		payment_status: 'unpaid',
+		amount_paid: 0,
+		deposit_amount: input.deposit_amount ?? null,
+		paypal_order_id: null,
+		paypal_capture_id: null,
 		guide_notes: null,
 		created_at: Date.now(),
 		updated_at: Date.now(),
@@ -258,6 +286,29 @@ export function updateBookingNotes(
 	list[idx] = { ...list[idx], guide_notes: notes.trim() || null, updated_at: Date.now() };
 	writeAll(list);
 	return { ok: true };
+}
+
+export function updateBookingPayment(
+	id: string,
+	opts: {
+		payment_status?: PaymentStatus;
+		amount_paid?: number;
+		paypal_order_id?: string | null;
+		paypal_capture_id?: string | null;
+	},
+): { ok: true; booking: Booking } | { ok: false; error: string } {
+	const list = getAll();
+	const idx = list.findIndex((b) => b.id === id);
+	if (idx === -1) return { ok: false, error: 'Booking not found' };
+	const b = { ...list[idx] };
+	if (opts.payment_status !== undefined) b.payment_status = opts.payment_status;
+	if (opts.amount_paid !== undefined) b.amount_paid = opts.amount_paid;
+	if (opts.paypal_order_id !== undefined) b.paypal_order_id = opts.paypal_order_id;
+	if (opts.paypal_capture_id !== undefined) b.paypal_capture_id = opts.paypal_capture_id;
+	b.updated_at = Date.now();
+	list[idx] = b;
+	writeAll(list);
+	return { ok: true, booking: b };
 }
 
 export function deleteBooking(id: string): { ok: true } | { ok: false; error: string } {

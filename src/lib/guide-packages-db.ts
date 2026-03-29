@@ -158,6 +158,23 @@ export type PackageLocaleBlock = {
 	seo_description: string | null;
 };
 
+export type PackagePaymentMethod = 'paypal_full' | 'paypal_deposit' | 'cash';
+
+export type PackagePaymentOption = {
+	/** Whether this payment method is offered for this package */
+	enabled: boolean;
+	/** Extra discount % when paying with this method (0 = no extra discount) */
+	discount_pct: number;
+};
+
+export type PackagePaymentOptions = Record<PackagePaymentMethod, PackagePaymentOption>;
+
+export const DEFAULT_PAYMENT_OPTIONS: PackagePaymentOptions = {
+	paypal_full:    { enabled: true, discount_pct: 0 },
+	paypal_deposit: { enabled: true, discount_pct: 0 },
+	cash:           { enabled: true, discount_pct: 0 },
+};
+
 export type GuidePackage = {
 	id: string;
 	guide_id: string;
@@ -199,6 +216,8 @@ export type GuidePackage = {
 	place_ids: string[];
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
+	/** Per-method payment configuration set by the guide */
+	payment_options: PackagePaymentOptions;
 	i18n: Partial<Record<Locale, PackageLocaleBlock>>;
 	created_at: number;
 	updated_at: number;
@@ -354,6 +373,23 @@ function normalizePackage(raw: GuidePackage): GuidePackage {
 		place_ids: normalizePackagePlaceIds((raw as { place_ids?: unknown }).place_ids),
 		physical_rating: parseTourPhysicalRating((raw as { physical_rating?: unknown }).physical_rating),
 		driving_distance: parseDrivingDistance((raw as { driving_distance?: unknown }).driving_distance),
+		payment_options: (() => {
+			const raw_po = (raw as { payment_options?: unknown }).payment_options;
+			const defaults = structuredClone(DEFAULT_PAYMENT_OPTIONS);
+			if (!raw_po || typeof raw_po !== 'object') return defaults;
+			const po = raw_po as Record<string, unknown>;
+			const methods: PackagePaymentMethod[] = ['paypal_full', 'paypal_deposit', 'cash'];
+			for (const m of methods) {
+				const entry = po[m];
+				if (entry && typeof entry === 'object') {
+					const e = entry as Record<string, unknown>;
+					defaults[m].enabled = e.enabled !== false;
+					defaults[m].discount_pct = typeof e.discount_pct === 'number'
+						? Math.min(100, Math.max(0, e.discount_pct)) : 0;
+				}
+			}
+			return defaults;
+		})(),
 		i18n,
 		created_at: typeof raw.created_at === 'number' ? raw.created_at : 0,
 		updated_at: typeof raw.updated_at === 'number' ? raw.updated_at : 0,

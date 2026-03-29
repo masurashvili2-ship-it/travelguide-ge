@@ -9,8 +9,10 @@ import {
 	calculatePrice,
 	getSlotByPackageAndDate,
 } from '../../../lib/guide-packages-db';
-import { createBooking } from '../../../lib/bookings-db';
+import { createBooking, updateBookingPayment } from '../../../lib/bookings-db';
 import { sendMail, notifyAdmin } from '../../../lib/mailer';
+import { getPaymentSettings, createPayPalOrder } from '../../../lib/payment-settings-db';
+import { getEmailTemplates, renderTemplate } from '../../../lib/email-templates-db';
 import type { Locale } from '../../../lib/strings';
 
 export const POST: APIRoute = async ({ request }) => {
@@ -30,6 +32,14 @@ export const POST: APIRoute = async ({ request }) => {
 	const customerEmail = String(body.customer_email ?? '').trim();
 	const customerPhone = String(body.customer_phone ?? '').trim() || null;
 	const specialRequests = String(body.special_requests ?? '').trim() || null;
+	const paymentMethodRaw = String(body.payment_method ?? '').trim() || null;
+	const locale = String(body.locale ?? 'en').trim();
+
+	const validPaymentMethods = ['paypal_full', 'paypal_deposit', 'cash'] as const;
+	type ValidMethod = (typeof validPaymentMethods)[number];
+	const paymentMethod = validPaymentMethods.includes(paymentMethodRaw as ValidMethod)
+		? (paymentMethodRaw as ValidMethod)
+		: null;
 
 	if (!packageId || !date || !customerName || !customerEmail) {
 		return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -132,6 +142,34 @@ export const POST: APIRoute = async ({ request }) => {
 		pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? pkg.i18n['ru']?.title ?? 'Tour package';
 
 	const selectedTier = breakdown.tier;
+
+	// Resolve payment settings
+	const paySettings = getPaymentSettings();
+	const depositPct = paySettings.paypal.deposit_pct;
+
+	// Apply per-package payment method discount
+	type ValidPayMethod = 'paypal_full' | 'paypal_deposit' | 'cash';
+	const pkgPayOpt = paymentMethod && ['paypal_full','paypal_deposit','cash'].includes(paymentMethod)
+		? pkg.payment_options[paymentMethod as ValidPayMethod]
+		: null;
+	const payDiscountPct = pkgPayOpt?.discount_pct ?? 0;
+	const priceAfterTourDiscount = breakdown.total_price;
+	const payDiscountAmount = payDiscountPct > 0
+		? Math.round(priceAfterTourDiscount * payDiscountPct / 100 * 100) / 100
+		: 0;
+	const finalTotalPrice = Math.round((priceAfterTourDiscount - payDiscountAmount) * 100) / 100;
+
+	// Combined discount label for records
+	const combinedDiscountLabel = [
+		breakdown.discount_pct > 0 ? `${breakdown.discount_label ?? 'Tour discount'} (${breakdown.discount_pct}%)` : null,
+		payDiscountPct > 0 ? `Payment discount (${payDiscountPct}%)` : null,
+	].filter(Boolean).join(' + ') || null;
+
+	const depositAmount =
+		paymentMethod === 'paypal_deposit'
+			? Math.round(finalTotalPrice * depositPct) / 100
+			: null;
+
 	// Create booking
 	const bookingResult = createBooking({
 		package_id: pkg.id,
@@ -141,10 +179,10 @@ export const POST: APIRoute = async ({ request }) => {
 		time_start: slot.time_start,
 		pax,
 		unit_price: breakdown.unit_price,
-		total_price: breakdown.total_price,
+		total_price: finalTotalPrice,
 		currency: breakdown.currency,
-		discount_pct: breakdown.discount_pct,
-		discount_label: breakdown.discount_label,
+		discount_pct: breakdown.discount_pct + payDiscountPct,
+		discount_label: combinedDiscountLabel,
 		tour_style: pkg.tour_style,
 		tier_id: selectedTier?.id ?? null,
 		tier_label: selectedTier ? `${selectedTier.label} (${selectedTier.min_pax}–${selectedTier.max_pax} pax)` : null,
@@ -153,6 +191,8 @@ export const POST: APIRoute = async ({ request }) => {
 		customer_phone: customerPhone,
 		special_requests: specialRequests,
 		package_title: packageTitle,
+		payment_method: paymentMethod,
+		deposit_amount: depositAmount,
 	});
 
 	if (!bookingResult.ok) {
@@ -167,34 +207,70 @@ export const POST: APIRoute = async ({ request }) => {
 
 	const booking = bookingResult.booking;
 
-	// Send confirmation email to customer
-	const confirmHtml = `
-<h2>Booking Request Received</h2>
-<p>Hi <strong>${customerName}</strong>,</p>
-<p>Your booking request has been received and is <strong>pending confirmation</strong> from your guide.</p>
-<table style="border-collapse:collapse;width:100%;max-width:480px">
-  <tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Booking reference</td><td style="padding:6px 12px">${booking.ref}</td></tr>
-  <tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Tour</td><td style="padding:6px 12px">${packageTitle}</td></tr>
-  <tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Date</td><td style="padding:6px 12px">${date}${slot.time_start ? ' at ' + slot.time_start : ''}</td></tr>
-  ${selectedTier ? `<tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Tour type</td><td style="padding:6px 12px">Private — ${selectedTier.label} (${selectedTier.min_pax}–${selectedTier.max_pax} pax)</td></tr>` : ''}
-  <tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Guests</td><td style="padding:6px 12px">${pax} ${pax === 1 ? 'person' : 'people'}</td></tr>
-  <tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Total price</td><td style="padding:6px 12px">${breakdown.total_price} ${breakdown.currency}${breakdown.discount_pct > 0 ? ` <span style="color:#16a34a">(${breakdown.discount_pct}% off)</span>` : ''}</td></tr>
-  ${specialRequests ? `<tr><td style="padding:6px 12px;background:#f8fafc;font-weight:600">Special requests</td><td style="padding:6px 12px">${specialRequests}</td></tr>` : ''}
-</table>
-<p>The guide will confirm or follow up shortly. Your booking reference is <strong>${booking.ref}</strong> — keep this for your records.</p>
-`;
+	// ── PayPal payment flow ───────────────────────────────────────────────────
+	if (paymentMethod === 'paypal_full' || paymentMethod === 'paypal_deposit') {
+		const chargeAmount = paymentMethod === 'paypal_deposit'
+			? (depositAmount ?? breakdown.total_price)
+			: breakdown.total_price;
 
-	sendMail({
-		to: customerEmail,
-		subject: `Booking Request Received — ${booking.ref}`,
-		html: confirmHtml,
-	}).catch(() => {});
+		const origin = new URL(request.url).origin;
+		const orderResult = await createPayPalOrder({
+			amount: chargeAmount,
+			currency: breakdown.currency,
+			description: `${packageTitle} — ${date} × ${pax} pax`,
+			booking_id: booking.id,
+			return_url: `${origin}/api/payments/paypal/capture?booking_id=${booking.id}&locale=${locale}`,
+			cancel_url: `${origin}/${locale}/payment/cancel?ref=${booking.ref}`,
+		});
 
-	// Notify admin
-	notifyAdmin(
-		`New booking request — ${booking.ref} (${packageTitle})`,
-		`<p>New booking from <strong>${customerName}</strong> (${customerEmail}) for <strong>${packageTitle}</strong> on ${date} × ${pax} pax. Total: ${breakdown.total_price} ${breakdown.currency}.</p>`,
-	);
+		if (!orderResult.ok) {
+			return new Response(
+				JSON.stringify({ error: `PayPal error: ${orderResult.error}` }),
+				{ status: 502, headers: { 'Content-Type': 'application/json' } },
+			);
+		}
+
+		// Store PayPal order ID on booking
+		updateBookingPayment(booking.id, { paypal_order_id: orderResult.order_id });
+
+		return new Response(
+			JSON.stringify({
+				ok: true,
+				ref: booking.ref,
+				booking_id: booking.id,
+				paypal_approval_url: orderResult.approval_url,
+			}),
+			{ status: 201, headers: { 'Content-Type': 'application/json' } },
+		);
+	}
+
+	// ── Cash or no payment ────────────────────────────────────────────────────
+	const templates = getEmailTemplates();
+	const isCash = paymentMethod === 'cash';
+	const template = isCash ? templates.booking_cash : templates.booking_confirmation;
+	const templateVars: Record<string, string> = {
+		ref: booking.ref,
+		customer_name: customerName,
+		tour_name: packageTitle,
+		date,
+		time: slot.time_start ?? '',
+		pax: `${pax} ${pax === 1 ? 'person' : 'people'}`,
+		total_price: String(breakdown.total_price),
+		currency: breakdown.currency,
+		amount_paid: '0',
+		deposit_pct: String(depositPct),
+		payment_method: isCash ? 'Cash (pay on tour day)' : 'Pending',
+		guide_name: '',
+		special_requests: specialRequests ?? '',
+	};
+
+	const rendered = renderTemplate(template, templateVars);
+	sendMail({ to: customerEmail, subject: rendered.subject, html: rendered.html }).catch(() => {});
+
+	// Admin notification
+	const adminTemplate = templates.booking_admin_notify;
+	const adminRendered = renderTemplate(adminTemplate, templateVars);
+	notifyAdmin(adminRendered.subject, adminRendered.html);
 
 	return new Response(JSON.stringify({ ok: true, ref: booking.ref, booking_id: booking.id }), {
 		status: 201,

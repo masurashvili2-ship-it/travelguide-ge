@@ -1,0 +1,209 @@
+---
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import type { Locale } from '../../../../lib/strings';
+import { getEmailTemplates, TEMPLATE_VARS } from '../../../../lib/email-templates-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+if (!Astro.locals.user || Astro.locals.user.role !== 'admin') {
+	const login = getRelativeLocaleUrl(locale, 'login');
+	const next = getRelativeLocaleUrl(locale, 'admin/email-templates');
+	return Astro.redirect(`${login}?next=${encodeURIComponent(next)}`);
+}
+
+const templates = getEmailTemplates();
+
+const TEMPLATE_META = [
+	{ key: 'booking_confirmation', label: 'Booking confirmation', desc: 'Sent to customer when they submit a booking (no PayPal).' },
+	{ key: 'booking_cash', label: 'Cash booking', desc: 'Sent when customer selects "Pay in cash".' },
+	{ key: 'deposit_paid', label: 'Deposit paid', desc: 'Sent after PayPal deposit is captured.' },
+	{ key: 'payment_full', label: 'Full payment received', desc: 'Sent after full PayPal payment is captured.' },
+	{ key: 'booking_admin_notify', label: 'Admin notification', desc: 'Sent to admin on every new booking.' },
+] as const;
+---
+
+<AdminLayout
+	locale={locale}
+	title="Email Templates · Admin"
+	headline="Email Templates"
+	subtitle="Customise the emails sent to customers and admins. Use {{variable}} placeholders."
+	activeNav="email-templates"
+	userEmail={Astro.locals.user.email}
+>
+	<div id="et-notice"></div>
+
+	<section class="admin-card" style="margin-bottom:1rem">
+		<h2 class="admin-card__h">Available variables</h2>
+		<div class="admin-card__bd">
+			<p class="muted" style="margin:0 0 0.5rem">These placeholders are replaced with actual booking data when sending:</p>
+			<div style="display:flex;flex-wrap:wrap;gap:0.35rem">
+				{TEMPLATE_VARS.map(v => <code style="background:#f1f5f9;padding:2px 7px;border-radius:4px;font-size:0.8rem">{v}</code>)}
+			</div>
+		</div>
+	</section>
+
+	<div class="et-tabs">
+		{TEMPLATE_META.map((m, i) => (
+			<button
+				class:list={['et-tab', i === 0 && 'is-active']}
+				data-key={m.key}
+				type="button"
+			>
+				{m.label}
+			</button>
+		))}
+	</div>
+
+	{TEMPLATE_META.map((m, i) => (
+		<section
+			class:list={['admin-card et-panel', i === 0 && 'is-active']}
+			data-panel={m.key}
+			style={i !== 0 ? 'display:none' : ''}
+		>
+			<h2 class="admin-card__h">{m.label}</h2>
+			<div class="admin-card__bd">
+				<p class="muted" style="margin:0 0 1rem">{m.desc}</p>
+				<form class="admin-form et-form" data-key={m.key}>
+					<div class="admin-form__row">
+						<label class="admin-form__label" for={`subject-${m.key}`}>Subject line</label>
+						<input
+							type="text"
+							id={`subject-${m.key}`}
+							class="admin-form__input et-subject"
+							value={templates[m.key].subject}
+						/>
+					</div>
+					<div class="admin-form__row">
+						<label class="admin-form__label" for={`html-${m.key}`}>Email body (HTML)</label>
+						<textarea
+							id={`html-${m.key}`}
+							class="admin-form__input et-html"
+							rows="18"
+							style="font-family:monospace;font-size:0.82rem"
+						>{templates[m.key].html}</textarea>
+					</div>
+					<div class="admin-form__row" style="display:flex;gap:0.5rem;align-items:center">
+						<button type="submit" class="button button-primary">Save template</button>
+						<button type="button" class="button et-preview-btn">Preview</button>
+					</div>
+				</form>
+			</div>
+		</section>
+	))}
+
+	<!-- Preview modal -->
+	<div id="et-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.5);padding:2rem;overflow:auto">
+		<div style="background:#fff;max-width:700px;margin:0 auto;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+			<div style="padding:1rem 1.25rem;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center">
+				<strong>Email preview</strong>
+				<button id="et-modal-close" class="button" type="button">Close</button>
+			</div>
+			<div id="et-modal-body" style="padding:1.5rem"></div>
+		</div>
+	</div>
+</AdminLayout>
+
+<style>
+.et-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin-bottom: 1rem;
+}
+.et-tab {
+	padding: 0.4rem 0.85rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	background: #f8fafc;
+	cursor: pointer;
+	font-size: 0.85rem;
+	transition: background 0.15s, border-color 0.15s;
+}
+.et-tab:hover { background: #e2e8f0; }
+.et-tab.is-active { background: #1e293b; color: #fff; border-color: #1e293b; }
+</style>
+
+<script>
+function showNotice(msg: string, ok: boolean) {
+	const el = document.getElementById('et-notice')!;
+	el.innerHTML = `<div class="notice ${ok ? 'notice-success' : 'notice-error'}">${msg}</div>`;
+	setTimeout(() => (el.innerHTML = ''), 4000);
+}
+
+// Tab switching
+document.querySelectorAll<HTMLButtonElement>('.et-tab').forEach((tab) => {
+	tab.addEventListener('click', () => {
+		const key = tab.dataset.key!;
+		document.querySelectorAll('.et-tab').forEach(t => t.classList.remove('is-active'));
+		document.querySelectorAll<HTMLElement>('.et-panel').forEach(p => (p.style.display = 'none'));
+		tab.classList.add('is-active');
+		const panel = document.querySelector<HTMLElement>(`.et-panel[data-panel="${key}"]`);
+		if (panel) panel.style.display = '';
+	});
+});
+
+// Save
+document.querySelectorAll<HTMLFormElement>('.et-form').forEach((form) => {
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const key = form.dataset.key!;
+		const subject = form.querySelector<HTMLInputElement>('.et-subject')!.value;
+		const html = form.querySelector<HTMLTextAreaElement>('.et-html')!.value;
+
+		const res = await fetch('/api/admin/email-templates', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ [key]: { subject, html } }),
+		});
+		const data = await res.json();
+		if (data.ok) showNotice('Template saved.', true);
+		else showNotice(data.error ?? 'Error saving.', false);
+	});
+});
+
+// Preview
+document.querySelectorAll<HTMLButtonElement>('.et-preview-btn').forEach((btn) => {
+	btn.addEventListener('click', () => {
+		const form = btn.closest<HTMLFormElement>('.et-form')!;
+		const subject = form.querySelector<HTMLInputElement>('.et-subject')!.value;
+		const html = form.querySelector<HTMLTextAreaElement>('.et-html')!.value;
+		const modal = document.getElementById('et-modal')!;
+		const body = document.getElementById('et-modal-body')!;
+
+		// Replace variables with sample data
+		const samples: Record<string, string> = {
+			ref: 'TG-260329-DEMO',
+			customer_name: 'Jane Traveller',
+			tour_name: 'Kakheti Wine Day Tour',
+			date: '2026-05-15',
+			time: '09:00',
+			pax: '2 people',
+			total_price: '120',
+			currency: 'USD',
+			amount_paid: '36',
+			deposit_pct: '30',
+			payment_method: 'PayPal (deposit)',
+			guide_name: 'Giorgi Beridze',
+			special_requests: 'Vegetarian lunch please.',
+		};
+
+		let preview = `<p style="font-size:0.85rem;color:#64748b;margin:0 0 0.75rem"><strong>Subject:</strong> ${subject}</p><hr style="margin:0 0 1rem"/>` + html;
+		for (const [k, v] of Object.entries(samples)) {
+			preview = preview.replaceAll(`{{${k}}}`, v);
+		}
+
+		body.innerHTML = preview;
+		modal.style.display = '';
+	});
+});
+
+document.getElementById('et-modal-close')?.addEventListener('click', () => {
+	(document.getElementById('et-modal') as HTMLElement).style.display = 'none';
+});
+document.getElementById('et-modal')?.addEventListener('click', (e) => {
+	if (e.target === e.currentTarget) (e.currentTarget as HTMLElement).style.display = 'none';
+});
+</script>

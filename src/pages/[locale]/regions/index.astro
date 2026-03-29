@@ -19,8 +19,35 @@ const levelFilter: RegionLevel | undefined =
 		? (levelParam as RegionLevel)
 		: undefined;
 
+const searchQuery = Astro.url.searchParams.get('q')?.trim().toLowerCase() ?? '';
+const pageParam = parseInt(Astro.url.searchParams.get('page') ?? '1', 10);
+const PAGE_SIZE = 60;
+
 const allCards = listRegionIndexCards(locale);
-const cards = levelFilter ? allCards.filter((c) => c.level === levelFilter) : allCards;
+
+// Default view: show only regions + municipalities (not all 2000 villages)
+// When village filter is active, show villages with search + pagination
+let cards = levelFilter
+	? allCards.filter((c) => c.level === levelFilter)
+	: allCards.filter((c) => c.level !== 'village');
+
+// Apply search filter
+if (searchQuery) {
+	cards = cards.filter(
+		(c) =>
+			c.title.toLowerCase().includes(searchQuery) ||
+			c.excerpt.toLowerCase().includes(searchQuery) ||
+			(c.subtitle ?? '').toLowerCase().includes(searchQuery),
+	);
+}
+
+const totalCount = cards.length;
+const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+const page = Math.min(Math.max(1, pageParam), totalPages);
+
+// Only paginate when browsing villages (or search results)
+const usePagination = levelFilter === 'village' || !!searchQuery;
+const displayCards = usePagination ? cards.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE) : cards;
 
 const regionsPath = getRelativeLocaleUrl(locale, 'regions');
 
@@ -29,6 +56,16 @@ function levelLabel(level: RegionLevel): string {
 	if (level === 'municipality') return t.regionsLevelMunicipality;
 	return t.regionsLevelVillage;
 }
+
+function pageUrl(p: number) {
+	const u = new URL(Astro.url.href);
+	u.searchParams.set('page', String(p));
+	return u.pathname + u.search;
+}
+
+const villageTotalCount = allCards.filter((c) => c.level === 'village').length;
+const muniTotalCount = allCards.filter((c) => c.level === 'municipality').length;
+const regionTotalCount = allCards.filter((c) => c.level === 'region').length;
 ---
 
 <Shell
@@ -47,28 +84,68 @@ function levelLabel(level: RegionLevel): string {
 		<a
 			class:list={['regions-filter__a', !levelFilter && 'is-active']}
 			href={regionsPath}
-			aria-current={!levelFilter ? 'page' : undefined}>{t.regionsFilterAllTypes}</a>
+			aria-current={!levelFilter ? 'page' : undefined}>All</a>
 		{
-			REGION_LEVEL_IDS.map((id) => (
-				<a
-					class:list={['regions-filter__a', levelFilter === id && 'is-active']}
-					href={`${regionsPath}?level=${id}`}
-					aria-current={levelFilter === id ? 'page' : undefined}
-				>
-					{levelLabel(id)}
-				</a>
-			))
+			REGION_LEVEL_IDS.map((id) => {
+				const count = id === 'region' ? regionTotalCount : id === 'municipality' ? muniTotalCount : villageTotalCount;
+				return (
+					<a
+						class:list={['regions-filter__a', levelFilter === id && 'is-active']}
+						href={`${regionsPath}?level=${id}`}
+						aria-current={levelFilter === id ? 'page' : undefined}
+					>
+						{levelLabel(id)} <span class="regions-filter__count">{count}</span>
+					</a>
+				);
+			})
 		}
 	</nav>
 
+	{/* Search bar — always visible so users can find villages by name */}
+	<form class="regions-search" method="get" action={regionsPath}>
+		{levelFilter && <input type="hidden" name="level" value={levelFilter} />}
+		<input
+			class="regions-search__input"
+			type="search"
+			name="q"
+			value={searchQuery}
+			placeholder={`Search ${levelFilter ? levelLabel(levelFilter) + 's' : 'regions, municipalities & villages'}…`}
+			autocomplete="off"
+		/>
+		<button class="regions-search__btn" type="submit">Search</button>
+		{searchQuery && (
+			<a class="regions-search__clear" href={levelFilter ? `${regionsPath}?level=${levelFilter}` : regionsPath}>
+				✕ Clear
+			</a>
+		)}
+	</form>
+
+	{searchQuery && (
+		<p class="muted regions-results-info">
+			{totalCount} result{totalCount !== 1 ? 's' : ''} for "<strong>{searchQuery}</strong>"
+			{levelFilter ? ` in ${levelLabel(levelFilter)}s` : ''}
+		</p>
+	)}
+
 	{
-		cards.length === 0 ? (
-			<p class="muted">No places in this list yet.</p>
+		displayCards.length === 0 ? (
+			<p class="muted" style="margin-top:2rem">
+				{searchQuery ? `No places match "${searchQuery}".` : 'No places in this list yet.'}
+			</p>
 		) : (
-			<div class="regions-grid">
-				{cards.map((c) => {
+			<div class:list={['regions-grid', levelFilter === 'village' && 'regions-grid--villages']}>
+				{displayCards.map((c) => {
 					const cover = tourCoverImageUrl({ image: c.image, gallery: c.gallery });
 					const href = getRelativeLocaleUrl(locale, `regions/${c.slug}`);
+					if (c.level === 'village') {
+						// Compact list-row for villages
+						return (
+							<a class="village-row" href={href}>
+								<span class="village-row__name">{c.title}</span>
+								{c.subtitle ? <span class="village-row__sub">{c.subtitle}</span> : null}
+							</a>
+						);
+					}
 					return (
 						<a class:list={['regions-tile', !cover && 'regions-tile--no-photo']} href={href}>
 							{cover ? (
@@ -92,9 +169,80 @@ function levelLabel(level: RegionLevel): string {
 			</div>
 		)
 	}
+
+	{/* Pagination */}
+	{usePagination && totalPages > 1 && (
+		<nav class="regions-pager" aria-label="Pages">
+			{page > 1 && (
+				<a class="regions-pager__a" href={pageUrl(page - 1)}>← Previous</a>
+			)}
+			<span class="regions-pager__info">
+				Page {page} of {totalPages} &nbsp;·&nbsp; {totalCount} total
+			</span>
+			{page < totalPages && (
+				<a class="regions-pager__a" href={pageUrl(page + 1)}>Next →</a>
+			)}
+		</nav>
+	)}
+
+	{!levelFilter && (
+		<div class="villages-hint">
+			<p>
+				<strong>{villageTotalCount.toLocaleString()} villages</strong> are in the database.
+				<a href={`${regionsPath}?level=village`}>Browse all villages →</a>
+			</p>
+		</div>
+	)}
 </Shell>
 
 <style>
+	/* ── Search ────────────────────────────────────────────────── */
+	.regions-search {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+		margin: 1.25rem 0 0.75rem;
+		flex-wrap: wrap;
+	}
+	.regions-search__input {
+		flex: 1;
+		min-width: 200px;
+		padding: 0.55rem 0.9rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius, 8px);
+		background: var(--surface, #fff);
+		color: var(--text, #1e293b);
+		font-size: 0.95rem;
+	}
+	.regions-search__input:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+		border-color: var(--accent);
+	}
+	.regions-search__btn {
+		padding: 0.55rem 1.15rem;
+		border-radius: var(--radius, 8px);
+		background: var(--accent, #e86339);
+		color: #fff;
+		border: none;
+		font-weight: 600;
+		cursor: pointer;
+		font-size: 0.9rem;
+	}
+	.regions-search__clear {
+		font-size: 0.85rem;
+		color: var(--muted, #64748b);
+		text-decoration: none;
+		padding: 0.3rem 0.5rem;
+	}
+	.regions-search__clear:hover { color: var(--text); }
+
+	.regions-results-info {
+		margin: 0.25rem 0 0.75rem;
+		font-size: 0.9rem;
+	}
+
+	/* ── Filter nav ────────────────────────────────────────────── */
 	.regions-filter {
 		display: flex;
 		flex-wrap: wrap;
@@ -283,5 +431,98 @@ function levelLabel(level: RegionLevel): string {
 	.regions-tile:hover .regions-tile__cta-inner {
 		transform: translateX(3px);
 		opacity: 1;
+	}
+
+	/* ── Filter count badge ────────────────────────────────────── */
+	.regions-filter__count {
+		font-size: 0.72em;
+		background: rgba(0,0,0,0.08);
+		border-radius: 999px;
+		padding: 0.1em 0.5em;
+		margin-left: 0.2em;
+		font-weight: 600;
+	}
+	.regions-filter__a.is-active .regions-filter__count {
+		background: rgba(255,255,255,0.22);
+	}
+
+	/* ── Village compact list ──────────────────────────────────── */
+	.regions-grid--villages {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius-lg, 14px);
+		overflow: hidden;
+		margin-top: 1rem;
+	}
+	.village-row {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.75rem 1.1rem;
+		text-decoration: none;
+		color: var(--text, #1e293b);
+		border-bottom: 1px solid var(--border, #e2e8f0);
+		transition: background 0.15s ease;
+	}
+	.village-row:last-child { border-bottom: none; }
+	.village-row:hover { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+	.village-row__name {
+		font-weight: 600;
+		font-size: 0.95rem;
+		flex: 1;
+	}
+	.village-row__sub {
+		font-size: 0.8rem;
+		color: var(--muted, #64748b);
+		white-space: nowrap;
+	}
+
+	/* ── Pagination ────────────────────────────────────────────── */
+	.regions-pager {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25rem;
+		margin: 2rem 0 1rem;
+		flex-wrap: wrap;
+	}
+	.regions-pager__a {
+		padding: 0.5rem 1.1rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius, 8px);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.9rem;
+		color: var(--text);
+		transition: border-color 0.15s, background 0.15s;
+	}
+	.regions-pager__a:hover {
+		border-color: var(--accent);
+		background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+	}
+	.regions-pager__info {
+		font-size: 0.88rem;
+		color: var(--muted, #64748b);
+	}
+
+	/* ── Villages hint on default view ────────────────────────── */
+	.villages-hint {
+		margin-top: 2.5rem;
+		padding: 1rem 1.25rem;
+		border: 1px solid var(--border, #e2e8f0);
+		border-radius: var(--radius-lg, 14px);
+		background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+	}
+	.villages-hint p {
+		margin: 0;
+		font-size: 0.95rem;
+		color: var(--text);
+	}
+	.villages-hint a {
+		color: var(--accent);
+		font-weight: 600;
+		margin-left: 0.5rem;
 	}
 </style>

@@ -119,11 +119,17 @@ let cache: { posts: RegionPost[]; mtime: number } | null = null;
 
 /** Cache key: mtime of index.json (changes on every write since writeStore always rewrites it). */
 function fileMtime(): number {
+	// Include the combined mtime of index.json + all village chunk files so that
+	// adding or removing a per-municipality file invalidates the cache correctly.
+	let t = 0;
+	try { t += statSync(REGIONS_INDEX).mtimeMs; } catch { /* ok */ }
 	try {
-		return statSync(REGIONS_INDEX).mtimeMs;
-	} catch {
-		return 0;
-	}
+		for (const fname of readdirSync(REGIONS_DIR)) {
+			if (!fname.endsWith('.json') || fname === 'index.json') continue;
+			try { t += statSync(path.join(REGIONS_DIR, fname)).mtimeMs; } catch { /* ok */ }
+		}
+	} catch { /* dir might not exist yet */ }
+	return t;
 }
 
 /** Auto-migrate legacy single-file → folder structure (runs at most once). */

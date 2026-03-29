@@ -1,0 +1,99 @@
+---
+import Shell from '../../../components/Shell.astro';
+import type { Locale } from '../../../lib/strings';
+import { getBookingByRef } from '../../../lib/bookings-db';
+
+const loc = Astro.params.locale;
+if (loc !== 'en' && loc !== 'ka' && loc !== 'ru') return new Response(null, { status: 404 });
+const locale = loc as Locale;
+
+const ref = Astro.url.searchParams.get('ref') ?? '';
+const booking = ref ? getBookingByRef(ref) : null;
+---
+
+<Shell
+	locale={locale}
+	title="Payment Successful · TravelGeorgia.ge"
+	seoDescription="Your payment has been received."
+	robotsNoindex={true}
+>
+	<div class="wrap">
+		<main id="main-content" style="padding-top:3rem;padding-bottom:5rem;text-align:center;max-width:540px;margin:0 auto">
+			<div class="success-icon" aria-hidden="true">✅</div>
+			<h1 style="font-size:1.75rem;margin:1rem 0 0.5rem">Payment confirmed!</h1>
+
+			{booking ? (
+				<>
+					<p class="muted" style="margin:0 0 1.5rem;font-size:1rem">
+						Thank you, <strong>{booking.customer_name}</strong>. Your payment has been received.
+					</p>
+					<div class="success-card">
+						<div class="success-card__row">
+							<span>Reference</span>
+							<strong>{booking.ref}</strong>
+						</div>
+						<div class="success-card__row">
+							<span>Tour</span>
+							<strong>{booking.package_title}</strong>
+						</div>
+						<div class="success-card__row">
+							<span>Date</span>
+							<strong>{booking.date}{booking.time_start ? ` at ${booking.time_start}` : ''}</strong>
+						</div>
+						<div class="success-card__row">
+							<span>Guests</span>
+							<strong>{booking.pax} {booking.pax === 1 ? 'person' : 'people'}</strong>
+						</div>
+						<div class="success-card__row">
+							<span>Amount paid</span>
+							<strong>{booking.amount_paid} {booking.currency}</strong>
+						</div>
+						{booking.payment_status === 'deposit_paid' && booking.deposit_amount && (
+							<div class="success-card__row success-card__row--note">
+								<span>Remaining balance</span>
+								<strong>{(booking.total_price - booking.amount_paid).toFixed(2)} {booking.currency} — due on tour day</strong>
+							</div>
+						)}
+					</div>
+					<p class="muted" style="margin:1.5rem 0 0;font-size:0.9rem">
+						A confirmation email has been sent to <strong>{booking.customer_email}</strong>.
+					</p>
+				</>
+			) : (
+				<p class="muted" style="margin:0 0 1.5rem">
+					Your payment has been received. Check your email for a confirmation.
+					{ref && <><br />Reference: <strong>{ref}</strong></>}
+				</p>
+			)}
+
+			<a href={`/${locale}/tours`} class="btn" style="margin-top:2rem;display:inline-block">
+				Browse more tours
+			</a>
+		</main>
+	</div>
+</Shell>
+
+<style>
+.success-icon {
+	font-size: 3.5rem;
+	display: block;
+}
+.success-card {
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 1rem 1.25rem;
+	text-align: left;
+}
+.success-card__row {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.45rem 0;
+	border-bottom: 1px solid #e2e8f0;
+	font-size: 0.9rem;
+}
+.success-card__row:last-child { border-bottom: none; }
+.success-card__row span { color: #64748b; }
+.success-card__row--note strong { color: #d97706; }
+</style>

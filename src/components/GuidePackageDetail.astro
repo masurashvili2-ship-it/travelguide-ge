@@ -14,6 +14,7 @@ import { averageRatingFor, listCommentsForPost } from '../lib/tour-comments';
 import { tourCoverImageUrl } from '../lib/tours-db';
 import type { Locale } from '../lib/strings';
 import { ui } from '../lib/strings';
+import { getPaymentSettings } from '../lib/payment-settings-db';
 
 interface Props {
 	locale: Locale;
@@ -25,6 +26,22 @@ interface Props {
 
 const { locale, pkg, canonicalPath, user } = Astro.props;
 const t = ui[locale];
+
+const paySettings = getPaymentSettings();
+const paypalEnabledGlobally = paySettings.paypal.enabled && !!paySettings.paypal.client_id;
+const cashEnabledGlobally = paySettings.cash.enabled;
+const depositPct = paySettings.paypal.deposit_pct;
+const cashInstructions = paySettings.cash.instructions;
+
+// Per-package payment options (guide's choices)
+const pkgPO = pkg.payment_options;
+const paypalFullEnabled  = paypalEnabledGlobally && pkgPO.paypal_full.enabled;
+const paypalDepEnabled   = paypalEnabledGlobally && pkgPO.paypal_deposit.enabled;
+const cashEnabled        = cashEnabledGlobally && pkgPO.cash.enabled;
+const paypalFullDiscount  = pkgPO.paypal_full.discount_pct;
+const paypalDepDiscount   = pkgPO.paypal_deposit.discount_pct;
+const cashDiscount        = pkgPO.cash.discount_pct;
+const hasPaymentOptions   = paypalFullEnabled || paypalDepEnabled || cashEnabled;
 
 const block = pkg.i18n[locale] ?? pkg.i18n['en'] ?? pkg.i18n['ka'] ?? pkg.i18n['ru'];
 if (!block?.title) {
@@ -84,6 +101,7 @@ const pkgJson = JSON.stringify({
 	max_people: pkg.max_people,
 	pricing_rules: pkg.pricing_rules,
 	private_tiers: enabledTiers,
+	payment_options: pkg.payment_options,
 }).replace(/</g, '\\u003c');
 
 const metaDesc = block.seo_description?.trim() || block.description?.slice(0, 155) || `Book ${block.title} with ${guideName}`;
@@ -467,6 +485,10 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 									<span id="price-discount-label"></span>
 									<span id="price-discount-val"></span>
 								</div>
+								<div class="price-row price-row--discount price-row--pay-discount" id="price-pay-discount-row" style="display:none">
+									<span id="price-pay-discount-label"></span>
+									<span id="price-pay-discount-val"></span>
+								</div>
 								<div class="price-row price-row--total">
 									<span>Total</span>
 									<span id="price-total-val"></span>
@@ -490,6 +512,61 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								<label for="book-requests">Special requests (optional)</label>
 								<textarea id="book-requests" name="special_requests" rows="3" placeholder="Dietary needs, accessibility, questions…"></textarea>
 							</div>
+
+							<!-- Payment method selector -->
+							{hasPaymentOptions && (
+								<div class="form-row" id="payment-method-section">
+									<label>How would you like to pay?</label>
+									<div class="pay-options" id="pay-options">
+										{paypalFullEnabled && (
+											<label class="pay-option pay-option--paypal">
+												<input type="radio" name="payment_method" value="paypal_full" />
+												<span class="pay-option__body">
+													<span class="pay-option__title">
+														<img src="/paypal-logo.svg" alt="PayPal" width="68" height="18" style="vertical-align:middle;margin-right:4px" />
+														Pay full amount
+														{paypalFullDiscount > 0 && (
+															<span class="pay-option__badge">{paypalFullDiscount}% off</span>
+														)}
+													</span>
+													<span class="pay-option__desc">Secure online payment via PayPal.</span>
+												</span>
+											</label>
+										)}
+										{paypalDepEnabled && (
+											<label class="pay-option pay-option--paypal">
+												<input type="radio" name="payment_method" value="paypal_deposit" />
+												<span class="pay-option__body">
+													<span class="pay-option__title">
+														<img src="/paypal-logo.svg" alt="PayPal" width="68" height="18" style="vertical-align:middle;margin-right:4px" />
+														Pay {depositPct}% deposit
+														{paypalDepDiscount > 0 && (
+															<span class="pay-option__badge">{paypalDepDiscount}% off</span>
+														)}
+													</span>
+													<span class="pay-option__desc">
+														Reserve with a {depositPct}% deposit. Pay the rest on tour day.
+													</span>
+												</span>
+											</label>
+										)}
+										{cashEnabled && (
+											<label class="pay-option">
+												<input type="radio" name="payment_method" value="cash" />
+												<span class="pay-option__body">
+													<span class="pay-option__title">
+														💵 Pay in cash
+														{cashDiscount > 0 && (
+															<span class="pay-option__badge">{cashDiscount}% off</span>
+														)}
+													</span>
+													<span class="pay-option__desc">{cashInstructions}</span>
+												</span>
+											</label>
+										)}
+									</div>
+								</div>
+							)}
 
 							<div id="booking-error" class="notice notice-error" style="display:none"></div>
 
@@ -746,6 +823,36 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		});
 	}
 
+	// ── Payment discount helper ───────────────────────────────
+	function getPaymentDiscount() {
+		var method = null;
+		document.querySelectorAll('[name="payment_method"]').forEach(function(r) {
+			if (r.checked) method = r.value;
+		});
+		if (!method || !pkg.payment_options) return { pct: 0, label: '' };
+		var opt = pkg.payment_options[method];
+		if (!opt || !opt.discount_pct) return { pct: 0, label: '' };
+		var labels = { paypal_full: 'PayPal discount', paypal_deposit: 'PayPal discount', cash: 'Cash discount' };
+		return { pct: opt.discount_pct, label: labels[method] || 'Payment discount' };
+	}
+
+	function applyPaymentDiscount(subTotal) {
+		var pd = getPaymentDiscount();
+		var payRow = document.getElementById('price-pay-discount-row');
+		if (!payRow) return subTotal;
+		if (pd.pct > 0) {
+			var savings = Math.round(subTotal * pd.pct / 100 * 100) / 100;
+			var after = Math.round((subTotal - savings) * 100) / 100;
+			payRow.style.display = 'flex';
+			document.getElementById('price-pay-discount-label').textContent = pd.label + ' (' + pd.pct + '% off)';
+			document.getElementById('price-pay-discount-val').textContent = '−' + sym + savings.toFixed(2);
+			return after;
+		} else {
+			payRow.style.display = 'none';
+			return subTotal;
+		}
+	}
+
 	// ── Price breakdown update ────────────────────────────────
 	function updatePriceBreakdown() {
 		var date = document.getElementById('book-date')?.value;
@@ -782,10 +889,11 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 				if (headerBadge) headerBadge.style.display = 'none';
 			}
 			var totalEl = document.getElementById('price-total-val');
-			if (p.discountPct > 0) {
-				totalEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + p.tierPrice.toFixed(2) + '</span>' + sym + p.discountedTotal.toFixed(2);
+			var finalTotal = applyPaymentDiscount(p.discountedTotal);
+			if (p.discountPct > 0 || finalTotal !== p.discountedTotal) {
+				totalEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + p.tierPrice.toFixed(2) + '</span>' + sym + finalTotal.toFixed(2);
 			} else {
-				totalEl.textContent = sym + p.discountedTotal.toFixed(2);
+				totalEl.textContent = sym + finalTotal.toFixed(2);
 			}
 		} else {
 			// Group tour
@@ -819,17 +927,21 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 				if (headerDisc) headerDisc.style.display = 'none';
 				if (headerBadge) headerBadge.style.display = 'none';
 			}
-			var tEl = document.getElementById('price-total-val');
-			if (gp.discountPct > 0) {
-				tEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + gp.total.toFixed(2) + '</span>' + sym + gp.discountedTotal.toFixed(2);
-			} else {
-				tEl.textContent = sym + gp.discountedTotal.toFixed(2);
-			}
+		var tEl = document.getElementById('price-total-val');
+		var groupFinal = applyPaymentDiscount(gp.discountedTotal);
+		if (gp.discountPct > 0 || groupFinal !== gp.discountedTotal) {
+			tEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + gp.total.toFixed(2) + '</span>' + sym + groupFinal.toFixed(2);
+		} else {
+			tEl.textContent = sym + groupFinal.toFixed(2);
 		}
 	}
+}
 
 	document.getElementById('book-date')?.addEventListener('change', updatePriceBreakdown);
 	document.getElementById('book-pax')?.addEventListener('input', updatePriceBreakdown);
+	document.querySelectorAll('[name="payment_method"]').forEach(function(r) {
+		r.addEventListener('change', updatePriceBreakdown);
+	});
 
 	// ── Form submit ───────────────────────────────────────────
 	document.getElementById('booking-form')?.addEventListener('submit', async function (e) {
@@ -841,6 +953,8 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		var fd = new FormData(this);
 		function fv(n) { return (fd.get(n) || '').toString().trim(); }
 
+		var paymentMethod = fv('payment_method') || null;
+
 		var payload = {
 			package_id: pkg.id,
 			date: fv('date'),
@@ -850,6 +964,8 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			customer_email: fv('customer_email'),
 			customer_phone: fv('customer_phone') || null,
 			special_requests: fv('special_requests') || null,
+			payment_method: paymentMethod,
+			locale: document.documentElement.lang || 'en',
 		};
 
 		if (!payload.date) { errEl.textContent = 'Please select a date.'; errEl.style.display = 'block'; return; }
@@ -857,8 +973,17 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		if (!payload.customer_name) { errEl.textContent = 'Please enter your name.'; errEl.style.display = 'block'; return; }
 		if (!payload.customer_email) { errEl.textContent = 'Please enter your email.'; errEl.style.display = 'block'; return; }
 
+		var hasPayOptions = document.getElementById('pay-options');
+		if (hasPayOptions && !paymentMethod) {
+			errEl.textContent = 'Please select a payment method.';
+			errEl.style.display = 'block';
+			return;
+		}
+
 		submitBtn.disabled = true;
-		submitBtn.textContent = 'Sending…';
+
+		var isPayPal = paymentMethod === 'paypal_full' || paymentMethod === 'paypal_deposit';
+		submitBtn.textContent = isPayPal ? 'Redirecting to PayPal…' : 'Sending…';
 
 		try {
 			var res = await fetch('/api/bookings', {
@@ -868,6 +993,11 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			});
 			var data = await res.json();
 			if (res.ok && data.ok) {
+				if (data.paypal_approval_url) {
+					// Redirect to PayPal
+					window.location.href = data.paypal_approval_url;
+					return;
+				}
 				document.getElementById('booking-form').style.display = 'none';
 				document.getElementById('booking-success').style.display = 'block';
 				document.getElementById('booking-success-ref').textContent = 'Your reference: ' + data.ref;
@@ -1140,6 +1270,33 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 .price-row--discount { color: #16a34a; }
 .price-row--total { font-weight: 700; border-top: 1px solid #e2e8f0; margin-top: 0.4rem; padding-top: 0.4rem; font-size: 1rem; }
 .booking-btn { font-size: 1rem; font-weight: 700; padding: 0.8rem 1rem; border-radius: 10px; }
+
+/* Payment options */
+.pay-options { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.35rem; }
+.pay-option {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.7rem;
+	padding: 0.75rem 0.85rem;
+	border: 1.5px solid #e2e8f0;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: border-color 0.15s, background 0.15s;
+}
+.pay-option:has(input:checked) { border-color: #4f46e5; background: #f5f3ff; }
+.pay-option input[type="radio"] { margin-top: 3px; flex-shrink: 0; accent-color: #4f46e5; }
+.pay-option__body { display: flex; flex-direction: column; gap: 2px; }
+.pay-option__title { font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pay-option__desc { font-size: 0.8rem; color: #64748b; }
+.pay-option__badge {
+	background: #dcfce7;
+	color: #166534;
+	font-size: 0.72rem;
+	font-weight: 700;
+	padding: 1px 7px;
+	border-radius: 99px;
+	border: 1px solid #bbf7d0;
+}
 
 .pkg-glance-card {
 	background: var(--surface, #fff);

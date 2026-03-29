@@ -34,6 +34,22 @@ const counts = {
 const currencySymbol: Record<string, string> = { USD: '$', EUR: '€', GEL: '₾' };
 function sym(c: string) { return currencySymbol[c] ?? c; }
 
+function paymentMethodLabel(m: string | null) {
+	if (m === 'paypal_full') return '💳 PayPal full';
+	if (m === 'paypal_deposit') return '💳 PayPal deposit';
+	if (m === 'cash') return '💵 Cash';
+	return '—';
+}
+function paymentStatusStyle(s: string) {
+	const map: Record<string, string> = {
+		unpaid: 'background:#f1f5f9;color:#64748b',
+		deposit_paid: 'background:#fef3c7;color:#92400e',
+		fully_paid: 'background:#dcfce7;color:#166534',
+		refunded: 'background:#fee2e2;color:#991b1b',
+	};
+	return map[s] ?? '';
+}
+
 function statusStyle(status: string) {
 	const s: Record<string, string> = {
 		pending: 'background:#fef3c7;color:#92400e',
@@ -90,6 +106,7 @@ function filterUrl(s: string) { return `${selfPath}${s ? `?status=${s}` : ''}`; 
 						<th>Customer</th>
 						<th>Pax</th>
 						<th>Total</th>
+						<th>Payment</th>
 						<th>Status</th>
 						<th>Booked</th>
 						<th>Actions</th>
@@ -116,6 +133,15 @@ function filterUrl(s: string) { return `${selfPath}${s ? `?status=${s}` : ''}`; 
 								<td style="white-space:nowrap">
 									{sym(b.currency)}{b.total_price}
 									{b.discount_pct > 0 && <div style="font-size:0.78rem;color:#16a34a">-{b.discount_pct}%</div>}
+								</td>
+								<td style="font-size:0.8rem">
+									<div>{paymentMethodLabel(b.payment_method)}</div>
+									<span style={`padding:0.15rem 0.45rem;border-radius:99px;font-size:0.75rem;font-weight:600;${paymentStatusStyle(b.payment_status)}`}>
+										{b.payment_status ?? 'unpaid'}
+									</span>
+									{(b.amount_paid ?? 0) > 0 && (
+										<div style="font-size:0.75rem;color:#64748b">Paid: {sym(b.currency)}{b.amount_paid}</div>
+									)}
 								</td>
 								<td>
 									<span
