@@ -6,14 +6,18 @@ interface Props {
 	adminLocale: Locale;
 	initialRecord: Record<string, unknown>;
 	editorId: string;
+	/** JSON editor is admin-only; never render for contributors or anonymous users. */
+	isAdmin: boolean;
 }
 
-const { apiPath, adminLocale, initialRecord, editorId } = Astro.props;
+const { apiPath, adminLocale, initialRecord, editorId, isAdmin } = Astro.props;
 const safePayload = JSON.stringify(initialRecord).replace(/</g, '\\u003c');
 const prettyInitial = JSON.stringify(initialRecord, null, 2);
 ---
 
-<section class="admin-card admin-edit-json" aria-labelledby={`${editorId}-json-heading`}>
+{isAdmin ? (
+	<>
+		<section class="admin-card admin-edit-json" aria-labelledby={`${editorId}-json-heading`}>
 	<h2 class="admin-card__h" id={`${editorId}-json-heading`}>Edit as JSON</h2>
 	<div class="admin-card__bd">
 		<p class="muted" style="margin:0 0 0.75rem">
@@ -33,9 +37,9 @@ const prettyInitial = JSON.stringify(initialRecord, null, 2);
 			<button type="button" class="button" id={`${editorId}-json-reset`}>Reset to original</button>
 		</div>
 	</div>
-</section>
+		</section>
 
-<style>
+		<style>
 	.admin-edit-json__ta {
 		width: 100%;
 		font-family: ui-monospace, monospace;
@@ -55,9 +59,9 @@ const prettyInitial = JSON.stringify(initialRecord, null, 2);
 	.admin-edit-json__msg[data-tone='error'] {
 		color: #b91c1c;
 	}
-</style>
+		</style>
 
-<script define:vars={{ apiPath, adminLocale, editorId, safePayload }}>
+		<script define:vars={{ apiPath, adminLocale, editorId, safePayload }}>
 	(function () {
 		var ta = document.getElementById(editorId + '-json-ta');
 		var msg = document.getElementById(editorId + '-json-msg');
@@ -115,4 +119,6 @@ const prettyInitial = JSON.stringify(initialRecord, null, 2);
 				});
 		});
 	})();
-</script>
+		</script>
+	</>
+) : null}

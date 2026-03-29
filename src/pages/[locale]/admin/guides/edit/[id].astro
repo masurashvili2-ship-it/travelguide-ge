@@ -183,6 +183,7 @@ const userEmail = Astro.locals.user.email;
 		adminLocale={locale}
 		editorId="guide-edit-json"
 		initialRecord={guidePostToAdminJsonRecord(post, locale)}
+		isAdmin={Astro.locals.user?.role === 'admin'}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

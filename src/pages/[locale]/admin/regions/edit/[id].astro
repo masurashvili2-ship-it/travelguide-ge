@@ -317,6 +317,7 @@ const locPin = post.location;
 		adminLocale={locale}
 		editorId="region-edit-json"
 		initialRecord={regionPostToAdminJsonRecord(post, locale)}
+		isAdmin={Astro.locals.user?.role === 'admin'}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

@@ -285,6 +285,7 @@ const placesForPicker = listRegionsForWhatToDoPicker();
 		adminLocale={locale}
 		editorId="wtd-edit-json"
 		initialRecord={whatToDoPostToAdminJsonRecord(post, locale)}
+		isAdmin={Astro.locals.user?.role === 'admin'}
 	/>
 
 	<section class="admin-card" style="margin-top:1.5rem">

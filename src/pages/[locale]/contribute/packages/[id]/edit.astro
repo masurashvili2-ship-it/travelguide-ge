@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../../../../../lib/strings';
 import { getPackageById } from '../../../../../lib/guide-packages-db';
 import { getGuides } from '../../../../../lib/guides-db';
+import { getPaymentSettings } from '../../../../../lib/payment-settings-db';
 import '../../../../../styles/contribute.css';
 import AdminTourPhotoUpload from '../../../../../components/admin/AdminTourPhotoUpload.astro';
 
@@ -33,6 +34,7 @@ const calendarUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/
 const bookingsUrl = getRelativeLocaleUrl(locale, `contribute/packages/${pkg.id}/bookings`);
 const pkgJson = JSON.stringify(pkg).replace(/</g, '\\u003c');
 const isAdmin = user.role === 'admin';
+const paypalEnabledGlobally = getPaymentSettings().paypal.enabled;
 ---
 
 <Shell
@@ -420,34 +422,56 @@ const isAdmin = user.role === 'admin';
 						<span>Accept</span>
 						<span>Extra discount %</span>
 					</div>
-					<div class="pm-row">
-						<label class="pm-row__label" for="pm-paypal-full-enabled">
-							<span class="pm-icon">💳</span>
-							<span>
-								<strong>PayPal — Full payment</strong>
-								<small>Customer pays the full amount online via PayPal.</small>
-							</span>
-						</label>
-						<input type="checkbox" id="pm-paypal-full-enabled" name="pm_paypal_full_enabled" checked />
-						<div class="pm-discount-wrap">
-							<input type="number" id="pm-paypal-full-discount" name="pm_paypal_full_discount" min="0" max="99" value="0" placeholder="0" />
-							<span class="pm-pct">%</span>
-						</div>
-					</div>
-					<div class="pm-row">
-						<label class="pm-row__label" for="pm-paypal-deposit-enabled">
-							<span class="pm-icon">💳</span>
-							<span>
-								<strong>PayPal — Deposit</strong>
-								<small>Customer pays a deposit online and the rest on tour day.</small>
-							</span>
-						</label>
-						<input type="checkbox" id="pm-paypal-deposit-enabled" name="pm_paypal_deposit_enabled" checked />
-						<div class="pm-discount-wrap">
-							<input type="number" id="pm-paypal-deposit-discount" name="pm_paypal_deposit_discount" min="0" max="99" value="0" placeholder="0" />
-							<span class="pm-pct">%</span>
-						</div>
-					</div>
+					{
+						paypalEnabledGlobally && (
+							<>
+								<div class="pm-row">
+									<label class="pm-row__label" for="pm-paypal-full-enabled">
+										<span class="pm-icon">💳</span>
+										<span>
+											<strong>PayPal — Full payment</strong>
+											<small>Customer pays the full amount online via PayPal.</small>
+										</span>
+									</label>
+									<input type="checkbox" id="pm-paypal-full-enabled" name="pm_paypal_full_enabled" checked />
+									<div class="pm-discount-wrap">
+										<input
+											type="number"
+											id="pm-paypal-full-discount"
+											name="pm_paypal_full_discount"
+											min="0"
+											max="99"
+											value="0"
+											placeholder="0"
+										/>
+										<span class="pm-pct">%</span>
+									</div>
+								</div>
+								<div class="pm-row">
+									<label class="pm-row__label" for="pm-paypal-deposit-enabled">
+										<span class="pm-icon">💳</span>
+										<span>
+											<strong>PayPal — Deposit</strong>
+											<small>Customer pays a deposit online and the rest on tour day.</small>
+										</span>
+									</label>
+									<input type="checkbox" id="pm-paypal-deposit-enabled" name="pm_paypal_deposit_enabled" checked />
+									<div class="pm-discount-wrap">
+										<input
+											type="number"
+											id="pm-paypal-deposit-discount"
+											name="pm_paypal_deposit_discount"
+											min="0"
+											max="99"
+											value="0"
+											placeholder="0"
+										/>
+										<span class="pm-pct">%</span>
+									</div>
+								</div>
+							</>
+						)
+					}
 					<div class="pm-row">
 						<label class="pm-row__label" for="pm-cash-enabled">
 							<span class="pm-icon">💵</span>
@@ -463,9 +487,6 @@ const isAdmin = user.role === 'admin';
 						</div>
 					</div>
 				</div>
-				<p class="muted" style="margin-top:0.75rem;font-size:0.82rem">
-					Note: PayPal options are only shown to customers if PayPal is enabled in the admin Payment Settings.
-				</p>
 			</div>
 		</section>
 
@@ -480,7 +501,7 @@ const isAdmin = user.role === 'admin';
 	</div>
 </Shell>
 
-<script is:inline define:vars={{ pkgJson, backUrl, isAdmin, contributeLocale: locale }}>
+<script is:inline define:vars={{ pkgJson, backUrl, isAdmin, contributeLocale: locale, paypalEnabledGlobally }}>
 (function () {
 	var pkg = JSON.parse(pkgJson);
 	var rulesEl = document.getElementById('rules-list');
@@ -1039,9 +1060,11 @@ const isAdmin = user.role === 'admin';
 		if (enabledEl) enabledEl.checked = opt.enabled !== false;
 		if (discountEl) discountEl.value = opt.discount_pct || 0;
 	}
-	setPayOpt('paypal_full',    { enabled: true, discount_pct: 0 });
-	setPayOpt('paypal_deposit', { enabled: true, discount_pct: 0 });
-	setPayOpt('cash',           { enabled: true, discount_pct: 0 });
+	if (paypalEnabledGlobally) {
+		setPayOpt('paypal_full', { enabled: true, discount_pct: 0 });
+		setPayOpt('paypal_deposit', { enabled: true, discount_pct: 0 });
+	}
+	setPayOpt('cash', { enabled: true, discount_pct: 0 });
 
 	function addRuleRow(existing) {
 		var id = 'rule-' + (++ruleCount);
@@ -1175,14 +1198,18 @@ const isAdmin = user.role === 'admin';
 			min_age: parseInt(fv('min_age')) || null,
 			cancellation_policy: fv('cancellation_policy') || null,
 			payment_options: {
-				paypal_full: {
-					enabled: document.getElementById('pm-paypal-full-enabled')?.checked !== false,
-					discount_pct: parseFloat(document.getElementById('pm-paypal-full-discount')?.value || '0') || 0,
-				},
-				paypal_deposit: {
-					enabled: document.getElementById('pm-paypal-deposit-enabled')?.checked !== false,
-					discount_pct: parseFloat(document.getElementById('pm-paypal-deposit-discount')?.value || '0') || 0,
-				},
+				paypal_full: paypalEnabledGlobally
+					? {
+							enabled: document.getElementById('pm-paypal-full-enabled')?.checked !== false,
+							discount_pct: parseFloat(document.getElementById('pm-paypal-full-discount')?.value || '0') || 0,
+						}
+					: { enabled: false, discount_pct: 0 },
+				paypal_deposit: paypalEnabledGlobally
+					? {
+							enabled: document.getElementById('pm-paypal-deposit-enabled')?.checked !== false,
+							discount_pct: parseFloat(document.getElementById('pm-paypal-deposit-discount')?.value || '0') || 0,
+						}
+					: { enabled: false, discount_pct: 0 },
 				cash: {
 					enabled: document.getElementById('pm-cash-enabled')?.checked !== false,
 					discount_pct: parseFloat(document.getElementById('pm-cash-discount')?.value || '0') || 0,
