@@ -245,7 +245,7 @@ function normalizeRegionPost(raw: unknown): RegionPost | null {
 		else return null;
 	}
 
-	const image = o.image == null || o.image === '' ? null : String(o.image).trim() || null;
+	const image = normalizeRegionOptionalDbString(o.image);
 	const gallery = normalizeTourGalleryInput(o.gallery);
 	const location = parseTourLocation(o.location);
 
@@ -253,8 +253,7 @@ function normalizeRegionPost(raw: unknown): RegionPost | null {
 	const area_km2 = parseStoredNumber(o.area_km2);
 	const elevation_m = parseStoredNumber(o.elevation_m);
 
-	const str = (k: string) =>
-		o[k] == null || o[k] === '' ? null : String(o[k]).trim() || null;
+	const str = (k: string) => normalizeRegionOptionalDbString(o[k]);
 
 	const i18nRaw = o.i18n;
 	const i18n: Partial<Record<Locale, RegionLocaleBlock>> = {};
@@ -315,6 +314,19 @@ function parseStoredNumber(v: unknown): number | null {
 	const n = typeof v === 'number' ? v : parseFloat(String(v));
 	if (!Number.isFinite(n)) return null;
 	return n;
+}
+
+/**
+ * Optional string fields from JSON/forms: empty and literal `"null"` / `"undefined"` become null
+ * so we do not show bogus fact rows on region pages.
+ */
+export function normalizeRegionOptionalDbString(v: unknown): string | null {
+	if (v == null || v === '') return null;
+	const t = String(v).trim();
+	if (!t) return null;
+	const low = t.toLowerCase();
+	if (low === 'null' || low === 'undefined') return null;
+	return t;
 }
 
 /** Call after replacing `regions.json` on disk (e.g. backup import). */
@@ -869,9 +881,7 @@ export function saveRegionPost(
 }
 
 function trimNullable(v: string | null | undefined): string | null {
-	if (v === undefined) return null;
-	const t = String(v).trim();
-	return t ? t : null;
+	return normalizeRegionOptionalDbString(v);
 }
 
 export function deleteRegionPost(id: string): { ok: true } | { ok: false; error: string } {

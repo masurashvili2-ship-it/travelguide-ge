@@ -4,7 +4,11 @@ import TourDetailHeroGallery from '../../../components/TourDetailHeroGallery.ast
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { marked } from 'marked';
 import { resolveTourMetaDescription } from '../../../lib/seo';
-import { getRegionPublicRow, type RegionLevel } from '../../../lib/regions-db';
+import {
+	getRegionPublicRow,
+	normalizeRegionOptionalDbString,
+	type RegionLevel,
+} from '../../../lib/regions-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
 import { tourCoverImageUrl } from '../../../lib/tours-db';
@@ -58,14 +62,22 @@ const facts: { label: string; value: string }[] = [];
 if (row.population != null) facts.push({ label: 'Population', value: String(row.population) });
 if (row.area_km2 != null) facts.push({ label: 'Area (km²)', value: String(row.area_km2) });
 if (row.elevation_m != null) facts.push({ label: 'Elevation (m)', value: String(row.elevation_m) });
-if (row.admin_center_name?.trim()) facts.push({ label: 'Administrative center', value: row.admin_center_name.trim() });
-if (row.iso_3166_2?.trim()) facts.push({ label: 'ISO 3166-2', value: row.iso_3166_2.trim() });
-if (row.official_code?.trim()) facts.push({ label: 'Official code', value: row.official_code.trim() });
-if (row.settlement_type?.trim()) facts.push({ label: 'Settlement type', value: row.settlement_type.trim() });
-if (row.official_website?.trim()) facts.push({ label: 'Website', value: row.official_website.trim() });
-if (row.wikipedia_url?.trim()) facts.push({ label: 'Wikipedia', value: row.wikipedia_url.trim() });
-if (row.wikidata_id?.trim()) facts.push({ label: 'Wikidata', value: row.wikidata_id.trim() });
-if (row.geonames_id?.trim()) facts.push({ label: 'GeoNames', value: row.geonames_id.trim() });
+const adminCenter = normalizeRegionOptionalDbString(row.admin_center_name);
+if (adminCenter) facts.push({ label: 'Administrative center', value: adminCenter });
+const iso = normalizeRegionOptionalDbString(row.iso_3166_2);
+if (iso) facts.push({ label: 'ISO 3166-2', value: iso });
+const offCode = normalizeRegionOptionalDbString(row.official_code);
+if (offCode) facts.push({ label: 'Official code', value: offCode });
+const settlement = normalizeRegionOptionalDbString(row.settlement_type);
+if (settlement) facts.push({ label: 'Settlement type', value: settlement });
+const website = normalizeRegionOptionalDbString(row.official_website);
+if (website) facts.push({ label: 'Website', value: website });
+const wiki = normalizeRegionOptionalDbString(row.wikipedia_url);
+if (wiki) facts.push({ label: 'Wikipedia', value: wiki });
+const wikidata = normalizeRegionOptionalDbString(row.wikidata_id);
+if (wikidata) facts.push({ label: 'Wikidata', value: wikidata });
+const geonames = normalizeRegionOptionalDbString(row.geonames_id);
+if (geonames) facts.push({ label: 'GeoNames', value: geonames });
 ---
 
 <Shell
