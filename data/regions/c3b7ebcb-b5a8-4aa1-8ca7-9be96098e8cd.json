@@ -1,0 +1,1884 @@
+{
+	"posts": [
+		{
+			"id": "34ac5546-6903-40e2-bd11-d91d6b34014b",
+			"slug": "samtredia",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A2%E1%83%A0%E1%83%94%E1%83%93%E1%83%98%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Samtredia",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Samtredia is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Samtredia village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Samtredia is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Samtredia\n\nSamtredia is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nSamtredia is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A2%E1%83%A0%E1%83%94%E1%83%93%E1%83%98%E1%83%90)"
+				},
+				"ka": {
+					"title": "სამტრედია",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "სამტრედია — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "სამტრედია — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "სამტრედია — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## სამტრედია\n\nსამტრედია — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A2%E1%83%A0%E1%83%94%E1%83%93%E1%83%98%E1%83%90)"
+				},
+				"ru": {
+					"title": "Samtredia",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Samtredia — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Samtredia — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Samtredia — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Samtredia\n\nSamtredia — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9B%E1%83%A2%E1%83%A0%E1%83%94%E1%83%93%E1%83%98%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794881698
+		},
+		{
+			"id": "3ac9c338-98a5-4541-9208-696f52c76cd7",
+			"slug": "didi-jikhaishi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%AF%E1%83%98%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Didi Jikhaishi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Didi Jikhaishi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Didi Jikhaishi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Didi Jikhaishi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Didi Jikhaishi\n\nDidi Jikhaishi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nDidi Jikhaishi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%AF%E1%83%98%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "დიდი ჯიხაიში",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "დიდი ჯიხაიში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "დიდი ჯიხაიში — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "დიდი ჯიხაიში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## დიდი ჯიხაიში\n\nდიდი ჯიხაიში — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%AF%E1%83%98%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98)"
+				},
+				"ru": {
+					"title": "Didi Jikhaishi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Didi Jikhaishi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Didi Jikhaishi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Didi Jikhaishi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Didi Jikhaishi\n\nDidi Jikhaishi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%AF%E1%83%98%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794882099
+		},
+		{
+			"id": "7ae031a1-f58c-4da1-8a6b-881e24bc1a44",
+			"slug": "tkhilagani-2",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%AE%E1%83%98%E1%83%9A%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tkhilagani 2",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Tkhilagani 2 is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Tkhilagani 2 village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Tkhilagani 2 is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Tkhilagani 2\n\nTkhilagani 2 is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nTkhilagani 2 is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%AE%E1%83%98%E1%83%9A%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "თხილაგანი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "თხილაგანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "თხილაგანი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "თხილაგანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## თხილაგანი\n\nთხილაგანი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%AE%E1%83%98%E1%83%9A%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tkhilagani 2",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Tkhilagani 2 — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Tkhilagani 2 — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Tkhilagani 2 — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Tkhilagani 2\n\nTkhilagani 2 — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%AE%E1%83%98%E1%83%9A%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794882499
+		},
+		{
+			"id": "41959057-45e6-494e-ac26-729a05e5b8ab",
+			"slug": "bughnara",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A3%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Bughnara",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Bughnara is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Bughnara village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Bughnara is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Bughnara\n\nBughnara is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nBughnara is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A3%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90)"
+				},
+				"ka": {
+					"title": "ბუღნარა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ბუღნარა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ბუღნარა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ბუღნარა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ბუღნარა\n\nბუღნარა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A3%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90)"
+				},
+				"ru": {
+					"title": "Bughnara",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Bughnara — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Bughnara — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Bughnara — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Bughnara\n\nBughnara — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A3%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794882900
+		},
+		{
+			"id": "deb29564-236f-452e-a8d3-ea92a288a7ad",
+			"slug": "gamochinebuli",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%A9%E1%83%98%E1%83%9C%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gamochinebuli",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Gamochinebuli is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Gamochinebuli village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Gamochinebuli is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Gamochinebuli\n\nGamochinebuli is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nGamochinebuli is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%A9%E1%83%98%E1%83%9C%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "გამოჩინებული",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "გამოჩინებული — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "გამოჩინებული — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "გამოჩინებული — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## გამოჩინებული\n\nგამოჩინებული — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%A9%E1%83%98%E1%83%9C%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Gamochinebuli",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Gamochinebuli — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Gamochinebuli — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Gamochinebuli — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Gamochinebuli\n\nGamochinebuli — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9B%E1%83%9D%E1%83%A9%E1%83%98%E1%83%9C%E1%83%94%E1%83%91%E1%83%A3%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794883301
+		},
+		{
+			"id": "f6f64669-9c1a-4d52-8cff-c147e186611d",
+			"slug": "gvimrala",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%90%E1%83%9A%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gvimrala",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Gvimrala is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Gvimrala village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Gvimrala is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Gvimrala\n\nGvimrala is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nGvimrala is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "გვიმრალა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "გვიმრალა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "გვიმრალა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "გვიმრალა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## გვიმრალა\n\nგვიმრალა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ru": {
+					"title": "Gvimrala",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Gvimrala — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Gvimrala — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Gvimrala — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Gvimrala\n\nGvimrala — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%90%E1%83%9A%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794883701
+		},
+		{
+			"id": "001cf61b-e328-49d7-9eda-564aca4fe84e",
+			"slug": "gommukhakrua",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%A7%E1%83%A0%E1%83%A3%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gommukhakrua",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Gommukhakrua is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Gommukhakrua village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Gommukhakrua is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Gommukhakrua\n\nGommukhakrua is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nGommukhakrua is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%A7%E1%83%A0%E1%83%A3%E1%83%90)"
+				},
+				"ka": {
+					"title": "გომმუხაყრუა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "გომმუხაყრუა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "გომმუხაყრუა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "გომმუხაყრუა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## გომმუხაყრუა\n\nგომმუხაყრუა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%A7%E1%83%A0%E1%83%A3%E1%83%90)"
+				},
+				"ru": {
+					"title": "Gommukhakrua",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Gommukhakrua — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Gommukhakrua — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Gommukhakrua — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Gommukhakrua\n\nGommukhakrua — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%90%E1%83%A7%E1%83%A0%E1%83%A3%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794884102
+		},
+		{
+			"id": "22eaa50c-3a0d-402c-b01f-66f605a19adb",
+			"slug": "gomnatekhebi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9C%E1%83%90%E1%83%A2%E1%83%94%E1%83%AE%E1%83%94%E1%83%91%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gomnatekhebi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Gomnatekhebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Gomnatekhebi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Gomnatekhebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Gomnatekhebi\n\nGomnatekhebi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nGomnatekhebi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9C%E1%83%90%E1%83%A2%E1%83%94%E1%83%AE%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "გომნატეხები",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "გომნატეხები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "გომნატეხები — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "გომნატეხები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## გომნატეხები\n\nგომნატეხები — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9C%E1%83%90%E1%83%A2%E1%83%94%E1%83%AE%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ru": {
+					"title": "Gomnatekhebi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Gomnatekhebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Gomnatekhebi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Gomnatekhebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Gomnatekhebi\n\nGomnatekhebi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9B%E1%83%9C%E1%83%90%E1%83%A2%E1%83%94%E1%83%AE%E1%83%94%E1%83%91%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794884502
+		},
+		{
+			"id": "0c802418-f2cb-40d7-b69e-242099a65035",
+			"slug": "dablagomi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%9B%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dablagomi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Dablagomi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Dablagomi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Dablagomi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Dablagomi\n\nDablagomi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nDablagomi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%9B%E1%83%98)"
+				},
+				"ka": {
+					"title": "დაბლაგომი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "დაბლაგომი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "დაბლაგომი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "დაბლაგომი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## დაბლაგომი\n\nდაბლაგომი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%9B%E1%83%98)"
+				},
+				"ru": {
+					"title": "Dablagomi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Dablagomi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Dablagomi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Dablagomi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Dablagomi\n\nDablagomi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%9B%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794884903
+		},
+		{
+			"id": "18af579a-71e8-40f5-8002-b29d3855cae4",
+			"slug": "dafnari",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%A4%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dafnari",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Dafnari is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Dafnari village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Dafnari is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Dafnari\n\nDafnari is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nDafnari is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%A4%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "დაფნარი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "დაფნარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "დაფნარი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "დაფნარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## დაფნარი\n\nდაფნარი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%A4%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Dafnari",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Dafnari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Dafnari — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Dafnari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Dafnari\n\nDafnari — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%90%E1%83%A4%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794885303
+		},
+		{
+			"id": "993ec132-21ef-4d6d-90fc-e03e86b6fa4c",
+			"slug": "didi-ofeti",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Didi Ofeti",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Didi Ofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Didi Ofeti village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Didi Ofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Didi Ofeti\n\nDidi Ofeti is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nDidi Ofeti is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "დიდი ოფეთი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "დიდი ოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "დიდი ოფეთი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "დიდი ოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## დიდი ოფეთი\n\nდიდი ოფეთი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ru": {
+					"title": "Didi Ofeti",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Didi Ofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Didi Ofeti — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Didi Ofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Didi Ofeti\n\nDidi Ofeti — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%98%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794885704
+		},
+		{
+			"id": "7255eeb2-9e43-4ae9-8ee6-8e85ea36b6fe",
+			"slug": "dobiro",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%A0%E1%83%9D",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dobiro",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Dobiro is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Dobiro village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Dobiro is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Dobiro\n\nDobiro is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nDobiro is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%A0%E1%83%9D)"
+				},
+				"ka": {
+					"title": "დობირო",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "დობირო — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "დობირო — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "დობირო — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## დობირო\n\nდობირო — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%A0%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Dobiro",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Dobiro — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Dobiro — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Dobiro — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Dobiro\n\nDobiro — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%A0%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774794886104
+		},
+		{
+			"id": "85a706b0-8b19-4e2b-860b-3b07296df783",
+			"slug": "zemo-nogha",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Nogha",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Zemo Nogha is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Zemo Nogha village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Zemo Nogha is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Zemo Nogha\n\nZemo Nogha is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nZemo Nogha is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				},
+				"ka": {
+					"title": "ზემო ნოღა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ზემო ნოღა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ზემო ნოღა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ზემო ნოღა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ზემო ნოღა\n\nზემო ნოღა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				},
+				"ru": {
+					"title": "Zemo Nogha",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Zemo Nogha — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Zemo Nogha — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Zemo Nogha — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Zemo Nogha\n\nZemo Nogha — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794886505
+		},
+		{
+			"id": "6e028113-b8bd-4c18-8597-5d01d194154f",
+			"slug": "zemo-tolebi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Tolebi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Zemo Tolebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Zemo Tolebi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Zemo Tolebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Zemo Tolebi\n\nZemo Tolebi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nZemo Tolebi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო ტოლები",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ზემო ტოლები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ზემო ტოლები — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ზემო ტოლები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ზემო ტოლები\n\nზემო ტოლები — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Tolebi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Zemo Tolebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Zemo Tolebi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Zemo Tolebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Zemo Tolebi\n\nZemo Tolebi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794886906
+		},
+		{
+			"id": "638b64c7-e514-431a-a3f4-489cc92f6fc5",
+			"slug": "ketilauri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%97%E1%83%98%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ketilauri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Ketilauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Ketilauri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Ketilauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Ketilauri\n\nKetilauri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKetilauri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%97%E1%83%98%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "კეთილაური",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "კეთილაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "კეთილაური — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "კეთილაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## კეთილაური\n\nკეთილაური — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%97%E1%83%98%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Ketilauri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Ketilauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Ketilauri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Ketilauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Ketilauri\n\nKetilauri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%97%E1%83%98%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794887306
+		},
+		{
+			"id": "f5556f30-ca54-4f01-a706-cf9c4d2666cc",
+			"slug": "kechinari",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%AD%E1%83%98%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kechinari",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Kechinari is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Kechinari village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Kechinari is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Kechinari\n\nKechinari is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKechinari is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%AD%E1%83%98%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "კეჭინარი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "კეჭინარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "კეჭინარი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "კეჭინარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## კეჭინარი\n\nკეჭინარი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%AD%E1%83%98%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kechinari",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Kechinari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Kechinari — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Kechinari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Kechinari\n\nKechinari — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%94%E1%83%AD%E1%83%98%E1%83%9C%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794887707
+		},
+		{
+			"id": "8d76ab36-0de4-4c25-aaaa-2cd5fced986c",
+			"slug": "kormaghali",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A6%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kormaghali",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Kormaghali is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Kormaghali village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Kormaghali is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Kormaghali\n\nKormaghali is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKormaghali is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A6%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "კორმაღალი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "კორმაღალი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "კორმაღალი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "კორმაღალი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## კორმაღალი\n\nკორმაღალი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A6%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kormaghali",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Kormaghali — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Kormaghali — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Kormaghali — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Kormaghali\n\nKormaghali — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A6%E1%83%90%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794888110
+		},
+		{
+			"id": "912bddd4-f8bb-458d-8dbc-3583dbf7b685",
+			"slug": "melauri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Melauri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Melauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Melauri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Melauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Melauri\n\nMelauri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nMelauri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "მელაური",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "მელაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "მელაური — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "მელაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## მელაური\n\nმელაური — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Melauri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Melauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Melauri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Melauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Melauri\n\nMelauri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794888510
+		},
+		{
+			"id": "6df0ead0-74a3-4fbf-8ebf-a7a47e47ee0e",
+			"slug": "mitsabogira",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AC%E1%83%90%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mitsabogira",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Mitsabogira is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Mitsabogira village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Mitsabogira is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Mitsabogira\n\nMitsabogira is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nMitsabogira is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AC%E1%83%90%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%90)"
+				},
+				"ka": {
+					"title": "მიწაბოგირა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "მიწაბოგირა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "მიწაბოგირა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "მიწაბოგირა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## მიწაბოგირა\n\nმიწაბოგირა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AC%E1%83%90%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%90)"
+				},
+				"ru": {
+					"title": "Mitsabogira",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Mitsabogira — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Mitsabogira — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Mitsabogira — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Mitsabogira\n\nMitsabogira — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%AC%E1%83%90%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794888912
+		},
+		{
+			"id": "3c12a283-15d4-43a6-b86a-820b130e1cfb",
+			"slug": "mterchveuli",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A2%E1%83%94%E1%83%A0%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mterchveuli",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Mterchveuli is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Mterchveuli village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Mterchveuli is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Mterchveuli\n\nMterchveuli is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nMterchveuli is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A2%E1%83%94%E1%83%A0%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "მტერჩვეული",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "მტერჩვეული — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "მტერჩვეული — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "მტერჩვეული — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## მტერჩვეული\n\nმტერჩვეული — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A2%E1%83%94%E1%83%A0%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Mterchveuli",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Mterchveuli — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Mterchveuli — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Mterchveuli — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Mterchveuli\n\nMterchveuli — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A2%E1%83%94%E1%83%A0%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794889313
+		},
+		{
+			"id": "1db65729-35c2-4d19-9aa5-f37c56df6c5b",
+			"slug": "natsilofeti",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Natsilofeti",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Natsilofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Natsilofeti village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Natsilofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Natsilofeti\n\nNatsilofeti is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nNatsilofeti is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნაწილოფეთი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ნაწილოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ნაწილოფეთი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ნაწილოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ნაწილოფეთი\n\nნაწილოფეთი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ru": {
+					"title": "Natsilofeti",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Natsilofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Natsilofeti — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Natsilofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Natsilofeti\n\nNatsilofeti — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794889714
+		},
+		{
+			"id": "38025423-8642-426a-a8c5-cabb36bb4bea",
+			"slug": "nigorzghva",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20I",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nigorzghva",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Nigorzghva is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Nigorzghva village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Nigorzghva is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Nigorzghva\n\nNigorzghva is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nNigorzghva is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20I)"
+				},
+				"ka": {
+					"title": "ნიგორზღვა I",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ნიგორზღვა I — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ნიგორზღვა I — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ნიგორზღვა I — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ნიგორზღვა I\n\nნიგორზღვა I — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20I)"
+				},
+				"ru": {
+					"title": "Nigorzghva",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Nigorzghva — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Nigorzghva — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Nigorzghva — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Nigorzghva\n\nNigorzghva — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20I)"
+				}
+			},
+			"updated_at": 1774794890115
+		},
+		{
+			"id": "93d6fee6-fb6a-4383-8c2a-cde682ce9682",
+			"slug": "nigorzghva-2",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20II",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nigorzghva 2",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Nigorzghva 2 is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Nigorzghva 2 village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Nigorzghva 2 is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Nigorzghva 2\n\nNigorzghva 2 is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nNigorzghva 2 is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20II)"
+				},
+				"ka": {
+					"title": "ნიგორზღვა II",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ნიგორზღვა II — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ნიგორზღვა II — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ნიგორზღვა II — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ნიგორზღვა II\n\nნიგორზღვა II — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20II)"
+				},
+				"ru": {
+					"title": "Nigorzghva 2",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Nigorzghva 2 — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Nigorzghva 2 — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Nigorzghva 2 — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Nigorzghva 2\n\nNigorzghva 2 — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%20II)"
+				}
+			},
+			"updated_at": 1774794890516
+		},
+		{
+			"id": "4c6a3ba2-f10c-4ba3-a7a5-211081aa8f6e",
+			"slug": "ninuakutkhe",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%A3%E1%83%90%E1%83%99%E1%83%A3%E1%83%97%E1%83%AE%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ninuakutkhe",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Ninuakutkhe is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Ninuakutkhe village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Ninuakutkhe is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Ninuakutkhe\n\nNinuakutkhe is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nNinuakutkhe is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%A3%E1%83%90%E1%83%99%E1%83%A3%E1%83%97%E1%83%AE%E1%83%94)"
+				},
+				"ka": {
+					"title": "ნინუაკუთხე",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ნინუაკუთხე — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ნინუაკუთხე — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ნინუაკუთხე — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ნინუაკუთხე\n\nნინუაკუთხე — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%A3%E1%83%90%E1%83%99%E1%83%A3%E1%83%97%E1%83%AE%E1%83%94)"
+				},
+				"ru": {
+					"title": "Ninuakutkhe",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Ninuakutkhe — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Ninuakutkhe — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Ninuakutkhe — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Ninuakutkhe\n\nNinuakutkhe — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%A3%E1%83%90%E1%83%99%E1%83%A3%E1%83%97%E1%83%AE%E1%83%94)"
+				}
+			},
+			"updated_at": 1774794890916
+		},
+		{
+			"id": "a8afa250-94ba-4414-bd53-e8cfbb925df4",
+			"slug": "ochofa",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%9D%E1%83%A4%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ochofa",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Ochofa is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Ochofa village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Ochofa is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Ochofa\n\nOchofa is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nOchofa is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%9D%E1%83%A4%E1%83%90)"
+				},
+				"ka": {
+					"title": "ოჭოფა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ოჭოფა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ოჭოფა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ოჭოფა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ოჭოფა\n\nოჭოფა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%9D%E1%83%A4%E1%83%90)"
+				},
+				"ru": {
+					"title": "Ochofa",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Ochofa — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Ochofa — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Ochofa — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Ochofa\n\nOchofa — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%9D%E1%83%A4%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794891317
+		},
+		{
+			"id": "4863b1f1-5cc8-4dcd-b7c6-ee0fc285410a",
+			"slug": "patara-etseri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Patara Etseri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Patara Etseri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Patara Etseri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Patara Etseri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Patara Etseri\n\nPatara Etseri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nPatara Etseri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "პატარა ეწერი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "პატარა ეწერი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "პატარა ეწერი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "პატარა ეწერი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## პატარა ეწერი\n\nპატარა ეწერი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Patara Etseri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Patara Etseri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Patara Etseri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Patara Etseri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Patara Etseri\n\nPatara Etseri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794891718
+		},
+		{
+			"id": "d41e0e38-a26e-4efb-9e51-f32cb76f3464",
+			"slug": "patara-ofeti",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Patara Ofeti",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Patara Ofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Patara Ofeti village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Patara Ofeti is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Patara Ofeti\n\nPatara Ofeti is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nPatara Ofeti is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "პატარა ოფეთი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "პატარა ოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "პატარა ოფეთი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "პატარა ოფეთი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## პატარა ოფეთი\n\nპატარა ოფეთი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ru": {
+					"title": "Patara Ofeti",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Patara Ofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Patara Ofeti — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Patara Ofeti — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Patara Ofeti\n\nPatara Ofeti — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%9D%E1%83%A4%E1%83%94%E1%83%97%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794892119
+		},
+		{
+			"id": "0ed96eb3-cfa6-4d74-9b1c-5b145013a8ae",
+			"slug": "tolebi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tolebi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Tolebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Tolebi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Tolebi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Tolebi\n\nTolebi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nTolebi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "ტოლები",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ტოლები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ტოლები — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ტოლები — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ტოლები\n\nტოლები — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tolebi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Tolebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Tolebi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Tolebi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Tolebi\n\nTolebi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%9D%E1%83%9A%E1%83%94%E1%83%91%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794892519
+		},
+		{
+			"id": "a7031077-79b5-4355-8cf9-625efa33ff3f",
+			"slug": "kveda-etseri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kveda Etseri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Kveda Etseri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Kveda Etseri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Kveda Etseri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Kveda Etseri\n\nKveda Etseri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKveda Etseri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვედა ეწერი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ქვედა ეწერი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ქვედა ეწერი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ქვედა ეწერი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ქვედა ეწერი\n\nქვედა ეწერი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kveda Etseri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Kveda Etseri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Kveda Etseri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Kveda Etseri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Kveda Etseri\n\nKveda Etseri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794892920
+		},
+		{
+			"id": "8beeabd9-1e47-4da8-af8e-07024fc469b7",
+			"slug": "kvemo-nogha",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Nogha",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Kvemo Nogha is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Kvemo Nogha village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Kvemo Nogha is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Kvemo Nogha\n\nKvemo Nogha is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKvemo Nogha is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				},
+				"ka": {
+					"title": "ქვემო ნოღა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ნოღა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ქვემო ნოღა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ნოღა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ქვემო ნოღა\n\nქვემო ნოღა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				},
+				"ru": {
+					"title": "Kvemo Nogha",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Kvemo Nogha — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Kvemo Nogha — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Kvemo Nogha — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Kvemo Nogha\n\nKvemo Nogha — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%9D%E1%83%A6%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794893321
+		},
+		{
+			"id": "d853e3e0-8455-4bc5-af8a-93bac04e92e2",
+			"slug": "koreisubani",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A0%E1%83%94%E1%83%98%E1%83%A1%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Koreisubani",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Koreisubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Koreisubani village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Koreisubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Koreisubani\n\nKoreisubani is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKoreisubani is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A0%E1%83%94%E1%83%98%E1%83%A1%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქორეისუბანი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ქორეისუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ქორეისუბანი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ქორეისუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ქორეისუბანი\n\nქორეისუბანი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A0%E1%83%94%E1%83%98%E1%83%A1%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Koreisubani",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Koreisubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Koreisubani — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Koreisubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Koreisubani\n\nKoreisubani — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A0%E1%83%94%E1%83%98%E1%83%A1%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794893723
+		},
+		{
+			"id": "dde9f284-9053-4524-9d91-becc39b2cebc",
+			"slug": "ghaniri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ghaniri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Ghaniri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Ghaniri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Ghaniri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Ghaniri\n\nGhaniri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nGhaniri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ღანირი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ღანირი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ღანირი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ღანირი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ღანირი\n\nღანირი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Ghaniri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Ghaniri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Ghaniri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Ghaniri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Ghaniri\n\nGhaniri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A6%E1%83%90%E1%83%9C%E1%83%98%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794894123
+		},
+		{
+			"id": "968d1198-dfb2-477f-a871-db3f777bb061",
+			"slug": "chkhenishi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%AE%E1%83%94%E1%83%9C%E1%83%98%E1%83%A8%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chkhenishi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Chkhenishi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Chkhenishi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Chkhenishi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Chkhenishi\n\nChkhenishi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nChkhenishi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%AE%E1%83%94%E1%83%9C%E1%83%98%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჩხენიში",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ჩხენიში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ჩხენიში — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ჩხენიში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ჩხენიში\n\nჩხენიში — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%AE%E1%83%94%E1%83%9C%E1%83%98%E1%83%A8%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chkhenishi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Chkhenishi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Chkhenishi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Chkhenishi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Chkhenishi\n\nChkhenishi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%AE%E1%83%94%E1%83%9C%E1%83%98%E1%83%A8%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794894523
+		},
+		{
+			"id": "5c759ae6-d8c0-43ab-aea3-f70aaf330da3",
+			"slug": "tsivtskala",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%98%E1%83%95%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsivtskala",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Tsivtskala is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Tsivtskala village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Tsivtskala is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Tsivtskala\n\nTsivtskala is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nTsivtskala is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%98%E1%83%95%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "ცივწყალა",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ცივწყალა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ცივწყალა — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ცივწყალა — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ცივწყალა\n\nცივწყალა — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%98%E1%83%95%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ru": {
+					"title": "Tsivtskala",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Tsivtskala — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Tsivtskala — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Tsivtskala — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Tsivtskala\n\nTsivtskala — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%98%E1%83%95%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794894923
+		},
+		{
+			"id": "3a66ff8f-08c6-4c8d-acf2-f29a10013412",
+			"slug": "tsiaghubani",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%90%E1%83%A6%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsiaghubani",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Tsiaghubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Tsiaghubani village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Tsiaghubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Tsiaghubani\n\nTsiaghubani is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nTsiaghubani is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%90%E1%83%A6%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "წიაღუბანი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "წიაღუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "წიაღუბანი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "წიაღუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## წიაღუბანი\n\nწიაღუბანი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%90%E1%83%A6%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tsiaghubani",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Tsiaghubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Tsiaghubani — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Tsiaghubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Tsiaghubani\n\nTsiaghubani — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%90%E1%83%A6%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794895324
+		},
+		{
+			"id": "9a65dd75-e8e3-4d24-a110-5c846c5f18ab",
+			"slug": "chagani",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chagani",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Chagani is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Chagani village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Chagani is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Chagani\n\nChagani is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nChagani is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჭაგანი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ჭაგანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ჭაგანი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ჭაგანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ჭაგანი\n\nჭაგანი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chagani",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Chagani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Chagani — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Chagani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Chagani\n\nChagani — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794895724
+		},
+		{
+			"id": "270623be-164a-422f-bce2-a830d1bf0896",
+			"slug": "khiblari",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khiblari",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Khiblari is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Khiblari village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Khiblari is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Khiblari\n\nKhiblari is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKhiblari is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხიბლარი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ხიბლარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ხიბლარი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ხიბლარი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ხიბლარი\n\nხიბლარი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Khiblari",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Khiblari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Khiblari — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Khiblari — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Khiblari\n\nKhiblari — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794896127
+		},
+		{
+			"id": "f70fda2e-8560-44e2-98d8-a349388da9b1",
+			"slug": "khunjulauri",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%AF%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khunjulauri",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Khunjulauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Khunjulauri village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Khunjulauri is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Khunjulauri\n\nKhunjulauri is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKhunjulauri is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%AF%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხუნჯულაური",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ხუნჯულაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ხუნჯულაური — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ხუნჯულაური — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ხუნჯულაური\n\nხუნჯულაური — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%AF%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Khunjulauri",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Khunjulauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Khunjulauri — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Khunjulauri — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Khunjulauri\n\nKhunjulauri — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%AF%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794896527
+		},
+		{
+			"id": "9dfa27ac-c46b-42d4-874c-5d63c9535698",
+			"slug": "jiktubani",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%98%E1%83%A5%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Jiktubani",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Jiktubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Jiktubani village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Jiktubani is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Jiktubani\n\nJiktubani is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nJiktubani is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%98%E1%83%A5%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჯიქთუბანი",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "ჯიქთუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "ჯიქთუბანი — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "ჯიქთუბანი — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## ჯიქთუბანი\n\nჯიქთუბანი — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%98%E1%83%A5%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Jiktubani",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Jiktubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Jiktubani — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Jiktubani — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Jiktubani\n\nJiktubani — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%98%E1%83%A5%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794896928
+		},
+		{
+			"id": "a7067735-984b-490c-b289-6515546fa3b6",
+			"slug": "kulashi",
+			"level": "village",
+			"parent_id": "c3b7ebcb-b5a8-4aa1-8ca7-9be96098e8cd",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A8%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kulashi",
+					"subtitle": "Village · Samtredia municipality · Imereti",
+					"excerpt": "Kulashi is a village in Samtredia municipality, Imereti, Georgia.",
+					"seo_title": "Kulashi village — Samtredia, Imereti | Travel Georgia",
+					"seo_description": "Kulashi is a village in Samtredia municipality, Imereti, Georgia.",
+					"body": "## About Kulashi\n\nKulashi is a village located in Samtredia municipality in the Imereti region of Georgia.\n\n## Location\n\nKulashi is situated in **Samtredia municipality**, which is part of the **Imereti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Samtredia can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "კულაში",
+					"subtitle": "სოფელი · სამტრედიაის მუნიციპალიტეტი",
+					"excerpt": "კულაში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"seo_title": "კულაში — სოფელი | სამტრედიაის მუნიციპალიტეტი",
+					"seo_description": "კულაში — სოფელი სამტრედიაის მუნიციპალიტეტში, Imereti.",
+					"body": "## კულაში\n\nკულაში — სოფელი **სამტრედიაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სამტრედიაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A8%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kulashi",
+					"subtitle": "Cело · муниципалитет Samtredia · Imereti",
+					"excerpt": "Kulashi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"seo_title": "Kulashi — село · Samtredia, Imereti | Грузия",
+					"seo_description": "Kulashi — село в муниципалитете Samtredia, Imereti, Грузия.",
+					"body": "## Kulashi\n\nKulashi — село в муниципалитете **Samtredia**, регион **Imereti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Samtredia. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%9A%E1%83%90%E1%83%A8%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794897328
+		}
+	]
+}

@@ -1,0 +1,451 @@
+{
+	"posts": [
+		{
+			"id": "a09a7851-9f52-484f-8907-0521220106bf",
+			"slug": "lalkhorali",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.935833,
+				"lon": 42.1525
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%9A%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12866095",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Lalkhorali",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lalkhorali is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Lalkhorali village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Lalkhorali is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Lalkhorali\n\nLalkhorali is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nLalkhorali is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12866095)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%9A%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლალხორალი",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ლალხორალი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ლალხორალი — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ლალხორალი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ლალხორალი\n\nლალხორალი — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nლალხორალი განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Лалхорали",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lalkhorali — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Лалхорали — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Lalkhorali — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Лалхорали\n\nLalkhorali — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЛалхорали — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "488daeaa-494f-4cbb-b901-4181597da845",
+			"slug": "mazeri",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 43.074805555,
+				"lon": 42.610305555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%96%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12866450",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mazeri",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Mazeri is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Mazeri village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Mazeri is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Mazeri\n\nMazeri is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nMazeri is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12866450)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%96%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "მაზერი",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "მაზერი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "მაზერი — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "მაზერი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## მაზერი\n\nმაზერი — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმაზერი განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Мазери",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Mazeri — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Мазери — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Mazeri — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Мазери\n\nMazeri — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nМазери — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "aa445520-aef6-405e-8d97-e76bbffc97c9",
+			"slug": "fari-mestiis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 43.052778,
+				"lon": 42.4925
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%A0%E1%83%98%20(%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A2%E1%83%98%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12869875",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Phari",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Phari is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Phari village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Phari is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Phari\n\nPhari is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nPhari is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869875)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%A0%E1%83%98%20(%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A2%E1%83%98%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ფარი (მესტიის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ფარი (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ფარი (მესტიის მუნიციპალიტეტი) — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ფარი (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ფარი (მესტიის მუნიციპალიტეტი)\n\nფარი (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nფარი (მესტიის მუნიციპალიტეტი) განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Пари (Грузия)",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Phari — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Пари (Грузия) — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Phari — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Пари (Грузия)\n\nPhari — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nПари (Грузия) — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "8fc861bf-83b2-43e4-99f8-fa1de3cbdc40",
+			"slug": "zhabeshi",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 43.047222222,
+				"lon": 42.8675
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9F%E1%83%90%E1%83%91%E1%83%94%E1%83%A8%E1%83%98",
+			"wikidata_id": "Q12868235",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zhabeshi",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zhabeshi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Zhabeshi village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Zhabeshi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Zhabeshi\n\nZhabeshi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nZhabeshi is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868235)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9F%E1%83%90%E1%83%91%E1%83%94%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჟაბეში",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ჟაბეში — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ჟაბეში — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ჟაბეში — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ჟაბეში\n\nჟაბეში — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჟაბეში განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Жабеши",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zhabeshi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Жабеши — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Zhabeshi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Жабеши\n\nZhabeshi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЖабеши — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "6759923d-f12a-4542-aac1-ddc9d93b5db8",
+			"slug": "zhibiani",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.918055555,
+				"lon": 43.015277777
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9F%E1%83%98%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12868253",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zhibiani",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zhibiani is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Zhibiani village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Zhibiani is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Zhibiani\n\nZhibiani is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nZhibiani is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868253)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9F%E1%83%98%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჟიბიანი",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ჟიბიანი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ჟიბიანი — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ჟიბიანი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ჟიბიანი\n\nჟიბიანი — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჟიბიანი განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Жибиани",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zhibiani — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Жибиани — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Zhibiani — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Жибиани\n\nZhibiani — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЖибиани — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "150d3b0f-d201-48f5-8f24-f35c5fe2e9e2",
+			"slug": "khaishi-mestiis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.943333333,
+				"lon": 42.186388888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98%20(%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A2%E1%83%98%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12871357",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khaishi",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khaishi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Khaishi village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Khaishi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Khaishi\n\nKhaishi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nKhaishi is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871357)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%98%E1%83%A8%E1%83%98%20(%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A2%E1%83%98%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ხაიში (მესტიის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ხაიში (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ხაიში (მესტიის მუნიციპალიტეტი) — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ხაიში (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ხაიში (მესტიის მუნიციპალიტეტი)\n\nხაიში (მესტიის მუნიციპალიტეტი) — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nხაიში (მესტიის მუნიციპალიტეტი) განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Хаиши (Местийский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khaishi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Хаиши (Местийский муниципалитет) — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Khaishi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Хаиши (Местийский муниципалитет)\n\nKhaishi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nХаиши (Местийский муниципалитет) — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "476912de-5e1a-465e-b989-5193da3ce21b",
+			"slug": "khalde",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.946111111,
+				"lon": 42.949166666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%9A%E1%83%93%E1%83%94",
+			"wikidata_id": "Q12871363",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khalde",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khalde is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Khalde village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Khalde is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Khalde\n\nKhalde is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nKhalde is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871363)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%9A%E1%83%93%E1%83%94)"
+				},
+				"ka": {
+					"title": "ხალდე",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ხალდე — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ხალდე — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ხალდე — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ხალდე\n\nხალდე — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nხალდე განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Халде",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khalde — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Халде — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Khalde — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Халде\n\nKhalde — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nХалде — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "c94a4ab1-2db6-40e2-b8e3-6714b129c88a",
+			"slug": "chazhashi",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.915,
+				"lon": 43.008611111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9F%E1%83%90%E1%83%A8%E1%83%98",
+			"wikidata_id": "Q12870729",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chazhashi",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Chazhashi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Chazhashi village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Chazhashi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Chazhashi\n\nChazhashi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nChazhashi is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12870729)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9F%E1%83%90%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჩაჟაში",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "ჩაჟაში — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "ჩაჟაში — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "ჩაჟაში — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## ჩაჟაში\n\nჩაჟაში — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჩაჟაში განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Чажаши",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Chazhashi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Чажаши — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Chazhashi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Чажаши\n\nChazhashi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЧажаши — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "01e97f12-310f-472a-98cc-11daf993d705",
+			"slug": "mulakhi",
+			"level": "village",
+			"parent_id": "9e10237f-5d04-4fb7-b668-b21ccc6bdfa2",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%9A%E1%83%90%E1%83%AE%E1%83%98",
+			"wikidata_id": "Q20577935",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mulakhi",
+					"subtitle": "Village · Mestia municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Mulakhi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Mulakhi village — Mestia, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Mulakhi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Mulakhi\n\nMulakhi is a village in Mestia municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nMulakhi is situated in **Mestia municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q20577935)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%9A%E1%83%90%E1%83%AE%E1%83%98)"
+				},
+				"ka": {
+					"title": "მულახი",
+					"subtitle": "სოფელი · მესტიაის მუნიციპალიტეტი",
+					"excerpt": "მულახი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"seo_title": "მულახი — სოფელი | მესტიაის მუნიციპალიტეტი",
+					"seo_description": "მულახი — სოფელი მესტიაის მუნიციპალიტეტში.",
+					"body": "## მულახი\n\nმულახი — სოფელი მესტიაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმულახი განლაგებულია **მესტიაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Мулахи",
+					"subtitle": "Cело · муниципалитет Mestia · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Mulakhi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Мулахи — село · Mestia, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Mulakhi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Мулахи\n\nMulakhi — село в муниципалитете Mestia, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nМулахи — **муниципалитет Mestia**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		}
+	]
+}

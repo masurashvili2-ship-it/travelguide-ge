@@ -1,0 +1,854 @@
+{
+	"posts": [
+		{
+			"id": "e234c9ee-a9e8-45b0-8cf5-8dcf025d2200",
+			"slug": "nakifu",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.568611111,
+				"lon": 42.088055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%99%E1%83%98%E1%83%A4%E1%83%A3",
+			"wikidata_id": "Q12867386",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nakipu",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nakipu is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Nakipu village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Nakipu is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Nakipu\n\nNakipu is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nNakipu is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867386)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%99%E1%83%98%E1%83%A4%E1%83%A3)"
+				},
+				"ka": {
+					"title": "ნაკიფუ",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ნაკიფუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ნაკიფუ — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ნაკიფუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ნაკიფუ\n\nნაკიფუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნაკიფუ განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Накипу",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nakipu — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Накипу — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Nakipu — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Накипу\n\nNakipu — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nНакипу — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "dcd7a8fe-93f3-43ca-b63c-e8358ed570a4",
+			"slug": "letkanti",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.649166666,
+				"lon": 42.16
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%97%E1%83%99%E1%83%90%E1%83%9C%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12866217",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Letkanti",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Letkanti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Letkanti village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Letkanti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Letkanti\n\nLetkanti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nLetkanti is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12866217)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%97%E1%83%99%E1%83%90%E1%83%9C%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლეთკანთი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ლეთკანთი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ლეთკანთი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ლეთკანთი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ლეთკანთი\n\nლეთკანთი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nლეთკანთი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Летканти",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Letkanti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Летканти — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Letkanti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Летканти\n\nLetkanti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЛетканти — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "3e2df172-1dd4-441e-856a-7ee31abfc50f",
+			"slug": "fakhulani",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.654166666,
+				"lon": 41.956944444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%AE%E1%83%A3%E1%83%9A%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12869904",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Pakhulani",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Pakhulani is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Pakhulani village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Pakhulani is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Pakhulani\n\nPakhulani is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nPakhulani is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869904)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%AE%E1%83%A3%E1%83%9A%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ფახულანი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ფახულანი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ფახულანი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ფახულანი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ფახულანი\n\nფახულანი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nფახულანი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Пахулани",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Pakhulani — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Пахулани — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Pakhulani — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Пахулани\n\nPakhulani — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nПахулани — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "296a2fe5-0beb-4413-af64-d7bd652095f1",
+			"slug": "fotskhoetseri",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.745555555,
+				"lon": 42.038055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12869981",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Potskhoetseri",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Potskhoetseri is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Potskhoetseri village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Potskhoetseri is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Potskhoetseri\n\nPotskhoetseri is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nPotskhoetseri is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869981)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%AA%E1%83%AE%E1%83%9D%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ფოცხოეწერი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ფოცხოეწერი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ფოცხოეწერი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ფოცხოეწერი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ფოცხოეწერი\n\nფოცხოეწერი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nფოცხოეწერი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Поцхоэцери",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Potskhoetseri — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Поцхоэцери — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Potskhoetseri — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Поцхоэцери\n\nPotskhoetseri — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nПоцхоэцери — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "0cff28db-329c-4018-bb82-a1ae840d2755",
+			"slug": "olori",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.727777777,
+				"lon": 41.998888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12867801",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Olori",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Olori is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Olori village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Olori is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Olori\n\nOlori is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nOlori is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867801)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ოლორი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ოლორი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ოლორი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ოლორი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ოლორი\n\nოლორი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nოლორი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Олори",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Olori — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Олори — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Olori — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Олори\n\nOlori — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nОлори — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "49d41ca8-2e9e-41df-a667-242845f06c7f",
+			"slug": "obuji",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.548275,
+				"lon": 42.042240555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98",
+			"wikidata_id": "Q15566834",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Obuji",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Obuji is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Obuji village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Obuji is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Obuji\n\nObuji is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nObuji is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q15566834)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98)"
+				},
+				"ka": {
+					"title": "ობუჯი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ობუჯი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ობუჯი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ობუჯი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ობუჯი\n\nობუჯი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nობუჯი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Обуджи",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Obuji — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Обуджи — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Obuji — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Обуджи\n\nObuji — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nОбуджи — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "db1fd0f6-918b-43a8-9eb7-08c2c17d391d",
+			"slug": "sachino",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.645833333,
+				"lon": 42.079166666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A9%E1%83%98%E1%83%9C%E1%83%9D",
+			"wikidata_id": "Q14916690",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sachino",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Sachino is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Sachino village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Sachino is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Sachino\n\nSachino is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nSachino is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q14916690)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A9%E1%83%98%E1%83%9C%E1%83%9D)"
+				},
+				"ka": {
+					"title": "საჩინო",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "საჩინო — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "საჩინო — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "საჩინო — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## საჩინო\n\nსაჩინო — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსაჩინო განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сачино",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Sachino — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Сачино — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Sachino — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Сачино\n\nSachino — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nСачино — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "a812f35f-115a-44d9-98f0-30a68ee304f3",
+			"slug": "kveda-mazandara",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.630833333,
+				"lon": 42.071666666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%9B%E1%83%90%E1%83%96%E1%83%90%E1%83%9C%E1%83%93%E1%83%90%E1%83%A0%E1%83%90",
+			"wikidata_id": "Q99504859",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kveda Mazandara",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Kveda Mazandara is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Kveda Mazandara village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Kveda Mazandara is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Kveda Mazandara\n\nKveda Mazandara is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nKveda Mazandara is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99504859)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%93%E1%83%90%20%E1%83%9B%E1%83%90%E1%83%96%E1%83%90%E1%83%9C%E1%83%93%E1%83%90%E1%83%A0%E1%83%90)"
+				},
+				"ka": {
+					"title": "ქვედა მაზანდარა",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ქვედა მაზანდარა — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ქვედა მაზანდარა — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ქვედა მაზანდარა — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ქვედა მაზანდარა\n\nქვედა მაზანდარა — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nქვედა მაზანდარა განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Кведа-Мазандара",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Kveda Mazandara — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Кведа-Мазандара — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Kveda Mazandara — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Кведа-Мазандара\n\nKveda Mazandara — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nКведа-Мазандара — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767159
+		},
+		{
+			"id": "5dcf1fab-e241-4d84-9640-bb8859d08b41",
+			"slug": "ledzadzamie",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.625555555,
+				"lon": 42.027222222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%AB%E1%83%90%E1%83%AB%E1%83%90%E1%83%9B%E1%83%98%E1%83%94",
+			"wikidata_id": "Q99471256",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ledzadzamie",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Ledzadzamie is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Ledzadzamie village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Ledzadzamie is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Ledzadzamie\n\nLedzadzamie is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nLedzadzamie is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99471256)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%AB%E1%83%90%E1%83%AB%E1%83%90%E1%83%9B%E1%83%98%E1%83%94)"
+				},
+				"ka": {
+					"title": "ლეძაძამიე",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ლეძაძამიე — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ლეძაძამიე — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ლეძაძამიე — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ლეძაძამიე\n\nლეძაძამიე — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nლეძაძამიე განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Ледзадзамие",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Ledzadzamie — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Ледзадзамие — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Ledzadzamie — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Ледзадзамие\n\nLedzadzamie — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЛедзадзамие — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "e15a9160-b930-4c11-bca2-53b4b8ba5a1d",
+			"slug": "zghvaia",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.5775,
+				"lon": 42.018333333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%E1%83%98%E1%83%90",
+			"wikidata_id": "Q99461500",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zghvaia",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zghvaia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Zghvaia village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Zghvaia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Zghvaia\n\nZghvaia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nZghvaia is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99461500)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%A6%E1%83%95%E1%83%90%E1%83%98%E1%83%90)"
+				},
+				"ka": {
+					"title": "ზღვაია",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ზღვაია — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ზღვაია — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ზღვაია — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ზღვაია\n\nზღვაია — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nზღვაია განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Згваиа",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Zghvaia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Згваиа — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Zghvaia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Згваиа\n\nZghvaia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЗгваиа — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "473017c3-f2b3-4f7b-883b-d10a2ed234d5",
+			"slug": "lughera-samtsatskhvi",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.590277777,
+				"lon": 42.071388888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%A3%E1%83%A6%E1%83%94%E1%83%A0%E1%83%90-%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AA%E1%83%90%E1%83%AA%E1%83%AE%E1%83%95%E1%83%98",
+			"wikidata_id": "Q99476693",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Lughera Samtsatskhvi",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lughera Samtsatskhvi is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Lughera Samtsatskhvi village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Lughera Samtsatskhvi is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Lughera Samtsatskhvi\n\nLughera Samtsatskhvi is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nLughera Samtsatskhvi is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99476693)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%A3%E1%83%A6%E1%83%94%E1%83%A0%E1%83%90-%E1%83%A1%E1%83%90%E1%83%9B%E1%83%AA%E1%83%90%E1%83%AA%E1%83%AE%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლუღერა-სამცაცხვი",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ლუღერა-სამცაცხვი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ლუღერა-სამცაცხვი — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ლუღერა-სამცაცხვი — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ლუღერა-სამცაცხვი\n\nლუღერა-სამცაცხვი — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nლუღერა-სამცაცხვი განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Лугера-Самцацхви",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lughera Samtsatskhvi — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Лугера-Самцацхви — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Lughera Samtsatskhvi — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Лугера-Самцацхви\n\nLughera Samtsatskhvi — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЛугера-Самцацхви — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "4be22db7-20eb-4765-9cc0-22ba42fb7e91",
+			"slug": "lezha-tsalenjikhis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.555555555,
+				"lon": 42.103333333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9F%E1%83%90%20(%E1%83%AC%E1%83%90%E1%83%9A%E1%83%94%E1%83%9C%E1%83%AF%E1%83%98%E1%83%AE%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q99463675",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Lezha Tsalenjikhis Munitsipaliteti",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lezha Tsalenjikhis Munitsipaliteti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Lezha Tsalenjikhis Munitsipaliteti village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Lezha Tsalenjikhis Munitsipaliteti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Lezha Tsalenjikhis Munitsipaliteti\n\nLezha Tsalenjikhis Munitsipaliteti is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nLezha Tsalenjikhis Munitsipaliteti is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99463675)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9F%E1%83%90%20(%E1%83%AC%E1%83%90%E1%83%9A%E1%83%94%E1%83%9C%E1%83%AF%E1%83%98%E1%83%AE%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ლეჟა (წალენჯიხის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ლეჟა (წალენჯიხის მუნიციპალიტეტი) — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ლეჟა (წალენჯიხის მუნიციპალიტეტი) — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ლეჟა (წალენჯიხის მუნიციპალიტეტი) — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ლეჟა (წალენჯიხის მუნიციპალიტეტი)\n\nლეჟა (წალენჯიხის მუნიციპალიტეტი) — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nლეჟა (წალენჯიხის მუნიციპალიტეტი) განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Лежа (Грузия)",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Lezha Tsalenjikhis Munitsipaliteti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Лежа (Грузия) — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Lezha Tsalenjikhis Munitsipaliteti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Лежа (Грузия)\n\nLezha Tsalenjikhis Munitsipaliteti — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nЛежа (Грузия) — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "6b3a47aa-b4f3-4a3b-adf1-1cb07fc40d42",
+			"slug": "makharia",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.63,
+				"lon": 41.986111111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%90",
+			"wikidata_id": "Q99478084",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Makharia",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Makharia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Makharia village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Makharia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Makharia\n\nMakharia is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nMakharia is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99478084)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%AE%E1%83%90%E1%83%A0%E1%83%98%E1%83%90)"
+				},
+				"ka": {
+					"title": "მახარია",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "მახარია — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "მახარია — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "მახარია — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## მახარია\n\nმახარია — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმახარია განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Махариа",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Makharia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Махариа — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Makharia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Махариа\n\nMakharia — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nМахариа — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "f1d54f35-48eb-4e14-bd07-2d3ecd3c47b1",
+			"slug": "ochane",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.690833333,
+				"lon": 42.0525
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%90%E1%83%9C%E1%83%94",
+			"wikidata_id": "Q99491304",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ochane",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Ochane is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Ochane village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Ochane is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Ochane\n\nOchane is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nOchane is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99491304)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%AD%E1%83%90%E1%83%9C%E1%83%94)"
+				},
+				"ka": {
+					"title": "ოჭანე",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ოჭანე — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ოჭანე — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ოჭანე — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ოჭანე\n\nოჭანე — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nოჭანე განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Очане",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Ochane — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Очане — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Ochane — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Очане\n\nOchane — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nОчане — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "02aaa709-9c1f-40d2-a2ce-d0f00057a739",
+			"slug": "khviteri-sakalandio",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.577222222,
+				"lon": 42.059166666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%95%E1%83%98%E1%83%97%E1%83%94%E1%83%A0%E1%83%98-%E1%83%A1%E1%83%90%E1%83%99%E1%83%90%E1%83%9A%E1%83%90%E1%83%9C%E1%83%93%E1%83%98%E1%83%9D",
+			"wikidata_id": "Q99506245",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khviteri Sakalandio",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khviteri Sakalandio is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Khviteri Sakalandio village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Khviteri Sakalandio is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Khviteri Sakalandio\n\nKhviteri Sakalandio is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nKhviteri Sakalandio is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99506245)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%95%E1%83%98%E1%83%97%E1%83%94%E1%83%A0%E1%83%98-%E1%83%A1%E1%83%90%E1%83%99%E1%83%90%E1%83%9A%E1%83%90%E1%83%9C%E1%83%93%E1%83%98%E1%83%9D)"
+				},
+				"ka": {
+					"title": "ხვითერი-საკალანდიო",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ხვითერი-საკალანდიო — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ხვითერი-საკალანდიო — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ხვითერი-საკალანდიო — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ხვითერი-საკალანდიო\n\nხვითერი-საკალანდიო — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nხვითერი-საკალანდიო განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Хвитери-Сакаланди",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Khviteri Sakalandio — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Хвитери-Сакаланди — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Khviteri Sakalandio — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Хвитери-Сакаланди\n\nKhviteri Sakalandio — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nХвитери-Сакаланди — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "53d1f418-e2af-4e51-867f-5730bd17837d",
+			"slug": "naka",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.735555555,
+				"lon": 42.051111111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%99%E1%83%90",
+			"wikidata_id": "Q99482553",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Naka",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Naka is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Naka village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Naka is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Naka\n\nNaka is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nNaka is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99482553)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%99%E1%83%90)"
+				},
+				"ka": {
+					"title": "ნაკა",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ნაკა — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ნაკა — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ნაკა — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ნაკა\n\nნაკა — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნაკა განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Нака",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Naka — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Нака — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Naka — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Нака\n\nNaka — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nНака — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		},
+		{
+			"id": "5a122e0d-6c51-4cb0-95c2-2adbc5c9f3bc",
+			"slug": "nanjaru",
+			"level": "village",
+			"parent_id": "e06e1fa5-a6bf-45f9-85ef-c4b94fdca75f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.575277777,
+				"lon": 42.073611111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%A0%E1%83%A3",
+			"wikidata_id": "Q99484060",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nanjaru",
+					"subtitle": "Village · Tsalenjikha municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nanjaru is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Nanjaru village — Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Nanjaru is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Nanjaru\n\nNanjaru is a village in Tsalenjikha municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nNanjaru is situated in **Tsalenjikha municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q99484060)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%A0%E1%83%A3)"
+				},
+				"ka": {
+					"title": "ნანჯარუ",
+					"subtitle": "სოფელი · წალენჯიხაის მუნიციპალიტეტი",
+					"excerpt": "ნანჯარუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"seo_title": "ნანჯარუ — სოფელი | წალენჯიხაის მუნიციპალიტეტი",
+					"seo_description": "ნანჯარუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.",
+					"body": "## ნანჯარუ\n\nნანჯარუ — სოფელი წალენჯიხაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნანჯარუ განლაგებულია **წალენჯიხაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Нанджару",
+					"subtitle": "Cело · муниципалитет Tsalenjikha · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nanjaru — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Нанджару — село · Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Nanjaru — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Нанджару\n\nNanjaru — село в муниципалитете Tsalenjikha, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nНанджару — **муниципалитет Tsalenjikha**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767160
+		}
+	]
+}

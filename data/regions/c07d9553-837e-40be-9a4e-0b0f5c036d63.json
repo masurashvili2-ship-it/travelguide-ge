@@ -1,0 +1,754 @@
+{
+	"posts": [
+		{
+			"id": "71e39b76-1f36-4814-8d52-8a645c5f20ba",
+			"slug": "didvela",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.127778,
+				"lon": 42.772222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%95%E1%83%94%E1%83%9A%E1%83%90",
+			"wikidata_id": "Q12863735",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Didvela",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Didvela is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Didvela village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Didvela is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Didvela\n\nDidvela is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nDidvela is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863735)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%93%E1%83%95%E1%83%94%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "დიდველა",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "დიდველა — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "დიდველა — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "დიდველა — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## დიდველა\n\nდიდველა — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nდიდველა განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Дидвела",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Didvela — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Дидвела — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Didvela — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Дидвела\n\nDidvela — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nДидвела — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "469e0a44-468b-4e16-a14c-91f41af4767b",
+			"slug": "vartsikhe",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.143888888,
+				"lon": 42.717777777
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A0%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94",
+			"wikidata_id": "Q12864352",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Vartsikhe",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Vartsikhe is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Vartsikhe village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Vartsikhe is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Vartsikhe\n\nVartsikhe is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nVartsikhe is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12864352)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A0%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				},
+				"ka": {
+					"title": "ვარციხე",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "ვარციხე — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "ვარციხე — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "ვარციხე — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## ვარციხე\n\nვარციხე — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nვარციხე განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Варцихе",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Vartsikhe — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Варцихе — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Vartsikhe — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Варцихе\n\nVartsikhe — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nВарцихе — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "7a1afac6-0693-47b8-bd4b-4b0c3ec01995",
+			"slug": "dimi",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.099722222,
+				"lon": 42.821944444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%9B%E1%83%98",
+			"wikidata_id": "Q12863816",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dimi",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Dimi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Dimi village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Dimi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Dimi\n\nDimi is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nDimi is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863816)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%98%E1%83%9B%E1%83%98)"
+				},
+				"ka": {
+					"title": "დიმი",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "დიმი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "დიმი — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "დიმი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## დიმი\n\nდიმი — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nდიმი განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Дими",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Dimi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Дими — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Dimi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Дими\n\nDimi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nДими — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "2fbcef7b-b470-403d-93a0-a827aad920cb",
+			"slug": "nergeeti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.049722222,
+				"lon": 42.826388888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%94%E1%83%A0%E1%83%92%E1%83%94%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12867518",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nergeyeti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Nergeyeti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Nergeyeti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Nergeyeti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Nergeyeti\n\nNergeyeti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nNergeyeti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867518)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%94%E1%83%A0%E1%83%92%E1%83%94%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნერგეეთი",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "ნერგეეთი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "ნერგეეთი — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "ნერგეეთი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## ნერგეეთი\n\nნერგეეთი — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნერგეეთი განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Нергеети",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Nergeyeti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Нергеети — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Nergeyeti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Нергеети\n\nNergeyeti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nНергеети — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "acb6171c-f663-490e-a1ad-abb2eacf6dd6",
+			"slug": "saimedo",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.135,
+				"lon": 42.787222222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%9D",
+			"wikidata_id": "Q12868625",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Saimedo",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Saimedo is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Saimedo village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Saimedo is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Saimedo\n\nSaimedo is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSaimedo is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868625)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%9D)"
+				},
+				"ka": {
+					"title": "საიმედო",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "საიმედო — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "საიმედო — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "საიმედო — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## საიმედო\n\nსაიმედო — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსაიმედო განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Саимедо",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Saimedo — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Саимедо — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Saimedo — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Саимедо\n\nSaimedo — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСаимедо — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "7fe7baaa-880c-476f-b32c-78017d6f8a45",
+			"slug": "sakraula-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.028611111,
+				"lon": 42.980833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%99%E1%83%A0%E1%83%90%E1%83%A3%E1%83%9A%E1%83%90%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12868650",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sakraula Baghdatis Munitsipaliteti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Sakraula Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Sakraula Baghdatis Munitsipaliteti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Sakraula Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Sakraula Baghdatis Munitsipaliteti\n\nSakraula Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSakraula Baghdatis Munitsipaliteti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868650)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%99%E1%83%A0%E1%83%90%E1%83%A3%E1%83%9A%E1%83%90%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "საკრაულა (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "საკრაულა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "საკრაულა (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "საკრაულა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## საკრაულა (ბაღდათის მუნიციპალიტეტი)\n\nსაკრაულა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსაკრაულა (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сакраула",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Sakraula Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Сакраула — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Sakraula Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Сакраула\n\nSakraula Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСакраула — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "9222a73f-8179-4c19-a9c5-89f23d07e1d9",
+			"slug": "tsifa-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.046111111,
+				"lon": 42.948055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%A4%E1%83%90%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12871131",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsifa Baghdatis Munitsipaliteti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Tsifa Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tsifa Baghdatis Munitsipaliteti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tsifa Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tsifa Baghdatis Munitsipaliteti\n\nTsifa Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTsifa Baghdatis Munitsipaliteti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871131)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%A4%E1%83%90%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "წიფა (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "წიფა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "წიფა (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "წიფა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## წიფა (ბაღდათის მუნიციპალიტეტი)\n\nწიფა (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწიფა (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Ципа (Багдатский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Tsifa Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Ципа (Багдатский муниципалитет) — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Tsifa Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Ципа (Багдатский муниципалитет)\n\nTsifa Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЦипа (Багдатский муниципалитет) — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "90a1e0a9-0bee-4239-afdb-4c84138618bb",
+			"slug": "tsablaraskhevi",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.011944444,
+				"lon": 42.810833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%90%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98",
+			"wikidata_id": "Q12871043",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsablaraskhevi",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Tsablaraskhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tsablaraskhevi village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tsablaraskhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tsablaraskhevi\n\nTsablaraskhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTsablaraskhevi is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871043)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%90%E1%83%91%E1%83%9A%E1%83%90%E1%83%A0%E1%83%90%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "წაბლარასხევი",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "წაბლარასხევი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "წაბლარასხევი — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "წაბლარასხევი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## წაბლარასხევი\n\nწაბლარასხევი — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწაბლარასხევი განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Цабларасхеви",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Tsablaraskhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Цабларасхеви — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Tsablaraskhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Цабларасхеви\n\nTsablaraskhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЦабларасхеви — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "fef2651d-ab7e-4956-a9e6-ac09c3df1e12",
+			"slug": "shubani-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.063888888,
+				"lon": 42.788055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12870694",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Shubani Baghdatis Munitsipaliteti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Shubani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Shubani Baghdatis Munitsipaliteti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Shubani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Shubani Baghdatis Munitsipaliteti\n\nShubani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nShubani Baghdatis Munitsipaliteti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12870694)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "შუბანი (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "შუბანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "შუბანი (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "შუბანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## შუბანი (ბაღდათის მუნიციპალიტეტი)\n\nშუბანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nშუბანი (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Шубани (Багдатский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Shubani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Шубани (Багдатский муниципалитет) — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Shubani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Шубани (Багдатский муниципалитет)\n\nShubani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nШубани (Багдатский муниципалитет) — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "ab420095-e054-4256-b059-555180173612",
+			"slug": "khani-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 41.954722222,
+				"lon": 42.954722222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12871373",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khani Baghdatis Munitsipaliteti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Khani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Khani Baghdatis Munitsipaliteti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Khani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Khani Baghdatis Munitsipaliteti\n\nKhani Baghdatis Munitsipaliteti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nKhani Baghdatis Munitsipaliteti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871373)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ხანი (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "ხანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "ხანი (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "ხანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## ხანი (ბაღდათის მუნიციპალიტეტი)\n\nხანი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nხანი (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Хани (Багдатский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Khani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Хани (Багдатский муниципалитет) — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Khani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Хани (Багдатский муниципалитет)\n\nKhani Baghdatis Munitsipaliteti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nХани (Багдатский муниципалитет) — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "2e110797-8cb8-4d98-bfa6-75acada66927",
+			"slug": "rokhi",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.106388888,
+				"lon": 42.711944444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98",
+			"wikidata_id": "Q16374538",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Rokhi",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Rokhi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Rokhi village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Rokhi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Rokhi\n\nRokhi is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nRokhi is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16374538)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98)"
+				},
+				"ka": {
+					"title": "როხი",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "როხი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "როხი — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "როხი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## როხი\n\nროხი — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nროხი განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Рохи (Багдатский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Rokhi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Рохи (Багдатский муниципалитет) — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Rokhi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Рохи (Багдатский муниципалитет)\n\nRokhi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nРохи (Багдатский муниципалитет) — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "f756e789-05a3-481f-8954-2cf6f0830bb4",
+			"slug": "fersati-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.092222222,
+				"lon": 42.791666666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%94%E1%83%A0%E1%83%A1%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q16376794",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Persati",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Persati is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Persati village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Persati is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Persati\n\nPersati is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nPersati is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16376794)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%94%E1%83%A0%E1%83%A1%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ფერსათი (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "ფერსათი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "ფერსათი (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "ფერსათი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## ფერსათი (ბაღდათის მუნიციპალიტეტი)\n\nფერსათი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nფერსათი (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Персати",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Persati — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Персати — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Persati — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Персати\n\nPersati — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nПерсати — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "1e585ec6-9456-4951-8b9b-db4ac7b0be9f",
+			"slug": "rokiti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.111111111,
+				"lon": 42.794444444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%99%E1%83%98%E1%83%97%E1%83%98",
+			"wikidata_id": "Q16374499",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Rokiti",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Rokiti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Rokiti village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Rokiti is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Rokiti\n\nRokiti is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nRokiti is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16374499)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A0%E1%83%9D%E1%83%99%E1%83%98%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "როკითი",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "როკითი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "როკითი — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "როკითი — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## როკითი\n\nროკითი — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nროკითი განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Рокити",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Rokiti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Рокити — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Rokiti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Рокити\n\nRokiti — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nРокити — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "372ffd28-6b36-4b7b-a125-4fc6c936bd0f",
+			"slug": "tskaltashua",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.0175,
+				"lon": 42.828333333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%97%E1%83%90%E1%83%A8%E1%83%A3%E1%83%90",
+			"wikidata_id": "Q16378928",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tskaltashua",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Tskaltashua is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tskaltashua village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tskaltashua is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tskaltashua\n\nTskaltashua is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTskaltashua is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16378928)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%97%E1%83%90%E1%83%A8%E1%83%A3%E1%83%90)"
+				},
+				"ka": {
+					"title": "წყალთაშუა",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "წყალთაშუა — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "წყალთაშუა — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "წყალთაშუა — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## წყალთაშუა\n\nწყალთაშუა — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწყალთაშუა განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Цкалташуа",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Tskaltashua — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Цкалташуа — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Tskaltashua — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Цкалташуа\n\nTskaltashua — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЦкалташуа — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		},
+		{
+			"id": "ac49b64b-3edd-4bf8-9b75-9d675df6ae25",
+			"slug": "tsitelkhevi-baghdatis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "c07d9553-837e-40be-9a4e-0b0f5c036d63",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.088333333,
+				"lon": 42.764722222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%AE%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q21573304",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsitelkhevi",
+					"subtitle": "Village · Baghdati municipality · Municipality in Imereti",
+					"excerpt": "Tsitelkhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tsitelkhevi village — Baghdati, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tsitelkhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tsitelkhevi\n\nTsitelkhevi is a village in Baghdati municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTsitelkhevi is situated in **Baghdati municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q21573304)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%AE%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%91%E1%83%90%E1%83%A6%E1%83%93%E1%83%90%E1%83%97%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "წითელხევი (ბაღდათის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ბაღდათიის მუნიციპალიტეტი",
+					"excerpt": "წითელხევი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"seo_title": "წითელხევი (ბაღდათის მუნიციპალიტეტი) — სოფელი | ბაღდათიის მუნიციპალიტეტი",
+					"seo_description": "წითელხევი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.",
+					"body": "## წითელხევი (ბაღდათის მუნიციპალიტეტი)\n\nწითელხევი (ბაღდათის მუნიციპალიტეტი) — სოფელი ბაღდათიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწითელხევი (ბაღდათის მუნიციპალიტეტი) განლაგებულია **ბაღდათიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Цителхеви",
+					"subtitle": "Cело · муниципалитет Baghdati · Municipality in Imereti",
+					"excerpt": "Tsitelkhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"seo_title": "Цителхеви — село · Baghdati, Municipality in Imereti | Грузия",
+					"seo_description": "Tsitelkhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.",
+					"body": "## Цителхеви\n\nTsitelkhevi — село в муниципалитете Baghdati, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЦителхеви — **муниципалитет Baghdati**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767149
+		}
+	]
+}

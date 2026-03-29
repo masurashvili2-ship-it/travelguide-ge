@@ -1,0 +1,254 @@
+{
+	"posts": [
+		{
+			"id": "add35a56-7002-4893-a936-cefa6d1e6efe",
+			"slug": "nakhunavo",
+			"level": "village",
+			"parent_id": "3c16cd8d-f4e7-486b-b449-6d24023a9f5e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.421666666,
+				"lon": 42.331944444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%90%E1%83%95%E1%83%9D",
+			"wikidata_id": "Q4614562",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nakhunavo",
+					"subtitle": "Village · Martvili municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nakhunavo is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Nakhunavo village — Martvili, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Nakhunavo is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Nakhunavo\n\nNakhunavo is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nNakhunavo is situated in **Martvili municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q4614562)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AE%E1%83%A3%E1%83%9C%E1%83%90%E1%83%95%E1%83%9D)"
+				},
+				"ka": {
+					"title": "ნახუნავო",
+					"subtitle": "სოფელი · მარტვილიის მუნიციპალიტეტი",
+					"excerpt": "ნახუნავო — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"seo_title": "ნახუნავო — სოფელი | მარტვილიის მუნიციპალიტეტი",
+					"seo_description": "ნახუნავო — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"body": "## ნახუნავო\n\nნახუნავო — სოფელი მარტვილიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნახუნავო განლაგებულია **მარტვილიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Нахунаво",
+					"subtitle": "Cело · муниципалитет Martvili · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Nakhunavo — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Нахунаво — село · Martvili, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Nakhunavo — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Нахунаво\n\nNakhunavo — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nНахунаво — **муниципалитет Martvili**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "0ec19ab4-91b9-4b40-9d1b-1a4646d16a9f",
+			"slug": "salkhino-martvilis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "3c16cd8d-f4e7-486b-b449-6d24023a9f5e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.510555555,
+				"lon": 42.343888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9A%E1%83%AE%E1%83%98%E1%83%9C%E1%83%9D%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%A2%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12868694",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Salkhino",
+					"subtitle": "Village · Martvili municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Salkhino is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Salkhino village — Martvili, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Salkhino is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Salkhino\n\nSalkhino is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nSalkhino is situated in **Martvili municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868694)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9A%E1%83%AE%E1%83%98%E1%83%9C%E1%83%9D%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%A2%E1%83%95%E1%83%98%E1%83%9A%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "სალხინო (მარტვილის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · მარტვილიის მუნიციპალიტეტი",
+					"excerpt": "სალხინო (მარტვილის მუნიციპალიტეტი) — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"seo_title": "სალხინო (მარტვილის მუნიციპალიტეტი) — სოფელი | მარტვილიის მუნიციპალიტეტი",
+					"seo_description": "სალხინო (მარტვილის მუნიციპალიტეტი) — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"body": "## სალხინო (მარტვილის მუნიციპალიტეტი)\n\nსალხინო (მარტვილის მუნიციპალიტეტი) — სოფელი მარტვილიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსალხინო (მარტვილის მუნიციპალიტეტი) განლაგებულია **მარტვილიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Салхино (Мартвильский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Martvili · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Salkhino — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Салхино (Мартвильский муниципалитет) — село · Martvili, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Salkhino — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Салхино (Мартвильский муниципалитет)\n\nSalkhino — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nСалхино (Мартвильский муниципалитет) — **муниципалитет Martvili**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "436fc3f0-6568-4ad0-ac00-0cfba263cd90",
+			"slug": "gachedili",
+			"level": "village",
+			"parent_id": "3c16cd8d-f4e7-486b-b449-6d24023a9f5e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.468055555,
+				"lon": 42.370833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%AD%E1%83%94%E1%83%93%E1%83%98%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12863073",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gachedili",
+					"subtitle": "Village · Martvili municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Gachedili is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Gachedili village — Martvili, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Gachedili is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Gachedili\n\nGachedili is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nGachedili is situated in **Martvili municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863073)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%AD%E1%83%94%E1%83%93%E1%83%98%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "გაჭედილი",
+					"subtitle": "სოფელი · მარტვილიის მუნიციპალიტეტი",
+					"excerpt": "გაჭედილი — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"seo_title": "გაჭედილი — სოფელი | მარტვილიის მუნიციპალიტეტი",
+					"seo_description": "გაჭედილი — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"body": "## გაჭედილი\n\nგაჭედილი — სოფელი მარტვილიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nგაჭედილი განლაგებულია **მარტვილიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Гачедили",
+					"subtitle": "Cело · муниципалитет Martvili · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Gachedili — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Гачедили — село · Martvili, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Gachedili — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Гачедили\n\nGachedili — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nГачедили — **муниципалитет Martvili**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "1283e330-871f-4b6e-902c-8b26ddae2755",
+			"slug": "bandza",
+			"level": "village",
+			"parent_id": "3c16cd8d-f4e7-486b-b449-6d24023a9f5e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.348888888,
+				"lon": 42.284166666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9C%E1%83%AB%E1%83%90",
+			"wikidata_id": "Q12862414",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Bandza",
+					"subtitle": "Village · Martvili municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Bandza is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Bandza village — Martvili, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Bandza is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Bandza\n\nBandza is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nBandza is situated in **Martvili municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12862414)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9C%E1%83%AB%E1%83%90)"
+				},
+				"ka": {
+					"title": "ბანძა",
+					"subtitle": "სოფელი · მარტვილიის მუნიციპალიტეტი",
+					"excerpt": "ბანძა — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"seo_title": "ბანძა — სოფელი | მარტვილიის მუნიციპალიტეტი",
+					"seo_description": "ბანძა — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"body": "## ბანძა\n\nბანძა — სოფელი მარტვილიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nბანძა განლაგებულია **მარტვილიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Бандза",
+					"subtitle": "Cело · муниципалитет Martvili · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Bandza — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Бандза — село · Martvili, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Bandza — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Бандза\n\nBandza — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nБандза — **муниципалитет Martvili**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		},
+		{
+			"id": "5908591c-dcad-420f-a6a3-a48920cb0c17",
+			"slug": "godogani",
+			"level": "village",
+			"parent_id": "3c16cd8d-f4e7-486b-b449-6d24023a9f5e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.578611111,
+				"lon": 42.2675
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%93%E1%83%9D%E1%83%92%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12863308",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Godogani",
+					"subtitle": "Village · Martvili municipality · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Godogani is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Godogani village — Martvili, Municipality in Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Godogani is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Godogani\n\nGodogani is a village in Martvili municipality, Municipality in Samegrelo-Zemo Svaneti, Georgia.\n\n## Location\n\nGodogani is situated in **Martvili municipality**, Municipality in Samegrelo-Zemo Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863308)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%93%E1%83%9D%E1%83%92%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "გოდოგანი",
+					"subtitle": "სოფელი · მარტვილიის მუნიციპალიტეტი",
+					"excerpt": "გოდოგანი — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"seo_title": "გოდოგანი — სოფელი | მარტვილიის მუნიციპალიტეტი",
+					"seo_description": "გოდოგანი — სოფელი მარტვილიის მუნიციპალიტეტში.",
+					"body": "## გოდოგანი\n\nგოდოგანი — სოფელი მარტვილიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nგოდოგანი განლაგებულია **მარტვილიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Годогани (Мартвильский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Martvili · Municipality in Samegrelo-Zemo Svaneti",
+					"excerpt": "Godogani — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Годогани (Мартвильский муниципалитет) — село · Martvili, Municipality in Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Godogani — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Годогани (Мартвильский муниципалитет)\n\nGodogani — село в муниципалитете Martvili, Municipality in Samegrelo-Zemo Svaneti, Грузия.\n\n## Расположение\n\nГодогани (Мартвильский муниципалитет) — **муниципалитет Martvili**, Municipality in Samegrelo-Zemo Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767161
+		}
+	]
+}

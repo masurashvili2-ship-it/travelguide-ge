@@ -1,0 +1,304 @@
+{
+	"posts": [
+		{
+			"id": "5b03d090-9bc4-429c-94aa-df1ab2dd97ed",
+			"slug": "mordzgveti",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.243889,
+				"lon": 43.215556
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%9D%E1%83%A0%E1%83%AB%E1%83%92%E1%83%95%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12867099",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mordzgveti",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Mordzgveti is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Mordzgveti village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Mordzgveti is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Mordzgveti\n\nMordzgveti is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nMordzgveti is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867099)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%9D%E1%83%A0%E1%83%AB%E1%83%92%E1%83%95%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "მორძგვეთი",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "მორძგვეთი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "მორძგვეთი — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "მორძგვეთი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## მორძგვეთი\n\nმორძგვეთი — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმორძგვეთი განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Мордзгвети",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Mordzgveti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Мордзгвети — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Mordzgveti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Мордзгвети\n\nMordzgveti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nМордзгвети — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		},
+		{
+			"id": "170a9564-3144-490c-8507-8f0e5954c44f",
+			"slug": "perevisa",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.261388888,
+				"lon": 43.300277777
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%94%E1%83%A0%E1%83%94%E1%83%95%E1%83%98%E1%83%A1%E1%83%90",
+			"wikidata_id": "Q12868072",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Perevisa",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Perevisa is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Perevisa village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Perevisa is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Perevisa\n\nPerevisa is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nPerevisa is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868072)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%94%E1%83%A0%E1%83%94%E1%83%95%E1%83%98%E1%83%A1%E1%83%90)"
+				},
+				"ka": {
+					"title": "პერევისა",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "პერევისა — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "პერევისა — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "პერევისა — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## პერევისა\n\nპერევისა — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nპერევისა განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Перевиса",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Perevisa — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Перевиса — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Perevisa — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Перевиса\n\nPerevisa — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nПеревиса — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		},
+		{
+			"id": "c602f3c3-34e8-435e-874b-3f6cc77977c2",
+			"slug": "sarkveltubani",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.318611111,
+				"lon": 43.268055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A0%E1%83%A5%E1%83%95%E1%83%94%E1%83%9A%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12868844",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sarkveltubani",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Sarkveltubani is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Sarkveltubani village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Sarkveltubani is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Sarkveltubani\n\nSarkveltubani is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSarkveltubani is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12868844)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A0%E1%83%A5%E1%83%95%E1%83%94%E1%83%9A%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "სარქველთუბანი",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "სარქველთუბანი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "სარქველთუბანი — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "სარქველთუბანი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## სარქველთუბანი\n\nსარქველთუბანი — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსარქველთუბანი განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сарквелтубани",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Sarkveltubani — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Сарквелтубани — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Sarkveltubani — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Сарквелтубани\n\nSarkveltubani — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСарквелтубани — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		},
+		{
+			"id": "ca0fce0c-0e35-4453-a353-c288d86e4697",
+			"slug": "sveri-chiaturis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.225,
+				"lon": 43.305555555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A0%E1%83%98%20(%E1%83%AD%E1%83%98%E1%83%90%E1%83%97%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12869240",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sveri",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Sveri is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Sveri village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Sveri is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Sveri\n\nSveri is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSveri is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869240)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%94%E1%83%A0%E1%83%98%20(%E1%83%AD%E1%83%98%E1%83%90%E1%83%97%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "სვერი (ჭიათურის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "სვერი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "სვერი (ჭიათურის მუნიციპალიტეტი) — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "სვერი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## სვერი (ჭიათურის მუნიციპალიტეტი)\n\nსვერი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსვერი (ჭიათურის მუნიციპალიტეტი) განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Свери",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Sveri — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Свери — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Sveri — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Свери\n\nSveri — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСвери — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		},
+		{
+			"id": "0418108b-46eb-4a41-ac51-2d75e789c578",
+			"slug": "tsirkvali",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.338888888,
+				"lon": 43.278333333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%A0%E1%83%A5%E1%83%95%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12871130",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsirkvali",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Tsirkvali is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tsirkvali village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tsirkvali is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tsirkvali\n\nTsirkvali is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTsirkvali is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871130)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%A0%E1%83%A5%E1%83%95%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "წირქვალი",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "წირქვალი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "წირქვალი — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "წირქვალი — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## წირქვალი\n\nწირქვალი — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწირქვალი განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Цирквали",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Tsirkvali — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Цирквали — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Tsirkvali — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Цирквали\n\nTsirkvali — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЦирквали — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		},
+		{
+			"id": "bf896ec0-8b5b-414a-93d7-77481f044a8c",
+			"slug": "bzhinevi-chiaturis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "226825b9-1b97-4982-a63d-803347942b0b",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.293055555,
+				"lon": 43.375833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9F%E1%83%98%E1%83%9C%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%AD%E1%83%98%E1%83%90%E1%83%97%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12862779",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Bzhinevi Chiaturis Munitsipaliteti",
+					"subtitle": "Village · Chiatura municipality · Municipality in Imereti",
+					"excerpt": "Bzhinevi Chiaturis Munitsipaliteti is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Bzhinevi Chiaturis Munitsipaliteti village — Chiatura, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Bzhinevi Chiaturis Munitsipaliteti is a village in Chiatura municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Bzhinevi Chiaturis Munitsipaliteti\n\nBzhinevi Chiaturis Munitsipaliteti is a village in Chiatura municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nBzhinevi Chiaturis Munitsipaliteti is situated in **Chiatura municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12862779)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9F%E1%83%98%E1%83%9C%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%AD%E1%83%98%E1%83%90%E1%83%97%E1%83%A3%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ბჟინევი (ჭიათურის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ჭიათურაის მუნიციპალიტეტი",
+					"excerpt": "ბჟინევი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"seo_title": "ბჟინევი (ჭიათურის მუნიციპალიტეტი) — სოფელი | ჭიათურაის მუნიციპალიტეტი",
+					"seo_description": "ბჟინევი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.",
+					"body": "## ბჟინევი (ჭიათურის მუნიციპალიტეტი)\n\nბჟინევი (ჭიათურის მუნიციპალიტეტი) — სოფელი ჭიათურაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nბჟინევი (ჭიათურის მუნიციპალიტეტი) განლაგებულია **ჭიათურაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Бжиневи (Чиатурский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Chiatura · Municipality in Imereti",
+					"excerpt": "Bzhinevi Chiaturis Munitsipaliteti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"seo_title": "Бжиневи (Чиатурский муниципалитет) — село · Chiatura, Municipality in Imereti | Грузия",
+					"seo_description": "Bzhinevi Chiaturis Munitsipaliteti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.",
+					"body": "## Бжиневи (Чиатурский муниципалитет)\n\nBzhinevi Chiaturis Munitsipaliteti — село в муниципалитете Chiatura, Municipality in Imereti, Грузия.\n\n## Расположение\n\nБжиневи (Чиатурский муниципалитет) — **муниципалитет Chiatura**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767154
+		}
+	]
+}

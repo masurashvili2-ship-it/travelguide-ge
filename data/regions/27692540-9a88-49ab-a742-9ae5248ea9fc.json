@@ -1,0 +1,154 @@
+{
+	"posts": [
+		{
+			"id": "b8fa039a-2fbd-48e4-bb87-a0d1528f11bb",
+			"slug": "jria-sachkheris-munitsipaliteti",
+			"level": "village",
+			"parent_id": "27692540-9a88-49ab-a742-9ae5248ea9fc",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.348611111,
+				"lon": 43.583611111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A0%E1%83%98%E1%83%90%20(%E1%83%A1%E1%83%90%E1%83%A9%E1%83%AE%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12871634",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Jria Sachkheris Munitsipaliteti",
+					"subtitle": "Village · Sachkhere municipality · Municipality in Imereti",
+					"excerpt": "Jria Sachkheris Munitsipaliteti is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Jria Sachkheris Munitsipaliteti village — Sachkhere, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Jria Sachkheris Munitsipaliteti is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Jria Sachkheris Munitsipaliteti\n\nJria Sachkheris Munitsipaliteti is a village in Sachkhere municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nJria Sachkheris Munitsipaliteti is situated in **Sachkhere municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871634)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A0%E1%83%98%E1%83%90%20(%E1%83%A1%E1%83%90%E1%83%A9%E1%83%AE%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ჯრია (საჩხერის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · საჩხერეის მუნიციპალიტეტი",
+					"excerpt": "ჯრია (საჩხერის მუნიციპალიტეტი) — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"seo_title": "ჯრია (საჩხერის მუნიციპალიტეტი) — სოფელი | საჩხერეის მუნიციპალიტეტი",
+					"seo_description": "ჯრია (საჩხერის მუნიციპალიტეტი) — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"body": "## ჯრია (საჩხერის მუნიციპალიტეტი)\n\nჯრია (საჩხერის მუნიციპალიტეტი) — სოფელი საჩხერეის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჯრია (საჩხერის მუნიციპალიტეტი) განლაგებულია **საჩხერეის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Джриа (Сачхерский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Sachkhere · Municipality in Imereti",
+					"excerpt": "Jria Sachkheris Munitsipaliteti — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"seo_title": "Джриа (Сачхерский муниципалитет) — село · Sachkhere, Municipality in Imereti | Грузия",
+					"seo_description": "Jria Sachkheris Munitsipaliteti — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"body": "## Джриа (Сачхерский муниципалитет)\n\nJria Sachkheris Munitsipaliteti — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.\n\n## Расположение\n\nДжриа (Сачхерский муниципалитет) — **муниципалитет Sachkhere**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767152
+		},
+		{
+			"id": "d8ecb8a1-9df2-4622-a716-75fb2bf25685",
+			"slug": "chorvila",
+			"level": "village",
+			"parent_id": "27692540-9a88-49ab-a742-9ae5248ea9fc",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.289166666,
+				"lon": 43.414444444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%A0%E1%83%95%E1%83%98%E1%83%9A%E1%83%90",
+			"wikidata_id": "Q2626068",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chorvila",
+					"subtitle": "Village · Sachkhere municipality · Municipality in Imereti",
+					"excerpt": "Chorvila is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Chorvila village — Sachkhere, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Chorvila is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Chorvila\n\nChorvila is a village in Sachkhere municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nChorvila is situated in **Sachkhere municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q2626068)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%A0%E1%83%95%E1%83%98%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "ჭორვილა",
+					"subtitle": "სოფელი · საჩხერეის მუნიციპალიტეტი",
+					"excerpt": "ჭორვილა — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"seo_title": "ჭორვილა — სოფელი | საჩხერეის მუნიციპალიტეტი",
+					"seo_description": "ჭორვილა — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"body": "## ჭორვილა\n\nჭორვილა — სოფელი საჩხერეის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჭორვილა განლაგებულია **საჩხერეის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Чорвила",
+					"subtitle": "Cело · муниципалитет Sachkhere · Municipality in Imereti",
+					"excerpt": "Chorvila — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"seo_title": "Чорвила — село · Sachkhere, Municipality in Imereti | Грузия",
+					"seo_description": "Chorvila — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"body": "## Чорвила\n\nChorvila — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЧорвила — **муниципалитет Sachkhere**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767152
+		},
+		{
+			"id": "876a2b72-0318-4f21-bdc7-47cfd085b6a6",
+			"slug": "skhvitori",
+			"level": "village",
+			"parent_id": "27692540-9a88-49ab-a742-9ae5248ea9fc",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.355833333,
+				"lon": 43.425833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%AE%E1%83%95%E1%83%98%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16376161",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Skhvitori",
+					"subtitle": "Village · Sachkhere municipality · Municipality in Imereti",
+					"excerpt": "Skhvitori is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Skhvitori village — Sachkhere, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Skhvitori is a village in Sachkhere municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Skhvitori\n\nSkhvitori is a village in Sachkhere municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSkhvitori is situated in **Sachkhere municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16376161)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%AE%E1%83%95%E1%83%98%E1%83%A2%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "სხვიტორი",
+					"subtitle": "სოფელი · საჩხერეის მუნიციპალიტეტი",
+					"excerpt": "სხვიტორი — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"seo_title": "სხვიტორი — სოფელი | საჩხერეის მუნიციპალიტეტი",
+					"seo_description": "სხვიტორი — სოფელი საჩხერეის მუნიციპალიტეტში.",
+					"body": "## სხვიტორი\n\nსხვიტორი — სოფელი საჩხერეის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსხვიტორი განლაგებულია **საჩხერეის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Схвитори",
+					"subtitle": "Cело · муниципалитет Sachkhere · Municipality in Imereti",
+					"excerpt": "Skhvitori — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"seo_title": "Схвитори — село · Sachkhere, Municipality in Imereti | Грузия",
+					"seo_description": "Skhvitori — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.",
+					"body": "## Схвитори\n\nSkhvitori — село в муниципалитете Sachkhere, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСхвитори — **муниципалитет Sachkhere**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767152
+		}
+	]
+}

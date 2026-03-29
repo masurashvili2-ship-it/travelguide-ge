@@ -1973,6 +1973,288 @@
 				}
 			},
 			"updated_at": 1774624426936
+		},
+		{
+			"id": "ac921b21-bb8d-4a41-b2c3-915a7c562c67",
+			"slug": "biujeti-3",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%98%E1%83%A3%E1%83%AF%E1%83%94%E1%83%A2%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Biujeti 3",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Biujeti 3 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Biujeti 3 village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Biujeti 3 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Biujeti 3\n\nBiujeti 3 is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nBiujeti 3 is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%98%E1%83%A3%E1%83%AF%E1%83%94%E1%83%A2%E1%83%98)"
+				},
+				"ka": {
+					"title": "ბიუჯეტი",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "ბიუჯეტი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "ბიუჯეტი — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "ბიუჯეტი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## ბიუჯეტი\n\nბიუჯეტი — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%98%E1%83%A3%E1%83%AF%E1%83%94%E1%83%A2%E1%83%98)"
+				},
+				"ru": {
+					"title": "Biujeti 3",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Biujeti 3 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Biujeti 3 — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Biujeti 3 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Biujeti 3\n\nBiujeti 3 — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%98%E1%83%A3%E1%83%AF%E1%83%94%E1%83%A2%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795239997
+		},
+		{
+			"id": "858b4e6a-85a0-4d87-9373-f44716c3025c",
+			"slug": "temi-2",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9B%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Temi 2",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Temi 2 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Temi 2 village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Temi 2 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Temi 2\n\nTemi 2 is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nTemi 2 is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9B%E1%83%98)"
+				},
+				"ka": {
+					"title": "თემი",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "თემი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "თემი — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "თემი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## თემი\n\nთემი — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9B%E1%83%98)"
+				},
+				"ru": {
+					"title": "Temi 2",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Temi 2 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Temi 2 — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Temi 2 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Temi 2\n\nTemi 2 — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%94%E1%83%9B%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795240398
+		},
+		{
+			"id": "7e62aced-fa0e-4198-9bfa-216fde2e60dc",
+			"slug": "sofeli-3",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%A4%E1%83%94%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sofeli 3",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Sofeli 3 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Sofeli 3 village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Sofeli 3 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Sofeli 3\n\nSofeli 3 is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nSofeli 3 is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%A4%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "სოფელი",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "სოფელი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "სოფელი — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "სოფელი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## სოფელი\n\nსოფელი — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%A4%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Sofeli 3",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Sofeli 3 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Sofeli 3 — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Sofeli 3 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Sofeli 3\n\nSofeli 3 — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%A4%E1%83%94%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795240798
+		},
+		{
+			"id": "5c862e37-55d0-4e42-b226-2ca724d79416",
+			"slug": "abasha",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Abasha",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Abasha is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Abasha village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Abasha is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Abasha\n\nAbasha is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nAbasha is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%90)"
+				},
+				"ka": {
+					"title": "აბაშა",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "აბაშა — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "აბაშა — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "აბაშა — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## აბაშა\n\nაბაშა — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%90)"
+				},
+				"ru": {
+					"title": "Abasha",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Abasha — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Abasha — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Abasha — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Abasha\n\nAbasha — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%91%E1%83%90%E1%83%A8%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795241200
+		},
+		{
+			"id": "3d2f5539-285c-46e1-8042-2f3b63bdd687",
+			"slug": "gugunakati",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%A5%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%91%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98)",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gugunakati",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Gugunakati is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Gugunakati village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Gugunakati is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Gugunakati\n\nGugunakati is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nGugunakati is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%A5%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%91%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				},
+				"ka": {
+					"title": "გუგუნაყათი",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "გუგუნაყათი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "გუგუნაყათი — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "გუგუნაყათი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## გუგუნაყათი\n\nგუგუნაყათი — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%A5%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%91%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				},
+				"ru": {
+					"title": "Gugunakati",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Gugunakati — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Gugunakati — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Gugunakati — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Gugunakati\n\nGugunakati — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%A5%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%91%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				}
+			},
+			"updated_at": 1774795241600
+		},
+		{
+			"id": "f68b4615-7019-4815-966b-b6298ffcc7af",
+			"slug": "gugunakati-2",
+			"level": "village",
+			"parent_id": "9c1f753f-1342-4eb4-ad30-2d939791d2fc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98)",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gugunakati 2",
+					"subtitle": "Village · Abasha municipality · Samegrelo-Zemo Svaneti",
+					"excerpt": "Gugunakati 2 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"seo_title": "Gugunakati 2 village — Abasha, Samegrelo-Zemo Svaneti | Travel Georgia",
+					"seo_description": "Gugunakati 2 is a village in Abasha municipality, Samegrelo-Zemo Svaneti, Georgia.",
+					"body": "## About Gugunakati 2\n\nGugunakati 2 is a village located in Abasha municipality in the Samegrelo-Zemo Svaneti region of Georgia.\n\n## Location\n\nGugunakati 2 is situated in **Abasha municipality**, which is part of the **Samegrelo-Zemo Svaneti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Abasha can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				},
+				"ka": {
+					"title": "გუგუნაყათი",
+					"subtitle": "სოფელი · აბაშაის მუნიციპალიტეტი",
+					"excerpt": "გუგუნაყათი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"seo_title": "გუგუნაყათი — სოფელი | აბაშაის მუნიციპალიტეტი",
+					"seo_description": "გუგუნაყათი — სოფელი აბაშაის მუნიციპალიტეტში, Samegrelo-Zemo Svaneti.",
+					"body": "## გუგუნაყათი\n\nგუგუნაყათი — სოფელი **აბაშაის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია აბაშაის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				},
+				"ru": {
+					"title": "Gugunakati 2",
+					"subtitle": "Cело · муниципалитет Abasha · Samegrelo-Zemo Svaneti",
+					"excerpt": "Gugunakati 2 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"seo_title": "Gugunakati 2 — село · Abasha, Samegrelo-Zemo Svaneti | Грузия",
+					"seo_description": "Gugunakati 2 — село в муниципалитете Abasha, Samegrelo-Zemo Svaneti, Грузия.",
+					"body": "## Gugunakati 2\n\nGugunakati 2 — село в муниципалитете **Abasha**, регион **Samegrelo-Zemo Svaneti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Abasha. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%92%E1%83%A3%E1%83%9C%E1%83%90%E1%83%A7%E1%83%90%E1%83%97%E1%83%98%20(%E1%83%9B%E1%83%90%E1%83%A0%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%97%E1%83%94%E1%83%9B%E1%83%98))"
+				}
+			},
+			"updated_at": 1774795242001
 		}
 	]
 }

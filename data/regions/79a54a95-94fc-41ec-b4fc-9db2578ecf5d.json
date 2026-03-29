@@ -1,0 +1,54 @@
+{
+	"posts": [
+		{
+			"id": "081004ce-fddd-4fcd-8352-2e2e292e650f",
+			"slug": "mandikori",
+			"level": "village",
+			"parent_id": "79a54a95-94fc-41ec-b4fc-9db2578ecf5d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.361666666,
+				"lon": 42.820833333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%9C%E1%83%93%E1%83%98%E1%83%99%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16372017",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mandikori",
+					"subtitle": "Village · Tkibuli municipality · Municipality in Imereti",
+					"excerpt": "Mandikori is a village in Tkibuli municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Mandikori village — Tkibuli, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Mandikori is a village in Tkibuli municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Mandikori\n\nMandikori is a village in Tkibuli municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nMandikori is situated in **Tkibuli municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16372017)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%9C%E1%83%93%E1%83%98%E1%83%99%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "მანდიკორი",
+					"subtitle": "სოფელი · ტყიბულიის მუნიციპალიტეტი",
+					"excerpt": "მანდიკორი — სოფელი ტყიბულიის მუნიციპალიტეტში.",
+					"seo_title": "მანდიკორი — სოფელი | ტყიბულიის მუნიციპალიტეტი",
+					"seo_description": "მანდიკორი — სოფელი ტყიბულიის მუნიციპალიტეტში.",
+					"body": "## მანდიკორი\n\nმანდიკორი — სოფელი ტყიბულიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმანდიკორი განლაგებულია **ტყიბულიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Мандикори",
+					"subtitle": "Cело · муниципалитет Tkibuli · Municipality in Imereti",
+					"excerpt": "Mandikori — село в муниципалитете Tkibuli, Municipality in Imereti, Грузия.",
+					"seo_title": "Мандикори — село · Tkibuli, Municipality in Imereti | Грузия",
+					"seo_description": "Mandikori — село в муниципалитете Tkibuli, Municipality in Imereti, Грузия.",
+					"body": "## Мандикори\n\nMandikori — село в муниципалитете Tkibuli, Municipality in Imereti, Грузия.\n\n## Расположение\n\nМандикори — **муниципалитет Tkibuli**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		}
+	]
+}

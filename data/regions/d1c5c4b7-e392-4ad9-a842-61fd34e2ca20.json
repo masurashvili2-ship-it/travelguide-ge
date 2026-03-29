@@ -1,0 +1,254 @@
+{
+	"posts": [
+		{
+			"id": "5e1994ad-9531-46f2-b12c-c7290e1cbf66",
+			"slug": "dghnorisa",
+			"level": "village",
+			"parent_id": "d1c5c4b7-e392-4ad9-a842-61fd34e2ca20",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.468611111,
+				"lon": 42.818333333
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%A6%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90",
+			"wikidata_id": "Q12863968",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dghnorisa",
+					"subtitle": "Village · Tskaltubo municipality · Municipality in Imereti",
+					"excerpt": "Dghnorisa is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Dghnorisa village — Tskaltubo, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Dghnorisa is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Dghnorisa\n\nDghnorisa is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nDghnorisa is situated in **Tskaltubo municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863968)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%A6%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%90)"
+				},
+				"ka": {
+					"title": "დღნორისა",
+					"subtitle": "სოფელი · წყალტუბოის მუნიციპალიტეტი",
+					"excerpt": "დღნორისა — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"seo_title": "დღნორისა — სოფელი | წყალტუბოის მუნიციპალიტეტი",
+					"seo_description": "დღნორისა — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"body": "## დღნორისა\n\nდღნორისა — სოფელი წყალტუბოის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nდღნორისა განლაგებულია **წყალტუბოის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Дгнориса",
+					"subtitle": "Cело · муниципалитет Tskaltubo · Municipality in Imereti",
+					"excerpt": "Dghnorisa — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"seo_title": "Дгнориса — село · Tskaltubo, Municipality in Imereti | Грузия",
+					"seo_description": "Dghnorisa — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"body": "## Дгнориса\n\nDghnorisa — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.\n\n## Расположение\n\nДгнориса — **муниципалитет Tskaltubo**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		},
+		{
+			"id": "44315a62-8657-4a5c-a445-4ea4305cc370",
+			"slug": "mukhiani-tskaltubos-munitsipaliteti",
+			"level": "village",
+			"parent_id": "d1c5c4b7-e392-4ad9-a842-61fd34e2ca20",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.195556,
+				"lon": 42.592778
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%A2%E1%83%A3%E1%83%91%E1%83%9D%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12867252",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mukhiani",
+					"subtitle": "Village · Tskaltubo municipality · Municipality in Imereti",
+					"excerpt": "Mukhiani is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Mukhiani village — Tskaltubo, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Mukhiani is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Mukhiani\n\nMukhiani is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nMukhiani is situated in **Tskaltubo municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867252)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A3%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98%20(%E1%83%AC%E1%83%A7%E1%83%90%E1%83%9A%E1%83%A2%E1%83%A3%E1%83%91%E1%83%9D%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "მუხიანი (წყალტუბოს მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · წყალტუბოის მუნიციპალიტეტი",
+					"excerpt": "მუხიანი (წყალტუბოს მუნიციპალიტეტი) — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"seo_title": "მუხიანი (წყალტუბოს მუნიციპალიტეტი) — სოფელი | წყალტუბოის მუნიციპალიტეტი",
+					"seo_description": "მუხიანი (წყალტუბოს მუნიციპალიტეტი) — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"body": "## მუხიანი (წყალტუბოს მუნიციპალიტეტი)\n\nმუხიანი (წყალტუბოს მუნიციპალიტეტი) — სოფელი წყალტუბოის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმუხიანი (წყალტუბოს მუნიციპალიტეტი) განლაგებულია **წყალტუბოის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Мухиани",
+					"subtitle": "Cело · муниципалитет Tskaltubo · Municipality in Imereti",
+					"excerpt": "Mukhiani — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"seo_title": "Мухиани — село · Tskaltubo, Municipality in Imereti | Грузия",
+					"seo_description": "Mukhiani — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"body": "## Мухиани\n\nMukhiani — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.\n\n## Расположение\n\nМухиани — **муниципалитет Tskaltubo**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		},
+		{
+			"id": "8ca5a4d8-a138-47f7-b96a-42447f87a532",
+			"slug": "geguti",
+			"level": "village",
+			"parent_id": "d1c5c4b7-e392-4ad9-a842-61fd34e2ca20",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.174444444,
+				"lon": 42.677222222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%94%E1%83%92%E1%83%A3%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12863069",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Geguti",
+					"subtitle": "Village · Tskaltubo municipality · Municipality in Imereti",
+					"excerpt": "Geguti is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Geguti village — Tskaltubo, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Geguti is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Geguti\n\nGeguti is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nGeguti is situated in **Tskaltubo municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863069)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%94%E1%83%92%E1%83%A3%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "გეგუთი",
+					"subtitle": "სოფელი · წყალტუბოის მუნიციპალიტეტი",
+					"excerpt": "გეგუთი — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"seo_title": "გეგუთი — სოფელი | წყალტუბოის მუნიციპალიტეტი",
+					"seo_description": "გეგუთი — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"body": "## გეგუთი\n\nგეგუთი — სოფელი წყალტუბოის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nგეგუთი განლაგებულია **წყალტუბოის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Гегути",
+					"subtitle": "Cело · муниципалитет Tskaltubo · Municipality in Imereti",
+					"excerpt": "Geguti — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"seo_title": "Гегути — село · Tskaltubo, Municipality in Imereti | Грузия",
+					"seo_description": "Geguti — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"body": "## Гегути\n\nGeguti — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.\n\n## Расположение\n\nГегути — **муниципалитет Tskaltubo**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		},
+		{
+			"id": "78c3aa72-4832-49b8-9aaf-8facf64d7633",
+			"slug": "banoja",
+			"level": "village",
+			"parent_id": "d1c5c4b7-e392-4ad9-a842-61fd34e2ca20",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.283333333,
+				"lon": 42.664166666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D%E1%83%AF%E1%83%90",
+			"wikidata_id": "Q12862412",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Banoja",
+					"subtitle": "Village · Tskaltubo municipality · Municipality in Imereti",
+					"excerpt": "Banoja is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Banoja village — Tskaltubo, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Banoja is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Banoja\n\nBanoja is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nBanoja is situated in **Tskaltubo municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12862412)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9C%E1%83%9D%E1%83%AF%E1%83%90)"
+				},
+				"ka": {
+					"title": "ბანოჯა",
+					"subtitle": "სოფელი · წყალტუბოის მუნიციპალიტეტი",
+					"excerpt": "ბანოჯა — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"seo_title": "ბანოჯა — სოფელი | წყალტუბოის მუნიციპალიტეტი",
+					"seo_description": "ბანოჯა — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"body": "## ბანოჯა\n\nბანოჯა — სოფელი წყალტუბოის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nბანოჯა განლაგებულია **წყალტუბოის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Баноджа",
+					"subtitle": "Cело · муниципалитет Tskaltubo · Municipality in Imereti",
+					"excerpt": "Banoja — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"seo_title": "Баноджа — село · Tskaltubo, Municipality in Imereti | Грузия",
+					"seo_description": "Banoja — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"body": "## Баноджа\n\nBanoja — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.\n\n## Расположение\n\nБаноджа — **муниципалитет Tskaltubo**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		},
+		{
+			"id": "56c0065a-5580-4ab3-83e9-88fcca772da5",
+			"slug": "gvishtibi",
+			"level": "village",
+			"parent_id": "d1c5c4b7-e392-4ad9-a842-61fd34e2ca20",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.311389,
+				"lon": 42.570833
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%A8%E1%83%A2%E1%83%98%E1%83%91%E1%83%98",
+			"wikidata_id": "Q12863149",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gvishtibi",
+					"subtitle": "Village · Tskaltubo municipality · Municipality in Imereti",
+					"excerpt": "Gvishtibi is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Gvishtibi village — Tskaltubo, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Gvishtibi is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Gvishtibi\n\nGvishtibi is a village in Tskaltubo municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nGvishtibi is situated in **Tskaltubo municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863149)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%A8%E1%83%A2%E1%83%98%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "გვიშტიბი",
+					"subtitle": "სოფელი · წყალტუბოის მუნიციპალიტეტი",
+					"excerpt": "გვიშტიბი — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"seo_title": "გვიშტიბი — სოფელი | წყალტუბოის მუნიციპალიტეტი",
+					"seo_description": "გვიშტიბი — სოფელი წყალტუბოის მუნიციპალიტეტში.",
+					"body": "## გვიშტიბი\n\nგვიშტიბი — სოფელი წყალტუბოის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nგვიშტიბი განლაგებულია **წყალტუბოის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Гвиштиби",
+					"subtitle": "Cело · муниципалитет Tskaltubo · Municipality in Imereti",
+					"excerpt": "Gvishtibi — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"seo_title": "Гвиштиби — село · Tskaltubo, Municipality in Imereti | Грузия",
+					"seo_description": "Gvishtibi — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.",
+					"body": "## Гвиштиби\n\nGvishtibi — село в муниципалитете Tskaltubo, Municipality in Imereti, Грузия.\n\n## Расположение\n\nГвиштиби — **муниципалитет Tskaltubo**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767153
+		}
+	]
+}

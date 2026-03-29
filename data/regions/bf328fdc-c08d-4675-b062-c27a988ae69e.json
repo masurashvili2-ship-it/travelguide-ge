@@ -1,0 +1,54 @@
+{
+	"posts": [
+		{
+			"id": "701defc9-16dc-43f4-b942-d566a69713a8",
+			"slug": "khelvachauri-2",
+			"level": "village",
+			"parent_id": "bf328fdc-c08d-4675-b062-c27a988ae69e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 41.585555555,
+				"lon": 41.668888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%94%E1%83%9A%E1%83%95%E1%83%90%E1%83%A9%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16379292",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khelvachauri",
+					"subtitle": "Village · Batumi municipality · Municipality in Adjara",
+					"excerpt": "Khelvachauri is a village in Batumi municipality, Municipality in Adjara, Georgia.",
+					"seo_title": "Khelvachauri village — Batumi, Municipality in Adjara | Travel Georgia",
+					"seo_description": "Khelvachauri is a village in Batumi municipality, Municipality in Adjara, Georgia.",
+					"body": "## About Khelvachauri\n\nKhelvachauri is a village in Batumi municipality, Municipality in Adjara, Georgia.\n\n## Location\n\nKhelvachauri is situated in **Batumi municipality**, Municipality in Adjara region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16379292)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%94%E1%83%9A%E1%83%95%E1%83%90%E1%83%A9%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხელვაჩაური",
+					"subtitle": "სოფელი · ბათუმიის მუნიციპალიტეტი",
+					"excerpt": "ხელვაჩაური — სოფელი ბათუმიის მუნიციპალიტეტში.",
+					"seo_title": "ხელვაჩაური — სოფელი | ბათუმიის მუნიციპალიტეტი",
+					"seo_description": "ხელვაჩაური — სოფელი ბათუმიის მუნიციპალიტეტში.",
+					"body": "## ხელვაჩაური\n\nხელვაჩაური — სოფელი ბათუმიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nხელვაჩაური განლაგებულია **ბათუმიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Хелвачаури",
+					"subtitle": "Cело · муниципалитет Batumi · Municipality in Adjara",
+					"excerpt": "Khelvachauri — село в муниципалитете Batumi, Municipality in Adjara, Грузия.",
+					"seo_title": "Хелвачаури — село · Batumi, Municipality in Adjara | Грузия",
+					"seo_description": "Khelvachauri — село в муниципалитете Batumi, Municipality in Adjara, Грузия.",
+					"body": "## Хелвачаури\n\nKhelvachauri — село в муниципалитете Batumi, Municipality in Adjara, Грузия.\n\n## Расположение\n\nХелвачаури — **муниципалитет Batumi**, Municipality in Adjara, Грузия."
+				}
+			},
+			"updated_at": 1774796767145
+		}
+	]
+}

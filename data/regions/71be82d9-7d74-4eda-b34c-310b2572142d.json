@@ -1,0 +1,304 @@
+{
+	"posts": [
+		{
+			"id": "8a574768-a5a5-451b-9ddb-d18062e71151",
+			"slug": "etseri-2",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.198333,
+				"lon": 42.916389
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12864276",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Etseri (Terjola municipality)",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Etseri (Terjola municipality) is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Etseri (Terjola municipality) village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Etseri (Terjola municipality) is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Etseri (Terjola municipality)\n\nEtseri (Terjola municipality) is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nEtseri (Terjola municipality) is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12864276)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%AC%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ეწერი",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "ეწერი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "ეწერი — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "ეწერი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## ეწერი\n\nეწერი — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nეწერი განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Эцери",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Etseri (Terjola municipality) — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Эцери — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Etseri (Terjola municipality) — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Эцери\n\nEtseri (Terjola municipality) — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЭцери — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		},
+		{
+			"id": "d017b48f-242a-47d7-a831-6030e53536ad",
+			"slug": "zeda-simoneti",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.231944,
+				"lon": 42.920833
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%93%E1%83%90%20%E1%83%A1%E1%83%98%E1%83%9B%E1%83%9D%E1%83%9C%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12864640",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zeda Simoneti",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Zeda Simoneti is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Zeda Simoneti village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Zeda Simoneti is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Zeda Simoneti\n\nZeda Simoneti is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nZeda Simoneti is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12864640)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%93%E1%83%90%20%E1%83%A1%E1%83%98%E1%83%9B%E1%83%9D%E1%83%9C%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზედა სიმონეთი",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "ზედა სიმონეთი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "ზედა სიმონეთი — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "ზედა სიმონეთი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## ზედა სიმონეთი\n\nზედა სიმონეთი — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nზედა სიმონეთი განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Зеда-Симонети",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Zeda Simoneti — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Зеда-Симонети — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Zeda Simoneti — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Зеда-Симонети\n\nZeda Simoneti — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЗеда-Симонети — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		},
+		{
+			"id": "910c4290-7a17-4e94-855a-91ce7a162328",
+			"slug": "kvakhchiri",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.205833333,
+				"lon": 42.733888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%95%E1%83%90%E1%83%AE%E1%83%AD%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12865734",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvakhchiri",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Kvakhchiri is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Kvakhchiri village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Kvakhchiri is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Kvakhchiri\n\nKvakhchiri is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nKvakhchiri is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12865734)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%95%E1%83%90%E1%83%AE%E1%83%AD%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "კვახჭირი",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "კვახჭირი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "კვახჭირი — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "კვახჭირი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## კვახჭირი\n\nკვახჭირი — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nკვახჭირი განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Квахчири",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Kvakhchiri — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Квахчири — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Kvakhchiri — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Квахчири\n\nKvakhchiri — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nКвахчири — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		},
+		{
+			"id": "4d0c506c-483b-49ef-a5c5-63f707d72f1f",
+			"slug": "skande",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.263888888,
+				"lon": 43.048055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%99%E1%83%90%E1%83%9C%E1%83%93%E1%83%94",
+			"wikidata_id": "Q16375846",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Skande",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Skande is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Skande village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Skande is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Skande\n\nSkande is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSkande is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16375846)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%99%E1%83%90%E1%83%9C%E1%83%93%E1%83%94)"
+				},
+				"ka": {
+					"title": "სკანდე",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "სკანდე — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "სკანდე — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "სკანდე — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## სკანდე\n\nსკანდე — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსკანდე განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сканде",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Skande — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Сканде — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Skande — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Сканде\n\nSkande — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nСканде — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		},
+		{
+			"id": "a12705c6-9018-4b20-9c28-6b7f2d88795c",
+			"slug": "chikhori",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.231944,
+				"lon": 43.082778
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%98%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16378200",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chikhori",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Chikhori is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Chikhori village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Chikhori is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Chikhori\n\nChikhori is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nChikhori is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16378200)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%98%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჩიხორი",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "ჩიხორი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "ჩიხორი — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "ჩიხორი — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## ჩიხორი\n\nჩიხორი — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nჩიხორი განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Чихори",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Chikhori — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Чихори — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Chikhori — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Чихори\n\nChikhori — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nЧихори — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		},
+		{
+			"id": "4e8a2c04-ee00-4696-9f65-e9d803572466",
+			"slug": "broliskedi-terjolis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "71be82d9-7d74-4eda-b34c-310b2572142d",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.231944,
+				"lon": 42.801667
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A0%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A5%E1%83%94%E1%83%93%E1%83%98%20(%E1%83%97%E1%83%94%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12862817",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Broliskedi",
+					"subtitle": "Village · Terjola municipality · Municipality in Imereti",
+					"excerpt": "Broliskedi is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Broliskedi village — Terjola, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Broliskedi is a village in Terjola municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Broliskedi\n\nBroliskedi is a village in Terjola municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nBroliskedi is situated in **Terjola municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12862817)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%A0%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A5%E1%83%94%E1%83%93%E1%83%98%20(%E1%83%97%E1%83%94%E1%83%A0%E1%83%AF%E1%83%9D%E1%83%9A%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ბროლისქედი (თერჯოლის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · თერჯოლაის მუნიციპალიტეტი",
+					"excerpt": "ბროლისქედი (თერჯოლის მუნიციპალიტეტი) — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"seo_title": "ბროლისქედი (თერჯოლის მუნიციპალიტეტი) — სოფელი | თერჯოლაის მუნიციპალიტეტი",
+					"seo_description": "ბროლისქედი (თერჯოლის მუნიციპალიტეტი) — სოფელი თერჯოლაის მუნიციპალიტეტში.",
+					"body": "## ბროლისქედი (თერჯოლის მუნიციპალიტეტი)\n\nბროლისქედი (თერჯოლის მუნიციპალიტეტი) — სოფელი თერჯოლაის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nბროლისქედი (თერჯოლის მუნიციპალიტეტი) განლაგებულია **თერჯოლაის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Бролискеди",
+					"subtitle": "Cело · муниципалитет Terjola · Municipality in Imereti",
+					"excerpt": "Broliskedi — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"seo_title": "Бролискеди — село · Terjola, Municipality in Imereti | Грузия",
+					"seo_description": "Broliskedi — село в муниципалитете Terjola, Municipality in Imereti, Грузия.",
+					"body": "## Бролискеди\n\nBroliskedi — село в муниципалитете Terjola, Municipality in Imereti, Грузия.\n\n## Расположение\n\nБролискеди — **муниципалитет Terjola**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767151
+		}
+	]
+}

@@ -1,0 +1,54 @@
+{
+	"posts": [
+		{
+			"id": "4adfa604-6957-4520-ba95-e4c09e90e4cf",
+			"slug": "kulbaki",
+			"level": "village",
+			"parent_id": "b20e5d4c-56fb-4ab7-8016-d48ab9ee8352",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.627222222,
+				"lon": 42.655
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9A%E1%83%91%E1%83%90%E1%83%A5%E1%83%98",
+			"wikidata_id": "Q12870390",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kulbaki",
+					"subtitle": "Village · Tsageri municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Kulbaki is a village in Tsageri municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Kulbaki village — Tsageri, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Kulbaki is a village in Tsageri municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Kulbaki\n\nKulbaki is a village in Tsageri municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nKulbaki is situated in **Tsageri municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12870390)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9A%E1%83%91%E1%83%90%E1%83%A5%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქულბაქი",
+					"subtitle": "სოფელი · ცაგერიის მუნიციპალიტეტი",
+					"excerpt": "ქულბაქი — სოფელი ცაგერიის მუნიციპალიტეტში.",
+					"seo_title": "ქულბაქი — სოფელი | ცაგერიის მუნიციპალიტეტი",
+					"seo_description": "ქულბაქი — სოფელი ცაგერიის მუნიციპალიტეტში.",
+					"body": "## ქულბაქი\n\nქულბაქი — სოფელი ცაგერიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nქულბაქი განლაგებულია **ცაგერიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Кулбаки",
+					"subtitle": "Cело · муниципалитет Tsageri · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Kulbaki — село в муниципалитете Tsageri, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Кулбаки — село · Tsageri, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Kulbaki — село в муниципалитете Tsageri, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Кулбаки\n\nKulbaki — село в муниципалитете Tsageri, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nКулбаки — **муниципалитет Tsageri**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767158
+		}
+	]
+}

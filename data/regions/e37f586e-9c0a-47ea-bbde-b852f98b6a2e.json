@@ -1,0 +1,154 @@
+{
+	"posts": [
+		{
+			"id": "1dceb965-7519-42fd-8547-6c1f86165e2d",
+			"slug": "vani",
+			"level": "village",
+			"parent_id": "e37f586e-9c0a-47ea-bbde-b852f98b6a2e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.083888888,
+				"lon": 42.511944444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q1011003",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Vani",
+					"subtitle": "Village · Vani municipality · Municipality in Imereti",
+					"excerpt": "Vani is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Vani village — Vani, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Vani is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Vani\n\nVani is a village in Vani municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nVani is situated in **Vani municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q1011003)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ვანი",
+					"subtitle": "სოფელი · ვანიის მუნიციპალიტეტი",
+					"excerpt": "ვანი — სოფელი ვანიის მუნიციპალიტეტში.",
+					"seo_title": "ვანი — სოფელი | ვანიის მუნიციპალიტეტი",
+					"seo_description": "ვანი — სოფელი ვანიის მუნიციპალიტეტში.",
+					"body": "## ვანი\n\nვანი — სოფელი ვანიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nვანი განლაგებულია **ვანიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Вани",
+					"subtitle": "Cело · муниципалитет Vani · Municipality in Imereti",
+					"excerpt": "Vani — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"seo_title": "Вани — село · Vani, Municipality in Imereti | Грузия",
+					"seo_description": "Vani — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"body": "## Вани\n\nVani — село в муниципалитете Vani, Municipality in Imereti, Грузия.\n\n## Расположение\n\nВани — **муниципалитет Vani**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "71180932-b126-46b7-a35c-8c00471f8f5a",
+			"slug": "inashauri",
+			"level": "village",
+			"parent_id": "e37f586e-9c0a-47ea-bbde-b852f98b6a2e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.064166666,
+				"lon": 42.641666666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9C%E1%83%90%E1%83%A8%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16370567",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Inashauri",
+					"subtitle": "Village · Vani municipality · Municipality in Imereti",
+					"excerpt": "Inashauri is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Inashauri village — Vani, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Inashauri is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Inashauri\n\nInashauri is a village in Vani municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nInashauri is situated in **Vani municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16370567)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9C%E1%83%90%E1%83%A8%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ინაშაური",
+					"subtitle": "სოფელი · ვანიის მუნიციპალიტეტი",
+					"excerpt": "ინაშაური — სოფელი ვანიის მუნიციპალიტეტში.",
+					"seo_title": "ინაშაური — სოფელი | ვანიის მუნიციპალიტეტი",
+					"seo_description": "ინაშაური — სოფელი ვანიის მუნიციპალიტეტში.",
+					"body": "## ინაშაური\n\nინაშაური — სოფელი ვანიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nინაშაური განლაგებულია **ვანიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Инашаури",
+					"subtitle": "Cело · муниципалитет Vani · Municipality in Imereti",
+					"excerpt": "Inashauri — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"seo_title": "Инашаури — село · Vani, Municipality in Imereti | Грузия",
+					"seo_description": "Inashauri — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"body": "## Инашаури\n\nInashauri — село в муниципалитете Vani, Municipality in Imereti, Грузия.\n\n## Расположение\n\nИнашаури — **муниципалитет Vani**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "3dbcf522-bf09-4de0-a47b-d435316b4b3a",
+			"slug": "mikelefoni",
+			"level": "village",
+			"parent_id": "e37f586e-9c0a-47ea-bbde-b852f98b6a2e",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.046111111,
+				"lon": 42.454444444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A5%E1%83%94%E1%83%9A%E1%83%94%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16372578",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mikelefoni",
+					"subtitle": "Village · Vani municipality · Municipality in Imereti",
+					"excerpt": "Mikelefoni is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Mikelefoni village — Vani, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Mikelefoni is a village in Vani municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Mikelefoni\n\nMikelefoni is a village in Vani municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nMikelefoni is situated in **Vani municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16372578)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A5%E1%83%94%E1%83%9A%E1%83%94%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "მიქელეფონი",
+					"subtitle": "სოფელი · ვანიის მუნიციპალიტეტი",
+					"excerpt": "მიქელეფონი — სოფელი ვანიის მუნიციპალიტეტში.",
+					"seo_title": "მიქელეფონი — სოფელი | ვანიის მუნიციპალიტეტი",
+					"seo_description": "მიქელეფონი — სოფელი ვანიის მუნიციპალიტეტში.",
+					"body": "## მიქელეფონი\n\nმიქელეფონი — სოფელი ვანიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nმიქელეფონი განლაგებულია **ვანიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Микелепони",
+					"subtitle": "Cело · муниципалитет Vani · Municipality in Imereti",
+					"excerpt": "Mikelefoni — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"seo_title": "Микелепони — село · Vani, Municipality in Imereti | Грузия",
+					"seo_description": "Mikelefoni — село в муниципалитете Vani, Municipality in Imereti, Грузия.",
+					"body": "## Микелепони\n\nMikelefoni — село в муниципалитете Vani, Municipality in Imereti, Грузия.\n\n## Расположение\n\nМикелепони — **муниципалитет Vani**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		}
+	]
+}

@@ -1,0 +1,897 @@
+{
+	"posts": [
+		{
+			"id": "8090e4b8-ff7b-4c5b-bb83-2cfc342dc982",
+			"slug": "stefantsminda",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%94%E1%83%A4%E1%83%90%E1%83%9C%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Stefantsminda",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Stefantsminda is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Stefantsminda village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Stefantsminda is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Stefantsminda\n\nStefantsminda is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nStefantsminda is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%94%E1%83%A4%E1%83%90%E1%83%9C%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				},
+				"ka": {
+					"title": "სტეფანწმინდა",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "სტეფანწმინდა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "სტეფანწმინდა — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "სტეფანწმინდა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## სტეფანწმინდა\n\nსტეფანწმინდა — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%94%E1%83%A4%E1%83%90%E1%83%9C%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				},
+				"ru": {
+					"title": "Stefantsminda",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Stefantsminda — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Stefantsminda — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Stefantsminda — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Stefantsminda\n\nStefantsminda — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%94%E1%83%A4%E1%83%90%E1%83%9C%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795206243
+		},
+		{
+			"id": "5f671b19-8219-4a52-8d94-c35a3cd5a92c",
+			"slug": "arsha",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A8%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Arsha",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Arsha is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Arsha village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Arsha is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Arsha\n\nArsha is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nArsha is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A8%E1%83%90)"
+				},
+				"ka": {
+					"title": "არშა",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "არშა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "არშა — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "არშა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## არშა\n\nარშა — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A8%E1%83%90)"
+				},
+				"ru": {
+					"title": "Arsha",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Arsha — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Arsha — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Arsha — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Arsha\n\nArsha — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%A8%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795206644
+		},
+		{
+			"id": "24999645-0a69-4d38-9e84-fa782d768de7",
+			"slug": "karkucha",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%99%E1%83%A3%E1%83%A9%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Karkucha",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Karkucha is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Karkucha village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Karkucha is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Karkucha\n\nKarkucha is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKarkucha is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%99%E1%83%A3%E1%83%A9%E1%83%90)"
+				},
+				"ka": {
+					"title": "კარკუჩა",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "კარკუჩა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "კარკუჩა — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "კარკუჩა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## კარკუჩა\n\nკარკუჩა — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%99%E1%83%A3%E1%83%A9%E1%83%90)"
+				},
+				"ru": {
+					"title": "Karkucha",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Karkucha — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Karkucha — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Karkucha — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Karkucha\n\nKarkucha — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%99%E1%83%A3%E1%83%A9%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795207044
+		},
+		{
+			"id": "a114bdaf-a0bb-433e-b662-51e4cc017aee",
+			"slug": "almasiani",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Almasiani",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Almasiani is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Almasiani village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Almasiani is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Almasiani\n\nAlmasiani is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nAlmasiani is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ალმასიანი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ალმასიანი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ალმასიანი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ალმასიანი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ალმასიანი\n\nალმასიანი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Almasiani",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Almasiani — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Almasiani — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Almasiani — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Almasiani\n\nAlmasiani — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795207445
+		},
+		{
+			"id": "12ffd49f-c735-4804-bf5a-91f72010b2d2",
+			"slug": "achkhoti",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A9%E1%83%AE%E1%83%9D%E1%83%A2%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Achkhoti",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Achkhoti is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Achkhoti village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Achkhoti is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Achkhoti\n\nAchkhoti is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nAchkhoti is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A9%E1%83%AE%E1%83%9D%E1%83%A2%E1%83%98)"
+				},
+				"ka": {
+					"title": "აჩხოტი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "აჩხოტი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "აჩხოტი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "აჩხოტი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## აჩხოტი\n\nაჩხოტი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A9%E1%83%AE%E1%83%9D%E1%83%A2%E1%83%98)"
+				},
+				"ru": {
+					"title": "Achkhoti",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Achkhoti — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Achkhoti — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Achkhoti — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Achkhoti\n\nAchkhoti — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A9%E1%83%AE%E1%83%9D%E1%83%A2%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795207845
+		},
+		{
+			"id": "417318bb-77c3-4aaf-b5d8-526312fe05ad",
+			"slug": "garbani",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Garbani",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Garbani is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Garbani village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Garbani is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Garbani\n\nGarbani is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nGarbani is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "გარბანი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "გარბანი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "გარბანი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "გარბანი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## გარბანი\n\nგარბანი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Garbani",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Garbani — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Garbani — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Garbani — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Garbani\n\nGarbani — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795208246
+		},
+		{
+			"id": "083d0821-4d7d-48f4-9877-5b6870487ba2",
+			"slug": "goristsikhe",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Goristsikhe",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Goristsikhe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Goristsikhe village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Goristsikhe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Goristsikhe\n\nGoristsikhe is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nGoristsikhe is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				},
+				"ka": {
+					"title": "გორისციხე",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "გორისციხე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "გორისციხე — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "გორისციხე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## გორისციხე\n\nგორისციხე — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				},
+				"ru": {
+					"title": "Goristsikhe",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Goristsikhe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Goristsikhe — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Goristsikhe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Goristsikhe\n\nGoristsikhe — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				}
+			},
+			"updated_at": 1774795208646
+		},
+		{
+			"id": "e6d45078-dbb4-4a7c-a570-20601a08515a",
+			"slug": "gudauri",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%93%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gudauri",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Gudauri is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Gudauri village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Gudauri is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Gudauri\n\nGudauri is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nGudauri is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%93%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "გუდაური",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "გუდაური — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "გუდაური — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "გუდაური — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## გუდაური\n\nგუდაური — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%93%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Gudauri",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Gudauri — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Gudauri — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Gudauri — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Gudauri\n\nGudauri — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A3%E1%83%93%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795209046
+		},
+		{
+			"id": "389037c2-2bd9-4ba1-96f4-8a60a05715e5",
+			"slug": "kobi",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%91%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kobi",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Kobi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Kobi village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Kobi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Kobi\n\nKobi is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKobi is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "კობი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "კობი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "კობი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "კობი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## კობი\n\nკობი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%91%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kobi",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Kobi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Kobi — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Kobi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Kobi\n\nKobi — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%9D%E1%83%91%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795209447
+		},
+		{
+			"id": "b94072c6-de8f-429c-a000-1f686d9606dc",
+			"slug": "sno",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9C%E1%83%9D",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sno",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Sno is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Sno village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Sno is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Sno\n\nSno is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nSno is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9C%E1%83%9D)"
+				},
+				"ka": {
+					"title": "სნო",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "სნო — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "სნო — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "სნო — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## სნო\n\nსნო — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9C%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Sno",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Sno — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Sno — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Sno — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Sno\n\nSno — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9C%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774795209847
+		},
+		{
+			"id": "2206010a-bbdd-4f6f-936e-3b9d631a5323",
+			"slug": "fansheti",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%9C%E1%83%A8%E1%83%94%E1%83%A2%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Fansheti",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Fansheti is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Fansheti village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Fansheti is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Fansheti\n\nFansheti is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nFansheti is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%9C%E1%83%A8%E1%83%94%E1%83%A2%E1%83%98)"
+				},
+				"ka": {
+					"title": "ფანშეტი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ფანშეტი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ფანშეტი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ფანშეტი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ფანშეტი\n\nფანშეტი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%9C%E1%83%A8%E1%83%94%E1%83%A2%E1%83%98)"
+				},
+				"ru": {
+					"title": "Fansheti",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Fansheti — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Fansheti — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Fansheti — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Fansheti\n\nFansheti — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%90%E1%83%9C%E1%83%A8%E1%83%94%E1%83%A2%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795210247
+		},
+		{
+			"id": "74d2c4f7-600e-49a9-a8b8-c9bab0e626a9",
+			"slug": "fkhelshe",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%AE%E1%83%94%E1%83%9A%E1%83%A8%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Fkhelshe",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Fkhelshe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Fkhelshe village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Fkhelshe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Fkhelshe\n\nFkhelshe is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nFkhelshe is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%AE%E1%83%94%E1%83%9A%E1%83%A8%E1%83%94)"
+				},
+				"ka": {
+					"title": "ფხელშე",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ფხელშე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ფხელშე — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ფხელშე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ფხელშე\n\nფხელშე — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%AE%E1%83%94%E1%83%9A%E1%83%A8%E1%83%94)"
+				},
+				"ru": {
+					"title": "Fkhelshe",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Fkhelshe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Fkhelshe — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Fkhelshe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Fkhelshe\n\nFkhelshe — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%AE%E1%83%94%E1%83%9A%E1%83%A8%E1%83%94)"
+				}
+			},
+			"updated_at": 1774795210648
+		},
+		{
+			"id": "0b925789-523f-4d5a-b448-923ff96dfef2",
+			"slug": "kvemo-okrokana",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9D%E1%83%A5%E1%83%A0%E1%83%9D%E1%83%A7%E1%83%90%E1%83%9C%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Okrokana",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Kvemo Okrokana is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Kvemo Okrokana village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Kvemo Okrokana is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Kvemo Okrokana\n\nKvemo Okrokana is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKvemo Okrokana is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9D%E1%83%A5%E1%83%A0%E1%83%9D%E1%83%A7%E1%83%90%E1%83%9C%E1%83%90)"
+				},
+				"ka": {
+					"title": "ქვემო ოქროყანა",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ოქროყანა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ქვემო ოქროყანა — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ოქროყანა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ქვემო ოქროყანა\n\nქვემო ოქროყანა — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9D%E1%83%A5%E1%83%A0%E1%83%9D%E1%83%A7%E1%83%90%E1%83%9C%E1%83%90)"
+				},
+				"ru": {
+					"title": "Kvemo Okrokana",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Kvemo Okrokana — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Kvemo Okrokana — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Kvemo Okrokana — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Kvemo Okrokana\n\nKvemo Okrokana — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9D%E1%83%A5%E1%83%A0%E1%83%9D%E1%83%A7%E1%83%90%E1%83%9C%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795211049
+		},
+		{
+			"id": "d8a854e8-c357-4110-be74-ca1bf279e1cf",
+			"slug": "koseli",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Koseli",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Koseli is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Koseli village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Koseli is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Koseli\n\nKoseli is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKoseli is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქოსელი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ქოსელი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ქოსელი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ქოსელი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ქოსელი\n\nქოსელი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Koseli",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Koseli — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Koseli — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Koseli — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Koseli\n\nKoseli — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%9D%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795211450
+		},
+		{
+			"id": "d8d2f493-4154-4f93-9305-adac997b482b",
+			"slug": "kumlistsikhe",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9B%E1%83%9A%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kumlistsikhe",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Kumlistsikhe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Kumlistsikhe village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Kumlistsikhe is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Kumlistsikhe\n\nKumlistsikhe is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKumlistsikhe is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9B%E1%83%9A%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				},
+				"ka": {
+					"title": "ქუმლისციხე",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ქუმლისციხე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ქუმლისციხე — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ქუმლისციხე — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ქუმლისციხე\n\nქუმლისციხე — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9B%E1%83%9A%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				},
+				"ru": {
+					"title": "Kumlistsikhe",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Kumlistsikhe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Kumlistsikhe — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Kumlistsikhe — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Kumlistsikhe\n\nKumlistsikhe — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%A3%E1%83%9B%E1%83%9A%E1%83%98%E1%83%A1%E1%83%AA%E1%83%98%E1%83%AE%E1%83%94)"
+				}
+			},
+			"updated_at": 1774795211850
+		},
+		{
+			"id": "090bd619-db2f-4b7c-bc75-fea87926bd8b",
+			"slug": "kanobi",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%90%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kanobi",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Kanobi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Kanobi village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Kanobi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Kanobi\n\nKanobi is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKanobi is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%90%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98)"
+				},
+				"ka": {
+					"title": "ყანობი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ყანობი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ყანობი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ყანობი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ყანობი\n\nყანობი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%90%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kanobi",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Kanobi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Kanobi — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Kanobi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Kanobi\n\nKanobi — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%90%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795212251
+		},
+		{
+			"id": "763da0ed-d201-403f-8182-864fa36c886f",
+			"slug": "tsdo",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%93%E1%83%9D",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsdo",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Tsdo is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Tsdo village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Tsdo is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Tsdo\n\nTsdo is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nTsdo is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%93%E1%83%9D)"
+				},
+				"ka": {
+					"title": "ცდო",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ცდო — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ცდო — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ცდო — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ცდო\n\nცდო — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%93%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Tsdo",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Tsdo — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Tsdo — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Tsdo — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Tsdo\n\nTsdo — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%93%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774795212651
+		},
+		{
+			"id": "73895ce5-9e9a-40c2-8407-9c8514bfecd5",
+			"slug": "khurtisi",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%97%E1%83%98%E1%83%A1%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khurtisi",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Khurtisi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Khurtisi village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Khurtisi is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Khurtisi\n\nKhurtisi is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nKhurtisi is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%97%E1%83%98%E1%83%A1%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხურთისი",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ხურთისი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ხურთისი — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ხურთისი — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ხურთისი\n\nხურთისი — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%97%E1%83%98%E1%83%A1%E1%83%98)"
+				},
+				"ru": {
+					"title": "Khurtisi",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Khurtisi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Khurtisi — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Khurtisi — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Khurtisi\n\nKhurtisi — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%A3%E1%83%A0%E1%83%97%E1%83%98%E1%83%A1%E1%83%98)"
+				}
+			},
+			"updated_at": 1774795213052
+		},
+		{
+			"id": "47cbdd2a-297c-4885-a730-4c0f15643fe7",
+			"slug": "juta",
+			"level": "village",
+			"parent_id": "9e4eb6c6-864f-4036-af37-277af36f3f5f",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%97%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Juta",
+					"subtitle": "Village · Kazbegi municipality · Mtskheta-Mtianeti",
+					"excerpt": "Juta is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"seo_title": "Juta village — Kazbegi, Mtskheta-Mtianeti | Travel Georgia",
+					"seo_description": "Juta is a village in Kazbegi municipality, Mtskheta-Mtianeti, Georgia.",
+					"body": "## About Juta\n\nJuta is a village located in Kazbegi municipality in the Mtskheta-Mtianeti region of Georgia.\n\n## Location\n\nJuta is situated in **Kazbegi municipality**, which is part of the **Mtskheta-Mtianeti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kazbegi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%97%E1%83%90)"
+				},
+				"ka": {
+					"title": "ჯუთა",
+					"subtitle": "სოფელი · ყაზბეგიის მუნიციპალიტეტი",
+					"excerpt": "ჯუთა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"seo_title": "ჯუთა — სოფელი | ყაზბეგიის მუნიციპალიტეტი",
+					"seo_description": "ჯუთა — სოფელი ყაზბეგიის მუნიციპალიტეტში, Mtskheta-Mtianeti.",
+					"body": "## ჯუთა\n\nჯუთა — სოფელი **ყაზბეგიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყაზბეგიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%97%E1%83%90)"
+				},
+				"ru": {
+					"title": "Juta",
+					"subtitle": "Cело · муниципалитет Kazbegi · Mtskheta-Mtianeti",
+					"excerpt": "Juta — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"seo_title": "Juta — село · Kazbegi, Mtskheta-Mtianeti | Грузия",
+					"seo_description": "Juta — село в муниципалитете Kazbegi, Mtskheta-Mtianeti, Грузия.",
+					"body": "## Juta\n\nJuta — село в муниципалитете **Kazbegi**, регион **Mtskheta-Mtianeti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kazbegi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%97%E1%83%90)"
+				}
+			},
+			"updated_at": 1774795213453
+		}
+	]
+}

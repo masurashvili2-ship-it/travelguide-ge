@@ -1,0 +1,298 @@
+{
+	"posts": [
+		{
+			"id": "c96d1006-3356-498a-bf64-0f7e3d74c3e0",
+			"slug": "tabakini",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.058333333,
+				"lon": 43.038055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%90%E1%83%91%E1%83%90%E1%83%99%E1%83%98%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q4449182",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tabakini",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Tabakini is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tabakini village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tabakini is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tabakini\n\nTabakini is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTabakini is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q4449182)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%90%E1%83%91%E1%83%90%E1%83%99%E1%83%98%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ტაბაკინი",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "ტაბაკინი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "ტაბაკინი — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "ტაბაკინი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## ტაბაკინი\n\nტაბაკინი — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nტაბაკინი განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Табакини",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Tabakini — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Табакини — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Tabakini — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Табакини\n\nTabakini — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nТабакини — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "7f115931-dfe3-4046-a666-207d8f7dd459",
+			"slug": "shrosha",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.111111111,
+				"lon": 43.171111111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%A0%E1%83%9D%E1%83%A8%E1%83%90",
+			"wikidata_id": "Q12870660",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Shrosha",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Shrosha is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Shrosha village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Shrosha is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Shrosha\n\nShrosha is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nShrosha is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12870660)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%A0%E1%83%9D%E1%83%A8%E1%83%90)"
+				},
+				"ka": {
+					"title": "შროშა",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "შროშა — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "შროშა — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "შროშა — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## შროშა\n\nშროშა — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nშროშა განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Шроша",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Shrosha — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Шроша — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Shrosha — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Шроша\n\nShrosha — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nШроша — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "857b41da-9871-4d6c-ab56-55e744251a06",
+			"slug": "tseva-zestafonis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%94%E1%83%95%E1%83%90%20(%E1%83%96%E1%83%94%E1%83%A1%E1%83%A2%E1%83%90%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12871081",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tseva Zestafonis Munitsipaliteti",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Tseva Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Tseva Zestafonis Munitsipaliteti village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Tseva Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Tseva Zestafonis Munitsipaliteti\n\nTseva Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nTseva Zestafonis Munitsipaliteti is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12871081)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%94%E1%83%95%E1%83%90%20(%E1%83%96%E1%83%94%E1%83%A1%E1%83%A2%E1%83%90%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "წევა (ზესტაფონის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "წევა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "წევა (ზესტაფონის მუნიციპალიტეტი) — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "წევა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## წევა (ზესტაფონის მუნიციპალიტეტი)\n\nწევა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nწევა (ზესტაფონის მუნიციპალიტეტი) განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Tseva Zestafonis Munitsipaliteti",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Tseva Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Tseva Zestafonis Munitsipaliteti — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Tseva Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Tseva Zestafonis Munitsipaliteti\n\nTseva Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nTseva Zestafonis Munitsipaliteti — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "d9749c73-171f-463f-bb9a-24647d37fd64",
+			"slug": "akhali-sviri",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.159722222,
+				"lon": 42.900277777
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%AE%E1%83%90%E1%83%9A%E1%83%98%20%E1%83%A1%E1%83%95%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16365396",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Akhali Sviri",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Akhali Sviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Akhali Sviri village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Akhali Sviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Akhali Sviri\n\nAkhali Sviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nAkhali Sviri is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16365396)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%AE%E1%83%90%E1%83%9A%E1%83%98%20%E1%83%A1%E1%83%95%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ახალი სვირი",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "ახალი სვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "ახალი სვირი — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "ახალი სვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## ახალი სვირი\n\nახალი სვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nახალი სვირი განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Ахали-Свири",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Akhali Sviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Ахали-Свири — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Akhali Sviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Ахали-Свири\n\nAkhali Sviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nАхали-Свири — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "29299baf-b738-4909-8650-d09b59e977b3",
+			"slug": "achara-zestafonis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.094166666,
+				"lon": 43.158888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%AD%E1%83%90%E1%83%A0%E1%83%90%20(%E1%83%96%E1%83%94%E1%83%A1%E1%83%A2%E1%83%90%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q16365307",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Achara Zestafonis Munitsipaliteti",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Achara Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Achara Zestafonis Munitsipaliteti village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Achara Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Achara Zestafonis Munitsipaliteti\n\nAchara Zestafonis Munitsipaliteti is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nAchara Zestafonis Munitsipaliteti is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16365307)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%AD%E1%83%90%E1%83%A0%E1%83%90%20(%E1%83%96%E1%83%94%E1%83%A1%E1%83%A2%E1%83%90%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "აჭარა (ზესტაფონის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "აჭარა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "აჭარა (ზესტაფონის მუნიციპალიტეტი) — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "აჭარა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## აჭარა (ზესტაფონის მუნიციპალიტეტი)\n\nაჭარა (ზესტაფონის მუნიციპალიტეტი) — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nაჭარა (ზესტაფონის მუნიციპალიტეტი) განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Ачара (Зестафонский муниципалитет)",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Achara Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Ачара (Зестафонский муниципалитет) — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Achara Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Ачара (Зестафонский муниципалитет)\n\nAchara Zestafonis Munitsipaliteti — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nАчара (Зестафонский муниципалитет) — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		},
+		{
+			"id": "bffa3a51-38e4-4d56-8ad2-8189f72126c5",
+			"slug": "sviri-2",
+			"level": "village",
+			"parent_id": "9276913d-0ecf-4041-a0b8-5920ee234074",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q25542759",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sviri",
+					"subtitle": "Village · Zestafoni municipality · Municipality in Imereti",
+					"excerpt": "Sviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"seo_title": "Sviri village — Zestafoni, Municipality in Imereti | Travel Georgia",
+					"seo_description": "Sviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.",
+					"body": "## About Sviri\n\nSviri is a village in Zestafoni municipality, Municipality in Imereti, Georgia.\n\n## Location\n\nSviri is situated in **Zestafoni municipality**, Municipality in Imereti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q25542759)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "სვირი",
+					"subtitle": "სოფელი · ზესტაფონიის მუნიციპალიტეტი",
+					"excerpt": "სვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"seo_title": "სვირი — სოფელი | ზესტაფონიის მუნიციპალიტეტი",
+					"seo_description": "სვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.",
+					"body": "## სვირი\n\nსვირი — სოფელი ზესტაფონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსვირი განლაგებულია **ზესტაფონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Sviri",
+					"subtitle": "Cело · муниципалитет Zestafoni · Municipality in Imereti",
+					"excerpt": "Sviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"seo_title": "Sviri — село · Zestafoni, Municipality in Imereti | Грузия",
+					"seo_description": "Sviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.",
+					"body": "## Sviri\n\nSviri — село в муниципалитете Zestafoni, Municipality in Imereti, Грузия.\n\n## Расположение\n\nSviri — **муниципалитет Zestafoni**, Municipality in Imereti, Грузия."
+				}
+			},
+			"updated_at": 1774796767150
+		}
+	]
+}

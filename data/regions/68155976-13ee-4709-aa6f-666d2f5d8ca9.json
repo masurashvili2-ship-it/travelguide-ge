@@ -1,0 +1,427 @@
+{
+	"posts": [
+		{
+			"id": "b063ad99-272b-4bb6-b328-3b71d24c0979",
+			"slug": "khornabuji",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khornabuji",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Khornabuji is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Khornabuji village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Khornabuji is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Khornabuji\n\nKhornabuji is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nKhornabuji is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხორნაბუჯი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ხორნაბუჯი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ხორნაბუჯი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ხორნაბუჯი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ხორნაბუჯი\n\nხორნაბუჯი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98)"
+				},
+				"ru": {
+					"title": "Khornabuji",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Khornabuji — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Khornabuji — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Khornabuji — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Khornabuji\n\nKhornabuji — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A0%E1%83%9C%E1%83%90%E1%83%91%E1%83%A3%E1%83%AF%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794422175
+		},
+		{
+			"id": "0f6ee2f6-55d9-47bc-a69c-5048b37e6b74",
+			"slug": "sabatlo",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%91%E1%83%90%E1%83%97%E1%83%9A%E1%83%9D",
+			"wikidata_id": "Q4403448",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sabatlo",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Sabatlo is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Sabatlo village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Sabatlo is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Sabatlo\n\nSabatlo is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nSabatlo is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%91%E1%83%90%E1%83%97%E1%83%9A%E1%83%9D)"
+				},
+				"ka": {
+					"title": "საბათლო",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "საბათლო — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს მდინარე ალაზნის მარჯვენა ნაპირზე, ზღვის დონიდან 210 მეტრზე. დედოფლ",
+					"seo_title": "საბათლო — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "საბათლო — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს მდინარე ალაზნის მარჯვენა ნაპირზე, ზღვის დ",
+					"body": "## საბათლო\n\nსაბათლო — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%91%E1%83%90%E1%83%97%E1%83%9A%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Sabatlo",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Sabatlo — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Sabatlo — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Sabatlo — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Sabatlo\n\nSabatlo — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%91%E1%83%90%E1%83%97%E1%83%9A%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774794422733
+		},
+		{
+			"id": "c2e04464-73de-44b8-841d-7488846ff799",
+			"slug": "arboshiki",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%91%E1%83%9D%E1%83%A8%E1%83%98%E1%83%99%E1%83%98",
+			"wikidata_id": "Q4068720",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Arboshiki",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Arboshiki is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Arboshiki village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Arboshiki is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Arboshiki\n\nArboshiki is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nArboshiki is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%91%E1%83%9D%E1%83%A8%E1%83%98%E1%83%99%E1%83%98)"
+				},
+				"ka": {
+					"title": "არბოშიკი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "არბოშიკი — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს მდინარე უზუნდარასხევის სათავესთან, ზღვის დონიდან 600 მეტრზე. დედო",
+					"seo_title": "არბოშიკი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "არბოშიკი — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს მდინარე უზუნდარასხევის სათავესთან, ზღვის",
+					"body": "## არბოშიკი\n\nარბოშიკი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%91%E1%83%9D%E1%83%A8%E1%83%98%E1%83%99%E1%83%98)"
+				},
+				"ru": {
+					"title": "Arboshiki",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Arboshiki — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Arboshiki — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Arboshiki — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Arboshiki\n\nArboshiki — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%91%E1%83%9D%E1%83%A8%E1%83%98%E1%83%99%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794423245
+		},
+		{
+			"id": "37ba045b-bed3-4938-82b9-68843246c6a8",
+			"slug": "arkhiloskalo",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%AE%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A1%E1%83%99%E1%83%90%E1%83%9A%E1%83%9D",
+			"wikidata_id": "Q4070762",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Arkhiloskalo",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Arkhiloskalo is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Arkhiloskalo village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Arkhiloskalo is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Arkhiloskalo\n\nArkhiloskalo is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nArkhiloskalo is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%AE%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A1%E1%83%99%E1%83%90%E1%83%9A%E1%83%9D)"
+				},
+				"ka": {
+					"title": "არხილოსკალო",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "არხილოსკალო — სოფელი აღმოსავლეთ საქართველოში, დედოფლისწყაროს მუნიციპალიტეტში, არხილოსკალოს ადმინისტრაციული ერთეულის ერთადერთი სოფელი.",
+					"seo_title": "არხილოსკალო — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "არხილოსკალო — სოფელი აღმოსავლეთ საქართველოში, დედოფლისწყაროს მუნიციპალიტეტში, არხილოსკალოს ადმინისტრაციული ერთეულის ერთადერთი სოფელი.",
+					"body": "## არხილოსკალო\n\nარხილოსკალო — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%AE%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A1%E1%83%99%E1%83%90%E1%83%9A%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Arkhiloskalo",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Arkhiloskalo — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Arkhiloskalo — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Arkhiloskalo — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Arkhiloskalo\n\nArkhiloskalo — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%AE%E1%83%98%E1%83%9A%E1%83%9D%E1%83%A1%E1%83%99%E1%83%90%E1%83%9A%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774794423748
+		},
+		{
+			"id": "4c0e90d3-1bde-4fe0-9a16-3826888dde1d",
+			"slug": "zemo-machkhaani",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q4191231",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Machkhaani",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Zemo Machkhaani is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Machkhaani village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Machkhaani is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Machkhaani\n\nZemo Machkhaani is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Machkhaani is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო მაჩხაანი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ზემო მაჩხაანი — სოფელი საქართველოში, დედოფლისწყაროს მუნიციპალიტეტის ადმინისტრაციული ერთეული.",
+					"seo_title": "ზემო მაჩხაანი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ზემო მაჩხაანი — სოფელი საქართველოში, დედოფლისწყაროს მუნიციპალიტეტის ადმინისტრაციული ერთეული.",
+					"body": "## ზემო მაჩხაანი\n\nზემო მაჩხაანი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Machkhaani",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Zemo Machkhaani — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Zemo Machkhaani — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Zemo Machkhaani — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Zemo Machkhaani\n\nZemo Machkhaani — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794424704
+		},
+		{
+			"id": "b06bf902-8312-47ba-bf0f-902caac0af37",
+			"slug": "zemo-kedi",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Kedi",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Zemo Kedi is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Kedi village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Kedi is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Kedi\n\nZemo Kedi is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Kedi is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო ქედი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ზემო ქედი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ზემო ქედი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ზემო ქედი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ზემო ქედი\n\nზემო ქედი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Kedi",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Zemo Kedi — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Zemo Kedi — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Zemo Kedi — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Zemo Kedi\n\nZemo Kedi — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794424922
+		},
+		{
+			"id": "2ffdd3ad-e97d-40a2-aa27-a8c7492b65d9",
+			"slug": "ozaani",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%96%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q4331915",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ozaani",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Ozaani is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Ozaani village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Ozaani is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Ozaani\n\nOzaani is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nOzaani is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%96%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ოზაანი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ოზაანი — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს გომბორის ქედის სამხრეთ-აღმოსავლეთ კალთაზე, ზღვის დონიდან 420 მეტრზე",
+					"seo_title": "ოზაანი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ოზაანი — სოფელი აღმოსავლეთ საქართველოში, კახეთის მხარის დედოფლისწყაროს მუნიციპალიტეტში. თემის ცენტრი. მდებარეობს გომბორის ქედის სამხრეთ-აღმოსავლეთ კალთაზე,",
+					"body": "## ოზაანი\n\nოზაანი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%96%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Ozaani",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Ozaani — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Ozaani — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Ozaani — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Ozaani\n\nOzaani — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%96%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794425621
+		},
+		{
+			"id": "bcb227c1-e4b3-402c-8d4c-22a08680dcf2",
+			"slug": "kvemo-kedi",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98",
+			"wikidata_id": "Q4218649",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Kedi",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Kvemo Kedi is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Kedi village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Kedi is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Kedi\n\nKvemo Kedi is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Kedi is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო ქედი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ქედი — სოფელი აღმოსავლეთ საქართველოში, დედოფლისწყაროს მუნიციპალიტეტში, ქვემო ქედის ადმინისტრაციული ერთეულის ერთადერთი სოფელი.",
+					"seo_title": "ქვემო ქედი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ქედი — სოფელი აღმოსავლეთ საქართველოში, დედოფლისწყაროს მუნიციპალიტეტში, ქვემო ქედის ადმინისტრაციული ერთეულის ერთადერთი სოფელი.",
+					"body": "## ქვემო ქედი\n\nქვემო ქედი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Kedi",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Kvemo Kedi — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Kvemo Kedi — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Kvemo Kedi — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Kvemo Kedi\n\nKvemo Kedi — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A5%E1%83%94%E1%83%93%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794426591
+		},
+		{
+			"id": "e9770151-92e6-4737-a86c-bdd53aacad68",
+			"slug": "choeti",
+			"level": "village",
+			"parent_id": "68155976-13ee-4709-aa6f-666d2f5d8ca9",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Choeti",
+					"subtitle": "Village · Dedoplistsqaro municipality · Kakheti",
+					"excerpt": "Choeti is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"seo_title": "Choeti village — Dedoplistsqaro, Kakheti | Travel Georgia",
+					"seo_description": "Choeti is a village in Dedoplistsqaro municipality, Kakheti, Georgia.",
+					"body": "## About Choeti\n\nChoeti is a village located in Dedoplistsqaro municipality in the Kakheti region of Georgia.\n\n## Location\n\nChoeti is situated in **Dedoplistsqaro municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Dedoplistsqaro can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჭოეთი",
+					"subtitle": "სოფელი · დედოფლისწყაროის მუნიციპალიტეტი",
+					"excerpt": "ჭოეთი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჭოეთი — სოფელი | დედოფლისწყაროის მუნიციპალიტეტი",
+					"seo_description": "ჭოეთი — სოფელი დედოფლისწყაროის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჭოეთი\n\nჭოეთი — სოფელი **დედოფლისწყაროის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია დედოფლისწყაროის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ru": {
+					"title": "Choeti",
+					"subtitle": "Cело · муниципалитет Dedoplistsqaro · Kakheti",
+					"excerpt": "Choeti — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"seo_title": "Choeti — село · Dedoplistsqaro, Kakheti | Грузия",
+					"seo_description": "Choeti — село в муниципалитете Dedoplistsqaro, Kakheti, Грузия.",
+					"body": "## Choeti\n\nChoeti — село в муниципалитете **Dedoplistsqaro**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Dedoplistsqaro. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%9D%E1%83%94%E1%83%97%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794426799
+		}
+	]
+}

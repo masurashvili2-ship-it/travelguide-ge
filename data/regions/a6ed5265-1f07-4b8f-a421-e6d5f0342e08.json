@@ -1,0 +1,765 @@
+{
+	"posts": [
+		{
+			"id": "b3fdc532-e2ea-407f-aa9a-6a0b017a086f",
+			"slug": "sighnaghi",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A6%E1%83%98",
+			"wikidata_id": "Q946143",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Signagi",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Signagi or Sighnaghi is a town in Georgia's easternmost region of Kakheti and the administrative center of the Signagi Municipality. Although it is one of Georgia's smallest towns,",
+					"seo_title": "Signagi village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Signagi or Sighnaghi is a town in Georgia's easternmost region of Kakheti and the administrative center of the Signagi Municipality. Although it is one of ",
+					"body": "## About Signagi\n\nSignagi or Sighnaghi is a town in Georgia's easternmost region of Kakheti and the administrative center of the Signagi Municipality. Although it is one of Georgia's smallest towns, Signagi serves as a popular tourist destination due to its location at the heart of Georgia's wine-growing regions, as well as its picturesque landscapes, pastel houses and narrow, cobblestone streets. Located on a stee\n\n## Location\n\nSignagi is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A6%E1%83%98)"
+				},
+				"ka": {
+					"title": "სიღნაღი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "სიღნაღი — ქალაქი საქართველოში, სიღნაღის მუნიციპალიტეტის ადმინისტრაციული ცენტრი. ქალაქად გამოცხადდა 1801 წელს. სიღნაღი ამჟამად საქართველოს ერთ-ერთი პოპულარული ტურისტული ქალაქია, რომ",
+					"seo_title": "სიღნაღი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "სიღნაღი — ქალაქი საქართველოში, სიღნაღის მუნიციპალიტეტის ადმინისტრაციული ცენტრი. ქალაქად გამოცხადდა 1801 წელს. სიღნაღი ამჟამად საქართველოს ერთ-ერთი პოპულარუ",
+					"body": "## სიღნაღი\n\nსიღნაღი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A6%E1%83%98)"
+				},
+				"ru": {
+					"title": "Signagi",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Signagi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Signagi — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Signagi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Signagi\n\nSignagi — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%98%E1%83%A6%E1%83%9C%E1%83%90%E1%83%A6%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794014628
+		},
+		{
+			"id": "9e86b651-34b1-47c8-9e26-fa8a4a3b09c8",
+			"slug": "bodbiskhevi",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98",
+			"wikidata_id": "Q12862695",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Bodbiskhevi",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Bodbiskhevi is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Bodbiskhevi village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Bodbiskhevi is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Bodbiskhevi\n\nBodbiskhevi is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nBodbiskhevi is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "ბოდბისხევი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ბოდბისხევი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. ბოხორის უღელტეხილის ძირას, წნორი-ბოდბე-მაღაროს გზაზე. ზღვის დონიდან 550 მეტრი.",
+					"seo_title": "ბოდბისხევი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ბოდბისხევი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. ბოხორის უღელტეხილის ძირას, წნორი-ბოდბე-მაღაროს გზაზე.",
+					"body": "## ბოდბისხევი\n\nბოდბისხევი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98)"
+				},
+				"ru": {
+					"title": "Bodbiskhevi",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Bodbiskhevi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Bodbiskhevi — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Bodbiskhevi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Bodbiskhevi\n\nBodbiskhevi — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%98%E1%83%A1%E1%83%AE%E1%83%94%E1%83%95%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794015189
+		},
+		{
+			"id": "11f5d4c7-3fb9-471a-bb3f-4bed4c693b48",
+			"slug": "erisimedi",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%98",
+			"wikidata_id": "Q16368780",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Erisimedi",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Erisimedi is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Erisimedi village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Erisimedi is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Erisimedi\n\nErisimedi is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nErisimedi is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ka": {
+					"title": "ერისიმედი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ერისიმედი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში.",
+					"seo_title": "ერისიმედი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ერისიმედი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში.",
+					"body": "## ერისიმედი\n\nერისიმედი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%98)"
+				},
+				"ru": {
+					"title": "Erisimedi",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Erisimedi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Erisimedi — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Erisimedi — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Erisimedi\n\nErisimedi — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%A0%E1%83%98%E1%83%A1%E1%83%98%E1%83%9B%E1%83%94%E1%83%93%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794016002
+		},
+		{
+			"id": "6ee3bd44-2389-48cd-9d1a-e5530f5a7ed2",
+			"slug": "anaga",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90",
+			"wikidata_id": "Q12078185",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Anaga",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Anaga is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Anaga village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Anaga is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Anaga\n\nAnaga is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nAnaga is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				},
+				"ka": {
+					"title": "ანაგა",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ანაგა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ალაზნის ველზე. ზღვის დონიდან 400 მ, სიღნაღიდან 6 კმ, წნორიდან 9 კმ. ანაგა მიიჩნევა ქიზიყის „ჭიშკრად“.",
+					"seo_title": "ანაგა — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ანაგა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ალაზნის ველზე. ზღვის დონიდან 400 მ, სიღნაღიდან 6 კმ, წნორიდან 9 კმ. ანაგა მიიჩნევა ქიზიყის „ჭიშკრად“",
+					"body": "## ანაგა\n\nანაგა — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				},
+				"ru": {
+					"title": "Anaga",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Anaga — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Anaga — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Anaga — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Anaga\n\nAnaga — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794016574
+		},
+		{
+			"id": "7251b4a7-6879-44b3-997b-5a5aedbccf83",
+			"slug": "vakiri",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 41.64138889,
+				"lon": 45.92305556
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A5%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q7915356",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Vaqiri",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Vaqiri is a village in Georgia, in the region of Kakheti, Signagi Municipality. The village lies on the northeastern foothills of the Gombori Range, approximately 9 km from Sighnag",
+					"seo_title": "Vaqiri village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Vaqiri is a village in Georgia, in the region of Kakheti, Signagi Municipality. The village lies on the northeastern foothills of the Gombori Range, approx",
+					"body": "## About Vaqiri\n\nVaqiri is a village in Georgia, in the region of Kakheti, Signagi Municipality. The village lies on the northeastern foothills of the Gombori Range, approximately 9 km from Sighnaghi at an elevation of 420 m. At the 2014 census its population was 1,950, almost entirely ethnic Georgian.\n\n## Location\n\nVaqiri is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A5%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ვაქირი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ვაქირი — სოფელი საქართველოში კახეთის მხარე), სიღნაღის მუნიციპალიტეტში.",
+					"seo_title": "ვაქირი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ვაქირი — სოფელი საქართველოში კახეთის მხარე), სიღნაღის მუნიციპალიტეტში.",
+					"body": "## ვაქირი\n\nვაქირი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A5%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Vaqiri",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Vaqiri — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Vaqiri — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Vaqiri — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Vaqiri\n\nVaqiri — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%90%E1%83%A5%E1%83%98%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794017498
+		},
+		{
+			"id": "42748cb7-f3b0-4846-948b-fd4add539ab7",
+			"slug": "zemo-bodbe",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94",
+			"wikidata_id": "Q12864670",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Bodbe",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Zemo Bodbe is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Bodbe village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Bodbe is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Bodbe\n\nZemo Bodbe is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Bodbe is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				},
+				"ka": {
+					"title": "ზემო ბოდბე",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ბოდბე — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტის ბოდბის ადმინისტრაციულ ერთეულში.",
+					"seo_title": "ზემო ბოდბე — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ბოდბე — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტის ბოდბის ადმინისტრაციულ ერთეულში.",
+					"body": "## ზემო ბოდბე\n\nზემო ბოდბე — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				},
+				"ru": {
+					"title": "Zemo Bodbe",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Zemo Bodbe — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Zemo Bodbe — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Zemo Bodbe — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Zemo Bodbe\n\nZemo Bodbe — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				}
+			},
+			"updated_at": 1774794018115
+		},
+		{
+			"id": "299a17f9-f2ba-4a52-87ea-433e23fc2a59",
+			"slug": "iliatsminda",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9A%E1%83%98%E1%83%90%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90",
+			"wikidata_id": "Q20575101",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Iliatsminda",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Iliatsminda is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Iliatsminda village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Iliatsminda is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Iliatsminda\n\nIliatsminda is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nIliatsminda is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9A%E1%83%98%E1%83%90%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				},
+				"ka": {
+					"title": "ილიაწმინდა",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ილიაწმინდა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ივრის ზეგნის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 630 მეტრი. სიღნაღიდან 20 კილომეტრი.",
+					"seo_title": "ილიაწმინდა — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ილიაწმინდა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ივრის ზეგნის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 630 მეტრი. სიღნაღიდან 20 კი",
+					"body": "## ილიაწმინდა\n\nილიაწმინდა — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9A%E1%83%98%E1%83%90%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				},
+				"ru": {
+					"title": "Iliatsminda",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Iliatsminda — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Iliatsminda — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Iliatsminda — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Iliatsminda\n\nIliatsminda — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%98%E1%83%9A%E1%83%98%E1%83%90%E1%83%AC%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794018638
+		},
+		{
+			"id": "0268c7f6-bdb2-4794-8e12-656d27aebbf8",
+			"slug": "mashnaari",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A8%E1%83%9C%E1%83%90%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12866671",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mashnaari",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Mashnaari is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Mashnaari village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Mashnaari is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Mashnaari\n\nMashnaari is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nMashnaari is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A8%E1%83%9C%E1%83%90%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "მაშნაარი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "მაშნაარი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში. გომბორის ქედის ჩრდილო-აღმოსავლეთ მთისწინეთში, ალაზნის არხის მარჯვენა მხარეს. ზღვის დონიდან 420 მეტრი. სიღნაღიდან 6 კილომეტ",
+					"seo_title": "მაშნაარი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "მაშნაარი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში. გომბორის ქედის ჩრდილო-აღმოსავლეთ მთისწინეთში, ალაზნის არხის მარჯვენა მხარეს. ზღვის დონიდან 420 მე",
+					"body": "## მაშნაარი\n\nმაშნაარი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A8%E1%83%9C%E1%83%90%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Mashnaari",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Mashnaari — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Mashnaari — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Mashnaari — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Mashnaari\n\nMashnaari — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%90%E1%83%A8%E1%83%9C%E1%83%90%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794019160
+		},
+		{
+			"id": "7dc61e50-222f-4a22-9621-347a14de7379",
+			"slug": "nukriani",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 41.60805556,
+				"lon": 45.89444444
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%A3%E1%83%99%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q11011140",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nukriani",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Nukriani is a village in the Signagi Municipality of the Kakheti region in Georgia. The village is situated in the Tsiv-Gombori Range at an altitude of 800 metres (2,600 ft)-1,000",
+					"seo_title": "Nukriani village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Nukriani is a village in the Signagi Municipality of the Kakheti region in Georgia. The village is situated in the Tsiv-Gombori Range at an altitude of 800",
+					"body": "## About Nukriani\n\nNukriani is a village in the Signagi Municipality of the Kakheti region in Georgia. The village is situated in the Tsiv-Gombori Range at an altitude of 800 metres (2,600 ft)-1,000 metres (3,300 ft) above sea level. Nukriani is located next to the municipal center Signagi, about 100 kilometres (62 mi) east of Tbilisi.\n\n## Location\n\nNukriani is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%A3%E1%83%99%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნუკრიანი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ნუკრიანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 820 მეტრი. სიღნაღიდან 5 კილომეტრი. ის გაშენებულია თბ",
+					"seo_title": "ნუკრიანი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ნუკრიანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 820 მეტრი. სიღნაღიდან 5 კილ",
+					"body": "## ნუკრიანი\n\nნუკრიანი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%A3%E1%83%99%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Nukriani",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Nukriani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Nukriani — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Nukriani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Nukriani\n\nNukriani — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%A3%E1%83%99%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794020463
+		},
+		{
+			"id": "9f4e3e78-59e2-48f1-ba2e-8d56f1348713",
+			"slug": "tibaani",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%98%E1%83%91%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16376390",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tibaani",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Tibaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Tibaani village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Tibaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Tibaani\n\nTibaani is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nTibaani is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%98%E1%83%91%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ტიბაანი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ტიბაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში. მდებარეობს გომბორის ქედის სამხრეთ-აღმოსავლეთ დაბოლოებაზე. ზღვის დონიდან 360 მეტრი. სიღნაღიდან 14 კილომეტრი. სოფელი გაშენებუ",
+					"seo_title": "ტიბაანი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ტიბაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში. მდებარეობს გომბორის ქედის სამხრეთ-აღმოსავლეთ დაბოლოებაზე. ზღვის დონიდან 360 მეტრი. სიღნაღიდან 14 კ",
+					"body": "## ტიბაანი\n\nტიბაანი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%98%E1%83%91%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tibaani",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Tibaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Tibaani — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Tibaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Tibaani\n\nTibaani — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A2%E1%83%98%E1%83%91%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794020994
+		},
+		{
+			"id": "25cb4289-83b6-44ce-afc5-3daf4b350929",
+			"slug": "kvemo-bodbe",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94",
+			"wikidata_id": "Q16377251",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Bodbe",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Kvemo Bodbe is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Bodbe village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Bodbe is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Bodbe\n\nKvemo Bodbe is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Bodbe is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				},
+				"ka": {
+					"title": "ქვემო ბოდბე",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ბოდბე — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ბოდბის თემის ცენტრი. მდებარეობს ივრის ზეგნის ჩრდილო-აღმოსავლეთ კიდეზე, ზღვის დონიდან 750 მეტრი. სიღნაღიდან 24 კილომეტრი",
+					"seo_title": "ქვემო ბოდბე — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ბოდბე — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ბოდბის თემის ცენტრი. მდებარეობს ივრის ზეგნის ჩრდილო-აღმოსავლეთ კიდეზე, ზღვის დონიდან 750 მეტრი",
+					"body": "## ქვემო ბოდბე\n\nქვემო ბოდბე — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				},
+				"ru": {
+					"title": "Kvemo Bodbe",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Kvemo Bodbe — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Bodbe — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Kvemo Bodbe — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Kvemo Bodbe\n\nKvemo Bodbe — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%93%E1%83%91%E1%83%94)"
+				}
+			},
+			"updated_at": 1774794021632
+		},
+		{
+			"id": "ee6bdac0-e11e-4b31-b8ed-58424273b2ff",
+			"slug": "kvemo-machkhaani",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16377283",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Machkhaani",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Kvemo Machkhaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Machkhaani village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Machkhaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Machkhaani\n\nKvemo Machkhaani is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Machkhaani is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო მაჩხაანი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო მაჩხაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ქვემო მაჩხაანის ადმინისტრაციული ერთეულის ცენტრი.",
+					"seo_title": "ქვემო მაჩხაანი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო მაჩხაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, ქვემო მაჩხაანის ადმინისტრაციული ერთეულის ცენტრი.",
+					"body": "## ქვემო მაჩხაანი\n\nქვემო მაჩხაანი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Machkhaani",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Kvemo Machkhaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Machkhaani — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Kvemo Machkhaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Kvemo Machkhaani\n\nKvemo Machkhaani — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%90%E1%83%A9%E1%83%AE%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794022236
+		},
+		{
+			"id": "c136c9ce-8409-4327-b31d-7a47172ca428",
+			"slug": "dzveli-anaga",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90",
+			"wikidata_id": "Q12871000",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dzveli Anaga",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Dzveli Anaga is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Dzveli Anaga village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Dzveli Anaga is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Dzveli Anaga\n\nDzveli Anaga is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nDzveli Anaga is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				},
+				"ka": {
+					"title": "ძველი ანაგა",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ძველი ანაგა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 400 მეტრი. სიღნაღიდან 18 კილომეტრი.",
+					"seo_title": "ძველი ანაგა — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ძველი ანაგა — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთაზე. თემის ცენტრი. ზღვის დონიდან 400 მეტრი. სიღნაღიდან 18",
+					"body": "## ძველი ანაგა\n\nძველი ანაგა — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				},
+				"ru": {
+					"title": "Dzveli Anaga",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Dzveli Anaga — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Dzveli Anaga — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Dzveli Anaga — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Dzveli Anaga\n\nDzveli Anaga — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AB%E1%83%95%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%90%E1%83%9C%E1%83%90%E1%83%92%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794022910
+		},
+		{
+			"id": "ad7c8d78-930c-4aef-84ae-b4f7889bc364",
+			"slug": "khirsa",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%A0%E1%83%A1%E1%83%90",
+			"wikidata_id": "Q5792118",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khirsa",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Khirsa is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Khirsa village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Khirsa is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Khirsa\n\nKhirsa is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKhirsa is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%A0%E1%83%A1%E1%83%90)"
+				},
+				"ka": {
+					"title": "ხირსა",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ხირსა — სოფელი საქართველოში, კახეთის მხარის სიღნაღის მუნიციპალიტეტში. შედის ქვემო მაჩხაანის თემში.",
+					"seo_title": "ხირსა — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ხირსა — სოფელი საქართველოში, კახეთის მხარის სიღნაღის მუნიციპალიტეტში. შედის ქვემო მაჩხაანის თემში.",
+					"body": "## ხირსა\n\nხირსა — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%A0%E1%83%A1%E1%83%90)"
+				},
+				"ru": {
+					"title": "Khirsa",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Khirsa — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Khirsa — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Khirsa — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Khirsa\n\nKhirsa — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%98%E1%83%A0%E1%83%A1%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794023430
+		},
+		{
+			"id": "97ccf0e1-4a70-46b5-86a2-c7d90a65931a",
+			"slug": "jugaani",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%92%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16379692",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Jugaani",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Jugaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"seo_title": "Jugaani village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Jugaani is a village in Sighnaghi municipality, Kakheti, Georgia.",
+					"body": "## About Jugaani\n\nJugaani is a village located in Sighnaghi municipality in the Kakheti region of Georgia.\n\n## Location\n\nJugaani is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%92%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჯუგაანი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "ჯუგაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთის ძირას. თემის ცენტრი. ზღვის დონიდან 400 მეტრი. სიღნაღიდან 12 კილომეტრი. იგი მდებარეო",
+					"seo_title": "ჯუგაანი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "ჯუგაანი — სოფელი საქართველოში, სიღნაღის მუნიციპალიტეტში, გომბორის ქედის ჩრდილო-აღმოსავლეთ კალთის ძირას. თემის ცენტრი. ზღვის დონიდან 400 მეტრი. სიღნაღიდან 1",
+					"body": "## ჯუგაანი\n\nჯუგაანი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%92%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Jugaani",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Jugaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Jugaani — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Jugaani — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Jugaani\n\nJugaani — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AF%E1%83%A3%E1%83%92%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794023960
+		},
+		{
+			"id": "af8d7194-e0a3-4c93-91ed-1c93c14f4cf4",
+			"slug": "tsnori",
+			"level": "village",
+			"parent_id": "a6ed5265-1f07-4b8f-a421-e6d5f0342e08",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 41.6125,
+				"lon": 45.97361111
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q217990",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsnori",
+					"subtitle": "Village · Sighnaghi municipality · Kakheti",
+					"excerpt": "Tsnori is a town in Georgia’s Kakheti region. It is located in the Alazani Valley near the town Sighnaghi and has a population of 4,776 (2024).",
+					"seo_title": "Tsnori village — Sighnaghi, Kakheti | Travel Georgia",
+					"seo_description": "Tsnori is a town in Georgia’s Kakheti region. It is located in the Alazani Valley near the town Sighnaghi and has a population of 4,776 (2024).",
+					"body": "## About Tsnori\n\nTsnori is a town in Georgia’s Kakheti region. It is located in the Alazani Valley near the town Sighnaghi and has a population of 4,776 (2024).\n\n## Location\n\nTsnori is situated in **Sighnaghi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Sighnaghi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "წნორი",
+					"subtitle": "სოფელი · სიღნაღიის მუნიციპალიტეტი",
+					"excerpt": "წნორი — ქალაქი საქართველოში, სიღნაღის მუნიციპალიტეტში. ქალაქში არის ჯანდაცვის, განათლებისა და კულტურის დაწესებულებები. მდებარეობს წმ. ილია მართლის სახელობის ტაძარი.",
+					"seo_title": "წნორი — სოფელი | სიღნაღიის მუნიციპალიტეტი",
+					"seo_description": "წნორი — ქალაქი საქართველოში, სიღნაღის მუნიციპალიტეტში. ქალაქში არის ჯანდაცვის, განათლებისა და კულტურის დაწესებულებები. მდებარეობს წმ. ილია მართლის სახელობი",
+					"body": "## წნორი\n\nწნორი — სოფელი **სიღნაღიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია სიღნაღიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tsnori",
+					"subtitle": "Cело · муниципалитет Sighnaghi · Kakheti",
+					"excerpt": "Tsnori — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"seo_title": "Tsnori — село · Sighnaghi, Kakheti | Грузия",
+					"seo_description": "Tsnori — село в муниципалитете Sighnaghi, Kakheti, Грузия.",
+					"body": "## Tsnori\n\nTsnori — село в муниципалитете **Sighnaghi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Sighnaghi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%9C%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794024964
+		}
+	]
+}

@@ -1,0 +1,304 @@
+{
+	"posts": [
+		{
+			"id": "33fb3c03-db49-4b1a-8cb4-5f1e1c719be2",
+			"slug": "gona",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.798611111,
+				"lon": 43.543888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9C%E1%83%90",
+			"wikidata_id": "Q12863347",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gona",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Gona is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Gona village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Gona is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Gona\n\nGona is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nGona is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12863347)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ka": {
+					"title": "გონა",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "გონა — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "გონა — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "გონა — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## გონა\n\nგონა — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nგონა განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Гона",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Gona — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Гона — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Gona — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Гона\n\nGona — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nГона — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		},
+		{
+			"id": "8df03aea-855a-49fd-b26a-ca1bcdddea98",
+			"slug": "nadarbazevi-onis-munitsipaliteti",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.526111111,
+				"lon": 43.687222222
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%93%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%96%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98)",
+			"wikidata_id": "Q12867349",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nadarbazevi",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Nadarbazevi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Nadarbazevi village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Nadarbazevi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Nadarbazevi\n\nNadarbazevi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nNadarbazevi is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867349)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%93%E1%83%90%E1%83%A0%E1%83%91%E1%83%90%E1%83%96%E1%83%94%E1%83%95%E1%83%98%20(%E1%83%9D%E1%83%9C%E1%83%98%E1%83%A1%20%E1%83%9B%E1%83%A3%E1%83%9C%E1%83%98%E1%83%AA%E1%83%98%E1%83%9E%E1%83%90%E1%83%9A%E1%83%98%E1%83%A2%E1%83%94%E1%83%A2%E1%83%98))"
+				},
+				"ka": {
+					"title": "ნადარბაზევი (ონის მუნიციპალიტეტი)",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "ნადარბაზევი (ონის მუნიციპალიტეტი) — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "ნადარბაზევი (ონის მუნიციპალიტეტი) — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "ნადარბაზევი (ონის მუნიციპალიტეტი) — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## ნადარბაზევი (ონის მუნიციპალიტეტი)\n\nნადარბაზევი (ონის მუნიციპალიტეტი) — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნადარბაზევი (ონის მუნიციპალიტეტი) განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Надарваз",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Nadarbazevi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Надарваз — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Nadarbazevi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Надарваз\n\nNadarbazevi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nНадарваз — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		},
+		{
+			"id": "c11bbc13-6777-45dc-97f3-37b5b40098e2",
+			"slug": "nigvznara",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.571944444,
+				"lon": 43.403055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%95%E1%83%96%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90",
+			"wikidata_id": "Q12867555",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Nigvznara",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Nigvznara is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Nigvznara village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Nigvznara is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Nigvznara\n\nNigvznara is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nNigvznara is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12867555)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%92%E1%83%95%E1%83%96%E1%83%9C%E1%83%90%E1%83%A0%E1%83%90)"
+				},
+				"ka": {
+					"title": "ნიგვზნარა",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "ნიგვზნარა — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "ნიგვზნარა — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "ნიგვზნარა — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## ნიგვზნარა\n\nნიგვზნარა — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nნიგვზნარა განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Нигвзнара",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Nigvznara — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Нигвзнара — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Nigvznara — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Нигвзнара\n\nNigvznara — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nНигвзнара — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		},
+		{
+			"id": "87894b54-2cd6-4e88-92a2-d00ec6312711",
+			"slug": "stirmasigi",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.521388888,
+				"lon": 43.756388888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%98%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%92%E1%83%98",
+			"wikidata_id": "Q12869496",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Stirmasigi",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Stirmasigi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Stirmasigi village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Stirmasigi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Stirmasigi\n\nStirmasigi is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nStirmasigi is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869496)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%A2%E1%83%98%E1%83%A0%E1%83%9B%E1%83%90%E1%83%A1%E1%83%98%E1%83%92%E1%83%98)"
+				},
+				"ka": {
+					"title": "სტირმასიგი",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "სტირმასიგი — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "სტირმასიგი — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "სტირმასიგი — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## სტირმასიგი\n\nსტირმასიგი — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსტირმასიგი განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Stirmasigi",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Stirmasigi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Stirmasigi — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Stirmasigi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Stirmasigi\n\nStirmasigi — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nStirmasigi — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		},
+		{
+			"id": "d2c7fa82-183a-4508-a383-b51319fd781c",
+			"slug": "somitso",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.5675,
+				"lon": 43.441666666
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%9B%E1%83%98%E1%83%AC%E1%83%9D",
+			"wikidata_id": "Q12869392",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Somitso",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Somitso is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Somitso village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Somitso is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Somitso\n\nSomitso is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nSomitso is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12869392)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%9D%E1%83%9B%E1%83%98%E1%83%AC%E1%83%9D)"
+				},
+				"ka": {
+					"title": "სომიწო",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "სომიწო — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "სომიწო — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "სომიწო — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## სომიწო\n\nსომიწო — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსომიწო განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сомицо",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Somitso — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Сомицо — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Somitso — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Сомицо\n\nSomitso — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nСомицо — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		},
+		{
+			"id": "8348fee4-e4d6-42ae-b412-101408c0c76f",
+			"slug": "tskhmori",
+			"level": "village",
+			"parent_id": "10cd0e18-68b6-4400-b89f-7d224ce15504",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.535,
+				"lon": 43.483888888
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%AE%E1%83%9B%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12870955",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tskhmori",
+					"subtitle": "Village · Oni municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Tskhmori is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Tskhmori village — Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Tskhmori is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Tskhmori\n\nTskhmori is a village in Oni municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nTskhmori is situated in **Oni municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q12870955)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AA%E1%83%AE%E1%83%9B%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ცხმორი",
+					"subtitle": "სოფელი · ონიის მუნიციპალიტეტი",
+					"excerpt": "ცხმორი — სოფელი ონიის მუნიციპალიტეტში.",
+					"seo_title": "ცხმორი — სოფელი | ონიის მუნიციპალიტეტი",
+					"seo_description": "ცხმორი — სოფელი ონიის მუნიციპალიტეტში.",
+					"body": "## ცხმორი\n\nცხმორი — სოფელი ონიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nცხმორი განლაგებულია **ონიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Цхмори",
+					"subtitle": "Cело · муниципалитет Oni · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Tskhmori — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Цхмори — село · Oni, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Tskhmori — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Цхмори\n\nTskhmori — село в муниципалитете Oni, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nЦхмори — **муниципалитет Oni**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767157
+		}
+	]
+}

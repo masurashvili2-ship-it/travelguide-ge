@@ -1,0 +1,2260 @@
+{
+	"posts": [
+		{
+			"id": "3bf2753c-23eb-4c14-97b5-d2369c362773",
+			"slug": "kabali",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%91%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q13229810",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kabali",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kabali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kabali village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kabali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kabali\n\nKabali is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKabali is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%91%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "კაბალი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "კაბალი — მდინარე აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტში, ალაზნის მარცხენა შენაკადი. სათავე აქვს კახეთის კავკასიონის სამხრეთ კალთაზე. ზღვის დონიდან 2720 მ, სიგრძე 45 კმ,",
+					"seo_title": "კაბალი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "კაბალი — მდინარე აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტში, ალაზნის მარცხენა შენაკადი. სათავე აქვს კახეთის კავკასიონის სამხრეთ კალთაზე. ზღვის დონი",
+					"body": "## კაბალი\n\nკაბალი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%91%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kabali",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kabali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kabali — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kabali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kabali\n\nKabali — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%91%E1%83%90%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794427848
+		},
+		{
+			"id": "ced368da-1a0f-47eb-ae3c-0762803984b5",
+			"slug": "lagodekhi",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%93%E1%83%94%E1%83%AE%E1%83%98",
+			"wikidata_id": "Q956966",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Lagodekhi",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Lagodekhi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Lagodekhi village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Lagodekhi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Lagodekhi\n\nLagodekhi is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nLagodekhi is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%93%E1%83%94%E1%83%AE%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლაგოდეხი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ლაგოდეხი — ქალაქი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ადმინისტრაციული ცენტრი. მოსახლეობა — 5918. მდებარეობს ალაზნის ვაკეზე, კახეთის კავკასიონის სამხრეთ კალთის ძირში,",
+					"seo_title": "ლაგოდეხი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ლაგოდეხი — ქალაქი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ადმინისტრაციული ცენტრი. მოსახლეობა — 5918. მდებარეობს ალაზნის ვაკეზე, კახეთის კავკასიო",
+					"body": "## ლაგოდეხი\n\nლაგოდეხი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%93%E1%83%94%E1%83%AE%E1%83%98)"
+				},
+				"ru": {
+					"title": "Lagodekhi",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Lagodekhi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Lagodekhi — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Lagodekhi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Lagodekhi\n\nLagodekhi — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%92%E1%83%9D%E1%83%93%E1%83%94%E1%83%AE%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794429262
+		},
+		{
+			"id": "5a586973-3be2-4685-a452-d96bd90066a0",
+			"slug": "beburiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%91%E1%83%A3%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12862504",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Beburiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Beburiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Beburiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Beburiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Beburiani\n\nBeburiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nBeburiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%91%E1%83%A3%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ბებურიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ბებურიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 38 კილომეტრი.",
+					"seo_title": "ბებურიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ბებურიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 38 კილომეტრი.",
+					"body": "## ბებურიანი\n\nბებურიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%91%E1%83%A3%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Beburiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Beburiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Beburiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Beburiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Beburiani\n\nBeburiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%94%E1%83%91%E1%83%A3%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794430075
+		},
+		{
+			"id": "742f76a7-6475-48de-a2d5-daa7671b5315",
+			"slug": "areshferani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%94%E1%83%A8%E1%83%A4%E1%83%94%E1%83%A0%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Areshferani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Areshferani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Areshferani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Areshferani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Areshferani\n\nAreshferani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nAreshferani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%94%E1%83%A8%E1%83%A4%E1%83%94%E1%83%A0%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "არეშფერანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "არეშფერანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "არეშფერანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "არეშფერანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## არეშფერანი\n\nარეშფერანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%94%E1%83%A8%E1%83%A4%E1%83%94%E1%83%A0%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Areshferani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Areshferani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Areshferani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Areshferani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Areshferani\n\nAreshferani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A0%E1%83%94%E1%83%A8%E1%83%A4%E1%83%94%E1%83%A0%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794430291
+		},
+		{
+			"id": "92a1e628-2f74-40e5-91c7-c8cc686f4e8b",
+			"slug": "afeni",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A4%E1%83%94%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12862034",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Afeni",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Afeni is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Afeni village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Afeni is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Afeni\n\nAfeni is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nAfeni is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A4%E1%83%94%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "აფენი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "აფენი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს მდინარე აფენისხევის ნაპირზე. ალაზნის ვაკეზე (გაღმამხარი). საკრებულოს ცენტრი. ზღვის დონიდან 240 მეტრი, ლაგოდეხიდან",
+					"seo_title": "აფენი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "აფენი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს მდინარე აფენისხევის ნაპირზე. ალაზნის ვაკეზე (გაღმამხარი). საკრებულოს ცენტრი. ზღვის დონიდ",
+					"body": "## აფენი\n\nაფენი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A4%E1%83%94%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Afeni",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Afeni — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Afeni — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Afeni — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Afeni\n\nAfeni — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%A4%E1%83%94%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794430806
+		},
+		{
+			"id": "85add15d-a389-48e5-bb2c-106a596385bb",
+			"slug": "bolokiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16366341",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Bolokiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Bolokiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Bolokiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Bolokiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Bolokiani\n\nBolokiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nBolokiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ბოლოკიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ბოლოკიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს მდინარე ღვინიანთწყლის მარჯვენა ნაპირზე. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 20 კილომეტრი.",
+					"seo_title": "ბოლოკიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ბოლოკიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს მდინარე ღვინიანთწყლის მარჯვენა ნაპირზე. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 20 კილო",
+					"body": "## ბოლოკიანი\n\nბოლოკიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Bolokiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Bolokiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Bolokiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Bolokiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Bolokiani\n\nBolokiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%9D%E1%83%9A%E1%83%9D%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794431322
+		},
+		{
+			"id": "db5541bc-3e3c-4b79-9a31-b955880cf4a3",
+			"slug": "ganjala",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%9A%E1%83%90",
+			"wikidata_id": "Q12863025",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ganjala",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Ganjala is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Ganjala village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Ganjala is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Ganjala\n\nGanjala is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nGanjala is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "განჯალა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "განჯალა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა ნაპირას. ზღვის დონიდან 320 მეტრი, ლაგოდეხიდან 15 კილომეტრი.",
+					"seo_title": "განჯალა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "განჯალა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა ნაპირას. ზღვის დონიდან 320 მეტრი, ლაგოდეხიდან",
+					"body": "## განჯალა\n\nგანჯალა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ru": {
+					"title": "Ganjala",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Ganjala — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Ganjala — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Ganjala — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Ganjala\n\nGanjala — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%90%E1%83%9C%E1%83%AF%E1%83%90%E1%83%9A%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794431882
+		},
+		{
+			"id": "475e818d-b771-49dd-97d7-306a9fa8c29d",
+			"slug": "gvimriani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16366830",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Gvimriani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Gvimriani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Gvimriani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Gvimriani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Gvimriani\n\nGvimriani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nGvimriani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "გვიმრიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "გვიმრიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 200 მეტრი, ლაგოდეხიდან 30 კილომეტრი.",
+					"seo_title": "გვიმრიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "გვიმრიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 200 მეტრი, ლაგოდეხიდან 30 კილომეტრი.",
+					"body": "## გვიმრიანი\n\nგვიმრიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Gvimriani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Gvimriani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Gvimriani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Gvimriani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Gvimriani\n\nGvimriani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%95%E1%83%98%E1%83%9B%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794432386
+		},
+		{
+			"id": "bb59bfca-3cd6-40c8-81eb-4c61976aec21",
+			"slug": "giorgeti",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%94%E1%83%97%E1%83%98",
+			"wikidata_id": "Q12863172",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Giorgeti",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Giorgeti is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Giorgeti village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Giorgeti is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Giorgeti\n\nGiorgeti is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nGiorgeti is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ka": {
+					"title": "გიორგეთი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "გიორგეთი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, ადმინისტრაციულ ერთეულ გიორგეთის ცენტრი.",
+					"seo_title": "გიორგეთი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "გიორგეთი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, ადმინისტრაციულ ერთეულ გიორგეთის ცენტრი.",
+					"body": "## გიორგეთი\n\nგიორგეთი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%94%E1%83%97%E1%83%98)"
+				},
+				"ru": {
+					"title": "Giorgeti",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Giorgeti — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Giorgeti — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Giorgeti — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Giorgeti\n\nGiorgeti — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%94%E1%83%97%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794432895
+		},
+		{
+			"id": "345b4bc5-333f-4956-8329-02cfe284c375",
+			"slug": "dona",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%9C%E1%83%90",
+			"wikidata_id": "Q12863892",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Dona",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Dona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Dona village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Dona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Dona\n\nDona is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nDona is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ka": {
+					"title": "დონა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "დონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში.",
+					"seo_title": "დონა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "დონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში.",
+					"body": "## დონა\n\nდონა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ru": {
+					"title": "Dona",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Dona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Dona — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Dona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Dona\n\nDona — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%93%E1%83%9D%E1%83%9C%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794433762
+		},
+		{
+			"id": "dc690661-1d41-4204-abc6-ab03fa329d51",
+			"slug": "verkhvismindori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%94%E1%83%A0%E1%83%AE%E1%83%95%E1%83%98%E1%83%A1%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Verkhvismindori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Verkhvismindori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Verkhvismindori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Verkhvismindori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Verkhvismindori\n\nVerkhvismindori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nVerkhvismindori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%94%E1%83%A0%E1%83%AE%E1%83%95%E1%83%98%E1%83%A1%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ვერხვისმინდორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ვერხვისმინდორი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ვერხვისმინდორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ვერხვისმინდორი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ვერხვისმინდორი\n\nვერხვისმინდორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%94%E1%83%A0%E1%83%AE%E1%83%95%E1%83%98%E1%83%A1%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Verkhvismindori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Verkhvismindori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Verkhvismindori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Verkhvismindori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Verkhvismindori\n\nVerkhvismindori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%95%E1%83%94%E1%83%A0%E1%83%AE%E1%83%95%E1%83%98%E1%83%A1%E1%83%9B%E1%83%98%E1%83%9C%E1%83%93%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794433975
+		},
+		{
+			"id": "80e9b5e5-384c-41b5-97f2-d1e24a2ff196",
+			"slug": "zemo-bolkvi",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98",
+			"wikidata_id": "Q16369442",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Bolkvi",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Bolkvi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Bolkvi village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Bolkvi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Bolkvi\n\nZemo Bolkvi is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Bolkvi is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო ბოლქვი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ბოლქვი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის არეშფერანის ადმინისტრაციულ ერთეულში.",
+					"seo_title": "ზემო ბოლქვი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ბოლქვი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის არეშფერანის ადმინისტრაციულ ერთეულში.",
+					"body": "## ზემო ბოლქვი\n\nზემო ბოლქვი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Bolkvi",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Bolkvi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Bolkvi — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Bolkvi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Bolkvi\n\nZemo Bolkvi — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794435887
+		},
+		{
+			"id": "856d0dd9-cbac-462d-883e-6f2ea6cc8b72",
+			"slug": "zemo-gurgeniani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q62834350",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Gurgeniani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Gurgeniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Gurgeniani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Gurgeniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Gurgeniani\n\nZemo Gurgeniani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Gurgeniani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო გურგენიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო გურგენიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ნინიგორის ადმინისტრაციული ერთეულში.",
+					"seo_title": "ზემო გურგენიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო გურგენიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ნინიგორის ადმინისტრაციული ერთეულში.",
+					"body": "## ზემო გურგენიანი\n\nზემო გურგენიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Gurgeniani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Gurgeniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Gurgeniani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Gurgeniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Gurgeniani\n\nZemo Gurgeniani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794436799
+		},
+		{
+			"id": "8361cead-d6ed-4fd5-b0b0-0f6258792457",
+			"slug": "zemo-mskhalgori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16369482",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Mskhalgori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Mskhalgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Mskhalgori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Mskhalgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Mskhalgori\n\nZemo Mskhalgori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Mskhalgori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო მსხალგორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო მსხალგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ბაისუბნის ადმინისტრაციულ ერთეულში.",
+					"seo_title": "ზემო მსხალგორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო მსხალგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ბაისუბნის ადმინისტრაციულ ერთეულში.",
+					"body": "## ზემო მსხალგორი\n\nზემო მსხალგორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Mskhalgori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Mskhalgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Mskhalgori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Mskhalgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Mskhalgori\n\nZemo Mskhalgori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794437976
+		},
+		{
+			"id": "a96d47c0-efd4-4287-9c1c-49df10147b7f",
+			"slug": "zemo-nashovari",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Nashovari",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Nashovari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Nashovari village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Nashovari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Nashovari\n\nZemo Nashovari is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Nashovari is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო ნაშოვარი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ნაშოვარი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ზემო ნაშოვარი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ნაშოვარი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ზემო ნაშოვარი\n\nზემო ნაშოვარი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Nashovari",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Nashovari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Nashovari — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Nashovari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Nashovari\n\nZemo Nashovari — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794438188
+		},
+		{
+			"id": "6ced38c2-c2c7-4cc6-9703-8a546cd487f2",
+			"slug": "zemo-fona",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90",
+			"wikidata_id": "Q12869979",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Fona",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Fona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Fona village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Fona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Fona\n\nZemo Fona is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Fona is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ka": {
+					"title": "ზემო ფონა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ფონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"seo_title": "ზემო ფონა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ფონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"body": "## ზემო ფონა\n\nზემო ფონა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ru": {
+					"title": "Zemo Fona",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Fona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Fona — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Fona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Fona\n\nZemo Fona — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794439580
+		},
+		{
+			"id": "e6973b5a-cc48-400d-b409-04101e9ce470",
+			"slug": "zemo-khechili",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12864726",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Khechili",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Khechili is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Khechili village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Khechili is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Khechili\n\nZemo Khechili is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Khechili is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზემო ხეჩილი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ხეჩილი — სოფელი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"seo_title": "ზემო ხეჩილი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ხეჩილი — სოფელი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"body": "## ზემო ხეჩილი\n\nზემო ხეჩილი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zemo Khechili",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Khechili — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Khechili — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Khechili — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Khechili\n\nZemo Khechili — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794440796
+		},
+		{
+			"id": "a46ff2e4-4a8c-4cd9-84ef-48a7994a746c",
+			"slug": "zemo-khiza",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%98%E1%83%96%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zemo Khiza",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Zemo Khiza is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Zemo Khiza village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Zemo Khiza is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Zemo Khiza\n\nZemo Khiza is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nZemo Khiza is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%98%E1%83%96%E1%83%90)"
+				},
+				"ka": {
+					"title": "ზემო ხიზა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ზემო ხიზა — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ზემო ხიზა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ზემო ხიზა — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ზემო ხიზა\n\nზემო ხიზა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%98%E1%83%96%E1%83%90)"
+				},
+				"ru": {
+					"title": "Zemo Khiza",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Zemo Khiza — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Zemo Khiza — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Zemo Khiza — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Zemo Khiza\n\nZemo Khiza — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%98%E1%83%96%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794441002
+		},
+		{
+			"id": "aa048699-be80-4d15-b123-a5fa01b13b8b",
+			"slug": "kartubani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12865613",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kartubani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kartubani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kartubani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kartubani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kartubani\n\nKartubani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKartubani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "კართუბანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "კართუბანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, თემის ცენტრი. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 18 კილომეტრი.",
+					"seo_title": "კართუბანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "კართუბანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, თემის ცენტრი. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 18 კილომეტრი.",
+					"body": "## კართუბანი\n\nკართუბანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kartubani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kartubani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kartubani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kartubani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kartubani\n\nKartubani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%90%E1%83%A0%E1%83%97%E1%83%A3%E1%83%91%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794441508
+		},
+		{
+			"id": "e39ec482-9473-4cda-ad5c-91c69a228ba2",
+			"slug": "lafniani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%A4%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12866128",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Lafniani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Lafniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Lafniani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Lafniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Lafniani\n\nLafniani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nLafniani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%A4%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლაფნიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ლაფნიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარჯვენა მხარეს. ზღვის დონიდან 240 მეტრი, ლაგოდეხიდან 20 კილომეტრი.",
+					"seo_title": "ლაფნიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ლაფნიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარჯვენა მხარეს. ზღვის დონიდან 240 მეტრი, ლაგოდეხიდან",
+					"body": "## ლაფნიანი\n\nლაფნიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%A4%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Lafniani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Lafniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Lafniani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Lafniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Lafniani\n\nLafniani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%90%E1%83%A4%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794442502
+		},
+		{
+			"id": "1502e2aa-f2bb-4d63-948f-3cf6e2d467f9",
+			"slug": "leliani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Leliani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Leliani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Leliani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Leliani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Leliani\n\nLeliani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nLeliani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ლელიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ლელიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ლელიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ლელიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ლელიანი\n\nლელიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Leliani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Leliani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Leliani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Leliani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Leliani\n\nLeliani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794442714
+		},
+		{
+			"id": "dea5a915-09f3-451e-8c0c-88936b198f80",
+			"slug": "meore-leliani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9D%E1%83%A0%E1%83%94%20%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q64005594",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Meore Leliani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Meore Leliani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Meore Leliani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Meore Leliani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Meore Leliani\n\nMeore Leliani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nMeore Leliani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9D%E1%83%A0%E1%83%94%20%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "მეორე ლელიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "მეორე ლელიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში მდებარეობს ალაზნის ვაკეზე,.",
+					"seo_title": "მეორე ლელიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "მეორე ლელიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში მდებარეობს ალაზნის ვაკეზე,.",
+					"body": "## მეორე ლელიანი\n\nმეორე ლელიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9D%E1%83%A0%E1%83%94%20%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Meore Leliani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Meore Leliani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Meore Leliani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Meore Leliani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Meore Leliani\n\nMeore Leliani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%94%E1%83%9D%E1%83%A0%E1%83%94%20%E1%83%9A%E1%83%94%E1%83%9A%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794443664
+		},
+		{
+			"id": "9f476626-1fc4-4b60-90a4-3516a70ae28a",
+			"slug": "mirskiseuli",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A0%E1%83%A1%E1%83%99%E1%83%98%E1%83%A1%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mirskiseuli",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Mirskiseuli is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Mirskiseuli village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Mirskiseuli is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Mirskiseuli\n\nMirskiseuli is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nMirskiseuli is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A0%E1%83%A1%E1%83%99%E1%83%98%E1%83%A1%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "მირსკისეული",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "მირსკისეული — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "მირსკისეული — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "მირსკისეული — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## მირსკისეული\n\nმირსკისეული — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A0%E1%83%A1%E1%83%99%E1%83%98%E1%83%A1%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Mirskiseuli",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Mirskiseuli — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Mirskiseuli — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Mirskiseuli — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Mirskiseuli\n\nMirskiseuli — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%98%E1%83%A0%E1%83%A1%E1%83%99%E1%83%98%E1%83%A1%E1%83%94%E1%83%A3%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794443872
+		},
+		{
+			"id": "d0efdf4e-7c69-4146-96a9-b4df6706c53f",
+			"slug": "mshvidobiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%95%E1%83%98%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q16372974",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Mshvidobiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Mshvidobiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Mshvidobiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Mshvidobiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Mshvidobiani\n\nMshvidobiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nMshvidobiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%95%E1%83%98%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "მშვიდობიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "მშვიდობიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდან 17 კილომეტრი.",
+					"seo_title": "მშვიდობიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "მშვიდობიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდან 17 კილომეტრი.",
+					"body": "## მშვიდობიანი\n\nმშვიდობიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%95%E1%83%98%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Mshvidobiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Mshvidobiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Mshvidobiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Mshvidobiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Mshvidobiani\n\nMshvidobiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9B%E1%83%A8%E1%83%95%E1%83%98%E1%83%93%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794444796
+		},
+		{
+			"id": "1aa7514a-eb77-42a6-b81f-fbf34de0574e",
+			"slug": "naendrovali",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%94%E1%83%9C%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Naendrovali",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Naendrovali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Naendrovali village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Naendrovali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Naendrovali\n\nNaendrovali is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nNaendrovali is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%94%E1%83%9C%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნაენდროვალი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ნაენდროვალი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ნაენდროვალი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ნაენდროვალი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ნაენდროვალი\n\nნაენდროვალი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%94%E1%83%9C%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Naendrovali",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Naendrovali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Naendrovali — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Naendrovali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Naendrovali\n\nNaendrovali — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%94%E1%83%9C%E1%83%93%E1%83%A0%E1%83%9D%E1%83%95%E1%83%90%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794445009
+		},
+		{
+			"id": "f005dfb8-bf5e-476c-8ab1-ea27836b8e89",
+			"slug": "namesrali",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12870073",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Namesrali",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Namesrali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Namesrali village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Namesrali is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Namesrali\n\nNamesrali is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nNamesrali is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნამესრალი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ნამესრალი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა ნაპირას. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდან 30 კილომეტრი. 2014 წლი",
+					"seo_title": "ნამესრალი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ნამესრალი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა ნაპირას. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდ",
+					"body": "## ნამესრალი\n\nნამესრალი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Namesrali",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Namesrali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Namesrali — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Namesrali — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Namesrali\n\nNamesrali — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%9B%E1%83%94%E1%83%A1%E1%83%A0%E1%83%90%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794445518
+		},
+		{
+			"id": "3e6b5ea6-b7c2-4b0a-a16d-bcce3c3497c5",
+			"slug": "natsiskvilari",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%A1%E1%83%A5%E1%83%95%E1%83%98%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12867490",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Natsiskvilari",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Natsiskvilari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Natsiskvilari village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Natsiskvilari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Natsiskvilari\n\nNatsiskvilari is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nNatsiskvilari is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%A1%E1%83%A5%E1%83%95%E1%83%98%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნაწისქვილარი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ნაწისქვილარი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა მხარეს. ზღვის დონიდან 270 მეტრი, ლაგოდეხიდან 18 კილომეტრი.",
+					"seo_title": "ნაწისქვილარი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ნაწისქვილარი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა მხარეს. ზღვის დონიდან 270 მეტრი, ლაგოდეხ",
+					"body": "## ნაწისქვილარი\n\nნაწისქვილარი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%A1%E1%83%A5%E1%83%95%E1%83%98%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Natsiskvilari",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Natsiskvilari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Natsiskvilari — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Natsiskvilari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Natsiskvilari\n\nNatsiskvilari — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%90%E1%83%AC%E1%83%98%E1%83%A1%E1%83%A5%E1%83%95%E1%83%98%E1%83%9A%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794447282
+		},
+		{
+			"id": "bf9e765e-da8d-4455-90fe-a080203fc0c8",
+			"slug": "ninigori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12867633",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Ninigori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Ninigori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Ninigori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Ninigori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Ninigori\n\nNinigori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nNinigori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ნინიგორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ნინიგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ნინოსხევის ნაპირებზე. ყვარელი-ლაგოდეხის საავტომობილო გზაზე. თემის ცენტრი. ზღვის დონიდა",
+					"seo_title": "ნინიგორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ნინიგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ნინოსხევის ნაპირებზე. ყვარელი-ლაგოდეხის საავტომობილო გზაზე. თ",
+					"body": "## ნინიგორი\n\nნინიგორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Ninigori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Ninigori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Ninigori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Ninigori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Ninigori\n\nNinigori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9C%E1%83%98%E1%83%9C%E1%83%98%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794448639
+		},
+		{
+			"id": "1b78bb9a-4a5e-4b1e-be11-afc717cff8c1",
+			"slug": "onanauri",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9C%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16373753",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Onanauri",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Onanauri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Onanauri village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Onanauri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Onanauri\n\nOnanauri is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nOnanauri is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9C%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ონანაური",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ონანაური — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 250 მეტრი, ლაგოდეხიდან 30 კილომეტრი.",
+					"seo_title": "ონანაური — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ონანაური — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 250 მეტრი, ლაგოდეხიდან 30 კილომეტრი.",
+					"body": "## ონანაური\n\nონანაური — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9C%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Onanauri",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Onanauri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Onanauri — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Onanauri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Onanauri\n\nOnanauri — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9C%E1%83%90%E1%83%9C%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794449157
+		},
+		{
+			"id": "bfc2caa7-9afc-4e7e-ab7e-920d3568028b",
+			"slug": "patara-gori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12868027",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Patara Gori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Patara Gori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Patara Gori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Patara Gori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Patara Gori\n\nPatara Gori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nPatara Gori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "პატარა გორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "პატარა გორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ბაისუბნისხევის ნაპირას. ზღვის დონიდან 310 მეტრი, ლაგოდეხიდან 14 კილომეტრი.",
+					"seo_title": "პატარა გორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "პატარა გორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ბაისუბნისხევის ნაპირას. ზღვის დონიდან 310 მეტრი, ლაგოდეხიდ",
+					"body": "## პატარა გორი\n\nპატარა გორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Patara Gori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Patara Gori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Patara Gori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Patara Gori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Patara Gori\n\nPatara Gori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%90%E1%83%A2%E1%83%90%E1%83%A0%E1%83%90%20%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794450176
+		},
+		{
+			"id": "f88fde3c-c0a3-45e3-bdec-02da72a52e82",
+			"slug": "svideba",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%93%E1%83%94%E1%83%91%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Svideba",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Svideba is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Svideba village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Svideba is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Svideba\n\nSvideba is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nSvideba is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%93%E1%83%94%E1%83%91%E1%83%90)"
+				},
+				"ka": {
+					"title": "სვიდება",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "სვიდება — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "სვიდება — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "სვიდება — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## სვიდება\n\nსვიდება — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%93%E1%83%94%E1%83%91%E1%83%90)"
+				},
+				"ru": {
+					"title": "Svideba",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Svideba — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Svideba — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Svideba — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Svideba\n\nSvideba — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%95%E1%83%98%E1%83%93%E1%83%94%E1%83%91%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794450383
+		},
+		{
+			"id": "f18c3a74-e2a8-42a8-9439-fcf5cee1a4e6",
+			"slug": "uzuntala",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A3%E1%83%96%E1%83%A3%E1%83%9C%E1%83%97%E1%83%90%E1%83%9A%E1%83%90",
+			"wikidata_id": "Q12869746",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Uzuntala",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Uzuntala is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Uzuntala village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Uzuntala is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Uzuntala\n\nUzuntala is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nUzuntala is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A3%E1%83%96%E1%83%A3%E1%83%9C%E1%83%97%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "უზუნთალა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "უზუნთალა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა ნაპირას. ზღვის დონიდან 370 მეტრი, ლაგოდეხიდან 15 კილომეტრი.",
+					"seo_title": "უზუნთალა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "უზუნთალა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარცხენა ნაპირას. ზღვის დონიდან 370 მეტრი, ლაგოდეხიდა",
+					"body": "## უზუნთალა\n\nუზუნთალა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A3%E1%83%96%E1%83%A3%E1%83%9C%E1%83%97%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ru": {
+					"title": "Uzuntala",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Uzuntala — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Uzuntala — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Uzuntala — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Uzuntala\n\nUzuntala — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A3%E1%83%96%E1%83%A3%E1%83%9C%E1%83%97%E1%83%90%E1%83%9A%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794450892
+		},
+		{
+			"id": "f32ab714-44ab-4c7f-a97c-9b5eaf752874",
+			"slug": "fichkhisbogiri",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%98%E1%83%A9%E1%83%AE%E1%83%98%E1%83%A1%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16376849",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Fichkhisbogiri",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Fichkhisbogiri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Fichkhisbogiri village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Fichkhisbogiri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Fichkhisbogiri\n\nFichkhisbogiri is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nFichkhisbogiri is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%98%E1%83%A9%E1%83%AE%E1%83%98%E1%83%A1%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ფიჩხისბოგირი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ფიჩხისბოგირი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარჯვენა მხარეს. ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 20 კილომეტრი.",
+					"seo_title": "ფიჩხისბოგირი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ფიჩხისბოგირი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე კაბალის მარჯვენა მხარეს. ზღვის დონიდან 260 მეტრი, ლაგოდეხ",
+					"body": "## ფიჩხისბოგირი\n\nფიჩხისბოგირი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%98%E1%83%A9%E1%83%AE%E1%83%98%E1%83%A1%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Fichkhisbogiri",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Fichkhisbogiri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Fichkhisbogiri — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Fichkhisbogiri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Fichkhisbogiri\n\nFichkhisbogiri — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%98%E1%83%A9%E1%83%AE%E1%83%98%E1%83%A1%E1%83%91%E1%83%9D%E1%83%92%E1%83%98%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794451739
+		},
+		{
+			"id": "955e528d-9b3a-4298-a87e-fbe1b7922740",
+			"slug": "fodaani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%93%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Fodaani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Fodaani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Fodaani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Fodaani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Fodaani\n\nFodaani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nFodaani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%93%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ფოდაანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ფოდაანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ფოდაანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ფოდაანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ფოდაანი\n\nფოდაანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%93%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Fodaani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Fodaani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Fodaani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Fodaani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Fodaani\n\nFodaani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A4%E1%83%9D%E1%83%93%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794451945
+		},
+		{
+			"id": "d4cb46fc-6077-4604-902c-b606dd35dba3",
+			"slug": "kalkva",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%9A%E1%83%A5%E1%83%95%E1%83%90",
+			"wikidata_id": "Q64005589",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kalkva",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kalkva is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kalkva village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kalkva is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kalkva\n\nKalkva is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKalkva is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%9A%E1%83%A5%E1%83%95%E1%83%90)"
+				},
+				"ka": {
+					"title": "ქალქვა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქალქვა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა ნაპირას. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდან 30 კილომეტრი. 2014 წლის ა",
+					"seo_title": "ქალქვა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქალქვა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა ნაპირას. ზღვის დონიდან 220 მეტრი, ლაგოდეხიდან ",
+					"body": "## ქალქვა\n\nქალქვა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%9A%E1%83%A5%E1%83%95%E1%83%90)"
+				},
+				"ru": {
+					"title": "Kalkva",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kalkva — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kalkva — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kalkva — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kalkva\n\nKalkva — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%90%E1%83%9A%E1%83%A5%E1%83%95%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794453182
+		},
+		{
+			"id": "c9a503fc-5e10-463f-ab58-5c994d521b81",
+			"slug": "kevkhiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%94%E1%83%95%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kevkhiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kevkhiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kevkhiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kevkhiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kevkhiani\n\nKevkhiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKevkhiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%94%E1%83%95%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქევხიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქევხიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ქევხიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქევხიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ქევხიანი\n\nქევხიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%94%E1%83%95%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kevkhiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kevkhiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kevkhiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kevkhiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kevkhiani\n\nKevkhiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%94%E1%83%95%E1%83%AE%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794453389
+		},
+		{
+			"id": "46533dff-2f68-4af9-99f6-c29d09044622",
+			"slug": "kvemo-bolkvi",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98",
+			"wikidata_id": "Q12870240",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Bolkvi",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Bolkvi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Bolkvi village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Bolkvi is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Bolkvi\n\nKvemo Bolkvi is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Bolkvi is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო ბოლქვი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ბოლქვი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 230 მეტრი, ლაგოდეხიდან 27 კილომეტრი.",
+					"seo_title": "ქვემო ბოლქვი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ბოლქვი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 230 მეტრი, ლაგოდეხიდან 27 კილომეტრი.",
+					"body": "## ქვემო ბოლქვი\n\nქვემო ბოლქვი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Bolkvi",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Bolkvi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Bolkvi — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Bolkvi — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Bolkvi\n\nKvemo Bolkvi — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%91%E1%83%9D%E1%83%9A%E1%83%A5%E1%83%95%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794454500
+		},
+		{
+			"id": "5a85a43a-f84c-49b8-907f-74b0117d9789",
+			"slug": "kvemo-gurgeniani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Gurgeniani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Gurgeniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Gurgeniani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Gurgeniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Gurgeniani\n\nKvemo Gurgeniani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Gurgeniani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო გურგენიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო გურგენიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ქვემო გურგენიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო გურგენიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ქვემო გურგენიანი\n\nქვემო გურგენიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Gurgeniani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Gurgeniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Gurgeniani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Gurgeniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Gurgeniani\n\nKvemo Gurgeniani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%92%E1%83%A3%E1%83%A0%E1%83%92%E1%83%94%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794454705
+		},
+		{
+			"id": "e232383f-3361-4878-98f9-7556c652aea1",
+			"slug": "kvemo-mskhalgori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16377286",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Mskhalgori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Mskhalgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Mskhalgori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Mskhalgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Mskhalgori\n\nKvemo Mskhalgori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Mskhalgori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო მსხალგორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო მსხალგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარეების ბაისუბნისხევისა და კაბალის ხეობებს შორის. ზღვის დონიდან 340 მეტრი, ლაგოდეხი",
+					"seo_title": "ქვემო მსხალგორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო მსხალგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარეების ბაისუბნისხევისა და კაბალის ხეობებს შორის. ზღვის დო",
+					"body": "## ქვემო მსხალგორი\n\nქვემო მსხალგორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Mskhalgori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Mskhalgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Mskhalgori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Mskhalgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Mskhalgori\n\nKvemo Mskhalgori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9B%E1%83%A1%E1%83%AE%E1%83%90%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794455218
+		},
+		{
+			"id": "2060087e-2a86-43af-a9ee-607f967bedd6",
+			"slug": "kvemo-nashovari",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q12870259",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Nashovari",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Nashovari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Nashovari village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Nashovari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Nashovari\n\nKvemo Nashovari is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Nashovari is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო ნაშოვარი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ნაშოვარი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა მხარეს. ზღვის დონიდან 180 მეტრი, ლაგოდეხიდან 30 კილომეტრი.",
+					"seo_title": "ქვემო ნაშოვარი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ნაშოვარი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, მდინარე ალაზნის მარცხენა მხარეს. ზღვის დონიდან 180 მეტრი, ლაგოდ",
+					"body": "## ქვემო ნაშოვარი\n\nქვემო ნაშოვარი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Nashovari",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Nashovari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Nashovari — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Nashovari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Nashovari\n\nKvemo Nashovari — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%9C%E1%83%90%E1%83%A8%E1%83%9D%E1%83%95%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794456751
+		},
+		{
+			"id": "cd42cede-45d7-4118-b5af-acbf32ba4784",
+			"slug": "kvemo-fona",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90",
+			"wikidata_id": "Q64005591",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Fona",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Fona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Fona village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Fona is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Fona\n\nKvemo Fona is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Fona is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ka": {
+					"title": "ქვემო ფონა",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ფონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციულ ერთეულში",
+					"seo_title": "ქვემო ფონა — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ფონა — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციულ ერთეულში",
+					"body": "## ქვემო ფონა\n\nქვემო ფონა — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				},
+				"ru": {
+					"title": "Kvemo Fona",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Fona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Fona — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Fona — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Fona\n\nKvemo Fona — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%A4%E1%83%9D%E1%83%9C%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794457260
+		},
+		{
+			"id": "4757f758-7163-49df-be93-939b5eeacc77",
+			"slug": "kvemo-khechili",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98",
+			"wikidata_id": "Q12870296",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvemo Khechili",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Kvemo Khechili is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Kvemo Khechili village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Kvemo Khechili is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Kvemo Khechili\n\nKvemo Khechili is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvemo Khechili is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ქვემო ხეჩილი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ქვემო ხეჩილი — სოფელი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"seo_title": "ქვემო ხეჩილი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ქვემო ხეჩილი — სოფელი აღმოსავლეთ საქართველოში, ლაგოდეხის მუნიციპალიტეტის ფონის ადმინისტრაციული ერთეულში.",
+					"body": "## ქვემო ხეჩილი\n\nქვემო ხეჩილი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvemo Khechili",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Kvemo Khechili — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Kvemo Khechili — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Kvemo Khechili — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Kvemo Khechili\n\nKvemo Khechili — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A5%E1%83%95%E1%83%94%E1%83%9B%E1%83%9D%20%E1%83%AE%E1%83%94%E1%83%A9%E1%83%98%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794458216
+		},
+		{
+			"id": "faeecad5-776f-4cab-b4c8-cfdfdfea7898",
+			"slug": "chaduniani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%93%E1%83%A3%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chaduniani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Chaduniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Chaduniani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Chaduniani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Chaduniani\n\nChaduniani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nChaduniani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%93%E1%83%A3%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჩადუნიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ჩადუნიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჩადუნიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ჩადუნიანი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჩადუნიანი\n\nჩადუნიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%93%E1%83%A3%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chaduniani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Chaduniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Chaduniani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Chaduniani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Chaduniani\n\nChaduniani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%93%E1%83%A3%E1%83%9C%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794458423
+		},
+		{
+			"id": "573c1a89-d6fe-42ed-84b6-bd3ea2acdb73",
+			"slug": "tsitelgori",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98",
+			"wikidata_id": "Q16378667",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsitelgori",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Tsitelgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Tsitelgori village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Tsitelgori is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Tsitelgori\n\nTsitelgori is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nTsitelgori is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "წითელგორი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "წითელგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 210 მეტრი, ლაგოდეხიდან 25 კილომეტრი.",
+					"seo_title": "წითელგორი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "წითელგორი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე. ზღვის დონიდან 210 მეტრი, ლაგოდეხიდან 25 კილომეტრი.",
+					"body": "## წითელგორი\n\nწითელგორი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tsitelgori",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Tsitelgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Tsitelgori — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Tsitelgori — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Tsitelgori\n\nTsitelgori — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%97%E1%83%94%E1%83%9A%E1%83%92%E1%83%9D%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794458936
+		},
+		{
+			"id": "8a3f3bde-00c6-4ab4-bf47-1c98324d8a4f",
+			"slug": "chabukiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%91%E1%83%A3%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q12871204",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chabukiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Chabukiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Chabukiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Chabukiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Chabukiani\n\nChabukiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nChabukiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%91%E1%83%A3%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჭაბუკიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ჭაბუკიანი — სოფელი საქართველოში, კახეთის მხარის ლაგოდეხის მუნიციპალიტეტში, აფენის თემში. მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 240 მეტრი, ლაგოდეხიდან 25 კილომეტრი, გურჯაანიდან 2",
+					"seo_title": "ჭაბუკიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ჭაბუკიანი — სოფელი საქართველოში, კახეთის მხარის ლაგოდეხის მუნიციპალიტეტში, აფენის თემში. მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 240 მეტრი, ლაგოდეხიდან 25",
+					"body": "## ჭაბუკიანი\n\nჭაბუკიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%91%E1%83%A3%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chabukiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Chabukiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Chabukiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Chabukiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Chabukiani\n\nChabukiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%90%E1%83%91%E1%83%A3%E1%83%99%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794459438
+		},
+		{
+			"id": "f160bed7-db81-4e97-80c8-eb7a0d1821ef",
+			"slug": "chiauri",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chiauri",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Chiauri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Chiauri village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Chiauri is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Chiauri\n\nChiauri is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nChiauri is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჭიაური",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ჭიაური — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჭიაური — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ჭიაური — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჭიაური\n\nჭიაური — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chiauri",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Chiauri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Chiauri — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Chiauri — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Chiauri\n\nChiauri — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%90%E1%83%A3%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794459639
+		},
+		{
+			"id": "d6fdc725-544f-4758-9330-27918fd4fe06",
+			"slug": "khoshatiani",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A8%E1%83%90%E1%83%A2%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": "Q14916742",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Khoshatiani",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Khoshatiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Khoshatiani village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Khoshatiani is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Khoshatiani\n\nKhoshatiani is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nKhoshatiani is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A8%E1%83%90%E1%83%A2%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ხოშატიანი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ხოშატიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 25 კილომეტრი.",
+					"seo_title": "ხოშატიანი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ხოშატიანი — სოფელი საქართველოში, ლაგოდეხის მუნიციპალიტეტში, მდებარეობს ალაზნის ვაკეზე, ზღვის დონიდან 260 მეტრი, ლაგოდეხიდან 25 კილომეტრი.",
+					"body": "## ხოშატიანი\n\nხოშატიანი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A8%E1%83%90%E1%83%A2%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Khoshatiani",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Khoshatiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Khoshatiani — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Khoshatiani — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Khoshatiani\n\nKhoshatiani — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AE%E1%83%9D%E1%83%A8%E1%83%90%E1%83%A2%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794460457
+		},
+		{
+			"id": "e3d59f2d-e28b-481f-8808-512d6626e5d0",
+			"slug": "heretiskari",
+			"level": "village",
+			"parent_id": "7fd47d9c-b4ae-4d90-8414-4139f5bc5e45",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1%E1%83%99%E1%83%90%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Heretiskari",
+					"subtitle": "Village · Lagodekhi municipality · Kakheti",
+					"excerpt": "Heretiskari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"seo_title": "Heretiskari village — Lagodekhi, Kakheti | Travel Georgia",
+					"seo_description": "Heretiskari is a village in Lagodekhi municipality, Kakheti, Georgia.",
+					"body": "## About Heretiskari\n\nHeretiskari is a village located in Lagodekhi municipality in the Kakheti region of Georgia.\n\n## Location\n\nHeretiskari is situated in **Lagodekhi municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Lagodekhi can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1%E1%83%99%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჰერეთისკარი",
+					"subtitle": "სოფელი · ლაგოდეხიის მუნიციპალიტეტი",
+					"excerpt": "ჰერეთისკარი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჰერეთისკარი — სოფელი | ლაგოდეხიის მუნიციპალიტეტი",
+					"seo_description": "ჰერეთისკარი — სოფელი ლაგოდეხიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჰერეთისკარი\n\nჰერეთისკარი — სოფელი **ლაგოდეხიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ლაგოდეხიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1%E1%83%99%E1%83%90%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Heretiskari",
+					"subtitle": "Cело · муниципалитет Lagodekhi · Kakheti",
+					"excerpt": "Heretiskari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"seo_title": "Heretiskari — село · Lagodekhi, Kakheti | Грузия",
+					"seo_description": "Heretiskari — село в муниципалитете Lagodekhi, Kakheti, Грузия.",
+					"body": "## Heretiskari\n\nHeretiskari — село в муниципалитете **Lagodekhi**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Lagodekhi. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%B0%E1%83%94%E1%83%A0%E1%83%94%E1%83%97%E1%83%98%E1%83%A1%E1%83%99%E1%83%90%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794460663
+		}
+	]
+}

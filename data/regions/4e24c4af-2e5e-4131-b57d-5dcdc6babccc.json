@@ -1,0 +1,756 @@
+{
+	"posts": [
+		{
+			"id": "747955ee-f30f-4674-9aa9-f6e83a013793",
+			"slug": "kvareli",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%95%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kvareli",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Kvareli is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Kvareli village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Kvareli is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Kvareli\n\nKvareli is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nKvareli is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%95%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ყვარელი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ყვარელი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ყვარელი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ყვარელი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ყვარელი\n\nყვარელი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%95%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kvareli",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Kvareli — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Kvareli — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Kvareli — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Kvareli\n\nKvareli — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A7%E1%83%95%E1%83%90%E1%83%A0%E1%83%94%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794941653
+		},
+		{
+			"id": "cb1c48ea-6b3c-40ab-9608-8225b2390e2a",
+			"slug": "shakriani",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%90%E1%83%A5%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Shakriani",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Shakriani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Shakriani village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Shakriani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Shakriani\n\nShakriani is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nShakriani is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%90%E1%83%A5%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "შაქრიანი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "შაქრიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "შაქრიანი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "შაქრიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## შაქრიანი\n\nშაქრიანი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%90%E1%83%A5%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Shakriani",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Shakriani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Shakriani — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Shakriani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Shakriani\n\nShakriani — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%90%E1%83%A5%E1%83%A0%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794942054
+		},
+		{
+			"id": "efd19d90-0438-4b45-81b1-0f99bce96a51",
+			"slug": "almati",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Almati",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Almati is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Almati village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Almati is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Almati\n\nAlmati is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nAlmati is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98)"
+				},
+				"ka": {
+					"title": "ალმატი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ალმატი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ალმატი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ალმატი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ალმატი\n\nალმატი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98)"
+				},
+				"ru": {
+					"title": "Almati",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Almati — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Almati — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Almati — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Almati\n\nAlmati — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%90%E1%83%9A%E1%83%9B%E1%83%90%E1%83%A2%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794942454
+		},
+		{
+			"id": "68e33561-304f-4656-81bb-ee880e9202c5",
+			"slug": "balghojiani",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9A%E1%83%A6%E1%83%9D%E1%83%AF%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Balghojiani",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Balghojiani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Balghojiani village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Balghojiani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Balghojiani\n\nBalghojiani is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nBalghojiani is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9A%E1%83%A6%E1%83%9D%E1%83%AF%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ბალღოჯიანი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ბალღოჯიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ბალღოჯიანი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ბალღოჯიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ბალღოჯიანი\n\nბალღოჯიანი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9A%E1%83%A6%E1%83%9D%E1%83%AF%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Balghojiani",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Balghojiani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Balghojiani — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Balghojiani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Balghojiani\n\nBalghojiani — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%91%E1%83%90%E1%83%9A%E1%83%A6%E1%83%9D%E1%83%AF%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794942854
+		},
+		{
+			"id": "daffefc4-d3a7-405a-bca5-a15b55b26805",
+			"slug": "grdzeli-chala",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%AB%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%AD%E1%83%90%E1%83%9A%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Grdzeli Chala",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Grdzeli Chala is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Grdzeli Chala village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Grdzeli Chala is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Grdzeli Chala\n\nGrdzeli Chala is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nGrdzeli Chala is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%AB%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%AD%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ka": {
+					"title": "გრძელი ჭალა",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "გრძელი ჭალა — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "გრძელი ჭალა — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "გრძელი ჭალა — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## გრძელი ჭალა\n\nგრძელი ჭალა — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%AB%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%AD%E1%83%90%E1%83%9A%E1%83%90)"
+				},
+				"ru": {
+					"title": "Grdzeli Chala",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Grdzeli Chala — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Grdzeli Chala — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Grdzeli Chala — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Grdzeli Chala\n\nGrdzeli Chala — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%92%E1%83%A0%E1%83%AB%E1%83%94%E1%83%9A%E1%83%98%20%E1%83%AD%E1%83%90%E1%83%9A%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794943255
+		},
+		{
+			"id": "e0ca78fc-535f-41f5-91d0-45804f2c6311",
+			"slug": "eniseli",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9C%E1%83%98%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Eniseli",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Eniseli is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Eniseli village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Eniseli is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Eniseli\n\nEniseli is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nEniseli is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9C%E1%83%98%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ka": {
+					"title": "ენისელი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ენისელი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ენისელი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ენისელი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ენისელი\n\nენისელი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9C%E1%83%98%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				},
+				"ru": {
+					"title": "Eniseli",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Eniseli — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Eniseli — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Eniseli — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Eniseli\n\nEniseli — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%94%E1%83%9C%E1%83%98%E1%83%A1%E1%83%94%E1%83%9A%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794943655
+		},
+		{
+			"id": "34353fa2-5e88-45a9-a8c7-2dec59f5ffa6",
+			"slug": "zinobiani",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%98%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Zinobiani",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Zinobiani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Zinobiani village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Zinobiani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Zinobiani\n\nZinobiani is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nZinobiani is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%98%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ზინობიანი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ზინობიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ზინობიანი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ზინობიანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ზინობიანი\n\nზინობიანი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%98%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Zinobiani",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Zinobiani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Zinobiani — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Zinobiani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Zinobiani\n\nZinobiani — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%96%E1%83%98%E1%83%9C%E1%83%9D%E1%83%91%E1%83%98%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794944056
+		},
+		{
+			"id": "c3b0ad8a-6a0a-4293-9630-b92369bcc023",
+			"slug": "tivi",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%98%E1%83%95%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tivi",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Tivi is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Tivi village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Tivi is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Tivi\n\nTivi is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nTivi is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%98%E1%83%95%E1%83%98)"
+				},
+				"ka": {
+					"title": "თივი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "თივი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "თივი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "თივი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## თივი\n\nთივი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%98%E1%83%95%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tivi",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Tivi — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Tivi — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Tivi — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Tivi\n\nTivi — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%97%E1%83%98%E1%83%95%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794944456
+		},
+		{
+			"id": "87026904-1cd1-4f2e-bf74-e03075a08ab5",
+			"slug": "kuchatani",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%AD%E1%83%90%E1%83%A2%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Kuchatani",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Kuchatani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Kuchatani village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Kuchatani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Kuchatani\n\nKuchatani is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nKuchatani is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%AD%E1%83%90%E1%83%A2%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "კუჭატანი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "კუჭატანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "კუჭატანი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "კუჭატანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## კუჭატანი\n\nკუჭატანი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%AD%E1%83%90%E1%83%A2%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Kuchatani",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Kuchatani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Kuchatani — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Kuchatani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Kuchatani\n\nKuchatani — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%99%E1%83%A3%E1%83%AD%E1%83%90%E1%83%A2%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794944857
+		},
+		{
+			"id": "bce17988-001a-4fc9-8ddb-3dc37dd3668a",
+			"slug": "sanavardo",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%93%E1%83%9D",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sanavardo",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Sanavardo is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Sanavardo village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Sanavardo is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Sanavardo\n\nSanavardo is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nSanavardo is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%93%E1%83%9D)"
+				},
+				"ka": {
+					"title": "სანავარდო",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "სანავარდო — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "სანავარდო — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "სანავარდო — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## სანავარდო\n\nსანავარდო — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%93%E1%83%9D)"
+				},
+				"ru": {
+					"title": "Sanavardo",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Sanavardo — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Sanavardo — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Sanavardo — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Sanavardo\n\nSanavardo — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%9C%E1%83%90%E1%83%95%E1%83%90%E1%83%A0%E1%83%93%E1%83%9D)"
+				}
+			},
+			"updated_at": 1774794945257
+		},
+		{
+			"id": "2e78cba3-bc8d-4a93-ac9b-7da5ac4933c1",
+			"slug": "satskhene",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%AA%E1%83%AE%E1%83%94%E1%83%9C%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Satskhene",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Satskhene is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Satskhene village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Satskhene is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Satskhene\n\nSatskhene is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nSatskhene is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%AA%E1%83%AE%E1%83%94%E1%83%9C%E1%83%94)"
+				},
+				"ka": {
+					"title": "საცხენე",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "საცხენე — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "საცხენე — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "საცხენე — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## საცხენე\n\nსაცხენე — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%AA%E1%83%AE%E1%83%94%E1%83%9C%E1%83%94)"
+				},
+				"ru": {
+					"title": "Satskhene",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Satskhene — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Satskhene — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Satskhene — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Satskhene\n\nSatskhene — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%AA%E1%83%AE%E1%83%94%E1%83%9C%E1%83%94)"
+				}
+			},
+			"updated_at": 1774794945658
+		},
+		{
+			"id": "ea38225e-0012-4094-a209-1231f64342a8",
+			"slug": "shilda",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%98%E1%83%9A%E1%83%93%E1%83%90",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Shilda",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Shilda is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Shilda village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Shilda is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Shilda\n\nShilda is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nShilda is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%98%E1%83%9A%E1%83%93%E1%83%90)"
+				},
+				"ka": {
+					"title": "შილდა",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "შილდა — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "შილდა — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "შილდა — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## შილდა\n\nშილდა — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%98%E1%83%9A%E1%83%93%E1%83%90)"
+				},
+				"ru": {
+					"title": "Shilda",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Shilda — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Shilda — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Shilda — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Shilda\n\nShilda — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%98%E1%83%9A%E1%83%93%E1%83%90)"
+				}
+			},
+			"updated_at": 1774794946058
+		},
+		{
+			"id": "1450796c-4ebc-472c-949d-3acf07077364",
+			"slug": "shorokhi",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Shorokhi",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Shorokhi is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Shorokhi village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Shorokhi is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Shorokhi\n\nShorokhi is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nShorokhi is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98)"
+				},
+				"ka": {
+					"title": "შოროხი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "შოროხი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "შოროხი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "შოროხი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## შოროხი\n\nშოროხი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98)"
+				},
+				"ru": {
+					"title": "Shorokhi",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Shorokhi — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Shorokhi — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Shorokhi — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Shorokhi\n\nShorokhi — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A8%E1%83%9D%E1%83%A0%E1%83%9D%E1%83%AE%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794946459
+		},
+		{
+			"id": "f1e696b3-b6cb-4d4a-ad88-141d6da76182",
+			"slug": "chantliskure",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A7%E1%83%A3%E1%83%A0%E1%83%94",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chantliskure",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Chantliskure is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Chantliskure village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Chantliskure is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Chantliskure\n\nChantliskure is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nChantliskure is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A7%E1%83%A3%E1%83%A0%E1%83%94)"
+				},
+				"ka": {
+					"title": "ჩანტლისყურე",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ჩანტლისყურე — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჩანტლისყურე — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ჩანტლისყურე — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჩანტლისყურე\n\nჩანტლისყურე — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A7%E1%83%A3%E1%83%A0%E1%83%94)"
+				},
+				"ru": {
+					"title": "Chantliskure",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Chantliskure — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Chantliskure — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Chantliskure — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Chantliskure\n\nChantliskure — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%A9%E1%83%90%E1%83%9C%E1%83%A2%E1%83%9A%E1%83%98%E1%83%A1%E1%83%A7%E1%83%A3%E1%83%A0%E1%83%94)"
+				}
+			},
+			"updated_at": 1774794946859
+		},
+		{
+			"id": "ed43aeb7-10c0-4d49-b250-51f84141857f",
+			"slug": "tsitskanaantseri",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%AC%E1%83%99%E1%83%90%E1%83%9C%E1%83%90%E1%83%90%E1%83%9C%E1%83%97%E1%83%A1%E1%83%94%E1%83%A0%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Tsitskanaantseri",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Tsitskanaantseri is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Tsitskanaantseri village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Tsitskanaantseri is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Tsitskanaantseri\n\nTsitskanaantseri is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nTsitskanaantseri is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%AC%E1%83%99%E1%83%90%E1%83%9C%E1%83%90%E1%83%90%E1%83%9C%E1%83%97%E1%83%A1%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ka": {
+					"title": "წიწკანაანთსერი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "წიწკანაანთსერი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "წიწკანაანთსერი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "წიწკანაანთსერი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## წიწკანაანთსერი\n\nწიწკანაანთსერი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%AC%E1%83%99%E1%83%90%E1%83%9C%E1%83%90%E1%83%90%E1%83%9C%E1%83%97%E1%83%A1%E1%83%94%E1%83%A0%E1%83%98)"
+				},
+				"ru": {
+					"title": "Tsitskanaantseri",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Tsitskanaantseri — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Tsitskanaantseri — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Tsitskanaantseri — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Tsitskanaantseri\n\nTsitskanaantseri — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AC%E1%83%98%E1%83%AC%E1%83%99%E1%83%90%E1%83%9C%E1%83%90%E1%83%90%E1%83%9C%E1%83%97%E1%83%A1%E1%83%94%E1%83%A0%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794947259
+		},
+		{
+			"id": "e7b24f26-1abe-4c7e-a32a-411f0c86485f",
+			"slug": "chikaani",
+			"level": "village",
+			"parent_id": "4e24c4af-2e5e-4131-b57d-5dcdc6babccc",
+			"image": null,
+			"gallery": [],
+			"location": null,
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%99%E1%83%90%E1%83%90%E1%83%9C%E1%83%98",
+			"wikidata_id": null,
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Chikaani",
+					"subtitle": "Village · Kvareli municipality · Kakheti",
+					"excerpt": "Chikaani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"seo_title": "Chikaani village — Kvareli, Kakheti | Travel Georgia",
+					"seo_description": "Chikaani is a village in Kvareli municipality, Kakheti, Georgia.",
+					"body": "## About Chikaani\n\nChikaani is a village located in Kvareli municipality in the Kakheti region of Georgia.\n\n## Location\n\nChikaani is situated in **Kvareli municipality**, which is part of the **Kakheti** administrative region of Georgia. The village is part of Georgia's rich tapestry of rural settlements, each with its own character and connection to the surrounding landscape.\n\n## Travel\n\nThe village can be reached via the municipal road network. Visitors to Kvareli can explore the surrounding villages and landscapes as part of a broader regional itinerary.\n\n## External links\n\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%99%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ka": {
+					"title": "ჭიკაანი",
+					"subtitle": "სოფელი · ყვარელიის მუნიციპალიტეტი",
+					"excerpt": "ჭიკაანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"seo_title": "ჭიკაანი — სოფელი | ყვარელიის მუნიციპალიტეტი",
+					"seo_description": "ჭიკაანი — სოფელი ყვარელიის მუნიციპალიტეტში, კახეთი.",
+					"body": "## ჭიკაანი\n\nჭიკაანი — სოფელი **ყვარელიის მუნიციპალიტეტში**. სოფელი საქართველოს სოფლური გარემოს ნაწილია, შეინარჩუნებს ადგილობრივ ტრადიციებსა და ლანდშაფტს.\n\n## მდებარეობა\n\nსოფელი განლაგებულია ყვარელიის მუნიციპალიტეტში. ადგილობრივ გზებთან კავშირში.\n\n## ვიკიპედია\n\n- [ვიკიპედია](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%99%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				},
+				"ru": {
+					"title": "Chikaani",
+					"subtitle": "Cело · муниципалитет Kvareli · Kakheti",
+					"excerpt": "Chikaani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"seo_title": "Chikaani — село · Kvareli, Kakheti | Грузия",
+					"seo_description": "Chikaani — село в муниципалитете Kvareli, Kakheti, Грузия.",
+					"body": "## Chikaani\n\nChikaani — село в муниципалитете **Kvareli**, регион **Kakheti**, Грузия. Типичное сельское поселение с богатой историей и местными традициями.\n\n## Расположение\n\nСело находится в муниципалитете Kvareli. Добраться можно по местным дорогам.\n\n## Ссылки\n\n- [Википедия (груз.)](https://ka.wikipedia.org/wiki/%E1%83%AD%E1%83%98%E1%83%99%E1%83%90%E1%83%90%E1%83%9C%E1%83%98)"
+				}
+			},
+			"updated_at": 1774794947660
+		}
+	]
+}

@@ -1,0 +1,54 @@
+{
+	"posts": [
+		{
+			"id": "d0160a69-e5ec-40fc-bc97-93e189d315d9",
+			"slug": "sasashi",
+			"level": "village",
+			"parent_id": "7a2e80e0-be44-4c1a-a424-a283cc12e14f",
+			"image": null,
+			"gallery": [],
+			"location": {
+				"lat": 42.794166666,
+				"lon": 42.988055555
+			},
+			"population": null,
+			"area_km2": null,
+			"elevation_m": null,
+			"admin_center_name": null,
+			"iso_3166_2": null,
+			"official_code": null,
+			"official_website": null,
+			"wikipedia_url": "https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A1%E1%83%90%E1%83%A8%E1%83%98",
+			"wikidata_id": "Q16375148",
+			"geonames_id": null,
+			"settlement_type": "village",
+			"i18n": {
+				"en": {
+					"title": "Sasashi",
+					"subtitle": "Village · Lentekhi municipality · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Sasashi is a village in Lentekhi municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"seo_title": "Sasashi village — Lentekhi, Municipality in Racha-Lechkhumi and Lower Svaneti | Travel Georgia",
+					"seo_description": "Sasashi is a village in Lentekhi municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.",
+					"body": "## About Sasashi\n\nSasashi is a village in Lentekhi municipality, Municipality in Racha-Lechkhumi and Lower Svaneti, Georgia.\n\n## Location\n\nSasashi is situated in **Lentekhi municipality**, Municipality in Racha-Lechkhumi and Lower Svaneti region of Georgia.\n\n## Links\n\n- [Wikidata](https://www.wikidata.org/wiki/Q16375148)\n- [Wikipedia (Georgian)](https://ka.wikipedia.org/wiki/%E1%83%A1%E1%83%90%E1%83%A1%E1%83%90%E1%83%A8%E1%83%98)"
+				},
+				"ka": {
+					"title": "სასაში",
+					"subtitle": "სოფელი · ლენტეხიის მუნიციპალიტეტი",
+					"excerpt": "სასაში — სოფელი ლენტეხიის მუნიციპალიტეტში.",
+					"seo_title": "სასაში — სოფელი | ლენტეხიის მუნიციპალიტეტი",
+					"seo_description": "სასაში — სოფელი ლენტეხიის მუნიციპალიტეტში.",
+					"body": "## სასაში\n\nსასაში — სოფელი ლენტეხიის მუნიციპალიტეტში.\n\n## მდებარეობა\n\nსასაში განლაგებულია **ლენტეხიის მუნიციპალიტეტში**."
+				},
+				"ru": {
+					"title": "Сасаши",
+					"subtitle": "Cело · муниципалитет Lentekhi · Municipality in Racha-Lechkhumi and Lower Svaneti",
+					"excerpt": "Sasashi — село в муниципалитете Lentekhi, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"seo_title": "Сасаши — село · Lentekhi, Municipality in Racha-Lechkhumi and Lower Svaneti | Грузия",
+					"seo_description": "Sasashi — село в муниципалитете Lentekhi, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.",
+					"body": "## Сасаши\n\nSasashi — село в муниципалитете Lentekhi, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия.\n\n## Расположение\n\nСасаши — **муниципалитет Lentekhi**, Municipality in Racha-Lechkhumi and Lower Svaneti, Грузия."
+				}
+			},
+			"updated_at": 1774796767158
+		}
+	]
+}
