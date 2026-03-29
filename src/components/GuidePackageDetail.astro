@@ -424,34 +424,36 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								</select>
 							</div>
 
-							{/* ── PRIVATE: tier selector (dropdown) ── */}
+							{/* ── PRIVATE: tier selector ── */}
 							{pkg.tour_style === 'private' && (
 								<div id="tier-selector-section" class="form-row">
-									<label for="book-tier-select">Select group size</label>
-									<select id="book-tier-select" name="tier_id" required>
-										<option value="">— Choose group size —</option>
-										{enabledTiers.map((tier) => {
-											const veh =
-												tier.vehicle_type != null && tier.vehicle_type !== ''
-													? vehicleLabel[tier.vehicle_type] ?? tier.vehicle_type
-													: '';
-											const optLabel =
-												`${tier.label} — ${tier.min_pax}–${tier.max_pax} people` +
-												(veh ? ` · ${veh}` : '') +
-												(tier.transport_notes?.trim() ? ` (${tier.transport_notes.trim()})` : '') +
-												` — ${sym}${tier.price.toFixed(2)}`;
-											return (
-												<option
-													value={tier.id}
-													data-tier-min={tier.min_pax}
-													data-tier-max={tier.max_pax}
-													data-tier-label={tier.label}
-												>
-													{optLabel}
-												</option>
-											);
-										})}
-									</select>
+									<label>Select group size</label>
+									<div id="tier-cards" class="tier-cards">
+										{enabledTiers.map((tier) => (
+											<button
+												type="button"
+												class="tier-card"
+												data-tier-id={tier.id}
+												data-tier-price={tier.price}
+												data-tier-min={tier.min_pax}
+												data-tier-max={tier.max_pax}
+												data-tier-label={tier.label}
+											>
+												<span class="tier-card__main">
+													<span class="tier-card__label">{tier.label}</span>
+													<span class="tier-card__range">{tier.min_pax}–{tier.max_pax} people</span>
+													{tier.vehicle_type && (
+														<span class="tier-card__vehicle">{vehicleLabel[tier.vehicle_type]}</span>
+													)}
+													{tier.transport_notes && (
+														<span class="tier-card__transport-notes">{tier.transport_notes}</span>
+													)}
+												</span>
+												<span class="tier-card__price">{sym}{tier.price.toFixed(2)}</span>
+											</button>
+										))}
+									</div>
+									<input type="hidden" id="book-tier-id" name="tier_id" />
 								</div>
 							)}
 
@@ -795,36 +797,30 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 	// ── Selected tier state (private tours) ──────────────────
 	var selectedTierId = null;
 
-	function syncTierFromSelect() {
-		var tierSelect = document.getElementById('book-tier-select');
-		if (!tierSelect) return;
-		var opt = tierSelect.selectedOptions && tierSelect.selectedOptions[0];
-		var paxRow = document.getElementById('private-pax-row');
-		if (!opt || !opt.value) {
-			selectedTierId = null;
-			if (paxRow) paxRow.style.display = 'none';
-			updatePriceBreakdown();
-			return;
-		}
-		selectedTierId = opt.value;
-		if (paxRow) {
-			paxRow.style.display = '';
-			var hint = document.getElementById('pax-range-hint');
-			var tmin = opt.getAttribute('data-tier-min');
-			var tmax = opt.getAttribute('data-tier-max');
-			if (hint && tmin != null && tmax != null) hint.textContent = '(' + tmin + '–' + tmax + ')';
-			var paxInput = document.getElementById('book-pax');
-			if (paxInput && tmin != null && tmax != null) {
-				paxInput.min = tmin;
-				paxInput.max = tmax;
-				paxInput.value = tmin;
-			}
-		}
-		updatePriceBreakdown();
-	}
-
 	if (isPrivate) {
-		document.getElementById('book-tier-select')?.addEventListener('change', syncTierFromSelect);
+		document.querySelectorAll('.tier-card').forEach(function (card) {
+			card.addEventListener('click', function () {
+				document.querySelectorAll('.tier-card').forEach(function (c) { c.classList.remove('is-selected'); });
+				card.classList.add('is-selected');
+				selectedTierId = card.dataset.tierId;
+				document.getElementById('book-tier-id').value = selectedTierId;
+
+				// Show pax row with range hint
+				var paxRow = document.getElementById('private-pax-row');
+				if (paxRow) {
+					paxRow.style.display = '';
+					var hint = document.getElementById('pax-range-hint');
+					if (hint) hint.textContent = '(' + card.dataset.tierMin + '–' + card.dataset.tierMax + ')';
+					var paxInput = document.getElementById('book-pax');
+					if (paxInput) {
+						paxInput.min = card.dataset.tierMin;
+						paxInput.max = card.dataset.tierMax;
+						paxInput.value = card.dataset.tierMin;
+					}
+				}
+				updatePriceBreakdown();
+			});
+		});
 	}
 
 	// ── Payment discount helper ───────────────────────────────
@@ -1234,6 +1230,32 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 .pkg-discount-badge { background: #dcfce7; color: #15803d; font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px; align-self: center; margin-left: 0.25rem; }
 .pkg-price-label { color: #64748b; }
 
+/* Tier selector */
+.tier-cards { display: flex; flex-direction: column; gap: 0.5rem; }
+.tier-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	width: 100%; background: #f8fafc; border: 2px solid #e2e8f0;
+	border-radius: 10px; padding: 0.65rem 0.85rem; cursor: pointer; text-align: left;
+	transition: border-color 0.15s, background 0.15s; font-family: inherit;
+}
+.tier-card:hover { border-color: #a5b4fc; background: #f5f3ff; }
+.tier-card.is-selected { border-color: #4f46e5; background: #eff6ff; }
+.tier-card__main { display: flex; flex-direction: column; gap: 0.12rem; min-width: 0; }
+.tier-card__label { font-weight: 700; font-size: 0.9rem; display: block; }
+.tier-card__range { font-size: 0.8rem; color: #64748b; display: block; }
+.tier-card__vehicle { font-size: 0.75rem; color: #475569; display: block; }
+.tier-card__transport-notes {
+	font-size: 0.72rem;
+	color: #64748b;
+	display: block;
+	margin-top: 0.15rem;
+	line-height: 1.3;
+}
+.tier-card__price { font-size: 1rem; font-weight: 800; color: #4f46e5; text-align: right; flex-shrink: 0; }
+.tier-card.is-selected .tier-card__price { color: #312e81; }
 .private-pricing-row__veh { font-weight: 500; color: #475569; }
 
 /* Form */
@@ -1442,6 +1464,10 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 		box-shadow: none !important;
 		width: 100% !important;
 		box-sizing: border-box !important;
+	}
+	.tier-card {
+		box-sizing: border-box;
+		width: 100%;
 	}
 	.form-row input,
 	.form-row select,
