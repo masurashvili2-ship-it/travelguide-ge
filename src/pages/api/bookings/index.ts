@@ -8,6 +8,7 @@ import {
 	incrementSlotBooked,
 	calculatePrice,
 	getSlotByPackageAndDate,
+	computeExtrasForBooking,
 } from '../../../lib/guide-packages-db';
 import { createBooking, updateBookingPayment } from '../../../lib/bookings-db';
 import { sendMail, notifyAdmin } from '../../../lib/mailer';
@@ -34,6 +35,17 @@ export const POST: APIRoute = async ({ request }) => {
 	const specialRequests = String(body.special_requests ?? '').trim() || null;
 	const paymentMethodRaw = String(body.payment_method ?? '').trim() || null;
 	const locale = String(body.locale ?? 'en').trim();
+
+	const extrasRaw = body.extras;
+	const extrasSelections: { id: string; quantity: number }[] = Array.isArray(extrasRaw)
+		? (extrasRaw as unknown[])
+				.filter((x): x is Record<string, unknown> => x != null && typeof x === 'object')
+				.map((x) => ({
+					id: String(x.id ?? ''),
+					quantity: Number(x.quantity ?? 0),
+				}))
+				.filter((x) => x.id)
+		: [];
 
 	const validPaymentMethods = ['paypal_full', 'paypal_deposit', 'cash'] as const;
 	type ValidMethod = (typeof validPaymentMethods)[number];
@@ -144,6 +156,19 @@ export const POST: APIRoute = async ({ request }) => {
 	// Calculate price
 	const breakdown = calculatePrice(pkg, pax, date, slot, tierId);
 
+	const extrasResult = computeExtrasForBooking(pkg, extrasSelections, pax);
+	if (!extrasResult.ok) {
+		return new Response(JSON.stringify({ error: extrasResult.error }), {
+			status: 400,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+	const extrasTotal = extrasResult.total;
+	const extrasNote =
+		extrasResult.lines.length > 0
+			? `Extras: ${extrasResult.lines.map((l) => `${l.label} ×${l.quantity} (${l.line_total} ${breakdown.currency})`).join('; ')}`
+			: '';
+
 	// Get package title (English preferred)
 	const packageTitle =
 		pkg.i18n['en']?.title ?? pkg.i18n['ka']?.title ?? pkg.i18n['ru']?.title ?? 'Tour package';
@@ -160,7 +185,7 @@ export const POST: APIRoute = async ({ request }) => {
 		? pkg.payment_options[paymentMethod as ValidPayMethod]
 		: null;
 	const payDiscountPct = pkgPayOpt?.discount_pct ?? 0;
-	const priceAfterTourDiscount = breakdown.total_price;
+	const priceAfterTourDiscount = Math.round((breakdown.total_price + extrasTotal) * 100) / 100;
 	const payDiscountAmount = payDiscountPct > 0
 		? Math.round(priceAfterTourDiscount * payDiscountPct / 100 * 100) / 100
 		: 0;
@@ -196,7 +221,7 @@ export const POST: APIRoute = async ({ request }) => {
 		customer_name: customerName,
 		customer_email: customerEmail,
 		customer_phone: customerPhone,
-		special_requests: specialRequests,
+		special_requests: [specialRequests, extrasNote].filter(Boolean).join('\n\n') || null,
 		package_title: packageTitle,
 		payment_method: paymentMethod,
 		deposit_amount: depositAmount,
@@ -217,8 +242,8 @@ export const POST: APIRoute = async ({ request }) => {
 	// ── PayPal payment flow ───────────────────────────────────────────────────
 	if (paymentMethod === 'paypal_full' || paymentMethod === 'paypal_deposit') {
 		const chargeAmount = paymentMethod === 'paypal_deposit'
-			? (depositAmount ?? breakdown.total_price)
-			: breakdown.total_price;
+			? (depositAmount ?? finalTotalPrice)
+			: finalTotalPrice;
 
 		const origin = new URL(request.url).origin;
 		const orderResult = await createPayPalOrder({
@@ -262,7 +287,7 @@ export const POST: APIRoute = async ({ request }) => {
 		date,
 		time: slot.time_start ?? '',
 		pax: `${pax} ${pax === 1 ? 'person' : 'people'}`,
-		total_price: String(breakdown.total_price),
+		total_price: String(finalTotalPrice),
 		currency: breakdown.currency,
 		amount_paid: '0',
 		deposit_pct: String(depositPct),

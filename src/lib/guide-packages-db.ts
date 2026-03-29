@@ -175,6 +175,15 @@ export const DEFAULT_PAYMENT_OPTIONS: PackagePaymentOptions = {
 	cash:           { enabled: true, discount_pct: 0 },
 };
 
+/** Optional add-ons (e.g. water, meals); priced per person or per booking. */
+export type PackageExtra = {
+	id: string;
+	label: string;
+	price: number;
+	unit: 'per_person' | 'per_booking';
+	max_quantity: number;
+};
+
 export type GuidePackage = {
 	id: string;
 	guide_id: string;
@@ -218,6 +227,8 @@ export type GuidePackage = {
 	driving_distance: string | null;
 	/** Per-method payment configuration set by the guide */
 	payment_options: PackagePaymentOptions;
+	/** Optional paid add-ons at booking time */
+	extras: PackageExtra[];
 	i18n: Partial<Record<Locale, PackageLocaleBlock>>;
 	created_at: number;
 	updated_at: number;
@@ -389,6 +400,31 @@ function normalizePackage(raw: GuidePackage): GuidePackage {
 				}
 			}
 			return defaults;
+		})(),
+		extras: (() => {
+			const rawEx = (raw as { extras?: unknown }).extras;
+			if (!Array.isArray(rawEx)) return [];
+			const out: PackageExtra[] = [];
+			for (const el of rawEx) {
+				if (!el || typeof el !== 'object') continue;
+				const o = el as Record<string, unknown>;
+				const unit = o.unit === 'per_booking' ? 'per_booking' : 'per_person';
+				const price = typeof o.price === 'number' && o.price >= 0 ? o.price : 0;
+				const maxQ =
+					typeof o.max_quantity === 'number' && o.max_quantity >= 1
+						? Math.min(99, Math.floor(o.max_quantity))
+						: 10;
+				const label = String(o.label ?? '').trim();
+				if (!label || price <= 0) continue;
+				out.push({
+					id: typeof o.id === 'string' && o.id.trim() ? o.id.trim() : randomUUID(),
+					label,
+					price,
+					unit,
+					max_quantity: maxQ,
+				});
+			}
+			return out;
 		})(),
 		i18n,
 		created_at: typeof raw.created_at === 'number' ? raw.created_at : 0,
@@ -726,8 +762,31 @@ export type SavePackageInput = {
 	place_ids: string[];
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
+	extras: PackageExtra[];
 	i18n: Partial<Record<Locale, PackageLocaleBlock | PackageLocaleBlockPatch>>;
 };
+
+function parsePackageExtrasFromJson(raw: unknown): PackageExtra[] {
+	if (!Array.isArray(raw)) return [];
+	const out: PackageExtra[] = [];
+	for (const el of raw) {
+		if (!el || typeof el !== 'object') continue;
+		const o = el as Record<string, unknown>;
+		const label = String(o.label ?? '').trim();
+		const price = Number(o.price ?? 0);
+		const unit = o.unit === 'per_booking' ? 'per_booking' : 'per_person';
+		const maxQ = Math.min(99, Math.max(1, Math.floor(Number(o.max_quantity ?? 10))));
+		if (!label || price <= 0) continue;
+		out.push({
+			id: String(o.id ?? randomUUID()),
+			label,
+			price,
+			unit,
+			max_quantity: maxQ,
+		});
+	}
+	return out;
+}
 
 function guidePackageFromSaveInput(input: SavePackageInput, id: string, createdAt: number): GuidePackage {
 	return {
@@ -761,6 +820,8 @@ function guidePackageFromSaveInput(input: SavePackageInput, id: string, createdA
 		place_ids: input.place_ids,
 		physical_rating: input.physical_rating,
 		driving_distance: input.driving_distance,
+		payment_options: structuredClone(DEFAULT_PAYMENT_OPTIONS),
+		extras: input.extras ?? [],
 		i18n: input.i18n as GuidePackage['i18n'],
 		created_at: createdAt,
 		updated_at: createdAt,
@@ -859,6 +920,7 @@ export function buildSavePackageInputFromJsonBody(
 		place_ids: normalizePackagePlaceIds((body as { place_ids?: unknown }).place_ids),
 		physical_rating: parseTourPhysicalRating((body as { physical_rating?: unknown }).physical_rating),
 		driving_distance: parseDrivingDistance((body as { driving_distance?: unknown }).driving_distance),
+		extras: parsePackageExtrasFromJson(body.extras),
 		i18n,
 	} satisfies Omit<SavePackageInput, 'transport_notes'>;
 
@@ -894,6 +956,9 @@ export function mergeUpdateInputWithPrevPackage(
 		if (!(k in body)) {
 			(out as Record<string, unknown>)[k] = prev[k];
 		}
+	}
+	if (!('extras' in body)) {
+		out.extras = prev.extras;
 	}
 	return out;
 }
@@ -1092,6 +1157,91 @@ export function decrementSlotBooked(slotId: string, pax: number): void {
 	if (!slot) return;
 	slot.booked_count = Math.max(0, slot.booked_count - pax);
 	writeStore(store);
+}
+
+// ─── Grid card pricing (list views) ───────────────────────────────────────────
+
+export type PackageGridPriceInfo = {
+	currency: string;
+	fromAmount: number;
+	unit: 'person' | 'group';
+	/** Calendar custom_price lower than base (group tours) */
+	strikeAmount: number | null;
+	calendarPctOff: number | null;
+	rulesMaxPct: number;
+};
+
+export function getPackageGridPriceInfo(pkg: GuidePackage): PackageGridPriceInfo {
+	const currency = pkg.currency;
+	const rulesMaxPct = pkg.pricing_rules.length
+		? Math.max(0, ...pkg.pricing_rules.map((r) => r.discount_pct))
+		: 0;
+	if (pkg.tour_style === 'private') {
+		const enabled = pkg.private_tiers.filter((t) => t.price > 0);
+		const fromAmount = enabled.length ? Math.min(...enabled.map((t) => t.price)) : 0;
+		return {
+			currency,
+			fromAmount,
+			unit: 'group',
+			strikeAmount: null,
+			calendarPctOff: null,
+			rulesMaxPct,
+		};
+	}
+	const today = new Date().toISOString().slice(0, 10);
+	const slots = getSlotsForPackage(pkg.id).filter(
+		(s) => s.status === 'open' && s.date >= today && s.booked_count < s.capacity,
+	);
+	const base = pkg.base_price;
+	let minUnit = base;
+	for (const s of slots) {
+		const u =
+			s.custom_price != null && s.custom_price > 0 ? s.custom_price : base;
+		if (u < minUnit) minUnit = u;
+	}
+	const hasCal = base > 0 && minUnit + 1e-9 < base;
+	const calPct = hasCal ? Math.round((1 - minUnit / base) * 100) : null;
+	return {
+		currency,
+		fromAmount: hasCal ? minUnit : base,
+		unit: 'person',
+		strikeAmount: hasCal ? base : null,
+		calendarPctOff: calPct,
+		rulesMaxPct,
+	};
+}
+
+// ─── Booking extras ───────────────────────────────────────────────────────────
+
+export type ExtraLine = {
+	extra_id: string;
+	label: string;
+	quantity: number;
+	line_total: number;
+};
+
+export function computeExtrasForBooking(
+	pkg: GuidePackage,
+	selections: { id: string; quantity: number }[],
+	pax: number,
+): { ok: true; total: number; lines: ExtraLine[] } | { ok: false; error: string } {
+	const byId = new Map(pkg.extras.map((e) => [e.id, e]));
+	let total = 0;
+	const lines: ExtraLine[] = [];
+	for (const sel of selections) {
+		const q = Math.floor(Number(sel.quantity ?? 0));
+		if (!Number.isFinite(q) || q <= 0) continue;
+		const ex = byId.get(sel.id);
+		if (!ex) return { ok: false, error: 'Invalid extra option' };
+		if (q > ex.max_quantity) return { ok: false, error: 'Extra quantity too high' };
+		const line =
+			ex.unit === 'per_person'
+				? Math.round(q * ex.price * pax * 100) / 100
+				: Math.round(q * ex.price * 100) / 100;
+		total = Math.round((total + line) * 100) / 100;
+		lines.push({ extra_id: ex.id, label: ex.label, quantity: q, line_total: line });
+	}
+	return { ok: true, total, lines };
 }
 
 // ─── Pricing Engine ───────────────────────────────────────────────────────────

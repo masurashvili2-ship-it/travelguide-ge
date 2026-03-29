@@ -1,7 +1,7 @@
 ---
 import Shell from '../../../components/Shell.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { listAllPublishedPackages } from '../../../lib/guide-packages-db';
+import { getPackageGridPriceInfo, listAllPublishedPackages } from '../../../lib/guide-packages-db';
 import { getGuideById } from '../../../lib/guides-db';
 import type { Locale } from '../../../lib/strings';
 import { ui } from '../../../lib/strings';
@@ -22,33 +22,20 @@ const pkgCards = publishedPackages.map((pkg) => {
 	const excerpt =
 		pkg.i18n[locale]?.description ?? pkg.i18n['en']?.description ?? pkg.i18n['ka']?.description ?? '';
 	const sym = symMap[pkg.currency] ?? pkg.currency;
-	const maxDiscount = pkg.pricing_rules.length
-		? Math.max(...pkg.pricing_rules.map((r) => r.discount_pct))
-		: 0;
 	const guide = getGuideById(pkg.guide_id);
 	const guideName = guide?.i18n?.[locale]?.name ?? guide?.i18n?.['en']?.name ?? '';
-	const enabledTiers =
-		pkg.tour_style === 'private' ? pkg.private_tiers.filter((tier) => tier.price > 0) : [];
-	const lowestTier =
-		enabledTiers.length > 0 ? Math.min(...enabledTiers.map((tier) => tier.price)) : null;
-	const priceLine =
-		pkg.tour_style === 'private' && lowestTier != null
-			? `From ${sym}${lowestTier.toFixed(0)} / group`
-			: `From ${sym}${pkg.base_price} / person`;
-	const lowestPrice =
-		pkg.tour_style === 'private' && lowestTier != null ? lowestTier : pkg.base_price;
+	const gridPrice = getPackageGridPriceInfo(pkg);
 	return {
 		sortKey: title.toLocaleLowerCase(locale),
 		title,
 		excerpt,
 		duration: pkg.duration_label ?? `${pkg.duration_hours}h`,
 		durationHours: pkg.duration_hours,
-		priceLine,
-		lowestPrice,
+		sym,
+		gridPrice,
 		href: getRelativeLocaleUrl(locale, `tours/${pkg.slug}`),
 		image: pkg.cover_photo,
 		guideLine: guideName ? `${guideName}` : null,
-		discountPct: maxDiscount,
 		tourStyle: pkg.tour_style,
 		category: pkg.category ?? '',
 		difficulty: pkg.difficulty ?? '',
@@ -58,7 +45,7 @@ const pkgCards = publishedPackages.map((pkg) => {
 
 // Collect categories actually used
 const usedCategories = [...new Set(pkgCards.map(c => c.category).filter(Boolean))];
-const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
+const maxPrice = Math.max(...pkgCards.map((c) => c.gridPrice.fromAmount), 0);
 ---
 
 <Shell
@@ -166,10 +153,37 @@ const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 					{entry.guideLine && <p class="muted" style="font-size:0.85rem;margin:0 0 0.25rem">by {entry.guideLine}</p>}
 					{entry.excerpt && <p class="muted">{entry.excerpt.slice(0, 140)}{entry.excerpt.length > 140 ? '…' : ''}</p>}
 					<p class="muted">{t.duration}: {entry.duration}</p>
-					<div class="tour-badges">
-						<span class="price-badge">💰 {entry.priceLine}</span>
-						<span class="price-badge price-badge--book">📅 Bookable</span>
-						{entry.discountPct > 0 && <span class="discount-badge">Up to {entry.discountPct}% off</span>}
+					<div class="tour-card-price-block" aria-label="Pricing">
+						<div class="tour-card-price-main">
+							{entry.gridPrice.strikeAmount != null && entry.gridPrice.calendarPctOff != null ? (
+								<>
+									<span class="tour-card-price-was">
+										{entry.sym}
+										{entry.gridPrice.strikeAmount.toFixed(0)}
+									</span>
+									<span class="tour-card-price-now">
+										{entry.sym}
+										{entry.gridPrice.fromAmount.toFixed(0)}
+									</span>
+									<span class="tour-card-pct">−{entry.gridPrice.calendarPctOff}%</span>
+								</>
+							) : (
+								<span class="tour-card-price-now tour-card-price-now--solo">
+									{entry.sym}
+									{entry.gridPrice.fromAmount.toFixed(0)}
+								</span>
+							)}
+							<span class="tour-card-price-unit">
+								/ {entry.gridPrice.unit === 'group' ? 'group' : 'person'}
+							</span>
+						</div>
+						<div class="tour-badges tour-badges--tight">
+							<span class="price-badge price-badge--book">📅 Bookable</span>
+							{entry.gridPrice.rulesMaxPct > 0 &&
+								!(entry.gridPrice.calendarPctOff && entry.gridPrice.calendarPctOff >= entry.gridPrice.rulesMaxPct) && (
+									<span class="discount-badge discount-badge--soft">≤{entry.gridPrice.rulesMaxPct}% rules</span>
+								)}
+						</div>
 					</div>
 					<a class="btn" href={entry.href}>
 						{t.viewTour}
@@ -364,11 +378,53 @@ const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 	}
 
 	/* ── Cards ──────────────────────────────────────────────── */
+	.tour-card-price-block {
+		margin: 0.35rem 0 0.65rem;
+	}
+	.tour-card-price-main {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.35rem 0.5rem;
+		margin-bottom: 0.35rem;
+	}
+	.tour-card-price-was {
+		font-size: 0.88rem;
+		color: #94a3b8;
+		text-decoration: line-through;
+		font-weight: 600;
+	}
+	.tour-card-price-now {
+		font-size: 1.15rem;
+		font-weight: 800;
+		color: #15803d;
+		letter-spacing: -0.02em;
+	}
+	.tour-card-price-now--solo {
+		color: #1d4ed8;
+	}
+	.tour-card-price-unit {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: #64748b;
+	}
+	.tour-card-pct {
+		font-size: 0.72rem;
+		font-weight: 800;
+		padding: 0.15rem 0.45rem;
+		border-radius: 99px;
+		background: #fef3c7;
+		color: #92400e;
+		border: 1px solid #fde68a;
+	}
 	.tour-badges {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.4rem;
 		margin: 0.4rem 0 0.75rem;
+	}
+	.tour-badges--tight {
+		margin: 0;
 	}
 	.price-badge {
 		background: #eff6ff;
@@ -392,6 +448,13 @@ const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 		padding: 0.2rem 0.6rem;
 		border-radius: 99px;
 		border: 1px solid #bbf7d0;
+	}
+	.discount-badge--soft {
+		background: #f0fdf4;
+		color: #166534;
+		font-weight: 600;
+		font-size: 0.72rem;
+		border-color: #bbf7d0;
 	}
 	.pkg-card-public__img,
 	.tours-merged-card__thumb {
@@ -427,7 +490,7 @@ const maxPrice = Math.max(...pkgCards.map(c => c.lowestPrice), 0);
 		font-size: 0.85rem;
 		margin: 0;
 	}
-	article.pkg-card-public .tour-badges {
+	article.pkg-card-public .tour-card-price-block {
 		margin: 0.2rem 0 0;
 	}
 </style>

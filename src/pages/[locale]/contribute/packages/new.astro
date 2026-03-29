@@ -417,6 +417,18 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 			</div>
 		</section>
 
+		<section class="contribute-card">
+			<h2 class="contribute-card__h">Optional extras</h2>
+			<div class="contribute-card__bd">
+				<p class="muted">
+					Add paid add-ons (e.g. water, meals). Price can be <strong>per person</strong> (× travelers × quantity) or
+					<strong>per booking</strong> (× quantity only). Guests pick quantity when booking.
+				</p>
+				<div id="extras-list"></div>
+				<button type="button" id="add-extra-btn" class="btn btn-ghost btn-sm" style="margin-top:0.5rem">+ Add extra</button>
+			</div>
+		</section>
+
 		<section class="contribute-card" id="pricing-rules-section">
 			<h2 class="contribute-card__h">Pricing Rules & Discounts</h2>
 				<div class="contribute-card__bd">
@@ -439,7 +451,9 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 <script is:inline define:vars={{ guideId, backUrl, contributeLocale: locale }}>
 (function () {
 	var rulesEl = document.getElementById('rules-list');
+	var extrasEl = document.getElementById('extras-list');
 	var ruleCount = 0;
+	var extraRowCount = 0;
 
 	var DURATION_MAP = {
 		'half_day': { hours: 4, label: 'Half day' },
@@ -926,6 +940,59 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 		btn.dataset.action = 'review';
 	});
 
+	function addExtraRow(existing) {
+		if (!extrasEl) return;
+		var div = document.createElement('div');
+		div.className = 'rule-row extra-package-row';
+		div.innerHTML =
+			'<input type="hidden" class="extra-stable-id" value="' +
+			(existing && existing.id ? String(existing.id).replace(/"/g, '&quot;') : '') +
+			'" />' +
+			'<div class="rule-fields" style="flex-wrap:wrap;gap:0.5rem;align-items:flex-end">' +
+			'<label style="flex:1;min-width:140px">Label <input type="text" class="extra-label" placeholder="e.g. Water bottle" maxlength="120" /></label>' +
+			'<label>Price <input type="number" class="extra-price" min="0" step="0.01" style="width:100px" /></label>' +
+			'<label>Unit <select class="extra-unit"><option value="per_person">Per person</option><option value="per_booking">Per booking</option></select></label>' +
+			'<label>Max qty <input type="number" class="extra-max" min="1" max="99" value="10" style="width:72px" /></label>' +
+			'<button type="button" class="btn btn-ghost btn-sm btn-danger-soft btn-remove-extra" aria-label="Remove">✕</button>' +
+			'</div>';
+		extrasEl.appendChild(div);
+		if (existing) {
+			div.querySelector('.extra-label').value = existing.label || '';
+			div.querySelector('.extra-price').value = existing.price != null ? existing.price : '';
+			div.querySelector('.extra-unit').value = existing.unit === 'per_booking' ? 'per_booking' : 'per_person';
+			div.querySelector('.extra-max').value = existing.max_quantity != null ? existing.max_quantity : 10;
+		}
+		div.querySelector('.btn-remove-extra').addEventListener('click', function () {
+			div.remove();
+		});
+	}
+
+	document.getElementById('add-extra-btn')?.addEventListener('click', function () {
+		addExtraRow(null);
+	});
+
+	function collectExtras() {
+		if (!extrasEl) return [];
+		return Array.from(extrasEl.querySelectorAll('.extra-package-row'))
+			.map(function (row) {
+				var sid = row.querySelector('.extra-stable-id')?.value?.trim();
+				return {
+					id:
+						sid ||
+						(crypto.randomUUID
+							? crypto.randomUUID()
+							: 'ex-' + Math.random().toString(36).slice(2, 12)),
+					label: row.querySelector('.extra-label')?.value?.trim() || '',
+					price: parseFloat(row.querySelector('.extra-price')?.value || '0'),
+					unit: row.querySelector('.extra-unit')?.value === 'per_booking' ? 'per_booking' : 'per_person',
+					max_quantity: parseInt(row.querySelector('.extra-max')?.value || '10', 10) || 10,
+				};
+			})
+			.filter(function (x) {
+				return x.label && x.price > 0;
+			});
+	}
+
 	document.getElementById('add-rule-btn')?.addEventListener('click', function () {
 		var id = 'rule-' + (++ruleCount);
 		var div = document.createElement('div');
@@ -1091,6 +1158,7 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 				base_price: parseFloat(v('base_price')) || 0,
 				currency: v('currency') || 'USD',
 				pricing_rules: collectRules(),
+				extras: collectExtras(),
 				transport_included: document.getElementById('transport-included')?.checked || false,
 				transport_type: null,
 				pickup_offered: document.getElementById('pickup-offered')?.checked || false,

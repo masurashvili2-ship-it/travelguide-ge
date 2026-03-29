@@ -6,6 +6,7 @@ import { marked } from 'marked';
 import type { UserPublic } from '../lib/auth';
 import {
 	getSlotsForPackage,
+	getPackageGridPriceInfo,
 	listSimilarPublishedPackages,
 	type GuidePackage,
 } from '../lib/guide-packages-db';
@@ -94,6 +95,8 @@ const enabledTiers = pkg.tour_style === 'private'
 	? pkg.private_tiers.filter((t) => t.price > 0)
 	: [];
 
+const pkgExtras = pkg.extras ?? [];
+
 const pkgJson = JSON.stringify({
 	id: pkg.id,
 	tour_style: pkg.tour_style,
@@ -104,6 +107,7 @@ const pkgJson = JSON.stringify({
 	pricing_rules: pkg.pricing_rules,
 	private_tiers: enabledTiers,
 	payment_options: pkg.payment_options,
+	extras: pkgExtras,
 }).replace(/</g, '\\u003c');
 
 const metaDesc = block.seo_description?.trim() || block.description?.slice(0, 155) || `Book ${block.title} with ${guideName}`;
@@ -426,35 +430,26 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								</select>
 							</div>
 
-							{/* ── PRIVATE: tier selector ── */}
+							{/* ── PRIVATE: tier selector (compact) ── */}
 							{pkg.tour_style === 'private' && (
 								<div id="tier-selector-section" class="form-row">
-									<label>Select group size</label>
-									<div id="tier-cards" class="tier-cards">
+									<label for="tier-select">Group size & price</label>
+									<select id="tier-select" class="tier-select" aria-label="Select group size tier">
+										<option value="">— Choose a tier —</option>
 										{enabledTiers.map((tier) => (
-											<button
-												type="button"
-												class="tier-card"
-												data-tier-id={tier.id}
+											<option
+												value={tier.id}
 												data-tier-price={tier.price}
 												data-tier-min={tier.min_pax}
 												data-tier-max={tier.max_pax}
 												data-tier-label={tier.label}
 											>
-												<span class="tier-card__main">
-													<span class="tier-card__label">{tier.label}</span>
-													<span class="tier-card__range">{tier.min_pax}–{tier.max_pax} people</span>
-													{tier.vehicle_type && (
-														<span class="tier-card__vehicle">{vehicleLabel[tier.vehicle_type]}</span>
-													)}
-													{tier.transport_notes && (
-														<span class="tier-card__transport-notes">{tier.transport_notes}</span>
-													)}
-												</span>
-												<span class="tier-card__price">{sym}{tier.price.toFixed(2)}</span>
-											</button>
+												{tier.label} · {tier.min_pax}–{tier.max_pax} pax · {sym}
+												{tier.price.toFixed(0)}
+												{tier.vehicle_type ? ` · ${vehicleLabel[tier.vehicle_type]}` : ''}
+											</option>
 										))}
-									</div>
+									</select>
 									<input type="hidden" id="book-tier-id" name="tier_id" />
 								</div>
 							)}
@@ -477,6 +472,32 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								</div>
 							)}
 
+							{pkgExtras.length > 0 && (
+								<div class="form-row pkg-extras-block">
+									<span class="pkg-extras-block__title">Optional extras</span>
+									{pkgExtras.map((ex) => (
+										<div class="pkg-extra-line">
+											<label class="pkg-extra-line__label" for={`extra-qty-${ex.id}`}>
+												{ex.label}
+												<span class="pkg-extra-line__meta">
+													{sym}
+													{ex.price.toFixed(2)} {ex.unit === 'per_person' ? '× people' : 'each'}
+												</span>
+											</label>
+											<input
+												type="number"
+												id={`extra-qty-${ex.id}`}
+												class="book-extra-qty"
+												data-extra-id={ex.id}
+												min="0"
+												max={ex.max_quantity}
+												value="0"
+											/>
+										</div>
+									))}
+								</div>
+							)}
+
 							<!-- Price breakdown (shared) -->
 							<div id="price-breakdown" class="price-breakdown" style="display:none">
 								<div class="price-row">
@@ -486,6 +507,10 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								<div class="price-row price-row--discount" id="price-discount-row" style="display:none">
 									<span id="price-discount-label"></span>
 									<span id="price-discount-val"></span>
+								</div>
+								<div class="price-row" id="price-extras-row" style="display:none">
+									<span>Extras</span>
+									<span id="price-extras-val"></span>
 								</div>
 								<div class="price-row price-row--discount price-row--pay-discount" id="price-pay-discount-row" style="display:none">
 									<span id="price-pay-discount-label"></span>
@@ -619,7 +644,7 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			<span class="pkg-book-bar__amount" id="bar-price-amount">
 				{pkg.tour_style === 'private' && lowestTierPrice ? `${sym}${lowestTierPrice.toFixed(0)}` : `${sym}${pkg.base_price}`}
 			</span>
-			<span class="pkg-book-bar__unit">{pkg.tour_style === 'private' ? '/ group' : '/ person'}</span>
+			<span class="pkg-book-bar__unit" id="bar-price-unit">{pkg.tour_style === 'private' ? '/ group' : '/ person'}</span>
 		</div>
 		<button type="button" class="pkg-book-bar__btn" id="pkg-book-open-btn">
 			Book Now
@@ -641,6 +666,9 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 						const excerpt = (sb?.description ?? '').trim().slice(0, 280);
 						const thumb = tourCoverImageUrl({ image: sp.cover_photo, gallery: sp.gallery });
 						const href = getRelativeLocaleUrl(locale, `tours/${sp.slug}`);
+						const symS = currencySymbol[sp.currency] ?? sp.currency;
+						const gp = getPackageGridPriceInfo(sp);
+						const unitLab = gp.unit === 'group' ? 'group' : 'person';
 						return (
 							<article class="card similar-tours__card">
 								{thumb ? (
@@ -663,6 +691,30 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 								<p class="muted" style="margin:0">
 									{t.duration}: {sp.duration_label ?? `${sp.duration_hours}h`}
 								</p>
+								<div class="similar-tours__price-row">
+									{gp.strikeAmount != null && gp.calendarPctOff != null ? (
+										<>
+											<span class="similar-tours__price-was">
+												{symS}
+												{gp.strikeAmount.toFixed(0)}
+											</span>
+											<span class="similar-tours__price-now">
+												{symS}
+												{gp.fromAmount.toFixed(0)}
+											</span>
+											<span class="similar-tours__pct-chip">−{gp.calendarPctOff}%</span>
+										</>
+									) : (
+										<span class="similar-tours__price-now">
+											{symS}
+											{gp.fromAmount.toFixed(0)}
+										</span>
+									)}
+									<span class="similar-tours__price-unit">/ {unitLab}</span>
+									{gp.rulesMaxPct > 0 && !(gp.calendarPctOff && gp.calendarPctOff >= gp.rulesMaxPct) ? (
+										<span class="similar-tours__pct-chip similar-tours__pct-chip--muted">≤{gp.rulesMaxPct}% off</span>
+									) : null}
+								</div>
 								<a class="btn" href={href}>
 									{t.viewTour}
 								</a>
@@ -819,31 +871,94 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 
 	// ── Selected tier state (private tours) ──────────────────
 	var selectedTierId = null;
+	var tierSelect = document.getElementById('tier-select');
+	var tierHidden = document.getElementById('book-tier-id');
 
-	if (isPrivate) {
-		document.querySelectorAll('.tier-card').forEach(function (card) {
-			card.addEventListener('click', function () {
-				document.querySelectorAll('.tier-card').forEach(function (c) { c.classList.remove('is-selected'); });
-				card.classList.add('is-selected');
-				selectedTierId = card.dataset.tierId;
-				document.getElementById('book-tier-id').value = selectedTierId;
-
-				// Show pax row with range hint
-				var paxRow = document.getElementById('private-pax-row');
-				if (paxRow) {
-					paxRow.style.display = '';
-					var hint = document.getElementById('pax-range-hint');
-					if (hint) hint.textContent = '(' + card.dataset.tierMin + '–' + card.dataset.tierMax + ')';
-					var paxInput = document.getElementById('book-pax');
-					if (paxInput) {
-						paxInput.min = card.dataset.tierMin;
-						paxInput.max = card.dataset.tierMax;
-						paxInput.value = card.dataset.tierMin;
-					}
+	function syncTierFromSelect() {
+		if (!tierSelect || !tierHidden) return;
+		var opt = tierSelect.options[tierSelect.selectedIndex];
+		selectedTierId = tierSelect.value || null;
+		tierHidden.value = selectedTierId || '';
+		var paxRow = document.getElementById('private-pax-row');
+		if (!selectedTierId) {
+			if (paxRow) paxRow.style.display = 'none';
+			updatePriceBreakdown();
+			return;
+		}
+		if (opt && opt.dataset) {
+			if (paxRow) {
+				paxRow.style.display = '';
+				var hint = document.getElementById('pax-range-hint');
+				if (hint) hint.textContent = '(' + opt.dataset.tierMin + '–' + opt.dataset.tierMax + ')';
+				var paxInput = document.getElementById('book-pax');
+				if (paxInput) {
+					paxInput.min = opt.dataset.tierMin;
+					paxInput.max = opt.dataset.tierMax;
+					paxInput.value = opt.dataset.tierMin;
 				}
-				updatePriceBreakdown();
-			});
+			}
+		}
+		updatePriceBreakdown();
+	}
+
+	if (isPrivate && tierSelect) {
+		tierSelect.addEventListener('change', syncTierFromSelect);
+	}
+
+	pkg.extras = pkg.extras || [];
+
+	function collectExtrasTotal(pax) {
+		if (!pkg.extras.length) return 0;
+		var total = 0;
+		document.querySelectorAll('.book-extra-qty').forEach(function (inp) {
+			var q = parseInt(inp.value || '0', 10);
+			if (!q || q < 0) return;
+			var id = inp.getAttribute('data-extra-id');
+			var ex = pkg.extras.find(function (e) { return e.id === id; });
+			if (!ex) return;
+			var line = ex.unit === 'per_person' ? q * ex.price * pax : q * ex.price;
+			total += line;
 		});
+		return Math.round(total * 100) / 100;
+	}
+
+	function paintChromeBookingPrice(prePayTotal, finalTotal, isPrivateTour) {
+		var breakdown = document.getElementById('price-breakdown');
+		var barAmt = document.getElementById('bar-price-amount');
+		var barUnit = document.getElementById('bar-price-unit');
+		var headerOrig = document.getElementById('price-header-orig');
+		var headerDisc = document.getElementById('price-header-discounted');
+		var headerLabel = document.getElementById('price-header-label');
+		var headerBadge = document.getElementById('price-header-badge');
+		var pd = getPaymentDiscount();
+		if (!breakdown || breakdown.style.display !== 'block') return;
+		if (pd.pct > 0) {
+			if (barAmt) {
+				barAmt.innerHTML =
+					'<span style="text-decoration:line-through;opacity:.72;font-size:0.82em;margin-right:0.35rem">' +
+					sym +
+					prePayTotal.toFixed(0) +
+					'</span><span>' +
+					sym +
+					finalTotal.toFixed(0) +
+					'</span>';
+			}
+			if (barUnit) barUnit.textContent = isPrivateTour ? ' / group' : ' total';
+			if (headerOrig) {
+				headerOrig.classList.add('pkg-price-amount--struck');
+				headerOrig.textContent = sym + prePayTotal.toFixed(2);
+			}
+			if (headerDisc) {
+				headerDisc.textContent = sym + finalTotal.toFixed(2);
+				headerDisc.style.display = '';
+				headerDisc.classList.add('pkg-price-discounted');
+			}
+			if (headerLabel) headerLabel.textContent = isPrivateTour ? ' / group' : ' total';
+			if (headerBadge) {
+				headerBadge.textContent = 'Pay −' + pd.pct + '%';
+				headerBadge.style.display = '';
+			}
+		}
 	}
 
 	// ── Payment discount helper ───────────────────────────────
@@ -900,23 +1015,52 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 				discRow.style.display = 'flex';
 				document.getElementById('price-discount-label').textContent = (p.discountLabel || 'Discount') + ' (' + p.discountPct + '% off)';
 				document.getElementById('price-discount-val').textContent = '−' + sym + (p.tierPrice - p.discountedTotal).toFixed(2);
-				if (headerOrig) headerOrig.classList.add('pkg-price-amount--struck');
-				if (headerDisc) { headerDisc.textContent = sym + p.discountedTotal.toFixed(2); headerDisc.style.display = ''; }
-				if (headerLabel) headerLabel.textContent = ' / group';
-				if (headerBadge) { headerBadge.textContent = p.discountPct + '% off'; headerBadge.style.display = ''; }
 			} else {
 				discRow.style.display = 'none';
-				if (headerOrig) { headerOrig.textContent = sym + p.tierPrice.toFixed(2); headerOrig.classList.remove('pkg-price-amount--struck'); }
-				if (headerDisc) headerDisc.style.display = 'none';
-				if (headerLabel) headerLabel.textContent = ' / group';
-				if (headerBadge) headerBadge.style.display = 'none';
 			}
+			var paxPr = parseInt(document.getElementById('book-pax')?.value || '1', 10);
+			var extrasT = collectExtrasTotal(paxPr);
+			var exRow = document.getElementById('price-extras-row');
+			if (extrasT > 0) {
+				exRow.style.display = 'flex';
+				document.getElementById('price-extras-val').textContent = sym + extrasT.toFixed(2);
+			} else if (exRow) exRow.style.display = 'none';
+
+			var prePay = Math.round((p.discountedTotal + extrasT) * 100) / 100;
+			var finalTotal = applyPaymentDiscount(prePay);
 			var totalEl = document.getElementById('price-total-val');
-			var finalTotal = applyPaymentDiscount(p.discountedTotal);
-			if (p.discountPct > 0 || finalTotal !== p.discountedTotal) {
-				totalEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + p.tierPrice.toFixed(2) + '</span>' + sym + finalTotal.toFixed(2);
+			totalEl.textContent = sym + finalTotal.toFixed(2);
+
+			var pd = getPaymentDiscount();
+			if (pd.pct > 0) {
+				paintChromeBookingPrice(prePay, finalTotal, true);
 			} else {
-				totalEl.textContent = sym + finalTotal.toFixed(2);
+				if (headerOrig) headerOrig.classList.remove('pkg-price-amount--struck');
+				if (p.discountPct > 0) {
+					if (headerOrig) headerOrig.classList.add('pkg-price-amount--struck');
+					if (headerOrig) headerOrig.textContent = sym + p.tierPrice.toFixed(2);
+					if (headerDisc) {
+						headerDisc.textContent = sym + p.discountedTotal.toFixed(2);
+						headerDisc.style.display = '';
+					}
+					if (headerLabel) headerLabel.textContent = ' / group';
+					if (headerBadge) {
+						headerBadge.textContent = p.discountPct + '% off';
+						headerBadge.style.display = '';
+					}
+				} else {
+					if (headerOrig) {
+						headerOrig.textContent = sym + p.tierPrice.toFixed(2);
+						headerOrig.classList.remove('pkg-price-amount--struck');
+					}
+					if (headerDisc) headerDisc.style.display = 'none';
+					if (headerLabel) headerLabel.textContent = ' / group';
+					if (headerBadge) headerBadge.style.display = 'none';
+				}
+				var barAmt = document.getElementById('bar-price-amount');
+				var barUnit = document.getElementById('bar-price-unit');
+				if (barAmt) barAmt.textContent = sym + finalTotal.toFixed(0);
+				if (barUnit) barUnit.textContent = ' / group';
 			}
 		} else {
 			// Group tour
@@ -939,32 +1083,77 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 				dRow.style.display = 'flex';
 				document.getElementById('price-discount-label').textContent = (gp.discountLabel || 'Discount') + ' (' + gp.discountPct + '% off)';
 				document.getElementById('price-discount-val').textContent = '−' + sym + savings.toFixed(2);
-				var discUnit = Math.round(gp.unitPrice * (1 - gp.discountPct / 100) * 100) / 100;
-				if (headerOrig) headerOrig.classList.add('pkg-price-amount--struck');
-				if (headerDisc) { headerDisc.textContent = sym + discUnit.toFixed(2); headerDisc.style.display = ''; }
-				if (headerLabel) headerLabel.textContent = ' / person';
-				if (headerBadge) { headerBadge.textContent = gp.discountPct + '% off'; headerBadge.style.display = ''; }
 			} else {
 				dRow.style.display = 'none';
-				if (headerOrig) headerOrig.classList.remove('pkg-price-amount--struck');
-				if (headerDisc) headerDisc.style.display = 'none';
-				if (headerBadge) headerBadge.style.display = 'none';
 			}
-		var tEl = document.getElementById('price-total-val');
-		var groupFinal = applyPaymentDiscount(gp.discountedTotal);
-		if (gp.discountPct > 0 || groupFinal !== gp.discountedTotal) {
-			tEl.innerHTML = '<span style="text-decoration:line-through;color:#94a3b8;font-weight:400;font-size:0.9em;margin-right:6px">' + sym + gp.total.toFixed(2) + '</span>' + sym + groupFinal.toFixed(2);
-		} else {
+			var extrasG = collectExtrasTotal(pax);
+			var exRowG = document.getElementById('price-extras-row');
+			if (extrasG > 0) {
+				exRowG.style.display = 'flex';
+				document.getElementById('price-extras-val').textContent = sym + extrasG.toFixed(2);
+			} else if (exRowG) exRowG.style.display = 'none';
+
+			var prePayG = Math.round((gp.discountedTotal + extrasG) * 100) / 100;
+			var groupFinal = applyPaymentDiscount(prePayG);
+			var tEl = document.getElementById('price-total-val');
 			tEl.textContent = sym + groupFinal.toFixed(2);
+
+			var pdG = getPaymentDiscount();
+			if (pdG.pct > 0) {
+				paintChromeBookingPrice(prePayG, groupFinal, false);
+			} else {
+				if (headerOrig) headerOrig.classList.remove('pkg-price-amount--struck');
+				if (gp.discountPct > 0) {
+					var discUnit = Math.round(gp.unitPrice * (1 - gp.discountPct / 100) * 100) / 100;
+					if (headerOrig) headerOrig.classList.add('pkg-price-amount--struck');
+					if (headerOrig) headerOrig.textContent = sym + gp.unitPrice.toFixed(2);
+					if (headerDisc) {
+						headerDisc.textContent = sym + discUnit.toFixed(2);
+						headerDisc.style.display = '';
+					}
+					if (headerLabel) headerLabel.textContent = ' / person';
+					if (headerBadge) {
+						headerBadge.textContent = gp.discountPct + '% off';
+						headerBadge.style.display = '';
+					}
+				} else {
+					if (headerOrig) {
+						headerOrig.textContent = sym + gp.unitPrice.toFixed(2);
+						headerOrig.classList.remove('pkg-price-amount--struck');
+					}
+					if (headerDisc) headerDisc.style.display = 'none';
+					if (headerLabel) headerLabel.textContent = ' / person';
+					if (headerBadge) headerBadge.style.display = 'none';
+				}
+				var barAmtG = document.getElementById('bar-price-amount');
+				var barUnitG = document.getElementById('bar-price-unit');
+				if (barAmtG) barAmtG.textContent = sym + groupFinal.toFixed(0);
+				if (barUnitG) barUnitG.textContent = ' total';
+			}
 		}
 	}
-}
 
 	document.getElementById('book-date')?.addEventListener('change', updatePriceBreakdown);
 	document.getElementById('book-pax')?.addEventListener('input', updatePriceBreakdown);
 	document.querySelectorAll('[name="payment_method"]').forEach(function(r) {
 		r.addEventListener('change', updatePriceBreakdown);
 	});
+	document.querySelectorAll('.book-extra-qty').forEach(function (inp) {
+		inp.addEventListener('input', updatePriceBreakdown);
+	});
+	(function selectDefaultPayment() {
+		var first = document.querySelector('#pay-options input[name="payment_method"]');
+		if (first) first.checked = true;
+	})();
+
+	function collectExtrasPayload() {
+		var out = [];
+		document.querySelectorAll('.book-extra-qty').forEach(function (inp) {
+			var q = parseInt(inp.value || '0', 10);
+			if (q > 0) out.push({ id: inp.getAttribute('data-extra-id'), quantity: q });
+		});
+		return out;
+	}
 
 	// ── Form submit ───────────────────────────────────────────
 	document.getElementById('booking-form')?.addEventListener('submit', async function (e) {
@@ -989,6 +1178,7 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 			special_requests: fv('special_requests') || null,
 			payment_method: paymentMethod,
 			locale: document.documentElement.lang || 'en',
+			extras: collectExtrasPayload(),
 		};
 
 		if (!payload.date) { errEl.textContent = 'Please select a date.'; errEl.style.display = 'block'; return; }
@@ -1259,7 +1449,96 @@ const lowestTierPrice = enabledTiers.length ? Math.min(...enabledTiers.map((t) =
 .pkg-price-label { color: #64748b; }
 
 /* Tier selector */
-.tier-cards { display: flex; flex-direction: column; gap: 0.5rem; }
+.tier-select {
+	width: 100%;
+	padding: 0.5rem 0.65rem;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	background: #fff;
+}
+.pkg-extras-block {
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 0.75rem 0.85rem;
+	background: #f8fafc;
+	margin-bottom: 0.25rem;
+}
+.pkg-extras-block__title {
+	display: block;
+	font-weight: 700;
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
+	color: #475569;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.pkg-extra-line {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	margin-bottom: 0.45rem;
+}
+.pkg-extra-line:last-child {
+	margin-bottom: 0;
+}
+.pkg-extra-line__label {
+	flex: 1;
+	font-size: 0.85rem;
+	font-weight: 600;
+	color: #334155;
+	min-width: 0;
+}
+.pkg-extra-line__meta {
+	display: block;
+	font-size: 0.72rem;
+	color: #64748b;
+	font-weight: 400;
+	margin-top: 0.12rem;
+}
+.pkg-extra-line .book-extra-qty {
+	width: 4.25rem;
+	flex-shrink: 0;
+	text-align: center;
+}
+.similar-tours__price-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35rem 0.5rem;
+	margin: 0.35rem 0 0.65rem;
+}
+.similar-tours__price-was {
+	font-size: 0.85rem;
+	color: #94a3b8;
+	text-decoration: line-through;
+	font-weight: 500;
+}
+.similar-tours__price-now {
+	font-size: 1rem;
+	font-weight: 800;
+	color: #15803d;
+}
+.similar-tours__price-unit {
+	font-size: 0.78rem;
+	color: #64748b;
+	font-weight: 600;
+}
+.similar-tours__pct-chip {
+	font-size: 0.68rem;
+	font-weight: 800;
+	padding: 0.12rem 0.45rem;
+	border-radius: 99px;
+	background: #fef3c7;
+	color: #92400e;
+	border: 1px solid #fde68a;
+}
+.similar-tours__pct-chip--muted {
+	background: #ecfdf5;
+	color: #047857;
+	border-color: #a7f3d0;
+}
 .tier-card {
 	display: flex;
 	align-items: center;

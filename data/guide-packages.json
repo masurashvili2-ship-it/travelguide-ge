@@ -26,14 +26,69 @@
         "Russian",
         "Spanish"
       ],
-      "tour_style": "group",
-      "private_tiers": [],
+      "tour_style": "private",
+      "private_tiers": [
+        {
+          "id": "t1",
+          "label": "Solo & Couple",
+          "min_pax": 1,
+          "max_pax": 3,
+          "price": 15,
+          "vehicle_type": "sedan",
+          "transport_notes": null
+        },
+        {
+          "id": "t2",
+          "label": "Small Group",
+          "min_pax": 4,
+          "max_pax": 6,
+          "price": 25,
+          "vehicle_type": "suv",
+          "transport_notes": null
+        },
+        {
+          "id": "t3",
+          "label": "Medium Group",
+          "min_pax": 7,
+          "max_pax": 11,
+          "price": 30,
+          "vehicle_type": "minivan",
+          "transport_notes": null
+        },
+        {
+          "id": "t4",
+          "label": "Large Group",
+          "min_pax": 12,
+          "max_pax": 16,
+          "price": 40,
+          "vehicle_type": "minibus",
+          "transport_notes": null
+        },
+        {
+          "id": "t5",
+          "label": "XL Group",
+          "min_pax": 17,
+          "max_pax": 25,
+          "price": 50,
+          "vehicle_type": "bus",
+          "transport_notes": null
+        },
+        {
+          "id": "t6",
+          "label": "XXL Group",
+          "min_pax": 26,
+          "max_pax": 30,
+          "price": 60,
+          "vehicle_type": "bus",
+          "transport_notes": null
+        }
+      ],
       "base_price": 25,
       "currency": "GEL",
       "pricing_rules": [],
       "transport_included": true,
       "transport_type": "minivan",
-      "transport_notes": "Toyota Camry",
+      "transport_notes": null,
       "pickup_offered": true,
       "pickup_notes": "Pickup from your desired location",
       "difficulty": "easy",
@@ -44,6 +99,20 @@
       "place_ids": [],
       "physical_rating": null,
       "driving_distance": null,
+      "payment_options": {
+        "paypal_full": {
+          "enabled": true,
+          "discount_pct": 0
+        },
+        "paypal_deposit": {
+          "enabled": true,
+          "discount_pct": 0
+        },
+        "cash": {
+          "enabled": true,
+          "discount_pct": 0
+        }
+      },
       "i18n": {
         "en": {
           "title": "Kakheti Day Tour: Wine, Bread & The City of Love",
@@ -122,7 +191,7 @@
         }
       },
       "created_at": 1774719775421,
-      "updated_at": 1774723357762,
+      "updated_at": 1774811601943,
       "mode": "update"
     },
     {
@@ -178,6 +247,20 @@
       "place_ids": [],
       "physical_rating": null,
       "driving_distance": null,
+      "payment_options": {
+        "paypal_full": {
+          "enabled": true,
+          "discount_pct": 0
+        },
+        "paypal_deposit": {
+          "enabled": true,
+          "discount_pct": 0
+        },
+        "cash": {
+          "enabled": true,
+          "discount_pct": 0
+        }
+      },
       "i18n": {
         "en": {
           "title": "Sulphur baths (Abanotubani)",
