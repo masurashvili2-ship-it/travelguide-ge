@@ -453,7 +453,6 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 	var rulesEl = document.getElementById('rules-list');
 	var extrasEl = document.getElementById('extras-list');
 	var ruleCount = 0;
-	var extraRowCount = 0;
 
 	var DURATION_MAP = {
 		'half_day': { hours: 4, label: 'Half day' },
@@ -948,12 +947,12 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 			'<input type="hidden" class="extra-stable-id" value="' +
 			(existing && existing.id ? String(existing.id).replace(/"/g, '&quot;') : '') +
 			'" />' +
-			'<div class="rule-fields" style="flex-wrap:wrap;gap:0.5rem;align-items:flex-end">' +
-			'<label style="flex:1;min-width:140px">Label <input type="text" class="extra-label" placeholder="e.g. Water bottle" maxlength="120" /></label>' +
-			'<label>Price <input type="number" class="extra-price" min="0" step="0.01" style="width:100px" /></label>' +
-			'<label>Unit <select class="extra-unit"><option value="per_person">Per person</option><option value="per_booking">Per booking</option></select></label>' +
-			'<label>Max qty <input type="number" class="extra-max" min="1" max="99" value="10" style="width:72px" /></label>' +
-			'<button type="button" class="btn btn-ghost btn-sm btn-danger-soft btn-remove-extra" aria-label="Remove">✕</button>' +
+			'<div class="extra-package-fields">' +
+			'<label class="extra-package-fields__cell"><span class="extra-package-fields__lbl">Label</span><input type="text" class="extra-label" placeholder="e.g. Water bottle" maxlength="120" /></label>' +
+			'<label class="extra-package-fields__cell"><span class="extra-package-fields__lbl">Price</span><input type="number" class="extra-price" min="0" step="0.01" /></label>' +
+			'<label class="extra-package-fields__cell"><span class="extra-package-fields__lbl">Unit</span><select class="extra-unit"><option value="per_person">Per person</option><option value="per_booking">Per booking</option></select></label>' +
+			'<label class="extra-package-fields__cell"><span class="extra-package-fields__lbl">Max qty</span><input type="number" class="extra-max" min="1" max="99" value="10" /></label>' +
+			'<button type="button" class="btn btn-ghost btn-sm btn-danger-soft btn-remove-extra extra-package-fields__remove" aria-label="Remove">✕</button>' +
 			'</div>';
 		extrasEl.appendChild(div);
 		if (existing) {
@@ -1229,6 +1228,44 @@ const myGuideName = myGuide.i18n['en']?.name ?? myGuide.i18n['ka']?.name ?? '';
 <style>
 .rule-row { border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.75rem; background: #f8fafc; }
 .rule-fields { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+
+.extra-package-fields {
+	display: grid;
+	grid-template-columns: minmax(140px, 1.4fr) 100px minmax(128px, 1fr) 76px auto;
+	gap: 0.5rem 0.75rem;
+	align-items: end;
+	margin-bottom: 0.5rem;
+}
+.extra-package-fields__cell {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	margin: 0;
+	font-size: 0.88rem;
+}
+.extra-package-fields__lbl {
+	color: var(--muted, #64748b);
+	font-size: 0.8rem;
+}
+.extra-package-fields__cell input,
+.extra-package-fields__cell select {
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+}
+.extra-package-fields__remove {
+	justify-self: start;
+	margin-bottom: 0.15rem;
+}
+@media (max-width: 720px) {
+	.extra-package-fields {
+		grid-template-columns: 1fr 1fr;
+	}
+	.extra-package-fields__remove {
+		grid-column: 1 / -1;
+		justify-self: end;
+	}
+}
 .rule-extra { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; font-size: 0.9rem; }
 .rule-extra label { display: flex; align-items: center; gap: 0.25rem; }
 

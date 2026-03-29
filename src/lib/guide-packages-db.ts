@@ -175,6 +175,32 @@ export const DEFAULT_PAYMENT_OPTIONS: PackagePaymentOptions = {
 	cash:           { enabled: true, discount_pct: 0 },
 };
 
+function coercePaymentDiscountPct(v: unknown): number {
+	if (typeof v === 'number' && !Number.isNaN(v)) return Math.min(100, Math.max(0, v));
+	if (typeof v === 'string' && String(v).trim() !== '') {
+		const n = Number(v);
+		if (!Number.isNaN(n)) return Math.min(100, Math.max(0, n));
+	}
+	return 0;
+}
+
+/** Parse `payment_options` from stored JSON or API body (shared by normalize + save). */
+function parsePackagePaymentOptionsFromJson(raw: unknown): PackagePaymentOptions {
+	const defaults = structuredClone(DEFAULT_PAYMENT_OPTIONS);
+	if (!raw || typeof raw !== 'object') return defaults;
+	const po = raw as Record<string, unknown>;
+	const methods: PackagePaymentMethod[] = ['paypal_full', 'paypal_deposit', 'cash'];
+	for (const m of methods) {
+		const entry = po[m];
+		if (entry && typeof entry === 'object') {
+			const e = entry as Record<string, unknown>;
+			defaults[m].enabled = e.enabled !== false;
+			defaults[m].discount_pct = coercePaymentDiscountPct(e.discount_pct);
+		}
+	}
+	return defaults;
+}
+
 /** Optional add-ons (e.g. water, meals); priced per person or per booking. */
 export type PackageExtra = {
 	id: string;
@@ -384,23 +410,9 @@ function normalizePackage(raw: GuidePackage): GuidePackage {
 		place_ids: normalizePackagePlaceIds((raw as { place_ids?: unknown }).place_ids),
 		physical_rating: parseTourPhysicalRating((raw as { physical_rating?: unknown }).physical_rating),
 		driving_distance: parseDrivingDistance((raw as { driving_distance?: unknown }).driving_distance),
-		payment_options: (() => {
-			const raw_po = (raw as { payment_options?: unknown }).payment_options;
-			const defaults = structuredClone(DEFAULT_PAYMENT_OPTIONS);
-			if (!raw_po || typeof raw_po !== 'object') return defaults;
-			const po = raw_po as Record<string, unknown>;
-			const methods: PackagePaymentMethod[] = ['paypal_full', 'paypal_deposit', 'cash'];
-			for (const m of methods) {
-				const entry = po[m];
-				if (entry && typeof entry === 'object') {
-					const e = entry as Record<string, unknown>;
-					defaults[m].enabled = e.enabled !== false;
-					defaults[m].discount_pct = typeof e.discount_pct === 'number'
-						? Math.min(100, Math.max(0, e.discount_pct)) : 0;
-				}
-			}
-			return defaults;
-		})(),
+		payment_options: parsePackagePaymentOptionsFromJson(
+			(raw as { payment_options?: unknown }).payment_options,
+		),
 		extras: (() => {
 			const rawEx = (raw as { extras?: unknown }).extras;
 			if (!Array.isArray(rawEx)) return [];
@@ -763,6 +775,7 @@ export type SavePackageInput = {
 	physical_rating: TourPhysicalRatingId | null;
 	driving_distance: string | null;
 	extras: PackageExtra[];
+	payment_options: PackagePaymentOptions;
 	i18n: Partial<Record<Locale, PackageLocaleBlock | PackageLocaleBlockPatch>>;
 };
 
@@ -820,7 +833,7 @@ function guidePackageFromSaveInput(input: SavePackageInput, id: string, createdA
 		place_ids: input.place_ids,
 		physical_rating: input.physical_rating,
 		driving_distance: input.driving_distance,
-		payment_options: structuredClone(DEFAULT_PAYMENT_OPTIONS),
+		payment_options: input.payment_options ?? structuredClone(DEFAULT_PAYMENT_OPTIONS),
 		extras: input.extras ?? [],
 		i18n: input.i18n as GuidePackage['i18n'],
 		created_at: createdAt,
@@ -921,6 +934,9 @@ export function buildSavePackageInputFromJsonBody(
 		physical_rating: parseTourPhysicalRating((body as { physical_rating?: unknown }).physical_rating),
 		driving_distance: parseDrivingDistance((body as { driving_distance?: unknown }).driving_distance),
 		extras: parsePackageExtrasFromJson(body.extras),
+		payment_options: parsePackagePaymentOptionsFromJson(
+			(body as { payment_options?: unknown }).payment_options,
+		),
 		i18n,
 	} satisfies Omit<SavePackageInput, 'transport_notes'>;
 
@@ -959,6 +975,9 @@ export function mergeUpdateInputWithPrevPackage(
 	}
 	if (!('extras' in body)) {
 		out.extras = prev.extras;
+	}
+	if (!('payment_options' in body)) {
+		out.payment_options = prev.payment_options;
 	}
 	return out;
 }
